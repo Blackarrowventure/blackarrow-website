@@ -3,7 +3,7 @@
    Cache-first strategy for performance
    ============================================== */
 
-const CACHE_NAME = 'eightstar-v1';
+const CACHE_NAME = 'eightstar-v2';
 
 const PRECACHE_ASSETS = [
   '/',
