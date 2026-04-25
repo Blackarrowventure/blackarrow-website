@@ -293,7 +293,7 @@ function initForm() {
       submitBtn.style.background = '#2e7d32';
       form.reset();
       // Open email client
-      window.location.href = `mailto:info@eightstareastern.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:info@eightstartrading.com?subject=${subject}&body=${body}`;
     }, 800);
   });
 }
