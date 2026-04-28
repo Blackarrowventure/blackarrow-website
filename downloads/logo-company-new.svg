@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#cc0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#990000;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="white"/>
+
+  <!-- Decorative lines top -->
+  <line x1="300" y1="250" x2="900" y2="250" stroke="#8B0000" stroke-width="8" stroke-linecap="round"/>
+  <line x1="320" y1="270" x2="880" y2="270" stroke="#8B0000" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Central star group -->
+  <g filter="url(#shadow)">
+    <!-- Black star (back) -->
+    <g transform="translate(600, 450)">
+      <polygon points="0,-180 -52,-55 -172,-55 -65,35 -117,160 0,70 117,160 65,35 172,-55 52,-55" fill="#000000" opacity="0.3"/>
+    </g>
+
+    <!-- Red star (front) with gradient -->
+    <g transform="translate(600, 450)">
+      <polygon points="0,-180 -52,-55 -172,-55 -65,35 -117,160 0,70 117,160 65,35 172,-55 52,-55" fill="url(#starGradient)"/>
+      <!-- Star shine/highlight -->
+      <polygon points="0,-180 -20,-80 0,0 20,-80" fill="#ffaa00" opacity="0.4"/>
+    </g>
+
+    <!-- Orbital ring -->
+    <g transform="translate(600, 450)">
+      <!-- Outer ring -->
+      <circle cx="0" cy="0" r="280" fill="none" stroke="#cc0000" stroke-width="35" opacity="0.9"/>
+      <circle cx="0" cy="0" r="320" fill="none" stroke="#000000" stroke-width="8"/>
+
+      <!-- Ring accent -->
+      <path d="M -280,0 A 280,280 0 0,1 280,0" stroke="url(#starGradient)" stroke-width="40" fill="none" stroke-linecap="round"/>
+      <path d="M -150,-240 Q 0,-280 150,-240" stroke="#ff6600" stroke-width="20" fill="none" opacity="0.6"/>
+    </g>
+
+    <!-- Decorative small stars -->
+    <g fill="#8B0000">
+      <!-- Top left stars -->
+      <polygon points="350,200 355,210 365,210 358,215 363,225 355,220 347,225 352,215 345,210 355,210" fill="#cc0000"/>
+      <polygon points="320,280 323,287 330,287 325,291 328,298 323,294 318,298 321,291 316,287 323,287" fill="#cc0000" opacity="0.7"/>
+      <polygon points="280,350 282,355 288,355 284,359 286,364 282,360 278,364 280,359 276,355 282,355" fill="#cc0000" opacity="0.5"/>
+
+      <!-- Top right stars -->
+      <polygon points="850,200 855,210 865,210 858,215 863,225 855,220 847,225 852,215 845,210 855,210" fill="#cc0000"/>
+      <polygon points="880,280 883,287 890,287 885,291 888,298 883,294 878,298 881,291 876,287 883,287" fill="#cc0000" opacity="0.7"/>
+      <polygon points="920,350 922,355 928,355 924,359 926,364 922,360 918,364 920,359 916,355 922,355" fill="#cc0000" opacity="0.5"/>
+
+      <!-- Right side stars -->
+      <polygon points="950,450 958,465 975,465 962,475 970,490 958,480 946,490 954,475 941,465 958,465" fill="#cc0000"/>
+      <polygon points="970,550 975,560 985,560 978,565 983,575 975,570 967,575 972,565 965,560 975,560" fill="#cc0000" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Main text: 8STARS -->
+  <text x="600" y="750" font-family="Arial, sans-serif" font-size="140" font-weight="bold" text-anchor="middle" fill="#000000">
+    <tspan>8</tspan><tspan fill="#8B0000">STARS</tspan>
+  </text>
+
+  <!-- Subtext: EASTERN COMPANY -->
+  <text x="600" y="840" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#000000" letter-spacing="2">
+    EASTERN COMPANY
+  </text>
+
+  <!-- Arabic text -->
+  <text x="600" y="920" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#000000" direction="rtl">
+    شركة ثمانية نجوم الشرقية
+  </text>
+
+  <!-- Decorative lines bottom -->
+  <line x1="300" y1="980" x2="900" y2="980" stroke="#8B0000" stroke-width="8" stroke-linecap="round"/>
+  <line x1="320" y1="1000" x2="880" y2="1000" stroke="#8B0000" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Decorative flourish under text -->
+  <path d="M 350,960 Q 600,990 850,960" stroke="#8B0000" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
