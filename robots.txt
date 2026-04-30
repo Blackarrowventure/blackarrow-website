@@ -1,4 +1,17 @@
+# Eight Stars Eastern Company - robots.txt
 User-agent: *
 Allow: /
+Disallow: /assets/
 
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
 Sitemap: https://www.8starseastern.com/sitemap.xml
+
+# Crawl delay (optional - typically 1-2 seconds)
+Crawl-delay: 1
