@@ -110,10 +110,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-inline: 20px;
 }
 
-.section { padding-block: 80px; background: #1a1a1a; color: #ffffff; }
-.section--gray { background: #1a1a1a; color: #ffffff; }
-.section--dark { background: #0a0a0a; color: var(--clr-white); }
-.section--red  { background: var(--clr-accent); color: #000000; }
+.section { padding-block: 80px; background: #1a1a1a; color: #ffffff; border-top: 3px solid var(--clr-accent); }
+.section--gray { background: #1a1a1a; color: #ffffff; border-top: 3px solid var(--clr-accent); }
+.section--dark { background: #0a0a0a; color: var(--clr-white); border-top: 3px solid var(--clr-accent); }
+.section--red  { background: var(--clr-accent); color: #000000; border-top: 3px solid #000000; }
 
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-header h2 {
