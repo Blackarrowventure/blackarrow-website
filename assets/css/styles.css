@@ -1345,6 +1345,72 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ──────────────────────────────────────────────
+   12.8 MOBILE STICKY CTA
+   ────────────────────────────────────────────── */
+.mobile-cta-sticky {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+  background: var(--clr-navy-dark);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 12px 0;
+  box-shadow: 0 -4px 16px rgba(0,0,0,.3);
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-sticky {
+    display: grid;
+  }
+}
+
+.cta-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+  border-right: 1px solid rgba(255,255,255,.1);
+  color: var(--clr-white);
+  text-decoration: none;
+}
+
+.cta-btn:last-child {
+  border-right: none;
+}
+
+.cta-btn--call {
+  color: #3b82f6;
+}
+
+.cta-btn--call:active {
+  background: rgba(59,130,246,.1);
+}
+
+.cta-btn--whatsapp {
+  color: #25d366;
+}
+
+.cta-btn--whatsapp:active {
+  background: rgba(37,211,102,.1);
+}
+
+.cta-btn span:first-child {
+  display: block;
+  line-height: 1;
+}
+
+/* ──────────────────────────────────────────────
    13. CLIENT LOGOS
    ────────────────────────────────────────────── */
 .clients { padding-block: 60px; }
