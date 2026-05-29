@@ -2116,10 +2116,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* Service Detail Cards */
 .service-detail {
   padding-block: 80px;
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: #0a0a0a !important;
 }
 
-.service-detail:nth-child(even) { background: var(--clr-light); }
+.service-detail:nth-child(even) { background: #1a1a1a !important; }
 
 .service-detail__inner {
   display: grid;
@@ -2159,17 +2160,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-family: var(--ff-heading);
   font-size: clamp(var(--fs-2xl), 3.5vw, 3rem);
   font-weight: 700;
-  color: #000000 !important;
+  color: var(--clr-accent) !important;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
 
 .service-detail__content > p {
   font-size: var(--fs-base);
-  color: #000000 !important;
+  color: rgba(255,255,255,.85) !important;
   line-height: 1.9;
   margin-bottom: 24px;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   opacity: 1 !important;
 }
 
@@ -2185,8 +2186,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: flex-start;
   gap: 12px;
   font-size: var(--fs-sm);
-  color: #000000 !important;
-  font-weight: 700 !important;
+  color: rgba(255,255,255,.85) !important;
+  font-weight: 600 !important;
   opacity: 1 !important;
 }
 
