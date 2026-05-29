@@ -855,7 +855,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .svc-card__footer a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-accent);
+  color: #D97706;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -913,11 +913,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--clr-accent);
+  color: #D97706;
   margin-bottom: 8px;
   padding: 4px 12px;
-  background: rgba(245,158,11,.08);
+  background: rgba(245,158,11,.12);
   border-radius: var(--radius-full);
+  border: 1px solid rgba(217,119,6,.3);
 }
 
 .svc-card__benefits {
@@ -931,7 +932,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   padding: 4px 0;
 }
 
@@ -1042,6 +1043,23 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   gap: 32px;
 }
 
+.vm-grid {
+  margin: 80px 0 48px;
+  padding-top: 48px;
+  border-top: 2px solid rgba(245,158,11,.2);
+}
+
+.vm-grid::before {
+  content: 'Our Foundation — Vision & Mission';
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clr-accent);
+  margin-bottom: 32px;
+}
+
 .vm-card {
   padding: 40px;
   border-radius: var(--radius-lg);
@@ -1071,8 +1089,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vm-card p {
   font-size: var(--fs-base);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   line-height: 1.9;
+  font-weight: 500;
 }
 
 .vm-card ul {
@@ -1084,9 +1103,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vm-card ul li {
   font-size: var(--fs-sm);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   padding-left: 20px;
   position: relative;
+  font-weight: 500;
 }
 
 .vm-card ul li::before {
@@ -1316,7 +1336,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .compliance-badge h3 {
   font-size: var(--fs-lg);
-  color: var(--clr-accent);
+  color: var(--clr-white);
   margin-bottom: 8px;
   font-weight: var(--fw-bold);
 }
@@ -1395,19 +1415,23 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .cta-btn--call {
-  color: #3b82f6;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 4px;
 }
 
 .cta-btn--call:active {
-  background: rgba(59,130,246,.1);
+  background: #1d4ed8;
 }
 
 .cta-btn--whatsapp {
-  color: #25d366;
+  color: #ffffff;
+  background: #25d366;
+  border-radius: 4px;
 }
 
 .cta-btn--whatsapp:active {
-  background: rgba(37,211,102,.1);
+  background: #1da85c;
 }
 
 .cta-btn span:first-child {
@@ -1578,7 +1602,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clr-muted);
+  color: var(--clr-accent);
   margin-bottom: 8px;
 }
 
@@ -1661,12 +1685,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__col ul li a {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.75);
   transition: var(--transition);
+  font-weight: 500;
 }
 
 .footer__col ul li a:hover {
-  color: var(--clr-white);
+  color: var(--clr-accent);
   padding-left: 4px;
 }
 
@@ -1902,9 +1927,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .service-detail__content > p {
   font-size: var(--fs-base);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   line-height: 1.9;
   margin-bottom: 24px;
+  font-weight: 500;
 }
 
 .service-features {
@@ -1990,7 +2016,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clr-muted);
+  color: var(--clr-accent);
   margin-bottom: 6px;
 }
 
@@ -2082,9 +2108,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .about-full__intro p {
   font-size: var(--fs-lg);
-  color: var(--clr-muted);
+  color: rgba(255,255,255,.85);
   line-height: 1.9;
   margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .aims-grid {
@@ -2132,7 +2159,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .reg-card h3 {
   font-size: var(--fs-xl);
   margin-bottom: 16px;
-  color: rgba(255,255,255,.7);
+  color: var(--clr-accent);
+  font-weight: var(--fw-bold);
 }
 
 .reg-card .reg-numbers {
