@@ -18,6 +18,8 @@
   --clr-text:       #1a1a1a;
   --clr-muted:      #666666;
   --clr-border:     #e0e0e0;
+  --clr-accent:     #1e3a5f;
+  --clr-accent-dark: #152d47;
   --clr-whatsapp:   #25D366;
 
   --ff-body:  'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -111,13 +113,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .section { padding-block: 80px; }
 .section--gray { background: var(--clr-light); }
 .section--dark { background: var(--clr-navy-dark); color: var(--clr-white); }
-.section--red  { background: var(--clr-red); color: var(--clr-white); }
+.section--red  { background: var(--clr-accent); color: var(--clr-white); }
 
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-header h2 {
   font-size: var(--fs-4xl);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-navy);
+  color: var(--clr-accent);
   margin-bottom: 12px;
   line-height: 1.2;
 }
@@ -138,7 +140,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .15em;
-  color: var(--clr-red);
+  color: var(--clr-accent);
   margin-bottom: 12px;
 }
 .section--dark .overline,
@@ -157,13 +159,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--clr-red);
+  background: var(--clr-accent);
   color: var(--clr-white);
 }
 .btn-primary:hover {
-  background: var(--clr-red-dark);
+  background: var(--clr-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(196,30,58,.35);
+  box-shadow: 0 8px 20px rgba(30,58,95,.35);
 }
 .btn-outline {
   background: transparent;
@@ -176,21 +178,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-color: var(--clr-white);
 }
 .btn-navy {
-  background: var(--clr-navy);
+  background: var(--clr-accent);
   color: var(--clr-white);
 }
 .btn-navy:hover {
-  background: var(--clr-navy-dark);
+  background: var(--clr-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(26,61,92,.35);
+  box-shadow: 0 8px 20px rgba(30,58,95,.35);
 }
 .btn-white {
   background: var(--clr-white);
-  color: var(--clr-red);
+  color: var(--clr-accent);
   font-weight: var(--fw-bold);
 }
 .btn-white:hover {
   background: var(--clr-light);
+  color: var(--clr-accent-dark);
   transform: translateY(-2px);
 }
 
@@ -204,7 +207,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--clr-white);
   box-shadow: var(--shadow-sm);
   height: var(--nav-h);
-  border-bottom: 3px solid var(--clr-red);
+  border-bottom: 3px solid var(--clr-accent);
 }
 
 .navbar__inner {
@@ -248,7 +251,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .navbar__logo-text .sub {
   font-size: var(--fs-xl);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-red);
+  color: var(--clr-accent);
   letter-spacing: .04em;
   direction: rtl;
   text-align: right;
@@ -283,13 +286,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   left: 14px;
   right: 14px;
   height: 2px;
-  background: var(--clr-red);
+  background: var(--clr-accent);
   transform: scaleX(0);
   transition: var(--transition);
 }
 
 .navbar__links a:hover,
-.navbar__links a.active { color: var(--clr-red); }
+.navbar__links a.active { color: var(--clr-accent); }
 
 .navbar__links a:hover::after,
 .navbar__links a.active::after { transform: scaleX(1); }
@@ -374,7 +377,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: var(--transition);
 }
 
-.mobile-nav a:hover { color: var(--clr-red); padding-left: 24px; }
+.mobile-nav a:hover { color: var(--clr-accent); padding-left: 24px; }
 
 /* ──────────────────────────────────────────────
    6. HERO SECTION
@@ -461,7 +464,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   text-shadow: 0 2px 8px rgba(0,0,0,.3);
 }
 
-.hero h1 span { color: var(--clr-red); }
+.hero h1 span { color: var(--clr-accent); }
 
 .hero__sub {
   font-size: clamp(var(--fs-base), 2.5vw, var(--fs-xl));
@@ -582,14 +585,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--clr-red);
+  background: var(--clr-accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: var(--transition);
 }
 
 .seg__card:hover {
-  border-color: var(--clr-red);
+  border-color: var(--clr-accent);
   box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
 }
@@ -619,7 +622,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .seg__card .link {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-red);
+  color: var(--clr-accent);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -654,7 +657,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .stats__num {
   font-size: var(--fs-5xl);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-red);
+  color: var(--clr-accent);
   line-height: 1;
   margin-bottom: 8px;
   display: block;
@@ -690,7 +693,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .svc-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--clr-red);
+  border-color: var(--clr-accent);
 }
 
 .svc-card__img-wrap {
@@ -772,7 +775,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .svc-card__footer a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-red);
+  color: var(--clr-accent);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -839,7 +842,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .vision-badge .badge-stat {
   display: inline-block;
   margin-top: 20px;
-  background: var(--clr-red);
+  background: var(--clr-accent);
   padding: 8px 20px;
   border-radius: var(--radius-full);
   font-size: var(--fs-sm);
@@ -859,7 +862,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 40px;
   border-radius: var(--radius-lg);
   background: var(--clr-white);
-  border-left: 4px solid var(--clr-red);
+  border-left: 4px solid var(--clr-accent);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
 }
@@ -905,7 +908,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--clr-red);
+  color: var(--clr-accent);
 }
 
 /* ──────────────────────────────────────────────
@@ -1093,7 +1096,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  border-top: 3px solid var(--clr-red);
+  border-top: 3px solid var(--clr-accent);
 }
 
 .contact-strip__card:hover {
@@ -1123,7 +1126,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: var(--transition);
 }
 
-.contact-strip__card a:hover { color: var(--clr-red); }
+.contact-strip__card a:hover { color: var(--clr-accent); }
 
 /* ──────────────────────────────────────────────
    16. FOOTER
@@ -1161,7 +1164,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clr-red);
+  color: var(--clr-accent);
   margin-bottom: 20px;
 }
 
@@ -1193,7 +1196,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-sm);
   font-size: var(--fs-xs);
   color: rgba(255,255,255,.5);
-  border-left: 2px solid var(--clr-red);
+  border-left: 2px solid var(--clr-accent);
 }
 
 .footer__bottom {
@@ -1285,7 +1288,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .breadcrumb a { color: rgba(255,255,255,.7); transition: var(--transition); }
 .breadcrumb a:hover { color: var(--clr-white); }
-.breadcrumb span { color: var(--clr-red); }
+.breadcrumb span { color: var(--clr-accent); }
 
 /* Service Detail Cards */
 .service-detail {
@@ -1363,7 +1366,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-  background: var(--clr-red);
+  background: var(--clr-accent);
   color: var(--clr-white);
   border-radius: 50%;
   display: flex;
@@ -1399,7 +1402,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 20px;
   background: var(--clr-light);
   border-radius: var(--radius-md);
-  border-left: 3px solid var(--clr-red);
+  border-left: 3px solid var(--clr-accent);
   transition: var(--transition);
 }
 
@@ -1437,7 +1440,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-medium);
 }
 
-.contact-info-card a:hover { color: var(--clr-red); }
+.contact-info-card a:hover { color: var(--clr-accent); }
 
 /* Form */
 .form-card {
@@ -1445,7 +1448,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-lg);
   padding: 40px;
   box-shadow: var(--shadow-lg);
-  border-top: 4px solid var(--clr-red);
+  border-top: 4px solid var(--clr-accent);
 }
 
 .form-card h2 {
@@ -1486,7 +1489,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--clr-red);
+  border-color: var(--clr-accent);
   box-shadow: 0 0 0 3px rgba(196,30,58,.1);
 }
 
@@ -1539,7 +1542,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .aim-item .dot {
   width: 10px;
   height: 10px;
-  background: var(--clr-red);
+  background: var(--clr-accent);
   border-radius: 50%;
   margin-top: 6px;
   flex-shrink: 0;
@@ -1580,7 +1583,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clr-red);
+  color: var(--clr-accent);
   margin-bottom: 4px;
 }
 .reg-item .value {
@@ -1635,9 +1638,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    22. RTL ARABIC SUPPORT
    ────────────────────────────────────────────── */
 [dir="rtl"] .navbar__links a::after { transform-origin: right; }
-[dir="rtl"] .vm-card { border-left: none; border-right: 4px solid var(--clr-red); }
-[dir="rtl"] .contact-info-card { border-left: none; border-right: 3px solid var(--clr-red); }
-[dir="rtl"] .form-card { border-top: 4px solid var(--clr-red); }
+[dir="rtl"] .vm-card { border-left: none; border-right: 4px solid var(--clr-accent); }
+[dir="rtl"] .contact-info-card { border-left: none; border-right: 3px solid var(--clr-accent); }
+[dir="rtl"] .form-card { border-top: 4px solid var(--clr-accent); }
 [dir="rtl"] .wa-float { right: auto; left: 28px; }
 [dir="rtl"] .stats__item { border-right: none; border-left: 1px solid rgba(255,255,255,.1); }
 [dir="rtl"] .stats__item:last-child { border-left: none; }
@@ -1646,7 +1649,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 [dir="rtl"] .footer__col ul li a:hover { padding-left: 0; padding-right: 4px; }
 [dir="rtl"] .service-detail:nth-child(even) .service-detail__inner { direction: ltr; }
 [dir="rtl"] .service-detail__content { direction: rtl; }
-[dir="rtl"] .footer__col .cr { border-left: none; border-right: 2px solid var(--clr-red); }
+[dir="rtl"] .footer__col .cr { border-left: none; border-right: 2px solid var(--clr-accent); }
 
 /* ──────────────────────────────────────────────
    23. RESPONSIVE DESIGN
