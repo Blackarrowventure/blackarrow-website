@@ -98,35 +98,70 @@ body {
    Light backgrounds = BLACK text
 ═══════════════════════════════════════ */
 
-/* Light background sections - BLACK text */
-.segmentation { color: #000000 !important; }
-.segmentation * { color: #000000 !important; }
+/* LIGHT BACKGROUND SECTIONS - BLACK text (overrides .section) */
+.segmentation {
+  background: var(--clr-white) !important;
+  color: #000000 !important;
+}
+.segmentation * {
+  color: #000000 !important;
+}
+.segmentation h2,
+.segmentation h3,
+.segmentation h4 {
+  color: #000000 !important;
+}
+.seg__card {
+  color: #000000 !important;
+}
+.seg__card * {
+  color: #000000 !important;
+}
+.seg__card h3 {
+  color: #000000 !important;
+}
+.seg__card .link {
+  color: var(--clr-accent) !important;
+}
 
 /* White card backgrounds - BLACK text */
 .svc-card { color: #000000 !important; }
 .svc-card * { color: #000000 !important; }
+.svc-card h3 { color: #000000 !important; }
+.svc-card p { color: #000000 !important; }
 .svc-card__footer a { color: #D97706 !important; }
 
 .vm-card { color: #000000 !important; }
 .vm-card * { color: #000000 !important; }
+.vm-card h3 { color: #000000 !important; }
+.vm-card p { color: #000000 !important; }
+.vm-card ul li { color: #000000 !important; }
 .vm-card ul li::before { color: var(--clr-accent) !important; }
 
 .contact-strip__card { color: #000000 !important; }
 .contact-strip__card * { color: #000000 !important; }
 .contact-strip__card h4 { color: var(--clr-accent) !important; }
+.contact-strip__card p { color: #000000 !important; }
+.contact-strip__card a { color: #000000 !important; }
 
 .contact-info-card { color: #000000 !important; }
 .contact-info-card * { color: #000000 !important; }
 .contact-info-card h4 { color: var(--clr-accent) !important; }
+.contact-info-card p { color: #000000 !important; }
+.contact-info-card a { color: #000000 !important; }
 
 .form-card { color: #000000 !important; }
 .form-card * { color: #000000 !important; }
 .form-card h2 { color: #000000 !important; }
 .form-group label { color: var(--clr-accent) !important; }
+.form-group input,
+.form-group select,
+.form-group textarea { color: #ffffff !important; background: #2a2a2a !important; }
 
 /* Light background aim-items - BLACK text */
 .aim-item { color: #000000 !important; }
 .aim-item * { color: #000000 !important; }
+.aim-item p { color: #000000 !important; }
 .aim-item .dot { color: var(--clr-accent) !important; }
 
 /* Light background client section - BLACK text */
@@ -147,22 +182,47 @@ body {
 /* Service category tag - Use accent */
 .svc-card__category { color: #D97706 !important; }
 
-/* Dark background sections - WHITE text */
-.section { color: #ffffff !important; }
-.section p { color: rgba(255,255,255,.85) !important; }
-.section h1, .section h2, .section h3, .section h4, .section h5, .section h6 { color: #ffffff !important; }
+/* ═══════════════════════════════════════
+   DARK BACKGROUND SECTIONS - WHITE text
+═══════════════════════════════════════ */
 
-.section--dark { color: #ffffff !important; }
-.section--dark p { color: rgba(255,255,255,.85) !important; }
+/* Apply white text ONLY to dark sections, not light ones */
+.section--dark {
+  color: #ffffff !important;
+}
+.section--dark * {
+  color: rgba(255,255,255,.85) !important;
+}
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4,
+.section--dark h5,
+.section--dark h6 {
+  color: #ffffff !important;
+}
 
-.section--gray { color: #ffffff !important; }
-.section--gray p { color: rgba(255,255,255,.85) !important; }
+.section--gray {
+  color: #ffffff !important;
+}
+.section--gray * {
+  color: rgba(255,255,255,.85) !important;
+}
+.section--gray h1,
+.section--gray h2,
+.section--gray h3,
+.section--gray h4,
+.section--gray h5,
+.section--gray h6 {
+  color: #ffffff !important;
+}
 
 .why-card { color: rgba(255,255,255,.85) !important; }
 .why-card h3 { color: #ffffff !important; }
 .why-card p { color: rgba(255,255,255,.85) !important; }
 
 .reg-card { color: #ffffff !important; }
+.reg-card * { color: #ffffff !important; }
 .reg-card h3 { color: var(--clr-accent) !important; }
 .reg-card .reg-item .label { color: rgba(255,255,255,.75) !important; }
 .reg-card .reg-item .value { color: #ffffff !important; }
@@ -190,12 +250,23 @@ body {
 
 .service-detail__content h2 { color: #000000 !important; }
 .service-detail__content p { color: #000000 !important; }
-.service-detail:nth-child(even) { background: #f8f8f8; }
-.service-detail:nth-child(odd) { background: #ffffff; }
+.service-detail:nth-child(even) { background: #f8f8f8 !important; }
+.service-detail:nth-child(odd) { background: #ffffff !important; }
 
 .about-full { color: #ffffff !important; }
 .about-full h2 { color: rgba(255,255,255,.95) !important; }
 .about-full p { color: rgba(255,255,255,.85) !important; }
+
+/* Stats section - WHITE text on dark */
+.stats {
+  color: #ffffff !important;
+}
+.stats * {
+  color: rgba(255,255,255,.85) !important;
+}
+.stats__num {
+  color: var(--clr-accent) !important;
+}
 
 img { display: block; max-width: 100%; height: auto; }
 a  { text-decoration: none; color: inherit; }
