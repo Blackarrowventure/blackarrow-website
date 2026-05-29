@@ -8,10 +8,10 @@
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ────────────────────────────────────────────── */
 :root {
-  --clr-red:        #000000;
+  --clr-red:        #1a1a1a;
   --clr-red-dark:   #333333;
-  --clr-navy:       #000000;
-  --clr-navy-dark:  #000000;
+  --clr-navy:       #1a1a1a;
+  --clr-navy-dark:  #1a1a1a;
   --clr-steel:      #333333;
   --clr-light:      #f8f8f8;
   --clr-white:      #ffffff;
