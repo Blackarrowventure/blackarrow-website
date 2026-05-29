@@ -179,8 +179,8 @@ body {
 /* Service breadth tags - BLACK text */
 .svc-card__breadth span { color: #000000 !important; }
 
-/* Service category tag - Use accent */
-.svc-card__category { color: #D97706 !important; }
+/* Service category tag - BLACK text on light gold background */
+.svc-card__category { color: #000000 !important; background: rgba(245,158,11,.25) !important; border-color: var(--clr-accent) !important; }
 
 /* ═══════════════════════════════════════
    DARK BACKGROUND SECTIONS - WHITE text
@@ -1072,7 +1072,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .svc-card__footer a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: #D97706;
+  color: var(--clr-accent) !important;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1132,12 +1132,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #D97706;
+  color: #000000 !important;
   margin-bottom: 8px;
   padding: 4px 12px;
-  background: rgba(245,158,11,.12);
+  background: rgba(245,158,11,.25) !important;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(217,119,6,.3);
+  border: 1px solid var(--clr-accent);
 }
 
 .svc-card__benefits {
