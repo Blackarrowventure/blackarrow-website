@@ -251,7 +251,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .navbar__logo-text .sub {
   font-size: var(--fs-xl);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-accent);
+  color: #1a1a1a;
   letter-spacing: .04em;
   direction: rtl;
   text-align: right;
