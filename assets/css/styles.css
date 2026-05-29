@@ -1134,6 +1134,217 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ──────────────────────────────────────────────
+   12.5 TRUST METRICS
+   ────────────────────────────────────────────── */
+.trust-metrics {
+  background: linear-gradient(135deg, #0a0a0a 0%, rgba(245,158,11,.05) 100%);
+  padding-block: 60px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.trust-card {
+  text-align: center;
+  padding: 32px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(245,158,11,.2);
+  transition: var(--transition);
+}
+
+.trust-card:hover {
+  background: rgba(245,158,11,.08);
+  border-color: var(--clr-accent);
+  transform: translateY(-4px);
+}
+
+.trust-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.trust-value {
+  font-size: var(--fs-5xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.trust-label {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.7);
+  font-weight: var(--fw-semibold);
+}
+
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trust-card {
+    padding: 24px 16px;
+  }
+
+  .trust-value {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   12.6 GUARANTEES
+   ────────────────────────────────────────────── */
+.guarantees {
+  background: rgba(245,158,11,.03);
+}
+
+.guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.guarantee-item {
+  text-align: center;
+  padding: 32px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(245,158,11,.15);
+  transition: var(--transition);
+}
+
+.guarantee-item:hover {
+  background: rgba(245,158,11,.08);
+  border-color: var(--clr-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(245,158,11,.15);
+}
+
+.guarantee-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.guarantee-item h3 {
+  font-size: var(--fs-lg);
+  color: var(--clr-white);
+  margin-bottom: 8px;
+  font-weight: var(--fw-bold);
+}
+
+.guarantee-item p {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .guarantee-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .guarantee-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .guarantee-item {
+    padding: 24px 16px;
+  }
+
+  .guarantee-icon {
+    font-size: 32px;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   12.7 COMPLIANCE & CREDENTIALS
+   ────────────────────────────────────────────── */
+.compliance-section {
+  background: rgba(245,158,11,.02);
+}
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.compliance-badge {
+  text-align: center;
+  padding: 32px 20px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(245,158,11,.15);
+  transition: var(--transition);
+}
+
+.compliance-badge:hover {
+  background: rgba(245,158,11,.08);
+  border-color: var(--clr-accent);
+  transform: translateY(-4px);
+}
+
+.badge-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.compliance-badge h3 {
+  font-size: var(--fs-lg);
+  color: var(--clr-accent);
+  margin-bottom: 8px;
+  font-weight: var(--fw-bold);
+}
+
+.compliance-badge p {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .compliance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .compliance-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .compliance-badge {
+    padding: 24px 16px;
+  }
+
+  .badge-icon {
+    font-size: 36px;
+  }
+}
+
+/* ──────────────────────────────────────────────
    13. CLIENT LOGOS
    ────────────────────────────────────────────── */
 .clients { padding-block: 60px; }
