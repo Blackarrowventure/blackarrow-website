@@ -1,23 +1,23 @@
 /* ==============================================
-   EIGHT STARS EASTERN COMPANY
+   THE BLACK ARROW
    Professional B2B Corporate Website Stylesheet
-   Version 1.0 | 2026
+   Version 2.0 | 2026
    ============================================== */
 
 /* ──────────────────────────────────────────────
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ────────────────────────────────────────────── */
 :root {
-  --clr-red:        #C41E3A;
-  --clr-red-dark:   #a01729;
-  --clr-navy:       #1a3d5c;
-  --clr-navy-dark:  #0f2538;
-  --clr-steel:      #4a6fa5;
-  --clr-light:      #f4f6f9;
+  --clr-red:        #000000;
+  --clr-red-dark:   #333333;
+  --clr-navy:       #000000;
+  --clr-navy-dark:  #000000;
+  --clr-steel:      #333333;
+  --clr-light:      #f8f8f8;
   --clr-white:      #ffffff;
-  --clr-text:       #1e2a35;
-  --clr-muted:      #5a6a7a;
-  --clr-border:     #dde3ea;
+  --clr-text:       #1a1a1a;
+  --clr-muted:      #666666;
+  --clr-border:     #e0e0e0;
   --clr-whatsapp:   #25D366;
 
   --ff-body:  'Segoe UI', system-ui, -apple-system, sans-serif;
