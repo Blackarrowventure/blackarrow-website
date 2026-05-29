@@ -1750,7 +1750,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .footer__newsletter input::placeholder {
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.6);
+  font-weight: 500;
 }
 
 .footer__newsletter input:focus {
@@ -1770,7 +1771,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__bottom p {
   font-size: var(--fs-xs);
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.6);
+  font-weight: 500;
 }
 
 .footer__legal {
@@ -1780,8 +1782,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__legal a {
   font-size: var(--fs-xs);
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.6);
   transition: var(--transition);
+  font-weight: 500;
 }
 
 .footer__legal a:hover {
@@ -2117,7 +2120,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-family: var(--ff-heading);
   font-size: clamp(var(--fs-3xl), 4vw, 3.5rem);
   font-weight: 700;
-  color: var(--clr-navy);
+  color: rgba(255,255,255,.95);
   margin-bottom: 20px;
   letter-spacing: -0.02em;
 }
@@ -2157,8 +2160,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .aim-item p {
   font-size: var(--fs-sm);
-  color: var(--clr-text);
+  color: var(--clr-navy);
   line-height: 1.6;
+  font-weight: 600;
 }
 
 .reg-card {
@@ -2191,8 +2195,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--clr-accent);
+  color: rgba(255,255,255,.75);
   margin-bottom: 4px;
+  font-weight: 600;
 }
 .reg-item .value {
   font-size: var(--fs-xl);
