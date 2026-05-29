@@ -23,9 +23,14 @@
   --clr-accent:       #F59E0B;
   --clr-accent-dark:  #D97706;
   --clr-accent-light: #FBBF24;
+  --clr-accent-lighter: #FCD34D;
   --clr-accent-glow:  rgba(245,158,11,.2);
+  --clr-accent-hover: rgba(245,158,11,.15);
+  --clr-accent-active: rgba(245,158,11,.25);
+
   --clr-secondary:      #e0e0e0;
   --clr-secondary-dark: #b0b0b0;
+  --clr-secondary-light: #f5f5f5;
   --clr-whatsapp:   #25D366;
 
   --ff-body:    'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -2335,6 +2340,124 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     display: inline-flex;
     align-items: center;
   }
+}
+
+/* ──────────────────────────────────────────────
+   23.5 COLOR & CONTRAST ENHANCEMENTS
+   ────────────────────────────────────────────── */
+
+/* Secondary Color Usage for Depth */
+.segment-divider {
+  background: linear-gradient(90deg, transparent, var(--clr-secondary), transparent);
+  height: 1px;
+  margin: 32px 0;
+}
+
+/* Card Borders with Secondary Colors */
+.card-border {
+  border: 1px solid var(--clr-secondary-light);
+  transition: var(--transition);
+}
+
+.card-border:hover {
+  border: 1px solid var(--clr-accent);
+}
+
+/* Badge Styling with Secondary Colors */
+.badge {
+  display: inline-block;
+  background: var(--clr-secondary-light);
+  color: var(--clr-text);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+}
+
+.badge--primary {
+  background: var(--clr-accent-glow);
+  color: var(--clr-accent);
+  border: 1px solid var(--clr-accent);
+}
+
+.badge--success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid #10b981;
+}
+
+/* Text Contrast Enhancements */
+.text-muted {
+  color: var(--clr-muted);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+  font-weight: var(--fw-semibold);
+}
+
+/* Subtle Background Accents */
+.bg-accent-subtle {
+  background: var(--clr-accent-glow);
+  border-left: 4px solid var(--clr-accent);
+  padding-left: 16px;
+}
+
+/* Link Hover States with Color Transitions */
+a {
+  color: var(--clr-accent);
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+a:hover {
+  color: var(--clr-accent-light);
+}
+
+/* Form Input Focus States */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--clr-accent);
+  box-shadow: inset 0 0 0 3px var(--clr-accent-glow);
+  outline: none;
+}
+
+/* Section Dividers with Secondary Colors */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clr-secondary), transparent);
+  margin: 32px 0;
+}
+
+/* Contrast Text on Dark Backgrounds */
+.section h2 {
+  color: var(--clr-white);
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.section p {
+  color: rgba(255,255,255,.8);
+  line-height: 1.7;
+}
+
+/* Improved Readability with Text Spacing */
+.section-header h2 {
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* Icon Color Consistency */
+.icon {
+  color: currentColor;
+}
+
+.icon--accent {
+  color: var(--clr-accent);
+}
+
+.icon--secondary {
+  color: var(--clr-secondary-dark);
 }
 
 /* ──────────────────────────────────────────────
