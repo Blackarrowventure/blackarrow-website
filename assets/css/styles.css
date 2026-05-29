@@ -73,8 +73,8 @@ body {
   font-family: var(--ff-body);
   font-size: var(--fs-base);
   line-height: 1.65;
-  color: var(--clr-text);
-  background: #f0f0f0;
+  color: #ffffff;
+  background: #0a0a0a;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -110,10 +110,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-inline: 20px;
 }
 
-.section { padding-block: 80px; }
-.section--gray { background: var(--clr-light); }
-.section--dark { background: var(--clr-navy-dark); color: var(--clr-white); }
-.section--red  { background: var(--clr-accent); color: var(--clr-white); }
+.section { padding-block: 80px; background: #1a1a1a; color: #ffffff; }
+.section--gray { background: #1a1a1a; color: #ffffff; }
+.section--dark { background: #0a0a0a; color: var(--clr-white); }
+.section--red  { background: var(--clr-accent); color: #000000; }
 
 .section-header { text-align: center; margin-bottom: 56px; }
 .section-header h2 {
@@ -125,7 +125,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .section-header p {
   font-size: var(--fs-lg);
-  color: var(--clr-muted);
+  color: #cccccc;
   max-width: 600px;
   margin-inline: auto;
 }
@@ -1468,19 +1468,19 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .form-group label {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-text);
+  color: var(--clr-accent);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 1.5px solid var(--clr-border);
+  border: 1.5px solid #444444;
   border-radius: var(--radius-sm);
   font-family: inherit;
   font-size: var(--fs-base);
-  color: var(--clr-text);
-  background: var(--clr-white);
+  color: #ffffff;
+  background: #2a2a2a;
   transition: var(--transition);
   width: 100%;
 }
@@ -1490,7 +1490,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .form-group textarea:focus {
   outline: none;
   border-color: var(--clr-accent);
-  box-shadow: 0 0 0 3px rgba(196,30,58,.1);
+  box-shadow: 0 0 0 3px rgba(245,158,11,.15);
 }
 
 .form-group textarea { resize: vertical; min-height: 120px; }
