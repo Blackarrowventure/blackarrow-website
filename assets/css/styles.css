@@ -248,26 +248,26 @@ body {
 .page-hero h1 { color: #ffffff !important; }
 .page-hero p { color: rgba(255,255,255,.85) !important; }
 
-/* SERVICE DETAIL SECTIONS - Light backgrounds with BLACK text */
+/* SERVICE DETAIL SECTIONS - Dark background with WHITE text and GOLD headlines */
 .service-detail {
-  background: #ffffff !important;
+  background: #0a0a0a !important;
 }
 
 .service-detail:nth-child(even) {
-  background: #f8f8f8 !important;
+  background: #1a1a1a !important;
 }
 
 .service-detail:nth-child(odd) {
-  background: #ffffff !important;
+  background: #0a0a0a !important;
 }
 
-/* All text in service sections = BLACK */
-.service-detail * { color: #000000 !important; }
-.service-detail__content h2 { color: #000000 !important; font-weight: 700 !important; }
-.service-detail__content p { color: #000000 !important; font-weight: 700 !important; }
-.service-detail__content { color: #000000 !important; }
+/* All text in service sections = WHITE */
+.service-detail * { color: rgba(255,255,255,.85) !important; }
+.service-detail__content h2 { color: var(--clr-accent) !important; font-weight: 700 !important; }
+.service-detail__content p { color: rgba(255,255,255,.85) !important; font-weight: 600 !important; }
+.service-detail__content { color: rgba(255,255,255,.85) !important; }
 .service-detail .overline { color: var(--clr-accent) !important; font-weight: 700 !important; }
-.service-features li { color: #000000 !important; font-weight: 700 !important; }
+.service-features li { color: rgba(255,255,255,.85) !important; font-weight: 600 !important; }
 .service-detail .btn-primary { color: #ffffff !important; }
 
 .about-full { color: #ffffff !important; }
@@ -344,18 +344,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .section--dark .section-header p,
 .section--red .section-header p   { color: rgba(255,255,255,.75); }
 
-/* QUICK NAV SECTION - White background buttons */
+/* QUICK NAV SECTION - Dark background buttons */
 .section[style*="background:#fff"] .btn-outline,
 .section[style*="background: #fff"] .btn-outline {
-  color: #000000 !important;
-  border-color: #000000 !important;
+  color: rgba(255,255,255,.7) !important;
+  border-color: rgba(255,255,255,.3) !important;
 }
 
 .section[style*="background:#fff"] .btn-outline:hover,
 .section[style*="background: #fff"] .btn-outline:hover {
-  background: #000000 !important;
-  color: #ffffff !important;
-  border-color: #000000 !important;
+  background: var(--clr-accent) !important;
+  color: #000000 !important;
+  border-color: var(--clr-accent) !important;
 }
 
 .overline {
