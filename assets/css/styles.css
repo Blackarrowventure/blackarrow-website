@@ -204,7 +204,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--clr-white);
+  background: #1a1a1a;
   box-shadow: var(--shadow-sm);
   height: var(--nav-h);
   border-bottom: 3px solid var(--clr-accent);
@@ -243,7 +243,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .navbar__logo-text .name {
   font-size: var(--fs-3xl);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-navy);
+  color: #ffffff;
   letter-spacing: -.02em;
   line-height: 1.0;
 }
@@ -251,7 +251,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .navbar__logo-text .sub {
   font-size: var(--fs-xl);
   font-weight: var(--fw-extrabold);
-  color: #1a1a1a;
+  color: var(--clr-accent);
   letter-spacing: .04em;
   direction: rtl;
   text-align: right;
@@ -273,7 +273,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 12px 20px;
   font-size: var(--fs-lg);
   font-weight: var(--fw-extrabold);
-  color: var(--clr-text);
+  color: #ffffff;
   border-radius: var(--radius-sm);
   transition: var(--transition);
   position: relative;
