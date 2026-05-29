@@ -248,10 +248,27 @@ body {
 .page-hero h1 { color: #ffffff !important; }
 .page-hero p { color: rgba(255,255,255,.85) !important; }
 
-.service-detail__content h2 { color: #000000 !important; }
-.service-detail__content p { color: #000000 !important; }
-.service-detail:nth-child(even) { background: #f8f8f8 !important; }
-.service-detail:nth-child(odd) { background: #ffffff !important; }
+/* SERVICE DETAIL SECTIONS - Light backgrounds with BLACK text */
+.service-detail {
+  background: #ffffff !important;
+}
+
+.service-detail:nth-child(even) {
+  background: #f8f8f8 !important;
+}
+
+.service-detail:nth-child(odd) {
+  background: #ffffff !important;
+}
+
+/* All text in service sections = BLACK */
+.service-detail * { color: #000000 !important; }
+.service-detail__content h2 { color: #000000 !important; font-weight: 700 !important; }
+.service-detail__content p { color: #000000 !important; font-weight: 700 !important; }
+.service-detail__content { color: #000000 !important; }
+.service-detail .overline { color: var(--clr-accent) !important; font-weight: 700 !important; }
+.service-features li { color: #000000 !important; font-weight: 700 !important; }
+.service-detail .btn-primary { color: #ffffff !important; }
 
 .about-full { color: #ffffff !important; }
 .about-full h2 { color: rgba(255,255,255,.95) !important; }
@@ -326,6 +343,20 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .section--red .section-header h2 { color: var(--clr-white); }
 .section--dark .section-header p,
 .section--red .section-header p   { color: rgba(255,255,255,.75); }
+
+/* QUICK NAV SECTION - White background buttons */
+.section[style*="background:#fff"] .btn-outline,
+.section[style*="background: #fff"] .btn-outline {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.section[style*="background:#fff"] .btn-outline:hover,
+.section[style*="background: #fff"] .btn-outline:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
 
 .overline {
   display: inline-block;
