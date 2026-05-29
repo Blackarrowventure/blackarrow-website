@@ -861,6 +861,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .seg__card {
   padding: 32px 28px;
   border: 1px solid var(--clr-border);
+  border-top: 4px solid var(--clr-accent);
   border-radius: var(--radius-lg);
   transition: var(--transition);
   cursor: pointer;
@@ -978,6 +979,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--clr-border);
+  border-top: 4px solid var(--clr-accent);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -1405,6 +1407,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,.02);
   border: 1px solid rgba(245,158,11,.2);
+  border-top: 4px solid var(--clr-accent);
   transition: var(--transition);
 }
 
