@@ -697,10 +697,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .seg__card p {
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
+  color: #000000 !important;
   margin-bottom: 20px;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .seg__card .link {
@@ -842,11 +843,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .svc-card__body p {
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
+  color: #000000 !important;
   line-height: 1.65;
   flex: 1;
   margin-bottom: 20px;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .svc-card__footer {
@@ -894,7 +896,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 16px 12px;
   border-bottom: 1px solid var(--clr-border);
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
+  color: #000000 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .comparison-table tbody tr:hover {
@@ -938,8 +942,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--clr-navy);
+  color: #000000 !important;
   padding: 4px 0;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .svc-card__benefits li::before {
@@ -963,7 +969,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 4px 10px;
   background: var(--clr-light);
   border-radius: var(--radius-full);
-  color: var(--clr-navy);
+  color: #000000 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .btn-sm {
@@ -994,10 +1002,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .about-content p {
   font-size: var(--fs-base);
-  color: var(--clr-navy);
+  color: #000000 !important;
   line-height: 1.9;
   margin-bottom: 16px;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .about-visual {
@@ -1097,9 +1106,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vm-card p {
   font-size: var(--fs-base);
-  color: var(--clr-navy);
+  color: #000000 !important;
   line-height: 1.9;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .vm-card ul {
@@ -1111,10 +1121,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vm-card ul li {
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
+  color: #000000 !important;
   padding-left: 20px;
   position: relative;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .vm-card ul li::before {
@@ -1945,10 +1956,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .service-detail__content > p {
   font-size: var(--fs-base);
-  color: var(--clr-navy);
+  color: #000000 !important;
   line-height: 1.9;
   margin-bottom: 24px;
-  font-weight: 500;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .service-features {
@@ -1963,8 +1975,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: flex-start;
   gap: 12px;
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
-  font-weight: 500;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .service-features li::before {
@@ -2042,8 +2055,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .contact-info-card a,
 .contact-info-card p {
   font-size: var(--fs-base);
-  color: var(--clr-navy);
-  font-weight: var(--fw-medium);
+  color: #000000 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .contact-info-card a:hover { color: var(--clr-accent); }
@@ -2061,8 +2075,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-family: var(--ff-heading);
   font-size: var(--fs-2xl);
   font-weight: 700;
-  color: var(--clr-navy);
+  color: #000000 !important;
   margin-bottom: 28px;
+  opacity: 1 !important;
 }
 
 .form-group {
@@ -2160,9 +2175,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .aim-item p {
   font-size: var(--fs-sm);
-  color: var(--clr-navy);
+  color: #000000 !important;
   line-height: 1.6;
-  font-weight: 600;
+  font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 .reg-card {
