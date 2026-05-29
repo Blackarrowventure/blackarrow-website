@@ -18,8 +18,8 @@
   --clr-text:       #1a1a1a;
   --clr-muted:      #666666;
   --clr-border:     #e0e0e0;
-  --clr-accent:     #1e3a5f;
-  --clr-accent-dark: #152d47;
+  --clr-accent:     #F59E0B;
+  --clr-accent-dark: #D97706;
   --clr-whatsapp:   #25D366;
 
   --ff-body:  'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -165,7 +165,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .btn-primary:hover {
   background: var(--clr-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(30,58,95,.35);
+  box-shadow: 0 8px 20px rgba(245,158,11,.35);
 }
 .btn-outline {
   background: transparent;
@@ -184,7 +184,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .btn-navy:hover {
   background: var(--clr-accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(30,58,95,.35);
+  box-shadow: 0 8px 20px rgba(245,158,11,.35);
 }
 .btn-white {
   background: var(--clr-white);
