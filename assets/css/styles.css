@@ -140,10 +140,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .section-header p {
   font-size: var(--fs-lg);
-  color: #cccccc;
+  color: rgba(255,255,255,.85);
   max-width: 600px;
   margin-inline: auto;
   line-height: 1.8;
+  font-weight: 500;
 }
 .section--dark .section-header h2,
 .section--red .section-header h2 { color: var(--clr-white); }
@@ -397,7 +398,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .lang-switch button {
   padding: 6px 12px;
   transition: var(--transition);
-  color: var(--clr-muted);
+  color: rgba(255,255,255,.6);
+  font-weight: 500;
 }
 
 .lang-switch button.active,
@@ -418,7 +420,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .hamburger span {
   display: block;
   height: 2px;
-  background: var(--clr-navy);
+  background: var(--clr-white);
   border-radius: 2px;
   transition: var(--transition);
 }
@@ -530,7 +532,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .2em;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.75);
   margin-bottom: 16px;
 }
 
@@ -568,7 +570,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(255,255,255,.4);
+  color: rgba(255,255,255,.6);
   font-size: var(--fs-xs);
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -577,6 +579,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 8px;
   animation: bounce 2s infinite;
+  font-weight: 500;
 }
 
 .scroll-indicator svg { width: 20px; height: 20px; }
@@ -694,9 +697,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .seg__card p {
   font-size: var(--fs-sm);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   margin-bottom: 20px;
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .seg__card .link {
@@ -745,9 +749,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .stats__label {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.8);
   text-transform: uppercase;
   letter-spacing: .08em;
+  font-weight: 500;
 }
 
 /* ──────────────────────────────────────────────
@@ -837,10 +842,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .svc-card__body p {
   font-size: var(--fs-sm);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   line-height: 1.65;
   flex: 1;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .svc-card__footer {
@@ -988,9 +994,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .about-content p {
   font-size: var(--fs-base);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   line-height: 1.9;
   margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .about-visual {
@@ -1020,8 +1027,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vision-badge p {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.85);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .vision-badge .badge-stat {
@@ -1154,8 +1162,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .why-card p {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.8);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 /* ──────────────────────────────────────────────
@@ -1273,9 +1282,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .guarantee-item p {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.8);
   line-height: 1.6;
   margin: 0;
+  font-weight: 500;
 }
 
 @media (max-width: 1024px) {
@@ -1343,9 +1353,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .compliance-badge p {
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.8);
   line-height: 1.6;
   margin: 0;
+  font-weight: 500;
 }
 
 @media (max-width: 1024px) {
@@ -1460,8 +1471,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 40px;
   border: 2px dashed var(--clr-border);
   border-radius: var(--radius-lg);
-  color: var(--clr-muted);
+  color: var(--clr-navy);
   font-size: var(--fs-sm);
+  font-weight: 500;
 }
 
 .clients__logos {
@@ -1503,8 +1515,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .clients__note {
   text-align: center;
   margin-top: 24px;
-  color: var(--clr-muted);
+  color: rgba(255,255,255,.75);
   font-size: var(--fs-sm);
+  font-weight: 500;
 }
 
 /* ──────────────────────────────────────────────
@@ -1854,10 +1867,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .page-hero p {
   font-size: var(--fs-xl);
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.85);
   max-width: 600px;
   margin-inline: auto;
   line-height: 1.8;
+  font-weight: 500;
 }
 
 .breadcrumb {
@@ -1867,12 +1881,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   justify-content: center;
   margin-bottom: 24px;
   font-size: var(--fs-sm);
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.65);
+  font-weight: 500;
 }
 
-.breadcrumb a { color: rgba(255,255,255,.7); transition: var(--transition); }
+.breadcrumb a { color: rgba(255,255,255,.8); transition: var(--transition); font-weight: 500; }
 .breadcrumb a:hover { color: var(--clr-white); }
-.breadcrumb span { color: var(--clr-accent); }
+.breadcrumb span { color: var(--clr-accent); font-weight: 600; }
 
 /* Service Detail Cards */
 .service-detail {
@@ -1945,7 +1960,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: flex-start;
   gap: 12px;
   font-size: var(--fs-sm);
-  color: var(--clr-text);
+  color: var(--clr-navy);
+  font-weight: 500;
 }
 
 .service-features li::before {
@@ -2416,7 +2432,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* Text Contrast Enhancements */
 .text-muted {
-  color: var(--clr-muted);
+  color: var(--clr-navy);
+  font-weight: 500;
 }
 
 .text-accent {
