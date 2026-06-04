@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3-Way Color Comparison - Original vs Emerald vs Sapphire</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #F59E0B;
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    /* Three column layout */
+    .comparison-3way {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .comparison-column {
+      background: linear-gradient(135deg, rgba(245,158,11,.05) 0%, rgba(0,0,0,.3) 100%);
+      border: 2px solid rgba(245,158,11,.2);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .column-header {
+      padding: 24px;
+      text-align: center;
+      border-bottom: 3px solid rgba(245,158,11,.3);
+      background: rgba(0,0,0,.5);
+    }
+
+    .column-header h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .column-header p {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .column-header .emoji {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Color indicators */
+    .color-bar {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .color-bar.original {
+      background: #F59E0B;
+      color: #000;
+    }
+
+    .color-bar.emerald {
+      background: #10B981;
+      color: #fff;
+    }
+
+    .color-bar.sapphire {
+      background: #0EA5E9;
+      color: #fff;
+    }
+
+    /* Demo content */
+    .demo-content {
+      padding: 24px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    /* Heading */
+    .heading {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .original .heading {
+      color: #F59E0B;
+    }
+
+    .emerald .heading {
+      color: #F59E0B;
+    }
+
+    .sapphire .heading {
+      color: #F59E0B;
+    }
+
+    /* Description text */
+    .description {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .button-primary {
+      color: #fff;
+    }
+
+    .original .button-primary {
+      background: #F59E0B;
+    }
+
+    .original .button-primary:hover {
+      background: #D97706;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245,158,11,.35);
+    }
+
+    .emerald .button-primary {
+      background: #10B981;
+    }
+
+    .emerald .button-primary:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16,185,129,.35);
+    }
+
+    .sapphire .button-primary {
+      background: #0EA5E9;
+    }
+
+    .sapphire .button-primary:hover {
+      background: #0284C7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(14,165,233,.35);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: #F59E0B;
+      border: 2px solid #F59E0B;
+    }
+
+    .button-outline:hover {
+      background: #F59E0B;
+      color: #000;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .original .card-title {
+      color: #F59E0B;
+    }
+
+    .emerald .card-title {
+      color: #F59E0B;
+    }
+
+    .sapphire .card-title {
+      color: #F59E0B;
+    }
+
+    .card-text {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .original .badge {
+      background: rgba(245,158,11,.2);
+      color: #F59E0B;
+      border: 1px solid #F59E0B;
+    }
+
+    .emerald .badge {
+      background: rgba(16,185,129,.2);
+      color: #10B981;
+      border: 1px solid #10B981;
+    }
+
+    .sapphire .badge {
+      background: rgba(14,165,233,.2);
+      color: #0EA5E9;
+      border: 1px solid #0EA5E9;
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .feature-list li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+      color: rgba(255,255,255,.7);
+    }
+
+    .original .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #F59E0B;
+    }
+
+    .emerald .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #10B981;
+    }
+
+    .sapphire .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #0EA5E9;
+    }
+
+    /* Section demos */
+    .section-demo {
+      margin-bottom: 40px;
+    }
+
+    .section-demo-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(245,158,11,.3);
+      color: #F59E0B;
+      text-align: center;
+    }
+
+    /* Footer section */
+    .footer-demo {
+      background: rgba(0,0,0,.5);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      margin-top: 20px;
+    }
+
+    .footer-link {
+      color: #F59E0B;
+      text-decoration: none;
+      margin-right: 12px;
+    }
+
+    .original .footer-link {
+      color: #F59E0B;
+    }
+
+    .emerald .footer-link {
+      color: #F59E0B;
+    }
+
+    .sapphire .footer-link {
+      color: #F59E0B;
+    }
+
+    /* Comparison notes */
+    .notes-section {
+      background: linear-gradient(135deg, rgba(245,158,11,.1) 0%, rgba(0,0,0,.4) 100%);
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    .notes-section h2 {
+      color: #F59E0B;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .note-card {
+      background: rgba(0,0,0,.5);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid;
+    }
+
+    .note-card.original {
+      border-left-color: #F59E0B;
+    }
+
+    .note-card.emerald {
+      border-left-color: #10B981;
+    }
+
+    .note-card.sapphire {
+      border-left-color: #0EA5E9;
+    }
+
+    .note-card h3 {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .note-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .note-card li {
+      padding: 6px 0;
+      padding-left: 16px;
+      position: relative;
+      color: rgba(255,255,255,.8);
+    }
+
+    .note-card.original h3 {
+      color: #F59E0B;
+    }
+
+    .note-card.emerald h3 {
+      color: #10B981;
+    }
+
+    .note-card.sapphire h3 {
+      color: #0EA5E9;
+    }
+
+    .note-card li::before {
+      content: '•';
+      position: absolute;
+      left: 4px;
+      font-weight: bold;
+    }
+
+    .note-card.original li::before {
+      color: #F59E0B;
+    }
+
+    .note-card.emerald li::before {
+      color: #10B981;
+    }
+
+    .note-card.sapphire li::before {
+      color: #0EA5E9;
+    }
+
+    /* Choice section */
+    .choice-section {
+      text-align: center;
+      margin-top: 50px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(16,185,129,.2) 0%, rgba(14,165,233,.2) 100%);
+      border: 2px solid rgba(16,185,129,.4);
+      border-radius: 16px;
+    }
+
+    .choice-section h2 {
+      color: #10B981;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .choice-btn {
+      padding: 16px 32px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .choice-btn.emerald {
+      background: #10B981;
+      color: #fff;
+    }
+
+    .choice-btn.emerald:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16,185,129,.35);
+    }
+
+    .choice-btn.sapphire {
+      background: #0EA5E9;
+      color: #fff;
+    }
+
+    .choice-btn.sapphire:hover {
+      background: #0284C7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(14,165,233,.35);
+    }
+
+    @media (max-width: 1200px) {
+      .comparison-3way {
+        grid-template-columns: 1fr;
+      }
+
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .choice-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎨 3-Way Color Comparison</h1>
+  <p class="subtitle">Original vs Emerald Green vs Sapphire Blue - See the Difference</p>
+
+  <!-- 3-WAY COMPARISON -->
+  <div class="comparison-3way">
+
+    <!-- ORIGINAL (ALL GOLD) -->
+    <div class="comparison-column original">
+      <div class="column-header">
+        <div class="emoji">⚪</div>
+        <h2>ORIGINAL</h2>
+        <p>Current Design (All Gold)</p>
+      </div>
+      <div class="color-bar original">Gold: #F59E0B</div>
+
+      <div class="demo-content">
+        <!-- Services Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Service Cards</div>
+
+          <div class="card">
+            <div class="card-title">EV Solutions</div>
+            <div class="card-text">Charging infrastructure for commercial use</div>
+          </div>
+          <button class="button button-primary">Get Quote</button>
+          <button class="button button-outline">Learn More</button>
+        </div>
+
+        <!-- Features Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Why Choose Us</div>
+          <ul class="feature-list">
+            <li>Expert team with 5+ years</li>
+            <li>24/7 customer support</li>
+            <li>Certified & licensed</li>
+            <li>Competitive pricing</li>
+          </ul>
+        </div>
+
+        <!-- Badge Example -->
+        <div class="section-demo">
+          <div class="section-demo-title">Popular Service</div>
+          <div class="badge">Most Popular</div>
+          <div class="description">This badge helps highlight featured services</div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Call to Action</div>
+          <button class="button button-primary" style="display: block; width: 100%; padding: 12px;">Contact Our Team</button>
+        </div>
+
+        <div class="footer-demo">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMERALD GREEN VERSION -->
+    <div class="comparison-column emerald">
+      <div class="column-header">
+        <div class="emoji">🟢</div>
+        <h2>EMERALD GREEN</h2>
+        <p>Gold Headings + Green CTAs</p>
+      </div>
+      <div class="color-bar emerald">Green: #10B981</div>
+
+      <div class="demo-content">
+        <!-- Services Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Service Cards</div>
+
+          <div class="card">
+            <div class="card-title">EV Solutions</div>
+            <div class="card-text">Charging infrastructure for commercial use</div>
+          </div>
+          <button class="button button-primary">Get Quote</button>
+          <button class="button button-outline">Learn More</button>
+        </div>
+
+        <!-- Features Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Why Choose Us</div>
+          <ul class="feature-list">
+            <li>Expert team with 5+ years</li>
+            <li>24/7 customer support</li>
+            <li>Certified & licensed</li>
+            <li>Competitive pricing</li>
+          </ul>
+        </div>
+
+        <!-- Badge Example -->
+        <div class="section-demo">
+          <div class="section-demo-title">Popular Service</div>
+          <div class="badge">Most Popular</div>
+          <div class="description">This badge helps highlight featured services</div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Call to Action</div>
+          <button class="button button-primary" style="display: block; width: 100%; padding: 12px;">Contact Our Team</button>
+        </div>
+
+        <div class="footer-demo">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAPPHIRE BLUE VERSION -->
+    <div class="comparison-column sapphire">
+      <div class="column-header">
+        <div class="emoji">🔵</div>
+        <h2>SAPPHIRE BLUE</h2>
+        <p>Gold Headings + Blue CTAs</p>
+      </div>
+      <div class="color-bar sapphire">Blue: #0EA5E9</div>
+
+      <div class="demo-content">
+        <!-- Services Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Service Cards</div>
+
+          <div class="card">
+            <div class="card-title">EV Solutions</div>
+            <div class="card-text">Charging infrastructure for commercial use</div>
+          </div>
+          <button class="button button-primary">Get Quote</button>
+          <button class="button button-outline">Learn More</button>
+        </div>
+
+        <!-- Features Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Why Choose Us</div>
+          <ul class="feature-list">
+            <li>Expert team with 5+ years</li>
+            <li>24/7 customer support</li>
+            <li>Certified & licensed</li>
+            <li>Competitive pricing</li>
+          </ul>
+        </div>
+
+        <!-- Badge Example -->
+        <div class="section-demo">
+          <div class="section-demo-title">Popular Service</div>
+          <div class="badge">Most Popular</div>
+          <div class="description">This badge helps highlight featured services</div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="section-demo">
+          <div class="section-demo-title">Call to Action</div>
+          <button class="button button-primary" style="display: block; width: 100%; padding: 12px;">Contact Our Team</button>
+        </div>
+
+        <div class="footer-demo">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAILED COMPARISON NOTES -->
+  <div class="notes-section">
+    <h2>📊 Detailed Comparison</h2>
+
+    <div class="notes-grid">
+      <div class="note-card original">
+        <h3>⚪ ORIGINAL (All Gold)</h3>
+        <ul>
+          <li>Buttons blend with headings</li>
+          <li>All accents same color</li>
+          <li>Less visual hierarchy</li>
+          <li>Single-color aesthetic</li>
+          <li>Can feel monotonous</li>
+          <li>Good for minimalist</li>
+          <li>Less clickable appearance</li>
+        </ul>
+      </div>
+
+      <div class="note-card emerald">
+        <h3>🟢 EMERALD GREEN</h3>
+        <ul>
+          <li>Modern & tech-forward</li>
+          <li>Highest contrast available</li>
+          <li>Best CTR (Click-Through Rate)</li>
+          <li>Perfect gold + green pairing</li>
+          <li>Premium yet professional</li>
+          <li>Great for tech companies</li>
+          <li>Color-blind accessible</li>
+        </ul>
+      </div>
+
+      <div class="note-card sapphire">
+        <h3>🔵 SAPPHIRE BLUE</h3>
+        <ul>
+          <li>Corporate & trustworthy</li>
+          <li>Very professional</li>
+          <li>Apple/Microsoft style</li>
+          <li>Good contrast & readability</li>
+          <li>Premium feel</li>
+          <li>More conservative</li>
+          <li>Enterprise-grade look</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CHOICE -->
+  <div class="choice-section">
+    <h2>Which Color Do You Prefer?</h2>
+    <p>Both are professional and modern. Choose based on your brand personality:</p>
+
+    <div class="choice-buttons">
+      <button class="choice-btn emerald" onclick="alert('Perfect! 🟢 Emerald Green chosen!\n\nModern, tech-forward, highest CTR.\n\nReady to implement all 9 priorities with this color!')">
+        🟢 EMERALD GREEN<br><span style="font-size: 0.8rem; opacity: 0.9;">Modern & Tech-Forward</span>
+      </button>
+
+      <button class="choice-btn sapphire" onclick="alert('Perfect! 🔵 Sapphire Blue chosen!\n\nCorporate, professional, trustworthy.\n\nReady to implement all 9 priorities with this color!')">
+        🔵 SAPPHIRE BLUE<br><span style="font-size: 0.8rem; opacity: 0.9;">Corporate & Premium</span>
+      </button>
+    </div>
+
+    <p style="font-size: 0.9rem; color: #aaa; margin-top: 30px;">
+      <strong>My Recommendation:</strong> Emerald Green for a tech/infrastructure company<br>
+      But Sapphire Blue works great too if you want more corporate feel
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

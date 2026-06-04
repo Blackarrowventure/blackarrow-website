@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priority 1 Preview - Emerald Green CTA System</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #F59E0B;
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .comparison-section {
+      background: linear-gradient(135deg, rgba(245,158,11,.05) 0%, rgba(0,0,0,.3) 100%);
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .comparison-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(255,255,255,.1);
+    }
+
+    .comparison-section.before h2 {
+      color: #888;
+    }
+
+    .comparison-section.after h2 {
+      color: #10B981;
+    }
+
+    /* Card Component */
+    .demo-card {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .demo-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .demo-card p {
+      color: rgba(255,255,255,.7);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    /* Button Styles - BEFORE (Current) */
+    .before .btn-primary {
+      background: #F59E0B;
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+      margin-right: 10px;
+    }
+
+    .before .btn-primary:hover {
+      background: #D97706;
+      box-shadow: 0 8px 20px rgba(245,158,11,.35);
+      transform: translateY(-2px);
+    }
+
+    .before .btn-outline {
+      background: transparent;
+      color: #F59E0B;
+      padding: 12px 24px;
+      border: 2px solid #F59E0B;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .before .btn-outline:hover {
+      background: #F59E0B;
+      color: #000;
+    }
+
+    /* Button Styles - AFTER (New) */
+    .after .btn-primary {
+      background: #10B981;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+      margin-right: 10px;
+    }
+
+    .after .btn-primary:hover {
+      background: #059669;
+      box-shadow: 0 8px 20px rgba(16,185,129,.35);
+      transform: translateY(-2px);
+      scale: 1.02;
+    }
+
+    .after .btn-outline {
+      background: transparent;
+      color: #F59E0B;
+      padding: 12px 24px;
+      border: 2px solid #F59E0B;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .after .btn-outline:hover {
+      background: #F59E0B;
+      color: #000;
+    }
+
+    /* Section Headers - Both use GOLD */
+    .section-header h2 {
+      color: #F59E0B;
+      margin-bottom: 10px;
+    }
+
+    /* Feature comparison */
+    .feature-list {
+      background: rgba(0,0,0,.3);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .feature-list li {
+      list-style: none;
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10B981;
+      font-weight: bold;
+    }
+
+    .before .feature-list li::before {
+      color: #F59E0B;
+    }
+
+    /* Color legend */
+    .color-legend {
+      background: rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+
+    .color-legend h3 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .color-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .color-swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,.2);
+    }
+
+    .color-info h4 {
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .color-info p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin: 0;
+    }
+
+    /* Visual impact description */
+    .impact-box {
+      background: linear-gradient(135deg, rgba(16,185,129,.1) 0%, rgba(245,158,11,.05) 100%);
+      border: 1px solid rgba(16,185,129,.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .impact-box strong {
+      color: #10B981;
+    }
+
+    @media (max-width: 1024px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎨 Priority 1: Emerald Green CTA System</h1>
+  <p class="subtitle">Visual Preview - How Your Website Will Look With This Change</p>
+
+  <!-- SIDE BY SIDE COMPARISON -->
+  <div class="comparison">
+
+    <!-- BEFORE -->
+    <div class="comparison-section before">
+      <h2>❌ CURRENT (All Gold)</h2>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">EV Solutions</h3>
+        <p>AC & DC charging stations for commercial infrastructure with smart POS integration and preventive maintenance.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">UPS Systems</h3>
+        <p>Uninterruptible power supply solutions ensuring business continuity with 24/7 monitoring and support.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">Lighting Solutions</h3>
+        <p>Professional LED lighting systems for energy efficiency and enhanced workspace ambiance.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="impact-box" style="background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.3);">
+        <strong style="color: #F59E0B;">Problem:</strong> All buttons are gold, making them blend with headings. Users can't easily distinguish what's clickable vs. just information.
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="comparison-section after">
+      <h2>✅ NEW (Gold + Emerald Green)</h2>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">EV Solutions</h3>
+        <p>AC & DC charging stations for commercial infrastructure with smart POS integration and preventive maintenance.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">UPS Systems</h3>
+        <p>Uninterruptible power supply solutions ensuring business continuity with 24/7 monitoring and support.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="demo-card">
+        <h3 style="color: #F59E0B;">Lighting Solutions</h3>
+        <p>Professional LED lighting systems for energy efficiency and enhanced workspace ambiance.</p>
+        <button class="btn-primary">Get Quote</button>
+        <button class="btn-outline">Learn More</button>
+      </div>
+
+      <div class="impact-box" style="background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.3);">
+        <strong>Solution:</strong> Green buttons immediately stand out for actions. Gold headings stay for visual hierarchy. Clear user guidance on what to click.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COLOR SYSTEM EXPLANATION -->
+  <div class="color-legend">
+    <h3>🎨 New Color System</h3>
+
+    <div class="color-grid">
+      <div class="color-item">
+        <div class="color-swatch" style="background: #F59E0B;"></div>
+        <div class="color-info">
+          <h4>GOLD (#F59E0B)</h4>
+          <p>Headings, titles, section headers, accent highlights</p>
+        </div>
+      </div>
+
+      <div class="color-item">
+        <div class="color-swatch" style="background: #10B981;"></div>
+        <div class="color-info">
+          <h4>EMERALD GREEN (#10B981)</h4>
+          <p>All CTA buttons (Get Quote, Submit, etc.)</p>
+        </div>
+      </div>
+
+      <div class="color-item">
+        <div class="color-swatch" style="background: #059669;"></div>
+        <div class="color-info">
+          <h4>DARK EMERALD (#059669)</h4>
+          <p>Button hover state & darker accents</p>
+        </div>
+      </div>
+
+      <div class="color-item">
+        <div class="color-swatch" style="background: #ffffff;"></div>
+        <div class="color-info">
+          <h4>WHITE (#FFFFFF)</h4>
+          <p>Body text, descriptions, secondary content</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY BENEFITS -->
+  <div style="background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 30px; margin-top: 40px;">
+    <h3 style="color: #10B981; margin-bottom: 20px;">✨ Key Benefits of This Change</h3>
+
+    <ul class="feature-list">
+      <li><strong>Better Visual Hierarchy:</strong> Users instantly know gold = important info, green = actions</li>
+      <li><strong>Improved CTR:</strong> Green buttons are proven to increase click rates vs. gold</li>
+      <li><strong>Professional Polish:</strong> Two-color system looks more sophisticated than one-color</li>
+      <li><strong>Better Accessibility:</strong> Color-blind friendly - green and gold have different brightness</li>
+      <li><strong>Mobile Friendly:</strong> Thumb-zone buttons stand out better with green</li>
+      <li><strong>Consistent Branding:</strong> Emerald green complements gold without clashing</li>
+    </ul>
+  </div>
+
+  <!-- IMPLEMENTATION DETAILS -->
+  <div style="background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 30px; margin-top: 30px;">
+    <h3 style="color: #F59E0B; margin-bottom: 20px;">📋 What Will Change in CSS</h3>
+
+    <pre style="background: #000; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; color: #10B981;">/* Add to :root color variables */
+--clr-accent-primary:   #F59E0B;  (keep gold for headings)
+--clr-accent-cta:       #10B981;  (new emerald for buttons)
+--clr-accent-cta-hover: #059669;  (darker emerald on hover)
+
+/* Update button colors */
+.btn-primary {
+  background: var(--clr-accent-cta);      /* Changed from gold to green */
+  color: var(--clr-white);
+}
+
+.btn-primary:hover {
+  background: var(--clr-accent-cta-hover);
+  box-shadow: 0 0 20px rgba(16,185,129,.3);
+}
+
+/* Keep gold for headings */
+h1, h2, h3 {
+  color: var(--clr-accent-primary);  /* Stays gold */
+}</pre>
+  </div>
+
+  <!-- WHERE IT APPLIES -->
+  <div style="background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 30px; margin-top: 30px;">
+    <h3 style="color: #F59E0B; margin-bottom: 20px;">🎯 Where This Applies</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div>
+        <h4 style="color: #10B981; margin-bottom: 10px;">Turns GREEN (All Pages):</h4>
+        <ul class="feature-list">
+          <li>"Get Quote" buttons</li>
+          <li>"Submit" buttons (forms)</li>
+          <li>"Contact Us" primary buttons</li>
+          <li>"Learn More" buttons</li>
+          <li>Mobile CTA bar buttons</li>
+          <li>Footer newsletter button</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="color: #F59E0B; margin-bottom: 10px;">Stays GOLD (All Pages):</h4>
+        <ul class="feature-list">
+          <li>All headings (h1, h2, h3)</li>
+          <li>Section headers</li>
+          <li>Section borders</li>
+          <li>Accent highlights</li>
+          <li>Logo text (optional)</li>
+          <li>Links in footer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div style="text-align: center; margin-top: 50px; padding: 40px; background: linear-gradient(135deg, rgba(16,185,129,.1) 0%, rgba(245,158,11,.05) 100%); border: 1px solid rgba(16,185,129,.3); border-radius: 16px;">
+    <h3 style="color: #10B981; margin-bottom: 15px;">Ready to Implement?</h3>
+    <p style="font-size: 1.1rem; color: rgba(255,255,255,.8); margin-bottom: 20px;">
+      This change takes ~30 minutes and applies to all 5 pages consistently.
+    </p>
+    <p style="color: #aaa;">
+      ✅ No breaking changes | ✅ All links still work | ✅ Mobile friendly | ✅ Professional polish
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

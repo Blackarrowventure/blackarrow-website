@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="saudi-flag">
+  <!-- Green Background (Official Saudi Green) -->
+  <rect width="900" height="600" fill="#006C35"/>
+
+  <!-- Shahada Text (لا إله إلا الله) - centered at top -->
+  <text x="450" y="160" font-family="'Arial Unicode MS', 'Arial', sans-serif" font-size="110" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">لا إله إلا الله</text>
+
+  <!-- Sword - positioned below text -->
+  <g transform="translate(200, 340)">
+    <!-- Sword blade (curved/decorative) -->
+    <path d="M 50 50 Q 200 40, 450 35 L 450 50 Q 200 55, 50 65 Z" fill="#ffffff" stroke="none"/>
+
+    <!-- Sword handle/pommel -->
+    <circle cx="35" cy="57" r="18" fill="#ffffff"/>
+
+    <!-- Sword guard/cross-guard -->
+    <rect x="10" y="45" width="40" height="24" fill="#ffffff" rx="2"/>
+  </g>
+</svg>
