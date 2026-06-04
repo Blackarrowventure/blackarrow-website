@@ -92,12 +92,12 @@
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
           <span>›</span>
-          <span>Contact Us</span>
+          <span data-i18n="contact_title">Contact Us</span>
         </nav>
         <h1 data-i18n="contact_title">Get In Touch</h1>
-        <p>We respond to all inquiries within 24 hours. Our team is ready to help.</p>
+        <p data-i18n="contact_intro">We respond to all inquiries within 24 hours. Our team is ready to help.</p>
       </div>
     </section>
 
@@ -109,8 +109,8 @@
           <!-- Contact Info -->
           <div>
             <div class="section-header" style="text-align:left;margin-bottom:32px;">
-              <span class="overline">Reach Us Directly</span>
-              <h2 id="contact-form-heading" style="font-size:1.875rem; color: #F59E0B !important;">Contact Information</h2>
+              <span class="overline" data-i18n="reach_us_directly">Reach Us Directly</span>
+              <h2 id="contact-form-heading" style="font-size:1.875rem; color: #F59E0B !important;" data-i18n="contact_info_heading">Contact Information</h2>
             </div>
             <div class="contact-info-cards">
 
@@ -149,7 +149,7 @@
               <div class="contact-info-card">
                 <div class="icon" aria-hidden="true">🌐</div>
                 <div>
-                  <h4>Website</h4>
+                  <h4 data-i18n="website">Website</h4>
                   <a href="https://www.8starseastern.com">www.8starseastern.com</a>
                 </div>
               </div>
@@ -167,16 +167,16 @@
 
             <!-- Business Hours -->
             <div style="margin-top:24px;padding:20px;background:#f4f6f9;border-radius:8px;border-left:3px solid var(--clr-red);">
-              <h4 style="font-size:0.75rem;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:12px;">Business Hours</h4>
-              <p style="font-size:0.875rem;color:#000;">Sunday – Thursday: 8:00 AM – 6:00 PM</p>
-              <p style="font-size:0.875rem;color:#333;margin-top:4px;">Friday – Saturday: Closed</p>
-              <p style="font-size:0.8rem;color:#333;margin-top:8px;">*WhatsApp inquiries accepted 24/7</p>
+              <h4 style="font-size:0.75rem;text-transform:uppercase;letter-spacing:.08em;color:#333;margin-bottom:12px;" data-i18n="business_hours">Business Hours</h4>
+              <p style="font-size:0.875rem;color:#000;" data-i18n="sunday_thursday" class="number-convertible">Sunday – Thursday: 8:00 AM – 6:00 PM</p>
+              <p style="font-size:0.875rem;color:#333;margin-top:4px;" data-i18n="friday_saturday">Friday – Saturday: Closed</p>
+              <p style="font-size:0.8rem;color:#333;margin-top:8px;" data-i18n="whatsapp_24_7">*WhatsApp inquiries accepted 24/7</p>
             </div>
           </div>
 
           <!-- Contact Form -->
           <div class="form-card reveal">
-            <h2 style="font-size:1.5rem;font-weight:700;color:var(--clr-navy);margin-bottom:28px;">Send Us a Message</h2>
+            <h2 style="font-size:1.5rem;font-weight:700;color:var(--clr-navy);margin-bottom:28px;" data-i18n="send_message">Send Us a Message</h2>
             <form id="contact-form" novalidate aria-label="Contact form">
 
               <div class="form-row">
@@ -206,17 +206,17 @@
 
               <div class="form-group">
                 <label for="service" data-i18n="form_service">Service of Interest</label>
-                <select id="service" name="service" aria-label="Select a service">
-                  <option value="" data-i18n="form_select">Select a Service</option>
-                  <option value="ev">EV Solutions</option>
-                  <option value="ups">UPS Solutions</option>
-                  <option value="lighting">Lighting Solutions</option>
-                  <option value="firefighting">Firefighting Systems</option>
-                  <option value="hvac">HVAC Solutions</option>
-                  <option value="electrical">Electrical &amp; Power Distribution</option>
-                  <option value="trading">General Trading</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="other">Other</option>
+                <select id="service" name="service" aria-label="Select a service" class="translated-select">
+                  <option value="" data-i18n="form_select_service">Select a Service</option>
+                  <option value="ev" data-i18n="service_ev">EV Solutions</option>
+                  <option value="ups" data-i18n="service_ups">UPS Solutions</option>
+                  <option value="lighting" data-i18n="service_lighting">Lighting Solutions</option>
+                  <option value="firefighting" data-i18n="service_firefighting">Firefighting Systems</option>
+                  <option value="hvac" data-i18n="service_hvac">HVAC Solutions</option>
+                  <option value="electrical" data-i18n="service_electrical">Electrical &amp; Power Distribution</option>
+                  <option value="trading" data-i18n="service_trading">General Trading</option>
+                  <option value="multiple" data-i18n="service_multiple">Multiple Services</option>
+                  <option value="other" data-i18n="other">Other</option>
                 </select>
               </div>
 
@@ -230,12 +230,12 @@
                 Send Message
               </button>
 
-              <p style="font-size:0.75rem;color:#888;margin-top:12px;text-align:center;">
+              <p style="font-size:0.75rem;color:#888;margin-top:12px;text-align:center;" data-i18n="required_fields">
                 * Required fields. We'll respond within 24 hours.
               </p>
 
               <!-- Success Message -->
-              <div id="form-success" style="display:none;margin-top:16px;padding:16px;background:#e8f5e9;border:1px solid #4caf50;border-radius:8px;color:#2e7d32;text-align:center;" role="alert" aria-live="polite">
+              <div id="form-success" style="display:none;margin-top:16px;padding:16px;background:#e8f5e9;border:1px solid #4caf50;border-radius:8px;color:#2e7d32;text-align:center;" role="alert" aria-live="polite" data-i18n="success_message">
                 ✓ Thank you! Your message has been sent. We'll be in touch shortly.
               </div>
 
@@ -250,9 +250,9 @@
     <section style="background:var(--clr-light);padding-block:60px;" aria-labelledby="map-heading">
       <div class="container">
         <div class="section-header reveal">
-          <span class="overline" style="color: #F59E0B !important;">Find Us</span>
-          <h2 id="map-heading" style="color: #F59E0B !important;">Our Location</h2>
-          <p>Ad Dammam, Ash Sharqiyah, Saudi Arabia</p>
+          <span class="overline" style="color: #F59E0B !important;" data-i18n="find_us">Find Us</span>
+          <h2 id="map-heading" style="color: #F59E0B !important;" data-i18n="contact_location">Our Location</h2>
+          <p data-i18n="contact_address_val">Ad Dammam, Ash Sharqiyah, Saudi Arabia</p>
         </div>
         <div style="border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);max-width:900px;margin:auto;" class="reveal">
           <iframe
@@ -294,7 +294,7 @@
         <!-- Column 1: Brand -->
         <div class="footer__brand">
           <img src="assets/images/black-arrow-logo.png" alt="Black Arrow" width="60" height="60">
-          <p>Leading provider of comprehensive electrical and technology solutions since 2022.</p>
+          <p data-i18n="footer_brand_desc" class="number-convertible">Leading provider of comprehensive electrical and technology solutions since 2022.</p>
           <!-- Social Links -->
           <div class="footer__socials">
             <a href="#linkedin" aria-label="LinkedIn" class="social-link" title="LinkedIn">
@@ -348,11 +348,11 @@
           <div class="footer__contact">
             <div class="contact-item">
               <span style="font-size:1.2em;">📍</span>
-              <span>Al Khobar, Saudi Arabia</span>
+              <span data-i18n="location_khobar">Al Khobar, Saudi Arabia</span>
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">📞</span>
-              <a href="tel:+966560224715">+966 560 224 715</a>
+              <a href="tel:+966560224715" class="number-convertible">+966 560 224 715</a>
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">✉️</span>
@@ -360,7 +360,7 @@
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">⏰</span>
-              <span>9 AM - 5 PM, Sat-Thu</span>
+              <span data-i18n="business_hours_range" class="number-convertible">9 AM - 5 PM, Sat-Thu</span>
             </div>
           </div>
           <!-- Newsletter -->
@@ -373,11 +373,11 @@
 
       <!-- Bottom Bar: Copyright &amp; Links -->
       <div class="footer__bottom">
-        <p>&copy; 2024 Black Arrow Company. All rights reserved. Vision 2030.</p>
+        <p>&copy; <span class="number-convertible">2024</span> Black Arrow Company. All rights reserved. Vision 2030.</p>
         <div class="footer__legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
+          <a href="#" data-i18n="privacy_policy">Privacy Policy</a>
+          <a href="#" data-i18n="terms_service">Terms of Service</a>
+          <a href="#" data-i18n="sitemap">Sitemap</a>
         </div>
       </div>
     </div>
