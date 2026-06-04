@@ -395,6 +395,7 @@ function initHeroSlider() {
    9. INIT ALL
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  initLang();
   initNav();
   initHeroSlider();
   initScrollReveal();
