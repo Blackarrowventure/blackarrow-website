@@ -602,7 +602,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* Language Switcher */
-.lang-switch {
+.lang-switch,
+.lang-switcher {
   display: flex;
   align-items: center;
   border: 1px solid var(--clr-border);
@@ -610,18 +611,32 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   overflow: hidden;
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
 }
 
-.lang-switch button {
-  padding: 6px 12px;
+.lang-switch button,
+.lang-switcher button,
+.lang-btn {
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: #1a1a1a;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
   transition: var(--transition);
-  color: rgba(255,255,255,.6);
-  font-weight: 500;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .lang-switch button.active,
-.lang-switch button:hover {
-  background: var(--clr-navy);
+.lang-switcher button.active,
+.lang-btn.active,
+.lang-switch button:hover,
+.lang-switcher button:hover,
+.lang-btn:hover {
+  background: var(--clr-accent);
   color: var(--clr-white);
 }
 
