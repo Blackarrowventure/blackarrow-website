@@ -11,6 +11,24 @@
    ────────────────────────────────────────────── */
 const translations = {};
 
+// Convert English numerals to Arabic numerals
+function convertNumbersToArabic(text) {
+  if (!text) return text;
+  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+  return String(text).replace(/\d/g, d => arabicNumbers[d]);
+}
+
+// Convert Arabic numerals to English numerals
+function convertNumbersToEnglish(text) {
+  if (!text) return text;
+  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+  let result = String(text);
+  arabicNumbers.forEach((char, index) => {
+    result = result.replace(new RegExp(char, 'g'), index);
+  });
+  return result;
+}
+
 async function loadTranslations(lang) {
   if (translations[lang]) return translations[lang];
   try {
@@ -50,6 +68,16 @@ async function applyTranslations(lang) {
   // Update document title with lang suffix
   if (lang === 'ar') {
     document.title = document.title.replace('Eight Stars Eastern', 'ثمانية نجوم الشرقية');
+
+    // Convert all numbers to Arabic numerals
+    document.querySelectorAll('.number-convertible').forEach(el => {
+      el.textContent = convertNumbersToArabic(el.textContent);
+    });
+  } else {
+    // Convert back to English numerals
+    document.querySelectorAll('.number-convertible').forEach(el => {
+      el.textContent = convertNumbersToEnglish(el.textContent);
+    });
   }
 }
 

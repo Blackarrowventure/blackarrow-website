@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Arrow Venture - Company Profile 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap');
+
+    :root {
+      --clr-dark: #0a0a0a;
+      --clr-navy-dark: #1a1a1a;
+      --clr-navy: #2d3748;
+      --clr-accent: #F59E0B;
+      --clr-accent-dark: #D97706;
+      --clr-accent-light: #FBBF24;
+      --clr-white: #ffffff;
+      --clr-light: #f8f8f8;
+      --clr-text-light: #e0e0e0;
+      --clr-muted: #999999;
+      --ff-heading: 'Playfair Display', serif;
+      --ff-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --transition: 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--clr-dark);
+      color: var(--clr-white);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: white;
+        color: #000;
+      }
+      .page-break {
+        page-break-after: always;
+        break-after: page;
+      }
+      .no-print {
+        display: none !important;
+      }
+      a {
+        color: var(--clr-accent);
+        text-decoration: none;
+      }
+    }
+
+    /* PAGE STYLING */
+    .page {
+      width: 100%;
+      max-width: 8.5in;
+      height: 11in;
+      margin: 20px auto;
+      padding: 0;
+      background: var(--clr-dark);
+      color: var(--clr-white);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-content {
+      padding: 1.25in;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* COVER PAGE */
+    .cover-page {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-page::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
+      animation: pulse 20s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .cover-logo {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--clr-accent);
+      margin-bottom: 20px;
+      font-family: var(--ff-heading);
+      text-shadow: 0 4px 16px rgba(245,158,11,0.3);
+      z-index: 2;
+      position: relative;
+    }
+
+    .cover-subtitle {
+      font-size: 1.2rem;
+      color: var(--clr-text-light);
+      margin-bottom: 40px;
+      font-style: italic;
+      z-index: 2;
+      position: relative;
+    }
+
+    .cover-title {
+      font-size: 2.5rem;
+      font-family: var(--ff-heading);
+      font-weight: 800;
+      color: var(--clr-white);
+      margin-bottom: 30px;
+      z-index: 2;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cover-year {
+      font-size: 1.8rem;
+      color: var(--clr-accent);
+      margin: 40px 0;
+      font-weight: 700;
+      z-index: 2;
+      position: relative;
+    }
+
+    .cover-contact {
+      margin-top: 40px;
+      font-size: 0.95rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .cover-contact p {
+      margin: 8px 0;
+      color: var(--clr-text-light);
+    }
+
+    /* GEOMETRIC SHAPES */
+    .shape-accent {
+      position: absolute;
+      background: linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(217,119,6,0.2) 100%);
+      z-index: 1;
+    }
+
+    .shape-top-right {
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .shape-bottom-left {
+      bottom: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    /* CONTENT PAGES */
+    .content-page {
+      background: var(--clr-dark);
+      position: relative;
+    }
+
+    .content-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--clr-accent) 0%, transparent 100%);
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(245,158,11,0.2);
+    }
+
+    .page-header-logo {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--clr-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .page-header-title {
+      font-size: 2rem;
+      font-family: var(--ff-heading);
+      color: var(--clr-accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-family: var(--ff-heading);
+      color: var(--clr-accent);
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--clr-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .section-content {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--clr-text-light);
+      text-align: justify;
+    }
+
+    .content-page .page-content {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc-page {
+      background: var(--clr-dark);
+    }
+
+    .toc-content {
+      background: rgba(245,158,11,0.05);
+      border: 2px solid var(--clr-accent);
+      border-radius: 8px;
+      padding: 30px;
+      width: 100%;
+    }
+
+    .toc-title {
+      font-size: 1.8rem;
+      font-family: var(--ff-heading);
+      color: var(--clr-accent);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(245,158,11,0.1);
+      color: var(--clr-text-light);
+      font-size: 0.95rem;
+    }
+
+    .toc-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* VISION/MISSION CARDS */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .vm-card {
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .vm-card-title {
+      font-size: 1.1rem;
+      font-family: var(--ff-heading);
+      color: var(--clr-accent);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .vm-card-text {
+      font-size: 0.85rem;
+      color: var(--clr-text-light);
+      line-height: 1.6;
+    }
+
+    /* SERVICE SECTIONS */
+    .service-title {
+      font-size: 1.6rem;
+      font-family: var(--ff-heading);
+      color: var(--clr-accent);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--clr-text-light);
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .service-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--clr-text-light);
+    }
+
+    .service-list li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .service-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--clr-accent);
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      font-size: 0.75rem;
+      color: var(--clr-muted);
+      text-align: center;
+      border-top: 1px solid rgba(245,158,11,0.1);
+      padding-top: 10px;
+    }
+
+    .aims-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .aim-item {
+      font-size: 0.85rem;
+      color: var(--clr-text-light);
+      padding: 12px;
+      background: rgba(245,158,11,0.05);
+      border-left: 3px solid var(--clr-accent);
+      border-radius: 4px;
+    }
+
+    /* NO PRINT BUTTON */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      background: var(--clr-accent);
+      color: var(--clr-dark);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .print-btn:hover {
+      background: var(--clr-accent-light);
+      transform: translateY(-2px);
+    }
+
+    @media print {
+      .print-btn {
+        display: none;
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .page {
+        max-width: 100%;
+        margin: 10px;
+      }
+      .vm-grid,
+      .aims-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print to PDF</button>
+
+  <!-- ════════════════════════════════════════
+       PAGE 1: COVER
+       ════════════════════════════════════════ -->
+  <div class="page cover-page">
+    <div class="shape-accent shape-top-right"></div>
+    <div class="shape-accent shape-bottom-left"></div>
+
+    <div class="page-content">
+      <div class="cover-logo">◆</div>
+      <div class="cover-subtitle">Professional Infrastructure Solutions</div>
+      <div class="cover-title">The Company Profile</div>
+      <div class="cover-year">2026</div>
+      <div class="cover-contact">
+        <p>📞 +966 560224715</p>
+        <p>📧 info@blackarrowventure.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 2: TABLE OF CONTENTS
+       ════════════════════════════════════════ -->
+  <div class="page toc-page page-break">
+    <div class="page-content">
+      <div class="toc-content">
+        <div class="toc-title">Table of Contents</div>
+        <ul class="toc-list">
+          <li>• About Us</li>
+          <li>• Company Vision & Strategic Goals</li>
+          <li>• EV Solutions</li>
+          <li>• UPS Solutions</li>
+          <li>• Lighting Systems</li>
+          <li>• Firefighting Systems</li>
+          <li>• HVAC Solutions</li>
+          <li>• Electrical & Power Distribution</li>
+          <li>• General Trading</li>
+          <li>• Contact Us</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 3: ABOUT US
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="section-subtitle">Who We Are</div>
+      <h1 class="section-title">About Us</h1>
+
+      <div class="section-content">
+        <p style="margin-bottom: 12px;">
+          <strong>Black Arrow Venture</strong> is a Saudi-based trading and solutions company dedicated to delivering comprehensive infrastructure and technology solutions across the Kingdom of Saudi Arabia. With a strategic focus on Electric Vehicle (EV) infrastructure, Uninterruptible Power Supply (UPS) systems, HVAC solutions, and specialised engineering products, we provide complete, end-to-end services tailored to modern market demands.
+        </p>
+
+        <p style="margin-bottom: 12px;">
+          Operating in alignment with Saudi Vision 2030, Black Arrow Venture actively supports the Kingdom's transformation toward sustainable energy, smart infrastructure, and diversified economic growth. Our approach integrates supply, installation, testing & commissioning, and long-term maintenance — ensuring reliability, efficiency, and operational excellence for every project.
+        </p>
+
+        <p style="margin-bottom: 12px;">
+          We serve a wide range of sectors, including commercial, industrial, hospitality, healthcare, and public infrastructure, delivering solutions that meet international standards while addressing local regulatory and operational requirements.
+        </p>
+
+        <p>
+          Driven by innovation, quality, and strong partnerships, Black Arrow Venture is committed to building resilient systems that empower businesses, enable clean mobility, and support the future-ready infrastructure of Saudi Arabia.
+        </p>
+      </div>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 4: VISION & MISSION
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="section-subtitle">Our Foundation</div>
+      <h1 class="section-title">Vision & Strategic Goals</h1>
+
+      <div class="vm-grid" style="margin-bottom: 20px;">
+        <div class="vm-card">
+          <div class="vm-card-title">Our Vision</div>
+          <div class="vm-card-text">To become a leading Saudi trading and solutions provider driving the Kingdom's transition toward sustainable energy, resilient infrastructure, and smart technologies — in full alignment with Saudi Vision 2030.</div>
+        </div>
+
+        <div class="vm-card">
+          <div class="vm-card-title">Our Mission</div>
+          <div class="vm-card-text">Deliver innovative, sustainable, and reliable solutions that empower businesses, support critical infrastructure, and contribute to Saudi Arabia's vision for a technologically advanced and environmentally responsible future.</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" style="margin-top: 20px;">We Aim To</div>
+      <div class="aims-grid">
+        <div class="aim-item">Contribute to the growth of EV infrastructure across the Kingdom</div>
+        <div class="aim-item">Support mission-critical sectors with reliable UPS and power continuity solutions</div>
+        <div class="aim-item">Enhance building efficiency through advanced HVAC and smart systems</div>
+        <div class="aim-item">Deliver integrated, high-performance solutions that meet international standards</div>
+        <div class="aim-item">Empower Saudi industries with modern, sustainable, and future-ready technologies</div>
+        <div class="aim-item">Be a trusted contributor to Saudi Arabia's transformation into a global hub for energy, technology, and sustainable development</div>
+      </div>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 5: EV SOLUTIONS
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">⚡ EV Solutions</div>
+      <div class="service-desc">
+        Our EV charging solutions include AC and DC fast chargers with integrated payment systems, smart monitoring, and full installation support. We ensure safe, compliant, and high-efficiency charging infrastructure tailored to diverse operational environments.
+      </div>
+      <ul class="service-list">
+        <li>EV Charging stations AC and DC</li>
+        <li>Charging station POS Systems</li>
+        <li>Charging station UI and hardware integration</li>
+        <li>EV Chargers preventive maintenance solutions</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 6: UPS SOLUTIONS
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">🔋 UPS Solutions</div>
+      <div class="service-desc">
+        We supply advanced UPS systems and battery solutions engineered for high efficiency, stability, and long-term performance. From supply and installation to testing and maintenance, we provide complete critical power solutions tailored to operational demands.
+      </div>
+      <ul class="service-list">
+        <li>UPS turnkey solutions</li>
+        <li>Supply, installation, testing and commissioning</li>
+        <li>Maintenance solutions for UPS</li>
+        <li>Battery solutions for UPS</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 7: LIGHTING SOLUTIONS
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">💡 Lighting Solutions</div>
+      <div class="service-desc">
+        Our lighting systems are engineered to provide optimal illumination, durability, and energy efficiency. From architectural façade lighting to customized signage and specialized applications, we offer end-to-end solutions tailored to project requirements.
+      </div>
+      <ul class="service-list">
+        <li>Facade lighting</li>
+        <li>Exterior lighting</li>
+        <li>Interior lighting</li>
+        <li>Signage systems</li>
+        <li>Specialized lighting systems</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 8: FIREFIGHTING SOLUTIONS
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">🔥 Firefighting Solutions</div>
+      <div class="service-desc">
+        We supply advanced firefighting systems designed to protect lives and assets across commercial, industrial, and public facilities. Our solutions include detection, suppression, and integrated safety controls, engineered for reliability, compliance with international standards, and rapid response.
+      </div>
+      <ul class="service-list">
+        <li>Firefighting turnkey solutions</li>
+        <li>Supply, installation, testing and commissioning</li>
+        <li>Maintenance solutions for firefighting systems</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 9: HVAC SOLUTIONS
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">❄️ HVAC Solutions</div>
+      <div class="service-desc">
+        We provide advanced HVAC solutions designed for efficient climate control, energy optimization, and indoor air quality. Our systems include supply, installation, and maintenance of air handling units, ductwork, and smart controls, ensuring reliable environmental comfort.
+      </div>
+      <ul class="service-list">
+        <li>HVAC turnkey solutions</li>
+        <li>Supply, installation, testing and commissioning</li>
+        <li>Maintenance solutions for HVAC systems</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 10: ELECTRICAL & POWER DISTRIBUTION
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">⚙️ Electrical & Power Distribution</div>
+      <div class="service-desc">
+        We provide advanced electrical and power distribution solutions designed to ensure safe, reliable, and efficient energy delivery across all facility types. Our offerings include switchgear, distribution boards, control panels, and integrated systems engineered for international standards.
+      </div>
+      <ul class="service-list">
+        <li>Electrical & Power distribution turnkey solutions</li>
+        <li>Supply, installation, testing and commissioning</li>
+        <li>Maintenance solutions</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 11: GENERAL TRADING
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="service-title">🌐 General Trading</div>
+      <div class="service-desc">
+        We operate as a dynamic general trading company serving the Saudi market across industrial and diversified sectors. We supply high-quality equipment, technical solutions, and specialized products tailored to meet the evolving demands of infrastructure and institutional projects in alignment with Saudi Vision 2030.
+      </div>
+      <ul class="service-list">
+        <li>Industrial Sector solutions</li>
+        <li>Safety Sector products</li>
+        <li>Aviation Sector supplies</li>
+        <li>Oil and Gas Sector equipment</li>
+        <li>Electrical & Electronics solutions</li>
+        <li>IT Solutions and more</li>
+      </ul>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | www.blackarrowventure.com</div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE 12: CONTACT US
+       ════════════════════════════════════════ -->
+  <div class="page content-page page-break">
+    <div class="page-content">
+      <div class="page-header">
+        <div class="page-header-logo">Black Arrow Venture</div>
+      </div>
+
+      <div class="section-subtitle">Get in Touch</div>
+      <h1 class="section-title">Contact Us</h1>
+
+      <div class="section-content" style="text-align: center; margin-top: 30px;">
+        <p style="font-size: 1.1rem; margin-bottom: 15px;">
+          <strong>📞 Phone:</strong><br>
+          +966 560224715
+        </p>
+
+        <p style="font-size: 1.1rem; margin-bottom: 15px;">
+          <strong>📧 Email:</strong><br>
+          info@blackarrowventure.com
+        </p>
+
+        <p style="font-size: 1.1rem; margin-bottom: 15px;">
+          <strong>📍 Address:</strong><br>
+          Ad Dammam, Ash Sharqiyah 32245<br>
+          Saudi Arabia
+        </p>
+
+        <p style="font-size: 1.1rem;">
+          <strong>🌐 Website:</strong><br>
+          www.blackarrowventure.com
+        </p>
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid rgba(245,158,11,0.2); text-align: center; font-size: 0.9rem; color: var(--clr-text-light);">
+        <p><strong>Our Service Portfolio:</strong></p>
+        <p style="margin-top: 10px; line-height: 1.8;">
+          EV Solutions • UPS Systems • Lighting Solutions • Firefighting Systems • HVAC Systems • Electrical & Power Distribution • General Trading
+        </p>
+        <p style="margin-top: 15px; color: var(--clr-muted); font-size: 0.85rem;">
+          We are committed to delivering innovative, sustainable, and reliable solutions that empower businesses and support Saudi Arabia's Vision 2030.
+        </p>
+      </div>
+    </div>
+    <div class="page-footer">Black Arrow Venture © 2026 | All rights reserved</div>
+  </div>
+
+</body>
+</html>
