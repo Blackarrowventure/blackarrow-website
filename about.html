@@ -33,7 +33,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-red);}
-    .navbar__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1200px;margin:auto;padding:0 20px;}
+    .navbar__inner{height:100%;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:0;width:100%;padding:0;}
     .navbar__logo{display:flex;align-items:center;gap:12px;}
     .navbar__logo img{height:70px;width:auto;}
   </style>
@@ -54,8 +54,8 @@
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-          <li><a href="about.html" class="active" data-i18n="nav_about">About</a></li>
           <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+          <li><a href="about.html" class="active" data-i18n="nav_about">About</a></li>
           <li><a href="become-a-partner.html" data-i18n="nav_partner">Become a Partner</a></li>
           <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
         </ul>
@@ -69,8 +69,8 @@
     </nav>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
       <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="about.html" data-i18n="nav_about">About</a>
       <a href="services.html" data-i18n="nav_services">Services</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
       <a href="become-a-partner.html" data-i18n="nav_partner">Become a Partner</a>
       <a href="contact.html" data-i18n="nav_contact">Contact</a>
       <a href="contact.html" class="btn btn-primary" style="margin-top:16px;display:block;text-align:center;" data-i18n="nav_quote">Get a Quote</a>
@@ -96,8 +96,8 @@
     <section class="about-full section" aria-labelledby="about-full-heading">
       <div class="container">
         <div class="about-full__intro reveal">
-          <span class="overline">Who We Are</span>
-          <h2 id="about-full-heading" data-i18n="about_title">About The Black Arrow</h2>
+          <span class="overline" style="color: #F59E0B !important;">Who We Are</span>
+          <h2 id="about-full-heading" style="color: #F59E0B !important;" data-i18n="about_title">About The Black Arrow</h2>
           <p data-i18n="about_p1">The Black Arrow is a Saudi-based trading and solutions provider dedicated to delivering comprehensive infrastructure and technology solutions across the Kingdom of Saudi Arabia. With a strategic focus on Electric Vehicle (EV) infrastructure, Uninterruptible Power Supply (UPS) systems, HVAC solutions, and specialised engineering products, we provide complete, end-to-end services tailored to modern market demands.</p>
           <p data-i18n="about_p2">Operating in alignment with Saudi Vision 2030, we actively support the Kingdom's transformation toward sustainable energy, smart infrastructure, and diversified economic growth. Our approach integrates supply, installation, testing &amp; commissioning, and long-term maintenance — ensuring reliability, efficiency, and operational excellence for every project.</p>
           <p>We serve a wide range of sectors, including commercial, industrial, hospitality, healthcare, and public infrastructure, delivering solutions that meet international standards while addressing local regulatory and operational requirements.</p>
@@ -105,23 +105,41 @@
         </div>
 
         <!-- Vision & Mission -->
-        <div class="vm-grid" style="margin-bottom:64px;">
-          <div class="vm-card reveal">
-            <div class="vm-card__icon" aria-hidden="true">🎯</div>
-            <h3 data-i18n="vision_title">Our Vision</h3>
-            <p data-i18n="vision_text">To become a leading Saudi trading and solutions provider driving the Kingdom's transition toward sustainable energy, resilient infrastructure, and smart technologies — in full alignment with Saudi Vision 2030.</p>
+        <div style="margin: 80px 0 64px; padding: 48px 0; border-top: 2px solid rgba(245,158,11,.2); border-bottom: 2px solid rgba(245,158,11,.2);">
+          <div class="section-header reveal" style="margin-bottom: 48px;">
+            <span class="overline" style="color: #F59E0B !important;">Our Foundation</span>
+            <h2 style="color: #F59E0B !important;">Vision &amp; Mission</h2>
           </div>
-          <div class="vm-card reveal">
-            <div class="vm-card__icon" aria-hidden="true">🚀</div>
-            <h3 data-i18n="mission_title">Our Mission</h3>
-            <p data-i18n="mission_text">Deliver innovative, sustainable, and reliable solutions that empower businesses, support critical infrastructure, and contribute to Saudi Arabia's vision for a technologically advanced and environmentally responsible future.</p>
+          <div class="vm-grid">
+            <div class="vm-card reveal">
+              <div class="vm-card__icon" aria-hidden="true">🎯</div>
+              <h3 data-i18n="vision_title">Our Vision</h3>
+              <p data-i18n="vision_text">To become a leading Saudi trading and solutions provider driving the Kingdom's transition toward sustainable energy, resilient infrastructure, and smart technologies — in full alignment with Saudi Vision 2030.</p>
+              <ul>
+                <li>Contribute to EV infrastructure growth across the Kingdom</li>
+                <li>Support mission-critical sectors with reliable power solutions</li>
+                <li>Enhance building efficiency through advanced HVAC &amp; smart systems</li>
+                <li>Deliver integrated, high-performance solutions meeting international standards</li>
+              </ul>
+            </div>
+            <div class="vm-card reveal">
+              <div class="vm-card__icon" aria-hidden="true">🚀</div>
+              <h3 data-i18n="mission_title">Our Mission</h3>
+              <p data-i18n="mission_text">Deliver innovative, sustainable, and reliable solutions that empower businesses, support critical infrastructure, and contribute to Saudi Arabia's vision for a technologically advanced and environmentally responsible future.</p>
+              <ul>
+                <li>Supply, installation, testing &amp; commissioning on every project</li>
+                <li>Long-term maintenance ensuring ongoing reliability</li>
+                <li>Partnerships built on trust, quality, and innovation</li>
+                <li>Full compliance with international and local standards</li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <!-- We Aim To -->
         <div class="section-header reveal">
-          <span class="overline">Strategic Goals</span>
-          <h2>We Aim To</h2>
+          <span class="overline" style="color: #F59E0B !important;">Strategic Goals</span>
+          <h2 style="color: #F59E0B !important;">We Aim To</h2>
         </div>
         <div class="aims-grid">
           <div class="aim-item reveal">
@@ -168,7 +186,7 @@
             </div>
             <div class="reg-item">
               <div class="label">Status</div>
-              <div class="value" style="color:#4caf50;">Active ✓</div>
+              <div class="value" style="color:#fff;">Active ✓</div>
             </div>
           </div>
         </div>
@@ -179,17 +197,11 @@
     <section class="section compliance-section" aria-labelledby="compliance-heading">
       <div class="container">
         <div class="section-header reveal">
-          <span class="overline">Trust &amp; Security</span>
-          <h2 id="compliance-heading">Certifications &amp; Compliance</h2>
+          <span class="overline" style="color: #F59E0B !important;">Trust &amp; Security</span>
+          <h2 id="compliance-heading" style="color: #F59E0B !important;">Certifications &amp; Compliance</h2>
         </div>
 
         <div class="compliance-grid">
-          <div class="compliance-badge reveal">
-            <div class="badge-icon">🏆</div>
-            <h3>ISO 9001:2015</h3>
-            <p>Quality Management System Certified</p>
-          </div>
-
           <div class="compliance-badge reveal">
             <div class="badge-icon">🔐</div>
             <h3>Data Security</h3>
@@ -215,8 +227,8 @@
     <section class="section section--dark" aria-labelledby="why-about-heading">
       <div class="container">
         <div class="section-header reveal">
-          <span class="overline" style="color:rgba(255,255,255,.6)">Our Advantage</span>
-          <h2 id="why-about-heading" style="color:#fff;" data-i18n="why_title">Why Choose Us</h2>
+          <span class="overline" style="color: #F59E0B !important;">Our Advantage</span>
+          <h2 id="why-about-heading" style="color: #F59E0B !important;" data-i18n="why_title">Why Choose Us</h2>
         </div>
         <div class="why-grid">
           <div class="why-card reveal">
@@ -319,7 +331,7 @@
           <div class="footer__contact">
             <div class="contact-item">
               <span style="font-size:1.2em;">📍</span>
-              <span>Riyadh, Saudi Arabia</span>
+              <span>Al Khobar, Saudi Arabia</span>
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">📞</span>
@@ -371,5 +383,6 @@
   </div>
 
   <script src="assets/js/app.js" defer></script>
+
 </body>
 </html>
