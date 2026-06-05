@@ -16,7 +16,7 @@
     }
 
     body {
-      background: #000;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       font-family: 'Arial', sans-serif;
       display: flex;
       justify-content: center;
@@ -33,32 +33,33 @@
     /* Business Card - Exact Match to PDF */
     .business-card {
       background: #000;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      padding: 50px 45px;
+      margin-bottom: 30px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
       position: relative;
+      border-radius: 8px;
     }
 
     /* Logo Section - Arrow + Company */
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 35px;
+      gap: 22px;
+      margin-bottom: 40px;
     }
 
     .arrow {
-      width: 50px;
-      height: 35px;
+      width: 55px;
+      height: 38px;
       background: #D4AF37;
       clip-path: polygon(0 40%, 70% 40%, 70% 20%, 100% 50%, 70% 80%, 70% 60%, 0 60%);
       flex-shrink: 0;
     }
 
     .company-info h2 {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       margin: 0;
       line-height: 1;
       margin-bottom: 2px;
@@ -86,11 +87,11 @@
     }
 
     .person-info h1 {
-      font-size: 42px;
+      font-size: 44px;
       color: #fff;
       font-weight: 700;
-      margin: 0 0 12px 0;
-      line-height: 1;
+      margin: 0 0 14px 0;
+      line-height: 1.1;
       font-family: Arial, sans-serif;
     }
 
@@ -106,8 +107,8 @@
     /* Divider */
     .divider {
       height: 1px;
-      background: #555;
-      margin: 22px 0;
+      background: #666;
+      margin: 25px 0;
     }
 
     /* Contact Info */
@@ -118,20 +119,20 @@
     .contact-line {
       display: flex;
       align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 16px;
       font-size: 15px;
-      color: #ccc;
+      color: #ddd;
       font-family: 'Courier New', monospace;
     }
 
     .contact-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       background: #D4AF37;
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .contact-line a {
@@ -174,14 +175,16 @@
       background: #FFD700;
     }
 
-    .btn-copy {
-      background: rgba(212, 175, 55, 0.15);
-      color: #D4AF37;
-      border: 1px solid #D4AF37;
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      border: none;
     }
 
-    .btn-copy:hover {
-      background: rgba(212, 175, 55, 0.25);
+    .btn-whatsapp:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
     }
 
     /* Success Message */
@@ -283,7 +286,7 @@
       <!-- Action Buttons -->
       <div class="button-section">
         <button class="btn btn-save" onclick="saveContact()">💾 Save to Contacts</button>
-        <button class="btn btn-copy" onclick="copyPhone()">📋 Copy Phone</button>
+        <a href="https://wa.me/966560224715" target="_blank" class="btn btn-whatsapp" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">💬 WhatsApp</a>
       </div>
 
       <!-- Success Message -->
@@ -338,15 +341,6 @@ END:VCARD`;
       setTimeout(() => msg.classList.remove('show'), 3000);
     }
 
-    function copyPhone() {
-      const phone = '+966560224715';
-      navigator.clipboard.writeText(phone).then(() => {
-        const msg = document.getElementById('successMsg');
-        msg.textContent = '✅ Phone copied!';
-        msg.classList.add('show');
-        setTimeout(() => msg.classList.remove('show'), 2000);
-      });
-    }
   </script>
 </body>
 </html>
