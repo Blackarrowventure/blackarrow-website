@@ -77,7 +77,7 @@
   --shadow-hover-gold: 0 16px 48px rgba(245,158,11,.25);
 
   --transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --nav-h: 130px;
+  --nav-h: 180px;
 }
 
 /* ──────────────────────────────────────────────
@@ -525,7 +525,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .navbar__logo img {
-  height: 100px;
+  height: 140px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
