@@ -127,46 +127,42 @@
       <!-- Image Slider Background - Optimized for WebP with JPG fallback -->
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__images">
-        <!-- Image 1: EV Solutions -->
+        <!-- Image 1: EV Solutions - EAGER for LCP -->
         <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/services/ev-solutions.webp?w=480" type="image/webp">
           <source srcset="assets/images/services/ev-solutions.webp" type="image/webp">
-          <img src="assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions for Commercial Infrastructure" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="hero__img" loading="eager" width="1920" height="1080" fetchpriority="high">
         </picture>
 
-        <!-- Image 2: UPS Solutions -->
-        <picture>
+        <!-- Image 2 onwards - LAZY load -->
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/ups-solutions.webp" type="image/webp">
-          <img src="assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems for Business Continuity" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
 
-        <!-- Image 3: Lighting Solutions -->
-        <picture>
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/lighting-solutions.webp" type="image/webp">
-          <img src="assets/images/services/lighting-solutions.jpg" alt="Professional LED Lighting Solutions for Buildings" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/lighting-solutions.jpg" alt="Lighting Solutions" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
 
-        <!-- Image 4: Firefighting Solutions -->
-        <picture>
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/firefighting-solutions.webp" type="image/webp">
-          <img src="assets/images/services/firefighting-solutions.jpg" alt="Fire Safety and Suppression Systems" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
 
-        <!-- Image 5: HVAC Solutions -->
-        <picture>
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/hvac-solutions.webp" type="image/webp">
-          <img src="assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems for Commercial Spaces" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/hvac-solutions.jpg" alt="HVAC Systems" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
 
-        <!-- Image 6: Electrical Power -->
-        <picture>
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/electrical-power.webp" type="image/webp">
-          <img src="assets/images/services/electrical-power.jpg" alt="Electrical Power Distribution Infrastructure Solutions" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/electrical-power.jpg" alt="Electrical Power" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
 
-        <!-- Image 7: General Trading -->
-        <picture>
+        <picture class="hero__img-lazy">
           <source srcset="assets/images/services/general-trading.webp" type="image/webp">
-          <img src="assets/images/services/general-trading.jpg" alt="General Trading and Industrial Supply Services" class="hero__img" loading="lazy" width="1920" height="1080">
+          <img src="assets/images/services/general-trading.jpg" alt="General Trading" class="hero__img" loading="lazy" width="1920" height="1080">
         </picture>
       </div>
       <div class="hero__content container">
