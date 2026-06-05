@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Adnan Afzal - Head of Sales at Black Arrow Venture. Contact information and digital business card.">
+  <meta property="og:title" content="Adnan Afzal - Black Arrow Venture">
+  <meta property="og:description" content="Head of Sales KSA | Contact Adnan Afzal">
+  <meta property="og:type" content="website">
+  <title>Adnan Afzal - Black Arrow Venture</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    /* Business Card */
+    .business-card {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative accent line */
+    .business-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #D4AF37 0%, #B8860B 100%);
+    }
+
+    /* Logo Section */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .arrow {
+      width: 35px;
+      height: 25px;
+      background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+      clip-path: polygon(0 40%, 70% 40%, 70% 20%, 100% 50%, 70% 80%, 70% 60%, 0 60%);
+      flex-shrink: 0;
+    }
+
+    .company-info h2 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .company-info h2 .gold {
+      color: #D4AF37;
+    }
+
+    .company-info h2 .white {
+      color: #fff;
+    }
+
+    .company-info p {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #888;
+      margin-top: 3px;
+    }
+
+    /* Person Info */
+    .person-info {
+      margin: 25px 0;
+    }
+
+    .person-info h1 {
+      font-size: 32px;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .person-info p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #D4AF37;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, #666, transparent);
+      margin: 20px 0;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      margin: 20px 0;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .contact-dot {
+      width: 6px;
+      height: 6px;
+      background: #D4AF37;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .contact-line a {
+      color: #D4AF37;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* Button Section */
+    .button-section {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-save {
+      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-save:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-save:active {
+      transform: translateY(0);
+    }
+
+    .btn-copy {
+      background: rgba(212, 175, 55, 0.1);
+      color: #D4AF37;
+      border: 1px solid #D4AF37;
+    }
+
+    .btn-copy:hover {
+      background: rgba(212, 175, 55, 0.2);
+    }
+
+    /* Success Message */
+    .success-msg {
+      display: none;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #10B981;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      animation: slideIn 0.3s ease;
+    }
+
+    .success-msg.show {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 480px) {
+      .business-card {
+        padding: 20px;
+      }
+
+      .person-info h1 {
+        font-size: 24px;
+      }
+
+      .company-info h2 {
+        font-size: 22px;
+      }
+
+      .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .button-section,
+      .success-msg {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Business Card -->
+    <div class="business-card">
+      <!-- Logo -->
+      <div class="logo-section">
+        <div class="arrow"></div>
+        <div class="company-info">
+          <h2><span class="white">BLACK</span> <span class="gold">ARROW</span></h2>
+          <p>VENTURE</p>
+        </div>
+      </div>
+
+      <!-- Person Info -->
+      <div class="person-info">
+        <h1>Adnan Afzal</h1>
+        <p>HEAD OF SALES — KSA</p>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <a href="tel:+966560224715">+966 56 022 4715</a>
+        </div>
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <a href="mailto:sales@blackarrowksa.com">sales@blackarrowksa.com</a>
+        </div>
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <a href="https://www.blackarrowksa.com" target="_blank">www.blackarrowksa.com</a>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="button-section">
+        <button class="btn btn-save" onclick="saveContact()">💾 Save to Contacts</button>
+        <button class="btn btn-copy" onclick="copyPhone()">📋 Copy Phone</button>
+      </div>
+
+      <!-- Success Message -->
+      <div class="success-msg" id="successMsg">✅ Contact saved successfully!</div>
+    </div>
+  </div>
+
+  <script>
+    function saveContact() {
+      // Create vCard data
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Adnan Afzal
+N:Afzal;Adnan;;;
+TITLE:Head of Sales - KSA
+ORG:Black Arrow Venture
+TEL;TYPE=WORK;TYPE=VOICE:+966560224715
+EMAIL;TYPE=WORK:sales@blackarrowksa.com
+URL;TYPE=WORK:https://www.blackarrowksa.com
+END:VCARD`;
+
+      // For mobile devices - try to trigger native save
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Create a data URL for vCard
+        const blob = new Blob([vcard], { type: 'text/vcard' });
+        const url = window.URL.createObjectURL(blob);
+
+        // Try to open it (iOS may prompt to save as contact)
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Adnan-Afzal.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      } else {
+        // For desktop - download vCard file
+        const blob = new Blob([vcard], { type: 'text/vcard' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Adnan-Afzal.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      }
+
+      // Show success message
+      const msg = document.getElementById('successMsg');
+      msg.classList.add('show');
+      setTimeout(() => msg.classList.remove('show'), 3000);
+    }
+
+    function copyPhone() {
+      const phone = '+966560224715';
+      navigator.clipboard.writeText(phone).then(() => {
+        const msg = document.getElementById('successMsg');
+        msg.textContent = '✅ Phone copied!';
+        msg.classList.add('show');
+        setTimeout(() => msg.classList.remove('show'), 2000);
+      });
+    }
+  </script>
+</body>
+</html>
