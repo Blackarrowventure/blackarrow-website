@@ -30,21 +30,32 @@ function convertNumbersToEnglish(text) {
 }
 
 async function loadTranslations(lang) {
-  if (translations[lang]) return translations[lang];
+  if (translations[lang]) {
+    console.log(`Using cached ${lang} translations`);
+    return translations[lang];
+  }
   try {
     const res = await fetch(`assets/translations/${lang}.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     translations[lang] = await res.json();
+    console.log(`Loaded ${lang} translations:`, Object.keys(translations[lang]).length, 'keys');
     return translations[lang];
   } catch (e) {
-    console.warn(`Could not load ${lang} translations`);
-    return {};
+    console.error(`Failed to load ${lang} translations:`, e);
+    return null;
   }
 }
 
 async function applyTranslations(lang) {
+  console.log(`Applying ${lang} translations...`);
   const t = await loadTranslations(lang);
-  if (!t) return;
 
+  if (!t || Object.keys(t).length === 0) {
+    console.warn(`No translations found for ${lang}`);
+    return;
+  }
+
+  let updated = 0;
   // Update text content
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -54,8 +65,10 @@ async function applyTranslations(lang) {
       } else {
         el.textContent = t[key];
       }
+      updated++;
     }
   });
+  console.log(`Updated ${updated} elements with ${lang} translations`);
 
   // Update placeholder attributes
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
