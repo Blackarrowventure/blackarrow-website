@@ -525,7 +525,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .navbar__logo img {
-  height: 140px;
+  height: 170px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
