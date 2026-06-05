@@ -1914,7 +1914,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .client-logo img {
-  height: 60px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   filter: grayscale(0%);
