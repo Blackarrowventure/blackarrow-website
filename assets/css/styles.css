@@ -17,6 +17,20 @@
   img { opacity: 0.8; }
 }
 
+/* MOBILE PERFORMANCE - Disable heavy animations & shadows */
+@media (max-width: 768px) {
+  * { transition: none !important; }
+  .transition, [class*="reveal"] { animation: none !important; }
+  .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: none !important; }
+  .btn:hover, .svc-card:hover, .vm-card:hover { transform: none !important; box-shadow: none !important; }
+
+  /* Disable hero carousel on mobile - show only first image */
+  .hero__images { display: flex !important; }
+  .hero__img { display: none !important; }
+  .hero__img:first-child { display: block !important; }
+  .hero__img-lazy { display: none !important; }
+}
+
 /* ──────────────────────────────────────────────
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ────────────────────────────────────────────── */
