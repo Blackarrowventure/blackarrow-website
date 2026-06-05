@@ -51,10 +51,8 @@ async function applyTranslations(lang) {
     if (t[key]) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         el.placeholder = t[key];
-      } else if (el.tagName === 'OPTION') {
-        el.textContent = t[key];
       } else {
-        el.innerHTML = t[key];
+        el.textContent = t[key];
       }
     }
   });
