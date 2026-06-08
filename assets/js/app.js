@@ -403,7 +403,50 @@ function initHeroSlider() {
 }
 
 /* ──────────────────────────────────────────────
-   9. INIT ALL
+   9. WHATSAPP CTA OPTIMIZATION
+   ────────────────────────────────────────────── */
+const WHATSAPP_NUMBER = '966560224715';
+const SERVICE_MESSAGES = {
+  'ev-solutions': 'Hello! I\'m interested in your EV Charger Solutions (AC/DC chargers, POS systems, maintenance)',
+  'ups-solutions': 'Hello! I\'m interested in your UPS Solutions (turnkey systems, batteries, maintenance)',
+  'lighting-solutions': 'Hello! I\'m interested in your Lighting Solutions (facade, exterior, interior, signage)',
+  'firefighting-systems': 'Hello! I\'m interested in your Firefighting Systems (detection, suppression, maintenance)',
+  'hvac-solutions': 'Hello! I\'m interested in your HVAC Solutions (climate control, installation, maintenance)',
+  'electrical-power': 'Hello! I\'m interested in your Electrical & Power Distribution solutions (switchgear, panels)',
+  'general-trading': 'Hello! I\'m interested in your General Trading services (industrial, safety, aviation, oil & gas)',
+  'partnership': 'Hello! I\'m interested in partnership opportunities with Black Arrow Company',
+  'default': 'Hello! I\'m interested in your services. Can you help me?'
+};
+
+function getWhatsAppLink(serviceKey = 'default') {
+  const message = SERVICE_MESSAGES[serviceKey] || SERVICE_MESSAGES['default'];
+  const encodedMsg = encodeURIComponent(message);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+}
+
+function initWhatsAppLinks() {
+  document.querySelectorAll('[data-whatsapp-service]').forEach(el => {
+    const serviceKey = el.getAttribute('data-whatsapp-service');
+    const url = getWhatsAppLink(serviceKey);
+    if (el.tagName === 'A') {
+      el.href = url;
+    } else {
+      el.onclick = () => window.open(url, '_blank');
+    }
+  });
+
+  // Update floating WhatsApp button based on page context
+  const waFloat = document.querySelector('.wa-float');
+  if (waFloat) {
+    const pageService = document.querySelector('[data-service-id]')?.getAttribute('data-service-id');
+    if (pageService) {
+      waFloat.href = getWhatsAppLink(pageService);
+    }
+  }
+}
+
+/* ──────────────────────────────────────────────
+   10. INIT ALL
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initLang();
@@ -415,4 +458,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initA11y();
   initSmoothScroll();
+  initWhatsAppLinks();
 });
+
+// Expose WhatsApp functions globally for inline use
+window.getWhatsAppLink = getWhatsAppLink;
