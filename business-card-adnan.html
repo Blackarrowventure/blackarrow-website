@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adnan Afzal - Business Card</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 20px;
+    }
+
+    /* Business Card Container */
+    .business-card {
+      width: 3.5in;
+      height: 2in;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      border: 1px solid #333;
+      border-radius: 0.1in;
+      padding: 0.25in;
+      display: flex;
+      gap: 0.2in;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative background line */
+    .business-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.08in;
+      height: 100%;
+      background: linear-gradient(180deg, #D4AF37 0%, #B8860B 100%);
+    }
+
+    /* Left section - Logo & Name */
+    .card-left {
+      flex: 0 0 1.8in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 0.15in;
+    }
+
+    /* Logo & Company */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 0.12in;
+      margin-bottom: 0.15in;
+    }
+
+    .arrow {
+      width: 0.28in;
+      height: 0.18in;
+      background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+      clip-path: polygon(0 40%, 70% 40%, 70% 20%, 100% 50%, 70% 80%, 70% 60%, 0 60%);
+    }
+
+    .company-name {
+      font-size: 0.38in;
+      font-weight: 900;
+      letter-spacing: 0.03in;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .company-name .gold {
+      color: #D4AF37;
+    }
+
+    .company-sub {
+      font-size: 0.12in;
+      letter-spacing: 0.04in;
+      color: #999;
+      margin-top: -0.05in;
+    }
+
+    /* Person Info */
+    .person-info {
+      flex: 1;
+    }
+
+    .person-name {
+      font-size: 0.32in;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 0.08in;
+    }
+
+    .person-title {
+      font-size: 0.11in;
+      letter-spacing: 0.02in;
+      color: #D4AF37;
+      font-weight: 600;
+      margin-bottom: 0.08in;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      margin: 0.08in 0;
+    }
+
+    /* Right section - Contact & QR */
+    .card-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-right: 0.1in;
+    }
+
+    /* Contact info */
+    .contact-info {
+      font-size: 0.09in;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 0.08in;
+      margin-bottom: 0.06in;
+    }
+
+    .contact-dot {
+      width: 0.06in;
+      height: 0.06in;
+      background: #D4AF37;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .contact-text {
+      color: #ccc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .website {
+      color: #D4AF37;
+      font-weight: 600;
+    }
+
+    /* QR Code */
+    .qr-section {
+      text-align: center;
+    }
+
+    .qr-code {
+      width: 0.85in;
+      height: 0.85in;
+      background: #fff;
+      padding: 0.05in;
+      border-radius: 0.05in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .business-card {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+      }
+    }
+
+    /* For multiple cards on one page */
+    @page {
+      margin: 0.5in;
+      size: 8.5in 11in;
+    }
+  </style>
+</head>
+<body>
+  <div class="business-card">
+    <!-- Left Section -->
+    <div class="card-left">
+      <!-- Logo & Company -->
+      <div class="logo-section">
+        <div class="arrow"></div>
+        <div>
+          <div class="company-name">BLACK <span class="gold">ARROW</span></div>
+          <div class="company-sub">VENTURE</div>
+        </div>
+      </div>
+
+      <!-- Person Info -->
+      <div class="person-info">
+        <div class="person-name">Adnan Afzal</div>
+        <div class="person-title">HEAD OF SALES KSA</div>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="card-right">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <div class="contact-text">+966 56 022 4715</div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <div class="contact-text">sales@blackarrowksa.com</div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <div class="contact-text website">www.blackarrowksa.com</div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-dot"></div>
+          <div class="contact-text">Ad Dammam, Saudi Arabia</div>
+        </div>
+      </div>
+
+      <!-- QR Code -->
+      <div class="qr-section">
+        <div class="qr-code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAdnan%20Afzal%0ATITLE%3AHead%20of%20Sales%20KSA%0AORG%3ABlack%20Arrow%20Company%0ATEL%3A%2B966560224715%0AEMAIL%3Asales%40blackarrowksa.com%0AURL%3Ahttps%3A%2F%2Fwww.blackarrowksa.com%0AADR%3A%3B%3BAd%20Dammam%3BSaudi%20Arabia%0AEND%3AVCARD" alt="QR Code">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Auto-open print dialog when page loads
+    window.addEventListener('load', function() {
+      // Uncomment the next line if you want auto-print
+      // window.print();
+    });
+  </script>
+</body>
+</html>
