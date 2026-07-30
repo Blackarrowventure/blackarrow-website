@@ -1,7 +1,15 @@
-# Eight Stars Eastern Company - robots.txt
+# Black Arrow Venture - robots.txt
 User-agent: *
 Allow: /
-Disallow: /assets/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /assets/translations/
+
+# Draft/internal pages - keep out of search results
+Disallow: /PREVIEW_*.html
+Disallow: /COLOR_*.html
+Disallow: /business-card-*.html
+Disallow: /contacts/
 
 # Specific rules for search engines
 User-agent: Googlebot
@@ -11,7 +19,7 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap
-Sitemap: https://www.8starseastern.com/sitemap.xml
+Sitemap: https://www.blackarrowksa.com/sitemap.xml
 
 # Crawl delay (optional - typically 1-2 seconds)
 Crawl-delay: 1
