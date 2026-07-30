@@ -533,7 +533,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .navbar__inner {
   height: 100%;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0;
   width: 100%;
@@ -550,7 +550,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .navbar__logo img {
-  height: 200px;
+  height: 70px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
@@ -563,21 +563,23 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .navbar__logo-text .name {
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-lg);
   font-weight: var(--fw-extrabold);
   color: #F59E0B;
   letter-spacing: -.02em;
   line-height: 1.0;
+  white-space: nowrap;
 }
 
 .navbar__logo-text .sub {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-sm);
   font-weight: var(--fw-extrabold);
   color: var(--clr-accent);
   letter-spacing: .04em;
   direction: rtl;
   text-align: right;
   line-height: 1.0;
+  white-space: nowrap;
 }
 
 .navbar__links {
@@ -598,6 +600,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: var(--radius-sm);
   transition: var(--transition);
   position: relative;
+  white-space: nowrap;
 }
 
 .navbar__links a::after {
@@ -664,57 +667,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--clr-accent);
   color: var(--clr-white);
 }
-
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  width: 28px;
-  padding: 4px;
-}
-
-.hamburger span {
-  display: block;
-  height: 2px;
-  background: var(--clr-white);
-  border-radius: 2px;
-  transition: var(--transition);
-}
-
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* Mobile nav */
-.mobile-nav {
-  display: none;
-  position: fixed;
-  inset: 0;
-  top: var(--nav-h);
-  background: var(--clr-white);
-  z-index: 999;
-  padding: 24px 20px;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-}
-
-.mobile-nav.open { transform: translateX(0); }
-
-.mobile-nav a {
-  display: block;
-  padding: 14px 16px;
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-medium);
-  color: var(--clr-text);
-  border-bottom: 1px solid var(--clr-border);
-  transition: var(--transition);
-}
-
-.mobile-nav a:hover { color: var(--clr-accent); padding-left: 24px; }
 
 /* ──────────────────────────────────────────────
    6. HERO SECTION
@@ -1610,7 +1562,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .trust-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
 }
 
@@ -1652,7 +1604,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 @media (max-width: 1024px) {
   .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -2887,6 +2839,19 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ──────────────────────────────────────────────
    23. RESPONSIVE DESIGN
    ────────────────────────────────────────────── */
+@media (max-width: 1300px) {
+  /* Navbar: shrink to make room, never hide the menu text */
+  :root { --nav-h: 108px; }
+  .navbar__logo img { height: 52px; }
+  .navbar__logo-text .name { font-size: 15px; }
+  .navbar__logo-text .sub { font-size: 11px; }
+  .navbar__links { flex-wrap: wrap; row-gap: 4px; padding: 6px 10px; }
+  .navbar__links a { padding: 6px 10px; font-size: 14px; }
+  .navbar__actions { gap: 8px; padding-left: 12px; padding-right: 12px; }
+  .navbar__actions .btn { padding: 8px 14px; font-size: 13px; }
+  .lang-btn { padding: 5px 8px; font-size: 10px; }
+}
+
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2895,17 +2860,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (max-width: 768px) {
-  :root { --nav-h: 68px; }
+  /* Navbar: menu text can now wrap to a 2nd line, so give it more room */
+  :root { --nav-h: 152px; }
+  .navbar__logo img { height: 44px; }
+  .navbar__logo-text .name { font-size: 13px; }
+  .navbar__logo-text .sub { font-size: 10px; }
+  .navbar__links a { padding: 5px 8px; font-size: 13px; }
+  .navbar__actions .btn { padding: 7px 12px; font-size: 12px; }
 
   /* Account for sticky mobile CTA bar at bottom */
   body {
     padding-bottom: 60px;
   }
-
-  .navbar__links { display: none; }
-  .navbar__actions .btn { display: none; }
-  .hamburger { display: flex; }
-  .mobile-nav { display: flex; }
 
   .hero h1 { font-size: var(--fs-3xl); }
 
@@ -2931,6 +2897,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 @media (max-width: 480px) {
+  /* Navbar: company name/subtitle hidden to leave room for the menu, which stays as text */
+  :root { --nav-h: 210px; }
+  .navbar__logo img { height: 40px; }
+  .navbar__links { row-gap: 6px; }
+
   .hero h1 { font-size: var(--fs-2xl); }
   .hero__logo { width: 320px; }
   .stats__num { font-size: var(--fs-4xl); }

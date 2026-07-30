@@ -130,43 +130,6 @@ function initLang() {
 // Expose globally for inline onclick handlers
 window.setLang = setLang;
 
-/* ──────────────────────────────────────────────
-   2. MOBILE NAVIGATION
-   ────────────────────────────────────────────── */
-function initNav() {
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  if (!hamburger || !mobileNav) return;
-
-  function toggleMenu(open) {
-    hamburger.classList.toggle('open', open);
-    mobileNav.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open.toString());
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  hamburger.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.contains('open');
-    toggleMenu(!isOpen);
-  });
-
-  // Close on link click
-  mobileNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => toggleMenu(false));
-  });
-
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-      toggleMenu(false);
-    }
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') toggleMenu(false);
-  });
-}
 
 /* ──────────────────────────────────────────────
    3. SCROLL REVEAL ANIMATIONS
@@ -233,7 +196,7 @@ function initCounters() {
    ────────────────────────────────────────────── */
 function setActiveNav() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar__links a, .mobile-nav a').forEach(link => {
+  document.querySelectorAll('.navbar__links a').forEach(link => {
     const href = link.getAttribute('href') || '';
     const linkPage = href.split('/').pop().split('#')[0] || 'index.html';
     link.classList.toggle('active', linkPage === path);
@@ -450,7 +413,6 @@ function initWhatsAppLinks() {
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initLang();
-  initNav();
   initHeroSlider();
   initScrollReveal();
   initCounters();
