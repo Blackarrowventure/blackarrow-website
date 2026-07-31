@@ -35,7 +35,7 @@ async function loadTranslations(lang) {
     return translations[lang];
   }
   try {
-    const res = await fetch(`assets/translations/${lang}.json`);
+    const res = await fetch(`/assets/translations/${lang}.json`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     translations[lang] = await res.json();
     console.log(`Loaded ${lang} translations:`, Object.keys(translations[lang]).length, 'keys');
@@ -195,11 +195,19 @@ function initCounters() {
    5. ACTIVE NAV LINK
    ────────────────────────────────────────────── */
 function setActiveNav() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname;
+  const file = path.split('/').filter(Boolean).pop() || 'index.html';
   document.querySelectorAll('.navbar__links a').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    const linkPage = href.split('/').pop().split('#')[0] || 'index.html';
-    link.classList.toggle('active', linkPage === path);
+    const href = (link.getAttribute('href') || '').split('#')[0];
+    let isActive;
+    if (href === '/services.html' || href === 'services.html') {
+      // Folder-style service pages (e.g. /services/isolated-power-panels/) count as "Services" too
+      isActive = path === '/services.html' || path.startsWith('/services/');
+    } else {
+      const linkFile = href.split('/').filter(Boolean).pop() || 'index.html';
+      isActive = linkFile === file;
+    }
+    link.classList.toggle('active', isActive);
   });
 }
 
