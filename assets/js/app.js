@@ -76,10 +76,11 @@ async function applyTranslations(lang) {
     if (t[key]) el.placeholder = t[key];
   });
 
-  // Update document title with lang suffix
+  // Note: the old title-translation line replaced 'Eight Stars Eastern', a
+  // string no page has carried since the rebrand to Black Arrow Venture. It
+  // was a permanent no-op and has been removed. Titles are translated at
+  // build time on the static /ar/ pages instead.
   if (lang === 'ar') {
-    document.title = document.title.replace('Eight Stars Eastern', 'ثمانية نجوم الشرقية');
-
     // Convert all numbers to Arabic numerals
     document.querySelectorAll('.number-convertible').forEach(el => {
       el.textContent = convertNumbersToArabic(el.textContent);

@@ -1,0 +1,23 @@
+# Kept in git for the record, but never deployed.
+
+# 13 MB of unreferenced source material, including PDFs still branded
+# "8 STAR TRADING COMPANY PROFILE" that would sit at guessable public URLs.
+company-materials/
+
+# Working files and generators — not part of the served site.
+scripts/
+*.py
+*.xlsx
+BAV GROUP ACCOUNTING/
+
+# Internal drafts. Also noindexed via vercel.json in case anything links them.
+PREVIEW_*.html
+COLOR_*.html
+
+# Audit and implementation notes.
+*_AUDIT_REPORT.md
+IMPLEMENTATION_*.md
+ALL_PAGES_UPDATED.md
+FINAL_AUDIT_CHECKLIST.md
+
+Open Website.bat

@@ -1,0 +1,39 @@
+{
+  "_comment": "Manifest of real site pages. 'ar' marks pages that get a static /ar/ twin. company-profile.html is excluded from /ar/ v1: it has zero data-i18n, its own stylesheet on the old palette, and a UTF-8 BOM. contacts/*.html are digital business cards, outside the design system and noindexed.",
+  "site": "https://www.blackarrowksa.com",
+  "pages": [
+    { "src": "index.html",                                              "url": "/",                                            "ar": true },
+    { "src": "about.html",                                              "url": "/about.html",                                  "ar": true },
+    { "src": "services.html",                                           "url": "/services.html",                               "ar": true },
+    { "src": "contact.html",                                            "url": "/contact.html",                                "ar": true },
+    { "src": "become-a-partner.html",                                   "url": "/become-a-partner.html",                       "ar": true },
+    { "src": "company-profile.html",                                    "url": "/company-profile.html",                        "ar": false },
+
+    { "src": "services/isolated-power-panels/index.html",               "url": "/services/isolated-power-panels/",             "ar": true },
+    { "src": "services/ev-charging-solutions/index.html",               "url": "/services/ev-charging-solutions/",             "ar": true },
+    { "src": "services/ups-power-backup/index.html",                    "url": "/services/ups-power-backup/",                  "ar": true },
+    { "src": "services/hvac-solutions/index.html",                      "url": "/services/hvac-solutions/",                    "ar": true },
+    { "src": "services/lighting-solutions/index.html",                  "url": "/services/lighting-solutions/",                "ar": true },
+    { "src": "services/firefighting-systems/index.html",                "url": "/services/firefighting-systems/",              "ar": true },
+    { "src": "services/electrical-distribution/index.html",             "url": "/services/electrical-distribution/",           "ar": true },
+    { "src": "services/general-trading/index.html",                     "url": "/services/general-trading/",                   "ar": true },
+
+    { "src": "solutions/hospitals/index.html",                          "url": "/solutions/hospitals/",                        "ar": true },
+    { "src": "solutions/commercial/index.html",                         "url": "/solutions/commercial/",                       "ar": true },
+    { "src": "solutions/government/index.html",                         "url": "/solutions/government/",                       "ar": true },
+    { "src": "solutions/hospitality/index.html",                        "url": "/solutions/hospitality/",                      "ar": true },
+    { "src": "solutions/industrial/index.html",                         "url": "/solutions/industrial/",                       "ar": true },
+    { "src": "solutions/aviation/index.html",                           "url": "/solutions/aviation/",                         "ar": true },
+
+    { "src": "resources/faqs/index.html",                               "url": "/resources/faqs/",                             "ar": true },
+    { "src": "resources/blog/index.html",                               "url": "/resources/blog/",                             "ar": true },
+    { "src": "resources/blog/why-hospitals-need-isolated-power-panels/index.html", "url": "/resources/blog/why-hospitals-need-isolated-power-panels/", "ar": true },
+    { "src": "resources/blog/nfpa-99-compliance-saudi-hospitals/index.html",       "url": "/resources/blog/nfpa-99-compliance-saudi-hospitals/",       "ar": true }
+  ],
+  "noindex": [
+    "contacts/",
+    "PREVIEW_",
+    "COLOR_",
+    "business-card-"
+  ]
+}

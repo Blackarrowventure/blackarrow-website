@@ -376,8 +376,7 @@
   "service_multiple": "Multiple Services",
   "required_fields": "* Required fields. We'll respond within 24 hours.",
   "footer_brand_desc": "Leading provider of comprehensive electrical and technology solutions since 2022.",
-  "location_khobar": "Al Khobar, Saudi Arabia",
-  "business_hours_range": "9 AM - 5 PM, Sat-Thu",
+  "business_hours_range": "Sun - Thu, 8 AM - 6 PM",
   "form_select_service": "Select a Service",
   "privacy_policy": "Privacy Policy",
   "terms_service": "Terms of Service",
@@ -991,5 +990,7 @@
   "elec_maint_heading": "Electrical Maintenance Plans",
   "elec_maint_onetime_desc": "A single scheduled visit — panel inspection, thermal imaging scan, and connection tightness check. Ideal ahead of an audit or after an incident.",
   "elec_maint_preventive_desc": "Scheduled inspections and thermal imaging to catch loose connections and overloaded circuits before they cause an outage.",
-  "elec_maint_corrective_desc": "Rapid-response repair when a breaker trips, a panel faults, or a distribution fault occurs — restoring power safely and quickly."
+  "elec_maint_corrective_desc": "Rapid-response repair when a breaker trips, a panel faults, or a distribution fault occurs — restoring power safely and quickly.",
+  "location_dammam": "Ad Dammam, Ash Sharqiyah, Saudi Arabia",
+  "footer_quicklinks": "Quick Links"
 }
