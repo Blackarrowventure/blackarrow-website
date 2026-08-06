@@ -364,12 +364,51 @@ function initHeroSlider() {
     });
   }
 
-  // Show first image
+  // Promote a deferred slide's data-src/data-srcset to real attributes.
+  //
+  // Every slide is position:absolute; inset:0, so they all sit in the initial
+  // viewport and loading="lazy" would be ignored. Holding the URLs in data-*
+  // is the only way to keep slides 2-7 off the critical path. Idempotent.
+  function load(picture) {
+    if (!picture || picture.dataset.loaded) return;
+    picture.dataset.loaded = '1';
+    picture.querySelectorAll('source[data-srcset]').forEach(source => {
+      source.srcset = source.dataset.srcset;
+      delete source.dataset.srcset;
+    });
+    const img = picture.querySelector('img[data-src]');
+    if (img) {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+  }
+
+  const deferred = Array.from(document.querySelectorAll('.hero__img-lazy'));
+
+  // Show first image immediately; it is already a real <img>.
   showImage(0);
 
-  // Auto-cycle every 5.5 seconds
+  // Only start fetching the rest once the page has finished loading, so they
+  // never contend with the LCP image or the stylesheet.
+  function loadRest() {
+    deferred.forEach((picture, i) => {
+      // Stagger slightly so seven requests don't burst at once.
+      setTimeout(() => load(picture), i * 300);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    loadRest();
+  } else {
+    window.addEventListener('load', loadRest, { once: true });
+  }
+
+  // Auto-cycle every 5.5 seconds. Guarantee the next slide is loaded before
+  // it is shown, in case the cycle outruns the staggered preload.
   setInterval(() => {
     currentIndex = (currentIndex + 1) % images.length;
+    if (currentIndex > 0) load(deferred[currentIndex - 1]);
+    load(deferred[currentIndex]);   // also warm the one after
     showImage(currentIndex);
   }, 5500);
 }

@@ -89,7 +89,7 @@
       <div class="navbar__inner">
 
         <a href="/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
@@ -125,43 +125,62 @@
     <section class="hero" aria-label="Hero">
       <!-- Image Slider Background - Optimized for WebP with JPG fallback -->
       <div class="hero__overlay" aria-hidden="true"></div>
+      <!--
+        All slides are position:absolute; inset:0, so every one of them sits in
+        the initial viewport and loading="lazy" is ignored by every browser.
+        Previously that meant ~1.7 MB of WebP downloaded before the slider had
+        cycled even once.
+
+        Slide 1 is a real eager <img> (it is the LCP element). Slides 2-7 carry
+        their URLs in data-* attributes and initHeroSlider() promotes them to
+        real src/srcset after window.load, so they never compete with first
+        paint. The mobile <source> now points at a genuine 768w encode - the
+        old "?w=480" was just a query string and resized nothing, so phones
+        downloaded the full-size file AND cached it twice under two URLs.
+      -->
       <div class="hero__images">
-        <!-- Image 1: EV Solutions - EAGER for LCP -->
+        <!-- Slide 1: eager, this is the LCP image -->
         <picture>
-          <source media="(max-width: 768px)" srcset="/assets/images/services/ev-solutions.webp?w=480" type="image/webp">
+          <source media="(max-width: 768px)" srcset="/assets/images/services/ev-solutions-768.webp" type="image/webp">
           <source srcset="/assets/images/services/ev-solutions.webp" type="image/webp">
-          <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="hero__img" loading="eager" width="1920" height="1080" fetchpriority="high">
+          <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="hero__img" loading="eager" width="1536" height="852" fetchpriority="high" decoding="async">
         </picture>
 
-        <!-- Image 2 onwards - LAZY load -->
+        <!-- Slides 2-7: deferred until after window.load -->
         <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/ups-solutions.webp" type="image/webp">
-          <img src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="hero__img" loading="lazy" width="1920" height="1080">
-        </picture>
-
-        <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
-          <img src="/assets/images/services/lighting-solutions.jpg" alt="Lighting Solutions" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/ups-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/ups-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="hero__img" width="1530" height="805" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/firefighting-solutions.webp" type="image/webp">
-          <img src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/lighting-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/lighting-solutions.jpg" alt="Lighting Solutions" class="hero__img" width="1536" height="759" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/hvac-solutions.webp" type="image/webp">
-          <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Systems" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/firefighting-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/firefighting-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="hero__img" width="1536" height="838" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/electrical-power.webp" type="image/webp">
-          <img src="/assets/images/services/electrical-power.jpg" alt="Electrical Power" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/hvac-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/hvac-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Systems" class="hero__img" width="1536" height="838" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="/assets/images/services/general-trading.webp" type="image/webp">
-          <img src="/assets/images/services/general-trading.jpg" alt="General Trading" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/electrical-power-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/electrical-power.webp" type="image/webp">
+          <img data-src="/assets/images/services/electrical-power.jpg" alt="Electrical Power" class="hero__img" width="1815" height="866" decoding="async">
+        </picture>
+
+        <picture class="hero__img-lazy">
+          <source data-srcset="/assets/images/services/general-trading-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/general-trading.webp" type="image/webp">
+          <img data-src="/assets/images/services/general-trading.jpg" alt="General Trading" class="hero__img" width="1536" height="898" decoding="async">
         </picture>
       </div>
       <div class="hero__content container">
@@ -169,10 +188,10 @@
           src="/assets/images/black-arrow-logo.png"
           alt="Black Arrow"
           class="hero__logo"
-          width="180"
-          height="180"
-          loading="eager"
-        >
+          width="924"
+          height="540"
+          fetchpriority="high"
+          loading="eager" decoding="async">
         <p class="hero__eyebrow">Black Arrow Venture company | شركة السهم الأسود ڤنتشر</p>
         <h1 data-i18n="saudi_premier" style="font-size: 3.5rem;">Saudi Arabia's Premier EV & UPS Solutions</h1>
 
@@ -324,7 +343,7 @@
             <div class="svc-card__img-wrap">
               <picture>
                 <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-                <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="svc-card__img" loading="lazy" width="374" height="600" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ipp">Isolated Power Panels</span>
             </div>
@@ -354,7 +373,7 @@
             <div class="svc-card__img-wrap">
               <picture>
                 <source srcset="/assets/images/services/ev-solutions.webp" type="image/webp">
-                <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="svc-card__img" loading="lazy" width="400" height="200">
+                <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="svc-card__img" loading="lazy" width="1536" height="852" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ev">EV Solutions</span>
             </div>
@@ -383,7 +402,7 @@
             <div class="svc-card__img-wrap">
               <picture>
                 <source srcset="/assets/images/services/ups-solutions.webp" type="image/webp">
-                <img src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <img src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="svc-card__img" loading="lazy" width="1530" height="805" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ups">UPS Solutions</span>
             </div>
@@ -412,7 +431,7 @@
             <div class="svc-card__img-wrap">
               <picture>
                 <source srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
-                <img src="/assets/images/services/lighting-solutions.jpg" alt="Professional Lighting Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <img src="/assets/images/services/lighting-solutions.jpg" alt="Professional Lighting Systems" class="svc-card__img" loading="lazy" width="1536" height="759" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_lighting">Lighting Solutions</span>
             </div>
@@ -439,7 +458,7 @@
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="svc-card__img" loading="lazy" width="1536" height="838" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_fire">Firefighting Systems</span>
             </div>
             <div class="svc-card__body">
@@ -465,7 +484,7 @@
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="svc-card__img" loading="lazy" width="1536" height="838" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_hvac">HVAC Solutions</span>
             </div>
             <div class="svc-card__body">
@@ -491,7 +510,7 @@
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="/assets/images/services/electrical-power.jpg" alt="Electrical and Power Distribution" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/electrical-power.jpg" alt="Electrical and Power Distribution" class="svc-card__img" loading="lazy" width="1815" height="866" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_electrical">Electrical &amp; Power Distribution</span>
             </div>
             <div class="svc-card__body">
@@ -517,7 +536,7 @@
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="/assets/images/services/general-trading.jpg" alt="General Trading" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/general-trading.jpg" alt="General Trading" class="svc-card__img" loading="lazy" width="1536" height="898" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_trading">General Trading</span>
             </div>
             <div class="svc-card__body">
@@ -586,7 +605,7 @@
           <div class="about-visual reveal-right">
             <div class="vision-badge">
               <div class="badge-header">
-                <img src="/assets/images/download.png" alt="Saudi Arabia Flag" class="saudi-flag"/>
+                <img src="/assets/images/download.png" alt="Saudi Arabia Flag" class="saudi-flag"/ width="178" height="148" decoding="async" loading="lazy">
                 <h3 style="color: #F59E0B; margin: 0;" data-i18n="saudi_vision">Saudi Vision 2030</h3>
               </div>
 
@@ -748,40 +767,40 @@
         </div>
         <div class="clients__logos reveal">
           <div class="client-logo">
-            <img src="/assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_0.webp" type="image/webp"><img src="/assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy" width="458" height="110" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/client_1.jpg" alt="THC" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_1.webp" type="image/webp"><img src="/assets/images/clients/client_1.jpg" alt="THC" loading="lazy" width="184" height="116" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_2.webp" type="image/webp"><img src="/assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy" width="498" height="101" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_3.webp" type="image/webp"><img src="/assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy" width="415" height="121" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/client_4.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_4.webp" type="image/webp"><img src="/assets/images/clients/client_4.jpg" alt="Client Partner" loading="lazy" width="200" height="200" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/client_5.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_5.webp" type="image/webp"><img src="/assets/images/clients/client_5.jpg" alt="Client Partner" loading="lazy" width="276" height="182" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/aramco-services-company-logo-png_seeklogo-395706.png" alt="Aramco Services Company" loading="lazy">
+            <picture><source srcset="/assets/images/clients/aramco-services.webp" type="image/webp"><img src="/assets/images/clients/aramco-services.png" alt="Aramco Services Company" loading="lazy" width="600" height="600" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/download.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/download.webp" type="image/webp"><img src="/assets/images/clients/download.jpg" alt="Client Partner" loading="lazy" width="206" height="145" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/ALDARA HOSPITAL.jpg" alt="Aldara Hospital" loading="lazy">
+            <picture><source srcset="/assets/images/clients/aldara-hospital.webp" type="image/webp"><img src="/assets/images/clients/aldara-hospital.jpg" alt="Aldara Hospital" loading="lazy" width="447" height="447" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/BREEZE MED CARE.jpg" alt="Breeze Med Care" loading="lazy">
+            <picture><source srcset="/assets/images/clients/breeze-med-care.webp" type="image/webp"><img src="/assets/images/clients/breeze-med-care.jpg" alt="Breeze Med Care" loading="lazy" width="400" height="400" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/DALLAH HOSPITAL.jpg" alt="Dallah Hospital" loading="lazy">
+            <picture><source srcset="/assets/images/clients/dallah-hospital.webp" type="image/webp"><img src="/assets/images/clients/dallah-hospital.jpg" alt="Dallah Hospital" loading="lazy" width="1200" height="630" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="/assets/images/clients/NLS_Logo_Transparent.png" alt="NLS" loading="lazy">
+            <picture><source srcset="/assets/images/clients/nls-logo.webp" type="image/webp"><img src="/assets/images/clients/nls-logo.png" alt="NLS" loading="lazy" width="875" height="736" decoding="async"></picture>
           </div>
         </div>
         <p class="clients__note reveal">Serving clients across the Kingdom of Saudi Arabia</p>
@@ -857,7 +876,7 @@
 
         <!-- Column 1: Brand -->
         <div class="footer__brand">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
           <p data-i18n="footer_brand_desc">Leading provider of comprehensive electrical and technology solutions since 2022.</p>
           <!-- Social Links -->
           <div class="footer__socials">
