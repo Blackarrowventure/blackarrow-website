@@ -34,7 +34,15 @@
     { "src": "resources/faqs/index.html",                               "url": "/resources/faqs/",                             "ar": true },
     { "src": "resources/blog/index.html",                               "url": "/resources/blog/",                             "ar": true },
     { "src": "resources/blog/why-hospitals-need-isolated-power-panels/index.html", "url": "/resources/blog/why-hospitals-need-isolated-power-panels/", "ar": true },
-    { "src": "resources/blog/nfpa-99-compliance-saudi-hospitals/index.html",       "url": "/resources/blog/nfpa-99-compliance-saudi-hospitals/",       "ar": true }
+    { "src": "resources/blog/nfpa-99-compliance-saudi-hospitals/index.html",       "url": "/resources/blog/nfpa-99-compliance-saudi-hospitals/",       "ar": true },
+
+    { "_note": "Case studies are English-only in v1. Their prose is newly authored and carries no data-i18n, so the generator has nothing to translate. Publishing machine-quality Arabic here would undercut the pages; they need a proper Arabic write-up.",
+      "src": "resources/case-studies/index.html",                                  "url": "/resources/case-studies/",                                  "ar": false },
+    { "src": "resources/case-studies/hospital-isolated-power-operating-theatres/index.html", "url": "/resources/case-studies/hospital-isolated-power-operating-theatres/", "ar": false },
+    { "src": "resources/case-studies/commercial-complex-ev-charging-rollout/index.html",     "url": "/resources/case-studies/commercial-complex-ev-charging-rollout/",     "ar": false },
+    { "src": "resources/case-studies/healthcare-ups-critical-branch-replacement/index.html", "url": "/resources/case-studies/healthcare-ups-critical-branch-replacement/", "ar": false },
+    { "src": "resources/case-studies/high-rise-obstruction-helipad-lighting/index.html",     "url": "/resources/case-studies/high-rise-obstruction-helipad-lighting/",     "ar": false },
+    { "src": "resources/case-studies/hospitality-hvac-upgrade/index.html",                   "url": "/resources/case-studies/hospitality-hvac-upgrade/",                   "ar": false }
   ],
   "noindex": [
     "contacts/",
