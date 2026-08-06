@@ -7,130 +7,27 @@
 'use strict';
 
 /* ──────────────────────────────────────────────
-   1. LANGUAGE / i18n
+   1. LANGUAGE
+   ──────────────────────────────────────────────
+   The runtime translator that used to live here has been removed.
+
+   It fetched a 126 KB ar.json on every page load and rewrote the DOM via
+   el.textContent, which destroyed any child markup inside a translated
+   element (it was deleting the WhatsApp icon and the service-card arrows).
+   It also produced a visible flash of English before the swap, and it only
+   ever produced one URL per page -- so Google indexed the site as English
+   only and none of the Arabic was ever discoverable.
+
+   Arabic is now served as real pages under /ar/, generated at build time by
+   scripts/build_ar.py from the same assets/translations/ar.json. The EN/AR
+   control is now a pair of plain links to the counterpart URL, so there is
+   nothing to initialise here.
+
+   IMPORTANT: do not reintroduce a localStorage-driven setLang(). On a static
+   /ar/ page it would set <html lang="en" dir="ltr"> over Arabic text, since
+   applyTranslations could only ever apply a dictionary, never restore the
+   original English.
    ────────────────────────────────────────────── */
-const translations = {};
-
-// Convert English numerals to Arabic numerals
-function convertNumbersToArabic(text) {
-  if (!text) return text;
-  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-  return String(text).replace(/\d/g, d => arabicNumbers[d]);
-}
-
-// Convert Arabic numerals to English numerals
-function convertNumbersToEnglish(text) {
-  if (!text) return text;
-  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-  let result = String(text);
-  arabicNumbers.forEach((char, index) => {
-    result = result.replace(new RegExp(char, 'g'), index);
-  });
-  return result;
-}
-
-async function loadTranslations(lang) {
-  if (translations[lang]) {
-    console.log(`Using cached ${lang} translations`);
-    return translations[lang];
-  }
-  try {
-    const res = await fetch(`/assets/translations/${lang}.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    translations[lang] = await res.json();
-    console.log(`Loaded ${lang} translations:`, Object.keys(translations[lang]).length, 'keys');
-    return translations[lang];
-  } catch (e) {
-    console.error(`Failed to load ${lang} translations:`, e);
-    return null;
-  }
-}
-
-async function applyTranslations(lang) {
-  console.log(`Applying ${lang} translations...`);
-  const t = await loadTranslations(lang);
-
-  if (!t || Object.keys(t).length === 0) {
-    console.warn(`No translations found for ${lang}`);
-    return;
-  }
-
-  let updated = 0;
-  // Update text content
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = t[key];
-      } else {
-        el.textContent = t[key];
-      }
-      updated++;
-    }
-  });
-  console.log(`Updated ${updated} elements with ${lang} translations`);
-
-  // Update placeholder attributes
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.placeholder = t[key];
-  });
-
-  // Note: the old title-translation line replaced 'Eight Stars Eastern', a
-  // string no page has carried since the rebrand to Black Arrow Venture. It
-  // was a permanent no-op and has been removed. Titles are translated at
-  // build time on the static /ar/ pages instead.
-  if (lang === 'ar') {
-    // Convert all numbers to Arabic numerals
-    document.querySelectorAll('.number-convertible').forEach(el => {
-      el.textContent = convertNumbersToArabic(el.textContent);
-    });
-  } else {
-    // Convert back to English numerals
-    document.querySelectorAll('.number-convertible').forEach(el => {
-      el.textContent = convertNumbersToEnglish(el.textContent);
-    });
-  }
-}
-
-function setLang(lang) {
-  const html = document.documentElement;
-  const isAr = lang === 'ar';
-
-  html.setAttribute('lang', lang);
-  html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
-
-  // Update switcher buttons
-  const enBtn = document.getElementById('lang-en');
-  const arBtn = document.getElementById('lang-ar');
-  if (enBtn) enBtn.classList.toggle('active', !isAr);
-  if (arBtn) arBtn.classList.toggle('active', isAr);
-
-  // Load and apply translations
-  applyTranslations(lang);
-
-  // Persist preference
-  try { localStorage.setItem('lang', lang); } catch (e) {}
-}
-
-function initLang() {
-  let lang = 'en';
-  try {
-    lang = localStorage.getItem('lang') || 'en';
-  } catch (e) {}
-
-  // Auto-detect Arabic browser preference
-  if (!localStorage.getItem('lang')) {
-    const browserLang = navigator.language || navigator.userLanguage || '';
-    if (browserLang.startsWith('ar')) lang = 'ar';
-  }
-
-  setLang(lang);
-}
-
-// Expose globally for inline onclick handlers
-window.setLang = setLang;
-
 
 /* ──────────────────────────────────────────────
    3. SCROLL REVEAL ANIMATIONS
@@ -529,7 +426,6 @@ function initWhatsAppLinks() {
    10. INIT ALL
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  initLang();
   initHeroSlider();
   initScrollReveal();
   initCounters();

@@ -5,6 +5,10 @@
    ============================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap');
+/* Noto Kufi Arabic was declared in --ff-ar but never actually loaded, so
+   every Arabic heading fell back to Playfair Display, which has no Arabic
+   glyphs at all. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
 
 /* Reduce motion for accessibility and performance */
 @media (prefers-reduced-motion: reduce) {
@@ -545,8 +549,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   gap: 12px;
   flex: 0 0 auto;
-  padding-left: 20px;
-  padding-right: 24px;
+  padding-inline-start: 20px;
+  padding-inline-end: 24px;
 }
 
 .navbar__logo img {
@@ -577,7 +581,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--clr-accent);
   letter-spacing: .04em;
   direction: rtl;
-  text-align: right;
+  text-align: end;
   line-height: 1.0;
   white-space: nowrap;
 }
@@ -625,8 +629,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-left: 24px;
-  padding-right: 20px;
+  padding-inline-start: 24px;
+  padding-inline-end: 20px;
 }
 
 /* Language Switcher */
@@ -964,11 +968,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .stats__item {
   padding: 24px 20px;
-  border-right: 1px solid rgba(255,255,255,.1);
+  border-inline-end: 1px solid rgba(255,255,255,.1);
   position: relative;
 }
 
-.stats__item:last-child { border-right: none; }
+.stats__item:last-child { border-inline-end: none; }
 
 .stats__num {
   font-size: var(--fs-5xl);
@@ -1146,7 +1150,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--clr-accent);
   color: var(--clr-white);
   padding: 16px 12px;
-  text-align: left;
+  text-align: start;
   font-weight: var(--fw-bold);
   font-size: var(--fs-sm);
 }
@@ -1487,7 +1491,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .vm-card ul li {
   font-size: var(--fs-sm);
   color: #e0e0e0 !important;
-  padding-left: 32px;
+  padding-inline-start: 32px;
   position: relative;
   font-weight: 500 !important;
   opacity: 1 !important;
@@ -1497,7 +1501,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .vm-card ul li:hover {
   color: var(--clr-accent) !important;
-  padding-left: 40px;
+  padding-inline-start: 40px;
 }
 
 .vm-card ul li::before {
@@ -1802,13 +1806,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: var(--transition);
-  border-right: 1px solid rgba(255,255,255,.1);
+  border-inline-end: 1px solid rgba(255,255,255,.1);
   color: var(--clr-white);
   text-decoration: none;
 }
 
 .cta-btn:last-child {
-  border-right: none;
+  border-inline-end: none;
 }
 
 .cta-btn--call {
@@ -2131,8 +2135,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-style: italic;
   line-height: 1.8;
   margin-bottom: 16px;
-  border-left: 3px solid var(--clr-cta);
-  padding-left: 16px;
+  border-inline-start: 3px solid var(--clr-cta);
+  padding-inline-start: 16px;
 }
 
 .testimonial-author {
@@ -2271,7 +2275,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__col ul li a:hover {
   color: var(--clr-accent);
-  padding-left: 4px;
+  padding-inline-start: 4px;
 }
 
 /* Contact & Newsletter */
@@ -2414,7 +2418,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* RTL tooltip for WA */
-.wa-float[dir="rtl"] { right: auto; left: 28px; }
 
 /* ──────────────────────────────────────────────
    18. SERVICES DETAIL PAGE
@@ -2474,8 +2477,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
 }
 
-.service-detail:nth-child(even) .service-detail__inner { direction: rtl; }
-[dir="rtl"] .service-detail:nth-child(even) .service-detail__inner { direction: ltr; }
+/* Alternate image/text sides on even rows.
+   This used to be done with `direction: rtl`, which reversed the grid but also
+   reversed TEXT direction, so it needed `direction: ltr` on the content to undo
+   itself -- and that override then forced Arabic body copy left-to-right.
+   `order` reorders the grid without touching text direction, so it is correct
+   in both LTR and RTL and needs no counter-rule. */
+.service-detail:nth-child(even) .service-detail__img { order: 2; }
+.service-detail:nth-child(even) .service-detail__content { order: 1; }
 
 .service-detail__img {
   width: 100%;
@@ -2498,8 +2507,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: var(--shadow-xl);
 }
 
-.service-detail__content { direction: ltr; }
-[dir="rtl"] .service-detail__content { direction: rtl; }
 
 .service-detail__content h2 {
   font-family: var(--ff-heading);
@@ -2577,7 +2584,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding: 20px;
   background: var(--clr-light);
   border-radius: var(--radius-md);
-  border-left: 3px solid var(--clr-accent);
+  border-inline-start: 3px solid var(--clr-accent);
   transition: var(--transition);
 }
 
@@ -2823,18 +2830,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    22. RTL ARABIC SUPPORT
    ────────────────────────────────────────────── */
 [dir="rtl"] .navbar__links a::after { transform-origin: right; }
-[dir="rtl"] .vm-card { border-left: none; border-right: 4px solid var(--clr-accent); }
-[dir="rtl"] .contact-info-card { border-left: none; border-right: 3px solid var(--clr-accent); }
 [dir="rtl"] .form-card { border-top: 4px solid var(--clr-accent); }
 [dir="rtl"] .wa-float { right: auto; left: 28px; }
-[dir="rtl"] .stats__item { border-right: none; border-left: 1px solid rgba(255,255,255,.1); }
-[dir="rtl"] .stats__item:last-child { border-left: none; }
-[dir="rtl"] .vm-card ul li { padding-left: 0; padding-right: 20px; }
 [dir="rtl"] .vm-card ul li::before { left: auto; right: 0; }
-[dir="rtl"] .footer__col ul li a:hover { padding-left: 0; padding-right: 4px; }
-[dir="rtl"] .service-detail:nth-child(even) .service-detail__inner { direction: ltr; }
-[dir="rtl"] .service-detail__content { direction: rtl; }
-[dir="rtl"] .footer__col .cr { border-left: none; border-right: 2px solid var(--clr-accent); }
 
 /* ──────────────────────────────────────────────
    23. RESPONSIVE DESIGN
@@ -2847,7 +2845,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .navbar__logo-text .sub { font-size: 11px; }
   .navbar__links { flex-wrap: wrap; row-gap: 4px; padding: 6px 10px; }
   .navbar__links a { padding: 6px 10px; font-size: 14px; }
-  .navbar__actions { gap: 8px; padding-left: 12px; padding-right: 12px; }
+  .navbar__actions { gap: 8px; padding-inline-start: 12px; padding-inline-end: 12px; }
   .navbar__actions .btn { padding: 8px 14px; font-size: 13px; }
   .lang-btn { padding: 5px 8px; font-size: 10px; }
 }
@@ -2877,14 +2875,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
   .seg__grid { grid-template-columns: 1fr; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
-  .stats__item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
-  .stats__item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+  .stats__item { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .stats__item:nth-child(odd) { border-inline-end: 1px solid rgba(255,255,255,.1); }
 
   .services-grid { grid-template-columns: 1fr; }
   .vm-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .contact-strip__grid { grid-template-columns: 1fr; }
-  .service-detail__inner { grid-template-columns: 1fr !important; direction: ltr !important; }
+  .service-detail__inner { grid-template-columns: 1fr !important; }
   .contact-layout { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; text-align: center; }
@@ -3040,8 +3038,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* Subtle Background Accents */
 .bg-accent-subtle {
   background: var(--clr-accent-glow);
-  border-left: 4px solid var(--clr-accent);
-  padding-left: 16px;
+  border-inline-start: 4px solid var(--clr-accent);
+  padding-inline-start: 16px;
 }
 
 /* Link Hover States with Color Transitions */
@@ -3126,4 +3124,12 @@ hr {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Playfair Display has no Arabic glyphs, so headings must switch face in RTL
+   or they fall back to an arbitrary system font. */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+[dir="rtl"] .hero__eyebrow, [dir="rtl"] .overline {
+  font-family: var(--ff-ar);
 }
