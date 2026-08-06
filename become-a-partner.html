@@ -194,19 +194,67 @@
         </div>
 
         <div style="max-width:700px;margin:60px auto;">
-          <form style="display:flex;flex-direction:column;gap:24px;">
+          <!--
+            This form previously had no id, no name attributes, no labels and
+            no handler. Submitting it reloaded the page and discarded
+            everything typed. Placeholder-only labelling is also an
+            accessibility failure: screen readers announce nothing once a
+            field has content, and the hint disappears as soon as you type.
+
+            Labels are visually hidden rather than removed, so the dark
+            styling is unchanged while the form stays accessible.
+
+            To activate: replace WEB3FORMS_ACCESS_KEY with your key.
+          -->
+          <form id="partner-form" action="https://api.web3forms.com/submit" method="POST" data-w3f data-success="partner-success" data-error="partner-error" style="display:flex;flex-direction:column;gap:24px;" aria-label="Partnership inquiry form">
+
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New PARTNERSHIP enquiry from blackarrowksa.com">
+            <input type="hidden" name="from_name" value="Black Arrow Website">
+            <input type="hidden" name="redirect" value="https://www.blackarrowksa.com/thank-you.html">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <input type="text" placeholder="Full Name" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
-              <input type="email" placeholder="Email Address" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              <div>
+                <label for="p-name" class="sr-only" data-i18n="form_name">Full Name</label>
+                <input type="text" id="p-name" name="name" placeholder="Full Name" required autocomplete="name" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              </div>
+              <div>
+                <label for="p-email" class="sr-only" data-i18n="form_email">Email Address</label>
+                <input type="email" id="p-email" name="email" placeholder="Email Address" required autocomplete="email" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              </div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-              <input type="text" placeholder="Company Name" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
-              <input type="tel" placeholder="Phone / WhatsApp" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              <div>
+                <label for="p-company" class="sr-only" data-i18n="form_company">Company Name</label>
+                <input type="text" id="p-company" name="company" placeholder="Company Name" required autocomplete="organization" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              </div>
+              <div>
+                <label for="p-phone" class="sr-only" data-i18n="form_phone">Phone / WhatsApp</label>
+                <input type="tel" id="p-phone" name="phone" placeholder="Phone / WhatsApp" required autocomplete="tel" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+              </div>
             </div>
-            <input type="text" placeholder="Country / HQ Location" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
-            <input type="text" placeholder="Industry / Product Type" required style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
-            <textarea placeholder="Briefly describe your business and products" required rows="5" style="padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;font-family:inherit;resize:vertical;background:#2a2a2a;color:#ffffff;"></textarea>
-            <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:14px 48px;font-size:1rem;">Submit Inquiry</button>
+            <div>
+              <label for="p-country" class="sr-only" data-i18n="form_country">Country / HQ Location</label>
+              <input type="text" id="p-country" name="country" placeholder="Country / HQ Location" required autocomplete="country-name" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+            </div>
+            <div>
+              <label for="p-industry" class="sr-only" data-i18n="form_industry">Industry / Product Type</label>
+              <input type="text" id="p-industry" name="industry" placeholder="Industry / Product Type" required style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;background:#2a2a2a;color:#ffffff;">
+            </div>
+            <div>
+              <label for="p-message" class="sr-only" data-i18n="form_message">Briefly describe your business and products</label>
+              <textarea id="p-message" name="message" placeholder="Briefly describe your business and products" required rows="5" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:1rem;font-family:inherit;resize:vertical;background:#2a2a2a;color:#ffffff;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self:flex-start;padding:14px 48px;font-size:1rem;" data-i18n="form_submit_inquiry">Submit Inquiry</button>
+
+            <div id="partner-success" style="display:none;padding:16px;background:#e8f5e9;border:1px solid #4caf50;border-radius:8px;color:#2e7d32;" role="alert" aria-live="polite">
+              ✓ Thank you! Your partnership inquiry has been sent. We'll be in touch shortly.
+            </div>
+            <div id="partner-error" style="display:none;padding:16px;background:#fdecea;border:1px solid #d93025;border-radius:8px;color:#a50e0e;" role="alert" aria-live="assertive">
+              Sorry, your inquiry could not be sent. Please email
+              <a href="mailto:info@blackarrowksa.com" style="color:#a50e0e;">info@blackarrowksa.com</a>.
+            </div>
           </form>
         </div>
       </div>
@@ -315,9 +363,14 @@
             </div>
           </div>
           <!-- Newsletter -->
-          <form class="footer__newsletter" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email" required aria-label="Email address">
-            <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+          <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
+                data-w3f aria-label="Newsletter signup">
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
+            <input type="hidden" name="from_name" value="Black Arrow Website">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">Subscribe</button>
           </form>
         </div>
       </div>

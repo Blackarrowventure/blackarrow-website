@@ -263,6 +263,16 @@ function initForm() {
     el.addEventListener('input', () => clearError(id));
   });
 
+  // Real submission to Web3Forms.
+  //
+  // The previous implementation showed a green "Message Sent" state and then
+  // fired a mailto: link. On mobile, or anywhere without a configured mail
+  // client, that silently discarded the enquiry while telling the visitor it
+  // had been sent. Every one of those leads was lost.
+  //
+  // The <form> carries a real action/method, so with JS disabled the browser
+  // does a normal POST and Web3Forms redirects to /thank-you.html. This
+  // handler only upgrades that to an inline success state.
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -280,32 +290,91 @@ function initForm() {
 
     const submitBtn = form.querySelector('[type="submit"]');
     const originalText = submitBtn.textContent;
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
+    if (errorEl) errorEl.style.display = 'none';
 
-    // Compose mailto link as fallback (since no server backend)
-    const service = document.getElementById('service')?.value || '';
-    const company = document.getElementById('company')?.value || '';
-    const subject = encodeURIComponent(`Inquiry from ${name.value} - ${service || 'General'}`);
-    const body = encodeURIComponent(
-      `Name: ${name.value}\nCompany: ${company}\nPhone: ${phone.value}\nService: ${service}\n\n${message.value}`
-    );
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      const result = await response.json().catch(() => ({}));
 
-    // Try to open WhatsApp with message as alternative
-    const waMsg = encodeURIComponent(
-      `Hello, I'm ${name.value} from ${company || 'my company'}. I'm interested in ${service || 'your services'}. ${message.value}`
-    );
+      if (response.ok && result.success !== false) {
+        if (successEl) successEl.style.display = 'block';
+        submitBtn.textContent = '✓ Message Sent';
+        submitBtn.style.background = '#2e7d32';
+        form.reset();
+        successEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      // Never claim success we cannot confirm. Show the failure and give the
+      // visitor two routes that definitely work.
+      if (errorEl) {
+        errorEl.style.display = 'block';
+      } else {
+        alert('Sorry, the message could not be sent. Please email '
+            + 'info@blackarrowksa.com or call +966 560 224 715.');
+      }
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
 
-    // Show success and redirect to email
-    setTimeout(() => {
-      const successEl = document.getElementById('form-success');
-      if (successEl) successEl.style.display = 'block';
-      submitBtn.textContent = '✓ Message Sent';
-      submitBtn.style.background = '#2e7d32';
-      form.reset();
-      // Open email client
-      window.location.href = `mailto:info@blackarrowksa.com?subject=${subject}&body=${body}`;
-    }, 800);
+/* ──────────────────────────────────────────────
+   6b. GENERIC WEB3FORMS SUBMISSION
+   For the partnership form and the footer newsletter forms, which relied on
+   the browser's native POST and therefore did nothing at all. Each <form>
+   carries a real action, so these still work without JavaScript; this only
+   adds the inline success/error state.
+   ────────────────────────────────────────────── */
+function initWeb3Forms() {
+  document.querySelectorAll('form[data-w3f]').forEach((form) => {
+    const successEl = document.getElementById(form.dataset.success);
+    const errorEl = document.getElementById(form.dataset.error);
+
+    form.addEventListener('submit', async (e) => {
+      if (!form.checkValidity()) return;   // let the browser show its own hints
+      e.preventDefault();
+
+      const btn = form.querySelector('[type="submit"]');
+      const label = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
+      if (errorEl) errorEl.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
+
+        form.reset();
+        if (successEl) {
+          successEl.style.display = 'block';
+        } else if (btn) {
+          btn.textContent = '✓ Subscribed';
+        }
+        if (btn) btn.style.background = '#2e7d32';
+      } catch (err) {
+        if (errorEl) {
+          errorEl.style.display = 'block';
+        } else {
+          alert('Sorry, that could not be sent. Please email info@blackarrowksa.com.');
+        }
+        if (btn) { btn.textContent = label; btn.disabled = false; }
+      }
+    });
   });
 }
 
@@ -466,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   setActiveNav();
   initForm();
+  initWeb3Forms();
   initA11y();
   initSmoothScroll();
   initWhatsAppLinks();

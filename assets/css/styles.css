@@ -3109,3 +3109,21 @@ hr {
   .hero { min-height: auto; padding-block: 40px; }
   body { color: #000; }
 }
+
+/* ──────────────────────────────────────────────
+   SCREEN-READER-ONLY
+   Visually hidden but available to assistive tech. Used for form labels
+   whose visual role is filled by a placeholder -- placeholders alone are
+   not accessible names, and they vanish as soon as the field has content.
+   ────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

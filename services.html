@@ -411,9 +411,14 @@
             </div>
           </div>
           <!-- Newsletter -->
-          <form class="footer__newsletter" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email" required aria-label="Email address">
-            <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+          <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
+                data-w3f aria-label="Newsletter signup">
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
+            <input type="hidden" name="from_name" value="Black Arrow Website">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">Subscribe</button>
           </form>
         </div>
       </div>

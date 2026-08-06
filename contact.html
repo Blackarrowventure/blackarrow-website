@@ -173,7 +173,23 @@
           <!-- Contact Form -->
           <div class="form-card reveal">
             <h2 style="font-size:1.5rem;font-weight:700;color:var(--clr-navy);margin-bottom:28px;" data-i18n="send_message">Send Us a Message</h2>
-            <form id="contact-form" novalidate aria-label="Contact form">
+            <!--
+              Posts to Web3Forms. The action/method are real, so the form still
+              works with JavaScript disabled; app.js intercepts and submits via
+              fetch() for the inline success state.
+
+              To activate: replace WEB3FORMS_ACCESS_KEY below with the key from
+              web3forms.com (free, sent to info@blackarrowksa.com on signup).
+              That is the only change required.
+            -->
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-label="Contact form">
+
+              <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+              <input type="hidden" name="subject" value="New enquiry from blackarrowksa.com">
+              <input type="hidden" name="from_name" value="Black Arrow Website">
+              <input type="hidden" name="redirect" value="https://www.blackarrowksa.com/thank-you.html">
+              <!-- Honeypot: bots fill this, humans never see it. -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
 
               <div class="form-row">
                 <div class="form-group">
@@ -234,6 +250,16 @@
               <!-- Success Message -->
               <div id="form-success" style="display:none;margin-top:16px;padding:16px;background:#e8f5e9;border:1px solid #4caf50;border-radius:8px;color:#2e7d32;text-align:center;" role="alert" aria-live="polite" data-i18n="success_message">
                 ✓ Thank you! Your message has been sent. We'll be in touch shortly.
+              </div>
+
+              <!-- Failure Message. Shown only when the send genuinely failed,
+                   with two routes that always work. -->
+              <div id="form-error" style="display:none;margin-top:16px;padding:16px;background:#fdecea;border:1px solid #d93025;border-radius:8px;color:#a50e0e;text-align:center;" role="alert" aria-live="assertive">
+                <strong data-i18n="form_error_title">Sorry, your message could not be sent.</strong><br>
+                <span data-i18n="form_error_body">Please email us at</span>
+                <a href="mailto:info@blackarrowksa.com" style="color:#a50e0e;text-decoration:underline;">info@blackarrowksa.com</a>
+                <span data-i18n="form_error_or">or call</span>
+                <a href="tel:+966560224715" style="color:#a50e0e;text-decoration:underline;">+966 560 224 715</a>.
               </div>
 
             </form>
@@ -354,9 +380,14 @@
             </div>
           </div>
           <!-- Newsletter -->
-          <form class="footer__newsletter" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email" required aria-label="Email address">
-            <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+          <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
+                data-w3f aria-label="Newsletter signup">
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
+            <input type="hidden" name="from_name" value="Black Arrow Website">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">Subscribe</button>
           </form>
         </div>
       </div>

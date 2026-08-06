@@ -992,5 +992,18 @@
   "elec_maint_preventive_desc": "Scheduled inspections and thermal imaging to catch loose connections and overloaded circuits before they cause an outage.",
   "elec_maint_corrective_desc": "Rapid-response repair when a breaker trips, a panel faults, or a distribution fault occurs — restoring power safely and quickly.",
   "location_dammam": "Ad Dammam, Ash Sharqiyah, Saudi Arabia",
-  "footer_quicklinks": "Quick Links"
+  "footer_quicklinks": "Quick Links",
+  "form_country": "Country / HQ Location",
+  "form_industry": "Industry / Product Type",
+  "form_submit_inquiry": "Submit Inquiry",
+  "form_error_title": "Sorry, your message could not be sent.",
+  "form_error_body": "Please email us at",
+  "form_error_or": "or call",
+  "subscribe": "Subscribe",
+  "nav_blog": "Blog",
+  "ty_heading": "Thank you — we've received your message",
+  "ty_body": "A member of our team will get back to you within one business day.",
+  "ty_hours": "Our office hours are Sunday to Thursday, 8:00 AM – 6:00 PM (AST).",
+  "ty_urgent": "Need something urgently? Reach us directly:",
+  "ty_meanwhile": "In the meantime, you might find these useful:"
 }
