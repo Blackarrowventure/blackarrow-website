@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Infrastructure solutions for hotels & hospitality in Saudi Arabia — EV charging, lighting, HVAC & UPS systems built for guest experience and reliable operations.">
   <meta name="robots" content="index, follow">
-  <meta name="keywords" content="hotel infrastructure solutions Saudi Arabia, hospitality contractor Riyadh, hotel electrical contractor Jeddah, hospitality solutions Dammam, hotel contractor Al Khobar, hotel EV charging Saudi Arabia, hotel lighting design Saudi Arabia, hotel HVAC contractor Saudi Arabia, hotel UPS backup power Saudi Arabia">
   <link rel="canonical" href="https://www.blackarrowksa.com/solutions/hospitality/">
+  <link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/solutions/hospitality/">
+  <link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/solutions/hospitality/">
+  <link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/solutions/hospitality/">
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
   <title>Hotel & Hospitality Infrastructure Solutions Saudi Arabia | Black Arrow</title>
   <link rel="apple-touch-icon" href="/assets/images/black-arrow-logo.png">
@@ -58,7 +60,7 @@
   </script>
 
   <style>
-    :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:130px;}
+    :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:180px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-red);}
@@ -85,24 +87,24 @@
   <header>
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
       <div class="navbar__inner">
-        <a href="/index.html" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo">
+        <a href="/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
           </div>
         </a>
         <ul class="navbar__links" role="list">
-          <li><a href="/index.html" data-i18n="nav_home">Home</a></li>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
           <li><a href="/services.html" data-i18n="nav_services">Services</a></li>
           <li><a href="/about.html" data-i18n="nav_about">About</a></li>
           <li><a href="/become-a-partner.html" data-i18n="nav_partner">Become a Partner</a></li>
           <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
         </ul>
         <div class="navbar__actions">
-          <div class="lang-switcher">
-            <button id="lang-en" class="lang-btn active" onclick="window.setLang('en')" aria-label="Switch to English">EN</button>
-            <button id="lang-ar" class="lang-btn" onclick="window.setLang('ar')" aria-label="Switch to Arabic">AR</button>
+          <div class="lang-switcher" data-lang-switch>
+            <a href="/solutions/hospitality/" id="lang-en" class="lang-btn active" hreflang="en" lang="en" aria-current="true">EN</a>
+            <a href="/ar/solutions/hospitality/" id="lang-ar" class="lang-btn" hreflang="ar" lang="ar">AR</a>
           </div>
           <a href="/contact.html?sector=hospitality" class="btn btn-primary" data-i18n="nav_quote">Get a Quote</a>
         </div>
@@ -115,7 +117,7 @@
     <section class="page-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/index.html" data-i18n="nav_home">Home</a>
+          <a href="/" data-i18n="nav_home">Home</a>
           <span>›</span>
           <a href="/services.html" data-i18n="nav_services">Services</a>
           <span>›</span>
@@ -232,7 +234,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
           <p data-i18n="footer_brand_desc">Leading provider of comprehensive electrical and technology solutions since 2022.</p>
           <div class="footer__socials">
             <a href="https://wa.me/966560224715" aria-label="WhatsApp" class="social-link" title="WhatsApp" target="_blank" rel="noopener noreferrer">
@@ -243,13 +245,14 @@
         <div class="footer__col">
           <h4 data-i18n="footer_quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="/index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="/" data-i18n="nav_home">Home</a></li>
             <li><a href="/about.html" data-i18n="nav_about">About Us</a></li>
             <li><a href="/services.html" data-i18n="nav_services">Services</a></li>
             <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
             <li><a href="/become-a-partner.html" data-i18n="nav_partner">Become Partner</a></li>
             <li><a href="/resources/faqs/" data-i18n="nav_faqs">FAQs</a></li>
             <li><a href="/resources/blog/" data-i18n="blog_title">Blog</a></li>
+            <li><a href="/resources/case-studies/" data-i18n="nav_case_studies">Case Studies</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -268,18 +271,18 @@
         <div class="footer__col">
           <h4 data-i18n="footer_contact">Contact &amp; Newsletter</h4>
           <div class="footer__contact">
-            <div class="contact-item"><span style="font-size:1.2em;">📍</span><span data-i18n="location_khobar">Al Khobar, Saudi Arabia</span></div>
+            <div class="contact-item"><span style="font-size:1.2em;">📍</span><span data-i18n="location_dammam">Ad Dammam, Ash Sharqiyah, Saudi Arabia</span></div>
             <div class="contact-item"><span style="font-size:1.2em;">📞</span><a href="tel:+966560224715">+966 560 224 715</a></div>
             <div class="contact-item"><span style="font-size:1.2em;">✉️</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
-            <div class="contact-item"><span style="font-size:1.2em;">⏰</span><span data-i18n="business_hours_range">9 AM - 5 PM, Sat-Thu</span></div>
+            <div class="contact-item"><span style="font-size:1.2em;">⏰</span><span data-i18n="business_hours_range">Sun - Thu, 8 AM - 6 PM</span></div>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <p>&copy; <span>2024</span> Black Arrow Venture company. All rights reserved. Vision 2030.</p>
         <div class="footer__legal">
-          <a href="/index.html#" data-i18n="privacy_policy">Privacy Policy</a>
-          <a href="/index.html#" data-i18n="terms_service">Terms of Service</a>
+          <a href="/privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
+          <a href="/terms-of-service.html" data-i18n="terms_service">Terms of Service</a>
         </div>
       </div>
     </div>

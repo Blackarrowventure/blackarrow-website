@@ -1,22 +1,21 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Black Arrow Venture: EV chargers, UPS systems, HVAC, firefighting, lighting & electrical solutions. Nationwide Saudi Arabia service provider.">
-  <meta name="keywords" content="EV chargers, EV charging stations, UPS systems, power backup, HVAC systems, Bender panels, electrical distribution, firefighting systems, lighting solutions, aviation lighting, helipad lighting, heliport lighting, OBS lighting, runway lighting, obstruction lighting systems, building warning lights, tall building warning lights, isolated power panels, IPP, IPP panels, isolated power panel Saudi Arabia, hospital isolated power system, operating room power panel, Bender isolated power panels, Bender IPP, PG LifeLink isolated power panels, PG LifeLink IPP, Schneider isolated power panels, line isolation monitor, NFPA 99 isolated power, isolated power panel supplier Saudi Arabia, isolated power panel installation KSA, hospital electrical panel supplier, operating room isolated power system, wet procedure location power system, IPP panel Riyadh, IPP panel Jeddah, IPP panel Dammam, Saudi Arabia, Riyadh, Jeddah, Dammam, Al Khobar, Eastern Province, nationwide service">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Black Arrow Venture KSA | EV Chargers, UPS Systems, HVAC Systems, Isolated Power Panels">
   <meta property="og:description" content="Premium EV chargers, UPS systems, HVAC systems, isolated power panels (IPP) for hospitals & commercial infrastructure solutions in Saudi Arabia.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.blackarrowksa.com">
+  <meta property="og:url" content="https://www.blackarrowksa.com/">
   <meta property="og:image" content="https://www.blackarrowksa.com/assets/images/black-arrow-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.blackarrowksa.com">
-  <link rel="icon" type="image/svg+xml" href="assets/images/black-arrow-logo.png">
+  <link rel="canonical" href="https://www.blackarrowksa.com/">
+  <link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/">
+  <link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/">
+  <link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/">
+  <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
 
   <!-- Performance optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,11 +23,11 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
   <title>Black Arrow Venture | EV Chargers & UPS Solutions KSA</title>
-  <link rel="apple-touch-icon" href="assets/images/black-arrow-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/black-arrow-logo.png">
 
   <!-- Critical CSS inline for performance -->
   <style>
-    :root{--clr-red:#C41E3A;--clr-navy:#1a3d5c;--clr-navy-dark:#0f2538;--nav-h:130px;}
+    :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:180px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-red);}
@@ -38,13 +37,27 @@
     .hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);}
   </style>
 
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 
   <!-- Schema.org JSON-LD for Local Business -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday","Saturday"],
+        "opens": "00:00",
+        "closes": "00:00"
+      }
+    ],
     "name": "Black Arrow Venture company",
     "alternateName": "شركة السهم الأسود ڤنتشر",
     "description": "Saudi Arabia's premier provider of EV chargers, UPS systems, HVAC systems, isolated power panels (IPP) for hospitals, firefighting systems, and electrical power distribution. Expert commercial infrastructure solutions in Riyadh, Jeddah, Dammam, Eastern Province.",
@@ -78,8 +91,8 @@
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
       <div class="navbar__inner">
 
-        <a href="index.html" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="assets/images/black-arrow-logo.png" alt="Black Arrow Logo">
+        <a href="/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
@@ -87,19 +100,19 @@
         </a>
 
         <ul class="navbar__links" role="list">
-          <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
-          <li><a href="services.html" data-i18n="nav_services">Services</a></li>
-          <li><a href="about.html" data-i18n="nav_about">About</a></li>
-          <li><a href="become-a-partner.html" data-i18n="nav_partner">Become a Partner</a></li>
-          <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+          <li><a href="/" class="active" data-i18n="nav_home">Home</a></li>
+          <li><a href="/services.html" data-i18n="nav_services">Services</a></li>
+          <li><a href="/about.html" data-i18n="nav_about">About</a></li>
+          <li><a href="/become-a-partner.html" data-i18n="nav_partner">Become a Partner</a></li>
+          <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
         </ul>
 
         <div class="navbar__actions">
-          <div class="lang-switcher">
-            <button id="lang-en" class="lang-btn active" onclick="window.setLang('en')" aria-label="Switch to English">EN</button>
-            <button id="lang-ar" class="lang-btn" onclick="window.setLang('ar')" aria-label="Switch to Arabic">AR</button>
+          <div class="lang-switcher" data-lang-switch>
+            <a href="/" id="lang-en" class="lang-btn active" hreflang="en" lang="en" aria-current="true">EN</a>
+            <a href="/ar/" id="lang-ar" class="lang-btn" hreflang="ar" lang="ar">AR</a>
           </div>
-          <a href="contact.html" class="btn btn-primary" data-i18n="nav_quote">Get a Quote</a>
+          <a href="/contact.html" class="btn btn-primary" data-i18n="nav_quote">Get a Quote</a>
         </div>
 
         </div>
@@ -115,54 +128,73 @@
     <section class="hero" aria-label="Hero">
       <!-- Image Slider Background - Optimized for WebP with JPG fallback -->
       <div class="hero__overlay" aria-hidden="true"></div>
+      <!--
+        All slides are position:absolute; inset:0, so every one of them sits in
+        the initial viewport and loading="lazy" is ignored by every browser.
+        Previously that meant ~1.7 MB of WebP downloaded before the slider had
+        cycled even once.
+
+        Slide 1 is a real eager <img> (it is the LCP element). Slides 2-7 carry
+        their URLs in data-* attributes and initHeroSlider() promotes them to
+        real src/srcset after window.load, so they never compete with first
+        paint. The mobile <source> now points at a genuine 768w encode - the
+        old "?w=480" was just a query string and resized nothing, so phones
+        downloaded the full-size file AND cached it twice under two URLs.
+      -->
       <div class="hero__images">
-        <!-- Image 1: EV Solutions - EAGER for LCP -->
+        <!-- Slide 1: eager, this is the LCP image -->
         <picture>
-          <source media="(max-width: 768px)" srcset="assets/images/services/ev-solutions.webp?w=480" type="image/webp">
-          <source srcset="assets/images/services/ev-solutions.webp" type="image/webp">
-          <img src="assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="hero__img" loading="eager" width="1920" height="1080" fetchpriority="high">
+          <source media="(max-width: 768px)" srcset="/assets/images/services/ev-solutions-768.webp" type="image/webp">
+          <source srcset="/assets/images/services/ev-solutions.webp" type="image/webp">
+          <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="hero__img" loading="eager" width="1536" height="852" fetchpriority="high" decoding="async">
         </picture>
 
-        <!-- Image 2 onwards - LAZY load -->
+        <!-- Slides 2-7: deferred until after window.load -->
         <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/ups-solutions.webp" type="image/webp">
-          <img src="assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="hero__img" loading="lazy" width="1920" height="1080">
-        </picture>
-
-        <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/lighting-solutions.webp" type="image/webp">
-          <img src="assets/images/services/lighting-solutions.jpg" alt="Lighting Solutions" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/ups-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/ups-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="hero__img" width="1530" height="805" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/firefighting-solutions.webp" type="image/webp">
-          <img src="assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/lighting-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/lighting-solutions.jpg" alt="Lighting Solutions" class="hero__img" width="1536" height="759" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/hvac-solutions.webp" type="image/webp">
-          <img src="assets/images/services/hvac-solutions.jpg" alt="HVAC Systems" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/firefighting-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/firefighting-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="hero__img" width="1536" height="838" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/electrical-power.webp" type="image/webp">
-          <img src="assets/images/services/electrical-power.jpg" alt="Electrical Power" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/hvac-solutions-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/hvac-solutions.webp" type="image/webp">
+          <img data-src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Systems" class="hero__img" width="1536" height="838" decoding="async">
         </picture>
 
         <picture class="hero__img-lazy">
-          <source srcset="assets/images/services/general-trading.webp" type="image/webp">
-          <img src="assets/images/services/general-trading.jpg" alt="General Trading" class="hero__img" loading="lazy" width="1920" height="1080">
+          <source data-srcset="/assets/images/services/electrical-power-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/electrical-power.webp" type="image/webp">
+          <img data-src="/assets/images/services/electrical-power.jpg" alt="Electrical Power" class="hero__img" width="1815" height="866" decoding="async">
+        </picture>
+
+        <picture class="hero__img-lazy">
+          <source data-srcset="/assets/images/services/general-trading-768.webp" media="(max-width: 768px)" type="image/webp">
+          <source data-srcset="/assets/images/services/general-trading.webp" type="image/webp">
+          <img data-src="/assets/images/services/general-trading.jpg" alt="General Trading" class="hero__img" width="1536" height="898" decoding="async">
         </picture>
       </div>
       <div class="hero__content container">
         <img
-          src="assets/images/black-arrow-logo.png"
+          src="/assets/images/black-arrow-logo.png"
           alt="Black Arrow"
           class="hero__logo"
-          width="180"
-          height="180"
-          loading="eager"
-        >
+          width="924"
+          height="540"
+          fetchpriority="high"
+          loading="eager" decoding="async">
         <p class="hero__eyebrow">Black Arrow Venture company | شركة السهم الأسود ڤنتشر</p>
         <h1 data-i18n="saudi_premier" style="font-size: 3.5rem;">Saudi Arabia's Premier EV & UPS Solutions</h1>
 
@@ -184,8 +216,8 @@
         </div>
 
         <div class="hero__cta">
-          <a href="contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" data-i18n="get_consultation">Get a Consultation</a>
-          <a href="services.html" class="btn btn-outline" data-i18n="view_solutions">View Our Solutions</a>
+          <a href="/contact.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 14px 32px;" data-i18n="get_consultation">Get a Consultation</a>
+          <a href="/services.html" class="btn btn-outline" data-i18n="view_solutions">View Our Solutions</a>
         </div>
       </div>
       <div class="scroll-indicator" aria-hidden="true">
@@ -313,8 +345,8 @@
             <span class="svc-card__badge" data-i18n="best_seller">🔥 Best Seller</span>
             <div class="svc-card__img-wrap">
               <picture>
-                <source srcset="assets/images/services/isolated-power-panels.webp" type="image/webp">
-                <img src="assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
+                <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="svc-card__img" loading="lazy" width="374" height="600" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ipp">Isolated Power Panels</span>
             </div>
@@ -334,8 +366,8 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/isolated-power-panels/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=ipp" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/isolated-power-panels/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=ipp" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
@@ -343,8 +375,8 @@
             <span class="svc-card__badge" data-i18n="most_popular">Most Popular</span>
             <div class="svc-card__img-wrap">
               <picture>
-                <source srcset="assets/images/services/ev-solutions.webp" type="image/webp">
-                <img src="assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="svc-card__img" loading="lazy" width="400" height="200">
+                <source srcset="/assets/images/services/ev-solutions.webp" type="image/webp">
+                <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Solutions" class="svc-card__img" loading="lazy" width="1536" height="852" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ev">EV Solutions</span>
             </div>
@@ -364,16 +396,16 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/ev-charging-solutions/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=ev" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/ev-charging-solutions/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=ev" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
               <picture>
-                <source srcset="assets/images/services/ups-solutions.webp" type="image/webp">
-                <img src="assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <source srcset="/assets/images/services/ups-solutions.webp" type="image/webp">
+                <img src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="svc-card__img" loading="lazy" width="1530" height="805" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ups">UPS Solutions</span>
             </div>
@@ -393,16 +425,16 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/ups-power-backup/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=ups" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/ups-power-backup/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=ups" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
               <picture>
-                <source srcset="assets/images/services/lighting-solutions.webp" type="image/webp">
-                <img src="assets/images/services/lighting-solutions.jpg" alt="Professional Lighting Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+                <source srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
+                <img src="/assets/images/services/lighting-solutions.jpg" alt="Professional Lighting Systems" class="svc-card__img" loading="lazy" width="1536" height="759" decoding="async">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_lighting">Lighting Solutions</span>
             </div>
@@ -422,14 +454,14 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/lighting-solutions/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=lighting" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/lighting-solutions/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=lighting" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="svc-card__img" loading="lazy" width="1536" height="838" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_fire">Firefighting Systems</span>
             </div>
             <div class="svc-card__body">
@@ -448,14 +480,14 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/firefighting-systems/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=firefighting" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/firefighting-systems/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=firefighting" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="svc-card__img" loading="lazy" width="1536" height="838" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_hvac">HVAC Solutions</span>
             </div>
             <div class="svc-card__body">
@@ -474,14 +506,14 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/hvac-solutions/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=hvac" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/hvac-solutions/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=hvac" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="assets/images/services/electrical-power.jpg" alt="Electrical and Power Distribution" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/electrical-power.jpg" alt="Electrical and Power Distribution" class="svc-card__img" loading="lazy" width="1815" height="866" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_electrical">Electrical &amp; Power Distribution</span>
             </div>
             <div class="svc-card__body">
@@ -500,14 +532,14 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/electrical-distribution/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=electrical" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/electrical-distribution/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=electrical" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
           <article class="svc-card reveal">
             <div class="svc-card__img-wrap">
-              <img src="assets/images/services/general-trading.jpg" alt="General Trading" class="svc-card__img" loading="lazy" width="400" height="200">
+              <img src="/assets/images/services/general-trading.jpg" alt="General Trading" class="svc-card__img" loading="lazy" width="1536" height="898" decoding="async">
               <span class="svc-card__img-label" data-i18n="service_trading">General Trading</span>
             </div>
             <div class="svc-card__body">
@@ -526,15 +558,15 @@
               </div>
             </div>
             <div class="svc-card__footer">
-              <a href="/services/general-trading/" data-i18n="service_learn">Learn More <span aria-hidden="true">→</span></a>
-              <a href="contact.html?service=trading" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
+              <a href="/services/general-trading/"><span data-i18n="service_learn">Learn More</span> <span aria-hidden="true">→</span></a>
+              <a href="/contact.html?service=trading" class="btn btn-primary btn-sm" data-i18n="get_quote">Get Quote</a>
             </div>
           </article>
 
         </div>
 
         <div style="text-align:center;margin-top:48px;" class="reveal">
-          <a href="services.html" class="btn btn-primary">View All Services &amp; Details →</a>
+          <a href="/services.html" class="btn btn-primary">View All Services &amp; Details →</a>
         </div>
       </div>
     </section>
@@ -571,12 +603,12 @@
             <h2 id="about-heading" style="color: #F59E0B !important;" data-i18n="about_title">About Black Arrow</h2>
             <p style="color: #ffffff;" data-i18n="about_p1">Black Arrow is a Saudi-based trading and solutions provider dedicated to delivering comprehensive infrastructure and technology solutions across the Kingdom of Saudi Arabia. With a strategic focus on Electric Vehicle (EV) infrastructure, Uninterruptible Power Supply (UPS) systems, HVAC solutions, and specialised engineering products, we provide complete, end-to-end services tailored to modern market demands.</p>
             <p style="color: #ffffff;" data-i18n="about_p2">Operating in alignment with Saudi Vision 2030, we actively support the Kingdom's transformation toward sustainable energy, smart infrastructure, and diversified economic growth.</p>
-            <a href="about.html" class="btn btn-navy" style="margin-top:24px;" data-i18n="about_cta">Read Our Full Story →</a>
+            <a href="/about.html" class="btn btn-navy" style="margin-top:24px;" data-i18n="about_cta">Read Our Full Story →</a>
           </div>
           <div class="about-visual reveal-right">
             <div class="vision-badge">
               <div class="badge-header">
-                <img src="assets/images/download.png" alt="Saudi Arabia Flag" class="saudi-flag"/>
+                <img src="/assets/images/download.png" alt="Saudi Arabia Flag" class="saudi-flag"/ width="178" height="148" decoding="async" loading="lazy">
                 <h3 style="color: #F59E0B; margin: 0;" data-i18n="saudi_vision">Saudi Vision 2030</h3>
               </div>
 
@@ -719,8 +751,8 @@
         <div class="section-cta reveal" style="margin-top: 64px;">
           <h3 style="font-size: var(--fs-2xl); color: var(--clr-accent); margin-bottom: 24px; font-weight: 700;">Ready to transform your operations?</h3>
           <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <a href="services.html" class="btn btn-primary">Explore All Services</a>
-            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            <a href="/services.html" class="btn btn-primary">Explore All Services</a>
+            <a href="/contact.html" class="btn btn-outline">Get in Touch</a>
           </div>
         </div>
       </div>
@@ -738,40 +770,40 @@
         </div>
         <div class="clients__logos reveal">
           <div class="client-logo">
-            <img src="assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_0.webp" type="image/webp"><img src="/assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy" width="458" height="110" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/client_1.jpg" alt="THC" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_1.webp" type="image/webp"><img src="/assets/images/clients/client_1.jpg" alt="THC" loading="lazy" width="184" height="116" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_2.webp" type="image/webp"><img src="/assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy" width="498" height="101" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_3.webp" type="image/webp"><img src="/assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy" width="415" height="121" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/client_4.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_4.webp" type="image/webp"><img src="/assets/images/clients/client_4.jpg" alt="Client Partner" loading="lazy" width="200" height="200" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/client_5.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/client_5.webp" type="image/webp"><img src="/assets/images/clients/client_5.jpg" alt="Client Partner" loading="lazy" width="276" height="182" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/aramco-services-company-logo-png_seeklogo-395706.png" alt="Aramco Services Company" loading="lazy">
+            <picture><source srcset="/assets/images/clients/aramco-services.webp" type="image/webp"><img src="/assets/images/clients/aramco-services.png" alt="Aramco Services Company" loading="lazy" width="600" height="600" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/download.jpg" alt="Client Partner" loading="lazy">
+            <picture><source srcset="/assets/images/clients/download.webp" type="image/webp"><img src="/assets/images/clients/download.jpg" alt="Client Partner" loading="lazy" width="206" height="145" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/ALDARA HOSPITAL.jpg" alt="Aldara Hospital" loading="lazy">
+            <picture><source srcset="/assets/images/clients/aldara-hospital.webp" type="image/webp"><img src="/assets/images/clients/aldara-hospital.jpg" alt="Aldara Hospital" loading="lazy" width="447" height="447" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/BREEZE MED CARE.jpg" alt="Breeze Med Care" loading="lazy">
+            <picture><source srcset="/assets/images/clients/breeze-med-care.webp" type="image/webp"><img src="/assets/images/clients/breeze-med-care.jpg" alt="Breeze Med Care" loading="lazy" width="400" height="400" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/DALLAH HOSPITAL.jpg" alt="Dallah Hospital" loading="lazy">
+            <picture><source srcset="/assets/images/clients/dallah-hospital.webp" type="image/webp"><img src="/assets/images/clients/dallah-hospital.jpg" alt="Dallah Hospital" loading="lazy" width="1200" height="630" decoding="async"></picture>
           </div>
           <div class="client-logo">
-            <img src="assets/images/clients/NLS_Logo_Transparent.png" alt="NLS" loading="lazy">
+            <picture><source srcset="/assets/images/clients/nls-logo.webp" type="image/webp"><img src="/assets/images/clients/nls-logo.png" alt="NLS" loading="lazy" width="875" height="736" decoding="async"></picture>
           </div>
         </div>
         <p class="clients__note reveal">Serving clients across the Kingdom of Saudi Arabia</p>
@@ -787,6 +819,7 @@
           <div class="wa-banner__text">
             <h2 data-i18n="wa_title">Have a Question?</h2>
             <p data-i18n="wa_subtitle">Our team is ready to assist you on WhatsApp</p>
+            <p class="wa-banner__sla" data-i18n="wa_reply_time">We reply within one business day &middot; Sun&ndash;Thu, 8 AM &ndash; 6 PM</p>
           </div>
           <a
             href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20EV%20Chargers%2C%20UPS%20Systems%2C%20HVAC%2C%20Lighting%2C%20Firefighting%2C%20Electrical%20and%20Trading%20solutions."
@@ -794,7 +827,6 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat with us on WhatsApp"
-            data-i18n="wa_btn"
           >
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -832,7 +864,7 @@
           </div>
         </div>
         <div style="text-align:center;margin-top:40px;" class="reveal">
-          <a href="contact.html" class="btn btn-primary">Send Us a Message</a>
+          <a href="/contact.html" class="btn btn-primary">Send Us a Message</a>
         </div>
       </div>
     </section>
@@ -848,7 +880,7 @@
 
         <!-- Column 1: Brand -->
         <div class="footer__brand">
-          <img src="assets/images/black-arrow-logo.png" alt="Black Arrow">
+          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
           <p data-i18n="footer_brand_desc">Leading provider of comprehensive electrical and technology solutions since 2022.</p>
           <!-- Social Links -->
           <div class="footer__socials">
@@ -864,13 +896,14 @@
         <div class="footer__col">
           <h4 data-i18n="footer_quicklinks">Quick Links</h4>
           <ul>
-            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-            <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
-            <li><a href="services.html" data-i18n="nav_services">Services</a></li>
-            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
-            <li><a href="become-a-partner.html" data-i18n="nav_partner">Become Partner</a></li>
-            <li><a href="resources/faqs/" data-i18n="nav_faqs">FAQs</a></li>
-            <li><a href="resources/blog/" data-i18n="blog_title">Blog</a></li>
+            <li><a href="/" data-i18n="nav_home">Home</a></li>
+            <li><a href="/about.html" data-i18n="nav_about">About Us</a></li>
+            <li><a href="/services.html" data-i18n="nav_services">Services</a></li>
+            <li><a href="/contact.html" data-i18n="nav_contact">Contact</a></li>
+            <li><a href="/become-a-partner.html" data-i18n="nav_partner">Become Partner</a></li>
+            <li><a href="/resources/faqs/" data-i18n="nav_faqs">FAQs</a></li>
+            <li><a href="/resources/blog/" data-i18n="blog_title">Blog</a></li>
+            <li><a href="/resources/case-studies/" data-i18n="nav_case_studies">Case Studies</a></li>
           </ul>
         </div>
 
@@ -896,7 +929,7 @@
           <div class="footer__contact">
             <div class="contact-item">
               <span style="font-size:1.2em;">📍</span>
-              <span data-i18n="location_khobar">Al Khobar, Saudi Arabia</span>
+              <span data-i18n="location_dammam">Ad Dammam, Ash Sharqiyah, Saudi Arabia</span>
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">📞</span>
@@ -908,13 +941,18 @@
             </div>
             <div class="contact-item">
               <span style="font-size:1.2em;">⏰</span>
-              <span data-i18n="business_hours_range">9 AM - 5 PM, Sat-Thu</span>
+              <span data-i18n="business_hours_range">Sun - Thu, 8 AM - 6 PM</span>
             </div>
           </div>
           <!-- Newsletter -->
-          <form class="footer__newsletter" aria-label="Newsletter signup">
-            <input type="email" placeholder="Your email" required aria-label="Email address">
-            <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+          <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
+                data-w3f aria-label="Newsletter signup">
+            <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
+            <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
+            <input type="hidden" name="from_name" value="Black Arrow Website">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">Subscribe</button>
           </form>
         </div>
       </div>
@@ -923,9 +961,9 @@
       <div class="footer__bottom">
         <p>&copy; <span>2024</span> Black Arrow Venture company. All rights reserved. Vision 2030.</p>
         <div class="footer__legal">
-          <a href="#" data-i18n="privacy_policy">Privacy Policy</a>
-          <a href="#" data-i18n="terms_service">Terms of Service</a>
-          <a href="#" data-i18n="sitemap">Sitemap</a>
+          <a href="/privacy-policy.html" data-i18n="privacy_policy">Privacy Policy</a>
+          <a href="/terms-of-service.html" data-i18n="terms_service">Terms of Service</a>
+          <a href="/sitemap.xml" data-i18n="sitemap">Sitemap</a>
         </div>
       </div>
     </div>
@@ -959,7 +997,7 @@
     </a>
   </div>
 
-  <script src="assets/js/app.js" defer></script>
+  <script src="/assets/js/app.js" defer></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

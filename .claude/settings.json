@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
+      "Bash(curl -s -X POST https://api.web3forms.com/submit -H 'Accept: application/json' -F access_key=08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc -F 'subject=New enquiry from blackarrowksa.com' -F 'from_name=Black Arrow Website' -F 'name=Claude Test \\(contact form\\)' -F 'company=Verification Run' -F email=afzaladnan24@gmail.com -F phone=+966560224715 -F service=ipp -F 'message=END-TO-END TEST of the contact form. If this arrived at info@blackarrowksa.com, the contact form is working. Safe to ignore.')",
+      "Bash(python -c \"import sys,json;d=json.load\\(sys.stdin\\);print\\('success:',d.get\\('success'\\)\\);print\\('message:',d.get\\('message'\\)\\)\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --virtual-time-budget=15000 --dump-dom \"http://127.0.0.1:8790/__apitest.html\")",
+      "Bash(env)",
+      "Bash(curl -s -o /dev/null -w \"example.com -> %{http_code}\\\\n\" https://example.com)",
+      "Bash(curl -s -o /dev/null -w \"api.web3forms.com -> %{http_code}\\\\n\" https://api.web3forms.com/submit)",
+      "Bash(reg query *)"
+    ]
+  }
+}

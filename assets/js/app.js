@@ -7,129 +7,27 @@
 'use strict';
 
 /* ──────────────────────────────────────────────
-   1. LANGUAGE / i18n
+   1. LANGUAGE
+   ──────────────────────────────────────────────
+   The runtime translator that used to live here has been removed.
+
+   It fetched a 126 KB ar.json on every page load and rewrote the DOM via
+   el.textContent, which destroyed any child markup inside a translated
+   element (it was deleting the WhatsApp icon and the service-card arrows).
+   It also produced a visible flash of English before the swap, and it only
+   ever produced one URL per page -- so Google indexed the site as English
+   only and none of the Arabic was ever discoverable.
+
+   Arabic is now served as real pages under /ar/, generated at build time by
+   scripts/build_ar.py from the same assets/translations/ar.json. The EN/AR
+   control is now a pair of plain links to the counterpart URL, so there is
+   nothing to initialise here.
+
+   IMPORTANT: do not reintroduce a localStorage-driven setLang(). On a static
+   /ar/ page it would set <html lang="en" dir="ltr"> over Arabic text, since
+   applyTranslations could only ever apply a dictionary, never restore the
+   original English.
    ────────────────────────────────────────────── */
-const translations = {};
-
-// Convert English numerals to Arabic numerals
-function convertNumbersToArabic(text) {
-  if (!text) return text;
-  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-  return String(text).replace(/\d/g, d => arabicNumbers[d]);
-}
-
-// Convert Arabic numerals to English numerals
-function convertNumbersToEnglish(text) {
-  if (!text) return text;
-  const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-  let result = String(text);
-  arabicNumbers.forEach((char, index) => {
-    result = result.replace(new RegExp(char, 'g'), index);
-  });
-  return result;
-}
-
-async function loadTranslations(lang) {
-  if (translations[lang]) {
-    console.log(`Using cached ${lang} translations`);
-    return translations[lang];
-  }
-  try {
-    const res = await fetch(`/assets/translations/${lang}.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    translations[lang] = await res.json();
-    console.log(`Loaded ${lang} translations:`, Object.keys(translations[lang]).length, 'keys');
-    return translations[lang];
-  } catch (e) {
-    console.error(`Failed to load ${lang} translations:`, e);
-    return null;
-  }
-}
-
-async function applyTranslations(lang) {
-  console.log(`Applying ${lang} translations...`);
-  const t = await loadTranslations(lang);
-
-  if (!t || Object.keys(t).length === 0) {
-    console.warn(`No translations found for ${lang}`);
-    return;
-  }
-
-  let updated = 0;
-  // Update text content
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = t[key];
-      } else {
-        el.textContent = t[key];
-      }
-      updated++;
-    }
-  });
-  console.log(`Updated ${updated} elements with ${lang} translations`);
-
-  // Update placeholder attributes
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.placeholder = t[key];
-  });
-
-  // Update document title with lang suffix
-  if (lang === 'ar') {
-    document.title = document.title.replace('Eight Stars Eastern', 'ثمانية نجوم الشرقية');
-
-    // Convert all numbers to Arabic numerals
-    document.querySelectorAll('.number-convertible').forEach(el => {
-      el.textContent = convertNumbersToArabic(el.textContent);
-    });
-  } else {
-    // Convert back to English numerals
-    document.querySelectorAll('.number-convertible').forEach(el => {
-      el.textContent = convertNumbersToEnglish(el.textContent);
-    });
-  }
-}
-
-function setLang(lang) {
-  const html = document.documentElement;
-  const isAr = lang === 'ar';
-
-  html.setAttribute('lang', lang);
-  html.setAttribute('dir', isAr ? 'rtl' : 'ltr');
-
-  // Update switcher buttons
-  const enBtn = document.getElementById('lang-en');
-  const arBtn = document.getElementById('lang-ar');
-  if (enBtn) enBtn.classList.toggle('active', !isAr);
-  if (arBtn) arBtn.classList.toggle('active', isAr);
-
-  // Load and apply translations
-  applyTranslations(lang);
-
-  // Persist preference
-  try { localStorage.setItem('lang', lang); } catch (e) {}
-}
-
-function initLang() {
-  let lang = 'en';
-  try {
-    lang = localStorage.getItem('lang') || 'en';
-  } catch (e) {}
-
-  // Auto-detect Arabic browser preference
-  if (!localStorage.getItem('lang')) {
-    const browserLang = navigator.language || navigator.userLanguage || '';
-    if (browserLang.startsWith('ar')) lang = 'ar';
-  }
-
-  setLang(lang);
-}
-
-// Expose globally for inline onclick handlers
-window.setLang = setLang;
-
 
 /* ──────────────────────────────────────────────
    3. SCROLL REVEAL ANIMATIONS
@@ -262,6 +160,16 @@ function initForm() {
     el.addEventListener('input', () => clearError(id));
   });
 
+  // Real submission to Web3Forms.
+  //
+  // The previous implementation showed a green "Message Sent" state and then
+  // fired a mailto: link. On mobile, or anywhere without a configured mail
+  // client, that silently discarded the enquiry while telling the visitor it
+  // had been sent. Every one of those leads was lost.
+  //
+  // The <form> carries a real action/method, so with JS disabled the browser
+  // does a normal POST and Web3Forms redirects to /thank-you.html. This
+  // handler only upgrades that to an inline success state.
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -279,32 +187,91 @@ function initForm() {
 
     const submitBtn = form.querySelector('[type="submit"]');
     const originalText = submitBtn.textContent;
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
+    if (errorEl) errorEl.style.display = 'none';
 
-    // Compose mailto link as fallback (since no server backend)
-    const service = document.getElementById('service')?.value || '';
-    const company = document.getElementById('company')?.value || '';
-    const subject = encodeURIComponent(`Inquiry from ${name.value} - ${service || 'General'}`);
-    const body = encodeURIComponent(
-      `Name: ${name.value}\nCompany: ${company}\nPhone: ${phone.value}\nService: ${service}\n\n${message.value}`
-    );
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      const result = await response.json().catch(() => ({}));
 
-    // Try to open WhatsApp with message as alternative
-    const waMsg = encodeURIComponent(
-      `Hello, I'm ${name.value} from ${company || 'my company'}. I'm interested in ${service || 'your services'}. ${message.value}`
-    );
+      if (response.ok && result.success !== false) {
+        if (successEl) successEl.style.display = 'block';
+        submitBtn.textContent = '✓ Message Sent';
+        submitBtn.style.background = '#2e7d32';
+        form.reset();
+        successEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      // Never claim success we cannot confirm. Show the failure and give the
+      // visitor two routes that definitely work.
+      if (errorEl) {
+        errorEl.style.display = 'block';
+      } else {
+        alert('Sorry, the message could not be sent. Please email '
+            + 'info@blackarrowksa.com or call +966 560 224 715.');
+      }
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
 
-    // Show success and redirect to email
-    setTimeout(() => {
-      const successEl = document.getElementById('form-success');
-      if (successEl) successEl.style.display = 'block';
-      submitBtn.textContent = '✓ Message Sent';
-      submitBtn.style.background = '#2e7d32';
-      form.reset();
-      // Open email client
-      window.location.href = `mailto:info@blackarrowksa.com?subject=${subject}&body=${body}`;
-    }, 800);
+/* ──────────────────────────────────────────────
+   6b. GENERIC WEB3FORMS SUBMISSION
+   For the partnership form and the footer newsletter forms, which relied on
+   the browser's native POST and therefore did nothing at all. Each <form>
+   carries a real action, so these still work without JavaScript; this only
+   adds the inline success/error state.
+   ────────────────────────────────────────────── */
+function initWeb3Forms() {
+  document.querySelectorAll('form[data-w3f]').forEach((form) => {
+    const successEl = document.getElementById(form.dataset.success);
+    const errorEl = document.getElementById(form.dataset.error);
+
+    form.addEventListener('submit', async (e) => {
+      if (!form.checkValidity()) return;   // let the browser show its own hints
+      e.preventDefault();
+
+      const btn = form.querySelector('[type="submit"]');
+      const label = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
+      if (errorEl) errorEl.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
+
+        form.reset();
+        if (successEl) {
+          successEl.style.display = 'block';
+        } else if (btn) {
+          btn.textContent = '✓ Subscribed';
+        }
+        if (btn) btn.style.background = '#2e7d32';
+      } catch (err) {
+        if (errorEl) {
+          errorEl.style.display = 'block';
+        } else {
+          alert('Sorry, that could not be sent. Please email info@blackarrowksa.com.');
+        }
+        if (btn) { btn.textContent = label; btn.disabled = false; }
+      }
+    });
   });
 }
 
@@ -363,12 +330,51 @@ function initHeroSlider() {
     });
   }
 
-  // Show first image
+  // Promote a deferred slide's data-src/data-srcset to real attributes.
+  //
+  // Every slide is position:absolute; inset:0, so they all sit in the initial
+  // viewport and loading="lazy" would be ignored. Holding the URLs in data-*
+  // is the only way to keep slides 2-7 off the critical path. Idempotent.
+  function load(picture) {
+    if (!picture || picture.dataset.loaded) return;
+    picture.dataset.loaded = '1';
+    picture.querySelectorAll('source[data-srcset]').forEach(source => {
+      source.srcset = source.dataset.srcset;
+      delete source.dataset.srcset;
+    });
+    const img = picture.querySelector('img[data-src]');
+    if (img) {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+  }
+
+  const deferred = Array.from(document.querySelectorAll('.hero__img-lazy'));
+
+  // Show first image immediately; it is already a real <img>.
   showImage(0);
 
-  // Auto-cycle every 5.5 seconds
+  // Only start fetching the rest once the page has finished loading, so they
+  // never contend with the LCP image or the stylesheet.
+  function loadRest() {
+    deferred.forEach((picture, i) => {
+      // Stagger slightly so seven requests don't burst at once.
+      setTimeout(() => load(picture), i * 300);
+    });
+  }
+
+  if (document.readyState === 'complete') {
+    loadRest();
+  } else {
+    window.addEventListener('load', loadRest, { once: true });
+  }
+
+  // Auto-cycle every 5.5 seconds. Guarantee the next slide is loaded before
+  // it is shown, in case the cycle outruns the staggered preload.
   setInterval(() => {
     currentIndex = (currentIndex + 1) % images.length;
+    if (currentIndex > 0) load(deferred[currentIndex - 1]);
+    load(deferred[currentIndex]);   // also warm the one after
     showImage(currentIndex);
   }, 5500);
 }
@@ -420,12 +426,12 @@ function initWhatsAppLinks() {
    10. INIT ALL
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  initLang();
   initHeroSlider();
   initScrollReveal();
   initCounters();
   setActiveNav();
   initForm();
+  initWeb3Forms();
   initA11y();
   initSmoothScroll();
   initWhatsAppLinks();
