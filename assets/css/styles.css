@@ -3190,3 +3190,12 @@ hr {
   .page-hero__img,
   .service-detail__img { max-width: 100%; height: auto; }
 }
+
+/* Reply-time expectation under the WhatsApp CTA. Sets the promise before the
+   customer messages, so the WhatsApp Business auto-reply confirms something
+   they already expect rather than being the first they hear of it. */
+.wa-banner__sla {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}

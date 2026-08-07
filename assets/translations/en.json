@@ -362,7 +362,7 @@
   "form_message_required": "Message required",
   "complete_your_profile": "Complete Your Profile",
   "home": "Home",
-  "contact_intro": "We respond to all inquiries within 24 hours. Our team is ready to help.",
+  "contact_intro": "We respond to all inquiries within one business day. Our team is ready to help.",
   "reach_us_directly": "Reach Us Directly",
   "contact_info_heading": "Contact Information",
   "website": "Website",
@@ -374,7 +374,7 @@
   "success_message": "✓ Thank you! Your message has been sent. We'll be in touch shortly.",
   "service_firefighting": "Firefighting Systems",
   "service_multiple": "Multiple Services",
-  "required_fields": "* Required fields. We'll respond within 24 hours.",
+  "required_fields": "* Required fields. We'll respond within one business day.",
   "footer_brand_desc": "Leading provider of comprehensive electrical and technology solutions since 2022.",
   "business_hours_range": "Sun - Thu, 8 AM - 6 PM",
   "form_select_service": "Select a Service",
@@ -1006,5 +1006,7 @@
   "ty_hours": "Our office hours are Sunday to Thursday, 8:00 AM – 6:00 PM (AST).",
   "ty_urgent": "Need something urgently? Reach us directly:",
   "ty_meanwhile": "In the meantime, you might find these useful:",
-  "nav_case_studies": "Case Studies"
+  "nav_case_studies": "Case Studies",
+  "wa_reply_time": "We reply within one business day · Sun–Thu, 8 AM – 6 PM",
+  "wa_reply_time_short": "Replies within one business day"
 }
