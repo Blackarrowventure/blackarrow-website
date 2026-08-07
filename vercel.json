@@ -1,7 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
-  "trailingSlash": false,
+
+  "_comment_trailingSlash": "Deliberately NOT set. Setting it to false made Vercel 308-redirect every directory URL to its non-slash form, which broke the site's whole URL convention: all canonical tags, all hreflang alternates and all 55 sitemap entries use trailing slashes, so each one pointed at a redirect. Omitting the key restores Vercel's default, which serves /path/ directly with 200 and matches what Google already has indexed.",
+
   "headers": [
     {
       "source": "/assets/css/(.*)",
