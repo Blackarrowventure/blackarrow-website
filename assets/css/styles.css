@@ -3133,3 +3133,60 @@ hr {
 [dir="rtl"] .hero__eyebrow, [dir="rtl"] .overline {
   font-family: var(--ff-ar);
 }
+
+/* ──────────────────────────────────────────────
+   24. MOBILE NAVBAR OVERFLOW FIX
+   ──────────────────────────────────────────────
+   .navbar__inner is `grid-template-columns: auto 1fr auto`. Grid items default
+   to min-width:auto, so none of the three columns can shrink below its
+   min-content width. Below roughly 900px the logo + wrapped link list + lang
+   switcher + CTA button exceed the viewport, and the whole page overflows
+   horizontally -- clipping the nav, the page-hero image and the h1.
+
+   The --nav-h values in the breakpoints above (152px at 768, 210px at 480)
+   show a stacked navbar was intended, but the grid was never switched to a
+   single column, so the rows never actually formed.
+
+   Fixing this at 900px rather than 768px because the overflow starts as soon
+   as the link list can no longer sit beside the logo, which is well above the
+   tablet breakpoint. Applies to both LTR and RTL.
+   ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .navbar__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  /* Without this the children still refuse to shrink. */
+  .navbar__inner > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .navbar__logo { justify-content: center; }
+
+  .navbar__links {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 4px;
+    row-gap: 2px;
+  }
+
+  .navbar__actions {
+    justify-content: center;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+}
+
+/* Safety net: nothing should be able to force the page wider than the
+   viewport. body already has overflow-x:hidden, but that only hides the
+   scrollbar -- it does not stop content being clipped off-screen. */
+@media (max-width: 900px) {
+  .container { max-width: 100%; }
+  .page-hero__img,
+  .service-detail__img { max-width: 100%; height: auto; }
+}
