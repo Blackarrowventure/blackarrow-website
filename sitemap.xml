@@ -57,12 +57,18 @@
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/privacy-policy.html"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/terms-of-service.html</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/terms-of-service.html"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/services/isolated-power-panels/</loc>
@@ -324,6 +330,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/become-a-partner.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/become-a-partner.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/become-a-partner.html"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/privacy-policy.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/privacy-policy.html"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/terms-of-service.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/terms-of-service.html"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/ar/services/isolated-power-panels/</loc>

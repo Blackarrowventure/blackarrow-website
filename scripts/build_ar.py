@@ -102,12 +102,37 @@ def build_page(entry, check_only):
     edits = []
     missing = []
 
+    # ---- 1a. data-i18n-html: replace a whole block, markup and all ------
+    # data-i18n below refuses child markup, which is right for a label but
+    # useless for a legal paragraph threaded with <strong> and <a>. Splitting
+    # such a paragraph into fragments and translating each one separately
+    # produces broken Arabic, because the word order is not the same.
+    # The Arabic value here is an HTML fragment and is spliced verbatim, so
+    # any internal link inside it must already be written in its /ar/ form.
+    html_spans = []
+    for tag, attrs, cs, ce in loc.spans:
+        key = attrs.get('data-i18n-html')
+        if not key:
+            continue
+        if any(s <= cs and ce <= e for s, e in html_spans):
+            continue                      # nested inside another block
+        if key not in AR:
+            missing.append(key)
+            continue
+        html_spans.append((cs, ce))
+        edits.append((cs, ce, AR[key]))
+
+    def in_html_block(pos):
+        return any(s <= pos < e for s, e in html_spans)
+
     # ---- 1. data-i18n text content -------------------------------------
     seen = set()
     for tag, attrs, cs, ce in loc.spans:
         key = attrs.get('data-i18n')
         if not key:
             continue
+        if in_html_block(cs):
+            continue                      # its parent block is replaced wholesale
         if (cs, ce) in seen:
             continue
         seen.add((cs, ce))
@@ -179,6 +204,8 @@ def build_page(entry, check_only):
     for tag, attrs, s, e, raw in loc.tags:
         if switch_start != -1 and switch_start <= s < switch_end:
             continue                     # handled above
+        if in_html_block(s):
+            continue                     # inside a wholesale-replaced block
         new_raw = raw
         for attr in ('href', 'src', 'action'):
             if attr not in attrs:
@@ -209,6 +236,8 @@ def build_page(entry, check_only):
         for a_name, a_key in attrs.items():
             if not a_name.startswith('data-i18n-') or not a_key:
                 continue
+            if a_name == 'data-i18n-html':
+                continue                  # block replacement, handled in 1a
             target = a_name[len('data-i18n-'):]
             if target not in attrs:
                 raise BuildError(
