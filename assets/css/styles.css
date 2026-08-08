@@ -553,9 +553,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-inline-end: 24px;
 }
 
+/* Sized by width, not height. The wordmark is 8:1, so a height of 70px -
+   which is what this rule used to say - would make it 561px wide. The old
+   logo file got away with height sizing only because 90% of its canvas was
+   transparent padding, which is precisely why it rendered as a 7px smudge. */
 .navbar__logo img {
-  height: 70px;
-  width: auto;
+  width: 220px;
+  height: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
 }
@@ -2219,8 +2223,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .footer__brand img {
-  height: 180px;
-  width: auto;
+  /* was height:180px - an 8:1 wordmark at that height is 1443px wide */
+  width: 200px;
+  height: auto;
   margin-bottom: 16px;
 }
 
@@ -2840,7 +2845,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 1300px) {
   /* Navbar: shrink to make room, never hide the menu text */
   :root { --nav-h: 108px; }
-  .navbar__logo img { height: 52px; }
+  .navbar__logo img { width: 190px; }
   .navbar__logo-text .name { font-size: 15px; }
   .navbar__logo-text .sub { font-size: 11px; }
   .navbar__links { flex-wrap: wrap; row-gap: 4px; padding: 6px 10px; }
@@ -2860,7 +2865,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 768px) {
   /* Navbar: menu text can now wrap to a 2nd line, so give it more room */
   :root { --nav-h: 152px; }
-  .navbar__logo img { height: 44px; }
+  .navbar__logo img { width: 170px; }
   .navbar__logo-text .name { font-size: 13px; }
   .navbar__logo-text .sub { font-size: 10px; }
   .navbar__links a { padding: 5px 8px; font-size: 13px; }
@@ -2897,7 +2902,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 480px) {
   /* Navbar: company name/subtitle hidden to leave room for the menu, which stays as text */
   :root { --nav-h: 210px; }
-  .navbar__logo img { height: 40px; }
+  .navbar__logo img { width: min(150px, 40vw); }
   .navbar__links { row-gap: 6px; }
 
   .hero h1 { font-size: var(--fs-2xl); }
@@ -3395,8 +3400,22 @@ html:not(.js) [class*="reveal"] {
     padding: 8px 12px;
   }
 
-  .navbar__logo    { grid-area: logo;    justify-content: flex-start; }
+  .navbar__logo {
+    grid-area: logo;
+    justify-content: flex-start;
+    /* 44px of side padding is a desktop luxury; on a phone it is the
+       difference between the language switcher fitting and not. */
+    padding-inline: 0;
+  }
+
   .navbar__actions { grid-area: actions; justify-content: flex-end; }
+
+  /* The switcher was being squeezed to 41px - both pills compressed into
+     the space of one, so "AR" showed as "A" clipped against the button.
+     Flex children shrink below their content by default; these must not. */
+  .navbar__actions,
+  .lang-switcher { flex: 0 0 auto; }
+  .lang-btn { flex: 0 0 auto; }
 
   /* Wrap rather than scroll. A horizontally scrolling nav hides links
      behind an edge with nothing to indicate they are there - on a 360px
