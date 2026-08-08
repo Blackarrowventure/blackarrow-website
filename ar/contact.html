@@ -55,13 +55,13 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link" data-i18n="skip_main">تخطى إلى المحتوى الرئيسي</a>
 
   <header>
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي" data-i18n-aria-label="main_navigation">
       <div class="navbar__inner">
-        <a href="/ar/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
+        <a href="/ar/" class="navbar__logo" aria-label="السهم الأسود ڤنتشر - الصفحة الرئيسية" data-i18n-aria-label="home_link_aria">
+          <img src="/assets/images/black-arrow-logo.png" alt="شعار السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="logo_alt">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
@@ -90,7 +90,7 @@
     <!-- Page Hero -->
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="مسار التنقل" data-i18n-aria-label="breadcrumb_aria">
           <a href="/ar/" data-i18n="nav_home">الرئيسية</a>
           <span>›</span>
           <span data-i18n="contact_title">تواصل معنا</span>
@@ -186,24 +186,24 @@
               web3forms.com (free, sent to info@blackarrowksa.com on signup).
               That is the only change required.
             -->
-            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-label="Contact form">
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-label="نموذج التواصل" data-i18n-aria-label="aria_contact_form">
 
               <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
               <input type="hidden" name="subject" value="New enquiry from blackarrowksa.com">
               <input type="hidden" name="from_name" value="Black Arrow Website">
-              <input type="hidden" name="redirect" value="https://www.blackarrowksa.com/thank-you.html">
+              <input type="hidden" name="redirect" value="https://www.blackarrowksa.com/ar/thank-you.html">
               <!-- Honeypot: bots fill this, humans never see it. -->
               <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="name" data-i18n="form_name">الاسم الكامل</label>
-                  <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true">
+                  <input type="text" id="name" name="name" placeholder="الاسم الكامل" required autocomplete="name" aria-required="true" data-i18n-placeholder="placeholder_full_name">
                   <span class="field-error" id="name-error" role="alert" aria-live="polite"></span>
                 </div>
                 <div class="form-group">
                   <label for="company" data-i18n="form_company">اسم الشركة</label>
-                  <input type="text" id="company" name="company" placeholder="Your company" autocomplete="organization">
+                  <input type="text" id="company" name="company" placeholder="اسم الشركة" autocomplete="organization" data-i18n-placeholder="placeholder_company">
                 </div>
               </div>
 
@@ -222,7 +222,7 @@
 
               <div class="form-group">
                 <label for="service" data-i18n="form_service">الخدمة المطلوبة</label>
-                <select id="service" name="service" aria-label="Select a service" class="translated-select">
+                <select id="service" name="service" aria-label="اختر خدمة" class="translated-select" data-i18n-aria-label="form_select_service">
                   <option value="" data-i18n="form_select_service">اختر خدمة</option>
                   <option value="ev" data-i18n="service_ev">حلول السيارات الكهربائية</option>
                   <option value="ups" data-i18n="service_ups">حلول أنظمة UPS</option>
@@ -239,7 +239,7 @@
 
               <div class="form-group">
                 <label for="message" data-i18n="form_message">رسالتك</label>
-                <textarea id="message" name="message" rows="5" placeholder="Please describe your requirements, project scope, or questions..." required aria-required="true"></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="يرجى وصف المتطلبات والنطاق والأسئلة..." required aria-required="true" data-i18n-placeholder="placeholder_message"></textarea>
                 <span class="field-error" id="message-error" role="alert" aria-live="polite"></span>
               </div>
 
@@ -277,15 +277,14 @@
         </div>
         <div style="border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);max-width:900px;margin:auto;" class="reveal">
           <iframe
-            title="Black Arrow Venture Location - Dammam, Saudi Arabia"
+            title="موقع شركة السهم الأسود ڤنتشر - الدمام، المملكة العربية السعودية"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57912.52!2d50.103!3d26.435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e87e7a3e8c29%3A0x7c7a9a8c4c!2sDammam%20Ash%20Sharqiyah%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1"
             width="100%"
             height="400"
             style="border:0;display:block;"
             allowfullscreen
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+            referrerpolicy="no-referrer-when-downgrade" data-i18n-title="map_title"></iframe>
         </div>
       </div>
     </section>
@@ -299,7 +298,7 @@
             <p data-i18n="wa_subtitle">فريقنا مستعد لمساعدتك على واتساب</p>
             <p class="wa-banner__sla" data-i18n="wa_reply_time">نرد خلال يوم عمل واحد · الأحد – الخميس، ٨ ص – ٦ م</p>
           </div>
-          <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services.%20Can%20you%20help%20me%3F" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+          <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services.%20Can%20you%20help%20me%3F" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب" data-i18n-aria-label="chat_with_us_wa">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             <span data-i18n="wa_btn">تواصل عبر واتساب</span>
           </a>
@@ -315,11 +314,11 @@
 
         <!-- Column 1: Brand -->
         <div class="footer__brand">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
+          <img src="/assets/images/black-arrow-logo.png" alt="السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="black_arrow">
           <p data-i18n="footer_brand_desc">مزود حلول بنية تحتية وتكنولوجيا شاملة منذ عام ٢٠٢٢.</p>
           <!-- Social Links -->
           <div class="footer__socials">
-            <a href="https://wa.me/966560224715" aria-label="WhatsApp" class="social-link" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/966560224715" aria-label="واتساب" class="social-link" title="واتساب" target="_blank" rel="noopener noreferrer" data-i18n-aria-label="contact_whatsapp" data-i18n-title="contact_whatsapp">
               <svg class="icon icon--sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
               </svg>
@@ -346,14 +345,14 @@
         <div class="footer__col">
           <h4 data-i18n="footer_services">خدماتنا</h4>
           <ul>
-            <li><a href="/ar/services/ev-charging-solutions/">EV Solutions</a></li>
-            <li><a href="/ar/services/ups-power-backup/">UPS Solutions</a></li>
-            <li><a href="/ar/services/lighting-solutions/">Lighting Solutions</a></li>
-            <li><a href="/ar/services/firefighting-systems/">Firefighting</a></li>
-            <li><a href="/ar/services/hvac-solutions/">HVAC Solutions</a></li>
+            <li><a href="/ar/services/ev-charging-solutions/" data-i18n="service_ev">حلول السيارات الكهربائية</a></li>
+            <li><a href="/ar/services/ups-power-backup/" data-i18n="service_ups">حلول أنظمة UPS</a></li>
+            <li><a href="/ar/services/lighting-solutions/" data-i18n="service_lighting">حلول الإضاءة</a></li>
+            <li><a href="/ar/services/firefighting-systems/" data-i18n="firefighting_service">أنظمة مكافحة الحريق</a></li>
+            <li><a href="/ar/services/hvac-solutions/" data-i18n="service_hvac">حلول التكييف والتهوية</a></li>
             <li><a href="/ar/services/electrical-distribution/">Electrical &amp; Power</a></li>
-            <li><a href="/ar/services/general-trading/">General Trading</a></li>
-            <li><a href="/ar/services/isolated-power-panels/">Isolated Power Panels</a></li>
+            <li><a href="/ar/services/general-trading/" data-i18n="service_trading">التجارة العامة</a></li>
+            <li><a href="/ar/services/isolated-power-panels/" data-i18n="service_ipp">لوحات الطاقة المعزولة</a></li>
           </ul>
         </div>
 
@@ -381,12 +380,12 @@
           </div>
           <!-- Newsletter -->
           <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
-                data-w3f aria-label="Newsletter signup">
+                data-w3f aria-label="الاشتراك في النشرة البريدية" data-i18n-aria-label="newsletter_signup_aria">
             <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
             <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
             <input type="hidden" name="from_name" value="Black Arrow Website">
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <input type="email" name="email" placeholder="البريد الإلكتروني" required aria-label="عنوان البريد الإلكتروني" data-i18n-aria-label="email_address" data-i18n-placeholder="placeholder_newsletter">
             <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">اشترك</button>
           </form>
         </div>
@@ -394,7 +393,7 @@
 
       <!-- Bottom Bar: Copyright &amp; Links -->
       <div class="footer__bottom">
-        <p>&copy; <span>2024</span> Black Arrow Venture company. All rights reserved. Vision 2030.</p>
+        <p>&copy; <span data-year>2026</span> <span data-i18n="footer_rights">شركة السهم الأسود ڤنتشر. جميع الحقوق محفوظة. رؤية 2030.</span></p>
         <div class="footer__legal">
           <a href="/privacy-policy.html" data-i18n="privacy_policy">سياسة الخصوصية</a>
           <a href="/terms-of-service.html" data-i18n="terms_service">شروط الخدمة</a>
@@ -404,7 +403,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب" data-i18n-aria-label="wa_btn">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
@@ -412,11 +411,11 @@
   <div class="mobile-cta-sticky">
     <a href="tel:+966560224715" class="cta-btn cta-btn--call">
       <span style="font-size: 1.2em;">📞</span>
-      <span>Call Now</span>
+      <span data-i18n="call_now">اتصل الآن</span>
     </a>
     <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20your%20services.%20Can%20you%20help%20me%3F" class="cta-btn cta-btn--whatsapp" target="_blank" rel="noopener noreferrer">
       <span style="font-size: 1.2em;">💬</span>
-      <span>WhatsApp</span>
+      <span data-i18n="contact_whatsapp">واتساب</span>
     </a>
   </div>
 

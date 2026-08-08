@@ -77,13 +77,13 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link" data-i18n="skip_main">تخطى إلى المحتوى الرئيسي</a>
 
   <header>
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي" data-i18n-aria-label="main_navigation">
       <div class="navbar__inner">
-        <a href="/ar/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
+        <a href="/ar/" class="navbar__logo" aria-label="السهم الأسود ڤنتشر - الصفحة الرئيسية" data-i18n-aria-label="home_link_aria">
+          <img src="/assets/images/black-arrow-logo.png" alt="شعار السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="logo_alt">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
@@ -112,7 +112,7 @@
     <!-- Page Hero -->
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="مسار التنقل" data-i18n-aria-label="breadcrumb_aria">
           <a href="/ar/" data-i18n="nav_home">الرئيسية</a>
           <span>›</span>
           <span data-i18n="our_services_page">خدماتنا</span>
@@ -123,7 +123,7 @@
     </section>
 
     <!-- Quick Nav -->
-    <nav class="section" style="padding-block:32px;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);" aria-label="Service navigation">
+    <nav class="section" style="padding-block:32px;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);" aria-label="تصفح الخدمات" data-i18n-aria-label="aria_service_nav">
       <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
         <a href="/ar/services/ev-charging-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚡</span> <span data-i18n="service_ev">حلول السيارات الكهربائية</span></a>
         <a href="/ar/services/ups-power-backup/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔋</span> <span data-i18n="service_ups">حلول أنظمة UPS</span></a>
@@ -140,7 +140,7 @@
     <section id="ev" class="service-detail" aria-labelledby="ev-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/ev-solutions.jpg" alt="EV Charging Station Solutions" class="service-detail__img" loading="lazy" width="1536" height="852" decoding="async">
+          <img src="/assets/images/services/ev-solutions.jpg" alt="حلول محطات شحن السيارات الكهربائية" class="service-detail__img" loading="lazy" width="1536" height="852" decoding="async" data-i18n-alt="alt_ev_station">
           <div class="service-detail__content">
             <span class="overline" data-i18n="clean_mobility">التنقل النظيف</span>
             <h2 id="ev-heading" data-i18n="service_ev">حلول السيارات الكهربائية</h2>
@@ -163,7 +163,7 @@
     <section id="ups" class="service-detail" aria-labelledby="ups-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/ups-solutions.jpg" alt="UPS Power Backup Systems" class="service-detail__img" loading="lazy" width="1530" height="805" decoding="async">
+          <img src="/assets/images/services/ups-solutions.jpg" alt="أنظمة الطاقة الاحتياطية UPS" class="service-detail__img" loading="lazy" width="1530" height="805" decoding="async" data-i18n-alt="alt_ups">
           <div class="service-detail__content">
             <span class="overline" data-i18n="efficient_power">قوة موثوقة</span>
             <h2 id="ups-heading" data-i18n="service_ups">حلول أنظمة UPS</h2>
@@ -186,7 +186,7 @@
     <section id="lighting" class="service-detail" aria-labelledby="lighting-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/lighting-solutions.jpg" alt="Professional Lighting Systems" class="service-detail__img" loading="lazy" width="1536" height="759" decoding="async">
+          <img src="/assets/images/services/lighting-solutions.jpg" alt="أنظمة إضاءة احترافية" class="service-detail__img" loading="lazy" width="1536" height="759" decoding="async" data-i18n-alt="alt_lighting">
           <div class="service-detail__content">
             <span class="overline" data-i18n="modern_lighting">إضاءة حديثة</span>
             <h2 id="lighting-heading" data-i18n="service_lighting">حلول الإضاءة</h2>
@@ -209,7 +209,7 @@
     <section id="firefighting" class="service-detail" aria-labelledby="fire-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/firefighting-solutions.jpg" alt="Firefighting Systems" class="service-detail__img" loading="lazy" width="1536" height="838" decoding="async">
+          <img src="/assets/images/services/firefighting-solutions.jpg" alt="أنظمة مكافحة الحريق" class="service-detail__img" loading="lazy" width="1536" height="838" decoding="async" data-i18n-alt="alt_firefighting">
           <div class="service-detail__content">
             <span class="overline" data-i18n="fire_safety">سلامة من الحريق</span>
             <h2 id="fire-heading" data-i18n="service_fire">أنظمة الحريق</h2>
@@ -232,7 +232,7 @@
     <section id="hvac" class="service-detail" aria-labelledby="hvac-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="service-detail__img" loading="lazy" width="1536" height="838" decoding="async">
+          <img src="/assets/images/services/hvac-solutions.jpg" alt="أنظمة التكييف والتحكم المناخي" class="service-detail__img" loading="lazy" width="1536" height="838" decoding="async" data-i18n-alt="alt_hvac">
           <div class="service-detail__content">
             <span class="overline" data-i18n="climate_control">التحكم المناخي</span>
             <h2 id="hvac-heading" data-i18n="service_hvac">حلول التكييف والتهوية</h2>
@@ -255,7 +255,7 @@
     <section id="electrical" class="service-detail" aria-labelledby="electrical-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/electrical-power.jpg" alt="Electrical and Power Distribution" class="service-detail__img" loading="lazy" width="1815" height="866" decoding="async">
+          <img src="/assets/images/services/electrical-power.jpg" alt="التوزيع الكهربائي والطاقة" class="service-detail__img" loading="lazy" width="1815" height="866" decoding="async" data-i18n-alt="alt_electrical">
           <div class="service-detail__content">
             <span class="overline" data-i18n="power_distribution">توزيع الطاقة</span>
             <h2 id="electrical-heading" data-i18n="service_electrical">التوزيع الكهربائي والطاقة</h2>
@@ -278,7 +278,7 @@
     <section id="trading" class="service-detail" aria-labelledby="trading-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <img src="/assets/images/services/general-trading.jpg" alt="General Trading Saudi Arabia" class="service-detail__img" loading="lazy" width="1536" height="898" decoding="async">
+          <img src="/assets/images/services/general-trading.jpg" alt="التجارة العامة في المملكة العربية السعودية" class="service-detail__img" loading="lazy" width="1536" height="898" decoding="async" data-i18n-alt="alt_trading_ksa">
           <div class="service-detail__content">
             <span class="overline" data-i18n="quality_products">منتجات عالية الجودة</span>
             <h2 id="trading-heading" data-i18n="service_trading">التجارة العامة</h2>
@@ -303,7 +303,7 @@
         <div class="service-detail__inner">
           <picture>
             <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-            <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async">
+            <img src="/assets/images/services/isolated-power-panels.jpg" alt="لوحة طاقة معزولة (IPP) لغرف العمليات في المستشفيات - أنظمة طاقة معزولة متوافقة مع Bender وPG LifeLink وSchneider" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async" data-i18n-alt="alt_ipp">
           </picture>
           <div class="service-detail__content">
             <span class="overline" data-i18n="critical_care_power">طاقة الرعاية الحرجة</span>
@@ -350,11 +350,11 @@
 
         <!-- Column 1: Brand -->
         <div class="footer__brand">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
+          <img src="/assets/images/black-arrow-logo.png" alt="السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="black_arrow">
           <p data-i18n="footer_brand_desc">مزود حلول بنية تحتية وتكنولوجيا شاملة منذ عام ٢٠٢٢.</p>
           <!-- Social Links -->
           <div class="footer__socials">
-            <a href="https://wa.me/966560224715" aria-label="WhatsApp" class="social-link" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/966560224715" aria-label="واتساب" class="social-link" title="واتساب" target="_blank" rel="noopener noreferrer" data-i18n-aria-label="contact_whatsapp" data-i18n-title="contact_whatsapp">
               <svg class="icon icon--sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
               </svg>
@@ -381,14 +381,14 @@
         <div class="footer__col">
           <h4 data-i18n="footer_services">خدماتنا</h4>
           <ul>
-            <li><a href="/ar/services/ev-charging-solutions/">EV Solutions</a></li>
-            <li><a href="/ar/services/ups-power-backup/">UPS Solutions</a></li>
-            <li><a href="/ar/services/lighting-solutions/">Lighting Solutions</a></li>
-            <li><a href="/ar/services/firefighting-systems/">Firefighting</a></li>
-            <li><a href="/ar/services/hvac-solutions/">HVAC Solutions</a></li>
+            <li><a href="/ar/services/ev-charging-solutions/" data-i18n="service_ev">حلول السيارات الكهربائية</a></li>
+            <li><a href="/ar/services/ups-power-backup/" data-i18n="service_ups">حلول أنظمة UPS</a></li>
+            <li><a href="/ar/services/lighting-solutions/" data-i18n="service_lighting">حلول الإضاءة</a></li>
+            <li><a href="/ar/services/firefighting-systems/" data-i18n="firefighting_service">أنظمة مكافحة الحريق</a></li>
+            <li><a href="/ar/services/hvac-solutions/" data-i18n="service_hvac">حلول التكييف والتهوية</a></li>
             <li><a href="/ar/services/electrical-distribution/">Electrical &amp; Power</a></li>
-            <li><a href="/ar/services/general-trading/">General Trading</a></li>
-            <li><a href="/ar/services/isolated-power-panels/">Isolated Power Panels</a></li>
+            <li><a href="/ar/services/general-trading/" data-i18n="service_trading">التجارة العامة</a></li>
+            <li><a href="/ar/services/isolated-power-panels/" data-i18n="service_ipp">لوحات الطاقة المعزولة</a></li>
           </ul>
         </div>
 
@@ -416,12 +416,12 @@
           </div>
           <!-- Newsletter -->
           <form class="footer__newsletter" action="https://api.web3forms.com/submit" method="POST"
-                data-w3f aria-label="Newsletter signup">
+                data-w3f aria-label="الاشتراك في النشرة البريدية" data-i18n-aria-label="newsletter_signup_aria">
             <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
             <input type="hidden" name="subject" value="Newsletter signup from blackarrowksa.com">
             <input type="hidden" name="from_name" value="Black Arrow Website">
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="email" name="email" placeholder="Your email" required aria-label="Email address">
+            <input type="email" name="email" placeholder="البريد الإلكتروني" required aria-label="عنوان البريد الإلكتروني" data-i18n-aria-label="email_address" data-i18n-placeholder="placeholder_newsletter">
             <button type="submit" class="btn btn-sm btn-primary" data-i18n="subscribe">اشترك</button>
           </form>
         </div>
@@ -429,7 +429,7 @@
 
       <!-- Bottom Bar: Copyright &amp; Links -->
       <div class="footer__bottom">
-        <p>&copy; <span>2024</span> Black Arrow Venture company. All rights reserved. Vision 2030.</p>
+        <p>&copy; <span data-year>2026</span> <span data-i18n="footer_rights">شركة السهم الأسود ڤنتشر. جميع الحقوق محفوظة. رؤية 2030.</span></p>
         <div class="footer__legal">
           <a href="/privacy-policy.html" data-i18n="privacy_policy">سياسة الخصوصية</a>
           <a href="/terms-of-service.html" data-i18n="terms_service">شروط الخدمة</a>
@@ -439,7 +439,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20learning%20more%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب" data-i18n-aria-label="wa_btn">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
@@ -447,11 +447,11 @@
   <div class="mobile-cta-sticky">
     <a href="tel:+966560224715" class="cta-btn cta-btn--call">
       <span style="font-size: 1.2em;">📞</span>
-      <span>Call Now</span>
+      <span data-i18n="call_now">اتصل الآن</span>
     </a>
     <a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20your%20services.%20Can%20you%20help%20me%3F" class="cta-btn cta-btn--whatsapp" target="_blank" rel="noopener noreferrer">
       <span style="font-size: 1.2em;">💬</span>
-      <span>WhatsApp</span>
+      <span data-i18n="contact_whatsapp">واتساب</span>
     </a>
   </div>
 

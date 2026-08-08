@@ -8,7 +8,9 @@
       "Bash(env)",
       "Bash(curl -s -o /dev/null -w \"example.com -> %{http_code}\\\\n\" https://example.com)",
       "Bash(curl -s -o /dev/null -w \"api.web3forms.com -> %{http_code}\\\\n\" https://api.web3forms.com/submit)",
-      "Bash(reg query *)"
+      "Bash(reg query *)",
+      "Bash(python -c \"import json;json.load\\(open\\('vercel.json'\\)\\);print\\('vercel.json valid JSON'\\)\")",
+      "Bash(python -c ' *)"
     ]
   }
 }

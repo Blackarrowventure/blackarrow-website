@@ -172,7 +172,10 @@ def build_page(entry, check_only):
             'id="lang-ar" class="lang-btn active" hreflang="ar" lang="ar" aria-current="true"')
         edits.append((switch_start, switch_end, block))
 
-    # ---- 5. every other same-origin link -------------------------------
+    # ---- 5. same-origin links + translatable attributes ----------------
+    # Both run over the same start tag, so they must share one edit. The
+    # merge below is keyed on (start, end) and would silently drop one of
+    # two competing edits for the same span.
     for tag, attrs, s, e, raw in loc.tags:
         if switch_start != -1 and switch_start <= s < switch_end:
             continue                     # handled above
@@ -186,6 +189,43 @@ def build_page(entry, check_only):
             new = rewrite_link(old, entry['src'])
             if new != old:
                 new_raw = new_raw.replace(f'{attr}="{old}"', f'{attr}="{new}"', 1)
+
+        # Web3Forms posts away and comes back to an absolute redirect URL held
+        # in a hidden input's value=. rewrite_link never sees it (wrong
+        # attribute, and it is absolute), so an Arabic visitor who submitted
+        # the form used to land on the English thank-you page.
+        if tag == 'input' and attrs.get('name') == 'redirect':
+            old = attrs.get('value') or ''
+            if old.startswith(SITE):
+                path = old[len(SITE):]
+                if path in EN_URLS:
+                    dest = next(p for p in MANIFEST['pages'] if p['url'] == path)
+                    if dest.get('ar'):
+                        new_raw = new_raw.replace(
+                            f'value="{old}"', f'value="{SITE}{ar_url(path)}"', 1)
+
+        # data-i18n-<attr>="key" translates that attribute's value.
+        # e.g. <img alt="Logo" data-i18n-alt="logo_alt">
+        for a_name, a_key in attrs.items():
+            if not a_name.startswith('data-i18n-') or not a_key:
+                continue
+            target = a_name[len('data-i18n-'):]
+            if target not in attrs:
+                raise BuildError(
+                    f'{entry["src"]}: {a_name}="{a_key}" but the element has no '
+                    f'{target} attribute to translate')
+            if a_key not in AR:
+                missing.append(a_key)
+                continue
+            # Match on attribute NAME, not its value: the source may hold the
+            # value escaped (&amp;) while attrs[] gives it unescaped, so a
+            # value-based replace would silently miss those tags. The
+            # whitespace lookbehind stops alt="" matching data-i18n-alt="".
+            new_raw = re.sub(
+                rf'(?<=\s){re.escape(target)}="[^"]*"',
+                lambda m: f'{target}="{esc_attr(AR[a_key])}"',
+                new_raw, count=1)
+
         if new_raw != raw:
             edits.append((s, e, new_raw))
 

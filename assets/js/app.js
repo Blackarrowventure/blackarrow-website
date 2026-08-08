@@ -401,6 +401,14 @@ function getWhatsAppLink(serviceKey = 'default') {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
 }
 
+// Footer copyright year. Kept in JS so the year never goes stale in 33 files.
+function initFooterYear() {
+  const year = String(new Date().getFullYear());
+  document.querySelectorAll('[data-year]').forEach(el => {
+    el.textContent = year;
+  });
+}
+
 function initWhatsAppLinks() {
   document.querySelectorAll('[data-whatsapp-service]').forEach(el => {
     const serviceKey = el.getAttribute('data-whatsapp-service');
@@ -435,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initA11y();
   initSmoothScroll();
   initWhatsAppLinks();
+  initFooterYear();
 });
 
 // Expose WhatsApp functions globally for inline use

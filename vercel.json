@@ -57,6 +57,10 @@
       "source": "/thank-you.html",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
+    {
+      "source": "/ar/thank-you.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
 
     {
       "source": "/(.*)",

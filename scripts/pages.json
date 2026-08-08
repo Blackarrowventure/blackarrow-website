@@ -12,8 +12,8 @@
     { "_note": "Legal pages are English-only for now: the body text has no data-i18n and legal wording should be translated by a professional, not generated.",
       "src": "privacy-policy.html",                                     "url": "/privacy-policy.html",                         "ar": false },
     { "src": "terms-of-service.html",                                   "url": "/terms-of-service.html",                       "ar": false },
-    { "_note": "Form confirmation page. noindex, and not linked from any page - it is a redirect target only.",
-      "src": "thank-you.html",                                          "url": "/thank-you.html",                              "ar": false },
+    { "_note": "Form confirmation page. noindex, and not linked from any page - it is a redirect target only. Still needs an Arabic twin: the /ar/ forms redirect here, so without one an Arabic visitor lands on an English page right after converting.",
+      "src": "thank-you.html",                                          "url": "/thank-you.html",                              "ar": true },
 
     { "src": "services/isolated-power-panels/index.html",               "url": "/services/isolated-power-panels/",             "ar": true },
     { "src": "services/ev-charging-solutions/index.html",               "url": "/services/ev-charging-solutions/",             "ar": true },

@@ -86,13 +86,13 @@
   </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link" data-i18n="skip_main">تخطى إلى المحتوى الرئيسي</a>
 
   <header>
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="navbar" role="navigation" aria-label="التنقل الرئيسي" data-i18n-aria-label="main_navigation">
       <div class="navbar__inner">
-        <a href="/ar/" class="navbar__logo" aria-label="Black Arrow Venture - Home">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
+        <a href="/ar/" class="navbar__logo" aria-label="السهم الأسود ڤنتشر - الصفحة الرئيسية" data-i18n-aria-label="home_link_aria">
+          <img src="/assets/images/black-arrow-logo.png" alt="شعار السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="logo_alt">
           <div class="navbar__logo-text">
             <span class="name">Black Arrow Venture company</span>
             <span class="sub">شركة السهم الأسود ڤنتشر</span>
@@ -120,7 +120,7 @@
 
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+        <nav class="breadcrumb" aria-label="مسار التنقل" data-i18n-aria-label="breadcrumb_aria">
           <a href="/ar/" data-i18n="nav_home">الرئيسية</a>
           <span>›</span>
           <span data-i18n="faq_page_title">الأسئلة الشائعة</span>
@@ -132,7 +132,7 @@
 
     <section class="section" aria-labelledby="faq-heading">
       <div class="container" style="max-width:820px;">
-        <h2 id="faq-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">Frequently Asked Questions</h2>
+        <h2 id="faq-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;" data-i18n="faq_page_h1">الأسئلة الشائعة</h2>
 
         <div class="faq-jump">
           <a href="#faq-general" data-i18n="faq_cat_general">عام</a>
@@ -297,10 +297,10 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow" width="924" height="540" decoding="async">
+          <img src="/assets/images/black-arrow-logo.png" alt="السهم الأسود" width="924" height="540" decoding="async" data-i18n-alt="black_arrow">
           <p data-i18n="footer_brand_desc">مزود حلول بنية تحتية وتكنولوجيا شاملة منذ عام ٢٠٢٢.</p>
           <div class="footer__socials">
-            <a href="https://wa.me/966560224715" aria-label="WhatsApp" class="social-link" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/966560224715" aria-label="واتساب" class="social-link" title="واتساب" target="_blank" rel="noopener noreferrer" data-i18n-aria-label="contact_whatsapp" data-i18n-title="contact_whatsapp">
               <svg class="icon icon--sm" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </a>
           </div>
@@ -341,7 +341,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; <span>2024</span> Black Arrow Venture company. All rights reserved. Vision 2030.</p>
+        <p>&copy; <span data-year>2026</span> <span data-i18n="footer_rights">شركة السهم الأسود ڤنتشر. جميع الحقوق محفوظة. رؤية 2030.</span></p>
         <div class="footer__legal">
           <a href="/privacy-policy.html" data-i18n="privacy_policy">سياسة الخصوصية</a>
           <a href="/terms-of-service.html" data-i18n="terms_service">شروط الخدمة</a>
@@ -350,13 +350,13 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/966560224715?text=Hello%21%20I%20have%20a%20question%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/966560224715?text=Hello%21%20I%20have%20a%20question%20about%20your%20services." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب" data-i18n-aria-label="wa_btn">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
   </a>
 
   <div class="mobile-cta-sticky">
-    <a href="tel:+966560224715" class="cta-btn cta-btn--call"><span style="font-size: 1.2em;">📞</span><span>Call Now</span></a>
-    <a href="https://wa.me/966560224715?text=Hello%21%20I%20have%20a%20question." class="cta-btn cta-btn--whatsapp" target="_blank" rel="noopener noreferrer"><span style="font-size: 1.2em;">💬</span><span>WhatsApp</span></a>
+    <a href="tel:+966560224715" class="cta-btn cta-btn--call"><span style="font-size: 1.2em;">📞</span><span data-i18n="call_now">اتصل الآن</span></a>
+    <a href="https://wa.me/966560224715?text=Hello%21%20I%20have%20a%20question." class="cta-btn cta-btn--whatsapp" target="_blank" rel="noopener noreferrer"><span style="font-size: 1.2em;">💬</span><span data-i18n="contact_whatsapp">واتساب</span></a>
   </div>
 
   <script src="/assets/js/app.js" defer></script>
