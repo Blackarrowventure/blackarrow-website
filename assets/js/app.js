@@ -1,10 +1,46 @@
 /* ==============================================
-   EIGHT STARS EASTERN COMPANY
+   BLACK ARROW VENTURE
    Main JavaScript — app.js
-   Handles: i18n, nav, animations, form, counters
+   Handles: analytics, nav, animations, form, counters
    ============================================== */
 
 'use strict';
+
+/* ──────────────────────────────────────────────
+   0. ANALYTICS (Google Analytics 4)
+   ──────────────────────────────────────────────
+   TO SWITCH ON: paste the Measurement ID between the quotes below. It
+   looks like G-XXXXXXXXXX and comes from Google Analytics ->
+   Admin -> Data streams -> your web stream.
+
+   While the string is empty nothing loads: no script request, no
+   cookies, no data leaves the visitor's browser. That is why this is
+   safe to ship un-configured.
+
+   It lives here rather than in a <head> snippet so one edit covers all
+   33 pages instead of 33 near-identical edits that drift apart.
+   ────────────────────────────────────────────── */
+const GA4_MEASUREMENT_ID = '';
+
+function initAnalytics() {
+  if (!GA4_MEASUREMENT_ID) return;
+
+  const tag = document.createElement('script');
+  tag.async = true;
+  tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_MEASUREMENT_ID;
+  document.head.appendChild(tag);
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  // anonymize_ip trims the last octet before the hit is stored, which keeps
+  // the analytics claim in the privacy policy honest.
+  window.gtag('config', GA4_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+// Fires immediately rather than on DOMContentLoaded so a visitor who
+// bounces within the first second is still counted.
+initAnalytics();
 
 /* ──────────────────────────────────────────────
    1. LANGUAGE
