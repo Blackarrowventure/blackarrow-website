@@ -1,8 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
-
-  "_comment_trailingSlash": "Must be true. The site's entire URL convention uses trailing slashes: every canonical tag, every hreflang alternate and all 55 sitemap entries are the /path/ form, and that is what Google already has indexed. Setting false (or omitting it, since Vercel's default also strips) made every one of those URLs 308-redirect, so canonicals pointed at redirects. Only affects extensionless directory paths - /about.html and friends are untouched.",
   "trailingSlash": true,
 
   "headers": [
