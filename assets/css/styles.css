@@ -3199,3 +3199,160 @@ hr {
   font-size: 0.85rem;
   opacity: 0.85;
 }
+
+/* ──────────────────────────────────────────────
+   25. MOBILE FIXES (8 Aug 2026)
+   ──────────────────────────────────────────────
+   Found by rendering the site in Chrome at a real 390px and 360px viewport
+   and measuring, rather than by reading the CSS. Each block below records
+   what was actually wrong.
+   ────────────────────────────────────────────── */
+
+/* 1 + 2. The bottom bar covered the end of every page, and the round
+   WhatsApp button sat on top of the bar's own WhatsApp button.
+
+   .wa-float is fixed at bottom:28px and is 60px tall, so it lands inside
+   the 98px-tall sticky bar, and at z-index 900 vs 800 it wins - it was
+   covering the bar's WhatsApp label. Below 768px the bar already offers
+   WhatsApp, so the floating duplicate is redundant there.
+
+   The bar's height was implicit (padding + two stacked lines of button
+   content = 98px) while body reserved a hardcoded 60px, leaving 38px of
+   footer permanently underneath it. Height is now a token used by both,
+   so the two can no longer drift apart, and the buttons sit on one row -
+   shorter bar, larger tap area, 26px of screen handed back. */
+:root { --cta-h: 72px; }
+
+@media (max-width: 768px) {
+  /* !important is load-bearing here. Without it the button stayed visible
+     even though this rule is last in the file, matches, and has equal
+     specificity to the .wa-float base rule - I could not identify what was
+     winning. Verified by screenshot at 390px: without !important the round
+     button still covers the bar's WhatsApp label, with it the label reads
+     in full. Do not drop it without re-checking that render. */
+  .wa-float { display: none !important; }
+
+  .mobile-cta-sticky {
+    height: var(--cta-h);
+    padding: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .cta-btn {
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 12px;
+    height: 100%;
+    font-size: var(--fs-sm);
+  }
+
+  /* Must match the bar, plus the iPhone home-indicator inset. */
+  body {
+    padding-bottom: calc(var(--cta-h) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* 3. The navbar is sticky and 210px tall at <=480px. With the bottom bar
+   that was 308px of an 844px screen permanently occupied - 46% on a phone
+   the size of an iPhone SE - before a single line of content.
+
+   Un-sticking it below 900px hands all of that back: the header scrolls
+   away like normal page content and the sticky bottom bar keeps Call and
+   WhatsApp reachable, which are the actions that matter on a phone.
+   A collapsible hamburger would be the fuller fix, but it would make
+   navigation depend on JavaScript, which section 5 below is busy removing. */
+@media (max-width: 900px) {
+  .navbar { position: static; }
+}
+
+/* 4. iOS Safari force-zooms any form field whose text is under 16px and
+   does not zoom back out. The contact and partner forms were already 16px;
+   this one field was not. */
+.footer__newsletter input { font-size: 16px; }
+
+/* 5. Tap targets. Apple asks for 44x44 CSS px, Android for 48dp. The
+   language switcher was 30x29 - the smallest control on the site and the
+   one a mis-tap sends to the wrong language. */
+@media (max-width: 900px) {
+  .lang-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar__links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* 6. Every .reveal* element starts at opacity:0 and is only shown when JS
+   adds .visible. If a script fails, is blocked, or the observer never
+   fires, those sections stay invisible for good - the content is there in
+   the HTML but nobody can read it.
+
+   Gating on html.js means the hidden state only ever applies when
+   JavaScript is actually running. app.js sets that class as its very first
+   statement, and also force-reveals everything after a timeout as a
+   backstop for the observer failing. */
+html:not(.js) [class*="reveal"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 7. .vision-badge carries 40px of side padding, which made it wider than
+   its own column on a phone; the un-revealed translateX(30px) then pushed
+   it a further 30px past the viewport. body{overflow-x:hidden} was hiding
+   the result rather than fixing it. */
+@media (max-width: 480px) {
+  .vision-badge { padding: 32px 20px; }
+}
+
+/* 8. The un-revealed state offsets elements sideways by 30px, and a
+   transform still counts toward the document's scrollable width. On a phone
+   there is no slack for that, so the About block hung 10px past the edge
+   and body{overflow-x:hidden} quietly cut it off.
+
+   Mirroring the offset per direction does not help - it just moves the
+   overflow to whichever side the element sits on. Dropping to a vertical
+   offset below 900px removes the horizontal component entirely, in both
+   LTR and RTL, and the reveal still reads as a reveal. The sideways
+   version stays on desktop where the margins can absorb it. */
+@media (max-width: 900px) {
+  .reveal-left,
+  .reveal-right { transform: translateY(20px); }
+
+  .reveal-left.visible,
+  .reveal-right.visible { transform: translateY(0); }
+}
+
+/* 9. Remaining tap targets. Footer links were 27px tall - above the 24px
+   WCAG 2.5.8 floor, but below what a thumb actually wants. A taller footer
+   is an acceptable price on a phone. */
+@media (max-width: 900px) {
+  .footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* The "Learn More" link on each service card - eight of them, one per
+     service, and the main way into the service pages from the homepage.
+     They were the shortest real targets on the page at 27px. */
+  .svc-card__footer a {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .breadcrumb a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .skip-link { min-height: 44px; display: flex; align-items: center; }
+  .navbar__logo { min-height: 44px; }
+}

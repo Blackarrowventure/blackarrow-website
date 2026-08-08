@@ -69,7 +69,24 @@
     footer{background:var(--clr-navy-dark);color:#fff;text-align:center;padding:30px 20px;font-size:13px;}
     footer p{margin:8px 0;}
     footer .gold{color:var(--clr-gold);}
-    @media(max-width:768px){.about-content,.vision-mission,.services-grid,.contact-grid{grid-template-columns:1fr;}.highlights,.goals-grid,.features-grid{grid-template-columns:1fr;}.hero h1{font-size:32px;}nav{display:none;}}
+    /* section h2 sets color:#333, which beats the white this hero only
+       inherits - so the "Infrastructure Solutions" line was dark grey on
+       dark navy and effectively unreadable. */
+    .hero h2{color:var(--clr-white);}
+    @media(max-width:768px){
+      .about-content,.vision-mission,.services-grid,.contact-grid{grid-template-columns:1fr;}
+      .highlights,.goals-grid,.features-grid{grid-template-columns:1fr;}
+      .hero h1{font-size:32px;}
+      /* Matches the rest of the site: a 148px sticky header costs too much
+         of a phone screen, so let it scroll away. */
+      .navbar{position:static;}
+      /* Was `nav{display:none}`, which matched the outer <nav class="navbar">
+         too and left mobile visitors on this page with no way out of it.
+         Stack the links under the logo instead. */
+      .navbar-container{flex-direction:column;gap:12px;}
+      .navbar-container>nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
+      .navbar-container>nav a{margin-inline-start:0;padding:10px 12px;min-height:44px;display:flex;align-items:center;}
+    }
   </style>
 </head>
 <body>

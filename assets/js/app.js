@@ -6,6 +6,14 @@
 
 'use strict';
 
+/* Must stay the first statement in this file.
+   The .reveal* elements are opacity:0 until JS shows them, so if this file
+   never runs those sections are invisible for good. The CSS only applies
+   that hidden state under html.js, so marking the document here is what
+   makes "JavaScript failed" degrade to "no animation" instead of
+   "no content". Anything above this line risks throwing first. */
+document.documentElement.classList.add('js');
+
 /* ──────────────────────────────────────────────
    0. ANALYTICS (Google Analytics 4)
    ──────────────────────────────────────────────
@@ -69,6 +77,14 @@ initAnalytics();
    3. SCROLL REVEAL ANIMATIONS
    ────────────────────────────────────────────── */
 function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+  // No observer support: show everything rather than hide it.
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -81,9 +97,14 @@ function initScrollReveal() {
     rootMargin: '0px 0px -40px 0px'
   });
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-    observer.observe(el);
-  });
+  targets.forEach(el => observer.observe(el));
+
+  // Backstop. These elements are invisible until something adds .visible,
+  // so any path where the observer never fires costs the reader the whole
+  // section. Losing the animation is the cheaper failure.
+  setTimeout(() => {
+    targets.forEach(el => el.classList.add('visible'));
+  }, 3000);
 }
 
 /* ──────────────────────────────────────────────
