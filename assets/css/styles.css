@@ -2956,8 +2956,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
     margin-bottom: 20px;
   }
 
-  /* Increase link padding for touch */
-  .navbar__links a,
+  /* Increase link padding for touch.
+     Horizontal padding trimmed 8px -> 4px on the nav links only: at 8px the
+     five links totalled 366px against a 351px bar and the last one wrapped
+     to a second row, costing ~50px of navbar height on every page. The
+     44px min-height above is what actually carries the touch target, so
+     the horizontal padding was buying nothing. */
+  .navbar__links a {
+    padding: 12px 4px !important;
+    font-size: 14px;
+  }
+
   .footer__col a,
   .contact-item a {
     padding: 12px 8px !important;
@@ -3224,13 +3233,13 @@ hr {
 :root { --cta-h: 72px; }
 
 @media (max-width: 768px) {
-  /* !important is load-bearing here. Without it the button stayed visible
-     even though this rule is last in the file, matches, and has equal
-     specificity to the .wa-float base rule - I could not identify what was
-     winning. Verified by screenshot at 390px: without !important the round
-     button still covers the bar's WhatsApp label, with it the label reads
-     in full. Do not drop it without re-checking that render. */
-  .wa-float { display: none !important; }
+  /* Deliberately `a.wa-float`, not `.wa-float`. The touch-target block in
+     section 23 sets `a[href^="https://wa.me"] { display: inline-flex }`,
+     and an attribute selector outranks a bare class - so plain .wa-float
+     silently lost and the button stayed on top of the bar. Matching that
+     specificity and coming later in the file wins it cleanly, without
+     reaching for !important. */
+  a.wa-float { display: none; }
 
   .mobile-cta-sticky {
     height: var(--cta-h);
@@ -3355,4 +3364,58 @@ html:not(.js) [class*="reveal"] {
 
   .skip-link { min-height: 44px; display: flex; align-items: center; }
   .navbar__logo { min-height: 44px; }
+}
+
+/* 10. The navbar was 210px tall on a phone because the three groups each
+   took their own row and the five links wrapped across two of them.
+   Section 3 above stopped it costing screen space permanently by letting
+   it scroll away; this reclaims most of the height outright.
+
+   A hamburger was the obvious move, but with only five links it is not
+   warranted - and every no-JS toggle is either a checkbox pretending to be
+   a button or a <details> restructure of the whole nav, right after
+   section 6 finished removing JS as a prerequisite for reading the page.
+
+   Instead: grid areas put the logo and the actions on one row and the
+   links on a second, which the DOM order alone cannot express. Height goes
+   auto so the bar is exactly as tall as it needs to be rather than a
+   guessed constant that clips or leaves dead space. */
+@media (max-width: 900px) {
+  .navbar { height: auto; }
+  :root { --nav-h: 104px; }
+
+  .navbar__inner {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo actions"
+      "links links";
+    justify-items: stretch;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 8px 12px;
+  }
+
+  .navbar__logo    { grid-area: logo;    justify-content: flex-start; }
+  .navbar__actions { grid-area: actions; justify-content: flex-end; }
+
+  /* Wrap rather than scroll. A horizontally scrolling nav hides links
+     behind an edge with nothing to indicate they are there - on a 360px
+     phone "Contact" simply vanished. Wrapping costs a second row only when
+     it is actually needed, and height:auto absorbs it. */
+  .navbar__links {
+    grid-area: links;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px 4px;
+    min-width: 0;
+  }
+
+  /* Sized so all five fit on one row down to 360px - the narrowest phone
+     still in real use. They wrap rather than scroll if a link is ever
+     added, so the menu degrades to a taller bar, never a hidden link. */
+  .navbar__links a { white-space: nowrap; font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  :root { --nav-h: 104px; }
 }
