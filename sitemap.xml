@@ -51,6 +51,9 @@
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/company-profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/company-profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/company-profile.html"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/privacy-policy.html</loc>
@@ -330,6 +333,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/become-a-partner.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/become-a-partner.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/become-a-partner.html"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/company-profile.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/company-profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/company-profile.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/company-profile.html"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/ar/privacy-policy.html</loc>

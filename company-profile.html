@@ -25,7 +25,7 @@
     .logo img{height:60px;width:auto;}
     .logo-text h1{font-size:18px;color:#333;}
     .logo-text p{font-size:12px;color:#666;}
-    nav a{margin-left:30px;text-decoration:none;color:#333;transition:color .3s;}
+    nav a{margin-inline-start:30px;text-decoration:none;color:#333;transition:color .3s;}
     nav a:hover{color:var(--clr-gold);}
     .hero{background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);color:#fff;text-align:center;padding:80px 20px;}
     .hero-logo{max-width:200px;margin:0 auto 30px;}
@@ -40,29 +40,29 @@
     .about-content{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px;}
     .about-content p{margin-bottom:15px;line-height:1.8;font-size:15px;}
     .highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
-    .highlight{text-align:center;padding:20px;background:#f9f9f9;border-left:3px solid var(--clr-gold);}
+    .highlight{text-align:center;padding:20px;background:#f9f9f9;border-inline-start:3px solid var(--clr-gold);}
     .highlight h3{font-size:24px;color:var(--clr-gold);margin-bottom:10px;}
     .highlight p{font-size:13px;color:#666;}
     .vision-mission{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:40px;}
-    .vision-box,.mission-box{background:var(--clr-navy-dark);color:#fff;padding:40px;border-left:3px solid var(--clr-gold);}
+    .vision-box,.mission-box{background:var(--clr-navy-dark);color:#fff;padding:40px;border-inline-start:3px solid var(--clr-gold);}
     .vision-box h3,.mission-box h3{font-size:18px;margin-bottom:15px;color:var(--clr-gold);}
     .vision-box p,.mission-box p{line-height:1.8;font-size:15px;}
     .goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .goal{background:var(--clr-light);padding:25px;border-left:3px solid var(--clr-gold);}
+    .goal{background:var(--clr-light);padding:25px;border-inline-start:3px solid var(--clr-gold);}
     .goal h4{color:var(--clr-navy);margin-bottom:15px;font-size:16px;}
     .goal p{font-size:14px;color:#666;line-height:1.6;}
     .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:30px;}
-    .service{background:#fff;padding:30px;border-left:4px solid var(--clr-gold);box-shadow:0 2px 8px rgba(0,0,0,.1);}
+    .service{background:#fff;padding:30px;border-inline-start:4px solid var(--clr-gold);box-shadow:0 2px 8px rgba(0,0,0,.1);}
     .service h3{color:var(--clr-navy);margin-bottom:15px;font-size:20px;}
     .service p{color:#666;font-size:14px;line-height:1.7;margin-bottom:15px;}
-    .service ul{margin-left:20px;font-size:14px;color:#666;}
+    .service ul{margin-inline-start:20px;font-size:14px;color:#666;}
     .service ul li{margin-bottom:8px;}
     .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px;}
-    .feature{background:var(--clr-navy-dark);color:#fff;padding:30px;border-left:3px solid var(--clr-gold);}
+    .feature{background:var(--clr-navy-dark);color:#fff;padding:30px;border-inline-start:3px solid var(--clr-gold);}
     .feature h4{color:var(--clr-gold);margin-bottom:15px;font-size:16px;}
     .feature p{font-size:14px;line-height:1.6;}
     .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;margin-top:30px;}
-    .contact-card{background:var(--clr-light);padding:30px;border-left:3px solid var(--clr-gold);}
+    .contact-card{background:var(--clr-light);padding:30px;border-inline-start:3px solid var(--clr-gold);}
     .contact-card h4{color:var(--clr-gold);margin-bottom:12px;font-size:14px;letter-spacing:1px;}
     .contact-card p{font-size:16px;color:#333;margin-bottom:8px;}
     .contact-card .subtitle{font-size:13px;color:#666;}
@@ -77,86 +77,93 @@
   <div class="navbar-container">
     <a href="/" class="logo">
       <img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" width="924" height="540" decoding="async">
-      <div class="logo-text"><h1>Black Arrow Venture</h1><p>Infrastructure Solutions</p></div>
+      <div class="logo-text"><h1>Black Arrow Venture</h1><p data-i18n="cp_hero_sub">Infrastructure Solutions</p></div>
     </a>
-    <nav><a href="/">Home</a><a href="/services.html">Services</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+    <nav><a href="/" data-i18n="nav_home">Home</a><a href="/services.html" data-i18n="nav_services">Services</a><a href="/about.html" data-i18n="nav_about">About</a><a href="/contact.html" data-i18n="nav_contact">Contact</a></nav>
   </div>
 </nav>
 <section class="hero">
   <div class="hero-logo"><img src="/assets/images/black-arrow-logo.png" alt="Black Arrow Logo" style="max-width:150px;" width="924" height="540" decoding="async"></div>
   <h1><span class="gold">BLACK ARROW</span> VENTURE</h1>
-  <h2 style="font-size:24px;font-weight:400;margin-bottom:20px;">Infrastructure Solutions</h2>
-  <p>A Saudi trading & engineering partner delivering end-to-end energy,<br>power and building-systems solutions — aligned with Vision 2030.</p>
-  <p style="font-size:14px;color:#ccc;margin-top:40px;">© 2026 | Kingdom of Saudi Arabia</p>
+  <h2 style="font-size:24px;font-weight:400;margin-bottom:20px;" data-i18n="cp_hero_sub">Infrastructure Solutions</h2>
+  <p data-i18n-html="cp_hero_lead">A Saudi trading & engineering partner delivering end-to-end energy,<br>power and building-systems solutions — aligned with Vision 2030.</p>
+  <p style="font-size:14px;color:#ccc;margin-top:40px;" data-i18n="cp_hero_meta">© 2026 | Kingdom of Saudi Arabia</p>
 </section>
 <section class="container">
-  <div class="section-label">01 — About Us</div>
-  <h2>Who We Are</h2>
+  <div class="section-label" data-i18n="cp_s1">01 — About Us</div>
+  <h2 data-i18n="who_we_are">Who We Are</h2>
   <div class="about-content">
-    <div><p>Black Arrow Venture is a Saudi-based trading and solutions provider delivering comprehensive infrastructure and technology solutions. Built on a commitment to <strong>excellence, innovation and reliability</strong>, we serve commercial, industrial, hospitality, healthcare and public-infrastructure sectors.</p></div>
-    <div><p>Our team brings deep expertise in infrastructure design, implementation and long-term support. We specialize in <strong>turnkey solutions</strong> that integrate supply, professional installation, testing, commissioning and maintenance — every project managed end-to-end.</p><p style="margin-top:20px;">Operating in alignment with <strong>Saudi Vision 2030</strong>, we support the Kingdom's transformation toward sustainable energy, smart infrastructure and economic growth.</p></div>
+    <div><p data-i18n-html="cp_about_p1">Black Arrow Venture is a Saudi-based trading and solutions provider delivering comprehensive infrastructure and technology solutions. Built on a commitment to <strong data-i18n="cp_hl1">excellence, innovation and reliability</strong>, we serve commercial, industrial, hospitality, healthcare and public-infrastructure sectors.</p></div>
+    <div><p data-i18n-html="cp_about_p2">Our team brings deep expertise in infrastructure design, implementation and long-term support. We specialize in <strong data-i18n="cp_hl2">turnkey solutions</strong> that integrate supply, professional installation, testing, commissioning and maintenance — every project managed end-to-end.</p><p style="margin-top:20px;" data-i18n-html="cp_about_p3">Operating in alignment with <strong data-i18n="cp_hl3">Saudi Vision 2030</strong>, we support the Kingdom's transformation toward sustainable energy, smart infrastructure and economic growth.</p></div>
   </div>
   <div class="highlights">
-    <div class="highlight"><h3>07</h3><p>Specialized service lines</p></div>
-    <div class="highlight"><h3>24/7</h3><p>Technical support & response</p></div>
-    <div class="highlight"><h3>100%</h3><p>ISO · CE · UL compliance</p></div>
-    <div class="highlight"><h3>2030</h3><p>Vision-aligned delivery</p></div>
+    <div class="highlight"><h3>07</h3><p data-i18n="cp_stat1">Specialized service lines</p></div>
+    <div class="highlight"><h3>24/7</h3><p data-i18n="cp_stat2">Technical support & response</p></div>
+    <div class="highlight"><h3>100%</h3><p data-i18n="cp_stat3">ISO · CE · UL compliance</p></div>
+    <div class="highlight"><h3>2030</h3><p data-i18n="cp_stat4">Vision-aligned delivery</p></div>
   </div>
 </section>
 <section class="container">
-  <div class="section-label">02 — Vision & Mission</div>
-  <h2>Our <span class="gold">Foundation</span></h2>
+  <div class="section-label" data-i18n="cp_s2">02 — Vision & Mission</div>
+  <h2 data-i18n-html="cp_h_foundation">Our <span class="gold" data-i18n="cp_lbl_foundation">Foundation</span></h2>
   <div class="vision-mission">
-    <div class="vision-box"><h3>Our Vision</h3><p><strong>Driving the Kingdom's transition.</strong></p><p style="margin-top:15px;">To be a leading Saudi solutions provider for sustainable energy, resilient infrastructure and smart technologies — aligned with Vision 2030.</p></div>
-    <div class="mission-box"><h3>Our Mission</h3><p><strong>Reliable solutions, end to end.</strong></p><p style="margin-top:15px;">To deliver innovative, sustainable and reliable solutions that empower businesses and support mission-critical infrastructure across the Kingdom.</p></div>
+    <div class="vision-box"><h3 data-i18n="cp_vision_h">Our Vision</h3><p><strong data-i18n="cp_vision_lead">Driving the Kingdom's transition.</strong></p><p style="margin-top:15px;" data-i18n="cp_vision_body">To be a leading Saudi solutions provider for sustainable energy, resilient infrastructure and smart technologies — aligned with Vision 2030.</p></div>
+    <div class="mission-box"><h3 data-i18n="cp_mission_h">Our Mission</h3><p><strong data-i18n="cp_mission_lead">Reliable solutions, end to end.</strong></p><p style="margin-top:15px;" data-i18n="cp_mission_body">To deliver innovative, sustainable and reliable solutions that empower businesses and support mission-critical infrastructure across the Kingdom.</p></div>
   </div>
-  <h3 style="margin:40px 0 25px;color:var(--clr-navy);">Strategic Goals</h3>
+  <h3 style="margin:40px 0 25px;color:var(--clr-navy);" data-i18n="cp_goals_h">Strategic Goals</h3>
   <div class="goals-grid">
-    <div class="goal"><h4>EV Infrastructure Leadership</h4><p>AC/DC charging with smart systems enabling seamless electric-mobility adoption.</p></div>
-    <div class="goal"><h4>Power Continuity</h4><p>Advanced UPS and backup for healthcare, government and industrial operations.</p></div>
-    <div class="goal"><h4>Energy Efficiency</h4><p>Smart HVAC and climate control optimizing operational cost and comfort.</p></div>
-    <div class="goal"><h4>Quality & Compliance</h4><p>Solutions meeting ISO, CE and UL standards in full Saudi compliance.</p></div>
-    <div class="goal"><h4>Sustainable Transformation</h4><p>Future-ready technologies helping Saudi industries compete globally.</p></div>
-    <div class="goal"><h4>Vision 2030 Partnership</h4><p>A trusted partner in the Kingdom's technology-driven economy.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g1">EV Infrastructure Leadership</h4><p data-i18n="cp_g1d">AC/DC charging with smart systems enabling seamless electric-mobility adoption.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g2">Power Continuity</h4><p data-i18n="cp_g2d">Advanced UPS and backup for healthcare, government and industrial operations.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g3">Energy Efficiency</h4><p data-i18n="cp_g3d">Smart HVAC and climate control optimizing operational cost and comfort.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g4">Quality & Compliance</h4><p data-i18n="cp_g4d">Solutions meeting ISO, CE and UL standards in full Saudi compliance.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g5">Sustainable Transformation</h4><p data-i18n="cp_g5d">Future-ready technologies helping Saudi industries compete globally.</p></div>
+    <div class="goal"><h4 data-i18n="cp_g6">Vision 2030 Partnership</h4><p data-i18n="cp_g6d">A trusted partner in the Kingdom's technology-driven economy.</p></div>
   </div>
 </section>
 <section class="container">
-  <div class="section-label">03-09 — Our Services</div>
-  <h2>Infrastructure <span class="gold">Solutions</span></h2>
+  <div class="section-label" data-i18n="cp_s3">03-09 — Our Services</div>
+  <h2 data-i18n-html="cp_h_solutions">Infrastructure <span class="gold" data-i18n="cp_lbl_solutions">Solutions</span></h2>
   <div class="services-grid">
-    <div class="service"><h3>EV Charging Solutions</h3><p>Comprehensive electric-mobility infrastructure engineered for reliability.</p><ul><li>AC & DC charging stations with fast-charge capability</li><li>Smart POS and payment integration systems</li><li>Real-time monitoring and fleet management</li><li>Professional installation and commissioning</li></ul></div>
-    <div class="service"><h3>UPS & Power Backup</h3><p>Uninterrupted power for critical operations in healthcare, government and industrial sectors.</p><ul><li>Modular, scalable UPS systems for every capacity</li><li>Advanced battery solutions with extended runtime</li><li>Intelligent monitoring and remote diagnostics</li><li>24/7 technical support and emergency response</li></ul></div>
-    <div class="service"><h3>Lighting Solutions</h3><p>Sophisticated lighting enhancing aesthetics while optimizing energy use.</p><ul><li>Architectural facade and accent lighting</li><li>Dynamic signage and branding lighting</li><li>LED conversion and energy optimization</li><li>Smart lighting control with scheduling</li></ul></div>
-    <div class="service"><h3>Firefighting Systems</h3><p>Integrated fire detection, suppression and control meeting international standards.</p><ul><li>Advanced fire detection and alarm systems</li><li>Automatic and manual suppression systems</li><li>Wet and dry sprinkler solutions</li><li>Certification and compliance verification</li></ul></div>
-    <div class="service"><h3>HVAC Solutions</h3><p>Optimal comfort and energy efficiency with intelligent controls.</p><ul><li>Full HVAC system design and planning</li><li>Advanced air-handling units with filtration</li><li>Smart control systems with IoT integration</li><li>Energy-efficient equipment and optimization</li></ul></div>
-    <div class="service"><h3>Electrical & Power Distribution</h3><p>Safe, efficient and uninterrupted power delivery with reliability.</p><ul><li>Advanced switchgear and circuit protection</li><li>Distribution boards and control panels</li><li>Smart energy monitoring and management</li><li>Professional installation and testing</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_ev_h">EV Charging Solutions</h3><p data-i18n="cp_ev_d">Comprehensive electric-mobility infrastructure engineered for reliability.</p><ul><li data-i18n="cp_ev_1">AC & DC charging stations with fast-charge capability</li><li data-i18n="cp_ev_2">Smart POS and payment integration systems</li><li data-i18n="cp_ev_3">Real-time monitoring and fleet management</li><li data-i18n="cp_ev_4">Professional installation and commissioning</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_ups_h">UPS & Power Backup</h3><p data-i18n="cp_ups_d">Uninterrupted power for critical operations in healthcare, government and industrial sectors.</p><ul><li data-i18n="cp_ups_1">Modular, scalable UPS systems for every capacity</li><li data-i18n="cp_ups_2">Advanced battery solutions with extended runtime</li><li data-i18n="cp_ups_3">Intelligent monitoring and remote diagnostics</li><li data-i18n="cp_ups_4">24/7 technical support and emergency response</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_light_h">Lighting Solutions</h3><p data-i18n="cp_light_d">Sophisticated lighting enhancing aesthetics while optimizing energy use.</p><ul><li data-i18n="cp_light_1">Architectural facade and accent lighting</li><li data-i18n="cp_light_2">Dynamic signage and branding lighting</li><li data-i18n="cp_light_3">LED conversion and energy optimization</li><li data-i18n="cp_light_4">Smart lighting control with scheduling</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_fire_h">Firefighting Systems</h3><p data-i18n="cp_fire_d">Integrated fire detection, suppression and control meeting international standards.</p><ul><li data-i18n="cp_fire_1">Advanced fire detection and alarm systems</li><li data-i18n="cp_fire_2">Automatic and manual suppression systems</li><li data-i18n="cp_fire_3">Wet and dry sprinkler solutions</li><li data-i18n="cp_fire_4">Certification and compliance verification</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_hvac_h">HVAC Solutions</h3><p data-i18n="cp_hvac_d">Optimal comfort and energy efficiency with intelligent controls.</p><ul><li data-i18n="cp_hvac_1">Full HVAC system design and planning</li><li data-i18n="cp_hvac_2">Advanced air-handling units with filtration</li><li data-i18n="cp_hvac_3">Smart control systems with IoT integration</li><li data-i18n="cp_hvac_4">Energy-efficient equipment and optimization</li></ul></div>
+    <div class="service"><h3 data-i18n="cp_elec_h">Electrical & Power Distribution</h3><p data-i18n="cp_elec_d">Safe, efficient and uninterrupted power delivery with reliability.</p><ul><li data-i18n="cp_elec_1">Advanced switchgear and circuit protection</li><li data-i18n="cp_elec_2">Distribution boards and control panels</li><li data-i18n="cp_elec_3">Smart energy monitoring and management</li><li data-i18n="cp_elec_4">Professional installation and testing</li></ul></div>
   </div>
 </section>
 <section class="container">
-  <div class="section-label">10 — Why Choose Us</div>
-  <h2>Our Core <span class="gold">Strengths</span></h2>
+  <div class="section-label" data-i18n="cp_s10">10 — Why Choose Us</div>
+  <h2 data-i18n-html="cp_h_strengths">Our Core <span class="gold" data-i18n="cp_lbl_strengths">Strengths</span></h2>
   <div class="features-grid">
-    <div class="feature"><h4>01 — End-to-End Excellence</h4><p>Complete solutions from design through installation, testing, commissioning and maintenance.</p></div>
-    <div class="feature"><h4>02 — International Standards</h4><p>All solutions meet ISO, CE and UL requirements in full Saudi compliance.</p></div>
-    <div class="feature"><h4>03 — Expert Technical Teams</h4><p>Engineers and technicians with specialized, continuously-certified expertise.</p></div>
-    <div class="feature"><h4>04 — Proven Track Record</h4><p>Successfully delivered projects across commercial, industrial, government and healthcare sectors.</p></div>
-    <div class="feature"><h4>05 — 24/7 Support & Service</h4><p>Round-the-clock technical support and emergency response ensuring maximum uptime.</p></div>
-    <div class="feature"><h4>06 — Vision 2030 Alignment</h4><p>Every solution contributes to sustainable energy, smart infrastructure and economic diversification.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w1">01 — End-to-End Excellence</h4><p data-i18n="cp_w1d">Complete solutions from design through installation, testing, commissioning and maintenance.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w2">02 — International Standards</h4><p data-i18n="cp_w2d">All solutions meet ISO, CE and UL requirements in full Saudi compliance.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w3">03 — Expert Technical Teams</h4><p data-i18n="cp_w3d">Engineers and technicians with specialized, continuously-certified expertise.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w4">04 — Proven Track Record</h4><p data-i18n="cp_w4d">Successfully delivered projects across commercial, industrial, government and healthcare sectors.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w5">05 — 24/7 Support & Service</h4><p data-i18n="cp_w5d">Round-the-clock technical support and emergency response ensuring maximum uptime.</p></div>
+    <div class="feature"><h4 data-i18n="cp_w6">06 — Vision 2030 Alignment</h4><p data-i18n="cp_w6d">Every solution contributes to sustainable energy, smart infrastructure and economic diversification.</p></div>
   </div>
 </section>
 <section class="container">
-  <div class="section-label">11 — Contact</div>
-  <h2>Let's Build <span class="gold">Together</span></h2>
+  <div class="section-label" data-i18n="cp_s11">11 — Contact</div>
+  <h2 data-i18n-html="cp_h_together">Let's Build <span class="gold" data-i18n="cp_lbl_together">Together</span></h2>
   <div class="contact-grid">
-    <div class="contact-card"><h4>PHONE</h4><p>+966 56 022 4715</p><p class="subtitle">24/7 support available</p></div>
-    <div class="contact-card"><h4>EMAIL</h4><p>info@blackarrowksa.com</p><p class="subtitle">Response within one business day</p></div>
-    <div class="contact-card"><h4>WEBSITE</h4><p>www.blackarrowksa.com</p><p class="subtitle">Explore our full capabilities</p></div>
-    <div class="contact-card"><h4>LOCATION</h4><p>Ad Dammam</p><p class="subtitle">Ash Sharqiyah 32245, Saudi Arabia</p></div>
+    <div class="contact-card"><h4 data-i18n="cp_phone">PHONE</h4><p>+966 56 022 4715</p><p class="subtitle" data-i18n="cp_phone_d">24/7 support available</p></div>
+    <div class="contact-card"><h4 data-i18n="cp_email">EMAIL</h4><p>info@blackarrowksa.com</p><p class="subtitle" data-i18n="cp_email_d">Response within one business day</p></div>
+    <div class="contact-card"><h4 data-i18n="cp_website">WEBSITE</h4><p>www.blackarrowksa.com</p><p class="subtitle" data-i18n="cp_website_d">Explore our full capabilities</p></div>
+    <div class="contact-card"><h4 data-i18n="cp_location">LOCATION</h4><p data-i18n="cp_city">Ad Dammam</p><p class="subtitle" data-i18n="cp_region">Ash Sharqiyah 32245, Saudi Arabia</p></div>
   </div>
 </section>
 <footer>
-  <p><span class="gold">Black Arrow Venture</span> © 2026 — All Rights Reserved</p>
-  <p>Infrastructure Solutions | Kingdom of Saudi Arabia</p>
+  <p data-i18n-html="cp_footer_rights"><span class="gold">Black Arrow Venture</span> © <span data-year>2026</span> — All Rights Reserved</p>
+  <p data-i18n="cp_footer">Infrastructure Solutions | Kingdom of Saudi Arabia</p>
 </footer>
+<script>
+  // company-profile.html does not load app.js, so the shared
+  // footer-year helper never runs here.
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+</script>
 </body>
 </html>

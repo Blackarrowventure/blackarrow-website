@@ -1,5 +1,5 @@
 {
-  "_comment": "Manifest of real site pages. 'ar' marks pages that get a static /ar/ twin. company-profile.html is excluded from /ar/ v1: it has zero data-i18n, its own stylesheet on the old palette, and a UTF-8 BOM. contacts/*.html are digital business cards, outside the design system and noindexed.",
+  "_comment": "Manifest of real site pages. 'ar' marks pages that get a static /ar/ twin. company-profile.html has its own inline stylesheet, now written with logical properties (border-inline-start) so the gold accent bar sits on the correct edge under dir=rtl. contacts/*.html are digital business cards, outside the design system and noindexed.",
   "site": "https://www.blackarrowksa.com",
   "pages": [
     { "src": "index.html",                                              "url": "/",                                            "ar": true },
@@ -7,7 +7,7 @@
     { "src": "services.html",                                           "url": "/services.html",                               "ar": true },
     { "src": "contact.html",                                            "url": "/contact.html",                                "ar": true },
     { "src": "become-a-partner.html",                                   "url": "/become-a-partner.html",                       "ar": true },
-    { "src": "company-profile.html",                                    "url": "/company-profile.html",                        "ar": false },
+    { "src": "company-profile.html",                                    "url": "/company-profile.html",                        "ar": true },
 
     { "_note": "Legal pages carry a Language clause stating the English version prevails on any conflict, which is why an Arabic twin is safe to publish. Blocks threaded with <strong>/<a> use data-i18n-html and are replaced whole - translating those as fragments produces broken Arabic.",
       "src": "privacy-policy.html",                                     "url": "/privacy-policy.html",                         "ar": true },
