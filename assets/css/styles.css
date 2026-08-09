@@ -729,7 +729,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .hero__logo {
-  width: 450px;
+  /* was 450px against a 441px-wide source file - the browser was scaling the
+     logo up past its own resolution, so it went soft on every retina screen.
+     The source is now 1323px wide, but 450px was also simply too dominant
+     next to the h1, so this stays at 370. */
+  width: 370px;
   height: auto;
   margin-inline: auto;
   margin-bottom: 40px;
@@ -2842,7 +2846,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ──────────────────────────────────────────────
    23. RESPONSIVE DESIGN
    ────────────────────────────────────────────── */
-@media (max-width: 1300px) {
+/* 1300px was too low a trigger: the navbar's three groups need ~1520px at
+   full desktop sizing, so every laptop between 1300 and 1520 - which is most
+   of them, 1366 and 1440 included - overflowed and the logo text printed on
+   top of "Home". Raised so the shrink starts before the collision does. */
+@media (max-width: 1560px) {
   /* Navbar: shrink to make room, never hide the menu text */
   :root { --nav-h: 108px; }
   .navbar__logo img { width: 190px; }
@@ -2906,7 +2914,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .navbar__links { row-gap: 6px; }
 
   .hero h1 { font-size: var(--fs-2xl); }
-  .hero__logo { width: 320px; }
+  /* 320px filled 82% of a 390px phone screen. */
+  .hero__logo { width: min(250px, 60vw); }
   .stats__num { font-size: var(--fs-4xl); }
   .why-grid { grid-template-columns: 1fr; }
   .navbar__logo-text { display: none; }
