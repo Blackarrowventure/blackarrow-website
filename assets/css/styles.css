@@ -558,7 +558,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    logo file got away with height sizing only because 90% of its canvas was
    transparent padding, which is precisely why it rendered as a 7px smudge. */
 .navbar__logo img {
-  width: 220px;
+  width: 200px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
@@ -733,7 +733,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
      logo up past its own resolution, so it went soft on every retina screen.
      The source is now 1323px wide, but 450px was also simply too dominant
      next to the h1, so this stays at 370. */
-  width: 370px;
+  width: 335px;
   height: auto;
   margin-inline: auto;
   margin-bottom: 40px;
@@ -2228,7 +2228,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__brand img {
   /* was height:180px - an 8:1 wordmark at that height is 1443px wide */
-  width: 200px;
+  width: 180px;
   height: auto;
   margin-bottom: 16px;
 }
@@ -2853,7 +2853,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 1560px) {
   /* Navbar: shrink to make room, never hide the menu text */
   :root { --nav-h: 108px; }
-  .navbar__logo img { width: 190px; }
+  .navbar__logo img { width: 175px; }
   .navbar__logo-text .name { font-size: 15px; }
   .navbar__logo-text .sub { font-size: 11px; }
   .navbar__links { flex-wrap: wrap; row-gap: 4px; padding: 6px 10px; }
@@ -2873,7 +2873,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 768px) {
   /* Navbar: menu text can now wrap to a 2nd line, so give it more room */
   :root { --nav-h: 152px; }
-  .navbar__logo img { width: 170px; }
+  .navbar__logo img { width: 158px; }
   .navbar__logo-text .name { font-size: 13px; }
   .navbar__logo-text .sub { font-size: 10px; }
   .navbar__links a { padding: 5px 8px; font-size: 13px; }
@@ -2910,12 +2910,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @media (max-width: 480px) {
   /* Navbar: company name/subtitle hidden to leave room for the menu, which stays as text */
   :root { --nav-h: 210px; }
-  .navbar__logo img { width: min(150px, 40vw); }
+  .navbar__logo img { width: min(138px, 38vw); }
   .navbar__links { row-gap: 6px; }
 
   .hero h1 { font-size: var(--fs-2xl); }
   /* 320px filled 82% of a 390px phone screen. */
-  .hero__logo { width: min(250px, 60vw); }
+  .hero__logo { width: min(228px, 56vw); }
   .stats__num { font-size: var(--fs-4xl); }
   .why-grid { grid-template-columns: 1fr; }
   .navbar__logo-text { display: none; }
