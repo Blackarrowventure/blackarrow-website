@@ -863,42 +863,90 @@
           <h2 id="clients-heading" style="color: #F59E0B !important;" data-i18n="clients_title">موثوق به من قِبَل المؤسسات الرائدة</h2>
           <p data-i18n="clients_subtitle">خدمنا بنجاح عملاء عبر القطاعات الرئيسية في المملكة العربية السعودية</p>
         </div>
-        <div class="clients__logos reveal">
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_0.webp" type="image/webp"><img src="/assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy" width="458" height="110" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_1.webp" type="image/webp"><img src="/assets/images/clients/client_1.jpg" alt="THC" loading="lazy" width="184" height="116" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_2.webp" type="image/webp"><img src="/assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy" width="498" height="101" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_3.webp" type="image/webp"><img src="/assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy" width="415" height="121" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_4.webp" type="image/webp"><img src="/assets/images/clients/client_4.jpg" alt="شريك عميل" loading="lazy" width="200" height="200" decoding="async" data-i18n-alt="alt_client_partner"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/client_5.webp" type="image/webp"><img src="/assets/images/clients/client_5.jpg" alt="شريك عميل" loading="lazy" width="276" height="182" decoding="async" data-i18n-alt="alt_client_partner"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/aramco-services.webp" type="image/webp"><img src="/assets/images/clients/aramco-services.png" alt="Aramco Services Company" loading="lazy" width="600" height="600" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/download.webp" type="image/webp"><img src="/assets/images/clients/download.jpg" alt="شريك عميل" loading="lazy" width="206" height="145" decoding="async" data-i18n-alt="alt_client_partner"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/aldara-hospital.webp" type="image/webp"><img src="/assets/images/clients/aldara-hospital.jpg" alt="Aldara Hospital" loading="lazy" width="447" height="447" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/breeze-med-care.webp" type="image/webp"><img src="/assets/images/clients/breeze-med-care.jpg" alt="Breeze Med Care" loading="lazy" width="400" height="400" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/dallah-hospital.webp" type="image/webp"><img src="/assets/images/clients/dallah-hospital.jpg" alt="Dallah Hospital" loading="lazy" width="1200" height="630" decoding="async"></picture>
-          </div>
-          <div class="client-logo">
-            <picture><source srcset="/assets/images/clients/nls-logo.webp" type="image/webp"><img src="/assets/images/clients/nls-logo.png" alt="NLS" loading="lazy" width="875" height="736" decoding="async"></picture>
+        <!-- Logos scroll continuously leftwards. The second set is an exact
+             copy and the track shifts by exactly -50%, so the moment copy 1
+             has left the frame copy 2 sits precisely where copy 1 started -
+             which is what makes the loop seamless instead of snapping back.
+             The copy is aria-hidden so a screen reader hears the client list
+             once, not twice. -->
+        <div class="clients__marquee reveal">
+          <div class="clients__track">
+            <div class="clients__set">
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_0.webp" type="image/webp"><img src="/assets/images/clients/client_0.jpg" alt="Zahran Facilities Management" loading="lazy" width="458" height="110" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_1.webp" type="image/webp"><img src="/assets/images/clients/client_1.jpg" alt="THC" loading="lazy" width="184" height="116" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_2.webp" type="image/webp"><img src="/assets/images/clients/client_2.jpg" alt="Dr Sulaiman Al Habib Medical Group" loading="lazy" width="498" height="101" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_3.webp" type="image/webp"><img src="/assets/images/clients/client_3.jpg" alt="Insha'at Contracting Co." loading="lazy" width="415" height="121" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_4.webp" type="image/webp"><img src="/assets/images/clients/client_4.jpg" alt="شريك عميل" loading="lazy" width="200" height="200" decoding="async" data-i18n-alt="alt_client_partner"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_5.webp" type="image/webp"><img src="/assets/images/clients/client_5.jpg" alt="شريك عميل" loading="lazy" width="276" height="182" decoding="async" data-i18n-alt="alt_client_partner"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/aramco-services.webp" type="image/webp"><img src="/assets/images/clients/aramco-services.png" alt="Aramco Services Company" loading="lazy" width="600" height="600" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/download.webp" type="image/webp"><img src="/assets/images/clients/download.jpg" alt="شريك عميل" loading="lazy" width="206" height="145" decoding="async" data-i18n-alt="alt_client_partner"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/aldara-hospital.webp" type="image/webp"><img src="/assets/images/clients/aldara-hospital.jpg" alt="Aldara Hospital" loading="lazy" width="447" height="447" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/breeze-med-care.webp" type="image/webp"><img src="/assets/images/clients/breeze-med-care.jpg" alt="Breeze Med Care" loading="lazy" width="400" height="400" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/dallah-hospital.webp" type="image/webp"><img src="/assets/images/clients/dallah-hospital.jpg" alt="Dallah Hospital" loading="lazy" width="1200" height="630" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/nls-logo.webp" type="image/webp"><img src="/assets/images/clients/nls-logo.png" alt="NLS" loading="lazy" width="875" height="736" decoding="async"></picture>
+              </div>
+            </div>
+            <div class="clients__set" aria-hidden="true">
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_0.webp" type="image/webp"><img src="/assets/images/clients/client_0.jpg" alt="" loading="lazy" width="458" height="110" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_1.webp" type="image/webp"><img src="/assets/images/clients/client_1.jpg" alt="" loading="lazy" width="184" height="116" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_2.webp" type="image/webp"><img src="/assets/images/clients/client_2.jpg" alt="" loading="lazy" width="498" height="101" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_3.webp" type="image/webp"><img src="/assets/images/clients/client_3.jpg" alt="" loading="lazy" width="415" height="121" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_4.webp" type="image/webp"><img src="/assets/images/clients/client_4.jpg" alt="" loading="lazy" width="200" height="200" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/client_5.webp" type="image/webp"><img src="/assets/images/clients/client_5.jpg" alt="" loading="lazy" width="276" height="182" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/aramco-services.webp" type="image/webp"><img src="/assets/images/clients/aramco-services.png" alt="" loading="lazy" width="600" height="600" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/download.webp" type="image/webp"><img src="/assets/images/clients/download.jpg" alt="" loading="lazy" width="206" height="145" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/aldara-hospital.webp" type="image/webp"><img src="/assets/images/clients/aldara-hospital.jpg" alt="" loading="lazy" width="447" height="447" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/breeze-med-care.webp" type="image/webp"><img src="/assets/images/clients/breeze-med-care.jpg" alt="" loading="lazy" width="400" height="400" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/dallah-hospital.webp" type="image/webp"><img src="/assets/images/clients/dallah-hospital.jpg" alt="" loading="lazy" width="1200" height="630" decoding="async"></picture>
+              </div>
+              <div class="client-logo">
+              <picture><source srcset="/assets/images/clients/nls-logo.webp" type="image/webp"><img src="/assets/images/clients/nls-logo.png" alt="" loading="lazy" width="875" height="736" decoding="async"></picture>
+              </div>
+            </div>
           </div>
         </div>
         <p class="clients__note reveal" data-i18n="serving_clients_ksa">نخدم عملاءنا في جميع أنحاء المملكة العربية السعودية</p>

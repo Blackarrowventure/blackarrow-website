@@ -203,8 +203,10 @@ body {
 .aim-item .dot { color: var(--clr-accent) !important; }
 
 /* Light background client section - BLACK text */
-.clients__logos { color: #000000 !important; }
-.clients__logos * { color: #000000 !important; }
+.clients__logos,
+.clients__marquee { color: #000000 !important; }
+.clients__logos *,
+.clients__marquee * { color: #000000 !important; }
 
 /* Comparison table - BLACK text on white */
 .comparison-table td { color: #000000 !important; }
@@ -1874,22 +1876,68 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   font-weight: 500;
 }
 
-.clients__logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
+/* Client logo marquee.
+   The track holds two identical sets and translates by exactly -50%, so at
+   the end of a cycle set 2 occupies the pixels set 1 started on and the jump
+   back to 0 is invisible. Any other distance makes it visibly snap.
+   `width: max-content` stops the flex track wrapping, which would collapse
+   the whole effect. */
+.clients__marquee {
   margin-top: 48px;
-  padding: 32px;
+  padding-block: 32px;
   background: var(--clr-light);
   border-radius: var(--radius-xl);
+  overflow: hidden;
+  /* fade the ends so logos enter and leave instead of being sliced off */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 90px, #000 calc(100% - 90px), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 90px, #000 calc(100% - 90px), transparent);
+}
+
+.clients__track {
+  display: flex;
+  width: max-content;
+  /* the marquee runs left-to-right geometrically in both languages; without
+     this, RTL reverses the flex axis and the animation runs the wrong way */
+  direction: ltr;
+  animation: clients-scroll 55s linear infinite;
+}
+
+.clients__set {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-inline-end: 40px;   /* preserves the gap across the seam */
+}
+
+@keyframes clients-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* let people stop it to actually read a logo */
+.clients__marquee:hover .clients__track,
+.clients__marquee:focus-within .clients__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .clients__set:last-child { display: none; }   /* no duplicates when static */
+  .clients__marquee { padding: 32px; -webkit-mask-image: none; mask-image: none; }
 }
 
 .client-logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* flex children shrink below their content by default; inside the marquee
+     track that would squash every logo instead of scrolling them */
+  flex: 0 0 auto;
   padding: 16px 24px;
   background: #fff;
   border-radius: var(--radius-md);
