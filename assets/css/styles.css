@@ -3631,3 +3631,30 @@ html:not(.js) [class*="reveal"] {
   outline-offset: -3px;
   box-shadow: none;
 }
+
+/* ──────────────────────────────────────────────
+   27. SECTION HEADER COLOUR
+
+   The gold on section headings used to live in 170 inline
+   style="color:#F59E0B !important" attributes, one per heading, spread over
+   32 pages. It had to be inline AND !important because the theme rules above
+   force every heading white with !important on .section--dark and
+   .section--gray, and an inline !important is the only thing that outranks a
+   stylesheet !important. That is the specificity debt in miniature: an
+   override so strong the only way past it was the strongest weapon there is.
+
+   Two rules replace all 170. They still need !important to beat those theme
+   rules, but the force now lives in one place that can be reasoned about
+   instead of being copied into the markup.
+
+   Deliberately scoped to .section-header: 24 headings elsewhere on the site
+   are gold by their own inline style, and 70 headings are deliberately NOT
+   gold - the WhatsApp banner, the legal pages, a navy heading on contact.
+   Measured before writing this: of every heading inside a .section-header,
+   zero were anything other than gold, so this rule can never repaint one
+   that was meant to stay white.
+   ────────────────────────────────────────────── */
+.section-header h2,
+.section-header .overline {
+  color: var(--clr-accent) !important;
+}
