@@ -1,48 +1,175 @@
 {
-  "_comment": "Manifest of real site pages. 'ar' marks pages that get a static /ar/ twin. company-profile.html has its own inline stylesheet, now written with logical properties (border-inline-start) so the gold accent bar sits on the correct edge under dir=rtl. contacts/*.html are digital business cards, outside the design system and noindexed.",
+  "_comment": "Manifest of real site pages. 'ar' marks pages that get a static /ar/ twin. contacts/*.html are digital business cards, outside the design system and noindexed. company-profile.html is DELIBERATELY not on the shared stylesheet: it keeps its own inline CSS and the pre-rebrand palette (--clr-navy #1a3d5c, --clr-gold #d4af37) rather than the site's near-black and amber #F59E0B. Afzal chose this on 19 Aug 2026 after being shown the mismatch, so do not 'fix' it. The cost is that sitewide changes must be applied twice - every logo change so far has been. Its CSS uses logical properties (border-inline-start) so the gold accent bar sits on the correct edge under dir=rtl.",
   "site": "https://www.blackarrowksa.com",
   "pages": [
-    { "src": "index.html",                                              "url": "/",                                            "ar": true },
-    { "src": "about.html",                                              "url": "/about.html",                                  "ar": true },
-    { "src": "services.html",                                           "url": "/services.html",                               "ar": true },
-    { "src": "contact.html",                                            "url": "/contact.html",                                "ar": true },
-    { "src": "become-a-partner.html",                                   "url": "/become-a-partner.html",                       "ar": true },
-    { "src": "company-profile.html",                                    "url": "/company-profile.html",                        "ar": true },
-
-    { "_note": "Legal pages carry a Language clause stating the English version prevails on any conflict, which is why an Arabic twin is safe to publish. Blocks threaded with <strong>/<a> use data-i18n-html and are replaced whole - translating those as fragments produces broken Arabic.",
-      "src": "privacy-policy.html",                                     "url": "/privacy-policy.html",                         "ar": true },
-    { "src": "terms-of-service.html",                                   "url": "/terms-of-service.html",                       "ar": true },
-    { "_note": "Form confirmation page. noindex, and not linked from any page - it is a redirect target only. Still needs an Arabic twin: the /ar/ forms redirect here, so without one an Arabic visitor lands on an English page right after converting.",
-      "src": "thank-you.html",                                          "url": "/thank-you.html",                              "ar": true },
-
-    { "src": "services/isolated-power-panels/index.html",               "url": "/services/isolated-power-panels/",             "ar": true },
-    { "src": "services/ev-charging-solutions/index.html",               "url": "/services/ev-charging-solutions/",             "ar": true },
-    { "src": "services/ups-power-backup/index.html",                    "url": "/services/ups-power-backup/",                  "ar": true },
-    { "src": "services/hvac-solutions/index.html",                      "url": "/services/hvac-solutions/",                    "ar": true },
-    { "src": "services/lighting-solutions/index.html",                  "url": "/services/lighting-solutions/",                "ar": true },
-    { "src": "services/firefighting-systems/index.html",                "url": "/services/firefighting-systems/",              "ar": true },
-    { "src": "services/electrical-distribution/index.html",             "url": "/services/electrical-distribution/",           "ar": true },
-    { "src": "services/general-trading/index.html",                     "url": "/services/general-trading/",                   "ar": true },
-
-    { "src": "solutions/hospitals/index.html",                          "url": "/solutions/hospitals/",                        "ar": true },
-    { "src": "solutions/commercial/index.html",                         "url": "/solutions/commercial/",                       "ar": true },
-    { "src": "solutions/government/index.html",                         "url": "/solutions/government/",                       "ar": true },
-    { "src": "solutions/hospitality/index.html",                        "url": "/solutions/hospitality/",                      "ar": true },
-    { "src": "solutions/industrial/index.html",                         "url": "/solutions/industrial/",                       "ar": true },
-    { "src": "solutions/aviation/index.html",                           "url": "/solutions/aviation/",                         "ar": true },
-
-    { "src": "resources/faqs/index.html",                               "url": "/resources/faqs/",                             "ar": true },
-    { "src": "resources/blog/index.html",                               "url": "/resources/blog/",                             "ar": true },
-    { "src": "resources/blog/why-hospitals-need-isolated-power-panels/index.html", "url": "/resources/blog/why-hospitals-need-isolated-power-panels/", "ar": true },
-    { "src": "resources/blog/nfpa-99-compliance-saudi-hospitals/index.html",       "url": "/resources/blog/nfpa-99-compliance-saudi-hospitals/",       "ar": true },
-
-    { "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
-      "src": "resources/case-studies/index.html",                                  "url": "/resources/case-studies/",                                  "ar": true },
-    { "src": "resources/case-studies/hospital-isolated-power-operating-theatres/index.html", "url": "/resources/case-studies/hospital-isolated-power-operating-theatres/", "ar": true },
-    { "src": "resources/case-studies/commercial-complex-ev-charging-rollout/index.html",     "url": "/resources/case-studies/commercial-complex-ev-charging-rollout/",     "ar": true },
-    { "src": "resources/case-studies/healthcare-ups-critical-branch-replacement/index.html", "url": "/resources/case-studies/healthcare-ups-critical-branch-replacement/", "ar": true },
-    { "src": "resources/case-studies/high-rise-obstruction-helipad-lighting/index.html",     "url": "/resources/case-studies/high-rise-obstruction-helipad-lighting/",     "ar": true },
-    { "src": "resources/case-studies/hospitality-hvac-upgrade/index.html",                   "url": "/resources/case-studies/hospitality-hvac-upgrade/",                   "ar": true }
+    {
+      "src": "index.html",
+      "url": "/",
+      "ar": true
+    },
+    {
+      "src": "about.html",
+      "url": "/about.html",
+      "ar": true
+    },
+    {
+      "src": "services.html",
+      "url": "/services.html",
+      "ar": true
+    },
+    {
+      "src": "contact.html",
+      "url": "/contact.html",
+      "ar": true
+    },
+    {
+      "src": "become-a-partner.html",
+      "url": "/become-a-partner.html",
+      "ar": true
+    },
+    {
+      "src": "company-profile.html",
+      "url": "/company-profile.html",
+      "ar": true
+    },
+    {
+      "_note": "Legal pages carry a Language clause stating the English version prevails on any conflict, which is why an Arabic twin is safe to publish. Blocks threaded with <strong>/<a> use data-i18n-html and are replaced whole - translating those as fragments produces broken Arabic.",
+      "src": "privacy-policy.html",
+      "url": "/privacy-policy.html",
+      "ar": true
+    },
+    {
+      "src": "terms-of-service.html",
+      "url": "/terms-of-service.html",
+      "ar": true
+    },
+    {
+      "_note": "Form confirmation page. noindex, and not linked from any page - it is a redirect target only. Still needs an Arabic twin: the /ar/ forms redirect here, so without one an Arabic visitor lands on an English page right after converting.",
+      "src": "thank-you.html",
+      "url": "/thank-you.html",
+      "ar": true
+    },
+    {
+      "src": "services/isolated-power-panels/index.html",
+      "url": "/services/isolated-power-panels/",
+      "ar": true
+    },
+    {
+      "src": "services/ev-charging-solutions/index.html",
+      "url": "/services/ev-charging-solutions/",
+      "ar": true
+    },
+    {
+      "src": "services/ups-power-backup/index.html",
+      "url": "/services/ups-power-backup/",
+      "ar": true
+    },
+    {
+      "src": "services/hvac-solutions/index.html",
+      "url": "/services/hvac-solutions/",
+      "ar": true
+    },
+    {
+      "src": "services/lighting-solutions/index.html",
+      "url": "/services/lighting-solutions/",
+      "ar": true
+    },
+    {
+      "src": "services/firefighting-systems/index.html",
+      "url": "/services/firefighting-systems/",
+      "ar": true
+    },
+    {
+      "src": "services/electrical-distribution/index.html",
+      "url": "/services/electrical-distribution/",
+      "ar": true
+    },
+    {
+      "src": "services/general-trading/index.html",
+      "url": "/services/general-trading/",
+      "ar": true
+    },
+    {
+      "src": "solutions/hospitals/index.html",
+      "url": "/solutions/hospitals/",
+      "ar": true
+    },
+    {
+      "src": "solutions/commercial/index.html",
+      "url": "/solutions/commercial/",
+      "ar": true
+    },
+    {
+      "src": "solutions/government/index.html",
+      "url": "/solutions/government/",
+      "ar": true
+    },
+    {
+      "src": "solutions/hospitality/index.html",
+      "url": "/solutions/hospitality/",
+      "ar": true
+    },
+    {
+      "src": "solutions/industrial/index.html",
+      "url": "/solutions/industrial/",
+      "ar": true
+    },
+    {
+      "src": "solutions/aviation/index.html",
+      "url": "/solutions/aviation/",
+      "ar": true
+    },
+    {
+      "src": "resources/faqs/index.html",
+      "url": "/resources/faqs/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/index.html",
+      "url": "/resources/blog/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/why-hospitals-need-isolated-power-panels/index.html",
+      "url": "/resources/blog/why-hospitals-need-isolated-power-panels/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/nfpa-99-compliance-saudi-hospitals/index.html",
+      "url": "/resources/blog/nfpa-99-compliance-saudi-hospitals/",
+      "ar": true
+    },
+    {
+      "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
+      "src": "resources/case-studies/index.html",
+      "url": "/resources/case-studies/",
+      "ar": true
+    },
+    {
+      "src": "resources/case-studies/hospital-isolated-power-operating-theatres/index.html",
+      "url": "/resources/case-studies/hospital-isolated-power-operating-theatres/",
+      "ar": true
+    },
+    {
+      "src": "resources/case-studies/commercial-complex-ev-charging-rollout/index.html",
+      "url": "/resources/case-studies/commercial-complex-ev-charging-rollout/",
+      "ar": true
+    },
+    {
+      "src": "resources/case-studies/healthcare-ups-critical-branch-replacement/index.html",
+      "url": "/resources/case-studies/healthcare-ups-critical-branch-replacement/",
+      "ar": true
+    },
+    {
+      "src": "resources/case-studies/high-rise-obstruction-helipad-lighting/index.html",
+      "url": "/resources/case-studies/high-rise-obstruction-helipad-lighting/",
+      "ar": true
+    },
+    {
+      "src": "resources/case-studies/hospitality-hvac-upgrade/index.html",
+      "url": "/resources/case-studies/hospitality-hvac-upgrade/",
+      "ar": true
+    }
   ],
   "noindex": [
     "contacts/",
