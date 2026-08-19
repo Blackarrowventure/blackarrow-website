@@ -1967,6 +1967,98 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ──────────────────────────────────────────────
+   13b. CLIENT TESTIMONIALS
+   A logo proves a transaction; a named quote proves someone put their
+   reputation behind it. That difference is the whole point of this section
+   for the buyers this site is aimed at - hospital and facility managers who
+   are risk-averse by profession.
+   EVERY quote here must be a real, named person who agreed in writing to be
+   quoted. Never populate this with samples, even temporarily - a fabricated
+   endorsement on a live commercial site is fraud, not placeholder copy.
+   ────────────────────────────────────────────── */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 34px 32px 28px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(245,158,11,.22);
+  border-radius: var(--radius-lg);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245,158,11,.5);
+  box-shadow: var(--shadow-lg);
+}
+
+/* The opening quote mark is decoration, so it is drawn in CSS rather than
+   typed into the markup - a literal " in the text would be announced by a
+   screen reader on top of the <blockquote> role it already has. */
+.testimonial__quote {
+  position: relative;
+  margin: 0;
+  padding-top: 30px;
+}
+
+.testimonial__quote::before {
+  content: "\201C";
+  position: absolute;
+  inset-block-start: -18px;
+  inset-inline-start: -6px;
+  font-family: var(--ff-heading);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--clr-accent);
+  opacity: .5;
+  pointer-events: none;
+}
+
+.testimonial__quote p {
+  margin: 0;
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+  color: rgba(255,255,255,.92);
+}
+
+/* margin-top:auto pins the attribution to the card floor, so cards holding
+   quotes of different lengths still line their names up across the row */
+.testimonial__attrib {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  font-style: normal;
+}
+
+.testimonial__name {
+  display: block;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+}
+
+.testimonial__role {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--clr-accent-light) !important;
+}
+
+@media (max-width: 768px) {
+  .testimonials__grid { grid-template-columns: 1fr; gap: 20px; }
+  .testimonial { padding: 30px 24px 24px; }
+  .testimonial__quote p { font-size: var(--fs-base); }
+}
+
+/* ──────────────────────────────────────────────
    14. WHATSAPP CTA BANNER
    ────────────────────────────────────────────── */
 .wa-banner {
