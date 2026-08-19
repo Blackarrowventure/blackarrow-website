@@ -6,6 +6,9 @@
   <meta name="description" content="Black Arrow Venture Company Profile - Infrastructure Solutions Provider in Saudi Arabia.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.blackarrowksa.com/company-profile.html">
+  <link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/company-profile.html">
+  <link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/company-profile.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/company-profile.html">
   <meta property="og:title" content="Company Profile | Black Arrow Venture">
   <meta property="og:description" content="Black Arrow Venture Company Profile - Infrastructure Solutions Provider in Saudi Arabia.">
   <meta property="og:type" content="website">
@@ -15,6 +18,39 @@
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
   <link rel="apple-touch-icon" href="/assets/images/black-arrow-logo.png">
   <title>Company Profile | Black Arrow Venture Saudi Arabia</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Black Arrow Venture company",
+    "alternateName": "شركة السهم الأسود ڤنتشر",
+    "url": "https://www.blackarrowksa.com",
+    "logo": "https://www.blackarrowksa.com/assets/images/black-arrow-logo.png",
+    "description": "Saudi-based infrastructure and technology solutions provider specializing in EV chargers, UPS systems, HVAC systems, isolated power panels (IPP) for hospitals, electrical distribution, firefighting systems and lighting solutions nationwide.",
+    "foundingDate": "2022",
+    "vatID": "314841084500003",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Commercial Registration",
+      "value": "7054542985"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ad Dammam",
+      "addressLocality": "Dammam",
+      "addressRegion": "Ash Sharqiyah",
+      "postalCode": "32245",
+      "addressCountry": "SA"
+    },
+    "areaServed": ["Saudi Arabia","Riyadh","Jeddah","Dammam","Al Khobar","Medina","Qassim","Eastern Province","Western Region","Central Region"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+966560224715",
+      "contactType": "Customer Service",
+      "email": "info@blackarrowksa.com"
+    }
+  }
+  </script>
   <style>
     :root {--clr-navy:#1a3d5c;--clr-navy-dark:#0f2538;--clr-gold:#d4af37;--clr-white:#fff;--clr-light:#f5f5f5;}
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -24,10 +60,14 @@
     .logo{display:flex;align-items:center;gap:15px;text-decoration:none;}
     /* Width, not height: the wordmark is 8:1, so height:60px made it 481px wide. */
     .logo img{width:185px;height:auto;}
-    .logo-text h1{font-size:18px;color:#333;}
+    .logo-text .logo-name{display:block;font-size:18px;font-weight:700;color:#333;}
     .logo-text p{font-size:12px;color:#666;}
     nav a{margin-inline-start:30px;text-decoration:none;color:#333;transition:color .3s;}
     nav a:hover{color:var(--clr-gold);}
+    .lang-switcher{display:flex;gap:6px;}
+    .lang-btn{margin-inline-start:0;padding:6px 12px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;font-size:13px;font-weight:600;line-height:1.4;transition:background .3s,color .3s,border-color .3s;}
+    .lang-btn:hover{border-color:var(--clr-gold);color:var(--clr-gold);}
+    .lang-btn.active{background:var(--clr-gold);border-color:var(--clr-gold);color:#fff;}
     .hero{background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);color:#fff;text-align:center;padding:80px 20px;}
     .hero-logo{max-width:200px;margin:0 auto 30px;}
     /* Without height:auto the img keeps its 55px height attribute while
@@ -102,9 +142,13 @@
            near-white for the dark navbar everywhere else, which left it
            invisible here; -onlight is the same mark with dark lettering. -->
       <img src="/assets/images/black-arrow-wordmark-onlight.png" alt="Black Arrow Logo" width="441" height="55" decoding="async">
-      <div class="logo-text"><h1>Black Arrow Venture</h1><p data-i18n="cp_hero_sub">Infrastructure Solutions</p></div>
+      <div class="logo-text"><span class="logo-name">Black Arrow Venture</span><p data-i18n="cp_hero_sub">Infrastructure Solutions</p></div>
     </a>
     <nav><a href="/" data-i18n="nav_home">Home</a><a href="/services.html" data-i18n="nav_services">Services</a><a href="/about.html" data-i18n="nav_about">About</a><a href="/contact.html" data-i18n="nav_contact">Contact</a></nav>
+    <div class="lang-switcher" data-lang-switch>
+      <a href="/company-profile.html" id="lang-en" class="lang-btn active" hreflang="en" lang="en" aria-current="true">EN</a>
+      <a href="/ar/company-profile.html" id="lang-ar" class="lang-btn" hreflang="ar" lang="ar">AR</a>
+    </div>
   </div>
 </nav>
 <section class="hero">

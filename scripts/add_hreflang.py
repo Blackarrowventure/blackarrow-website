@@ -48,7 +48,12 @@ def main():
         path = ROOT / entry['src']
         src, bom = read(path)
 
-        if 'hreflang=' in src:
+        # Must look for the <link rel="alternate"> tags specifically. A bare
+        # 'hreflang=' test also matches the hreflang attribute on the EN/AR
+        # anchors in the language switcher, so any page carrying a switcher
+        # but no alternates reported itself as already done and was skipped
+        # in silence. company-profile.html was exactly that page.
+        if 'rel="alternate" hreflang=' in src:
             skipped += 1
             continue
 
