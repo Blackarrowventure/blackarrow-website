@@ -3587,3 +3587,47 @@ html:not(.js) [class*="reveal"] {
 @media (max-width: 480px) {
   :root { --nav-h: 104px; }
 }
+
+/* ──────────────────────────────────────────────
+   26. KEYBOARD FOCUS
+
+   :focus-visible matches only when the browser judges a focus ring is
+   warranted - Tab, arrow keys, programmatic focus - and not when a control
+   is clicked with a mouse. So this is invisible to pointer users and costs
+   the mouse experience nothing.
+
+   Two rings rather than one, because this site has both grounds. Gold on
+   the near-black page measures about 9.2:1, which is emphatic. Gold on the
+   white cards - service cards, contact cards, the segmentation panel - is
+   only about 2.1:1, under the 3:1 a non-text indicator needs. The dark
+   inner ring fills the outline-offset gap and carries the indicator on
+   those light surfaces, where it measures about 15:1.
+
+   Kept last in the file on purpose: three earlier rules set `outline: none`
+   on form fields, and the overrides below have to win on source order.
+   ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(10,10,10,.9);
+}
+
+/* Form fields drop the native ring in favour of a gold border and glow,
+   which is a fine mouse affordance but too subtle to navigate by. Keyboard
+   focus gets a real outline back. These selectors have to repeat the
+   specificity of the `outline: none` rules they are correcting. */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible,
+.footer__newsletter input:focus-visible {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* The skip link is positioned off-screen until focused, so it sits hard
+   against the top edge with no room for an offset ring to render. */
+.skip-link:focus-visible {
+  outline: 3px solid var(--clr-white);
+  outline-offset: -3px;
+  box-shadow: none;
+}

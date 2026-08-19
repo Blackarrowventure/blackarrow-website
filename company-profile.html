@@ -117,6 +117,12 @@
        inherits - so the "Infrastructure Solutions" line was dark grey on
        dark navy and effectively unreadable. */
     .hero h2{color:var(--clr-white);}
+    /* Keyboard focus. Matches only when the browser judges a ring is
+       warranted, so pointer users never see it. Two rings because this page
+       has both a white navbar and a navy hero, and gold alone is too faint
+       on the white. This page does not load styles.css, so the sitewide
+       rule does not reach it. */
+    :focus-visible{outline:3px solid var(--clr-gold);outline-offset:2px;box-shadow:0 0 0 2px rgba(15,37,56,.9);}
     @media(max-width:768px){
       .about-content,.vision-mission,.services-grid,.contact-grid{grid-template-columns:1fr;}
       .highlights,.goals-grid,.features-grid{grid-template-columns:1fr;}
