@@ -25,4 +25,7 @@ Open Website.bat
 # Internal notes, not part of the served site.
 VERCEL.md
 TESTIMONIALS.md
+BLOG_PLAN.md
 GOOGLE_*.md
+# Blog post specs for scripts/new_post.py. Prose in progress, not pages.
+drafts/
