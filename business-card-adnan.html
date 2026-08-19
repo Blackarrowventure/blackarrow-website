@@ -50,7 +50,8 @@
 
     /* Left section - Logo & Name */
     .card-left {
-      flex: 0 0 1.8in;
+      flex: 0 0 1.45in;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -61,21 +62,22 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 0.12in;
-      margin-bottom: 0.15in;
+      gap: 0.1in;
+      margin-bottom: 0.07in;
     }
 
     .arrow {
-      width: 0.28in;
-      height: 0.18in;
+      width: 0.22in;
+      height: 0.14in;
+      flex-shrink: 0;
       background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
       clip-path: polygon(0 40%, 70% 40%, 70% 20%, 100% 50%, 70% 80%, 70% 60%, 0 60%);
     }
 
     .company-name {
-      font-size: 0.38in;
+      font-size: 0.26in;
       font-weight: 900;
-      letter-spacing: 0.03in;
+      letter-spacing: 0.022in;
       color: #fff;
       line-height: 1;
     }
@@ -85,8 +87,8 @@
     }
 
     .company-sub {
-      font-size: 0.12in;
-      letter-spacing: 0.04in;
+      font-size: 0.1in;
+      letter-spacing: 0.032in;
       color: #999;
       margin-top: -0.05in;
     }
@@ -97,16 +99,17 @@
     }
 
     .person-name {
-      font-size: 0.32in;
+      font-size: 0.2in;
       font-weight: 700;
       color: #fff;
       line-height: 1;
-      margin-bottom: 0.08in;
+      margin-bottom: 0.03in;
     }
 
     .person-title {
-      font-size: 0.11in;
-      letter-spacing: 0.02in;
+      font-size: 0.095in;
+      letter-spacing: 0.012in;
+      line-height: 1.3;
       color: #D4AF37;
       font-weight: 600;
       margin-bottom: 0.08in;
@@ -116,7 +119,7 @@
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, #D4AF37, transparent);
-      margin: 0.08in 0;
+      margin: 0.035in 0;
     }
 
     /* Right section - Contact & QR */
@@ -130,21 +133,22 @@
 
     /* Contact info */
     .contact-info {
-      font-size: 0.09in;
+      font-size: 0.072in;
       color: #ccc;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     .contact-line {
       display: flex;
-      align-items: center;
-      gap: 0.08in;
-      margin-bottom: 0.06in;
+      align-items: flex-start;
+      gap: 0.06in;
+      margin-bottom: 0.05in;
     }
 
     .contact-dot {
-      width: 0.06in;
-      height: 0.06in;
+      width: 0.05in;
+      height: 0.05in;
+      margin-top: 0.035in;
       background: #D4AF37;
       border-radius: 50%;
       flex-shrink: 0;
@@ -152,9 +156,8 @@
 
     .contact-text {
       color: #ccc;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      overflow-wrap: break-word;
+      min-width: 0;
     }
 
     .website {
@@ -168,8 +171,8 @@
     }
 
     .qr-code {
-      width: 0.85in;
-      height: 0.85in;
+      width: 0.62in;
+      height: 0.62in;
       background: #fff;
       padding: 0.05in;
       border-radius: 0.05in;
@@ -236,7 +239,7 @@
         </div>
         <div class="contact-line">
           <div class="contact-dot"></div>
-          <div class="contact-text">sales@blackarrowksa.com</div>
+          <div class="contact-text">sales@<wbr>blackarrowksa.com</div>
         </div>
         <div class="contact-line">
           <div class="contact-dot"></div>
