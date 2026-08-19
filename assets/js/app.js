@@ -473,7 +473,11 @@ function initWhatsAppLinks() {
     if (el.tagName === 'A') {
       el.href = url;
     } else {
-      el.onclick = () => window.open(url, '_blank');
+      // 'noopener' in the features argument, not just the target. Browsers
+      // apply implicit noopener to target="_blank" on anchors, but NOT to
+      // window.open - without it the WhatsApp tab keeps a live handle back
+      // to this page through window.opener.
+      el.onclick = () => window.open(url, '_blank', 'noopener');
     }
   });
 
