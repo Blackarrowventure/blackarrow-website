@@ -1327,5 +1327,8 @@
   "service_lighting_desc_full": "Our lighting systems are engineered to provide optimal illumination, durability, and energy efficiency. From architectural façade lighting to customized signage and specialized applications, we offer end-to-end solutions tailored to every project requirement — reducing energy consumption while enhancing aesthetics and safety.",
   "service_trading_desc_full": "We operate as a dynamic general trading company serving the Saudi market across industrial and diversified sectors. We supply high-quality equipment, technical solutions, and specialized products tailored to meet the evolving demands of infrastructure, commercial, and institutional projects in alignment with Saudi Vision 2030.",
   "form_label_name_req": "Full Name *",
-  "form_label_email_req": "Email Address *"
+  "form_label_email_req": "Email Address *",
+  "instagram": "Instagram",
+  "cp_instagram": "INSTAGRAM",
+  "cp_instagram_d": "Project photos and site updates"
 }
