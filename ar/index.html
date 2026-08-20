@@ -379,19 +379,19 @@
           <h2 id="seg-heading" data-i18n="seg_title">من نخدم</h2>
         </div>
         <div class="seg__grid">
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="خدمات لعملاء القطاع التجاري والصناعي" data-i18n-aria-label="aria_svc_commercial">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="خدمات لعملاء القطاع التجاري والصناعي" data-i18n-aria-label="aria_svc_commercial">
             <span class="seg__icon" aria-hidden="true">🏭</span>
             <h3 data-i18n="seg1_title">القطاع التجاري والصناعي</h3>
             <p data-i18n="seg1_desc">المصانع والمستودعات والمباني التجارية والمشاريع التجارية</p>
             <span class="link" data-i18n="seg1_link">اكتشف كيف نساعدك ←</span>
           </div>
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="خدمات لعملاء القطاع الحكومي والعام" data-i18n-aria-label="aria_svc_government">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="خدمات لعملاء القطاع الحكومي والعام" data-i18n-aria-label="aria_svc_government">
             <span class="seg__icon" aria-hidden="true">🏛️</span>
             <h3 data-i18n="seg2_title">القطاع الحكومي والعام</h3>
             <p data-i18n="seg2_desc">البنية التحتية العامة والبلديات والمرافق الحكومية</p>
             <span class="link" data-i18n="seg2_link">اكتشف كيف نساعدك ←</span>
           </div>
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="خدمات لعملاء قطاع الضيافة والرعاية الصحية" data-i18n-aria-label="aria_svc_hospitality">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="خدمات لعملاء قطاع الضيافة والرعاية الصحية" data-i18n-aria-label="aria_svc_hospitality">
             <span class="seg__icon" aria-hidden="true">🏨</span>
             <h3 data-i18n="seg3_title">الضيافة والرعاية الصحية</h3>
             <p data-i18n="seg3_desc">الفنادق والمستشفيات والعيادات ومرافق الضيافة</p>
@@ -1211,13 +1211,6 @@
   </div>
 
   <script src="/assets/js/app.js" defer></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js').catch(() => {});
-      });
-    }
-  </script>
 
 </body>
 </html>

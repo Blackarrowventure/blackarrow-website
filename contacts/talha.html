@@ -278,7 +278,7 @@
       </div>
 
       <div class="button-section">
-        <button class="btn btn-save" onclick="saveContact()">💾 Save to Contacts</button>
+        <button class="btn btn-save" type="button" data-vcard data-fn="Talha Ahmed" data-n="Ahmed;Talha;;;" data-title="Head of Projects" data-org="Black Arrow Venture" data-tel="+966531125329" data-email="projects@blackarrowksa.com" data-file="Talha-Ahmed.vcf">💾 Save to Contacts</button>
         <a href="https://wa.me/966531125329" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-2.759 0-5.327 1.273-7.044 3.615-.422.521-.398 1.286.054 1.789l1.432 1.627c.363.414.972.547 1.513.335l.552-.269c.276-.134.577.04.653.324l.684 2.737c.09.36.432.63.804.63h2.302c.372 0 .715-.27.804-.63l.684-2.737c.076-.284.377-.458.653-.324l.552.269c.541.212 1.15.079 1.513-.335l1.432-1.627c.452-.503.476-1.268.054-1.789-1.717-2.342-4.285-3.615-7.044-3.615z"/></svg> WhatsApp</a>
       </div>
 
@@ -286,45 +286,6 @@
     </div>
   </div>
 
-  <script>
-    function saveContact() {
-      const vcard = `BEGIN:VCARD
-VERSION:3.0
-FN:Talha Ahmed
-N:Ahmed;Talha;;;
-TITLE:Head of Projects
-ORG:Black Arrow Venture
-TEL;TYPE=WORK;TYPE=VOICE:+966531125329
-EMAIL;TYPE=WORK:projects@blackarrowksa.com
-URL;TYPE=WORK:https://www.blackarrowksa.com
-END:VCARD`;
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        const blob = new Blob([vcard], { type: 'text/vcard' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Talha-Ahmed.vcf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      } else {
-        const blob = new Blob([vcard], { type: 'text/vcard' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Talha-Ahmed.vcf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-      }
-
-      const msg = document.getElementById('successMsg');
-      msg.classList.add('show');
-      setTimeout(() => msg.classList.remove('show'), 3000);
-    }
-  </script>
+  <script src="/assets/js/save-contact.js" defer></script>
 </body>
 </html>

@@ -262,12 +262,6 @@
   <p data-i18n-html="cp_footer_rights"><span class="gold">شركة السهم الأسود ڤنتشر</span> © <span data-year>2026</span> — جميع الحقوق محفوظة</p>
   <p data-i18n="cp_footer">حلول البنية التحتية | المملكة العربية السعودية</p>
 </footer>
-<script>
-  // company-profile.html does not load app.js, so the shared
-  // footer-year helper never runs here.
-  document.querySelectorAll('[data-year]').forEach(function (el) {
-    el.textContent = String(new Date().getFullYear());
-  });
-</script>
+  <script src="/assets/js/company-profile.js" defer></script>
 </body>
 </html>

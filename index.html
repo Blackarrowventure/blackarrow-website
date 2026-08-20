@@ -379,19 +379,19 @@
           <h2 id="seg-heading" data-i18n="seg_title">Who We Serve</h2>
         </div>
         <div class="seg__grid">
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="Services for Commercial and Industrial clients" data-i18n-aria-label="aria_svc_commercial">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="Services for Commercial and Industrial clients" data-i18n-aria-label="aria_svc_commercial">
             <span class="seg__icon" aria-hidden="true">🏭</span>
             <h3 data-i18n="seg1_title">Commercial &amp; Industrial</h3>
             <p data-i18n="seg1_desc">Factories, warehouses, office buildings and commercial projects</p>
             <span class="link" data-i18n="seg1_link">See how we help →</span>
           </div>
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="Services for Government and Public Sector clients" data-i18n-aria-label="aria_svc_government">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="Services for Government and Public Sector clients" data-i18n-aria-label="aria_svc_government">
             <span class="seg__icon" aria-hidden="true">🏛️</span>
             <h3 data-i18n="seg2_title">Government &amp; Public Sector</h3>
             <p data-i18n="seg2_desc">Public infrastructure, municipalities and government facilities</p>
             <span class="link" data-i18n="seg2_link">See how we help →</span>
           </div>
-          <div class="seg__card reveal" onclick="location.href='services.html'" role="button" tabindex="0" aria-label="Services for Hospitality and Healthcare clients" data-i18n-aria-label="aria_svc_hospitality">
+          <div class="seg__card reveal" data-href="services.html" role="button" tabindex="0" aria-label="Services for Hospitality and Healthcare clients" data-i18n-aria-label="aria_svc_hospitality">
             <span class="seg__icon" aria-hidden="true">🏨</span>
             <h3 data-i18n="seg3_title">Hospitality &amp; Healthcare</h3>
             <p data-i18n="seg3_desc">Hotels, hospitals, clinics and hospitality facilities</p>
@@ -1211,13 +1211,6 @@
   </div>
 
   <script src="/assets/js/app.js" defer></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js').catch(() => {});
-      });
-    }
-  </script>
 
 </body>
 </html>

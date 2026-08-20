@@ -492,9 +492,60 @@ function initWhatsAppLinks() {
 }
 
 /* ──────────────────────────────────────────────
+   9b. SERVICE WORKER SHIM
+   ──────────────────────────────────────────────
+   The service worker was retired, but visitors who loaded the site while
+   it was live still have the old one installed and it would keep serving
+   them stale pages forever. /service-worker.js is now a shim whose only
+   job is to unregister itself, so this has to keep running until we can
+   assume every previous visitor has come back at least once.
+
+   Moved here from an inline <script> in index.html when the
+   Content-Security-Policy went in.
+   ────────────────────────────────────────────── */
+function initServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+}
+
+/* ──────────────────────────────────────────────
+   9c. CLICKABLE CARDS
+   ──────────────────────────────────────────────
+   The "Who We Serve" cards were divs carrying onclick="location.href=..."
+   which the Content-Security-Policy blocks. They now declare their target
+   as data-href and this delegated listener navigates.
+
+   They also carry role="button" and tabindex="0" but never had a key
+   handler, so a keyboard user could focus one and press Enter to no
+   effect at all. Handling keydown here fixes that at the same time -
+   a control that announces itself as a button has to behave like one.
+   ────────────────────────────────────────────── */
+function initClickableCards() {
+  const go = (el) => {
+    const href = el.getAttribute('data-href');
+    if (href) window.location.href = href;
+  };
+
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('[data-href]');
+    if (card) go(card);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    const card = e.target.closest('[data-href]');
+    if (!card) return;
+    e.preventDefault();          // stop Space scrolling the page
+    go(card);
+  });
+}
+
+/* ──────────────────────────────────────────────
    10. INIT ALL
    ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  initServiceWorker();
+  initClickableCards();
   initHeroSlider();
   initScrollReveal();
   initCounters();
