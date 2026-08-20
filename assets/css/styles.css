@@ -3665,3 +3665,25 @@ html:not(.js) [class*="reveal"] {
 .section-header .overline {
   color: var(--clr-accent) !important;
 }
+
+/* ──────────────────────────────────────────────
+   28. BIDI ISOLATION FOR NUMBERS
+   ──────────────────────────────────────────────
+   A phone number is several LTR digit runs separated by spaces. Spaces and
+   "+" are bidi-neutral, so inside an RTL paragraph they take the paragraph
+   direction and the groups get laid out right-to-left:
+
+       +966 560 224 715   ->   715 224 560 966+
+
+   which is what Arabic visitors were seeing. Isolating the element gives
+   its contents their own LTR context, so the groups stay in dialling order
+   while the element itself still sits wherever the RTL flow puts it.
+
+   No effect on the English pages - they are already ltr.
+   ────────────────────────────────────────────── */
+a[href^="tel:"],
+a[href^="mailto:"],
+.num-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

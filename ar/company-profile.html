@@ -124,6 +124,8 @@
     .contact-card h4{color:var(--clr-gold);margin-bottom:12px;font-size:14px;letter-spacing:1px;}
     .contact-card p{font-size:16px;color:#333;margin-bottom:8px;}
     .contact-card .subtitle{font-size:13px;color:#666;}
+    /* phone digits are LTR runs; without isolation RTL reverses the groups */
+    .num-ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;}
     .contact-card--wide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
     .contact-card--wide>div{min-width:0;}
     .cc-qr{width:96px;height:96px;flex:0 0 auto;background:#fff;padding:6px;}
@@ -242,7 +244,7 @@
   <div class="section-label" data-i18n="cp_s11">١١ — التواصل</div>
   <h2 data-i18n-html="cp_h_together">لنبنِ <span class="gold">معاً</span></h2>
   <div class="contact-grid">
-    <div class="contact-card"><h4 data-i18n="cp_phone">الهاتف</h4><p>+966 56 022 4715</p><p class="subtitle" data-i18n="cp_phone_d">دعم متاح على مدار الساعة</p></div>
+    <div class="contact-card"><h4 data-i18n="cp_phone">الهاتف</h4><p><span class="num-ltr">+966 560 224 715</span></p><p class="subtitle" data-i18n="cp_phone_d">دعم متاح على مدار الساعة</p></div>
     <div class="contact-card"><h4 data-i18n="cp_email">البريد الإلكتروني</h4><p>info@blackarrowksa.com</p><p class="subtitle" data-i18n="cp_email_d">الرد خلال يوم عمل واحد</p></div>
     <div class="contact-card"><h4 data-i18n="cp_website">الموقع الإلكتروني</h4><p>www.blackarrowksa.com</p><p class="subtitle" data-i18n="cp_website_d">استكشف قدراتنا الكاملة</p></div>
     <div class="contact-card"><h4 data-i18n="cp_location">الموقع</h4><p data-i18n="cp_city">الدمام</p><p class="subtitle" data-i18n="cp_region">الشرقية 32245، المملكة العربية السعودية</p></div>
