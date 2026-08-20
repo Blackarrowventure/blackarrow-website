@@ -1888,6 +1888,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--clr-light);
   border-radius: var(--radius-xl);
   overflow: hidden;
+  /* Must be on the CONTAINER, not just the track. The track is
+     width:max-content, so in an RTL parent its box is aligned to the right
+     edge and overflows to the LEFT - and translateX(-50%) then drags it
+     further left into empty space. The Arabic strip went blank for most of
+     the loop because of this. Logos carry no reading direction, so pinning
+     the whole marquee to ltr makes both languages scroll identically. */
+  direction: ltr;
   /* fade the ends so logos enter and leave instead of being sliced off */
   -webkit-mask-image: linear-gradient(to right, transparent, #000 90px, #000 calc(100% - 90px), transparent);
           mask-image: linear-gradient(to right, transparent, #000 90px, #000 calc(100% - 90px), transparent);
