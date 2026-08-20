@@ -120,11 +120,54 @@ function animateCounter(el, target, suffix) {
     // Ease out cubic
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = Math.round(eased * target);
-    el.textContent = current + (suffix || '');
+    el.textContent = localeDigits(current) + (suffix || '');
     if (progress < 1) requestAnimationFrame(update);
   }
 
   requestAnimationFrame(update);
+}
+
+/* ──────────────────────────────────────────────
+   NUMERALS
+   ──────────────────────────────────────────────
+   The Arabic pages use Arabic-Indic digits. Anything coming from ar.json
+   is already converted at source, but numbers this file *renders* -- the
+   animated counters and the footer year -- are built from JS at runtime
+   and would otherwise stay Western on /ar/.
+
+   This is what the `number-convertible` class was originally for. It had
+   been left on the markup with nothing reading it after the old runtime
+   translator was deleted, which is how the two systems drifted apart.
+
+   Only applied when the document says it is Arabic, so the English pages
+   are untouched and this file stays shared between both.
+   ────────────────────────────────────────────── */
+const AR_DIGITS = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+
+function isArabicPage() {
+  return document.documentElement.getAttribute('lang') === 'ar';
+}
+
+function localeDigits(value) {
+  const s = String(value);
+  if (!isArabicPage()) return s;
+  return s.replace(/[0-9]/g, (d) => AR_DIGITS[+d]);
+}
+
+/* Converts what is already in the markup, counters included.
+
+   The counters carry their starting value as text as well as in
+   data-target, and they only animate once the IntersectionObserver fires.
+   A reader who never scrolls that far -- or any run where the observer
+   does not fire -- would otherwise be left looking at the Western digits
+   sitting in the HTML. Converting up front means the page is correct
+   before the animation is involved at all; animateCounter then keeps it
+   correct on every frame. */
+function initNumerals() {
+  if (!isArabicPage()) return;
+  document.querySelectorAll('.number-convertible').forEach((el) => {
+    el.textContent = localeDigits(el.textContent);
+  });
 }
 
 function initCounters() {
@@ -460,7 +503,7 @@ function getWhatsAppLink(serviceKey = 'default') {
 
 // Footer copyright year. Kept in JS so the year never goes stale in 33 files.
 function initFooterYear() {
-  const year = String(new Date().getFullYear());
+  const year = localeDigits(new Date().getFullYear());
   document.querySelectorAll('[data-year]').forEach(el => {
     el.textContent = year;
   });
@@ -548,6 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initClickableCards();
   initHeroSlider();
   initScrollReveal();
+  initNumerals();
   initCounters();
   setActiveNav();
   initForm();

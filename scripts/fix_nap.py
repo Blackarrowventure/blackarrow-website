@@ -40,7 +40,7 @@ ROOT = Path(__file__).parent.parent
 ADDRESS_EN = 'Ad Dammam, Ash Sharqiyah, Saudi Arabia'
 ADDRESS_AR = 'الدمام، الشرقية، المملكة العربية السعودية'
 HOURS_EN = 'Sun - Thu, 8 AM - 6 PM'
-HOURS_AR = 'الأحد - الخميس، 8 ص - 6 م'   # Western digits: site-wide convention
+HOURS_AR = 'الأحد - الخميس، ٨ ص - ٦ م'   # Arabic-Indic: the /ar/ convention
 
 OPENING_HOURS = '''"openingHoursSpecification": [
       {
