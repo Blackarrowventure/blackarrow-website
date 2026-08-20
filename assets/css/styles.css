@@ -1945,7 +1945,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   /* flex children shrink below their content by default; inside the marquee
      track that would squash every logo instead of scrolling them */
   flex: 0 0 auto;
-  padding: 16px 24px;
+  /* Every card the same size. Sizing the logos by height alone made the card
+     as wide as the artwork, so Dr Sulaiman Al Habib (4.94:1) took a 541px
+     card and Aldara (1:1) took 148px - 3.7x more space for one client than
+     another, decided by nothing but the shape of the file. A fixed box plus
+     object-fit lets wordmarks use the width and square marks use the height,
+     which keeps their visual weight comparable and gives the strip a rhythm. */
+  width: 200px;
+  height: 116px;
+  padding: 12px 18px;
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -1957,9 +1965,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: var(--shadow-lg);
 }
 
+/* Each logo is wrapped in <picture> for the webp source, so the PICTURE is
+   the flex item, not the img. Without this the img's percentage sizes
+   resolve against an inline box that is itself sized by the image, which
+   is circular - that is why max-height:100% did nothing and the square
+   logos burst out of their cards. */
+.client-logo picture {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .client-logo img {
-  height: 100px;
-  width: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: grayscale(0%);
   transition: filter 0.3s ease;
