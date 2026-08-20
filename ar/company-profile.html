@@ -124,7 +124,9 @@
     .contact-card h4{color:var(--clr-gold);margin-bottom:12px;font-size:14px;letter-spacing:1px;}
     .contact-card p{font-size:16px;color:#333;margin-bottom:8px;}
     .contact-card .subtitle{font-size:13px;color:#666;}
-    .contact-card--wide{grid-column:1/-1;}
+    .contact-card--wide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+    .contact-card--wide>div{min-width:0;}
+    .cc-qr{width:96px;height:96px;flex:0 0 auto;background:#fff;padding:6px;}
     .contact-card a{color:#333;text-decoration:none;border-bottom:1px solid var(--clr-gold);}
     .contact-card a:hover{color:var(--clr-gold);}
     footer{background:var(--clr-navy-dark);color:#fff;text-align:center;padding:30px 20px;font-size:13px;}
@@ -244,7 +246,16 @@
     <div class="contact-card"><h4 data-i18n="cp_email">البريد الإلكتروني</h4><p>info@blackarrowksa.com</p><p class="subtitle" data-i18n="cp_email_d">الرد خلال يوم عمل واحد</p></div>
     <div class="contact-card"><h4 data-i18n="cp_website">الموقع الإلكتروني</h4><p>www.blackarrowksa.com</p><p class="subtitle" data-i18n="cp_website_d">استكشف قدراتنا الكاملة</p></div>
     <div class="contact-card"><h4 data-i18n="cp_location">الموقع</h4><p data-i18n="cp_city">الدمام</p><p class="subtitle" data-i18n="cp_region">الشرقية ٣٢٢٤٥، المملكة العربية السعودية</p></div>
-    <div class="contact-card contact-card--wide"><h4 data-i18n="cp_instagram">إنستغرام</h4><p><a href="https://www.instagram.com/blackarrowventure/" target="_blank" rel="noopener noreferrer">@blackarrowventure</a></p><p class="subtitle" data-i18n="cp_instagram_d">صور المشاريع وتحديثات المواقع</p></div>
+    <div class="contact-card contact-card--wide">
+      <div>
+        <h4 data-i18n="cp_instagram">إنستغرام</h4>
+        <p><a href="https://www.instagram.com/blackarrowventure/" target="_blank" rel="noopener noreferrer">@blackarrowventure</a></p>
+        <p class="subtitle" data-i18n="cp_instagram_d">صور المشاريع وتحديثات المواقع</p>
+      </div>
+      <img class="cc-qr" src="/assets/images/instagram-qr.png" width="96" height="96"
+           alt="امسح الرمز لفتح حساب السهم الأسود على إنستغرام"
+           data-i18n-alt="cp_instagram_qr_alt" loading="lazy" decoding="async">
+    </div>
   </div>
 </section>
 <footer>

@@ -1330,5 +1330,6 @@
   "form_label_email_req": "Email Address *",
   "instagram": "Instagram",
   "cp_instagram": "INSTAGRAM",
-  "cp_instagram_d": "Project photos and site updates"
+  "cp_instagram_d": "Project photos and site updates",
+  "cp_instagram_qr_alt": "Scan to open the Black Arrow Instagram profile"
 }
