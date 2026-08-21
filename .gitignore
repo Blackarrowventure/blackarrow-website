@@ -1,0 +1,23 @@
+# Company financials and legal records. These were tracked in a PUBLIC repo
+# until 22 Aug 2026, and the six-partner shareholding split was readable from
+# raw.githubusercontent.com without logging in - both from the workbooks and
+# hardcoded in the generator scripts. Untracked, not deleted: the files are
+# still on disk locally.
+#
+# Untracking only stops it getting WORSE. Git history still holds every one of
+# these at their old commits, so they stay fetchable by SHA until the history
+# is purged. See the security-posture note.
+BAV GROUP ACCOUNTING/
+company-materials/
+*.xlsx
+
+# These build the accounting workbooks and hardcode partner names against
+# their percentages in plain source.
+create_accounting_workbook.py
+create_black_arrow_accounting.py
+create_professional_accounting.py
+create_professional_gsheet.py
+black_arrow_final.py
+
+# Superseded by downloads/profile.pdf, which is the one the site links.
+company-profile.pdf
