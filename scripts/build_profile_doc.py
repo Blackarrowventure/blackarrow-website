@@ -560,18 +560,6 @@ add('Standards &amp; commitments', '<div class="pad">' +
 
 
 # ------------------------------------------------------------- page 16 back cover
-TEAM = [
-    ('Adnan Afzal', 'Sales Team Head &mdash; Saudi Arabia',
-     'sales@blackarrowksa.com', '+966 560 224 715'),
-    ('Zayn Mohammad', 'Head of Business Development',
-     'businessdevelopment@blackarrowksa.com', '+966 546 104 313'),
-    ('Talha Ahmed', 'Head of Projects',
-     'projects@blackarrowksa.com', '+966 531 125 329'),
-    ('Shahzad Ahmed', 'Head of Site Operations',
-     'operations@blackarrowksa.com', '+966 500 378 664'),
-    ('Asad Muhammad', 'Client Relations Officer',
-     'crs@blackarrowksa.com', '+966 551 954 925'),
-]
 add('', (
     '<div class="cover back">'
     '<div class="cover__top">'
@@ -594,12 +582,6 @@ add('', (
     '<div class="back__val">Sunday &ndash; Thursday, 8:00 AM &ndash; 6:00 PM<br>'
     'WhatsApp accepted 24/7</div></div>'
     '</div>'
-    '<div class="back__team">'
-    '<div class="cover__lbl">Direct contacts</div>'
-    '<table>' +
-    ''.join('<tr><td class="nm">%s</td><td class="rl">%s</td><td class="em">%s</td>'
-            '<td class="ph num-ltr">%s</td></tr>' % t for t in TEAM) +
-    '</table></div>'
     '<div class="back__what"><div class="cover__lbl">What we do</div>' +
     '<div class="chips">' +
     ''.join('<span class="chip chip--dark">%s</span>' % t for _s, t, _e, _i, _l in SERVICES) +
@@ -837,24 +819,17 @@ p{margin:0 0 10px;}
 .cover__qr{margin-left:auto;width:92px;height:92px;background:#fff;padding:5px;}
 .cover__band{background:var(--gold);color:#fff;text-align:center;padding:12px 0;
   font-size:10.5px;font-weight:800;letter-spacing:.2em;}
-.back__mid{padding:0 52px;margin-top:52px;flex:1;display:flex;flex-direction:column;}
-.cover h1.back__h{margin:0 0 46px;font-size:34px;font-weight:700;line-height:1.14;
+.back__mid{padding:0 52px;margin-top:64px;flex:1;display:flex;flex-direction:column;}
+.cover h1.back__h{margin:0 0 54px;font-size:42px;font-weight:700;line-height:1.14;
   letter-spacing:-.024em;color:var(--paper);}
-.back__grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 40px;padding-bottom:26px;
+.back__grid{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;padding-bottom:34px;
   border-bottom:1px solid #33343c;}
-.back__val{font-size:12.5px;font-weight:600;line-height:1.55;color:var(--paper);}
-.back__team{margin-top:22px;}
-.back__team table{width:100%;border-collapse:collapse;margin-top:9px;}
-.back__team td{padding:8px 0;border-bottom:1px solid #2a2b33;font-size:9px;color:#b6b3ab;
-  vertical-align:baseline;}
-.back__team td.nm{font-size:10px;font-weight:700;color:var(--paper);width:120px;}
-.back__team td.rl{width:172px;}
-.back__team td.ph{text-align:right;font-variant-numeric:tabular-nums;color:var(--paper);
-  white-space:nowrap;}
-.back__qr{display:flex;align-items:flex-end;gap:22px;margin-top:auto;padding-bottom:26px;}
-.back__what{margin-top:24px;}
+.back__val{font-size:15px;font-weight:600;line-height:1.6;color:var(--paper);}
+.back__qr{display:flex;align-items:flex-end;gap:22px;margin-top:44px;}
+.back__what{margin-top:34px;}
 .back__what .chips{margin-top:9px;}
-.chip--dark{border-color:#3a3b44;background:transparent;color:#c8a24e;}
+.chip--dark{border-color:#3a3b44;background:transparent;color:#c8a24e;
+  font-size:9.5px;padding:7px 12px;}
 .back__qr figure{margin:0;text-align:center;}
 .back__qr img{width:94px;height:94px;background:#fff;padding:5px;display:block;}
 .back__qr figcaption{margin-top:6px;font-size:7.5px;font-weight:800;letter-spacing:.1em;
