@@ -455,10 +455,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--clr-white);
   border: 2px solid rgba(255,255,255,.6);
 }
-.btn-outline:hover {
-  background: var(--clr-white);
-  color: var(--clr-navy);
-  border-color: var(--clr-white);
+/* Hover fills with the site's amber, not white.
+
+   Both .section--dark * and .section--gray * force every descendant to
+   rgba(255,255,255,.85) with !important, so this rule's `color` never
+   applied: the background went white while the label stayed white and the
+   button read as an empty box. The !important here is not decoration, it is
+   the only thing that outranks those blanket rules.
+
+   Amber on near-black measures 8.1:1 off the rendered page, and it matches
+   the treatment the white-background variant above already uses. :focus-visible gets the same
+   fill so keyboard users are not left with the invisible state either. */
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--clr-accent);
+  color: #1a1a1a !important;
+  border-color: var(--clr-accent);
 }
 .btn-navy {
   position: relative;
