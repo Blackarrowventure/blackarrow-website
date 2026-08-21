@@ -436,17 +436,21 @@ add('Sectors we serve', '<div class="pad">' +
     ''.join('<div class="sector"><div class="sector__n">%02d</div>'
             '<div><b>%s</b><i>%s</i><span>%s</span></div></div>'
             % (i, n, sub, d) for i, (n, sub, d) in enumerate(SECTORS, 1)) +
+    '</div></div>'
+    '<div class="coverband"><div class="coverband__in">'
+    '<div class="coverband__head">'
+    '<div><div class="eyebrow amber">Coverage</div>'
+    '<h3>Across the Kingdom</h3></div>'
+    '<p>We supply, install and maintain nationwide from our base in Dammam, working '
+    'across the Eastern, Central and Western regions.</p>'
     '</div>'
-    '<h3 class="rule-head">Where we work</h3>'
-    '<p class="cov-lead">We supply, install and maintain nationwide from our base in Dammam, '
-    'working across the Eastern, Central and Western regions.</p>'
     '<div class="coverage">' +
     ''.join('<div class="cov"><b>%s</b><i>%s</i></div>' % c for c in [
         ('Dammam', 'Head office'), ('Al Khobar', 'Eastern Province'),
-        ('Eastern Province', 'Coverage'), ('Riyadh', 'Central Region'),
+        ('Eastern Province', 'Province-wide'), ('Riyadh', 'Central Region'),
         ('Jeddah', 'Western Region'),
     ]) +
-    '</div></div>')
+    '</div></div></div>')
 
 
 # ------------------------------------------------------- pages 6-13 the services
@@ -620,6 +624,8 @@ CSS = """
   /* Carried over from the quotation. Nothing else is. */
   --ink:#15161c; --paper:#fdfcf8; --gold:#a87a24; --gold-deep:#8a641c;
   --rule:#e2dbc9; --muted:#6b6a63; --band:#f6f2e6;
+  /* The website's accent, used only in the coverage band. */
+  --amber:#F59E0B; --amber-dark:#D97706;
   --sans:"Segoe UI","Helvetica Neue",Arial,sans-serif;
   --serif:Georgia,"Times New Roman",serif;
 }
@@ -719,21 +725,31 @@ p{margin:0 0 10px;}
   background:var(--gold);}
 
 /* ---- sectors ---- */
-.sectors{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;}
-.sector{display:grid;grid-template-columns:34px 1fr;gap:10px;padding-top:12px;
+.sectors{display:grid;grid-template-columns:1fr 1fr;gap:40px 30px;}
+.sector{display:grid;grid-template-columns:34px 1fr;gap:10px;padding-top:16px;
   border-top:1px solid var(--rule);}
 .sector__n{font-size:14px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;}
-.sector b{display:block;font-size:13.5px;font-weight:800;letter-spacing:-.01em;}
+.sector b{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.01em;}
 .sector i{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);margin:3px 0 6px;}
-.sector span{display:block;font-size:10px;line-height:1.7;color:#45464e;}
-.cov-lead{margin:0 0 16px;font-family:var(--serif);font-size:12px;line-height:1.68;
-  color:#3b3c44;max-width:70ch;}
-.coverage{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
-.cov{border-top:2px solid var(--gold);padding-top:11px;}
-.cov b{display:block;font-size:13px;font-weight:800;letter-spacing:-.01em;}
-.cov i{display:block;font-style:normal;font-size:8px;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.sector span{display:block;font-size:10.5px;line-height:1.75;color:#45464e;}
+.coverband{width:794px;margin-top:auto;background:var(--ink);color:var(--paper);
+  border-top:3px solid var(--amber);}
+.coverband + .rfoot{margin-top:0;}
+.coverband__in{padding:48px 52px 52px;}
+.coverband__head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+  padding-bottom:26px;margin-bottom:30px;border-bottom:1px solid #303138;}
+.eyebrow.amber{color:var(--amber);margin-bottom:8px;}
+.coverband__head h3{margin:0;font-size:34px;font-weight:700;letter-spacing:-.022em;
+  line-height:1.1;color:var(--paper);}
+.coverband__head p{margin:0;max-width:44ch;font-family:var(--serif);font-size:11.5px;
+  line-height:1.72;color:#b6b3ab;}
+.coverage{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.cov{border-top:2px solid var(--amber);padding-top:16px;}
+.cov b{display:block;font-size:16px;font-weight:800;letter-spacing:-.012em;
+  color:var(--paper);line-height:1.15;min-height:2.3em;}
+.cov i{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--amber-dark);margin-top:8px;}
 
 /* ---- service pages ---- */
 .hero-band{position:relative;margin:0;width:794px;height:360px;overflow:hidden;flex:none;}
