@@ -278,9 +278,10 @@ add('', (
     '</div>'
     '<div class="cover__mid">'
     '<div class="cover__kicker">Company Profile &middot; ' + ISSUE_DATE + '</div>'
-    '<h1>Infrastructure<br>that has to<br><em>keep working.</em></h1>'
+    '<h1 class="cover__name">BLACK<br><span>ARROW</span><br>VENTURE</h1>'
     '<p class="cover__ar">&#1588;&#1585;&#1603;&#1577; &#1575;&#1604;&#1587;&#1607;&#1605; '
     '&#1575;&#1604;&#1571;&#1587;&#1608;&#1583; &#1700;&#1606;&#1578;&#1588;&#1585;</p>'
+    '<p class="cover__line">Infrastructure that has to <em>keep working.</em></p>'
     '<p class="cover__sub">Isolated power, EV charging, UPS, lighting, firefighting, HVAC, '
     'electrical distribution and general trading &mdash; supplied, installed, commissioned '
     'and maintained across the Kingdom of Saudi Arabia.</p>'
@@ -800,17 +801,20 @@ p{margin:0 0 10px;}
 .cover__b2{font-size:8.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
   color:#9a978f;margin-top:3px;}
 .cover__vision{height:58px;width:auto;background:#fff;padding:5px 7px;border-radius:2px;}
-.cover__mid{padding:0 52px;margin-top:auto;}
+.cover__mid{padding:0 52px;margin-top:56px;}
 .cover__kicker{font-size:9px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;
   color:var(--gold);margin-bottom:26px;}
-.cover h1{margin:0;font-size:62px;font-weight:700;line-height:1.03;letter-spacing:-.032em;
-  color:var(--paper);}
-.cover h1 em{font-style:normal;color:var(--gold);}
-.cover__ar{margin:22px 0 0;font-size:20px;font-weight:700;color:#c8a24e;
+.cover h1{margin:0;color:var(--paper);}
+.cover h1.cover__name{font-size:104px;font-weight:800;line-height:.94;letter-spacing:-.038em;}
+.cover h1.cover__name span{color:var(--gold);}
+.cover__line{margin:30px 0 0;font-size:27px;font-weight:700;line-height:1.25;
+  letter-spacing:-.016em;color:#d8d5cd;max-width:22ch;}
+.cover__line em{font-style:normal;color:var(--gold);}
+.cover__ar{margin:20px 0 0;font-size:21px;font-weight:700;color:#c8a24e;
   direction:rtl;unicode-bidi:isolate;text-align:left;}
 .cover__sub{margin:22px 0 0;max-width:52ch;font-family:var(--serif);font-size:12.5px;
   line-height:1.72;color:#b6b3ab;}
-.cover__foot{margin-top:56px;display:flex;align-items:flex-end;gap:40px;padding:0 52px 26px;}
+.cover__foot{margin-top:auto;display:flex;align-items:flex-end;gap:40px;padding:0 52px 26px;}
 .cover__lbl{font-size:7.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
   color:#8d8a82;margin-bottom:6px;}
 .cover__val{font-size:12px;font-weight:700;color:var(--paper);font-variant-numeric:tabular-nums;}
