@@ -536,7 +536,7 @@ STANDARDS = [
 COMMITMENTS = [
     ('24/7 support', 'Round-the-clock assistance for operational needs on systems we have '
                      'supplied or maintain.'),
-    ('15-minute response', 'Response within 15 minutes during business hours, Sunday to '
+    ('45-minute response', 'Response within 45 minutes during business hours, Sunday to '
                            'Thursday, 8:00 AM to 6:00 PM.'),
     ('One business day', 'Every inquiry answered within one business day. WhatsApp '
                          'inquiries accepted 24/7.'),
