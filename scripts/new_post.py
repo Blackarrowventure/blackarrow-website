@@ -37,6 +37,7 @@ import io
 import json
 import re
 import sys
+from urllib.parse import quote
 from datetime import date
 from pathlib import Path
 
@@ -80,22 +81,33 @@ BLANK_SPEC = collections.OrderedDict([
     ('slug', ''),
     ('date', ''),
     ('image', '/assets/images/services/isolated-power-panels.jpg'),
+    ('wa_topic', ''),
+    ('related', [collections.OrderedDict([('href', '/resources/faqs/'),
+                                          ('i18n', 'faq_page_title'),
+                                          ('label', 'FAQs')])]),
     ('en', collections.OrderedDict([
         ('title', ''),
         ('description', ''),
         ('og_description', ''),
         ('excerpt', ''),
         ('breadcrumb', ''),
+        ('subhead', ''),
         ('lead', ''),
         ('sections', [collections.OrderedDict([('h2', ''), ('p', ['', ''])])]),
+        ('cta', collections.OrderedDict([('lead', ''), ('text', ''),
+                                         ('href', ''), ('label', ''),
+                                         ('label_i18n', '')])),
     ])),
     ('ar', collections.OrderedDict([
         ('title', ''),
         ('description', ''),
         ('og_description', ''),
         ('excerpt', ''),
+        ('breadcrumb', ''),
+        ('subhead', ''),
         ('lead', ''),
         ('sections', [collections.OrderedDict([('h2', ''), ('p', ['', ''])])]),
+        ('cta', collections.OrderedDict([('lead', ''), ('text', '')])),
     ])),
 ])
 
@@ -131,7 +143,7 @@ def validate(spec):
 
     for lang in ('en', 'ar'):
         block = spec.get(lang) or {}
-        for field in ('title', 'description', 'excerpt', 'lead'):
+        for field in ('title', 'description', 'excerpt', 'lead', 'subhead'):
             if not (block.get(field) or '').strip():
                 problems.append(f'{lang}.{field} is empty')
         secs = block.get('sections') or []
@@ -161,6 +173,31 @@ def validate(spec):
             problems.append(f'{lang}.title is {len(t)} chars, over the {TITLE_MAX} Google will show')
         if len(d) > DESC_MAX:
             problems.append(f'{lang}.description is {len(d)} chars, over {DESC_MAX}')
+
+    # Anything reused from the shared translation files must already exist in
+    # them. build_ar.py fails the entire build on a single missing key, so
+    # catching it here turns a confusing build failure into a named problem.
+    ar_json = json.loads(io.open(ROOT / 'assets' / 'translations' / 'ar.json',
+                                 encoding='utf-8-sig').read())
+    for i, item in enumerate(spec.get('related') or []):
+        for field in ('href', 'i18n', 'label'):
+            if not (item.get(field) or '').strip():
+                problems.append(f'related[{i}].{field} is empty')
+        key = item.get('i18n') or ''
+        if key and key not in ar_json:
+            problems.append(f'related[{i}].i18n "{key}" is not in ar.json')
+
+    encta, arcta = (en.get('cta') or {}), (ar.get('cta') or {})
+    if encta or arcta:
+        for field in ('lead', 'text', 'href', 'label', 'label_i18n'):
+            if not (encta.get(field) or '').strip():
+                problems.append(f'en.cta.{field} is empty')
+        for field in ('lead', 'text'):
+            if not (arcta.get(field) or '').strip():
+                problems.append(f'ar.cta.{field} is empty')
+        key = encta.get('label_i18n') or ''
+        if key and key not in ar_json:
+            problems.append(f'en.cta.label_i18n "{key}" is not in ar.json')
     return problems
 
 
@@ -181,6 +218,15 @@ def build_article(spec, indent='          '):
         out.append(f'{indent}<h2 data-i18n="{pre}h2_{i}">{sec["h2"]}</h2>')
         for j, para in enumerate([p for p in sec['p'] if p.strip()], 1):
             out.append(f'{indent}<p data-i18n="{pre}s{i}_p{j}">{para}</p>')
+    cta = en.get('cta')
+    if cta:
+        out.append('')
+        out.append(f'{indent}<div class="blog-cta-box">')
+        out.append(f'{indent}  <p><strong data-i18n="{pre}cta_lead">{cta["lead"]}</strong> '
+                   f'<span data-i18n="{pre}cta_text">{cta["text"]}</span></p>')
+        out.append(f'{indent}  <a href="{cta["href"]}" class="btn btn-primary" '
+                   f'data-i18n="{cta["label_i18n"]}">{cta["label"]}</a>')
+        out.append(f'{indent}</div>')
     out.append(f'{indent[:-2]}</article>')
     return ('\n' + indent).join([out[0]]) + '\n' + '\n'.join(out[1:])
 
@@ -197,6 +243,15 @@ def collect_keys(spec):
         ap = [p for p in a['p'] if p.strip()]
         for j, (ept, apt) in enumerate(zip(ep, ap), 1):
             pairs[f'{pre}s{i}_p{j}'] = (ept, apt)
+    pairs[pre + 'h1'] = (spec['en']['title'], spec['ar']['title'])
+    pairs[pre + 'subhead'] = (spec['en']['subhead'], spec['ar']['subhead'])
+    pairs[pre + 'crumb'] = (
+        (spec['en'].get('breadcrumb') or spec['en']['title']).strip(),
+        (spec['ar'].get('breadcrumb') or spec['ar']['title']).strip())
+    encta, arcta = (spec['en'].get('cta') or {}), (spec['ar'].get('cta') or {})
+    if encta:
+        pairs[pre + 'cta_lead'] = (encta['lead'], arcta.get('lead', ''))
+        pairs[pre + 'cta_text'] = (encta['text'], arcta.get('text', ''))
     pairs[pre + 'card_title'] = (spec['en']['title'], spec['ar']['title'])
     pairs[pre + 'card_excerpt'] = (spec['en']['excerpt'], spec['ar']['excerpt'])
     return pairs
@@ -223,7 +278,14 @@ def render_page(spec):
                    'Saudi Arabia, and what to check before your next inspection.')
     tmpl_crumb = 'NFPA 99 Compliance for Saudi Hospitals'
     tmpl_img = 'https://www.blackarrowksa.com/assets/images/services/isolated-power-panels.jpg'
+    tmpl_subhead = ('What the standard covers, why it matters for electrical systems, '
+                    'and what to check before your next inspection')
+    tmpl_meta = 'Black Arrow Venture company \u00b7 Updated July 31, 2026'
+    # Prefilled WhatsApp text, in both the float and the mobile sticky bar.
+    tmpl_wa = 'Hello%21%20I%27d%20like%20to%20ask%20about%20NFPA%2099%20compliance.'
 
+    y, m, d = (int(x) for x in spec['date'].split('-'))
+    wa_topic = (spec.get('wa_topic') or en.get('breadcrumb') or en['title']).strip()
     ogdesc = (en.get('og_description') or en['description']).strip()
     replacements = [
         (tmpl_title, en['title']),
@@ -231,11 +293,40 @@ def render_page(spec):
         (tmpl_ogdesc, ogdesc),
         (tmpl_crumb, (en.get('breadcrumb') or en['title']).strip()),
         (tmpl_img, SITE + spec['image']),
+        (tmpl_subhead, en['subhead']),
+        (tmpl_meta, f'Black Arrow Venture company \u00b7 Updated {MONTHS[m-1]} {d}, {y}'),
+        (tmpl_wa, quote(f"Hello! I'd like to ask about {wa_topic}.", safe='')),
         ('"datePublished": "2026-07-31"', f'"datePublished": "{spec["date"]}"'),
         ('"dateModified": "2026-07-31"', f'"dateModified": "{spec["date"]}"'),
     ]
     for old, new in replacements:
+        if old not in body:
+            raise SpecError(f'template no longer contains: {old[:70]!r}')
         body = body.replace(old, new)
+
+    # The hero's data-i18n keys are named for the TEMPLATE post. Left alone,
+    # they resolve through ar.json to the NFPA post's Arabic headline, so every
+    # new post would look right in English and carry the wrong title in Arabic.
+    pre = key_prefix(slug)
+    for tmpl_key, new_key in (('nfpa_post_h1', pre + 'h1'),
+                              ('nfpa_post_subhead', pre + 'subhead'),
+                              ('nfpa_post_title_short', pre + 'crumb')):
+        old = f'data-i18n="{tmpl_key}"'
+        if old not in body:
+            raise SpecError(f'template: expected {old} in the hero')
+        body = body.replace(old, f'data-i18n="{new_key}"')
+
+    # Related links are per-post, and the template's point at the IPP article.
+    rel = spec.get('related') or []
+    if rel:
+        marker = '<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">'
+        block = re.search(re.escape(marker) + r'.*?</div>', body, re.S)
+        if not block:
+            raise SpecError('template: related-links container not found')
+        links = [f'          <a href="{r["href"]}" class="btn btn-outline" '
+                 f'data-i18n="{r["i18n"]}">{r["label"]}</a>' for r in rel]
+        body = (body[:block.start()] + marker + '\n' + '\n'.join(links)
+                + '\n        </div>' + body[block.end():])
 
     art = re.search(r'<article class="blog-article">.*?</article>', body, re.S)
     if not art:

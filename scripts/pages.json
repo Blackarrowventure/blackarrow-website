@@ -140,6 +140,26 @@
       "ar": true
     },
     {
+      "src": "resources/blog/nfpa-99-line-isolation-monitors/index.html",
+      "url": "/resources/blog/nfpa-99-line-isolation-monitors/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/sizing-ups-hospital-critical-branch/index.html",
+      "url": "/resources/blog/sizing-ups-hospital-critical-branch/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/saso-requirements-ev-chargers-saudi-arabia/index.html",
+      "url": "/resources/blog/saso-requirements-ev-chargers-saudi-arabia/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/why-ups-batteries-die-early-saudi-heat/index.html",
+      "url": "/resources/blog/why-ups-batteries-die-early-saudi-heat/",
+      "ar": true
+    },
+    {
       "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
       "src": "resources/case-studies/index.html",
       "url": "/resources/case-studies/",

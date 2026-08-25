@@ -1,0 +1,136 @@
+{
+  "slug": "sizing-ups-hospital-critical-branch",
+  "date": "2026-08-25",
+  "image": "/assets/images/services/ups-solutions.jpg",
+  "wa_topic": "UPS sizing for a hospital critical branch",
+  "related": [
+    {
+      "href": "/resources/case-studies/healthcare-ups-critical-branch-replacement/",
+      "i18n": "cs_ups_h1",
+      "label": "UPS Replacement on a Healthcare Critical Branch"
+    },
+    {
+      "href": "/services/ups-power-backup/",
+      "i18n": "service_ups",
+      "label": "UPS Solutions"
+    },
+    {
+      "href": "/solutions/hospitals/",
+      "i18n": "sector_hospitals",
+      "label": "Hospitals"
+    }
+  ],
+  "en": {
+    "title": "Sizing a UPS for a Hospital Critical Branch",
+    "description": "The 10-second generator rule sets the floor, not the target. How to size a critical-branch UPS, and the headroom mistake to avoid.",
+    "og_description": "How to size a UPS for a hospital critical branch, why the 10-second generator rule is only the floor, and the headroom mistake to avoid.",
+    "excerpt": "Ask three consultants and you get three answers, usually because they are answering three different questions. The kVA number is the easy part.",
+    "breadcrumb": "Sizing a Hospital Critical-Branch UPS",
+    "subhead": "Why the 10-second generator rule sets the floor rather than the target, and the headroom mistake that strands hospitals in year three",
+    "lead": "Ask three consultants to size a UPS for a hospital critical branch and you will get three different answers, usually because they are quietly answering three different questions. The kVA figure is the easy part. What decides whether the installation is still adequate in five years is a set of assumptions that rarely get written down anywhere, and almost never get revisited.",
+    "sections": [
+      {
+        "h2": "The Critical Branch Is Not the Whole Hospital",
+        "p": [
+          "NFPA 99 divides a hospital essential electrical system into three branches, and they do not have the same requirements. The life safety branch covers egress lighting, alarm and alerting systems, emergency communications, generator set lighting and elevator control. The critical branch covers the areas and receptacles associated with maintaining patient treatment. The equipment branch feeds the large plant that patient care depends on but that can tolerate a delay, including central suction, medical-surgical vacuum and the large HVAC serving operating rooms.",
+          "Getting this split right is the first sizing decision, and it is made on a drawing rather than in a spreadsheet. A UPS sized against a load schedule that has quietly included equipment-branch plant will be substantially oversized and correspondingly expensive. One sized against a schedule that has left out critical-branch receptacles will be undersized in a way that only shows up during an actual outage.",
+          "It is worth saying plainly that the UPS does not replace the generator. The generator carries the outage. The UPS carries the seconds the generator cannot, and it conditions the supply for equipment that will not tolerate the transfer itself."
+        ]
+      },
+      {
+        "h2": "The 10 Seconds That Set the Floor",
+        "p": [
+          "Hospital generators are required to restore power to the life safety and critical branches within 10 seconds of losing the utility. That is a demanding window: the system has to detect the outage, crank and start the engine, bring it to rated speed and voltage, and complete the automatic transfer, all inside those 10 seconds.",
+          "The naive conclusion is that a UPS with 10 seconds of runtime therefore covers the gap. It does not, and sizing to it is the most common mistake we are asked to correct. Ten seconds is the value the code can hold a generator to under test conditions. It is not a value that survives the case the code cannot legislate for, which is the generator that does not start at all, or starts and then trips on its first block load.",
+          "A defensible number for the critical branch is normally somewhere between ten and thirty minutes, and the range matters less than the reasoning. That is long enough for a second start attempt, for a manual transfer to an alternate source, or for a controlled wind-down of whatever procedure is under way. Whatever figure is chosen should be a written decision with a rationale attached, because it is the assumption most likely to be challenged after an incident."
+        ]
+      },
+      {
+        "h2": "Size in kW, Not kVA Alone",
+        "p": [
+          "A UPS nameplate carries a kVA rating; the load draws kW. The ratio between them is the power factor, and comparing two quotations on kVA alone compares almost nothing. Older UPS designs were commonly rated at 0.8 power factor, so a 100 kVA unit delivered 80 kW. Many modern units are rated at unity, so a 100 kVA unit delivers 100 kW. Those are not the same machine, and they are not the same price.",
+          "On the load side, resist the temptation to add up nameplates. A nameplate is a worst-case figure that assumes the device is doing the most demanding thing it can do, and a ward full of equipment never does that simultaneously. Summing nameplates typically produces a number 40 to 60 percent above anything the branch will actually draw, and hospitals pay for that difference twice: once in capital cost, and again in a UPS running at low load where it is least efficient.",
+          "The honest method is to measure. Clamp the existing branch over a full working week, capture the peak rather than the average, and then apply headroom as a deliberate decision on top of a measured figure. Where the branch does not exist yet, build the load schedule from the equipment list and apply a diversity factor you are willing to defend, then measure at commissioning and record the result for the next upgrade."
+        ]
+      },
+      {
+        "h2": "Leave Room for the Load You Have Not Bought Yet",
+        "p": [
+          "Hospitals grow into their electrical infrastructure faster than almost any other building type. An imaging suite is added, monitoring is upgraded from one device per bed to three, infusion pumps multiply, and a UPS that was sized precisely against a validated load schedule is at capacity in year three. The schedule was not wrong. It was a snapshot.",
+          "We normally recommend sizing with 25 to 30 percent headroom above the measured peak, and then checking that the rest of the installation can actually use it. A UPS with spare capacity feeding a distribution board with no spare ways is not spare capacity; it is a number on a nameplate. The same applies to cable sizing and to the room the batteries live in.",
+          "Where the budget allows it, a modular UPS architecture converts this from a forecasting problem into a purchasing one. Power modules are added to the frame as the load grows, so the initial spend is matched to the initial load and the capacity arrives when it is needed. The frame has to be specified for the eventual load from the start, which is where the forecasting reappears, but the consequence of getting it wrong is far smaller."
+        ]
+      },
+      {
+        "h2": "Runtime Is a Battery Decision",
+        "p": [
+          "It is worth separating the two questions that get conflated in most conversations. The UPS module determines how much power can be supported. The battery string determines how long. Doubling runtime does not require a larger UPS, it requires more battery, and the constraint is usually floor space and floor loading rather than the electronics.",
+          "Battery sizing has to be done at end-of-life capacity, not at the capacity of a new string. A battery is generally considered to have reached end of life at 80 percent of rated capacity, and a system that only meets its runtime target on a brand-new string is a system that misses it for most of its service life. The same calculation has to use the temperature the batteries will actually live at, not the 25 degrees the datasheet assumes.",
+          "That temperature point is where most hospital UPS installations in this region quietly fail, and it deserves more attention than it usually gets during design. It is also the subject of a separate article, because the arithmetic behind it explains almost every early battery replacement we are called out to."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Planning or replacing a critical-branch UPS?",
+      "text": "We carry out load studies, size and supply UPS systems, and handle installation, battery replacement and maintenance for healthcare facilities across Saudi Arabia.",
+      "href": "/services/ups-power-backup/",
+      "label": "UPS Solutions",
+      "label_i18n": "service_ups"
+    }
+  },
+  "ar": {
+    "title": "اختيار قدرة UPS للفرع الحرج في المستشفيات",
+    "description": "قاعدة العشر ثوانٍ للمولد تحدد الحد الأدنى لا الهدف. كيف تُحسب قدرة UPS للفرع الحرج، وما خطأ هامش السعة الذي يجب تجنبه.",
+    "og_description": "كيف تُحسب قدرة UPS للفرع الحرج في المستشفيات، ولماذا تمثل قاعدة العشر ثوانٍ الحد الأدنى فقط.",
+    "excerpt": "اسأل ثلاثة استشاريين تحصل على ثلاث إجابات، لأن كل واحد منهم يجيب في الحقيقة عن سؤال مختلف. رقم الكيلوفولت أمبير هو الجزء السهل.",
+    "breadcrumb": "قدرة UPS للفرع الحرج",
+    "subhead": "لماذا تمثل قاعدة العشر ثوانٍ للمولد الحد الأدنى لا الهدف، وخطأ هامش السعة الذي يترك المستشفيات عالقة في السنة الثالثة",
+    "lead": "اسأل ثلاثة استشاريين عن القدرة المناسبة لنظام UPS يخدم الفرع الحرج في مستشفى، وستحصل على ثلاث إجابات مختلفة، والسبب غالباً أن كل واحد منهم يجيب بهدوء عن سؤال مختلف. رقم الكيلوفولت أمبير هو الجزء السهل. أما ما يحدد بقاء المنظومة كافية بعد خمس سنوات فهو مجموعة من الافتراضات نادراً ما تُدوَّن في أي مكان، وقلّ أن يُعاد النظر فيها.",
+    "sections": [
+      {
+        "h2": "الفرع الحرج ليس المستشفى كله",
+        "p": [
+          "يقسّم معيار NFPA 99 المنظومة الكهربائية الأساسية في المستشفى إلى ثلاثة فروع، ومتطلباتها ليست واحدة. فرع سلامة الحياة يغطي إنارة مسارات الإخلاء وأنظمة الإنذار والتنبيه والاتصالات الطارئة وإنارة غرفة المولد والتحكم في المصاعد. والفرع الحرج يغطي المناطق والمقابس المرتبطة باستمرار علاج المرضى. أما فرع المعدات فيغذّي التجهيزات الكبيرة التي تعتمد عليها رعاية المرضى لكنها تحتمل التأخير، ومنها أنظمة الشفط المركزي وشفط الأقسام الجراحية ووحدات التكييف الكبيرة التي تخدم غرف العمليات.",
+          "ضبط هذا التقسيم بدقة هو أول قرار في تحديد القدرة، وهو قرار يُتخذ على المخططات لا في جدول حسابي. فنظام UPS تُحسب قدرته وفق جدول أحمال تسلّل إليه شيء من تجهيزات فرع المعدات سيكون أكبر من اللازم بفارق كبير، وأغلى بالقدر نفسه. أما النظام الذي يُحسب وفق جدول أُغفلت منه مقابس الفرع الحرج فسيكون أصغر من اللازم بطريقة لا تظهر إلا أثناء انقطاع فعلي.",
+          "ويجدر القول بوضوح إن نظام UPS لا يحل محل المولد. المولد هو الذي يتحمل الانقطاع، ونظام UPS يتحمل الثواني التي لا يستطيع المولد تغطيتها، ويُحسّن جودة التغذية للأجهزة التي لا تحتمل عملية التحويل نفسها."
+        ]
+      },
+      {
+        "h2": "العشر ثوانٍ التي تحدد الحد الأدنى",
+        "p": [
+          "يُشترط في مولدات المستشفيات إعادة التغذية إلى فرع سلامة الحياة والفرع الحرج خلال عشر ثوانٍ من فقد التيار من الشبكة. وهذه نافذة زمنية صعبة: على المنظومة أن تكتشف الانقطاع، وتدير المحرك وتشغّله، وتصل به إلى السرعة والجهد المقررين، وتكمل التحويل التلقائي، كل ذلك خلال تلك الثواني العشر.",
+          "والاستنتاج الساذج هو أن نظام UPS بزمن تشغيل عشر ثوانٍ يسدّ الفجوة إذن. وهذا غير صحيح، وتحديد القدرة على هذا الأساس هو أكثر خطأ نُطلب لتصحيحه. فالعشر ثوانٍ هي القيمة التي يستطيع الكود إلزام المولد بها في ظروف الاختبار، وليست قيمة تصمد أمام الحالة التي لا يستطيع الكود التشريع لها، وهي المولد الذي لا يبدأ العمل أصلاً، أو الذي يبدأ ثم يفصل عند أول حمل كتلي.",
+          "الرقم الذي يمكن الدفاع عنه للفرع الحرج يقع عادة بين عشر دقائق وثلاثين دقيقة، والمدى أقل أهمية من المنطق الذي أدى إليه. فهذه المدة تكفي لمحاولة تشغيل ثانية، أو لتحويل يدوي إلى مصدر بديل، أو لإنهاء منظم لأي إجراء جارٍ. وأياً كان الرقم المختار فينبغي أن يكون قراراً مكتوباً مرفقاً بمبرره، لأنه الافتراض الأكثر عرضة للمساءلة بعد أي حادثة."
+        ]
+      },
+      {
+        "h2": "احسب بالكيلوواط لا بالكيلوفولت أمبير وحده",
+        "p": [
+          "تحمل لوحة بيانات نظام UPS تصنيفاً بالكيلوفولت أمبير، بينما يسحب الحمل كيلوواط. والنسبة بينهما هي معامل القدرة، ومقارنة عرضي سعر بالكيلوفولت أمبير وحده لا تقارن شيئاً تقريباً. فالتصاميم الأقدم كانت تُصنَّف عادة عند معامل قدرة 0.8، أي أن وحدة بقدرة 100 كيلوفولت أمبير تسلّم 80 كيلوواط. وكثير من الوحدات الحديثة تُصنَّف عند معامل قدرة واحد، أي أن الوحدة نفسها تسلّم 100 كيلوواط. هاتان ليستا الآلة نفسها، وليستا بالسعر نفسه.",
+          "وفي جانب الأحمال، قاوم إغراء جمع أرقام لوحات البيانات. فرقم لوحة البيانات قيمة قصوى تفترض أن الجهاز يؤدي أشق ما يمكنه أداؤه، وقسم مليء بالأجهزة لا يفعل ذلك كله في اللحظة نفسها أبداً. وجمع هذه الأرقام ينتج عادة قيمة تزيد بنسبة 40 إلى 60 بالمئة عن أي شيء سيسحبه الفرع فعلياً، وتدفع المستشفيات ثمن هذا الفارق مرتين: مرة في التكلفة الرأسمالية، ومرة أخرى في نظام يعمل عند حمل منخفض حيث تكون كفاءته في أدنى مستوياتها.",
+          "والطريقة الصادقة هي القياس. قِس الفرع القائم على مدى أسبوع عمل كامل، والتقط القيمة القصوى لا المتوسط، ثم أضف هامش السعة كقرار مقصود فوق رقم مقيس. وحيث لا يكون الفرع قائماً بعد، ابنِ جدول الأحمال من قائمة الأجهزة وطبّق معامل تنوّع تستطيع الدفاع عنه، ثم قِس عند التشغيل التجريبي وسجّل النتيجة استعداداً للتوسعة القادمة."
+        ]
+      },
+      {
+        "h2": "اترك مساحة للحمل الذي لم تشترِه بعد",
+        "p": [
+          "تنمو المستشفيات داخل بنيتها الكهربائية أسرع من أي نوع آخر من المباني تقريباً. يُضاف قسم أشعة، وتُرفع أجهزة المراقبة من جهاز لكل سرير إلى ثلاثة، وتتضاعف مضخات التسريب، فيبلغ نظام UPS الذي حُسبت قدرته بدقة وفق جدول أحمال موثّق سعته القصوى في السنة الثالثة. لم يكن الجدول خاطئاً، بل كان صورة للحظة بعينها.",
+          "ونوصي عادة بتحديد القدرة بهامش يتراوح بين 25 و30 بالمئة فوق القيمة القصوى المقيسة، ثم التحقق من أن بقية التمديدات تستطيع فعلاً استخدام هذا الهامش. فنظام UPS بسعة فائضة يغذّي لوحة توزيع بلا مخارج احتياطية ليس سعة فائضة، بل رقم على لوحة بيانات. وينطبق الأمر نفسه على مقاطع الكابلات وعلى الغرفة التي ستعيش فيها البطاريات.",
+          "وحيث تسمح الميزانية، تحوّل البنية النمطية لنظام UPS هذه المسألة من مشكلة تنبؤ إلى مسألة شراء. تُضاف وحدات القدرة إلى الهيكل مع نمو الحمل، فتتوافق النفقة الأولى مع الحمل الأول وتصل السعة حين يُحتاج إليها. غير أن الهيكل نفسه يجب أن يُحدد منذ البداية وفق الحمل النهائي، وهنا يعود التنبؤ إلى الصورة، لكن أثر الخطأ فيه يصبح أصغر بكثير."
+        ]
+      },
+      {
+        "h2": "زمن التشغيل قرار يخص البطاريات",
+        "p": [
+          "من المفيد الفصل بين سؤالين يختلطان في معظم النقاشات. وحدة UPS تحدد مقدار القدرة التي يمكن دعمها، ومجموعة البطاريات تحدد المدة. فمضاعفة زمن التشغيل لا تتطلب نظام UPS أكبر، بل تتطلب بطاريات أكثر، والقيد عادة هو مساحة الأرضية وقدرتها على التحمل لا الإلكترونيات.",
+          "ويجب أن يتم تحديد سعة البطاريات عند سعة نهاية العمر لا عند سعة مجموعة جديدة. فالبطارية تُعدّ عموماً قد بلغت نهاية عمرها عند 80 بالمئة من سعتها المقررة، والنظام الذي لا يحقق زمن التشغيل المطلوب إلا بمجموعة جديدة تماماً هو نظام يخفق في تحقيقه طوال معظم عمره التشغيلي. كما يجب أن يستخدم الحساب نفسه درجة الحرارة التي ستعيش فيها البطاريات فعلياً، لا الخمس والعشرين درجة التي تفترضها ورقة المواصفات.",
+          "ونقطة الحرارة هذه هي بالضبط ما تخفق فيه بهدوء معظم منظومات UPS في المستشفيات في هذه المنطقة، وهي تستحق عناية أكبر مما تلقاه عادة أثناء التصميم. وهي كذلك موضوع مقال منفصل، لأن الحساب الذي يقف خلفها يفسّر تقريباً كل استبدال مبكر للبطاريات نُستدعى إليه."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تخطط لنظام UPS جديد للفرع الحرج أو لاستبدال القائم؟",
+      "text": "ننفّذ دراسات الأحمال، ونحدد القدرات ونورّد أنظمة UPS، ونتولى التركيب واستبدال البطاريات والصيانة للمنشآت الصحية في مختلف أنحاء المملكة."
+    }
+  }
+}

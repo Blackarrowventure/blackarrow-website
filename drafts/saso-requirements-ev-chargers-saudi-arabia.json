@@ -1,0 +1,136 @@
+{
+  "slug": "saso-requirements-ev-chargers-saudi-arabia",
+  "date": "2026-08-25",
+  "image": "/assets/images/services/ev-solutions.jpg",
+  "wa_topic": "SASO requirements for EV chargers",
+  "related": [
+    {
+      "href": "/resources/case-studies/commercial-complex-ev-charging-rollout/",
+      "i18n": "cs_ev_h1",
+      "label": "EV Charging Rollout Across a Commercial Retail Complex"
+    },
+    {
+      "href": "/services/ev-charging-solutions/",
+      "i18n": "service_ev",
+      "label": "EV Solutions"
+    },
+    {
+      "href": "/solutions/commercial/",
+      "i18n": "sector_commercial",
+      "label": "Commercial"
+    }
+  ],
+  "en": {
+    "title": "SASO Requirements for EV Chargers in Saudi Arabia",
+    "description": "Mode 1 is prohibited, Mode 2 is prohibited in public areas, and every unit needs a Certificate of Conformity. What to check before you buy.",
+    "og_description": "Mode 1 is prohibited, Mode 2 is prohibited in public areas, and every unit needs a SASO Certificate of Conformity.",
+    "excerpt": "The Saudi amendment to IEC 61851-1 rules out two charging modes that are perfectly normal elsewhere. Buyers usually find out at customs.",
+    "breadcrumb": "SASO Requirements for EV Chargers",
+    "subhead": "The two Saudi restrictions that catch importers out, and the certificate no shipment clears without",
+    "lead": "Electric vehicle charging in the Kingdom is governed by a Saudi-modified version of an international standard, and the modifications are the part that matters. A charger that is entirely legal in Europe or East Asia can be non-compliant here, and the difference is not obvious from a product datasheet. In practice most buyers discover it at customs, or when a facility manager asks for documentation that was never going to exist.",
+    "sections": [
+      {
+        "h2": "The Standard That Actually Applies",
+        "p": [
+          "The governing document for conductive charging systems is SASO/DS/IEC 61851-1:2018/AMD1:2022, which adopts the international standard IEC 61851-1:2018 and then amends it for conditions in the Kingdom. Reading the IEC standard alone is not enough, because it is precisely the amendment that removes options the international text permits.",
+          "This is a general pattern with SASO adoptions and it is worth internalising before specifying anything. The base standard is international and familiar; the Saudi layer on top narrows it. Suppliers quoting compliance with IEC 61851-1 are not making a false claim, but they are also not answering the question, and the distinction is one a purchaser has to enforce.",
+          "Ambient conditions are part of the reason for the narrowing. Equipment specified against a temperate-climate assumption behaves differently in a car park in Dammam in August, and the derating that follows is a real design constraint rather than a paperwork exercise."
+        ]
+      },
+      {
+        "h2": "The Two Restrictions That Catch People Out",
+        "p": [
+          "IEC 61851-1 defines four charging modes. Mode 1 is a plain connection to a standard socket with no dedicated protection or communication. Mode 2 adds an in-cable control and protection device, which is the familiar portable cable that comes in the boot of the car. Mode 3 is a fixed installed AC charging station with control pilot communication, and Mode 4 is DC charging with an off-board charger.",
+          "Under the Saudi amendment, Mode 1 is prohibited for domestic and industrial use, and Mode 2 is prohibited in public areas. Those two sentences quietly remove the cheapest options from the table. The portable cable supplied with a vehicle is not a compliant basis for charging provision in a mall car park, a hotel forecourt or an office visitor bay, however convenient it looks during a pilot.",
+          "The practical consequence for anyone providing charging to the public is that the installation has to be Mode 3 or Mode 4: a fixed station with proper control pilot communication, protective earthing and dedicated circuit protection. Budgeting on the assumption that sockets and cables will do is the single most common way an EV charging project arrives late and over cost."
+        ]
+      },
+      {
+        "h2": "DC Fast Charging Brings Its Own Standards",
+        "p": [
+          "Once a project moves to DC fast charging, the applicable set widens. SASO GSO IEC 61851-23 covers DC electric vehicle charging stations themselves, and SASO IEC 61851-24 covers the digital communication between the DC station and the vehicle that controls the charging process.",
+          "Electromagnetic compatibility is handled separately again, and in two parts that are easy to confuse. SASO IEC 61851-21-1 addresses the EMC requirements for the vehicle's on-board charger, while SASO IEC 61851-21-2 covers EMC for off-board charging systems. For a site owner the second is the relevant one, and it is a routine gap in documentation packages assembled by suppliers who mostly sell into other markets.",
+          "None of this is exotic for a manufacturer that already sells into regulated markets. The problem is almost never that compliant equipment does not exist; it is that the specific certificates covering the specific model being shipped were never requested at the point of order, and obtaining them retrospectively is slow."
+        ]
+      },
+      {
+        "h2": "The Certificate of Conformity Is Not Optional",
+        "p": [
+          "Every EV charger placed on the Saudi market requires a SASO Certificate of Conformity. This is a shipment-level document tied to the product and the consignment, and without it a container does not clear customs. It is not satisfied by a CE mark, a manufacturer declaration or a test report from an unrecognised laboratory.",
+          "The commercial risk here sits with whoever bought the equipment, not with whoever made it. A supplier quoting an attractive unit price and leaving conformity as the buyer's problem has transferred a real cost and a real schedule risk without it ever appearing on the quotation. The correct time to ask which certificates will accompany the shipment is before the order is placed, and the correct answer names the standards and the certifying body.",
+          "Grid connection is a separate approval from product conformity, and it is worth tracking separately. A charger that is fully certified can still be waiting on the utility, and on projects of any size that permission tends to sit on the critical path rather than beside it."
+        ]
+      },
+      {
+        "h2": "What This Means Before You Buy",
+        "p": [
+          "For any charging provision open to the public, start from Mode 3 for AC and Mode 4 for DC, and treat anything cheaper as out of scope rather than as a saving to be evaluated. That single decision removes most of the compliance risk from a project before the electrical design begins.",
+          "Ask each shortlisted supplier to name the certificates that will accompany the shipment, for the exact model being quoted, and to state which apply to off-board EMC. A supplier who can answer that in writing without hesitation is a supplier who has shipped here before, and that is worth more than a small difference in unit price.",
+          "Finally, specify for the site rather than for the catalogue. Ambient temperature, direct sun on the enclosure, dust ingress, cable management in a busy car park and the physical protection of the unit against vehicle impact all determine whether the installation still works in year three. Compliance gets the equipment into the country; the site conditions decide whether it survives."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Planning EV charging for a commercial or public site?",
+      "text": "We specify, supply and install compliant AC and DC charging infrastructure across Saudi Arabia, and handle the conformity documentation and grid coordination with it.",
+      "href": "/services/ev-charging-solutions/",
+      "label": "EV Solutions",
+      "label_i18n": "service_ev"
+    }
+  },
+  "ar": {
+    "title": "متطلبات ساسو لشواحن السيارات الكهربائية في السعودية",
+    "description": "النمط الأول محظور، والنمط الثاني محظور في الأماكن العامة، وكل وحدة تحتاج شهادة مطابقة. ما الذي يجب التحقق منه قبل الشراء.",
+    "og_description": "النمط الأول محظور، والنمط الثاني محظور في الأماكن العامة، وكل وحدة تحتاج إلى شهادة مطابقة من ساسو.",
+    "excerpt": "التعديل السعودي على المواصفة IEC 61851-1 يستبعد نمطي شحن معتادين تماماً في أماكن أخرى. والمشترون يكتشفون ذلك عند الجمارك عادة.",
+    "breadcrumb": "متطلبات ساسو لشواحن السيارات الكهربائية",
+    "subhead": "القيدان السعوديان اللذان يفاجئان المستوردين، والشهادة التي لا تُفرج عن أي شحنة بدونها",
+    "lead": "يخضع شحن السيارات الكهربائية في المملكة لنسخة سعودية معدّلة من مواصفة دولية، والتعديلات هي بالضبط ما يهم. فالشاحن المطابق تماماً للأنظمة في أوروبا أو شرق آسيا قد يكون غير مطابق هنا، والفارق لا يظهر من ورقة مواصفات المنتج. وعملياً يكتشف معظم المشترين ذلك عند الجمارك، أو حين يطلب مدير المنشأة وثائق لم يكن لها وجود أصلاً.",
+    "sections": [
+      {
+        "h2": "المواصفة التي تنطبق فعلاً",
+        "p": [
+          "الوثيقة الحاكمة لأنظمة الشحن التوصيلي هي SASO/DS/IEC 61851-1:2018/AMD1:2022، وهي تتبنّى المواصفة الدولية IEC 61851-1:2018 ثم تعدّلها بما يناسب ظروف المملكة. وقراءة المواصفة الدولية وحدها لا تكفي، لأن التعديل هو تحديداً ما يزيل خيارات يسمح بها النص الدولي.",
+          "وهذا نمط عام في تبنّي المواصفات لدى ساسو، ويستحق أن يكون حاضراً في الذهن قبل تحديد أي مواصفة. فالمواصفة الأساس دولية ومألوفة، والطبقة السعودية فوقها تضيّقها. والموردون الذين يذكرون المطابقة للمواصفة IEC 61851-1 لا يقدّمون ادعاءً كاذباً، لكنهم في الوقت نفسه لا يجيبون عن السؤال المطروح، وهذا تمييز على المشتري أن يفرضه.",
+          "والظروف المناخية جزء من سبب هذا التضييق. فالمعدات المحددة وفق افتراض مناخ معتدل تتصرف بشكل مختلف في موقف سيارات في الدمام في شهر أغسطس، وتخفيض القدرة المترتب على ذلك قيد تصميمي حقيقي لا إجراء ورقي."
+        ]
+      },
+      {
+        "h2": "القيدان اللذان يفاجئان الناس",
+        "p": [
+          "تعرّف المواصفة IEC 61851-1 أربعة أنماط للشحن. النمط الأول توصيل مباشر بمقبس اعتيادي دون حماية مخصصة أو اتصال بيانات. والنمط الثاني يضيف جهاز تحكم وحماية داخل الكابل، وهو الكابل المحمول المألوف الذي يأتي في صندوق السيارة. والنمط الثالث محطة شحن تيار متردد ثابتة التركيب مزوّدة باتصال التحكم الإرشادي. والنمط الرابع شحن بالتيار المستمر عبر شاحن خارجي.",
+          "وبموجب التعديل السعودي، يُحظر النمط الأول للاستخدام المنزلي والصناعي، ويُحظر النمط الثاني في الأماكن العامة. وهاتان الجملتان تزيلان بهدوء أرخص الخيارات من الطاولة. فالكابل المحمول المرفق مع السيارة ليس أساساً مطابقاً لتقديم خدمة الشحن في موقف مركز تجاري أو ساحة فندق أو موقف زوار مكتب، مهما بدا ملائماً أثناء التجربة الأولية.",
+          "والنتيجة العملية لمن يقدّم خدمة الشحن للعموم هي أن التركيب يجب أن يكون من النمط الثالث أو الرابع: محطة ثابتة باتصال تحكم إرشادي سليم وتأريض حماية وحماية دائرة مخصصة. أما وضع الميزانية على افتراض أن المقابس والكابلات ستفي بالغرض فهو أكثر الطرق شيوعاً لأن يتأخر مشروع شحن ويتجاوز تكلفته."
+        ]
+      },
+      {
+        "h2": "الشحن السريع بالتيار المستمر يجلب مواصفاته الخاصة",
+        "p": [
+          "حين ينتقل المشروع إلى الشحن السريع بالتيار المستمر تتسع مجموعة المواصفات المنطبقة. فالمواصفة SASO GSO IEC 61851-23 تغطي محطات شحن السيارات الكهربائية بالتيار المستمر نفسها، والمواصفة SASO IEC 61851-24 تغطي الاتصال الرقمي بين محطة التيار المستمر والسيارة الذي يتحكم في عملية الشحن.",
+          "أما التوافق الكهرومغناطيسي فيُعالَج بشكل منفصل، وفي جزأين يسهل الخلط بينهما. المواصفة SASO IEC 61851-21-1 تتناول متطلبات التوافق الكهرومغناطيسي للشاحن المدمج داخل السيارة، بينما تغطي المواصفة SASO IEC 61851-21-2 التوافق الكهرومغناطيسي لأنظمة الشحن الخارجية. وبالنسبة لمالك الموقع فالثانية هي المعنية، وهي ثغرة متكررة في حزم الوثائق التي يجهّزها موردون يبيعون في أسواق أخرى غالباً.",
+          "ولا شيء من هذا غريب على مصنّع يبيع أصلاً في أسواق منظمة. فالمشكلة نادراً ما تكون عدم وجود معدات مطابقة، بل أن الشهادات المحددة التي تغطي الطراز المحدد المشحون لم تُطلب عند تقديم الطلب، والحصول عليها لاحقاً بطيء."
+        ]
+      },
+      {
+        "h2": "شهادة المطابقة ليست اختيارية",
+        "p": [
+          "كل شاحن سيارات كهربائية يُطرح في السوق السعودي يتطلب شهادة مطابقة من ساسو. وهي وثيقة على مستوى الشحنة مرتبطة بالمنتج وبالإرسالية، وبدونها لا تُخلَّص الحاوية جمركياً. ولا تُغني عنها علامة CE ولا إقرار المصنّع ولا تقرير اختبار من مختبر غير معتمد.",
+          "والمخاطرة التجارية هنا تقع على من اشترى المعدات لا على من صنعها. فالمورد الذي يعرض سعر وحدة مغرياً ويترك المطابقة مشكلة المشتري يكون قد نقل تكلفة حقيقية ومخاطرة جدولية حقيقية دون أن تظهر أي منهما في عرض السعر. والوقت الصحيح للسؤال عن الشهادات التي سترافق الشحنة هو قبل إصدار أمر الشراء، والإجابة الصحيحة تسمّي المواصفات وجهة إصدار الشهادة.",
+          "والربط بالشبكة موافقة منفصلة عن مطابقة المنتج، ويستحق متابعة مستقلة. فالشاحن المعتمد بالكامل قد يظل بانتظار شركة الكهرباء، وفي المشاريع ذات الحجم المعتبر يميل هذا التصريح إلى أن يقع على المسار الحرج لا بجانبه."
+        ]
+      },
+      {
+        "h2": "ماذا يعني هذا قبل الشراء",
+        "p": [
+          "لأي خدمة شحن متاحة للعموم، ابدأ من النمط الثالث للتيار المتردد والنمط الرابع للتيار المستمر، واعتبر ما هو أرخص خارج النطاق لا وفراً يستحق التقييم. فهذا القرار وحده يزيل معظم مخاطر المطابقة من المشروع قبل أن يبدأ التصميم الكهربائي.",
+          "واطلب من كل مورد ضمن القائمة المختصرة أن يسمّي الشهادات التي سترافق الشحنة، للطراز المعروض بالتحديد، وأن يوضح أيها يخص التوافق الكهرومغناطيسي للأنظمة الخارجية. فالمورد الذي يجيب عن ذلك كتابةً دون تردد هو مورد سبق له الشحن إلى هنا، وهذا يساوي أكثر من فارق بسيط في سعر الوحدة.",
+          "وأخيراً، حدد المواصفات وفق الموقع لا وفق الكتالوج. فدرجة الحرارة المحيطة، وأشعة الشمس المباشرة على الحاوية، ودخول الغبار، وترتيب الكابلات في موقف مزدحم، والحماية المادية للوحدة من ارتطام المركبات، كلها تحدد ما إذا كان التركيب سيظل يعمل في السنة الثالثة. المطابقة تُدخل المعدات إلى البلد، وظروف الموقع هي التي تقرر بقاءها."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تخطط لتوفير شحن للسيارات الكهربائية في موقع تجاري أو عام؟",
+      "text": "نحدد المواصفات ونورّد ونركّب بنية الشحن المطابقة بالتيار المتردد والمستمر في مختلف أنحاء المملكة، ونتولى معها وثائق المطابقة والتنسيق مع الشبكة."
+    }
+  }
+}

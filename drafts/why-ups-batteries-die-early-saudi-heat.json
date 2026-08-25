@@ -1,0 +1,136 @@
+{
+  "slug": "why-ups-batteries-die-early-saudi-heat",
+  "date": "2026-08-25",
+  "image": "/assets/images/services/ups-solutions.jpg",
+  "wa_topic": "UPS battery replacement",
+  "related": [
+    {
+      "href": "/resources/blog/sizing-ups-hospital-critical-branch/",
+      "i18n": "post_sizing_ups_hospital_critical_branch_card_title",
+      "label": "Sizing a UPS for a Hospital Critical Branch"
+    },
+    {
+      "href": "/services/ups-power-backup/",
+      "i18n": "service_ups",
+      "label": "UPS Solutions"
+    },
+    {
+      "href": "/resources/case-studies/healthcare-ups-critical-branch-replacement/",
+      "i18n": "cs_ups_h1",
+      "label": "UPS Replacement on a Healthcare Critical Branch"
+    }
+  ],
+  "en": {
+    "title": "Why Your UPS Batteries Died in Three Years, Not Ten",
+    "description": "Every 10°C above 25°C halves VRLA battery life. In the Eastern Province that is not a footnote, it is the whole answer.",
+    "og_description": "Every 10°C above 25°C halves VRLA battery life. Why UPS batteries fail early in Saudi Arabia, and what actually fixes it.",
+    "excerpt": "The battery was sold as a ten-year battery and it failed in three. Nobody was lied to. The datasheet assumed 25°C, and the battery room never saw it.",
+    "breadcrumb": "Why UPS Batteries Die Early",
+    "subhead": "Every 10°C above 25°C halves VRLA life, and in the Eastern Province that is the whole answer",
+    "lead": "A hospital or a data room buys a UPS, the batteries are described as ten-year units, and they are replaced in year three. The usual reaction is that somebody was sold the wrong product. Usually nobody was. The ten-year figure is real, it is simply quoted at a temperature the battery has never once experienced, and the arithmetic connecting the two is not complicated.",
+    "sections": [
+      {
+        "h2": "The Rule That Explains Almost Every Early Failure",
+        "p": [
+          "Valve-regulated lead-acid battery life is governed by chemistry, and chemical reaction rates rise with temperature. The relationship follows the Arrhenius equation, and the working rule the manufacturers themselves publish is straightforward: for every 10°C of sustained operating temperature above 25°C, expected battery life is cut roughly in half.",
+          "Applied to real numbers this stops being an academic point. A string rated for a given service life at 25°C and operated continuously at 35°C reaches end of life in about half that time. Push the sustained temperature further and the halving applies again. Some manufacturers publish a more aggressive figure of roughly 8°C per halving, which makes the outcome worse rather than better.",
+          "There is no maintenance regime that defeats this, and no brand that is exempt from it. Temperature is not one factor among many affecting battery life in this climate; for a system that is otherwise correctly installed and float-charged, it is the dominant one."
+        ]
+      },
+      {
+        "h2": "The Cabinet Is Hotter Than the Room",
+        "p": [
+          "The temperature that matters is the temperature at the battery, and that is not the temperature on the wall thermostat. A UPS cabinet typically runs several degrees warmer than the room around it, because the electronics and the batteries are both dissipating heat inside an enclosure designed primarily to keep fingers out.",
+          "That gap turns a comfortable-sounding room into a hostile one. A plant room held at 28°C, which few facility managers would consider a problem, can present the cells inside the cabinet with 33°C. Against a 25°C reference that is most of a halving before anything has gone wrong, and it is invisible to anyone checking the room rather than the equipment.",
+          "This is also why battery temperature monitoring earns its cost quickly. A logged cell temperature is a number that can be argued with, budgeted against, and used to hold a maintenance contractor to a replacement interval. A room thermostat reading is not evidence about the batteries at all."
+        ]
+      },
+      {
+        "h2": "Design Life Is a Laboratory Number",
+        "p": [
+          "The phrase to be careful with in any quotation is design life. It is a float-service figure obtained under controlled conditions, at 25°C, with a correctly regulated charging voltage and without meaningful discharge cycling. It describes what the product is capable of, not what a given installation will get from it.",
+          "Two things routinely erode it further, independent of ambient heat. The first is cycling: a site with frequent short outages works its batteries in a way float-service testing does not represent. The second is charging voltage that is not temperature-compensated, which pushes a hot battery further into the accelerated ageing it is already experiencing.",
+          "None of this makes design life a dishonest number, and it is still the right basis for comparing two products against each other. It is simply the wrong basis for planning a replacement budget, and treating it as a schedule is how facilities end up funding an unplanned replacement out of an operating budget that had nothing set aside for it."
+        ]
+      },
+      {
+        "h2": "What Actually Fixes It",
+        "p": [
+          "The first and largest intervention is to cool the batteries specifically, rather than the room generally. Where the installation allows it, batteries belong in their own cabinet or their own room, held near 25°C and cooled independently of the equipment that shares the space. That single change is worth more than any other item on this list, and it is the one most often value-engineered out at design stage.",
+          "Second, insist on temperature-compensated charging. A charger that reduces float voltage as battery temperature rises stops the charging regime from compounding the damage the ambient conditions are already doing. It is a configuration option on most modern UPS systems and it is frequently left at its default.",
+          "Third, monitor and log. Cell or string temperature, float voltage and periodic impedance readings turn battery replacement from an emergency into a scheduled item. The goal is not to prevent ageing, which is not available, but to know accurately where the string is in its life so the replacement is planned, budgeted and carried out on a normal working day."
+        ]
+      },
+      {
+        "h2": "Knowing When to Replace",
+        "p": [
+          "A battery is conventionally considered to have reached end of life when it can no longer deliver 80 percent of its rated capacity. That threshold matters because the decline is not linear: performance holds up reasonably well and then falls away quickly, so a string that tests marginally today is not a string with months of comfortable margin left.",
+          "Impedance testing is the practical monitoring tool, because it can be done without discharging the system and it identifies individual weak cells rather than an average. A single failing cell degrades an entire string, and finding it early is the difference between replacing one block and replacing everything. A full capacity discharge test is more definitive and should be part of the schedule, but it is an event rather than a routine.",
+          "The failure mode worth avoiding is the one where the batteries are tested for the first time by an actual outage. The system reports healthy, the utility fails, and the string delivers a fraction of its rated runtime. Everything in this article exists to make sure that is not the moment anyone finds out."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Batteries approaching replacement, or failing earlier than they should?",
+      "text": "We test, replace and maintain UPS battery systems across Saudi Arabia, including impedance testing, temperature-compensated charging setup and planned replacement scheduling.",
+      "href": "/services/ups-power-backup/",
+      "label": "UPS Solutions",
+      "label_i18n": "service_ups"
+    }
+  },
+  "ar": {
+    "title": "لماذا نفدت بطاريات UPS لديك في ثلاث سنوات لا عشر",
+    "description": "كل 10 درجات فوق 25 درجة مئوية تختصر عمر بطاريات VRLA إلى النصف. في المنطقة الشرقية هذه ليست حاشية، بل هي الإجابة كاملة.",
+    "og_description": "كل 10 درجات فوق 25 مئوية تختصر عمر بطاريات VRLA إلى النصف. لماذا تفشل بطاريات UPS مبكراً في السعودية، وما الذي يعالج ذلك فعلاً.",
+    "excerpt": "بيعت البطارية على أنها بعمر عشر سنوات ثم تعطلت في الثالثة. لم يكذب أحد. ورقة المواصفات افترضت 25 درجة، وغرفة البطاريات لم تشهدها قط.",
+    "breadcrumb": "لماذا تنفد بطاريات UPS مبكراً",
+    "subhead": "كل 10 درجات فوق 25 مئوية تختصر عمر بطاريات VRLA إلى النصف، وفي المنطقة الشرقية هذه هي الإجابة كاملة",
+    "lead": "يشتري مستشفى أو غرفة بيانات نظام UPS، وتُوصف البطاريات بأنها وحدات بعمر عشر سنوات، ثم تُستبدل في السنة الثالثة. ورد الفعل المعتاد هو أن أحدهم بيع له المنتج الخطأ. وفي الغالب لم يحدث ذلك. فرقم العشر سنوات حقيقي، لكنه ببساطة مذكور عند درجة حرارة لم تعشها البطارية ولو مرة واحدة، والحساب الذي يربط بين الأمرين ليس معقداً.",
+    "sections": [
+      {
+        "h2": "القاعدة التي تفسّر كل فشل مبكر تقريباً",
+        "p": [
+          "يحكم عمرَ بطاريات الرصاص الحمضية المنظّمة بصمام علمُ الكيمياء، ومعدلات التفاعل الكيميائي ترتفع مع الحرارة. والعلاقة تتبع معادلة أرهينيوس، والقاعدة العملية التي ينشرها المصنّعون أنفسهم واضحة: مقابل كل 10 درجات مئوية من حرارة التشغيل المستمرة فوق 25 درجة، ينخفض العمر المتوقع للبطارية إلى النصف تقريباً.",
+          "وبتطبيق ذلك على أرقام واقعية يتوقف الأمر عن كونه نقطة نظرية. فمجموعة بطاريات مصنّفة لعمر خدمة معيّن عند 25 درجة وتعمل باستمرار عند 35 درجة تبلغ نهاية عمرها في نصف تلك المدة تقريباً. وارفع الحرارة المستمرة أكثر فينطبق التنصيف مرة أخرى. بل ينشر بعض المصنّعين رقماً أشد صرامة يقارب 8 درجات لكل تنصيف، وهو ما يجعل النتيجة أسوأ لا أفضل.",
+          "ولا يوجد برنامج صيانة يتغلب على هذا، ولا علامة تجارية معفاة منه. فالحرارة ليست عاملاً من عوامل عدة تؤثر في عمر البطارية في هذا المناخ، بل هي العامل المهيمن في أي نظام مركّب ومشحون بالتعويم بشكل صحيح."
+        ]
+      },
+      {
+        "h2": "الخزانة أسخن من الغرفة",
+        "p": [
+          "الحرارة التي تهم هي الحرارة عند البطارية، وهي ليست الحرارة المسجّلة على منظّم الحرارة على الجدار. فخزانة UPS تعمل عادة عند درجات عدة أعلى من الغرفة المحيطة بها، لأن الإلكترونيات والبطاريات معاً تبدّد حرارة داخل حاوية صُممت أساساً لمنع الوصول إليها لا لتصريف الحرارة.",
+          "وهذا الفارق يحوّل غرفة تبدو مريحة إلى بيئة معادية. فغرفة معدات محافظ عليها عند 28 درجة، وهو ما لا يعتبره كثير من مديري المنشآت مشكلة، قد تعرّض الخلايا داخل الخزانة إلى 33 درجة. وقياساً على مرجع الـ25 درجة فهذا معظم تنصيف كامل قبل أن يحدث أي خلل، وهو غير مرئي لمن يفحص الغرفة بدل أن يفحص المعدات.",
+          "ولهذا أيضاً تستردّ مراقبة حرارة البطاريات تكلفتها بسرعة. فحرارة خلية مسجّلة رقم يمكن مناقشته، وبناء ميزانية عليه، واستخدامه لإلزام مقاول الصيانة بفترة استبدال محددة. أما قراءة منظّم حرارة الغرفة فليست دليلاً على حال البطاريات إطلاقاً."
+        ]
+      },
+      {
+        "h2": "العمر التصميمي رقم مختبري",
+        "p": [
+          "العبارة التي ينبغي الحذر منها في أي عرض سعر هي العمر التصميمي. فهو رقم خدمة تعويم مستخلص في ظروف مضبوطة، عند 25 درجة، بجهد شحن منظّم بشكل صحيح ودون دورات تفريغ ذات شأن. وهو يصف ما يقدر عليه المنتج، لا ما ستحصل عليه منه منظومة بعينها.",
+          "وهناك أمران يستهلكانه أكثر بشكل روتيني، بمعزل عن حرارة المحيط. الأول هو دورات التفريغ: فالموقع الذي يشهد انقطاعات قصيرة متكررة يُجهد بطارياته بطريقة لا تمثّلها اختبارات خدمة التعويم. والثاني هو جهد شحن غير معوَّض حرارياً، وهو يدفع البطارية الساخنة إلى مزيد من التقادم المتسارع الذي تعانيه أصلاً.",
+          "ولا شيء من هذا يجعل العمر التصميمي رقماً غير أمين، وهو يبقى الأساس الصحيح للمقارنة بين منتجين. لكنه ببساطة الأساس الخطأ لتخطيط ميزانية الاستبدال، والتعامل معه كجدول زمني هو ما ينتهي بالمنشآت إلى تمويل استبدال غير مخطط له من ميزانية تشغيل لم تُرصد فيها ريال واحد لذلك."
+        ]
+      },
+      {
+        "h2": "ما الذي يعالج المشكلة فعلاً",
+        "p": [
+          "أول التدخلات وأكبرها هو تبريد البطاريات تحديداً بدل تبريد الغرفة عموماً. وحيث يسمح التركيب بذلك، مكان البطاريات خزانة خاصة بها أو غرفة خاصة بها، يُحافظ فيها على حرارة قريبة من 25 درجة وتُبرَّد بمعزل عن المعدات التي تشاركها المكان. وهذا التغيير وحده يساوي أكثر من أي بند آخر في هذه القائمة، وهو الأكثر عرضة للحذف تحت بند خفض التكاليف في مرحلة التصميم.",
+          "وثانياً، اشترط شحناً معوَّضاً حرارياً. فالشاحن الذي يخفض جهد التعويم مع ارتفاع حرارة البطارية يمنع نظام الشحن من مضاعفة الضرر الذي تحدثه الظروف المحيطة أصلاً. وهو خيار إعداد متاح في معظم أنظمة UPS الحديثة، وكثيراً ما يُترك على قيمته الافتراضية.",
+          "وثالثاً، راقب وسجّل. فحرارة الخلية أو المجموعة، وجهد التعويم، وقراءات الممانعة الدورية، تحوّل استبدال البطاريات من حالة طارئة إلى بند مجدول. والهدف ليس منع التقادم، وهو غير متاح، بل معرفة موقع المجموعة من عمرها بدقة ليكون الاستبدال مخططاً ومموّلاً ومنفّذاً في يوم عمل عادي."
+        ]
+      },
+      {
+        "h2": "متى تستبدل",
+        "p": [
+          "تُعدّ البطارية عرفاً قد بلغت نهاية عمرها حين تعجز عن تسليم 80 بالمئة من سعتها المقررة. وهذه العتبة مهمة لأن الانحدار ليس خطياً: فالأداء يصمد بشكل معقول ثم يهبط سريعاً، ما يعني أن المجموعة التي تعطي نتيجة حدّية اليوم ليست مجموعة أمامها شهور من الهامش المريح.",
+          "واختبار الممانعة هو أداة المراقبة العملية، لأنه يمكن إجراؤه دون تفريغ النظام ولأنه يحدد الخلايا الضعيفة منفردة بدل إعطاء متوسط. فخلية واحدة متدهورة تُضعف المجموعة كلها، والعثور عليها مبكراً هو الفرق بين استبدال كتلة واحدة واستبدال كل شيء. أما اختبار التفريغ الكامل للسعة فهو أكثر حسماً وينبغي أن يكون ضمن الجدول، لكنه حدث دوري لا إجراء روتيني.",
+          "ونمط الفشل الذي يجب تجنّبه هو أن يكون أول اختبار للبطاريات انقطاعاً فعلياً للتيار. يبلّغ النظام أنه سليم، ثم تنقطع الشبكة، فتسلّم المجموعة جزءاً يسيراً من زمن التشغيل المقرر. وكل ما في هذا المقال موجود ليضمن ألا تكون تلك هي اللحظة التي يكتشف فيها أحد الحقيقة."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تقترب بطارياتك من الاستبدال، أم أنها تتعطل أبكر مما ينبغي؟",
+      "text": "نختبر ونستبدل ونصون منظومات بطاريات UPS في مختلف أنحاء المملكة، بما في ذلك اختبار الممانعة وضبط الشحن المعوَّض حرارياً وجدولة الاستبدال المخطط."
+    }
+  }
+}
