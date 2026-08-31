@@ -60,8 +60,8 @@
   --clr-shadow-gold: 0 16px 48px rgba(245,158,11,.25);
 
   /* Emerald Green - CTAs & Buttons (NEW) */
-  --clr-cta:       #10B981;
-  --clr-cta-dark:  #059669;
+  --clr-cta:       #047857;
+  --clr-cta-dark:  #065f46;
   --clr-cta-light: #34D399;
   --clr-cta-glow:  rgba(16,185,129,.2);
   --clr-cta-hover: rgba(16,185,129,.15);
@@ -169,7 +169,7 @@ body {
 .svc-card * { color: #000000 !important; }
 .svc-card h3 { color: #000000 !important; }
 .svc-card p { color: #000000 !important; }
-.svc-card__footer a { color: #D97706 !important; }
+.svc-card__footer a { color: #1a1a1a !important; }
 
 .vm-card h3 { color: var(--clr-accent) !important; }
 .vm-card p { color: #ffffff !important; }
@@ -178,20 +178,21 @@ body {
 
 .contact-strip__card { color: #000000 !important; }
 .contact-strip__card * { color: #000000 !important; }
-.contact-strip__card h4 { color: var(--clr-accent) !important; }
+.contact-strip__card h3 { color: #1a1a1a !important; }
 .contact-strip__card p { color: #000000 !important; }
 .contact-strip__card a { color: #000000 !important; }
 
 .contact-info-card { color: #000000 !important; }
 .contact-info-card * { color: #000000 !important; }
-.contact-info-card h4 { color: var(--clr-accent) !important; }
+.contact-info-card h3 { color: #1a1a1a !important; }
 .contact-info-card p { color: #000000 !important; }
 .contact-info-card a { color: #000000 !important; }
 
 .form-card { color: #000000 !important; }
 .form-card * { color: #000000 !important; }
 .form-card h2 { color: #000000 !important; }
-.form-group label { color: var(--clr-accent) !important; }
+.form-group label { color: #1a1a1a !important; }
+.form-card .btn-primary { color: #ffffff !important; }
 .form-group input,
 .form-group select,
 .form-group textarea { color: #ffffff !important; background: #2a2a2a !important; }
@@ -282,7 +283,7 @@ body {
 .footer * { color: rgba(255,255,255,.75) !important; }
 .footer a { color: rgba(255,255,255,.75) !important; }
 .footer a:hover { color: var(--clr-accent) !important; }
-.footer h4 { color: var(--clr-accent) !important; }
+.footer h3 { color: var(--clr-accent) !important; }
 
 .page-hero { color: #ffffff !important; }
 .page-hero h1 { color: #ffffff !important; }
@@ -687,7 +688,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .lang-switcher button:hover,
 .lang-btn:hover {
   background: var(--clr-accent);
-  color: var(--clr-white);
+  color: #1a1a1a;
 }
 
 /* ──────────────────────────────────────────────
@@ -1150,7 +1151,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .svc-card__footer a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-accent) !important;
+  color: #1a1a1a !important;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -2209,12 +2210,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: 0 0 20px rgba(245,158,11,.2);
 }
 
-.contact-strip__card h4 {
+.contact-strip__card h3 {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clr-accent) !important;
+  color: #1a1a1a !important;
   margin-bottom: 8px;
 }
 
@@ -2448,7 +2449,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform: translateY(-2px);
 }
 
-.footer__col h4 {
+.footer__col h3 {
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
   text-transform: uppercase;
@@ -2801,12 +2802,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: var(--shadow-sm);
 }
 
-.contact-info-card h4 {
+.contact-info-card h3 {
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--clr-accent) !important;
+  color: #1a1a1a !important;
   margin-bottom: 6px;
 }
 
@@ -2848,7 +2849,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .form-group label {
   font-size: var(--fs-sm);
   font-weight: var(--fw-semibold);
-  color: var(--clr-accent);
+  color: #1a1a1a;
 }
 
 .form-group input,
@@ -3708,6 +3709,18 @@ html:not(.js) [class*="reveal"] {
 .section-header h2,
 .section-header .overline {
   color: var(--clr-accent) !important;
+}
+
+/* Two exceptions to the rule above: .segmentation ("Who We Serve") and the
+   contact page's map section both force a white/light background, where
+   gold-on-white fails contrast (2.15:1, needs 4.5:1). More specific than
+   .section-header h2 above, so these win without touching that rule. */
+.segmentation .section-header h2,
+.segmentation .section-header .overline,
+.map-section .section-header h2,
+.map-section .section-header .overline,
+.map-section .section-header p {
+  color: #1a1a1a !important;
 }
 
 /* ──────────────────────────────────────────────
