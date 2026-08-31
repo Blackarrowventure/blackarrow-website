@@ -114,10 +114,13 @@ def scrape(slug):
     path = os.path.join(ROOT, 'services', slug, 'index.html')
     s = io.open(path, encoding='utf-8').read()
 
-    m = re.search(r'(?is)<h1[^>]*>.*?</h1>\s*<p[^>]*>(.*?)</p>', s)
+    # <p(?:\s[^>]*)?> (not <p[^>]*>) so this doesn't also swallow <picture>,
+    # <path> or <polygon> tags as if they were <p> - any of those sitting
+    # before the real paragraph corrupts the pairing with the next </p>.
+    m = re.search(r'(?is)<h1[^>]*>.*?</h1>\s*<p(?:\s[^>]*)?>(.*?)</p>', s)
     tagline = clean(m.group(1)) if m else ''
 
-    paras = [clean(x) for x in re.findall(r'(?is)<p[^>]*>(.*?)</p>', s)]
+    paras = [clean(x) for x in re.findall(r'(?is)<p(?:\s[^>]*)?>(.*?)</p>', s)]
     intro = [x for x in paras if len(x) > 180][:2]
 
     # Slice between item starts; the closing divs nest and defeat a lazy match.
@@ -175,9 +178,12 @@ SERVICES = [
     ('electrical-distribution', 'Electrical &amp; Power Distribution', 'Power infrastructure',
      'assets/images/services/electrical-power.jpg',
      'From load study to corrective maintenance'),
-    ('general-trading', 'General Trading', 'Diversified supply',
-     'assets/images/services/general-trading.jpg',
-     'Sectors we supply'),
+    ('hospital-modular-or-rooms', 'Hospital Modular OR Rooms', 'Surgical infrastructure',
+     'assets/images/services/hospital-modular-or-rooms.jpg',
+     'From design to commissioning'),
+    ('lead-sheets-hospital', 'Lead Sheets for Hospitals', 'Radiation shielding',
+     'assets/images/services/lead-sheets-hospital.jpg',
+     'From shielding survey to compliance verification'),
 ]
 
 DATA = {slug: scrape(slug) for slug, _, _, _, _ in SERVICES}
@@ -210,7 +216,7 @@ def chips(items):
             '</div>')
 
 
-SIDE_LABEL = {'general-trading': 'Why buy through us'}
+SIDE_LABEL = {}
 
 
 def service_page(slug, title, eyebrow, image, steps_label):
@@ -283,8 +289,8 @@ add('', (
     '&#1575;&#1604;&#1571;&#1587;&#1608;&#1583; &#1700;&#1606;&#1578;&#1588;&#1585;</p>'
     '<p class="cover__line">Infrastructure that has to <em>keep working.</em></p>'
     '<p class="cover__sub">Isolated power, EV charging, UPS, lighting, firefighting, HVAC, '
-    'electrical distribution and general trading &mdash; supplied, installed, commissioned '
-    'and maintained across the Kingdom of Saudi Arabia.</p>'
+    'electrical distribution, modular OR rooms and radiation shielding &mdash; supplied, '
+    'installed, commissioned and maintained across the Kingdom of Saudi Arabia.</p>'
     '</div>'
     '<div class="cover__foot">'
     '<div><div class="cover__lbl">Established</div>'
@@ -311,10 +317,11 @@ TOC = [
     (10, 'Firefighting systems', 'Detection, suppression and evacuation integration'),
     (11, 'HVAC solutions', 'AHUs, VRF/VRV systems and BMS-integrated controls'),
     (12, 'Electrical &amp; power distribution', 'Switchgear, boards, control panels and testing'),
-    (13, 'General trading', 'Industrial, safety, aviation, oil &amp; gas, electrical and IT supply'),
-    (14, 'Project experience', 'Representative work, with the constraints that shaped it'),
-    (15, 'Standards &amp; commitments', 'What we build to, and what happens after handover'),
-    (16, 'Contact', 'Company records and who to call for what'),
+    (13, 'Hospital modular OR rooms', 'Cleanroom-grade operating theatres, design to commissioning'),
+    (14, 'Lead sheets for hospitals', 'Radiation shielding for X-ray, CT and radiotherapy rooms'),
+    (15, 'Project experience', 'Representative work, with the constraints that shaped it'),
+    (16, 'Standards &amp; commitments', 'What we build to, and what happens after handover'),
+    (17, 'Contact', 'Company records and who to call for what'),
 ]
 add('Contents', '<div class="pad">' +
     opener('Company Profile', 'Contents') +
@@ -344,7 +351,7 @@ add('Who we are', '<div class="pad">' +
     '<div class="figures">' +
     ''.join('<div class="fig"><div class="n">%s</div><div class="l">%s</div></div>' % f for f in [
         ('2022', 'Established'), ('58', 'Projects completed'), ('33+', 'B2B clients served'),
-        ('5', 'Ongoing projects'), ('8', 'Solution categories'), ('24/7', 'Technical support'),
+        ('5', 'Ongoing projects'), ('9', 'Solution categories'), ('24/7', 'Technical support'),
     ]) + '</div>'
     '<h3 class="rule-head">How we work</h3>'
     '<div class="flow">'
@@ -410,8 +417,9 @@ add('Vision &amp; mission', '<div class="pad">' +
 # ---------------------------------------------------------------- page 5 sectors
 SECTORS = [
     ('Healthcare', 'Hospitals and clinics',
-     'Isolated power for operating theatres, UPS on critical branches, HVAC and compliant '
-     'electrical distribution &mdash; governed by NFPA 99 and reviewed at accreditation.'),
+     'Isolated power for operating theatres, modular OR rooms, lead shielding for X-ray and '
+     'CT suites, UPS on critical branches, HVAC and compliant electrical distribution '
+     '&mdash; governed by NFPA 99 and reviewed at accreditation.'),
     ('Government &amp; public sector', 'Public infrastructure and municipalities',
      'Power continuity, lighting and life-safety systems for facilities that cannot be '
      'taken offline for convenience.'),
@@ -532,6 +540,9 @@ STANDARDS = [
     ('Saudi Building Code', 'Electrical, mechanical and fire-safety provisions.'),
     ('ASHRAE', 'HVAC design, ventilation and indoor air quality standards.'),
     ('DALI', 'Digital addressable lighting interface for controllable, monitored luminaires.'),
+    ('ISO 14644', 'Cleanroom classification for modular operating room construction.'),
+    ('NCRP / IAEA', 'Radiation shielding calculation and lead sheet installation for X-ray, '
+                    'CT and radiotherapy rooms.'),
 ]
 COMMITMENTS = [
     ('24/7 support', 'Round-the-clock assistance for operational needs on systems we have '
@@ -866,8 +877,8 @@ html = (
     '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
     '<meta name="robots" content="noindex, nofollow">\n'
     '<meta name="description" content="Black Arrow Venture company profile - isolated power '
-    'panels, EV charging, UPS, lighting, firefighting, HVAC, electrical distribution and '
-    'general trading across Saudi Arabia.">\n'
+    'panels, EV charging, UPS, lighting, firefighting, HVAC, electrical distribution, '
+    'modular OR rooms and radiation shielding across Saudi Arabia.">\n'
     '<title>Company Profile &mdash; Black Arrow Venture</title>\n'
     '<style>' + CSS + '</style></head>\n<body>\n' +
     ''.join(render(i, s, b, d) for i, (s, b, d) in enumerate(PAGES)) +

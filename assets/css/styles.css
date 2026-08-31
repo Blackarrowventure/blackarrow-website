@@ -4,11 +4,11 @@
    Version 2.0 | 2026
    ============================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap');
-/* Noto Kufi Arabic was declared in --ff-ar but never actually loaded, so
-   every Arabic heading fell back to Playfair Display, which has no Arabic
-   glyphs at all. */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap');
+/* Playfair Display + Noto Kufi Arabic are loaded via <link rel="stylesheet">
+   in each page's <head>, not @import here - @import blocks on a second
+   round-trip (parse this file, discover the import, only then fetch it)
+   before the browser even knows to talk to fonts.googleapis.com, which
+   defeats the preconnect hints sitting right next to that <link>. */
 
 /* Reduce motion for accessibility and performance */
 @media (prefers-reduced-motion: reduce) {
@@ -1046,6 +1046,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   overflow: hidden;
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
+
+/* <picture> defaults to inline, which can add a sliver of line-height gap
+   under a block-level img inside a non-grid/flex wrapper. */
+.svc-card__img-wrap picture,
+.service-detail__inner picture,
+.page-hero__grid picture { display: block; }
 
 .svc-card__img {
   width: 100%;

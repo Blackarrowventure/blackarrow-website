@@ -110,10 +110,22 @@ def main():
             scale = max_edge / max(w, h)
             im = im.resize((round(w * scale), round(h * scale)), Image.LANCZOS)
         out = src.with_suffix('.webp')
-        old = src.stat().st_size
-        n = encode(im, out, 82, apply)
-        saved += max(0, old - n)
-        print(f'  WRITE {src.name:46} {kb(old)} -> {kb(n)}  ({w}x{h})')
+        # Compare against the webp twin this would replace, not the source
+        # raster - comparing to the source silently let a worse re-encode
+        # overwrite a smaller existing webp (nls-logo.webp regressed from
+        # 27KB to 44KB this way before this gate existed).
+        old_webp = out.stat().st_size if out.exists() else None
+        n = encode(im, out, 82, apply=False)
+        if old_webp is not None and n >= old_webp:
+            print(f'  keep  {src.name:46} webp {kb(old_webp)} (new encode {kb(n)} was not smaller)')
+            continue
+        if apply:
+            encode(im, out, 82, apply=True)
+        if old_webp is not None:
+            saved += max(0, old_webp - n)
+            print(f'  WRITE {src.name:46} webp {kb(old_webp)} -> {kb(n)}  ({w}x{h})')
+        else:
+            print(f'  WRITE {src.name:46} webp (new) {kb(n)}  ({w}x{h})')
 
     print(f'\nEstimated transfer saved on the client strip + service images: {kb(saved)}')
     if not apply:
