@@ -55,6 +55,16 @@
       "ar": true
     },
     {
+      "src": "services/hospital-modular-or-rooms/index.html",
+      "url": "/services/hospital-modular-or-rooms/",
+      "ar": true
+    },
+    {
+      "src": "services/lead-sheets-hospital/index.html",
+      "url": "/services/lead-sheets-hospital/",
+      "ar": true
+    },
+    {
       "src": "services/ev-charging-solutions/index.html",
       "url": "/services/ev-charging-solutions/",
       "ar": true
@@ -82,11 +92,6 @@
     {
       "src": "services/electrical-distribution/index.html",
       "url": "/services/electrical-distribution/",
-      "ar": true
-    },
-    {
-      "src": "services/general-trading/index.html",
-      "url": "/services/general-trading/",
       "ar": true
     },
     {

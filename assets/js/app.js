@@ -490,7 +490,8 @@ const SERVICE_MESSAGES = {
   'firefighting-systems': 'Hello! I\'m interested in your Firefighting Systems (detection, suppression, maintenance)',
   'hvac-solutions': 'Hello! I\'m interested in your HVAC Solutions (climate control, installation, maintenance)',
   'electrical-power': 'Hello! I\'m interested in your Electrical & Power Distribution solutions (switchgear, panels)',
-  'general-trading': 'Hello! I\'m interested in your General Trading services (industrial, safety, aviation, oil & gas)',
+  'hospital-modular-or-rooms': 'Hello! I\'m interested in your Hospital Modular OR Room solutions (design, build, commissioning)',
+  'lead-sheets-hospital': 'Hello! I\'m interested in your Lead Sheet Radiation Shielding for hospitals (X-ray, CT, radiotherapy rooms)',
   'partnership': 'Hello! I\'m interested in partnership opportunities with Black Arrow Company',
   'default': 'Hello! I\'m interested in your services. Can you help me?'
 };

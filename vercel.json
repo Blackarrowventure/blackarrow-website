@@ -17,6 +17,26 @@
       "source": "/contacts/zayn/",
       "destination": "/contacts/zain.html",
       "permanent": true
+    },
+    {
+      "source": "/services/general-trading",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/general-trading/",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/ar/services/general-trading",
+      "destination": "/ar/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/ar/services/general-trading/",
+      "destination": "/ar/services.html",
+      "permanent": true
     }
   ],
   "headers": [

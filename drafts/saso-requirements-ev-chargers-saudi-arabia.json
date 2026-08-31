@@ -32,7 +32,7 @@
       {
         "h2": "The Standard That Actually Applies",
         "p": [
-          "The governing document for conductive charging systems is SASO/DS/IEC 61851-1:2018/AMD1:2022, which adopts the international standard IEC 61851-1:2018 and then amends it for conditions in the Kingdom. Reading the IEC standard alone is not enough, because it is precisely the amendment that removes options the international text permits.",
+          "The governing document for conductive charging systems is the Saudi amendment SASO IEC 61851-1:2018/AMD1:2022, which adopts the international standard IEC 61851-1 and then varies it to take account of conditions in the Kingdom. Reading the IEC standard alone is not enough, because it is precisely the amendment that removes options the international text permits. Confirm the current revision with SASO or your certification body before you specify against it.",
           "This is a general pattern with SASO adoptions and it is worth internalising before specifying anything. The base standard is international and familiar; the Saudi layer on top narrows it. Suppliers quoting compliance with IEC 61851-1 are not making a false claim, but they are also not answering the question, and the distinction is one a purchaser has to enforce.",
           "Ambient conditions are part of the reason for the narrowing. Equipment specified against a temperate-climate assumption behaves differently in a car park in Dammam in August, and the derating that follows is a real design constraint rather than a paperwork exercise."
         ]
@@ -41,7 +41,7 @@
         "h2": "The Two Restrictions That Catch People Out",
         "p": [
           "IEC 61851-1 defines four charging modes. Mode 1 is a plain connection to a standard socket with no dedicated protection or communication. Mode 2 adds an in-cable control and protection device, which is the familiar portable cable that comes in the boot of the car. Mode 3 is a fixed installed AC charging station with control pilot communication, and Mode 4 is DC charging with an off-board charger.",
-          "Under the Saudi amendment, Mode 1 is prohibited for domestic and industrial use, and Mode 2 is prohibited in public areas. Those two sentences quietly remove the cheapest options from the table. The portable cable supplied with a vehicle is not a compliant basis for charging provision in a mall car park, a hotel forecourt or an office visitor bay, however convenient it looks during a pilot.",
+          "The Saudi amendment is blunt about both. Mode 1 supply equipment is not permitted in the Kingdom and is not allowed to be imported — not restricted to certain applications, but excluded outright. Mode 2 is prohibited in public areas, and allowed in private areas only under stated conditions: plugs and socket-outlets to SASO IEC 60309, earth leakage protection on the socket-outlet, and a rating of 16 A at 230 V AC single-phase.",
           "The practical consequence for anyone providing charging to the public is that the installation has to be Mode 3 or Mode 4: a fixed station with proper control pilot communication, protective earthing and dedicated circuit protection. Budgeting on the assumption that sockets and cables will do is the single most common way an EV charging project arrives late and over cost."
         ]
       },
@@ -90,7 +90,7 @@
       {
         "h2": "المواصفة التي تنطبق فعلاً",
         "p": [
-          "الوثيقة الحاكمة لأنظمة الشحن التوصيلي هي SASO/DS/IEC 61851-1:2018/AMD1:2022، وهي تتبنّى المواصفة الدولية IEC 61851-1:2018 ثم تعدّلها بما يناسب ظروف المملكة. وقراءة المواصفة الدولية وحدها لا تكفي، لأن التعديل هو تحديداً ما يزيل خيارات يسمح بها النص الدولي.",
+          "الوثيقة الحاكمة لأنظمة الشحن التوصيلي هي التعديل السعودي SASO IEC 61851-1:2018/AMD1:2022، وهو يتبنّى المواصفة الدولية IEC 61851-1 ثم يعدّلها بما يناسب ظروف المملكة. وقراءة المواصفة الدولية وحدها لا تكفي، لأن التعديل هو تحديداً ما يزيل خيارات يسمح بها النص الدولي. ويُنصح بالتحقق من الإصدار الساري لدى الهيئة أو جهة الاعتماد قبل اعتماده في المواصفات.",
           "وهذا نمط عام في تبنّي المواصفات لدى ساسو، ويستحق أن يكون حاضراً في الذهن قبل تحديد أي مواصفة. فالمواصفة الأساس دولية ومألوفة، والطبقة السعودية فوقها تضيّقها. والموردون الذين يذكرون المطابقة للمواصفة IEC 61851-1 لا يقدّمون ادعاءً كاذباً، لكنهم في الوقت نفسه لا يجيبون عن السؤال المطروح، وهذا تمييز على المشتري أن يفرضه.",
           "والظروف المناخية جزء من سبب هذا التضييق. فالمعدات المحددة وفق افتراض مناخ معتدل تتصرف بشكل مختلف في موقف سيارات في الدمام في شهر أغسطس، وتخفيض القدرة المترتب على ذلك قيد تصميمي حقيقي لا إجراء ورقي."
         ]
@@ -99,7 +99,7 @@
         "h2": "القيدان اللذان يفاجئان الناس",
         "p": [
           "تعرّف المواصفة IEC 61851-1 أربعة أنماط للشحن. النمط الأول توصيل مباشر بمقبس اعتيادي دون حماية مخصصة أو اتصال بيانات. والنمط الثاني يضيف جهاز تحكم وحماية داخل الكابل، وهو الكابل المحمول المألوف الذي يأتي في صندوق السيارة. والنمط الثالث محطة شحن تيار متردد ثابتة التركيب مزوّدة باتصال التحكم الإرشادي. والنمط الرابع شحن بالتيار المستمر عبر شاحن خارجي.",
-          "وبموجب التعديل السعودي، يُحظر النمط الأول للاستخدام المنزلي والصناعي، ويُحظر النمط الثاني في الأماكن العامة. وهاتان الجملتان تزيلان بهدوء أرخص الخيارات من الطاولة. فالكابل المحمول المرفق مع السيارة ليس أساساً مطابقاً لتقديم خدمة الشحن في موقف مركز تجاري أو ساحة فندق أو موقف زوار مكتب، مهما بدا ملائماً أثناء التجربة الأولية.",
+          "والتعديل السعودي صريح في شأنهما. فمعدات التغذية من النمط الأول غير مسموح بها في المملكة ولا يُسمح باستيرادها — لا مقيّدة باستخدامات معيّنة، بل مستبعدة تماماً. أما النمط الثاني فمحظور في الأماكن العامة، ومسموح به في الأماكن الخاصة وفق شروط منصوص عليها: قوابس ومقابس مطابقة لـ SASO IEC 60309، وحماية من تيار التسرّب الأرضي على المقبس، وتصنيف 16 أمبير عند 230 فولت تيار متردد أحادي الطور.",
           "والنتيجة العملية لمن يقدّم خدمة الشحن للعموم هي أن التركيب يجب أن يكون من النمط الثالث أو الرابع: محطة ثابتة باتصال تحكم إرشادي سليم وتأريض حماية وحماية دائرة مخصصة. أما وضع الميزانية على افتراض أن المقابس والكابلات ستفي بالغرض فهو أكثر الطرق شيوعاً لأن يتأخر مشروع شحن ويتجاوز تكلفته."
         ]
       },

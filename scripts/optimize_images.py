@@ -80,7 +80,8 @@ def main():
     print('\n== 2. Hero 768w variants ==')
     hero_bases = ['ev-solutions', 'ups-solutions', 'lighting-solutions',
                   'firefighting-solutions', 'hvac-solutions',
-                  'electrical-power', 'general-trading']
+                  'electrical-power', 'hospital-modular-or-rooms',
+                  'lead-sheets-hospital']
     for base in hero_bases:
         jpg = IMG / 'services' / f'{base}.jpg'
         if not jpg.exists():
