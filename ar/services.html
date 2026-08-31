@@ -197,16 +197,35 @@
 
     <!-- Quick Nav -->
     <nav class="section" style="padding-block:32px;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);" aria-label="تصفح الخدمات" data-i18n-aria-label="aria_service_nav">
-      <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-        <a href="/ar/services/ev-charging-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚡</span> <span data-i18n="service_ev">حلول السيارات الكهربائية</span></a>
-        <a href="/ar/services/ups-power-backup/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔋</span> <span data-i18n="service_ups">حلول أنظمة UPS</span></a>
-        <a href="/ar/services/isolated-power-panels/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏥</span> <span data-i18n="service_ipp">لوحات الطاقة المعزولة</span></a>
-        <a href="/ar/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">حلول الإضاءة</span></a>
-        <a href="/ar/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">أنظمة الحريق</span></a>
-        <a href="/ar/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">حلول التكييف والتهوية</span></a>
-        <a href="/ar/services/electrical-distribution/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚙️</span> <span data-i18n="service_electrical">التوزيع الكهربائي والطاقة</span></a>
-        <a href="/ar/services/hospital-modular-or-rooms/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏗️</span> <span data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</span></a>
-        <a href="/ar/services/lead-sheets-hospital/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>☢️</span> <span data-i18n="service_lead_shielding">صفائح الرصاص للمستشفيات</span></a>
+      <div class="container" style="display:flex;flex-direction:column;gap:18px;">
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_healthcare">الرعاية الصحية والطاقة الحرجة</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/ar/services/isolated-power-panels/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏥</span> <span data-i18n="service_ipp">لوحات الطاقة المعزولة</span></a>
+            <a href="/ar/services/ups-power-backup/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔋</span> <span data-i18n="service_ups">حلول أنظمة UPS</span></a>
+            <a href="/ar/services/hospital-modular-or-rooms/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏗️</span> <span data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</span></a>
+            <a href="/ar/services/lead-sheets-hospital/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>☢️</span> <span data-i18n="service_lead_shielding">صفائح الرصاص للمستشفيات</span></a>
+          </div>
+        </div>
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_energy">الطاقة والبنية التحتية الكهربائية</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/ar/services/ev-charging-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚡</span> <span data-i18n="service_ev">حلول السيارات الكهربائية</span></a>
+            <a href="/ar/services/electrical-distribution/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚙️</span> <span data-i18n="service_electrical">التوزيع الكهربائي والطاقة</span></a>
+          </div>
+        </div>
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_lifesafety">أنظمة المباني والسلامة</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/ar/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">حلول التكييف والتهوية</span></a>
+            <a href="/ar/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">حلول الإضاءة</span></a>
+            <a href="/ar/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">أنظمة الحريق</span></a>
+          </div>
+        </div>
+
       </div>
     </nav>
 
@@ -424,10 +443,7 @@
         <div class="service-detail__inner">
           <picture>
             <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-            <picture>
-              <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-              <img src="/assets/images/services/isolated-power-panels.jpg" alt="لوحة طاقة معزولة (IPP) لغرف العمليات في المستشفيات - أنظمة طاقة معزولة متوافقة مع Bender وPG LifeLink وSchneider" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async" data-i18n-alt="alt_ipp">
-            </picture>
+            <img src="/assets/images/services/isolated-power-panels.jpg" alt="لوحة طاقة معزولة (IPP) لغرف العمليات في المستشفيات - أنظمة طاقة معزولة متوافقة مع Bender وPG LifeLink وSchneider" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async" data-i18n-alt="alt_ipp">
           </picture>
           <div class="service-detail__content">
             <span class="overline" data-i18n="critical_care_power">طاقة الرعاية الحرجة</span>
@@ -508,15 +524,15 @@
         <div class="footer__col">
           <h4 data-i18n="footer_services">خدماتنا</h4>
           <ul>
-            <li><a href="/ar/services/ev-charging-solutions/" data-i18n="service_ev">حلول السيارات الكهربائية</a></li>
+            <li><a href="/ar/services/isolated-power-panels/" data-i18n="service_ipp">لوحات الطاقة المعزولة</a></li>
             <li><a href="/ar/services/ups-power-backup/" data-i18n="service_ups">حلول أنظمة UPS</a></li>
-            <li><a href="/ar/services/lighting-solutions/" data-i18n="service_lighting">حلول الإضاءة</a></li>
-            <li><a href="/ar/services/firefighting-systems/" data-i18n="firefighting_service">أنظمة مكافحة الحريق</a></li>
-            <li><a href="/ar/services/hvac-solutions/" data-i18n="service_hvac">حلول التكييف والتهوية</a></li>
-            <li><a href="/ar/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/ar/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</a></li>
             <li><a href="/ar/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">صفائح الرصاص للمستشفيات</a></li>
-            <li><a href="/ar/services/isolated-power-panels/" data-i18n="service_ipp">لوحات الطاقة المعزولة</a></li>
+            <li><a href="/ar/services/ev-charging-solutions/" data-i18n="service_ev">حلول السيارات الكهربائية</a></li>
+            <li><a href="/ar/services/electrical-distribution/">Electrical &amp; Power</a></li>
+            <li><a href="/ar/services/hvac-solutions/" data-i18n="service_hvac">حلول التكييف والتهوية</a></li>
+            <li><a href="/ar/services/lighting-solutions/" data-i18n="service_lighting">حلول الإضاءة</a></li>
+            <li><a href="/ar/services/firefighting-systems/" data-i18n="firefighting_service">أنظمة مكافحة الحريق</a></li>
           </ul>
         </div>
 

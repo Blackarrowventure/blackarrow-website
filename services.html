@@ -197,16 +197,35 @@
 
     <!-- Quick Nav -->
     <nav class="section" style="padding-block:32px;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);" aria-label="Service navigation" data-i18n-aria-label="aria_service_nav">
-      <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-        <a href="/services/ev-charging-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚡</span> <span data-i18n="service_ev">EV Solutions</span></a>
-        <a href="/services/ups-power-backup/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔋</span> <span data-i18n="service_ups">UPS Solutions</span></a>
-        <a href="/services/isolated-power-panels/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏥</span> <span data-i18n="service_ipp">Isolated Power Panels</span></a>
-        <a href="/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">Lighting</span></a>
-        <a href="/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">Firefighting</span></a>
-        <a href="/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">HVAC</span></a>
-        <a href="/services/electrical-distribution/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚙️</span> <span data-i18n="service_electrical">Electrical &amp; Power</span></a>
-        <a href="/services/hospital-modular-or-rooms/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏗️</span> <span data-i18n="service_or_rooms">Hospital Modular OR Rooms</span></a>
-        <a href="/services/lead-sheets-hospital/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>☢️</span> <span data-i18n="service_lead_shielding">Lead Sheets for Hospitals</span></a>
+      <div class="container" style="display:flex;flex-direction:column;gap:18px;">
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_healthcare">Healthcare &amp; Critical Power</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/services/isolated-power-panels/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏥</span> <span data-i18n="service_ipp">Isolated Power Panels</span></a>
+            <a href="/services/ups-power-backup/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔋</span> <span data-i18n="service_ups">UPS Solutions</span></a>
+            <a href="/services/hospital-modular-or-rooms/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏗️</span> <span data-i18n="service_or_rooms">Hospital Modular OR Rooms</span></a>
+            <a href="/services/lead-sheets-hospital/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>☢️</span> <span data-i18n="service_lead_shielding">Lead Sheets for Hospitals</span></a>
+          </div>
+        </div>
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_energy">Energy &amp; Electrical Infrastructure</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/services/ev-charging-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚡</span> <span data-i18n="service_ev">EV Solutions</span></a>
+            <a href="/services/electrical-distribution/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>⚙️</span> <span data-i18n="service_electrical">Electrical &amp; Power</span></a>
+          </div>
+        </div>
+
+        <div>
+          <span style="display:block;text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_lifesafety">Building &amp; Life-Safety Systems</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">HVAC</span></a>
+            <a href="/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">Lighting</span></a>
+            <a href="/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">Firefighting</span></a>
+          </div>
+        </div>
+
       </div>
     </nav>
 
@@ -424,10 +443,7 @@
         <div class="service-detail__inner">
           <picture>
             <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-            <picture>
-              <source srcset="/assets/images/services/isolated-power-panels.webp" type="image/webp">
-              <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async" data-i18n-alt="alt_ipp">
-            </picture>
+            <img src="/assets/images/services/isolated-power-panels.jpg" alt="Isolated Power Panel (IPP) for hospital operating rooms — Bender, PG LifeLink & Schneider-compatible isolated power systems" class="service-detail__img" loading="lazy" width="374" height="600" decoding="async" data-i18n-alt="alt_ipp">
           </picture>
           <div class="service-detail__content">
             <span class="overline" data-i18n="critical_care_power">Critical Care Power</span>
@@ -508,15 +524,15 @@
         <div class="footer__col">
           <h4 data-i18n="footer_services">Our Services</h4>
           <ul>
-            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
+            <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
             <li><a href="/services/ups-power-backup/" data-i18n="service_ups">UPS Solutions</a></li>
-            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
-            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
-            <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
-            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a></li>
             <li><a href="/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">Lead Sheets for Hospitals</a></li>
-            <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
+            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
+            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
+            <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
+            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
+            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
           </ul>
         </div>
 

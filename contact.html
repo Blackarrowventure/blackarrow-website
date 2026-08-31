@@ -257,6 +257,17 @@
                 </select>
               </div>
 
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="project-city" data-i18n="form_project_city">Project City</label>
+                  <input type="text" id="project-city" name="project_city" placeholder="e.g. Riyadh, Jeddah, Dammam" autocomplete="address-level2" data-i18n-placeholder="placeholder_project_city">
+                </div>
+                <div class="form-group">
+                  <label for="project-capacity" data-i18n="form_project_capacity">Approximate Capacity / Quantity</label>
+                  <input type="text" id="project-capacity" name="project_capacity" placeholder="e.g. 100kVA, 4 chargers, 2 OR rooms" data-i18n-placeholder="placeholder_project_capacity">
+                </div>
+              </div>
+
               <div class="form-group">
                 <label for="message" data-i18n="form_label_message_req">Your Message *</label>
                 <textarea id="message" name="message" rows="5" placeholder="Please describe your requirements, project scope, or questions..." required aria-required="true" data-i18n-placeholder="placeholder_message"></textarea>
@@ -269,6 +280,9 @@
 
               <p style="font-size:0.75rem;color:#888;margin-top:12px;text-align:center;" data-i18n="required_fields">
                 * Required fields. We'll respond within one business day.
+              </p>
+              <p style="font-size:0.75rem;color:#888;margin-top:4px;text-align:center;" data-i18n-html="form_privacy_ack">
+                By submitting this form, you acknowledge our <a href="/privacy-policy.html">Privacy Policy</a>.
               </p>
 
               <!-- Success Message -->
@@ -374,15 +388,15 @@
         <div class="footer__col">
           <h4 data-i18n="footer_services">Our Services</h4>
           <ul>
-            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
+            <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
             <li><a href="/services/ups-power-backup/" data-i18n="service_ups">UPS Solutions</a></li>
-            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
-            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
-            <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
-            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a></li>
             <li><a href="/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">Lead Sheets for Hospitals</a></li>
-            <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
+            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
+            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
+            <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
+            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
+            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
           </ul>
         </div>
 
