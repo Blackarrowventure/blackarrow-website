@@ -71,7 +71,7 @@
   --clr-secondary:      #e0e0e0;
   --clr-secondary-dark: #b0b0b0;
   --clr-secondary-light: #f5f5f5;
-  --clr-whatsapp:   #25D366;
+  --clr-whatsapp:   #075E54;
 
   --ff-body:    'Segoe UI', system-ui, -apple-system, sans-serif;
   --ff-heading: 'Playfair Display', serif;
@@ -1856,12 +1856,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .cta-btn--whatsapp {
   color: #ffffff;
-  background: #25d366;
+  background: #075E54;
   border-radius: 4px;
 }
 
 .cta-btn--whatsapp:active {
-  background: #1da85c;
+  background: #054a42;
 }
 
 .cta-btn span:first-child {
@@ -2150,9 +2150,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 .btn-whatsapp:hover {
-  background: #1ebe5d;
+  background: #0a6f63;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37,211,102,.4);
+  box-shadow: 0 8px 20px rgba(7,94,84,.4);
 }
 
 .btn-whatsapp svg {
