@@ -773,7 +773,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .hero h1 {
   font-family: var(--ff-heading);
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(var(--fs-3xl), 6vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 20px;
@@ -3527,10 +3527,15 @@ html:not(.js) [class*="reveal"] {
 
    Mirroring the offset per direction does not help - it just moves the
    overflow to whichever side the element sits on. Dropping to a vertical
-   offset below 900px removes the horizontal component entirely, in both
-   LTR and RTL, and the reveal still reads as a reveal. The sideways
-   version stays on desktop where the margins can absorb it. */
-@media (max-width: 900px) {
+   offset removes the horizontal component entirely, in both LTR and RTL,
+   and the reveal still reads as a reveal. The sideways version stays on
+   desktop where the margins can absorb it.
+
+   The cutoff has to match .about-grid's own 1024px breakpoint (where it
+   drops to a single full-width column), not just the 900px phone range -
+   between 901-1024px the column is already full-width with no margin left
+   to absorb the shift, so the same 10px overflow reappears there too. */
+@media (max-width: 1024px) {
   .reveal-left,
   .reveal-right { transform: translateY(20px); }
 
