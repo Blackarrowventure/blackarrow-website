@@ -28,7 +28,7 @@ document.documentElement.classList.add('js');
    It lives here rather than in a <head> snippet so one edit covers all
    33 pages instead of 33 near-identical edits that drift apart.
    ────────────────────────────────────────────── */
-const GA4_MEASUREMENT_ID = '';
+const GA4_MEASUREMENT_ID = 'G-MXV79G525V';
 
 function initAnalytics() {
   if (!GA4_MEASUREMENT_ID) return;
