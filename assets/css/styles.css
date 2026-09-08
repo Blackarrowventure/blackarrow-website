@@ -652,6 +652,28 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-inline-end: 20px;
 }
 
+/* Employee Login - a quiet, secondary utility action (gold-tinted, using
+   the same --clr-accent-hover/--clr-accent-active tokens the accent color
+   already defines) so it never competes with the real conversion action,
+   "Get a Quote", sitting right next to it. Links out to the internal CRM
+   at crm.blackarrowksa.com, a separate deployment from this site. */
+.btn-employee-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-full, 999px);
+  color: var(--clr-accent-dark);
+  background: var(--clr-accent-hover);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.btn-employee-login:hover { background: var(--clr-accent-active); }
+.btn-employee-login svg { width: 14px; height: 14px; flex-shrink: 0; }
+
 /* Language Switcher */
 .lang-switch,
 .lang-switcher {
@@ -3634,6 +3656,19 @@ html:not(.js) [class*="reveal"] {
      still in real use. They wrap rather than scroll if a link is ever
      added, so the menu degrades to a taller bar, never a hidden link. */
   .navbar__links a { white-space: nowrap; font-size: 12px; }
+
+  /* The actions row now holds three items (lang switcher, Employee Login,
+     Get a Quote) instead of two - collapsing Employee Login's label to
+     icon-only keeps the row from crowding on the same 360px phones the
+     rule above already accounts for. The full label still shows in the
+     variant list below on wider phones/tablets (481-900px). */
+  .btn-employee-login { padding: 9px; }
+  .btn-employee-login__label { display: none; }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+  .btn-employee-login { padding: 9px 14px; }
+  .btn-employee-login__label { display: inline; }
 }
 
 @media (max-width: 480px) {
