@@ -27,10 +27,12 @@
 
   const STRINGS = {
     en: {
-      button: 'Ask Black Arrow AI',
+      button: 'Ask Arrow AI',
       tooltip: 'How can we assist you today?',
-      title: 'Black Arrow AI Assistant',
-      intro: "Hi! I'm the Black Arrow AI Assistant. Ask me about our EV charging, UPS, lighting, firefighting, HVAC, electrical, or hospital solutions — or tell me what you need and I'll help get you a quote.",
+      title: 'Arrow AI',
+      subtitle: 'Black Arrow Project Assistant',
+      online: 'Online now',
+      intro: "Hi! I'm Arrow AI 👋 Ask me about our EV charging, UPS, lighting, firefighting, HVAC, electrical, or hospital solutions — or tell me what you need and I'll help get you a quote.",
       placeholder: 'Type your message…',
       send: 'Send',
       whatsappCta: 'Continue on WhatsApp',
@@ -39,10 +41,12 @@
       close: 'Close chat',
     },
     ar: {
-      button: 'اسأل بلاك أرو AI',
+      button: 'اسأل Arrow AI',
       tooltip: 'كيف يمكننا مساعدتك اليوم؟',
-      title: 'مساعد بلاك أرو الذكي',
-      intro: 'مرحبًا! أنا مساعد بلاك أرو الذكي. اسألني عن حلول شحن السيارات الكهربائية، أنظمة UPS، الإضاءة، مكافحة الحريق، التكييف، الكهرباء، أو حلول المستشفيات — أو أخبرني بما تحتاجه وسأساعدك في الحصول على عرض سعر.',
+      title: 'Arrow AI',
+      subtitle: 'مساعد مشاريع بلاك أرو',
+      online: 'متصل الآن',
+      intro: 'مرحبًا! أنا Arrow AI 👋 اسألني عن حلول شحن السيارات الكهربائية، أنظمة UPS، الإضاءة، مكافحة الحريق، التكييف، الكهرباء، أو حلول المستشفيات — أو أخبرني بما تحتاجه وسأساعدك في الحصول على عرض سعر.',
       placeholder: 'اكتب رسالتك…',
       send: 'إرسال',
       whatsappCta: 'المتابعة عبر واتساب',
@@ -51,6 +55,8 @@
       close: 'إغلاق المحادثة',
     },
   }[lang];
+
+  const AVATAR_SRC = '/assets/images/arrow-ai-avatar.png';
 
   function injectStyles() {
     const style = document.createElement('style');
@@ -70,17 +76,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 58px;
-        height: 58px;
-        border-radius: 18px;
-        border: none;
-        background: linear-gradient(160deg, #FCD34D, #F59E0B 55%, #D97706 100%);
+        width: 60px;
+        height: 60px;
+        border-radius: 999px;
+        border: 2px solid #D97706;
+        background: linear-gradient(160deg, #2c2823, #1a1a1a 65%);
         cursor: pointer;
-        box-shadow: 0 14px 32px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.08);
         transition: transform 0.15s ease, box-shadow 0.15s ease;
+        overflow: hidden;
       }
-      .ba-ai-launcher:hover, .ba-ai-launcher:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(245, 158, 11, 0.48), inset 0 1px 1px rgba(255, 255, 255, 0.5); }
-      .ba-ai-launcher svg { width: 30px; height: 30px; flex-shrink: 0; }
+      .ba-ai-launcher:hover, .ba-ai-launcher:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(245, 158, 11, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.08); }
+      .ba-ai-avatar-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; flex-shrink: 0; pointer-events: none; }
+      .ba-ai-avatar-sm { width: 30px; height: 30px; border-radius: 999px; overflow: hidden; flex-shrink: 0; background: #1a1a1a; border: 1.5px solid #D97706; }
+      .ba-ai-avatar-sm .ba-ai-avatar-img { object-position: center 25%; }
       .ba-ai-status-dot {
         position: absolute;
         top: -3px;
@@ -129,6 +138,39 @@
         transform: translateY(0);
       }
 
+      /* "Thinking" state: a gold ring sweeps around the avatar while a reply
+         is being generated - conic-gradient makes this a single rotating
+         pseudo-element, no extra image frames needed. */
+      .ba-ai-thinking-avatar {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+      }
+      .ba-ai-thinking-avatar::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 999px;
+        background: conic-gradient(from 0deg, transparent, #F59E0B 70deg, transparent 140deg);
+        animation: ba-ai-spin 1s linear infinite;
+      }
+      .ba-ai-thinking-avatar .ba-ai-avatar-sm {
+        position: absolute;
+        inset: 0;
+      }
+      @keyframes ba-ai-spin { to { transform: rotate(360deg); } }
+      .ba-ai-typing-row { align-self: ${isRtl ? 'flex-end' : 'flex-start'}; display: flex; align-items: center; gap: 8px; }
+      .ba-ai-typing-dots { display: flex; gap: 4px; background: #efece4; padding: 10px 13px; border-radius: 12px; border-bottom-${isRtl ? 'right' : 'left'}-radius: 3px; }
+      .ba-ai-typing-dots i { width: 6px; height: 6px; border-radius: 999px; background: #a19c8c; display: block; animation: ba-ai-dotbounce 1.1s ease-in-out infinite; font-style: normal; }
+      .ba-ai-typing-dots i:nth-child(2) { animation-delay: 0.15s; }
+      .ba-ai-typing-dots i:nth-child(3) { animation-delay: 0.3s; }
+      @keyframes ba-ai-dotbounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+
+      /* Brief "talking" pulse on the header avatar when a reply lands */
+      .ba-ai-pulse { animation: ba-ai-talkpulse 0.5s ease; }
+      @keyframes ba-ai-talkpulse { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+
       .ba-ai-panel {
         position: fixed;
         ${isRtl ? 'left' : 'right'}: 28px;
@@ -148,13 +190,15 @@
       .ba-ai-header {
         background: #0f0e0b;
         color: #f1ede2;
-        padding: 16px 18px;
+        padding: 12px 16px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 10px;
         flex-shrink: 0;
       }
+      .ba-ai-header-text { flex: 1; min-width: 0; }
       .ba-ai-header h2 { margin: 0; font-size: 15px; font-weight: 700; }
+      .ba-ai-header .ba-ai-online { font-size: 11px; color: #34D399; }
       .ba-ai-header button {
         background: none;
         border: none;
@@ -164,6 +208,7 @@
         line-height: 1;
         padding: 4px;
         opacity: 0.8;
+        flex-shrink: 0;
       }
       .ba-ai-header button:hover { opacity: 1; }
       .ba-ai-messages {
@@ -243,7 +288,6 @@
         cursor: pointer;
       }
       .ba-ai-inputrow button:disabled { opacity: 0.5; cursor: default; }
-      .ba-ai-typing { align-self: ${isRtl ? 'flex-end' : 'flex-start'}; color: #8a8578; font-size: 12px; padding: 0 4px; }
     `;
     document.head.appendChild(style);
   }
@@ -255,24 +299,13 @@
     return node;
   }
 
-  function buildWidget() {
-    const robotSvg = (function () {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('viewBox', '0 0 32 32');
-      svg.setAttribute('aria-hidden', 'true');
-      svg.innerHTML =
-        '<path d="M16 5.5v3.2" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>' +
-        '<circle cx="16" cy="4.2" r="1.5" fill="#1a1a1a"/>' +
-        '<rect x="7" y="9.4" width="18" height="15" rx="6" fill="none" stroke="#1a1a1a" stroke-width="2"/>' +
-        '<rect x="10.6" y="14.6" width="10.8" height="4.6" rx="2.3" fill="#1a1a1a"/>' +
-        '<circle cx="13.4" cy="16.9" r="1" fill="#F59E0B"/>' +
-        '<circle cx="18.6" cy="16.9" r="1" fill="#F59E0B"/>' +
-        '<path d="M4.5 15v3M27.5 15v3" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>';
-      return svg;
-    })();
+  function avatarImg(extraClass) {
+    return el('img', { class: `ba-ai-avatar-img${extraClass ? ` ${extraClass}` : ''}`, src: AVATAR_SRC, alt: '', 'aria-hidden': 'true' });
+  }
 
+  function buildWidget() {
     const launcher = el('button', { class: 'ba-ai-launcher', type: 'button', 'aria-label': STRINGS.button }, [
-      robotSvg,
+      avatarImg(),
       el('span', { class: 'ba-ai-status-dot', 'aria-hidden': 'true' }, []),
     ]);
     const tooltip = el('span', { class: 'ba-ai-tooltip', 'aria-hidden': 'true' }, [STRINGS.tooltip]);
@@ -283,8 +316,13 @@
     const sendBtn = el('button', { type: 'button' }, [STRINGS.send]);
     const closeBtn = el('button', { type: 'button', 'aria-label': STRINGS.close }, ['×']);
 
+    const headerAvatar = el('div', { class: 'ba-ai-avatar-sm' }, [avatarImg()]);
     const panel = el('div', { class: 'ba-ai-panel', hidden: 'hidden', role: 'dialog', 'aria-label': STRINGS.title }, [
-      el('div', { class: 'ba-ai-header' }, [el('h2', null, [STRINGS.title]), closeBtn]),
+      el('div', { class: 'ba-ai-header' }, [
+        headerAvatar,
+        el('div', { class: 'ba-ai-header-text' }, [el('h2', null, [STRINGS.title]), el('span', { class: 'ba-ai-online' }, [`● ${STRINGS.online}`])]),
+        closeBtn,
+      ]),
       messages,
       el('div', { class: 'ba-ai-inputrow' }, [textarea, sendBtn]),
     ]);
@@ -302,6 +340,11 @@
     function addMessage(text, role) {
       messages.appendChild(el('div', { class: `ba-ai-msg ${role}` }, [text]));
       messages.scrollTop = messages.scrollHeight;
+      if (role === 'assistant') {
+        headerAvatar.classList.remove('ba-ai-pulse');
+        void headerAvatar.offsetWidth; // restart the animation on repeat replies
+        headerAvatar.classList.add('ba-ai-pulse');
+      }
     }
 
     function addWhatsappLink(url) {
@@ -337,7 +380,10 @@
       textarea.value = '';
       addMessage(text, 'user');
 
-      const typing = el('div', { class: 'ba-ai-typing' }, ['…']);
+      const typing = el('div', { class: 'ba-ai-typing-row' }, [
+        el('div', { class: 'ba-ai-thinking-avatar' }, [el('div', { class: 'ba-ai-avatar-sm' }, [avatarImg()])]),
+        el('div', { class: 'ba-ai-typing-dots' }, [el('i', null, []), el('i', null, []), el('i', null, [])]),
+      ]);
       messages.appendChild(typing);
       messages.scrollTop = messages.scrollHeight;
 
