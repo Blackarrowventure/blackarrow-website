@@ -1,15 +1,19 @@
 /* ==============================================
    BLACK ARROW VENTURE
-   "Ask Black Arrow AI" chat widget — ai-assistant.js
+   "Arrow AI" enquiry bot — ai-assistant.js
 
    Self-contained: injects its own <style> and DOM into every page (there is
    no shared template across the 16 HTML files, so a single new <script>
-   tag per page is the only edit needed anywhere). Talks only to the
-   ai-assistant Supabase Edge Function - never to Postgrest directly, so no
-   database credential of any kind lives in this file. The anon/publishable
-   key below is Supabase's public client key by design (safe to ship in
-   browser code, the same way every Supabase web app ships it) and grants
-   nothing on its own; the Edge Function is the real trust boundary.
+   tag per page is the only edit needed anywhere).
+
+   Deliberately NOT an LLM chatbot - a deterministic, click-driven menu
+   (pick a product category, give a name + contact, optional note) that
+   posts straight to the submit_website_enquiry() RPC in Supabase. No AI
+   API key, no per-message cost, nothing that can ever hit a billing wall.
+   The anon/publishable key below is Supabase's public client key by
+   design (safe to ship in browser code) and only grants execute on that
+   one function - see supabase/migrations/0050_website_enquiry_bot.sql in
+   the CRM repo.
 
    Language follows the page itself (document.documentElement.lang), same
    as the rest of this static, build-step-free site - no in-widget switch.
@@ -17,42 +21,67 @@
 'use strict';
 
 (function () {
-  const SUPABASE_FUNCTION_URL = 'https://iorbuqljfxifgtrdniwq.supabase.co/functions/v1/ai-assistant';
+  const SUPABASE_URL = 'https://iorbuqljfxifgtrdniwq.supabase.co';
   const SUPABASE_ANON_KEY = 'sb_publishable_aXFaAU9OVKWqbWns7K4T_g_mGtC1Olz';
   const WHATSAPP_NUMBER = '966560224715';
-  const SESSION_KEY = 'ba_ai_session_id';
 
   const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
   const isRtl = document.documentElement.dir === 'rtl';
+
+  const CATEGORIES = [
+    { en: 'EV Charging Solutions', ar: 'حلول شحن السيارات الكهربائية' },
+    { en: 'UPS Solutions', ar: 'أنظمة UPS' },
+    { en: 'Lighting Solutions', ar: 'حلول الإضاءة' },
+    { en: 'Firefighting Systems', ar: 'أنظمة مكافحة الحريق' },
+    { en: 'HVAC Solutions', ar: 'حلول التكييف' },
+    { en: 'Electrical & Power Distribution', ar: 'التوزيع الكهربائي وأنظمة الطاقة' },
+    { en: 'Hospital Solutions', ar: 'حلول المستشفيات' },
+    { en: 'General Trading', ar: 'التجارة العامة' },
+    { en: 'Something else', ar: 'شيء آخر' },
+  ];
 
   const STRINGS = {
     en: {
       button: 'Ask Arrow AI',
       tooltip: 'How can we assist you today?',
       title: 'Arrow AI',
-      subtitle: 'Black Arrow Project Assistant',
       online: 'Online now',
-      intro: "Hi! I'm Arrow AI 👋 Ask me about our EV charging, UPS, lighting, firefighting, HVAC, electrical, or hospital solutions — or tell me what you need and I'll help get you a quote.",
-      placeholder: 'Type your message…',
+      intro: "Hi! I'm Arrow AI 👋 What are you looking for?",
+      talkToPerson: '💬 Talk to a person',
+      askName: "Great choice! What's your name?",
+      askContact: 'Thanks! Best phone number or email to reach you?',
+      askNote: 'Anything else we should know (project, location, quantity, timeline)? You can skip this.',
+      skip: 'Skip',
+      placeholder: 'Type here…',
       send: 'Send',
       whatsappCta: 'Continue on WhatsApp',
       error: 'Something went wrong. Please try again or message us on WhatsApp.',
-      referencePrefix: 'Reference',
       close: 'Close chat',
+      submitting: 'Sending your enquiry…',
+      startOver: 'Start a new enquiry',
+      confirmationPrefix: "You're all set! Your reference number is",
+      confirmationSuffix: "Our team will reach out shortly. Want to speed things up?",
     },
     ar: {
       button: 'اسأل Arrow AI',
       tooltip: 'كيف يمكننا مساعدتك اليوم؟',
       title: 'Arrow AI',
-      subtitle: 'مساعد مشاريع بلاك أرو',
       online: 'متصل الآن',
-      intro: 'مرحبًا! أنا Arrow AI 👋 اسألني عن حلول شحن السيارات الكهربائية، أنظمة UPS، الإضاءة، مكافحة الحريق، التكييف، الكهرباء، أو حلول المستشفيات — أو أخبرني بما تحتاجه وسأساعدك في الحصول على عرض سعر.',
-      placeholder: 'اكتب رسالتك…',
+      intro: 'مرحبًا! أنا Arrow AI 👋 ما الذي تبحث عنه؟',
+      talkToPerson: '💬 التحدث مع أحد ممثلينا',
+      askName: 'اختيار رائع! ما اسمك؟',
+      askContact: 'شكرًا! ما هو أفضل رقم هاتف أو بريد إلكتروني للتواصل معك؟',
+      askNote: 'هل هناك أي تفاصيل أخرى (المشروع، الموقع، الكمية، الجدول الزمني)؟ يمكنك تخطي هذا.',
+      skip: 'تخطي',
+      placeholder: 'اكتب هنا…',
       send: 'إرسال',
       whatsappCta: 'المتابعة عبر واتساب',
       error: 'حدث خطأ ما. يرجى المحاولة مرة أخرى أو التواصل معنا عبر واتساب.',
-      referencePrefix: 'الرقم المرجعي',
       close: 'إغلاق المحادثة',
+      submitting: 'جارٍ إرسال طلبك…',
+      startOver: 'بدء طلب جديد',
+      confirmationPrefix: 'تم! رقمك المرجعي هو',
+      confirmationSuffix: 'سيتواصل معك فريقنا قريبًا. تريد تسريع الأمر؟',
     },
   }[lang];
 
@@ -138,9 +167,9 @@
         transform: translateY(0);
       }
 
-      /* "Thinking" state: a gold ring sweeps around the avatar while a reply
-         is being generated - conic-gradient makes this a single rotating
-         pseudo-element, no extra image frames needed. */
+      /* "Thinking" state: a gold ring sweeps around the avatar while the
+         enquiry is being submitted - conic-gradient makes this a single
+         rotating pseudo-element, no extra image frames needed. */
       .ba-ai-thinking-avatar {
         position: relative;
         width: 30px;
@@ -246,6 +275,25 @@
         font-size: 12px;
         text-align: center;
       }
+      .ba-ai-options {
+        align-self: ${isRtl ? 'flex-end' : 'flex-start'};
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-width: 100%;
+      }
+      .ba-ai-option-btn {
+        border: 1.5px solid #D97706;
+        background: #fff;
+        color: #7a4a08;
+        padding: 7px 13px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .ba-ai-option-btn:hover { background: #F59E0B; color: #1a1a1a; }
       .ba-ai-whatsapp {
         display: inline-flex;
         align-self: center;
@@ -268,16 +316,14 @@
         border-top: 1px solid #eee;
         background: #fff;
       }
-      .ba-ai-inputrow textarea {
+      .ba-ai-inputrow input {
         flex: 1;
-        resize: none;
         border: 1px solid #ddd;
         border-radius: 10px;
         padding: 9px 12px;
         font: inherit;
-        max-height: 80px;
       }
-      .ba-ai-inputrow textarea:focus { outline: 2px solid #c9a24a; outline-offset: 1px; }
+      .ba-ai-inputrow input:focus { outline: 2px solid #c9a24a; outline-offset: 1px; }
       .ba-ai-inputrow button {
         border: none;
         border-radius: 10px;
@@ -288,6 +334,7 @@
         cursor: pointer;
       }
       .ba-ai-inputrow button:disabled { opacity: 0.5; cursor: default; }
+      .ba-ai-inputrow[hidden] { display: none; }
     `;
     document.head.appendChild(style);
   }
@@ -303,6 +350,10 @@
     return el('img', { class: `ba-ai-avatar-img${extraClass ? ` ${extraClass}` : ''}`, src: AVATAR_SRC, alt: '', 'aria-hidden': 'true' });
   }
 
+  function whatsappUrl(text) {
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  }
+
   function buildWidget() {
     const launcher = el('button', { class: 'ba-ai-launcher', type: 'button', 'aria-label': STRINGS.button }, [
       avatarImg(),
@@ -312,8 +363,9 @@
     const launcherWrap = el('div', { class: 'ba-ai-launcher-wrap' }, [launcher, tooltip]);
 
     const messages = el('div', { class: 'ba-ai-messages', role: 'log', 'aria-live': 'polite' }, []);
-    const textarea = el('textarea', { rows: '1', placeholder: STRINGS.placeholder, 'aria-label': STRINGS.placeholder });
+    const textInput = el('input', { type: 'text', placeholder: STRINGS.placeholder, 'aria-label': STRINGS.placeholder });
     const sendBtn = el('button', { type: 'button' }, [STRINGS.send]);
+    const inputRow = el('div', { class: 'ba-ai-inputrow', hidden: 'hidden' }, [textInput, sendBtn]);
     const closeBtn = el('button', { type: 'button', 'aria-label': STRINGS.close }, ['×']);
 
     const headerAvatar = el('div', { class: 'ba-ai-avatar-sm' }, [avatarImg()]);
@@ -324,18 +376,11 @@
         closeBtn,
       ]),
       messages,
-      el('div', { class: 'ba-ai-inputrow' }, [textarea, sendBtn]),
+      inputRow,
     ]);
 
     document.body.appendChild(launcherWrap);
     document.body.appendChild(panel);
-
-    let sessionId = null;
-    try {
-      sessionId = sessionStorage.getItem(SESSION_KEY);
-    } catch {
-      /* sessionStorage unavailable (private mode etc.) - conversation just won't persist across a reload */
-    }
 
     function addMessage(text, role) {
       messages.appendChild(el('div', { class: `ba-ai-msg ${role}` }, [text]));
@@ -347,10 +392,109 @@
       }
     }
 
+    function addOptions(options) {
+      const wrap = el('div', { class: 'ba-ai-options' }, []);
+      options.forEach((opt) => {
+        const btn = el('button', { class: 'ba-ai-option-btn', type: 'button' }, [opt.label]);
+        btn.addEventListener('click', () => {
+          wrap.querySelectorAll('button').forEach((b) => (b.disabled = true));
+          opt.onClick();
+        });
+        wrap.appendChild(btn);
+      });
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
     function addWhatsappLink(url) {
       const link = el('a', { class: 'ba-ai-whatsapp', href: url, target: '_blank', rel: 'noopener' }, [STRINGS.whatsappCta]);
       messages.appendChild(link);
       messages.scrollTop = messages.scrollHeight;
+    }
+
+    const draft = { category: '', name: '', contact: '', note: '' };
+    let flowState = 'menu';
+
+    function goToWhatsapp() {
+      window.open(whatsappUrl('Hi, I would like to speak with your team about your solutions.'), '_blank', 'noopener');
+    }
+
+    function showMenu() {
+      flowState = 'menu';
+      inputRow.hidden = true;
+      addMessage(STRINGS.intro, 'assistant');
+      addOptions([
+        ...CATEGORIES.map((c) => ({ label: c[lang], onClick: () => selectCategory(c[lang]) })),
+        { label: STRINGS.talkToPerson, onClick: goToWhatsapp },
+      ]);
+    }
+
+    function selectCategory(label) {
+      addMessage(label, 'user');
+      draft.category = label;
+      flowState = 'name';
+      inputRow.hidden = false;
+      addMessage(STRINGS.askName, 'assistant');
+      textInput.focus();
+    }
+
+    function askContact() {
+      flowState = 'contact';
+      addMessage(STRINGS.askContact, 'assistant');
+      textInput.focus();
+    }
+
+    function askNote() {
+      flowState = 'note';
+      addMessage(STRINGS.askNote, 'assistant');
+      addOptions([{ label: STRINGS.skip, onClick: () => submitEnquiry() }]);
+      textInput.focus();
+    }
+
+    async function submitEnquiry() {
+      flowState = 'submitting';
+      inputRow.hidden = true;
+      const typing = el('div', { class: 'ba-ai-typing-row' }, [
+        el('div', { class: 'ba-ai-thinking-avatar' }, [el('div', { class: 'ba-ai-avatar-sm' }, [avatarImg()])]),
+        el('div', { class: 'ba-ai-typing-dots' }, [el('i', null, []), el('i', null, []), el('i', null, [])]),
+      ]);
+      messages.appendChild(typing);
+      messages.scrollTop = messages.scrollHeight;
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/submit_website_enquiry`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+          body: JSON.stringify({ p_language: lang, p_category: draft.category, p_name: draft.name, p_contact: draft.contact, p_note: draft.note || null }),
+        });
+        const data = await res.json();
+        typing.remove();
+
+        if (!res.ok) {
+          const message = Array.isArray(data) ? '' : data?.message;
+          addMessage(message || STRINGS.error, 'system');
+          addWhatsappLink(whatsappUrl(`Hi, I'm trying to reach you about ${draft.category || 'your solutions'} but ran into an issue on the website.`));
+          return;
+        }
+
+        const reference = Array.isArray(data) && data[0] ? data[0].reference_number : '';
+        addMessage(`${STRINGS.confirmationPrefix} ${reference}.\n\n${STRINGS.confirmationSuffix}`, 'assistant');
+        addWhatsappLink(whatsappUrl(`Hi, I'm following up on my enquiry ${reference} from Arrow AI on the website. Category: ${draft.category}.`));
+        addOptions([{ label: STRINGS.startOver, onClick: resetFlow }]);
+        flowState = 'done';
+      } catch {
+        typing.remove();
+        addMessage(STRINGS.error, 'system');
+        addWhatsappLink(whatsappUrl('Hi, I would like to speak with your team about your solutions.'));
+      }
+    }
+
+    function resetFlow() {
+      draft.category = '';
+      draft.name = '';
+      draft.contact = '';
+      draft.note = '';
+      showMenu();
     }
 
     let opened = false;
@@ -359,9 +503,9 @@
       launcherWrap.hidden = true;
       if (!opened) {
         opened = true;
-        addMessage(STRINGS.intro, 'assistant');
+        showMenu();
       }
-      textarea.focus();
+      if (!inputRow.hidden) textInput.focus();
     }
     function closePanel() {
       panel.hidden = true;
@@ -371,61 +515,31 @@
     launcher.addEventListener('click', openPanel);
     closeBtn.addEventListener('click', closePanel);
 
-    let sending = false;
-    async function sendMessage() {
-      const text = textarea.value.trim();
-      if (!text || sending) return;
-      sending = true;
-      sendBtn.disabled = true;
-      textarea.value = '';
-      addMessage(text, 'user');
+    function handleTextSubmit() {
+      const text = textInput.value.trim();
+      if (!text) return;
+      textInput.value = '';
 
-      const typing = el('div', { class: 'ba-ai-typing-row' }, [
-        el('div', { class: 'ba-ai-thinking-avatar' }, [el('div', { class: 'ba-ai-avatar-sm' }, [avatarImg()])]),
-        el('div', { class: 'ba-ai-typing-dots' }, [el('i', null, []), el('i', null, []), el('i', null, [])]),
-      ]);
-      messages.appendChild(typing);
-      messages.scrollTop = messages.scrollHeight;
-
-      try {
-        const res = await fetch(SUPABASE_FUNCTION_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
-          body: JSON.stringify({ sessionId, language: lang, message: text }),
-        });
-        const data = await res.json();
-        typing.remove();
-
-        if (!res.ok) {
-          addMessage(data.error || STRINGS.error, 'system');
-          if (data.whatsappUrl) addWhatsappLink(data.whatsappUrl);
-          return;
-        }
-
-        if (data.sessionId) {
-          sessionId = data.sessionId;
-          try {
-            sessionStorage.setItem(SESSION_KEY, sessionId);
-          } catch {
-            /* ignore */
-          }
-        }
-        addMessage(data.reply, 'assistant');
-        if (data.handoff && data.whatsappUrl) addWhatsappLink(data.whatsappUrl);
-      } catch {
-        typing.remove();
-        addMessage(STRINGS.error, 'system');
-      } finally {
-        sending = false;
-        sendBtn.disabled = false;
+      if (flowState === 'name') {
+        addMessage(text, 'user');
+        draft.name = text;
+        askContact();
+      } else if (flowState === 'contact') {
+        addMessage(text, 'user');
+        draft.contact = text;
+        askNote();
+      } else if (flowState === 'note') {
+        addMessage(text, 'user');
+        draft.note = text;
+        submitEnquiry();
       }
     }
 
-    sendBtn.addEventListener('click', sendMessage);
-    textarea.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
+    sendBtn.addEventListener('click', handleTextSubmit);
+    textInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
         e.preventDefault();
-        sendMessage();
+        handleTextSubmit();
       }
     });
   }
