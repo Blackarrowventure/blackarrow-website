@@ -28,6 +28,7 @@
   const STRINGS = {
     en: {
       button: 'Ask Black Arrow AI',
+      tooltip: 'How can we assist you today?',
       title: 'Black Arrow AI Assistant',
       intro: "Hi! I'm the Black Arrow AI Assistant. Ask me about our EV charging, UPS, lighting, firefighting, HVAC, electrical, hospital, or aviation lighting solutions — or tell me what you need and I'll help get you a quote.",
       placeholder: 'Type your message…',
@@ -39,6 +40,7 @@
     },
     ar: {
       button: 'اسأل بلاك أرو AI',
+      tooltip: 'كيف يمكننا مساعدتك اليوم؟',
       title: 'مساعد بلاك أرو الذكي',
       intro: 'مرحبًا! أنا مساعد بلاك أرو الذكي. اسألني عن حلول شحن السيارات الكهربائية، أنظمة UPS، الإضاءة، مكافحة الحريق، التكييف، الكهرباء، حلول المستشفيات، أو إضاءة المطارات — أو أخبرني بما تحتاجه وسأساعدك في الحصول على عرض سعر.',
       placeholder: 'اكتب رسالتك…',
@@ -53,32 +55,84 @@
   function injectStyles() {
     const style = document.createElement('style');
     style.textContent = `
-      .ba-ai-launcher {
+      /* Gold Badge Bot: sits above the site's floating WhatsApp button
+         (.wa-float: bottom:28px, ${isRtl ? 'left' : 'right'}:28px, 60px tall - see styles.css #17),
+         never on top of it. 28 (its offset) + 60 (its height) + 16 (gap) = 104. */
+      .ba-ai-launcher-wrap {
         position: fixed;
-        ${isRtl ? 'left' : 'right'}: 20px;
-        bottom: 20px;
+        ${isRtl ? 'left' : 'right'}: 28px;
+        bottom: 104px;
         z-index: 9998;
-        display: inline-flex;
+      }
+      .ba-ai-launcher-wrap[hidden] { display: none; }
+      .ba-ai-launcher {
+        position: relative;
+        display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 12px 18px 12px 14px;
-        border-radius: 999px;
+        justify-content: center;
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
         border: none;
-        background: #0f0e0b;
-        color: #f1ede2;
-        font: 600 14px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(160deg, #FCD34D, #F59E0B 55%, #D97706 100%);
         cursor: pointer;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        box-shadow: 0 14px 32px rgba(245, 158, 11, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .ba-ai-launcher:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
-      .ba-ai-launcher svg { width: 20px; height: 20px; flex-shrink: 0; }
-      .ba-ai-launcher[hidden] { display: none; }
+      .ba-ai-launcher:hover, .ba-ai-launcher:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(245, 158, 11, 0.48), inset 0 1px 1px rgba(255, 255, 255, 0.5); }
+      .ba-ai-launcher svg { width: 30px; height: 30px; flex-shrink: 0; }
+      .ba-ai-status-dot {
+        position: absolute;
+        top: -3px;
+        ${isRtl ? 'left' : 'right'}: -3px;
+        width: 13px;
+        height: 13px;
+        border-radius: 999px;
+        background: #22c55e;
+        border: 2.5px solid #f8f8f8;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+        animation: ba-ai-dotpulse 2.2s ease-out infinite;
+        pointer-events: none;
+      }
+      @keyframes ba-ai-dotpulse {
+        0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+        70% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+      .ba-ai-tooltip {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        ${isRtl ? 'left' : 'right'}: 0;
+        background: #0f0e0b;
+        color: #f1ede2;
+        font: 600 12px/1.3 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        padding: 7px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(4px);
+        pointer-events: none;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+      .ba-ai-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        ${isRtl ? 'left' : 'right'}: 20px;
+        border: 5px solid transparent;
+        border-top-color: #0f0e0b;
+      }
+      .ba-ai-launcher:hover + .ba-ai-tooltip,
+      .ba-ai-launcher:focus-visible + .ba-ai-tooltip {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       .ba-ai-panel {
         position: fixed;
-        ${isRtl ? 'left' : 'right'}: 20px;
-        bottom: 20px;
+        ${isRtl ? 'left' : 'right'}: 28px;
+        bottom: 28px;
         z-index: 9999;
         width: min(380px, calc(100vw - 32px));
         height: min(560px, calc(100vh - 48px));
@@ -202,21 +256,27 @@
   }
 
   function buildWidget() {
+    const robotSvg = (function () {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 32 32');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.innerHTML =
+        '<path d="M16 5.5v3.2" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>' +
+        '<circle cx="16" cy="4.2" r="1.5" fill="#1a1a1a"/>' +
+        '<rect x="7" y="9.4" width="18" height="15" rx="6" fill="none" stroke="#1a1a1a" stroke-width="2"/>' +
+        '<rect x="10.6" y="14.6" width="10.8" height="4.6" rx="2.3" fill="#1a1a1a"/>' +
+        '<circle cx="13.4" cy="16.9" r="1" fill="#F59E0B"/>' +
+        '<circle cx="18.6" cy="16.9" r="1" fill="#F59E0B"/>' +
+        '<path d="M4.5 15v3M27.5 15v3" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>';
+      return svg;
+    })();
+
     const launcher = el('button', { class: 'ba-ai-launcher', type: 'button', 'aria-label': STRINGS.button }, [
-      (function () {
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('viewBox', '0 0 24 24');
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('stroke-width', '2');
-        svg.setAttribute('stroke-linecap', 'round');
-        svg.setAttribute('stroke-linejoin', 'round');
-        svg.setAttribute('aria-hidden', 'true');
-        svg.innerHTML = '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>';
-        return svg;
-      })(),
-      el('span', null, [STRINGS.button]),
+      robotSvg,
+      el('span', { class: 'ba-ai-status-dot', 'aria-hidden': 'true' }, []),
     ]);
+    const tooltip = el('span', { class: 'ba-ai-tooltip', 'aria-hidden': 'true' }, [STRINGS.tooltip]);
+    const launcherWrap = el('div', { class: 'ba-ai-launcher-wrap' }, [launcher, tooltip]);
 
     const messages = el('div', { class: 'ba-ai-messages', role: 'log', 'aria-live': 'polite' }, []);
     const textarea = el('textarea', { rows: '1', placeholder: STRINGS.placeholder, 'aria-label': STRINGS.placeholder });
@@ -229,7 +289,7 @@
       el('div', { class: 'ba-ai-inputrow' }, [textarea, sendBtn]),
     ]);
 
-    document.body.appendChild(launcher);
+    document.body.appendChild(launcherWrap);
     document.body.appendChild(panel);
 
     let sessionId = null;
@@ -253,7 +313,7 @@
     let opened = false;
     function openPanel() {
       panel.hidden = false;
-      launcher.hidden = true;
+      launcherWrap.hidden = true;
       if (!opened) {
         opened = true;
         addMessage(STRINGS.intro, 'assistant');
@@ -262,7 +322,7 @@
     }
     function closePanel() {
       panel.hidden = true;
-      launcher.hidden = false;
+      launcherWrap.hidden = false;
     }
 
     launcher.addEventListener('click', openPanel);
