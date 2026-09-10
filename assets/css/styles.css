@@ -2884,24 +2884,32 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .in-view .fx-ups-led:nth-of-type(4) { transition-delay: 1.95s; }
 
 /* Lighting: a solid "curtain" the same color as the section background
-   wipes away left-to-right, uncovering the actual photo underneath —
-   which already has its façade lights, palm lights and the illuminated
-   sign baked in, so they read as switching on in sequence across the
-   building without adding any extra dots or badges on top of the image. */
+   covers the façade, and a soft-edged circular hole (CSS mask, not a
+   hard rectangular wipe) grows outward from the entrance until the
+   whole curtain is gone — reads as the building's lights spreading
+   outward from one point, rather than a left-to-right reveal. The
+   photo underneath already has its façade lights, palm lights and the
+   illuminated sign baked in, so nothing is added on top of the image. */
+@property --fx-reveal {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
 .fx-sweep-mask {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 18%; /* stops short of the "ضيافة الرياض" sign, so the logo reads as
-                 already lit from the start instead of waiting for the sweep */
+                 already lit from the start instead of waiting to be revealed */
   background: #0a0a0a;
-  transform-origin: right center;
-  transform: scaleX(1);
-  transition: transform 2.2s cubic-bezier(.65,0,.35,1);
+  --fx-reveal: 0%;
+  -webkit-mask-image: radial-gradient(circle at 45% 58%, transparent 0%, transparent var(--fx-reveal), black calc(var(--fx-reveal) + 4%), black 100%);
+  mask-image: radial-gradient(circle at 45% 58%, transparent 0%, transparent var(--fx-reveal), black calc(var(--fx-reveal) + 4%), black 100%);
+  transition: --fx-reveal 2.4s cubic-bezier(.33,0,.2,1);
 }
 .in-view .fx-sweep-mask {
-  transform: scaleX(0);
+  --fx-reveal: 100%;
 }
 
 @keyframes fxFlicker {
