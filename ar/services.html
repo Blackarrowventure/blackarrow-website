@@ -249,22 +249,6 @@
                 <span class="fx-ev-strip__block"></span>
                 <span class="fx-ev-strip__block"></span>
               </span>
-              <svg class="fx-ev-wire" viewBox="0 0 1536 905" preserveAspectRatio="none" focusable="false">
-                <defs>
-                  <path id="fxWirePathEv" d="M937,632 C922,655 908,675 903,700 C900,715 898,730 897,748"/>
-                  <radialGradient id="fxWireGlowEv" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#eafff5" stop-opacity="1"/>
-                    <stop offset="55%" stop-color="#7dd3fc" stop-opacity=".85"/>
-                    <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <use href="#fxWirePathEv" fill="none" stroke="#5eead4" stroke-width="5" stroke-linecap="round" opacity=".3"/>
-                <circle r="20" fill="url(#fxWireGlowEv)">
-                  <animateMotion dur="1.6s" repeatCount="indefinite" rotate="auto">
-                    <mpath href="#fxWirePathEv"/>
-                  </animateMotion>
-                </circle>
-              </svg>
               <span class="fx-ev-badge">⚡</span>
             </div>
           </div>
@@ -325,10 +309,15 @@
     <section id="lighting" class="service-detail" aria-labelledby="lighting-heading">
       <div class="container">
         <div class="service-detail__inner">
-          <picture>
-            <source srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
-            <img src="/assets/images/services/lighting-solutions.jpg" alt="أنظمة إضاءة احترافية" class="service-detail__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_lighting">
-          </picture>
+          <div class="media-fx fx-sweep">
+            <picture>
+              <source srcset="/assets/images/services/lighting-solutions.webp" type="image/webp">
+              <img src="/assets/images/services/lighting-solutions.jpg" alt="أنظمة إضاءة احترافية" class="service-detail__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_lighting">
+            </picture>
+            <div class="fx-layer" aria-hidden="true">
+              <span class="fx-sweep-mask"></span>
+            </div>
+          </div>
           <div class="service-detail__content">
             <span class="overline" data-i18n="modern_lighting">إضاءة حديثة</span>
             <h2 id="lighting-heading" data-i18n="service_lighting">حلول الإضاءة</h2>
