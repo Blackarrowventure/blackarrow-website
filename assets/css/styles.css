@@ -2890,7 +2890,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    building without adding any extra dots or badges on top of the image. */
 .fx-sweep-mask {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 18%; /* stops short of the "ضيافة الرياض" sign, so the logo reads as
+                 already lit from the start instead of waiting for the sweep */
   background: #0a0a0a;
   transform-origin: right center;
   transform: scaleX(1);
