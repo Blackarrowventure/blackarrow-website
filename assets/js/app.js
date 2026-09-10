@@ -108,6 +108,37 @@ function initScrollReveal() {
 }
 
 /* ──────────────────────────────────────────────
+   3b. SERVICE PHOTO "POWER ON" EFFECTS (EV / UPS)
+   Same once-only IntersectionObserver pattern as initScrollReveal, just a
+   higher threshold — this one is a deliberate reveal moment, not a fade-in,
+   so it should fire once the image is substantially on screen rather than
+   the instant a sliver of it appears.
+   ────────────────────────────────────────────── */
+function initServiceFx() {
+  const targets = document.querySelectorAll('.media-fx');
+  if (!targets.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.35,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  targets.forEach(el => observer.observe(el));
+}
+
+/* ──────────────────────────────────────────────
    4. ANIMATED COUNTERS
    ────────────────────────────────────────────── */
 function animateCounter(el, target, suffix) {
@@ -592,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initClickableCards();
   initHeroSlider();
   initScrollReveal();
+  initServiceFx();
   initNumerals();
   initCounters();
   setActiveNav();
