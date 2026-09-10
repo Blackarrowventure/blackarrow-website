@@ -2779,18 +2779,21 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .media-fx.fx-flicker.in-view .service-detail__img {
   animation: fxFlicker 1.5s cubic-bezier(.22,.61,.36,1) .5s both;
 }
-/* Lighting: the photo starts as close to fully off as a CSS filter can
-   get (not just dimmed — the warm façade/palm/logo lights should be
-   genuinely invisible against the section's near-black background),
-   then brightens on a slow, smooth ramp with no flicker — real LED
-   architectural lighting doesn't flicker like an old fluorescent tube,
-   it just comes up gradually. */
+/* Lighting: starts genuinely off (invisible against the section's
+   near-black background), holds there, then blinks on twice before
+   settling fully lit — same blink-then-settle idea as UPS, just its own
+   longer, more clearly-visible timing (~3.4s total) so the sequence
+   reads even if someone scrolls past quickly and only catches part of
+   it, rather than a smooth fade that can look "already on" by the time
+   anyone actually looks. */
 .media-fx.fx-glow-slow .service-detail__img {
   filter: brightness(.03) saturate(.3);
-  transition: filter 2.8s ease-out;
 }
 .media-fx.fx-glow-slow.in-view .service-detail__img {
-  filter: brightness(1) saturate(1);
+  /* linear, not eased — an eased overall timing-function would warp
+     where the two blinks actually land in real time, since it applies
+     to the whole animation's pacing, not per-segment. */
+  animation: fxGlowBlink 3.4s linear .4s both;
 }
 
 /* Segmented level strip — reads as a physical charger's LED bar filling
@@ -2897,6 +2900,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   22%  { filter: brightness(1) saturate(1); }
   30%  { filter: brightness(.55) saturate(.8); }
   100% { filter: brightness(1) saturate(1); }
+}
+@keyframes fxGlowBlink {
+  0%,14%  { filter: brightness(.03) saturate(.3); }  /* off, held */
+  20%     { filter: brightness(.9) saturate(.9); }   /* blink 1 */
+  26%,40% { filter: brightness(.05) saturate(.3); }  /* off again, held */
+  46%     { filter: brightness(.95) saturate(.95); } /* blink 2 */
+  52%,64% { filter: brightness(.12) saturate(.35); } /* off once more, briefly */
+  100%    { filter: brightness(1) saturate(1); }     /* smooth final rise, fully on */
 }
 @keyframes fxPowerOn {
   0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
