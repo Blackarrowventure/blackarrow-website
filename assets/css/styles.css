@@ -2774,11 +2774,23 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .media-fx.in-view .service-detail__img {
   filter: brightness(1) saturate(1);
 }
-/* UPS and Lighting both get a fluorescent-tube startup flicker instead
-   of a plain ramp, held back a beat so the room/façade reads as still
-   off for a moment first. */
+/* UPS gets a fluorescent-tube startup flicker instead of a plain ramp,
+   held back a beat so the room reads as still off for a moment first. */
 .media-fx.fx-flicker.in-view .service-detail__img {
   animation: fxFlicker 1.5s cubic-bezier(.22,.61,.36,1) .5s both;
+}
+/* Lighting: the photo starts as close to fully off as a CSS filter can
+   get (not just dimmed — the warm façade/palm/logo lights should be
+   genuinely invisible against the section's near-black background),
+   then brightens on a slow, smooth ramp with no flicker — real LED
+   architectural lighting doesn't flicker like an old fluorescent tube,
+   it just comes up gradually. */
+.media-fx.fx-glow-slow .service-detail__img {
+  filter: brightness(.03) saturate(.3);
+  transition: filter 2.8s ease-out;
+}
+.media-fx.fx-glow-slow.in-view .service-detail__img {
+  filter: brightness(1) saturate(1);
 }
 
 /* Segmented level strip — reads as a physical charger's LED bar filling
