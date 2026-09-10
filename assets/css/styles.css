@@ -2748,11 +2748,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ─── Scroll-triggered "power on" effects — EV charger + UPS panel ───
-   Approximate overlay positions matched by eye against the current photos.
-   Percentages are relative to the image's own box (object-fit: contain
-   never crops it), so they hold steady across viewport widths but assume
-   these specific source images — recheck placement if either photo is
-   ever replaced. CSS-only decoration, no library; respects the
+   Replays every time the section re-enters the viewport, not just once
+   (JS toggles .in-view on enter/exit and force-restarts the keyframe
+   pieces — see initServiceFx in app.js). Percentages are matched by eye
+   against the current photos and relative to the image's own box
+   (object-fit: contain never crops it), so recheck placement if either
+   photo is ever replaced. CSS-only, no library; respects the
    prefers-reduced-motion kill-switch above via ordinary animation/transition. */
 .media-fx { position: relative; }
 .media-fx .fx-layer {
@@ -2763,18 +2764,21 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   pointer-events: none;
 }
 
-.fx-ev-light {
-  position: absolute;
-  left: 17.6%;
-  top: 39%;
-  width: 3%;
-  aspect-ratio: 1;
-  border-radius: 3px;
-  background: #86efd1;
-  opacity: 0;
-  transform: scale(.5);
-  transition: opacity .5s ease, transform .5s ease;
+/* The main event: the whole photo reads as dim/off, then floods to full
+   brightness — reads as "the room/station powers up" regardless of which
+   photo is behind it, rather than relying on a couple of pinpoint dots. */
+.media-fx .service-detail__img {
+  filter: brightness(.4) saturate(.7);
+  transition: filter 1.4s cubic-bezier(.22,.61,.36,1);
 }
+.media-fx.in-view .service-detail__img {
+  filter: brightness(1) saturate(1);
+}
+/* UPS gets a fluorescent-tube startup flicker instead of a plain ramp. */
+.media-fx.fx-flicker.in-view .service-detail__img {
+  animation: fxFlicker 1.5s cubic-bezier(.22,.61,.36,1) both;
+}
+
 .fx-ev-strip {
   position: absolute;
   left: 15.8%;
@@ -2784,7 +2788,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: 2px;
   background: linear-gradient(#6ee7c9, #22c55e);
   opacity: 0;
-  transition: opacity .6s ease .15s, box-shadow .6s ease .15s;
+  transition: opacity .6s ease .5s, box-shadow .6s ease .5s;
 }
 .fx-ev-cable {
   position: absolute;
@@ -2797,7 +2801,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   border-radius: 999px;
   overflow: hidden;
   opacity: 0;
-  transition: opacity .4s ease .35s;
+  transition: opacity .4s ease .8s;
 }
 .fx-ev-cable::after {
   content: "";
@@ -2807,10 +2811,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: linear-gradient(90deg, transparent, #a5f3fc 40%, #fff 50%, #a5f3fc 60%, transparent);
   transform: translateX(-140%);
 }
-.in-view .fx-ev-light {
-  opacity: 1;
-  transform: scale(1);
-  animation: fxPowerOn 1.1s ease-out .45s 1 both;
+.fx-ev-badge {
+  position: absolute;
+  left: 58%;
+  top: 66%;
+  width: 5.4%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,222,128,.95), rgba(74,222,128,.15) 70%);
+  color: #eafff2;
+  font-size: clamp(9px, 1.4vw, 15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.5);
+  transition: opacity .4s ease .95s, transform .4s ease .95s;
 }
 .in-view .fx-ev-strip {
   opacity: 1;
@@ -2818,7 +2834,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .in-view .fx-ev-cable { opacity: 1; }
 .in-view .fx-ev-cable::after {
-  animation: fxCableTravel 1.2s ease-out .55s 1 forwards;
+  animation: fxCableTravel 1.3s linear .85s infinite;
+}
+.in-view .fx-ev-badge {
+  opacity: 1;
+  transform: scale(1);
+  animation: fxBadgePulse 1.6s ease-in-out 1.1s infinite;
 }
 
 .fx-ups-screen {
@@ -2831,7 +2852,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: radial-gradient(circle, #7dd3fc, rgba(125,211,252,0) 70%);
   opacity: 0;
   transform: scale(.6);
-  transition: opacity .6s ease, transform .6s ease;
+  transition: opacity .6s ease .9s, transform .6s ease .9s;
 }
 .fx-ups-led {
   position: absolute;
@@ -2852,17 +2873,25 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .in-view .fx-ups-screen {
   opacity: 1;
   transform: scale(1);
-  animation: fxPowerOn 1.2s ease-out .5s 1 both;
+  animation: fxPowerOn 1.1s ease-out 1s 1 both;
 }
 .in-view .fx-ups-led {
   opacity: 1;
   box-shadow: 0 0 8px 2px rgba(74,222,128,.7);
 }
-.in-view .fx-ups-led:nth-of-type(1) { transition-delay: .5s; }
-.in-view .fx-ups-led:nth-of-type(2) { transition-delay: .68s; }
-.in-view .fx-ups-led:nth-of-type(3) { transition-delay: .86s; }
-.in-view .fx-ups-led:nth-of-type(4) { transition-delay: 1.04s; }
+.in-view .fx-ups-led:nth-of-type(1) { transition-delay: 1.0s; }
+.in-view .fx-ups-led:nth-of-type(2) { transition-delay: 1.15s; }
+.in-view .fx-ups-led:nth-of-type(3) { transition-delay: 1.3s; }
+.in-view .fx-ups-led:nth-of-type(4) { transition-delay: 1.45s; }
 
+@keyframes fxFlicker {
+  0%   { filter: brightness(.4) saturate(.7); }
+  8%   { filter: brightness(.95) saturate(.9); }
+  14%  { filter: brightness(.35) saturate(.7); }
+  22%  { filter: brightness(1) saturate(1); }
+  30%  { filter: brightness(.55) saturate(.8); }
+  100% { filter: brightness(1) saturate(1); }
+}
 @keyframes fxPowerOn {
   0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
   55%  { box-shadow: 0 0 16px 5px rgba(255,255,255,.65); }
@@ -2871,6 +2900,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 @keyframes fxCableTravel {
   from { transform: translateX(-140%); }
   to   { transform: translateX(320%); }
+}
+@keyframes fxBadgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
 }
 
 .service-detail__img-placeholder {

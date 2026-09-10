@@ -109,10 +109,13 @@ function initScrollReveal() {
 
 /* ──────────────────────────────────────────────
    3b. SERVICE PHOTO "POWER ON" EFFECTS (EV / UPS)
-   Same once-only IntersectionObserver pattern as initScrollReveal, just a
-   higher threshold — this one is a deliberate reveal moment, not a fade-in,
-   so it should fire once the image is substantially on screen rather than
-   the instant a sliver of it appears.
+   Unlike initScrollReveal, this replays every time the section re-enters
+   the viewport — Afzal asked for it to "light up again" on every visit,
+   not just the first. .in-view is added AND removed (transitions reverse
+   naturally on removal), and the keyframe pieces (flicker, cable travel,
+   badge pulse) are force-restarted via a reflow trick, since just
+   re-adding a class does not restart an animation that's still "in" the
+   DOM's eyes.
    ────────────────────────────────────────────── */
 function initServiceFx() {
   const targets = document.querySelectorAll('.media-fx');
@@ -125,9 +128,13 @@ function initServiceFx() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      const el = entry.target;
       if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
+        el.classList.remove('in-view');
+        void el.offsetWidth; // force reflow so the keyframe animations restart
+        el.classList.add('in-view');
+      } else {
+        el.classList.remove('in-view');
       }
     });
   }, {
