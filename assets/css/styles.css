@@ -1945,6 +1945,82 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .blog-card { padding: 22px 18px; }
 }
 
+/* Category navigation pills + section headers, used on resources/blog/
+   to group posts by service pillar instead of one long undifferentiated
+   list. Anchors get scroll-margin-top so the sticky navbar doesn't cover
+   the heading when jumped to. */
+.blog-cat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.blog-cat-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,158,11,.25);
+  background: rgba(255,255,255,.02);
+  color: rgba(255,255,255,.8);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.blog-cat-nav a:hover {
+  background: rgba(245,158,11,.1);
+  border-color: var(--clr-accent);
+  color: var(--clr-white);
+}
+
+.blog-cat-section {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-cat-section:first-of-type {
+  margin-top: 40px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.blog-cat-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.blog-cat-icon {
+  flex-shrink: 0;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.blog-cat-header h2 {
+  color: var(--clr-accent);
+  font-size: var(--fs-xl);
+  margin-bottom: 6px;
+}
+
+.blog-cat-header p {
+  color: rgba(255,255,255,.65);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+@media (max-width: 768px) {
+  .blog-cat-section { margin-top: 40px; padding-top: 28px; }
+  .blog-cat-header { gap: 12px; }
+  .blog-cat-icon { font-size: 24px; }
+}
+
 /* ──────────────────────────────────────────────
    12.8 MOBILE STICKY CTA
    ────────────────────────────────────────────── */

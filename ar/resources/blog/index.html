@@ -46,16 +46,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <style>
-    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto;}
-    .blog-card{background:rgba(255,255,255,.03);border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px;}
-    .blog-card h2{color:#fff;font-size:1.15rem;}
-    .blog-card p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7;flex-grow:1;}
-    .blog-card a{color:var(--clr-accent);font-weight:600;font-size:.9rem;text-decoration:none;}
-    .blog-card a:hover{text-decoration:underline;}
-    .blog-card .date{color:rgba(255,255,255,.5);font-size:.8rem;}
-  </style>
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="skip_main">تخطى إلى المحتوى الرئيسي</a>
@@ -104,80 +94,121 @@
 
     <section class="section">
       <div class="container">
-        <div class="blog-grid">
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_vrf_vrv_hvac_card_title">الفرق بين VRF وVRV: اختيار نظام التكييف التجاري المناسب</h2>
-            <p data-i18n="post_vrf_vrv_hvac_card_excerpt">ليستا تقنيتين متنافستين — إحداهما علامة تجارية فقط. إليك الفرق الحقيقي، وخطأ التحجيم الذي يكلف السعة في أشد أيام السنة حرارة.</p>
-            <a href="/ar/resources/blog/vrf-vrv-hvac-saudi-commercial-buildings/" data-i18n="read_article">اقرأ المقال ←</a>
+
+        <nav class="blog-cat-nav" aria-label="تصنيفات المدونة" data-i18n-aria-label="blog_cat_nav_aria">
+          <a href="#cat-healthcare" data-i18n="blog_cat_healthcare_title">الرعاية الصحية والطاقة الحرجة</a>
+          <a href="#cat-building" data-i18n="blog_cat_building_title">أنظمة المباني والسلامة من الحرائق</a>
+          <a href="#cat-electrical" data-i18n="blog_cat_electrical_title">الطاقة والبنية التحتية الكهربائية</a>
+        </nav>
+
+        <div class="blog-cat-section" id="cat-healthcare">
+          <div class="blog-cat-header">
+            <span class="blog-cat-icon" aria-hidden="true">🏥</span>
+            <div>
+              <h2 data-i18n="blog_cat_healthcare_title">الرعاية الصحية والطاقة الحرجة</h2>
+              <p data-i18n="blog_cat_healthcare_desc">ألواح الطاقة المعزولة، وتحديد حجم أنظمة الطاقة اللامنقطعة، وغرف العمليات المعيارية، ودروع الإشعاع المطابقة لمعيار NFPA 99 ومعايير الموثوقية الخاصة بالمستشفيات.</p>
+            </div>
           </div>
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_dali_lighting_control_card_title">التحكم بالإضاءة عبر DALI: ما الذي يتغير فعلياً</h2>
-            <p data-i18n="post_dali_lighting_control_card_excerpt">العرض التجاري يبدأ بالإعتام. الفائدة الحقيقية هي الإبلاغ عن الأعطال وإعادة التقسيم دون أسلاك جديدة — ولا فائدة من أي منهما إن لم يراقب أحد اللوحة.</p>
-            <a href="/ar/resources/blog/dali-lighting-control-facility-managers/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_fm200_vs_water_mist_card_title">FM-200 مقابل الرذاذ المائي: اختيار نظام الإطفاء</h2>
-            <p data-i18n="post_fm200_vs_water_mist_card_excerpt">أضرار مياه رشاشة واحدة قد تكلف أكثر من الحريق نفسه. إليك كيف يختلف البديلان النظيفان فعلياً، وأين يناسب كل منهما.</p>
-            <a href="/ar/resources/blog/fm200-vs-water-mist-suppression-saudi-arabia/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_mdb_smdb_db_explained_card_title">لوحات MDB وSMDB وDB: فهم التسلسل الهرمي للتوزيع</h2>
-            <p data-i18n="post_mdb_smdb_db_explained_card_excerpt">تخطي مستوى، أو تحجيم أحدها بشكل خاطئ، خطأ لا يظهر إلا بعد إشغال المبنى وحدوث فصل لا ينبغي أن يحدث.</p>
-            <a href="/ar/resources/blog/mdb-smdb-db-electrical-distribution-explained/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_modular_vs_conventional_or_card_title">غرف العمليات الجاهزة مقابل البناء التقليدي</h2>
-            <p data-i18n="post_modular_vs_conventional_or_card_excerpt">ادعاء السرعة حقيقي. لكنه ليس الشيء الوحيد الذي يتغير، وليس دائماً العامل الحاسم كما يُقدَّم.</p>
-            <a href="/ar/resources/blog/modular-vs-conventional-operating-room-construction/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">September 11, 2026</span>
-            <h2 data-i18n="post_lead_sheet_thickness_survey_card_title">سماكة صفائح الرصاص لغرف الأشعة والتصوير المقطعي</h2>
-            <p data-i18n="post_lead_sheet_thickness_survey_card_excerpt">“كم يجب أن تكون سماكة الرصاص؟” لا يوجد رقم واحد. إليك ما يحسبه مسح الحماية الإشعاعية الصحيح فعلياً.</p>
-            <a href="/ar/resources/blog/lead-sheet-thickness-xray-ct-shielding-survey/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">August 25, 2026</span>
-            <h2 data-i18n="post_why_ups_batteries_die_early_saudi_heat_card_title">لماذا نفدت بطاريات UPS لديك في ثلاث سنوات لا عشر</h2>
-            <p data-i18n="post_why_ups_batteries_die_early_saudi_heat_card_excerpt">بيعت البطارية على أنها بعمر عشر سنوات ثم تعطلت في الثالثة. لم يكذب أحد. ورقة المواصفات افترضت 25 درجة، وغرفة البطاريات لم تشهدها قط.</p>
-            <a href="/ar/resources/blog/why-ups-batteries-die-early-saudi-heat/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">August 25, 2026</span>
-            <h2 data-i18n="post_saso_requirements_ev_chargers_saudi_arabia_card_title">متطلبات ساسو لشواحن السيارات الكهربائية في السعودية</h2>
-            <p data-i18n="post_saso_requirements_ev_chargers_saudi_arabia_card_excerpt">التعديل السعودي على المواصفة IEC 61851-1 يستبعد نمطي شحن معتادين تماماً في أماكن أخرى. والمشترون يكتشفون ذلك عند الجمارك عادة.</p>
-            <a href="/ar/resources/blog/saso-requirements-ev-chargers-saudi-arabia/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">August 25, 2026</span>
-            <h2 data-i18n="post_sizing_ups_hospital_critical_branch_card_title">اختيار قدرة UPS للفرع الحرج في المستشفيات</h2>
-            <p data-i18n="post_sizing_ups_hospital_critical_branch_card_excerpt">اسأل ثلاثة استشاريين تحصل على ثلاث إجابات، لأن كل واحد منهم يجيب في الحقيقة عن سؤال مختلف. رقم الكيلوفولت أمبير هو الجزء السهل.</p>
-            <a href="/ar/resources/blog/sizing-ups-hospital-critical-branch/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">August 25, 2026</span>
-            <h2 data-i18n="post_nfpa_99_line_isolation_monitors_card_title">ما يقوله NFPA 99 عن أجهزة مراقبة عزل الخط</h2>
-            <p data-i18n="post_nfpa_99_line_isolation_monitors_card_excerpt">الأخضر جيد والأحمر سيئ: هذا أقصى ما يعرفه معظم العاملين في غرف العمليات. إليك ما يشترطه المعيار فعلياً، والرقمان اللذان يستحقان المعرفة.</p>
-            <a href="/ar/resources/blog/nfpa-99-line-isolation-monitors/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">July 31, 2026</span>
-            <h2 data-i18n="nfpa_post_title">الامتثال لمعيار NFPA 99 للمستشفيات السعودية: دليل عملي</h2>
-            <p data-i18n="nfpa_post_excerpt">ما الذي يغطيه معيار NFPA 99، ولماذا يهم الأنظمة الكهربائية للمستشفيات، وقائمة تحقق عملية لمديري المنشآت.</p>
-            <a href="/ar/resources/blog/nfpa-99-compliance-saudi-hospitals/" data-i18n="read_article">اقرأ المقال ←</a>
-          </div>
-          <div class="blog-card">
-            <span class="date">July 31, 2026</span>
-            <h2 data-i18n="ipp_blog_post_title">لماذا يحتاج مستشفاك إلى لوحات الطاقة المعزولة</h2>
-            <p data-i18n="ipp_blog_excerpt">المخاطر التي تحلها لوحات الطاقة المعزولة في غرف العمليات، وكيف تعمل، ومتى يتطلبها NFPA 99.</p>
-            <a href="/ar/resources/blog/why-hospitals-need-isolated-power-panels/" data-i18n="read_article">اقرأ المقال ←</a>
+          <div class="blog-grid">
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_modular_vs_conventional_or_card_title">غرف العمليات الجاهزة مقابل البناء التقليدي</h2>
+              <p data-i18n="post_modular_vs_conventional_or_card_excerpt">ادعاء السرعة حقيقي. لكنه ليس الشيء الوحيد الذي يتغير، وليس دائماً العامل الحاسم كما يُقدَّم.</p>
+              <a href="/ar/resources/blog/modular-vs-conventional-operating-room-construction/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_lead_sheet_thickness_survey_card_title">سماكة صفائح الرصاص لغرف الأشعة والتصوير المقطعي</h2>
+              <p data-i18n="post_lead_sheet_thickness_survey_card_excerpt">“كم يجب أن تكون سماكة الرصاص؟” لا يوجد رقم واحد. إليك ما يحسبه مسح الحماية الإشعاعية الصحيح فعلياً.</p>
+              <a href="/ar/resources/blog/lead-sheet-thickness-xray-ct-shielding-survey/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">August 25, 2026</span>
+              <h2 data-i18n="post_why_ups_batteries_die_early_saudi_heat_card_title">لماذا نفدت بطاريات UPS لديك في ثلاث سنوات لا عشر</h2>
+              <p data-i18n="post_why_ups_batteries_die_early_saudi_heat_card_excerpt">بيعت البطارية على أنها بعمر عشر سنوات ثم تعطلت في الثالثة. لم يكذب أحد. ورقة المواصفات افترضت 25 درجة، وغرفة البطاريات لم تشهدها قط.</p>
+              <a href="/ar/resources/blog/why-ups-batteries-die-early-saudi-heat/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">August 25, 2026</span>
+              <h2 data-i18n="post_sizing_ups_hospital_critical_branch_card_title">اختيار قدرة UPS للفرع الحرج في المستشفيات</h2>
+              <p data-i18n="post_sizing_ups_hospital_critical_branch_card_excerpt">اسأل ثلاثة استشاريين تحصل على ثلاث إجابات، لأن كل واحد منهم يجيب في الحقيقة عن سؤال مختلف. رقم الكيلوفولت أمبير هو الجزء السهل.</p>
+              <a href="/ar/resources/blog/sizing-ups-hospital-critical-branch/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">August 25, 2026</span>
+              <h2 data-i18n="post_nfpa_99_line_isolation_monitors_card_title">ما يقوله NFPA 99 عن أجهزة مراقبة عزل الخط</h2>
+              <p data-i18n="post_nfpa_99_line_isolation_monitors_card_excerpt">الأخضر جيد والأحمر سيئ: هذا أقصى ما يعرفه معظم العاملين في غرف العمليات. إليك ما يشترطه المعيار فعلياً، والرقمان اللذان يستحقان المعرفة.</p>
+              <a href="/ar/resources/blog/nfpa-99-line-isolation-monitors/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">July 31, 2026</span>
+              <h2 data-i18n="nfpa_post_title">الامتثال لمعيار NFPA 99 للمستشفيات السعودية: دليل عملي</h2>
+              <p data-i18n="nfpa_post_excerpt">ما الذي يغطيه معيار NFPA 99، ولماذا يهم الأنظمة الكهربائية للمستشفيات، وقائمة تحقق عملية لمديري المنشآت.</p>
+              <a href="/ar/resources/blog/nfpa-99-compliance-saudi-hospitals/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">July 31, 2026</span>
+              <h2 data-i18n="ipp_blog_post_title">لماذا يحتاج مستشفاك إلى لوحات الطاقة المعزولة</h2>
+              <p data-i18n="ipp_blog_excerpt">المخاطر التي تحلها لوحات الطاقة المعزولة في غرف العمليات، وكيف تعمل، ومتى يتطلبها NFPA 99.</p>
+              <a href="/ar/resources/blog/why-hospitals-need-isolated-power-panels/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
           </div>
         </div>
+
+        <div class="blog-cat-section" id="cat-building">
+          <div class="blog-cat-header">
+            <span class="blog-cat-icon" aria-hidden="true">🏢</span>
+            <div>
+              <h2 data-i18n="blog_cat_building_title">أنظمة المباني والسلامة من الحرائق</h2>
+              <p data-i18n="blog_cat_building_desc">خيارات تحديد حجم التكييف، والتحكم في الإضاءة، وأنظمة إطفاء الحرائق التي تشكّل أداء المبنى اليومي وسلامة شاغليه.</p>
+            </div>
+          </div>
+          <div class="blog-grid">
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_vrf_vrv_hvac_card_title">الفرق بين VRF وVRV: اختيار نظام التكييف التجاري المناسب</h2>
+              <p data-i18n="post_vrf_vrv_hvac_card_excerpt">ليستا تقنيتين متنافستين — إحداهما علامة تجارية فقط. إليك الفرق الحقيقي، وخطأ التحجيم الذي يكلف السعة في أشد أيام السنة حرارة.</p>
+              <a href="/ar/resources/blog/vrf-vrv-hvac-saudi-commercial-buildings/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_dali_lighting_control_card_title">التحكم بالإضاءة عبر DALI: ما الذي يتغير فعلياً</h2>
+              <p data-i18n="post_dali_lighting_control_card_excerpt">العرض التجاري يبدأ بالإعتام. الفائدة الحقيقية هي الإبلاغ عن الأعطال وإعادة التقسيم دون أسلاك جديدة — ولا فائدة من أي منهما إن لم يراقب أحد اللوحة.</p>
+              <a href="/ar/resources/blog/dali-lighting-control-facility-managers/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_fm200_vs_water_mist_card_title">FM-200 مقابل الرذاذ المائي: اختيار نظام الإطفاء</h2>
+              <p data-i18n="post_fm200_vs_water_mist_card_excerpt">أضرار مياه رشاشة واحدة قد تكلف أكثر من الحريق نفسه. إليك كيف يختلف البديلان النظيفان فعلياً، وأين يناسب كل منهما.</p>
+              <a href="/ar/resources/blog/fm200-vs-water-mist-suppression-saudi-arabia/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-cat-section" id="cat-electrical">
+          <div class="blog-cat-header">
+            <span class="blog-cat-icon" aria-hidden="true">⚡</span>
+            <div>
+              <h2 data-i18n="blog_cat_electrical_title">الطاقة والبنية التحتية الكهربائية</h2>
+              <p data-i18n="blog_cat_electrical_desc">التسلسل الهرمي لتوزيع الكهرباء ومعايير شحن السيارات الكهربائية للمنشآت التي توسّع بنيتها التحتية الكهربائية.</p>
+            </div>
+          </div>
+          <div class="blog-grid">
+            <div class="blog-card">
+              <span class="date">September 11, 2026</span>
+              <h2 data-i18n="post_mdb_smdb_db_explained_card_title">لوحات MDB وSMDB وDB: فهم التسلسل الهرمي للتوزيع</h2>
+              <p data-i18n="post_mdb_smdb_db_explained_card_excerpt">تخطي مستوى، أو تحجيم أحدها بشكل خاطئ، خطأ لا يظهر إلا بعد إشغال المبنى وحدوث فصل لا ينبغي أن يحدث.</p>
+              <a href="/ar/resources/blog/mdb-smdb-db-electrical-distribution-explained/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+            <div class="blog-card">
+              <span class="date">August 25, 2026</span>
+              <h2 data-i18n="post_saso_requirements_ev_chargers_saudi_arabia_card_title">متطلبات ساسو لشواحن السيارات الكهربائية في السعودية</h2>
+              <p data-i18n="post_saso_requirements_ev_chargers_saudi_arabia_card_excerpt">التعديل السعودي على المواصفة IEC 61851-1 يستبعد نمطي شحن معتادين تماماً في أماكن أخرى. والمشترون يكتشفون ذلك عند الجمارك عادة.</p>
+              <a href="/ar/resources/blog/saso-requirements-ev-chargers-saudi-arabia/" data-i18n="read_article">اقرأ المقال ←</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
