@@ -1876,6 +1876,76 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* ──────────────────────────────────────────────
+   12.75 BLOG / CASE STUDY CARDS
+
+   .blog-grid and .blog-card were used on resources/blog/index.html and
+   resources/case-studies/index.html with no CSS behind them anywhere in
+   this file — every card rendered as plain unstyled block content, and
+   the case-study overline chip fell back to the base .overline black
+   (fixed separately above). Matches the .compliance-badge visual
+   language used elsewhere on the site.
+   ────────────────────────────────────────────── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.blog-card {
+  display: block;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(245,158,11,.15);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.blog-card:hover {
+  background: rgba(245,158,11,.08);
+  border-color: var(--clr-accent);
+  transform: translateY(-4px);
+}
+
+.blog-card .date {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,.55);
+  font-weight: 600;
+}
+
+.blog-card h2,
+.blog-card h3 {
+  font-size: var(--fs-lg);
+  color: var(--clr-white);
+  margin: 10px 0 8px;
+  font-weight: var(--fw-bold);
+  line-height: 1.35;
+}
+
+.blog-card p {
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,.8);
+  line-height: 1.6;
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+
+.blog-card > a,
+.blog-card__more {
+  display: inline-block;
+  color: var(--clr-accent) !important;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+  .blog-card { padding: 22px 18px; }
+}
+
+/* ──────────────────────────────────────────────
    12.8 MOBILE STICKY CTA
    ────────────────────────────────────────────── */
 .mobile-cta-sticky {
