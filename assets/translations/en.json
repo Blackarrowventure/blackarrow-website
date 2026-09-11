@@ -92,6 +92,7 @@
   "ipp_what_heading": "What Is an Isolated Power Panel?",
   "ipp_what_p1": "An isolated power panel (IPP) is a hospital-grade electrical system required in operating rooms and other \"wet procedure locations\" under NFPA 99. Instead of grounding the electrical system directly, an IPP electrically isolates the power supply so that a single ground fault does not trip the breaker or interrupt power — critical equipment stays running while the fault is detected and alarmed.",
   "ipp_what_p2": "This matters because in an operating room, an unexpected power interruption during a procedure is not just inconvenient — it can be dangerous. A line isolation monitor (LIM) continuously watches for faults and alerts staff immediately, giving the surgical team time to respond safely without the system cutting power outright.",
+  "ipp_what_p3": "You may also see this equipment called an isolated power system (IPS) or isolated power supply — different manufacturers and regions use slightly different names for the same underlying equipment: an isolation transformer paired with a line isolation monitor, feeding an ungrounded circuit to a wet procedure location. Whichever term appears on your tender or specification, the NFPA 99 requirements and equipment function are identical to an IPP.",
   "our_ipp_services": "Our IPP Services",
   "ipp_breakdown_heading": "From Supply to Long-Term Support",
   "ipp_step1_title": "Supply & Specification",
