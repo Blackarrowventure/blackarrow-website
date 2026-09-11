@@ -2871,35 +2871,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   animation: fxBadgePulse 1.6s ease-in-out 1.1s infinite;
 }
 
-/* Firefighting: soft puffs of gas release from the two pump motors'
-   cooling-fan housings — reads as the pumps discharging under load,
-   without altering the photo itself. Positions matched by eye to the
-   motor end-caps in firefighting-solutions.jpg. */
-.fx-fire-gas {
-  position: absolute;
-  width: 9%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.8) 0%, rgba(225,225,232,.5) 40%, rgba(210,210,220,0) 72%);
-  filter: blur(3px);
-  opacity: 0;
-  transform: scale(.3);
-}
-.fx-fire-gas--1 { left: 9%; top: 68%; }
-.fx-fire-gas--2 { left: 42%; top: 65%; width: 6.5%; }
-.in-view .fx-fire-gas--1 {
-  animation: fxGasPuff 3.2s ease-out .3s infinite;
-}
-.in-view .fx-fire-gas--2 {
-  animation: fxGasPuff 3.2s ease-out 1.7s infinite;
-}
-@keyframes fxGasPuff {
-  0%   { opacity: 0; transform: scale(.25) translateY(0); }
-  12%  { opacity: .8; transform: scale(.55) translateY(-2%); }
-  55%  { opacity: .4; transform: scale(1.3) translateY(-14%); }
-  100% { opacity: 0; transform: scale(1.9) translateY(-24%); }
-}
-
 .fx-ups-screen {
   position: absolute;
   left: 53.6%;
