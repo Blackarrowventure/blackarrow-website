@@ -1,8 +1,6 @@
 # Black Arrow Venture - robots.txt
 User-agent: *
 Allow: /
-Disallow: /assets/css/
-Disallow: /assets/js/
 Disallow: /assets/translations/
 
 # Draft/internal pages - keep out of search results
