@@ -37,9 +37,18 @@
       {"@type": "Question","name": "What size UPS system do I need?","acceptedAnswer": {"@type": "Answer","text": "It depends on your critical load and required runtime. We start with a load assessment to size the correct UPS capacity (we install systems from 1kVA up to 1MVA) and battery bank, rather than recommending a size before understanding your actual load profile."}},
       {"@type": "Question","name": "What's the difference between online, line-interactive, and standby UPS?","acceptedAnswer": {"@type": "Answer","text": "Online (double-conversion) UPS continuously conditions power and offers the highest protection, suited to mission-critical loads. Line-interactive UPS regulates voltage and switches to battery on outage, a good middle-ground option. Standby UPS is the simplest and most economical, switching to battery only when mains power fails outright. We recommend the right topology based on your equipment's sensitivity and your budget."}},
       {"@type": "Question","name": "Do you supply HVAC systems for both new buildings and retrofits?","acceptedAnswer": {"@type": "Answer","text": "Yes. We size systems based on a real load calculation for your building — whether it's new construction or a retrofit — rather than rule-of-thumb estimates, covering VRF/VRV systems, central chiller plants, and packaged rooftop units."}},
+      {"@type": "Question","name": "What's the difference between VRF and VRV air conditioning systems?","acceptedAnswer": {"@type": "Answer","text": "VRF and VRV are the same underlying multi-split technology under two different names — VRV is Daikin's trademarked term, and VRF is the generic name other manufacturers use for it. What actually varies between installations is the compressor staging and pipe layout design for your building, not the acronym on the datasheet. We size and lay out either type based on your zoning and real load calculation."}},
+      {"@type": "Question","name": "What's the actual difference between DALI and standard 0-10V dimming control?","acceptedAnswer": {"@type": "Answer","text": "0-10V dimming sends one analog signal to every fixture on the circuit — they all dim together. DALI addresses each fixture (or driver) individually over a digital bus, so any group of fixtures can be zoned, scheduled, or fault-reported without adding new wiring runs. The dimming itself looks similar either way; the real difference is in commissioning flexibility and fault visibility after installation."}},
+      {"@type": "Question","name": "Do you supply obstruction and aviation warning lighting for tall buildings and helipads?","acceptedAnswer": {"@type": "Answer","text": "Yes — we design and install obstruction lighting for tall structures and helipads to ICAO obstruction lighting guidance, alongside our architectural and exterior lighting work."}},
+      {"@type": "Question","name": "Can an existing lighting installation be retrofitted with smart controls, or does it need to be replaced?","acceptedAnswer": {"@type": "Answer","text": "In most cases the fixtures don't need replacing — DALI or 0-10V control gear can often be retrofitted onto existing LED fixtures, and in some cases into existing driver wiring. We assess the existing installation during a site survey to confirm what can be retrofitted versus what needs replacing before quoting."}},
       {"@type": "Question","name": "What fire suppression systems does Black Arrow install?","acceptedAnswer": {"@type": "Answer","text": "We install water sprinkler systems, clean-agent suppression (FM-200, CO₂), and water mist systems, matched to your facility's occupancy type and hazard classification, along with addressable fire alarm detection and hydrant/hose reel systems."}},
       {"@type": "Question","name": "Are your fire safety systems compliant with Saudi civil defense requirements?","acceptedAnswer": {"@type": "Answer","text": "Yes, our fire detection and suppression designs follow NFPA 13 and NFPA 72 standards alongside Saudi Civil Defense requirements, with full testing and documentation provided for approval."}},
       {"@type": "Question","name": "What electrical panel types does Black Arrow supply?","acceptedAnswer": {"@type": "Answer","text": "We supply and install main distribution boards (MDB), sub-distribution boards (SMDB), final distribution boards (DB), switchgear, and MCC/PLC/SCADA-integrated control panels for both low-voltage and medium-voltage systems."}},
+      {"@type": "Question","name": "What's the difference between an MDB, SMDB, and DB panel?","acceptedAnswer": {"@type": "Answer","text": "They form a hierarchy: the main distribution board (MDB) takes the incoming utility or generator feed and sits at the top; the sub-distribution board (SMDB) splits that into zone- or floor-level circuits; the final distribution board (DB) is the last stage before individual outlets and lighting circuits. Skipping a level, or undersizing one, is a mistake that often doesn't surface until the building is occupied."}},
+      {"@type": "Question","name": "What does a modular operating room (OR) project typically include?","acceptedAnswer": {"@type": "Answer","text": "A modular OR project typically includes design and layout planning, factory-prefabricated wall, ceiling, and service panels, on-site installation coordinated with your existing isolated power, medical gas, and HVAC systems, and testing/certification of air changes and pressure differentials before the room is released for clinical use."}},
+      {"@type": "Question","name": "Is modular operating room construction always faster than conventional build-out?","acceptedAnswer": {"@type": "Answer","text": "Usually, but not unconditionally. Modular systems are most advantageous at scale — a multi-theatre suite where the same panel design repeats — where the speed benefit is real. For a single theatre in an existing building with irregular geometry, or a genuinely custom layout, conventional construction's design flexibility can outweigh the timeline benefit. We cost and timeline both options before you commit rather than defaulting to modular for every project."}},
+      {"@type": "Question","name": "How is lead shielding thickness determined for an X-ray or CT room?","acceptedAnswer": {"@type": "Answer","text": "Shielding thickness is calculated per room from the equipment's workload, use factor, occupancy factor of adjacent spaces, and distance — not a single standard number applied everywhere. We carry out the shielding survey and calculation before fabricating and installing the lead sheet, then verify the finished room with post-installation leakage testing."}},
+      {"@type": "Question","name": "What documentation do you provide for regulatory or accreditation approval?","acceptedAnswer": {"@type": "Answer","text": "Every shielding project includes documented shielding calculations and post-installation survey/leakage test results, handed over as part of your facility's regulatory and accreditation records — the same documentation your radiation safety officer or accreditation body will ask to see."}},
       {"@type": "Question","name": "How long does a typical installation project take?","acceptedAnswer": {"@type": "Answer","text": "Timelines vary by scope — a single UPS or EV charger installation can be completed in days, while a full electrical distribution upgrade or hospital IPP installation across multiple rooms takes longer. We provide a project timeline as part of every quote after a site assessment."}},
       {"@type": "Question","name": "Do you offer maintenance contracts after installation?","acceptedAnswer": {"@type": "Answer","text": "Yes, we offer scheduled preventive maintenance for all our core service lines — including battery testing for UPS systems, filter/coil maintenance for HVAC, and periodic inspection and testing for fire safety and electrical distribution systems."}},
       {"@type": "Question","name": "Is Black Arrow able to work on government or public-sector projects?","acceptedAnswer": {"@type": "Answer","text": "Yes, we work with government and public-sector facilities, supplying electrical distribution, lighting, and fire safety systems engineered to code and aligned with Saudi Vision 2030 infrastructure goals."}},
@@ -144,6 +153,7 @@
           <a href="#faq-ev" data-i18n="service_ev">حلول السيارات الكهربائية</a>
           <a href="#faq-ups" data-i18n="service_ups">حلول أنظمة UPS</a>
           <a href="#faq-hvac" data-i18n="service_hvac">حلول التكييف والتهوية</a>
+          <a href="#faq-lighting" data-i18n="service_lighting">حلول الإضاءة</a>
           <a href="#faq-fire" data-i18n="service_fire">أنظمة الحريق</a>
           <a href="#faq-elec" data-i18n="service_electrical">التوزيع الكهربائي والطاقة</a>
           <a href="#faq-or-rooms" data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</a>
@@ -241,6 +251,28 @@
               <summary data-i18n="faq_q12">هل تقومون بتوريد أنظمة تكييف للمباني الجديدة والتحديثات على حد سواء؟</summary>
               <p data-i18n="faq_a12">نعم. نحدد حجم الأنظمة بناءً على حساب حمل حقيقي لمبناك — سواء كان إنشاءً جديدًا أو تحديثًا — بدلاً من تقديرات عامة، ويشمل ذلك أنظمة VRF/VRV، ومحطات المبردات المركزية، ووحدات السقف المعبأة.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q22">ما الفرق بين أنظمة التكييف VRF وVRV؟</summary>
+              <p data-i18n="faq_a22">أنظمة VRF وVRV هي نفس التقنية الأساسية متعددة الوحدات تحت اسمين مختلفين — VRV هو الاسم التجاري المسجل لشركة دايكن، بينما VRF هو الاسم العام الذي تستخدمه الشركات المصنّعة الأخرى لنفس التقنية. ما يختلف فعلياً بين التركيبات هو تدريج الضواغط وتصميم مسار الأنابيب حسب مبناك، وليس الاسم المذكور في نشرة البيانات. نقوم بتحديد الحجم والتخطيط لأي من النوعين بناءً على تقسيم المناطق وحساب الحمل الفعلي لديك.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-cat" id="faq-lighting">
+          <h2 data-i18n="service_lighting">حلول الإضاءة</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary data-i18n="faq_q26">ما الفرق الفعلي بين التحكم بالإضاءة عبر DALI والتعتيم القياسي 0-10 فولت؟</summary>
+              <p data-i18n="faq_a26">يرسل التعتيم بنظام 0-10 فولت إشارة تناظرية واحدة إلى كل التجهيزات على الدائرة — فتُعتّم جميعها معاً. أما DALI فيخاطب كل تجهيزة (أو محرك) بشكل مستقل عبر ناقل رقمي، بحيث يمكن تقسيم أي مجموعة من التجهيزات إلى مناطق أو جدولتها أو الإبلاغ عن أعطالها دون إضافة أي أسلاك جديدة. التعتيم نفسه يبدو متشابهاً في الحالتين؛ الفرق الحقيقي يكمن في مرونة التشغيل ورؤية الأعطال بعد التركيب.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q27">هل تقدمون إضاءة تحذير الطيران وإضاءة العوائق للمباني العالية والمهابط؟</summary>
+              <p data-i18n="faq_a27">نعم — نصمم ونركّب إضاءة العوائق للمنشآت العالية والمهابط وفق إرشادات منظمة الطيران المدني الدولي (ICAO) لإضاءة العوائق، إلى جانب أعمال الإضاءة المعمارية والخارجية لدينا.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q28">هل يمكن تحديث تركيب إضاءة قائم بأنظمة تحكم ذكية، أم يجب استبداله بالكامل؟</summary>
+              <p data-i18n="faq_a28">في معظم الحالات لا حاجة لاستبدال التجهيزات — يمكن غالباً تركيب وحدات تحكم DALI أو 0-10 فولت على تجهيزات LED القائمة، وفي بعض الحالات على الأسلاك الحالية لمحركات التشغيل. نقيّم التركيب القائم أثناء مسح الموقع لتحديد ما يمكن تحديثه مقابل ما يحتاج إلى استبدال قبل تقديم عرض السعر.</p>
+            </details>
           </div>
         </div>
 
@@ -265,6 +297,10 @@
               <summary data-i18n="faq_q15">ما هي أنواع اللوحات الكهربائية التي تقوم Black Arrow بتوريدها؟</summary>
               <p data-i18n="faq_a15">نقوم بتوريد وتركيب ألواح التوزيع الرئيسية (MDB)، وألواح التوزيع الفرعية (SMDB)، وألواح التوزيع النهائية (DB)، ولوحات المفاتيح، ولوحات التحكم المتكاملة مع MCC/PLC/SCADA لأنظمة الجهد المنخفض والمتوسط.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q23">ما الفرق بين لوحة MDB وSMDB وDB؟</summary>
+              <p data-i18n="faq_a23">تُشكّل هذه اللوحات تسلسلاً هرمياً: لوحة التوزيع الرئيسية (MDB) تستقبل التغذية الواردة من المرفق أو المولد وتقع في أعلى التسلسل؛ لوحة التوزيع الفرعية (SMDB) تقسّم هذه التغذية إلى دوائر على مستوى المنطقة أو الطابق؛ ولوحة التوزيع النهائية (DB) هي المرحلة الأخيرة قبل المخارج ودوائر الإضاءة الفردية. تخطي أحد المستويات، أو عدم تحديد حجمه بشكل صحيح، خطأ غالباً ما لا يظهر إلا بعد إشغال المبنى.</p>
+            </details>
           </div>
         </div>
 
@@ -275,6 +311,10 @@
               <summary data-i18n="faq_q16">ماذا يتضمن مشروع غرفة العمليات الجاهزة (OR) عادة؟</summary>
               <p data-i18n="faq_a16">يتضمن مشروع غرفة العمليات الجاهزة عادة التصميم وتخطيط المساحة، وألواح الجدران والأسقف والخدمات المُصنّعة مسبقاً في المصنع، والتركيب في الموقع بالتنسيق مع أنظمة الطاقة المعزولة والغازات الطبية والتكييف القائمة لديك، واختبار واعتماد معدلات تبادل الهواء وفروقات الضغط قبل الإفراج عن الغرفة للاستخدام السريري.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q24">هل بناء غرفة العمليات الجاهزة أسرع دائماً من البناء التقليدي؟</summary>
+              <p data-i18n="faq_a24">عادةً نعم، لكن ليس بشكل مطلق. تكون الأنظمة الجاهزة أكثر فائدة عند البناء على نطاق واسع — مثل جناح متعدد الغرف يتكرر فيه نفس تصميم الألواح — حيث تكون ميزة السرعة حقيقية. أما بالنسبة لغرفة واحدة في مبنى قائم بهندسة غير منتظمة، أو تصميم مخصص فعلياً، فقد تتفوق مرونة التصميم في البناء التقليدي على ميزة السرعة. نقوم بتقدير التكلفة والجدول الزمني لكلا الخيارين قبل الالتزام، بدلاً من اعتماد الحل الجاهز كخيار افتراضي لكل مشروع.</p>
+            </details>
           </div>
         </div>
 
@@ -284,6 +324,10 @@
             <details class="faq-item">
               <summary data-i18n="faq_q21">كيف تُحدَّد سماكة الدرع الرصاصي لغرفة الأشعة السينية أو المقطعية؟</summary>
               <p data-i18n="faq_a21">تُحسب سماكة الدرع لكل غرفة وفق عبء عمل الجهاز وعامل الاستخدام وعامل إشغال المساحات المجاورة والمسافة — وليست رقماً موحداً يُطبّق في كل مكان. نجري مسح وحساب الحماية قبل تصنيع وتركيب صفيحة الرصاص، ثم نتحقق من الغرفة النهائية عبر اختبار تسرب بعد التركيب.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q25">ما الوثائق التي تقدمونها لأغراض الاعتماد التنظيمي أو الاعتماد المؤسسي؟</summary>
+              <p data-i18n="faq_a25">يشمل كل مشروع حماية إشعاعية حسابات الدرع الموثقة ونتائج مسح/اختبار التسرب بعد التركيب، وتُسلَّم كجزء من سجلات منشأتك التنظيمية والاعتمادية — وهي نفس الوثائق التي سيطلب مسؤول السلامة الإشعاعية أو جهة الاعتماد الاطلاع عليها.</p>
             </details>
           </div>
         </div>

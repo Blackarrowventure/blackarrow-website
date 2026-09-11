@@ -37,9 +37,18 @@
       {"@type": "Question","name": "What size UPS system do I need?","acceptedAnswer": {"@type": "Answer","text": "It depends on your critical load and required runtime. We start with a load assessment to size the correct UPS capacity (we install systems from 1kVA up to 1MVA) and battery bank, rather than recommending a size before understanding your actual load profile."}},
       {"@type": "Question","name": "What's the difference between online, line-interactive, and standby UPS?","acceptedAnswer": {"@type": "Answer","text": "Online (double-conversion) UPS continuously conditions power and offers the highest protection, suited to mission-critical loads. Line-interactive UPS regulates voltage and switches to battery on outage, a good middle-ground option. Standby UPS is the simplest and most economical, switching to battery only when mains power fails outright. We recommend the right topology based on your equipment's sensitivity and your budget."}},
       {"@type": "Question","name": "Do you supply HVAC systems for both new buildings and retrofits?","acceptedAnswer": {"@type": "Answer","text": "Yes. We size systems based on a real load calculation for your building — whether it's new construction or a retrofit — rather than rule-of-thumb estimates, covering VRF/VRV systems, central chiller plants, and packaged rooftop units."}},
+      {"@type": "Question","name": "What's the difference between VRF and VRV air conditioning systems?","acceptedAnswer": {"@type": "Answer","text": "VRF and VRV are the same underlying multi-split technology under two different names — VRV is Daikin's trademarked term, and VRF is the generic name other manufacturers use for it. What actually varies between installations is the compressor staging and pipe layout design for your building, not the acronym on the datasheet. We size and lay out either type based on your zoning and real load calculation."}},
+      {"@type": "Question","name": "What's the actual difference between DALI and standard 0-10V dimming control?","acceptedAnswer": {"@type": "Answer","text": "0-10V dimming sends one analog signal to every fixture on the circuit — they all dim together. DALI addresses each fixture (or driver) individually over a digital bus, so any group of fixtures can be zoned, scheduled, or fault-reported without adding new wiring runs. The dimming itself looks similar either way; the real difference is in commissioning flexibility and fault visibility after installation."}},
+      {"@type": "Question","name": "Do you supply obstruction and aviation warning lighting for tall buildings and helipads?","acceptedAnswer": {"@type": "Answer","text": "Yes — we design and install obstruction lighting for tall structures and helipads to ICAO obstruction lighting guidance, alongside our architectural and exterior lighting work."}},
+      {"@type": "Question","name": "Can an existing lighting installation be retrofitted with smart controls, or does it need to be replaced?","acceptedAnswer": {"@type": "Answer","text": "In most cases the fixtures don't need replacing — DALI or 0-10V control gear can often be retrofitted onto existing LED fixtures, and in some cases into existing driver wiring. We assess the existing installation during a site survey to confirm what can be retrofitted versus what needs replacing before quoting."}},
       {"@type": "Question","name": "What fire suppression systems does Black Arrow install?","acceptedAnswer": {"@type": "Answer","text": "We install water sprinkler systems, clean-agent suppression (FM-200, CO₂), and water mist systems, matched to your facility's occupancy type and hazard classification, along with addressable fire alarm detection and hydrant/hose reel systems."}},
       {"@type": "Question","name": "Are your fire safety systems compliant with Saudi civil defense requirements?","acceptedAnswer": {"@type": "Answer","text": "Yes, our fire detection and suppression designs follow NFPA 13 and NFPA 72 standards alongside Saudi Civil Defense requirements, with full testing and documentation provided for approval."}},
       {"@type": "Question","name": "What electrical panel types does Black Arrow supply?","acceptedAnswer": {"@type": "Answer","text": "We supply and install main distribution boards (MDB), sub-distribution boards (SMDB), final distribution boards (DB), switchgear, and MCC/PLC/SCADA-integrated control panels for both low-voltage and medium-voltage systems."}},
+      {"@type": "Question","name": "What's the difference between an MDB, SMDB, and DB panel?","acceptedAnswer": {"@type": "Answer","text": "They form a hierarchy: the main distribution board (MDB) takes the incoming utility or generator feed and sits at the top; the sub-distribution board (SMDB) splits that into zone- or floor-level circuits; the final distribution board (DB) is the last stage before individual outlets and lighting circuits. Skipping a level, or undersizing one, is a mistake that often doesn't surface until the building is occupied."}},
+      {"@type": "Question","name": "What does a modular operating room (OR) project typically include?","acceptedAnswer": {"@type": "Answer","text": "A modular OR project typically includes design and layout planning, factory-prefabricated wall, ceiling, and service panels, on-site installation coordinated with your existing isolated power, medical gas, and HVAC systems, and testing/certification of air changes and pressure differentials before the room is released for clinical use."}},
+      {"@type": "Question","name": "Is modular operating room construction always faster than conventional build-out?","acceptedAnswer": {"@type": "Answer","text": "Usually, but not unconditionally. Modular systems are most advantageous at scale — a multi-theatre suite where the same panel design repeats — where the speed benefit is real. For a single theatre in an existing building with irregular geometry, or a genuinely custom layout, conventional construction's design flexibility can outweigh the timeline benefit. We cost and timeline both options before you commit rather than defaulting to modular for every project."}},
+      {"@type": "Question","name": "How is lead shielding thickness determined for an X-ray or CT room?","acceptedAnswer": {"@type": "Answer","text": "Shielding thickness is calculated per room from the equipment's workload, use factor, occupancy factor of adjacent spaces, and distance — not a single standard number applied everywhere. We carry out the shielding survey and calculation before fabricating and installing the lead sheet, then verify the finished room with post-installation leakage testing."}},
+      {"@type": "Question","name": "What documentation do you provide for regulatory or accreditation approval?","acceptedAnswer": {"@type": "Answer","text": "Every shielding project includes documented shielding calculations and post-installation survey/leakage test results, handed over as part of your facility's regulatory and accreditation records — the same documentation your radiation safety officer or accreditation body will ask to see."}},
       {"@type": "Question","name": "How long does a typical installation project take?","acceptedAnswer": {"@type": "Answer","text": "Timelines vary by scope — a single UPS or EV charger installation can be completed in days, while a full electrical distribution upgrade or hospital IPP installation across multiple rooms takes longer. We provide a project timeline as part of every quote after a site assessment."}},
       {"@type": "Question","name": "Do you offer maintenance contracts after installation?","acceptedAnswer": {"@type": "Answer","text": "Yes, we offer scheduled preventive maintenance for all our core service lines — including battery testing for UPS systems, filter/coil maintenance for HVAC, and periodic inspection and testing for fire safety and electrical distribution systems."}},
       {"@type": "Question","name": "Is Black Arrow able to work on government or public-sector projects?","acceptedAnswer": {"@type": "Answer","text": "Yes, we work with government and public-sector facilities, supplying electrical distribution, lighting, and fire safety systems engineered to code and aligned with Saudi Vision 2030 infrastructure goals."}},
@@ -144,6 +153,7 @@
           <a href="#faq-ev" data-i18n="service_ev">EV Solutions</a>
           <a href="#faq-ups" data-i18n="service_ups">UPS Solutions</a>
           <a href="#faq-hvac" data-i18n="service_hvac">HVAC Solutions</a>
+          <a href="#faq-lighting" data-i18n="service_lighting">Lighting Solutions</a>
           <a href="#faq-fire" data-i18n="service_fire">Firefighting</a>
           <a href="#faq-elec" data-i18n="service_electrical">Electrical &amp; Power</a>
           <a href="#faq-or-rooms" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a>
@@ -241,6 +251,28 @@
               <summary data-i18n="faq_q12">Do you supply HVAC systems for both new buildings and retrofits?</summary>
               <p data-i18n="faq_a12">Yes. We size systems based on a real load calculation for your building — whether it's new construction or a retrofit — rather than rule-of-thumb estimates, covering VRF/VRV systems, central chiller plants, and packaged rooftop units.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q22">What's the difference between VRF and VRV air conditioning systems?</summary>
+              <p data-i18n="faq_a22">VRF and VRV are the same underlying multi-split technology under two different names — VRV is Daikin's trademarked term, and VRF is the generic name other manufacturers use for it. What actually varies between installations is the compressor staging and pipe layout design for your building, not the acronym on the datasheet. We size and lay out either type based on your zoning and real load calculation.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-cat" id="faq-lighting">
+          <h2 data-i18n="service_lighting">Lighting Solutions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary data-i18n="faq_q26">What's the actual difference between DALI and standard 0-10V dimming control?</summary>
+              <p data-i18n="faq_a26">0-10V dimming sends one analog signal to every fixture on the circuit — they all dim together. DALI addresses each fixture (or driver) individually over a digital bus, so any group of fixtures can be zoned, scheduled, or fault-reported without adding new wiring runs. The dimming itself looks similar either way; the real difference is in commissioning flexibility and fault visibility after installation.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q27">Do you supply obstruction and aviation warning lighting for tall buildings and helipads?</summary>
+              <p data-i18n="faq_a27">Yes — we design and install obstruction lighting for tall structures and helipads to ICAO obstruction lighting guidance, alongside our architectural and exterior lighting work.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q28">Can an existing lighting installation be retrofitted with smart controls, or does it need to be replaced?</summary>
+              <p data-i18n="faq_a28">In most cases the fixtures don't need replacing — DALI or 0-10V control gear can often be retrofitted onto existing LED fixtures, and in some cases into existing driver wiring. We assess the existing installation during a site survey to confirm what can be retrofitted versus what needs replacing before quoting.</p>
+            </details>
           </div>
         </div>
 
@@ -265,6 +297,10 @@
               <summary data-i18n="faq_q15">What electrical panel types does Black Arrow supply?</summary>
               <p data-i18n="faq_a15">We supply and install main distribution boards (MDB), sub-distribution boards (SMDB), final distribution boards (DB), switchgear, and MCC/PLC/SCADA-integrated control panels for both low-voltage and medium-voltage systems.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q23">What's the difference between an MDB, SMDB, and DB panel?</summary>
+              <p data-i18n="faq_a23">They form a hierarchy: the main distribution board (MDB) takes the incoming utility or generator feed and sits at the top; the sub-distribution board (SMDB) splits that into zone- or floor-level circuits; the final distribution board (DB) is the last stage before individual outlets and lighting circuits. Skipping a level, or undersizing one, is a mistake that often doesn't surface until the building is occupied.</p>
+            </details>
           </div>
         </div>
 
@@ -275,6 +311,10 @@
               <summary data-i18n="faq_q16">What does a modular operating room (OR) project typically include?</summary>
               <p data-i18n="faq_a16">A modular OR project typically includes design and layout planning, factory-prefabricated wall, ceiling, and service panels, on-site installation coordinated with your existing isolated power, medical gas, and HVAC systems, and testing/certification of air changes and pressure differentials before the room is released for clinical use.</p>
             </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q24">Is modular operating room construction always faster than conventional build-out?</summary>
+              <p data-i18n="faq_a24">Usually, but not unconditionally. Modular systems are most advantageous at scale — a multi-theatre suite where the same panel design repeats — where the speed benefit is real. For a single theatre in an existing building with irregular geometry, or a genuinely custom layout, conventional construction's design flexibility can outweigh the timeline benefit. We cost and timeline both options before you commit rather than defaulting to modular for every project.</p>
+            </details>
           </div>
         </div>
 
@@ -284,6 +324,10 @@
             <details class="faq-item">
               <summary data-i18n="faq_q21">How is lead shielding thickness determined for an X-ray or CT room?</summary>
               <p data-i18n="faq_a21">Shielding thickness is calculated per room from the equipment's workload, use factor, occupancy factor of adjacent spaces, and distance — not a single standard number applied everywhere. We carry out the shielding survey and calculation before fabricating and installing the lead sheet, then verify the finished room with post-installation leakage testing.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq_q25">What documentation do you provide for regulatory or accreditation approval?</summary>
+              <p data-i18n="faq_a25">Every shielding project includes documented shielding calculations and post-installation survey/leakage test results, handed over as part of your facility's regulatory and accreditation records — the same documentation your radiation safety officer or accreditation body will ask to see.</p>
             </details>
           </div>
         </div>

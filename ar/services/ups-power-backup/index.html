@@ -109,6 +109,16 @@
     .page-hero__img{width:100%;height:auto;max-height:360px;object-fit:cover;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid rgba(245,158,11,.25);}
     @media (max-width:860px){ .page-hero__grid{grid-template-columns:1fr;} .page-hero__img{max-height:260px;order:-1;} }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question","name": "What size UPS system do I need?","acceptedAnswer": {"@type": "Answer","text": "It depends on your critical load and required runtime. We start with a load assessment to size the correct UPS capacity (we install systems from 1kVA up to 1MVA) and battery bank, rather than recommending a size before understanding your actual load profile."}},
+      {"@type": "Question","name": "What's the difference between online, line-interactive, and standby UPS?","acceptedAnswer": {"@type": "Answer","text": "Online (double-conversion) UPS continuously conditions power and offers the highest protection, suited to mission-critical loads. Line-interactive UPS regulates voltage and switches to battery on outage, a good middle-ground option. Standby UPS is the simplest and most economical, switching to battery only when mains power fails outright. We recommend the right topology based on your equipment's sensitivity and your budget."}}
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="skip_main">تخطى إلى المحتوى الرئيسي</a>
@@ -298,6 +308,25 @@
     </section>
 
     <!-- Final CTA -->
+    <section class="section" aria-labelledby="svc-faq-heading-3">
+      <div class="container">
+        <div class="section-header">
+          <span class="overline" data-i18n="svc_faq_overline">أسئلة شائعة</span>
+          <h2 id="svc-faq-heading-3" data-i18n="faq_page_h1">الأسئلة الشائعة</h2>
+        </div>
+        <div class="svc-faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq_q10">ما هو حجم نظام UPS الذي أحتاجه؟</summary>
+            <p data-i18n="faq_a10">يعتمد ذلك على حملك الحيوي ومدة التشغيل المطلوبة. نبدأ بتقييم الحمل لتحديد سعة UPS الصحيحة (نقوم بتركيب أنظمة من ١ كيلو فولت أمبير حتى ١ ميجا فولت أمبير) وبنك البطاريات، بدلاً من التوصية بحجم قبل فهم ملف حملك الفعلي.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq_q11">ما الفرق بين UPS عبر الإنترنت والتفاعلي والاحتياطي؟</summary>
+            <p data-i18n="faq_a11">يقوم UPS عبر الإنترنت (مزدوج التحويل) بتكييف الطاقة باستمرار ويوفر أعلى حماية، مناسب للأحمال الحيوية. ينظم UPS التفاعلي الجهد ويتحول إلى البطارية عند الانقطاع، وهو خيار وسط جيد. UPS الاحتياطي هو الأبسط والأكثر اقتصادًا، ويتحول إلى البطارية فقط عند انقطاع الطاقة الرئيسية تمامًا. نوصي بالتقنية المناسبة بناءً على حساسية معداتك وميزانيتك.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="wa-banner" style="background:var(--clr-navy-dark);">
       <div class="container">
         <div class="wa-banner__inner">
