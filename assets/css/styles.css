@@ -308,6 +308,10 @@ body {
 .service-detail__content p { color: rgba(255,255,255,.85) !important; font-weight: 600 !important; }
 .service-detail__content { color: rgba(255,255,255,.85) !important; }
 .service-detail .overline { color: var(--clr-accent) !important; font-weight: 700 !important; }
+/* Case-study chip labels (e.g. "Healthcare · Eastern Province") had no
+   background-specific rule and fell back to the base .overline black,
+   invisible against this page's dark ground. */
+.blog-card .overline { color: var(--clr-accent) !important; }
 .service-features li { color: rgba(255,255,255,.85) !important; font-weight: 600 !important; }
 .service-detail .btn-primary { color: #ffffff !important; }
 
@@ -3884,6 +3888,7 @@ html:not(.js) [class*="reveal"] {
      still in real use. They wrap rather than scroll if a link is ever
      added, so the menu degrades to a taller bar, never a hidden link. */
   .navbar__links a { white-space: nowrap; font-size: 12px; }
+}
 
 @media (max-width: 480px) {
   :root { --nav-h: 104px; }
