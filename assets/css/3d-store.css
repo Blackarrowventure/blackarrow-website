@@ -432,6 +432,80 @@
   line-height: 1.6;
 }
 
+/* Coming-soon gate */
+.b3d-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    repeating-linear-gradient(180deg, rgba(245,158,11,.05) 0px, rgba(245,158,11,.05) 1px, transparent 1px, transparent 14px),
+    var(--clr-navy);
+}
+
+.b3d-gate__box {
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(245,158,11,.25);
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+}
+
+.b3d-gate__logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 28px;
+}
+
+.b3d-gate__box h1 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.b3d-gate__box p {
+  color: rgba(255,255,255,.65);
+  font-size: .92rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.b3d-gate__form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.b3d-gate__form input {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(245,158,11,.3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  color: #fff;
+  font-size: .95rem;
+  text-align: center;
+  letter-spacing: .05em;
+}
+
+.b3d-gate__form input::placeholder { color: rgba(255,255,255,.35); letter-spacing: normal; }
+
+.b3d-gate__error {
+  color: #f87171;
+  font-size: .82rem;
+  margin-bottom: 10px;
+}
+
+.b3d-gate__back {
+  color: rgba(255,255,255,.5);
+  font-size: .85rem;
+  text-decoration: underline;
+}
+
 /* Floating cart indicator in the 3D nav */
 .b3d-cart-link {
   position: relative;

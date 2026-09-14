@@ -253,6 +253,47 @@
     });
   }
 
+  var GATE_KEY = 'b3d_unlocked_v1';
+  var GATE_PASSCODE = '3DARROW2026';
+
+  function initGate() {
+    var gate = document.getElementById('b3d-gate');
+    var content = document.getElementById('b3d-content');
+    if (!gate || !content) return;
+
+    function unlock() {
+      try { localStorage.setItem(GATE_KEY, '1'); } catch (e) {}
+      gate.hidden = true;
+      content.hidden = false;
+    }
+
+    try {
+      if (localStorage.getItem(GATE_KEY) === '1') {
+        unlock();
+        return;
+      }
+    } catch (e) {}
+
+    gate.hidden = false;
+    content.hidden = true;
+
+    var form = gate.querySelector('[data-gate-form]');
+    var input = gate.querySelector('[data-gate-input]');
+    var error = gate.querySelector('[data-gate-error]');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if ((input.value || '').trim().toUpperCase() === GATE_PASSCODE) {
+          unlock();
+        } else {
+          error.hidden = false;
+          input.value = '';
+          input.focus();
+        }
+      });
+    }
+  }
+
   window.BlackArrow3D = {
     fetchProducts: fetchProducts,
     renderGrid: renderGrid,
@@ -262,9 +303,10 @@
     getCart: getCart,
     cartCount: cartCount,
     updateCartBadges: updateCartBadges,
+    initGate: initGate,
     icon: icon,
     CART_SVG: CART_SVG
   };
 
-  document.addEventListener('DOMContentLoaded', function () { updateCartBadges(); });
+  document.addEventListener('DOMContentLoaded', function () { updateCartBadges(); initGate(); });
 })();
