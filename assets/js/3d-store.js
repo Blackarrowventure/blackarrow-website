@@ -280,16 +280,36 @@
     var form = gate.querySelector('[data-gate-form]');
     var input = gate.querySelector('[data-gate-input]');
     var error = gate.querySelector('[data-gate-error]');
+    var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+    function attemptUnlock() {
+      var value = (input && input.value ? input.value : '').trim().toUpperCase();
+      if (!value) {
+        if (error) { error.textContent = 'Enter the passcode first.'; error.hidden = false; }
+        if (input) input.focus();
+        return;
+      }
+      if (value === GATE_PASSCODE) {
+        unlock();
+      } else {
+        if (error) { error.textContent = 'That passcode isn’t right — try again.'; error.hidden = false; }
+        if (input) { input.value = ''; input.focus(); }
+      }
+    }
+
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if ((input.value || '').trim().toUpperCase() === GATE_PASSCODE) {
-          unlock();
-        } else {
-          error.hidden = false;
-          input.value = '';
-          input.focus();
-        }
+        attemptUnlock();
+      });
+    }
+    // Belt-and-suspenders: some mobile browsers / keyboard combos don't
+    // reliably fire a form "submit" event. A direct click handler on the
+    // button works regardless of that.
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        attemptUnlock();
       });
     }
   }
