@@ -1110,6 +1110,24 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+/* Homepage service cards: clicking anywhere on the card (image, title,
+   description, benefits) opens the service page, not just the small
+   "Learn More" text. The "Learn More" link gets a full-card overlay via
+   ::after; the "Get Quote" button sits above it (higher z-index) so it
+   still opens its own separate destination. */
+.svc-card__stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.svc-card__footer .btn {
+  position: relative;
+  z-index: 2;
 }
 
 .svc-card:hover {
