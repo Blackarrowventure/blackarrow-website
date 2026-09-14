@@ -308,5 +308,40 @@
     CART_SVG: CART_SVG
   };
 
-  document.addEventListener('DOMContentLoaded', function () { updateCartBadges(); initGate(); });
+  function autoInit() {
+    updateCartBadges();
+    initGate();
+
+    var grid = document.querySelector('[data-b3d-grid]');
+    if (grid) {
+      var filters = document.querySelector('[data-b3d-filters]');
+      var count = document.querySelector('[data-b3d-count]');
+      fetchProducts().then(function (products) {
+        renderGrid(products, grid);
+        if (filters) renderFilters(products, filters, grid);
+        if (count) count.textContent = products.length;
+      });
+    }
+
+    var productContainer = document.querySelector('[data-b3d-product]');
+    if (productContainer) {
+      renderProductDetail(productContainer);
+    }
+
+    var cartList = document.querySelector('[data-b3d-cart-list]');
+    if (cartList) {
+      var summary = document.querySelector('[data-b3d-cart-summary]');
+      var empty = document.querySelector('[data-b3d-cart-empty]');
+      renderCartPage(cartList, summary, empty);
+
+      var checkoutBtn = document.querySelector('[data-b3d-checkout]');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function () {
+          alert('Checkout isn’t connected to a payment gateway yet. Once Moyasar/Tap is live, this will take you to secure payment.');
+        });
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', autoInit);
 })();

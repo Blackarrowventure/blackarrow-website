@@ -175,18 +175,6 @@
 
   <script src="/assets/js/app.js" defer></script>
   <script src="/assets/js/3d-store.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var list = document.querySelector('[data-b3d-cart-list]');
-      var summary = document.querySelector('[data-b3d-cart-summary]');
-      var empty = document.querySelector('[data-b3d-cart-empty]');
-      BlackArrow3D.renderCartPage(list, summary, empty);
 
-      var checkoutBtn = document.querySelector('[data-b3d-checkout]');
-      checkoutBtn.addEventListener('click', function () {
-        alert('Checkout isn’t connected to a payment gateway yet. Once Moyasar/Tap is live, this will take you to secure payment.');
-      });
-    });
-  </script>
 </body>
 </html>

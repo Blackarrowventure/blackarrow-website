@@ -153,17 +153,6 @@
 
   <script src="/assets/js/app.js" defer></script>
   <script src="/assets/js/3d-store.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var grid = document.querySelector('[data-b3d-grid]');
-      var filters = document.querySelector('[data-b3d-filters]');
-      var count = document.querySelector('[data-b3d-count]');
-      BlackArrow3D.fetchProducts().then(function (products) {
-        BlackArrow3D.renderGrid(products, grid);
-        BlackArrow3D.renderFilters(products, filters, grid);
-        count.textContent = products.length;
-      });
-    });
-  </script>
+
 </body>
 </html>
