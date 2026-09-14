@@ -49,8 +49,12 @@ SRC_BY_URL = {p['url']: p['src'] for p in MANIFEST['pages']}
 EXTERNAL = ('http://', 'https://', 'mailto:', 'tel:', 'javascript:', 'data:', '//', '#')
 
 # Paths that are shared between languages and must never be /ar/-prefixed.
+# /3d/ is the (currently English-only, gated) Black Arrow 3D preview -
+# not registered in pages.json/sitemap by design, but linked from the
+# main-site footer, so it needs to resolve as a shared, unprefixed path.
 SHARED_PREFIXES = ('/assets/', '/service-worker.js', '/sitemap.xml',
-                   '/robots.txt', '/company-profile.pdf', '/downloads/')
+                   '/robots.txt', '/company-profile.pdf', '/downloads/',
+                   '/3d/')
 
 
 class BuildError(Exception):
