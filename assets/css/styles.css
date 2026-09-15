@@ -673,6 +673,30 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   padding-inline-end: 20px;
 }
 
+/* Explore BAV 3D - a solid accent-filled badge linking out to the /3d/
+   storefront (a distinct sub-site, not an internal page like the rest of
+   the nav), so it reads as "go somewhere else" rather than another plain
+   nav link. Uses the same brand arrow mark as the 3D site's own navbar
+   logo, so a visitor recognizes it as the same "arrow" once they land. */
+.btn-3d-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius-full, 999px);
+  background: var(--clr-accent);
+  color: #1a1400;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.btn-3d-explore:hover,
+.btn-3d-explore:focus-visible { background: var(--clr-accent-dark); color: #1a1400; transform: translateY(-1px); }
+.btn-3d-explore__icon { width: 15px; height: 12px; flex-shrink: 0; color: #1a1400; }
+
 /* Employee Login - a quiet, secondary utility action (gold-tinted, using
    the same --clr-accent-hover/--clr-accent-active tokens the accent color
    already defines) so it never competes with the real conversion action,
