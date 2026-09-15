@@ -1358,6 +1358,7 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
   margin-bottom: 24px;
 }
 .b3d-account__form { display: flex; flex-direction: column; gap: 14px; }
+.b3d-account__form[hidden] { display: none; }
 .b3d-account__form label { color: rgba(255,255,255,.6); font-size: .8rem; }
 .b3d-account__form input {
   width: 100%;

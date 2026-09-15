@@ -113,6 +113,8 @@
             </form>
 
             <form class="b3d-account__form" id="b3d-signup-form" hidden>
+              <label><span data-i18n="account_name">Full name</span><input type="text" id="signup-name" required autocomplete="name"></label>
+              <label><span data-i18n="account_phone">Phone</span><input type="tel" id="signup-phone" autocomplete="tel" placeholder="+966 5XX XXX XXX"></label>
               <label><span data-i18n="account_email">Email</span><input type="email" id="signup-email" required autocomplete="email"></label>
               <label><span data-i18n="account_password_min">Password (min. 6 characters)</span><input type="password" id="signup-password" required minlength="6" autocomplete="new-password"></label>
               <p class="b3d-account__error" id="signup-error" hidden></p>
@@ -189,7 +191,7 @@
   </footer>
   </div>
 
-  <script src="/3d/assets/js/3d-firebase-config.js" defer></script>
+  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-brands.js" defer></script>

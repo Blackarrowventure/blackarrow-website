@@ -57,7 +57,11 @@
         err.hidden = true;
         window.BlackArrow3DAuth.signUp(
           document.getElementById('signup-email').value,
-          document.getElementById('signup-password').value
+          document.getElementById('signup-password').value,
+          {
+            name: document.getElementById('signup-name').value,
+            phone: document.getElementById('signup-phone').value
+          }
         ).catch(function (error) {
           err.textContent = error.message;
           err.hidden = false;
