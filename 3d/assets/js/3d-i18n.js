@@ -71,6 +71,10 @@
       promo_h2c_desc: 'Professional-grade enclosed Bambu Lab printer built for high-temperature engineering materials and serious production.',
       promo_sparkx_desc: 'An affordable, easy-to-use entry point into 3D printing — ideal for first-time makers, students and simple everyday projects.',
       promo_u1_desc: 'A four-toolhead color monster — faster, cleaner multi-color printing than traditional filament-swap systems.',
+      promo_a1_desc: 'The full-size Bambu Lab A1 — bigger build volume than the mini, with optional AMS Lite for 4-color printing.',
+      promo_p2s_desc: 'Enclosed, high-speed Bambu Lab printer built for engineering filaments — standalone or with the AMS 2 Pro combo.',
+      promo_centauri_desc: 'Elegoo\'s enclosed CoreXY printer with the CANVAS multi-filament system — up to 4 colors, hardened-steel nozzle for abrasive materials.',
+      promo_kobra3max_desc: 'Anycubic\'s large-format printer — built for oversized prints and figurines that outgrow a standard bed.',
       hub_cta_h2: 'Ready to Browse the Catalog?',
       hub_cta_p: 'Browse 3D printers, filament and accessories from Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic and Flashforge.',
 
@@ -303,6 +307,10 @@
       promo_h2c_desc: 'طابعة بامبو لاب احترافية مغلقة، مصممة للمواد الهندسية عالية الحرارة والإنتاج الجاد.',
       promo_sparkx_desc: 'بداية ذكية وسهلة لعالم الطباعة ثلاثية الأبعاد بسعر مناسب — مثالية للمبتدئين والطلاب والمشاريع اليومية البسيطة.',
       promo_u1_desc: 'وحش الألوان بأربع رؤوس طباعة — تجربة ألوان أسرع وأنظف من أنظمة تبديل الفلمنت التقليدية.',
+      promo_a1_desc: 'الحجم الكامل من بامبو لاب A1 — مساحة طباعة أكبر من نسخة الميني، مع دعم اختياري لوحدة AMS Lite للطباعة الرباعية الألوان.',
+      promo_p2s_desc: 'طابعة بامبو لاب مغلقة وعالية السرعة، مصممة للفلمنت الهندسي — تُباع منفردة أو ضمن حزمة AMS 2 Pro.',
+      promo_centauri_desc: 'طابعة إليجو المغلقة بتقنية CoreXY مع نظام CANVAS متعدد الفلمنت — حتى 4 ألوان، ونوزل من الفولاذ المقسّى للمواد الكاشطة.',
+      promo_kobra3max_desc: 'طابعة أنيكيوبيك كبيرة الحجم — مصممة للمطبوعات والمجسمات كبيرة الحجم التي تتجاوز سرير الطباعة العادي.',
       hub_cta_h2: 'هل أنت مستعد لتصفح الكتالوج؟',
       hub_cta_p: 'تصفح الطابعات ثلاثية الأبعاد والفلمنت والملحقات من Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge.',
 
