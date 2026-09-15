@@ -404,7 +404,9 @@
 }
 
 .b3d-pd__visual {
-  aspect-ratio: 1 / 0.85;
+  aspect-ratio: 4 / 5;
+  max-width: 480px;
+  margin: 0 auto;
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
@@ -417,8 +419,8 @@
 }
 
 .b3d-pd__visual svg { width: 45%; height: 45%; color: var(--clr-accent); }
-.b3d-pd__visual img { width: 100%; height: 100%; object-fit: contain; padding: 20px; overflow: hidden; border-radius: var(--radius-lg); }
-.b3d-pd__visual .b3d-card__visual-placeholder { width: calc(100% - 48px); height: calc(100% - 48px); font-size: .95rem; }
+.b3d-pd__visual img { width: 100%; height: 100%; object-fit: contain; padding: 8px; overflow: hidden; border-radius: var(--radius-lg); }
+.b3d-pd__visual .b3d-card__visual-placeholder { width: calc(100% - 16px); height: calc(100% - 16px); font-size: .95rem; }
 
 .b3d-pd__cat { color: var(--clr-accent); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
 .b3d-pd__title { color: #fff; font-size: 2rem; margin-bottom: 14px; text-wrap: balance; }
