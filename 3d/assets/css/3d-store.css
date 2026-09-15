@@ -671,9 +671,7 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: nowrap;
-  padding: 0 28px;
-  max-width: min(1900px, 94vw);
-  margin: 0 auto;
+  padding: 0 24px;
   width: 100%;
 }
 
@@ -710,6 +708,7 @@
 
 .navbar__brand-text .sub {
   font-size: .62rem;
+  font-weight: 700;
   color: #888;
   letter-spacing: .06em;
   text-transform: uppercase;

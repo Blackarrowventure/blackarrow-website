@@ -12,6 +12,7 @@
 
   var DICT = {
     en: {
+      nav_home: 'Home',
       nav_shop: 'Shop',
       nav_3d_printers: '3D Printers',
       nav_filaments: 'Filaments',
@@ -239,6 +240,7 @@
       announce_3: 'Online payment is pending gateway approval — accounts and browsing are open.'
     },
     ar: {
+      nav_home: 'الرئيسية',
       nav_shop: 'المتجر',
       nav_3d_printers: 'طابعات ثلاثية الأبعاد',
       nav_filaments: 'خيوط الطباعة',
