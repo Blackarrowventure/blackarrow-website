@@ -1100,8 +1100,15 @@
     });
 
     function resetTimer() {
+      /* Not gated on motionEnabled(): that preference was only ever
+         changeable via the Motion On/Off toggle, which has been removed
+         from the page. Gating on it here (or on the OS-level
+         prefers-reduced-motion setting many laptops ship with on) would
+         silently freeze this promo carousel on slide 1 with no way for
+         the visitor to turn it back on. Manual controls (arrows, dots,
+         keyboard, swipe) remain fully available regardless. */
       if (timer) clearInterval(timer);
-      if (motionEnabled()) timer = setInterval(function () { go(index + 1); }, 6000);
+      timer = setInterval(function () { go(index + 1); }, 6000);
     }
 
     resetTimer();
