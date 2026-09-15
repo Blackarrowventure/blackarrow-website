@@ -94,6 +94,195 @@
         ["متطلبات الطاقة", "100-240 فولت تيار متردد، 50/60 هرتز، بحد أقصى 150 واط"]
       ],
       "compatibility_ar": ["لوح PEI بامبو المحبب", "لوح PEI بامبو الأملس", "لوح PEI بامبو ثنائي الملمس", "وحدة AMS lite (الباقة)"]
+    },
+    {
+      "id": "bambu-lab-a1",
+      "name": "Bambu Lab A1",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "price": 2699,
+      "currency": "SAR",
+      "available": true,
+      "variants": [
+        { "label": "Standalone", "label_ar": "منفردة", "price": 2699 },
+        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530 }
+      ],
+      "images": [
+        "/3d/assets/images/products/bambu-a1-01.jpg",
+        "/3d/assets/images/products/bambu-a1-02.png",
+        "/3d/assets/images/products/bambu-a1-03.jpg",
+        "/3d/assets/images/products/bambu-a1-04.jpg",
+        "/3d/assets/images/products/bambu-a1-05.jpg",
+        "/3d/assets/images/products/bambu-a1-06.jpg"
+      ],
+      "shortDesc": "Fast, accurate FDM printer with multi-color AMS Lite support — an easy, professional entry point into 3D printing.",
+      "description": "The Bambu Lab A1 is a strong choice for anyone starting out in 3D printing, offering an easy, professional experience from day one. It combines speed, precision, and multi-color printing, letting you produce gifts, models, logos, prototypes, and custom parts with high quality and no complexity. Whether for home, retail, or daily production, it delivers a smooth, ready-to-go experience thanks to automatic calibration, high speed, and the AMS Lite system for printing up to 4 colors.",
+      "specs": [
+        ["Build Volume", "256 x 256 x 256 mm"],
+        ["Max Hot End Temperature", "300 °C"],
+        ["Max Bed Temperature", "100 °C"],
+        ["Nozzle", "0.4 mm standard (0.2 / 0.6 / 0.8 mm supported)"],
+        ["Multi-Color Printing", "AMS Lite support, up to 4 colors"],
+        ["Supported Materials", "PLA / PETG / TPU and similar, depending on settings"],
+        ["Max Speed", "500 mm/s"],
+        ["Max Acceleration", "10,000 mm/s²"],
+        ["Connectivity", "Wi-Fi / Micro SD / app control"],
+        ["Dimensions", "465 x 410 x 430 mm"],
+        ["Weight", "8.3 kg"]
+      ],
+      "name_ar": "بامبو لاب A1",
+      "shortDesc_ar": "طابعة FDM سريعة ودقيقة تدعم AMS Lite للطباعة متعددة الألوان — نقطة انطلاق سهلة واحترافية في عالم الطباعة ثلاثية الأبعاد.",
+      "description_ar": "Bambu Lab A1 خيار قوي للي يبغى يدخل عالم الطباعة ثلاثية الأبعاد بتجربة سهلة واحترافية من أول يوم. تجمع لك بين السرعة، الدقة، والطباعة متعددة الألوان، وتفتح لك مجال تطبع منتجات، هدايا، مجسمات، شعارات، نماذج أولية، وقطع مخصصة بجودة عالية بدون تعقيد. سواء بتستخدمها للبيت، المتجر، أو الإنتاج اليومي، الطابعة تعطيك تجربة جاهزة وسلسة بفضل المعايرة التلقائية، السرعة العالية، ونظام AMS Lite للطباعة حتى 4 ألوان.",
+      "specs_ar": [
+        ["حجم الطباعة", "256 × 256 × 256 مم"],
+        ["حرارة الهوت إند", "حتى 300 °م"],
+        ["حرارة السرير", "حتى 100 °م"],
+        ["قطر النوزل", "0.4 مم أساسي، ويدعم 0.2 / 0.6 / 0.8 مم"],
+        ["الطباعة متعددة الألوان", "تدعم AMS Lite حتى 4 ألوان"],
+        ["الخامات المناسبة", "PLA / PETG / TPU وخامات مشابهة حسب الإعدادات"],
+        ["السرعة القصوى", "حتى 500 مم/ث"],
+        ["التسارع", "حتى 10,000 مم/ث²"],
+        ["الاتصال", "Wi-Fi / Micro SD / التحكم عبر التطبيق"],
+        ["أبعاد الطابعة", "465 × 410 × 430 مم"],
+        ["الوزن", "8.3 كجم"]
+      ]
+    },
+    {
+      "id": "bambu-lab-a2l",
+      "name": "Bambu Lab A2L",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "price": 3699,
+      "currency": "SAR",
+      "available": true,
+      "preorder": true,
+      "variants": [
+        { "label": "Standalone", "label_ar": "منفردة", "price": 3699 },
+        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650 }
+      ],
+      "images": [
+        "/3d/assets/images/products/bambu-a2l-01.jpg",
+        "/3d/assets/images/products/bambu-a2l-02.jpg",
+        "/3d/assets/images/products/bambu-a2l-03.png",
+        "/3d/assets/images/products/bambu-a2l-04.png",
+        "/3d/assets/images/products/bambu-a2l-05.jpg",
+        "/3d/assets/images/products/bambu-a2l-06.jpg",
+        "/3d/assets/images/products/bambu-a2l-07.jpg",
+        "/3d/assets/images/products/bambu-a2l-08.jpg"
+      ],
+      "shortDesc": "Large-format Bambu Lab printer with more than double the A1's build volume — same easy workflow, room for bigger projects.",
+      "description": "The Bambu Lab A2L is a large-format 3D printer from the A-series, built for projects that need more room — bigger models, prototypes, decor, cosplay pieces, and custom products. It keeps the easy A1-style workflow but with a much larger build volume, more than double the A1's, plus high speed and multi-color printing depending on the bundle.",
+      "specs": [
+        ["Build Volume", "330 x 320 x 325 mm"],
+        ["Build Volume (Liters)", "~34.3 L"],
+        ["Max Speed", "500 mm/s"],
+        ["Multi-Color Printing", "AMS / AMS Lite, depending on bundle"],
+        ["Connectivity", "Wi-Fi"],
+        ["Dimensions", "544 x 529 x 505 mm"],
+        ["Weight", "12.8 kg"],
+        ["Supported Materials", "PLA / PETG / TPU and similar, depending on settings"]
+      ],
+      "name_ar": "بامبو لاب A2L",
+      "shortDesc_ar": "طابعة بامبو لاب كبيرة الحجم بمساحة طباعة أكبر من ضعف A1 — بنفس سهولة الاستخدام ومساحة أكبر للمشاريع الكبيرة.",
+      "description_ar": "Bambu Lab A2L طابعة ثلاثية الأبعاد كبيرة الحجم من سلسلة A، مناسبة للي يحتاج مساحة طباعة أوسع للمجسمات الكبيرة، النماذج الأولية، الديكور، الكوسبلاي، والمنتجات المخصصة. تعطيك تجربة سهلة وقريبة من A1، لكن بحجم طباعة أكبر بكثير يصل إلى أكثر من ضعف حجم الطباعة مقارنة بـ A1، مع سرعة عالية ودعم للطباعة متعددة الألوان حسب الباقة المستخدمة.",
+      "specs_ar": [
+        ["حجم الطباعة", "330 × 320 × 325 مم"],
+        ["حجم الطباعة بالفوليوم", "حوالي 34.3 لتر"],
+        ["السرعة القصوى", "حتى 500 مم/ث"],
+        ["الطباعة متعددة الألوان", "تدعم AMS / AMS Lite حسب الباقة"],
+        ["الاتصال", "Wi-Fi"],
+        ["أبعاد الطابعة", "544 × 529 × 505 مم"],
+        ["الوزن", "12.8 كجم"],
+        ["الخامات المناسبة", "PLA / PETG / TPU وخامات مشابهة حسب الإعدادات"]
+      ]
+    },
+    {
+      "id": "bambu-lab-h2c-combo",
+      "name": "Bambu Lab H2C",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "sku": "BAMBU-H2C-COMBO",
+      "price": 15990,
+      "currency": "SAR",
+      "available": true,
+      "images": [
+        "/3d/assets/images/products/bambu-h2c-01.jpg",
+        "/3d/assets/images/products/bambu-h2c-02.jpg",
+        "/3d/assets/images/products/bambu-h2c-03.jpg",
+        "/3d/assets/images/products/bambu-h2c-04.jpg"
+      ],
+      "shortDesc": "Professional-grade enclosed Bambu Lab printer built for high-temperature engineering materials and serious production.",
+      "description": "The Bambu Lab H2C Combo is a professional-tier printer for workshops, retailers, and larger projects that need higher output, more colors and materials, and a more advanced experience. It steps printing up from a hobby into real production, with a large build volume, high speed, higher hot-end temperatures for advanced materials, and a Combo system that unlocks more color/material options depending on configuration.",
+      "specs": [
+        ["Build Volume", "330 x 320 x 325 mm"],
+        ["Max Hot End Temperature", "350 °C"],
+        ["Max Chamber Temperature", "65 °C"],
+        ["Multi-Color / Multi-Material", "Depending on configuration"],
+        ["Supported Materials", "PLA / PETG / TPU / ABS / ASA / PA and similar, depending on settings"],
+        ["Max Speed", "1,000 mm/s"],
+        ["Weight", "32.5 kg"]
+      ],
+      "name_ar": "بامبو لاب H2C",
+      "shortDesc_ar": "طابعة بامبو لاب احترافية مغلقة، مصممة للمواد الهندسية عالية الحرارة والإنتاج الجاد.",
+      "description_ar": "Bambu Lab H2C Combo طابعة احترافية للفئة اللي تبغى إنتاج أعلى، ألوان ومواد أكثر، وتجربة متقدمة تناسب الورش والمتاجر والمشاريع الكبيرة. مصممة للي يبي يرفع مستوى الطباعة من مجرد هواية إلى إنتاج فعلي بجودة عالية. تعطيك مساحة طباعة كبيرة، سرعة قوية، حرارة أعلى للخامات المتقدمة، ونظام Combo يفتح لك خيارات أكبر في الألوان والمواد حسب التجهيز.",
+      "specs_ar": [
+        ["حجم الطباعة", "330 × 320 × 325 مم"],
+        ["حرارة الهوت إند", "حتى 350 °م"],
+        ["حرارة الحجرة", "حتى 65 °م"],
+        ["الطباعة متعددة الألوان/المواد", "حسب التجهيز"],
+        ["الخامات المناسبة", "PLA / PETG / TPU / ABS / ASA / PA وخامات مشابهة حسب الإعدادات"],
+        ["السرعة القصوى", "حتى 1,000 مم/ث"],
+        ["الوزن", "32.5 كجم"]
+      ]
+    },
+    {
+      "id": "bambu-lab-p2s",
+      "name": "Bambu Lab P2S",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "price": 4499,
+      "currency": "SAR",
+      "available": true,
+      "variants": [
+        { "label": "Printer Only", "label_ar": "الطابعة فقط", "price": 4499 },
+        { "label": "Combo (with AMS 2 Pro)", "label_ar": "باقة (مع AMS 2 Pro)", "price": 6440 }
+      ],
+      "images": [
+        "/3d/assets/images/products/bambu-p2s-01.jpg",
+        "/3d/assets/images/products/bambu-p2s-02.jpg",
+        "/3d/assets/images/products/bambu-p2s-03.jpg",
+        "/3d/assets/images/products/bambu-p2s-04.jpg",
+        "/3d/assets/images/products/bambu-p2s-05.jpg"
+      ],
+      "shortDesc": "Enclosed, fast Bambu Lab printer built for daily production — consistent results, with an optional AMS 2 Pro multi-color combo.",
+      "description": "The Bambu Lab P2S is an enclosed, fast printer built for professional, everyday production. It combines stability, speed, and ease of use, suited to products, gifts, prototypes, and repeat orders at high quality. A great fit for workshops, retailers, and anyone who wants a newer P-series printer with a smarter, easier experience — with Combo options for multi-color printing depending on the bundle.",
+      "specs": [
+        ["Build Volume", "256 x 256 x 256 mm"],
+        ["Max Hot End Temperature", "300 °C"],
+        ["Max Bed Temperature", "110 °C"],
+        ["Nozzle", "0.4 mm standard"],
+        ["Multi-Color Printing", "AMS / AMS 2 Pro, depending on bundle"],
+        ["Supported Materials", "PLA / PETG / TPU and similar, depending on settings"],
+        ["Max Speed", "500 mm/s"],
+        ["Max Acceleration", "20,000 mm/s²"],
+        ["Connectivity", "Wi-Fi / Bambu Handy / Bambu Studio"],
+        ["Weight", "14.7 kg"]
+      ],
+      "name_ar": "بامبو لاب P2S",
+      "shortDesc_ar": "طابعة بامبو لاب مغلقة وسريعة للإنتاج اليومي — نتائج ثابتة، مع خيار باقة AMS 2 Pro للطباعة متعددة الألوان.",
+      "description_ar": "Bambu Lab P2S طابعة مغلقة وسريعة موجهة للي يبغى تجربة احترافية جاهزة للإنتاج اليومي. تجمع بين الثبات، السرعة، وسهولة التشغيل، وتناسب المنتجات، الهدايا، النماذج الأولية، وقطع الطلبات المتكررة بجودة عالية. مناسبة للورش والمتاجر والمهتمين اللي يبغون طابعة أحدث من فئة P بتجربة أذكى وأسهل، مع خيارات Combo للطباعة متعددة الألوان حسب البكج.",
+      "specs_ar": [
+        ["حجم الطباعة", "256 × 256 × 256 مم"],
+        ["حرارة الهوت إند", "حتى 300 °م"],
+        ["حرارة السرير", "حتى 110 °م"],
+        ["قطر النوزل", "0.4 مم أساسي"],
+        ["الطباعة متعددة الألوان", "تدعم AMS / AMS 2 Pro حسب البكج"],
+        ["الخامات المناسبة", "PLA / PETG / TPU وخامات مشابهة حسب الإعدادات"],
+        ["السرعة القصوى", "حتى 500 مم/ث"],
+        ["التسارع", "حتى 20,000 مم/ث²"],
+        ["الاتصال", "Wi-Fi / Bambu Handy / Bambu Studio"],
+        ["الوزن", "14.7 كجم"]
+      ]
     }
   ]
 }
