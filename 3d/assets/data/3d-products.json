@@ -16,7 +16,7 @@
     "featured": "boolean, optional",
     "onSale": "boolean, optional",
     "topPick": "boolean, optional — powers the shop's 'Top quality' quick filter",
-    "variants": "array of {label, price}, optional — when present, the shop card shows 'From <lowest price>' + a View Options link, and the product page shows a variant picker instead of one fixed price",
+    "variants": "array of {label, price, label_ar}, optional — when present, the shop card shows 'From <lowest price>' + a View Options link, and the product page shows a variant picker instead of one fixed price",
     "images": "array of image paths — first is primary",
     "shortDesc": "string",
     "description": "string",
@@ -24,7 +24,13 @@
     "compatibility": "array of strings, optional",
     "warranty": "string, optional",
     "seoTitle": "string, optional",
-    "seoDescription": "string, optional"
+    "seoDescription": "string, optional",
+    "name_ar": "string, optional — Arabic name; falls back to `name` if missing",
+    "shortDesc_ar": "string, optional",
+    "description_ar": "string, optional",
+    "specs_ar": "array of [label, value] pairs, optional — falls back to `specs` if missing",
+    "compatibility_ar": "array of strings, optional",
+    "warranty_ar": "string, optional"
   },
   "products": [
     {
@@ -37,8 +43,8 @@
       "available": true,
       "preorder": true,
       "variants": [
-        { "label": "Standalone", "price": 1699 },
-        { "label": "Combo (with AMS lite)", "price": 2799 }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 1699 },
+        { "label": "Combo (with AMS lite)", "label_ar": "باقة (مع AMS lite)", "price": 2799 }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-mini-main.webp",
@@ -66,7 +72,28 @@
         ["Net Weight", "5.5 kg"],
         ["Input Power", "100-240 VAC, 50/60 Hz, 150 W max"]
       ],
-      "compatibility": ["Bambu Textured PEI Plate", "Bambu Smooth PEI Plate", "Bambu Dual-Texture PEI Plate", "AMS lite (combo)"]
+      "compatibility": ["Bambu Textured PEI Plate", "Bambu Smooth PEI Plate", "Bambu Dual-Texture PEI Plate", "AMS lite (combo)"],
+      "name_ar": "بامبو لاب A1 ميني",
+      "shortDesc_ar": "طابعة FDM مدمجة وسريعة برأس طباعة معدني بالكامل — متوفرة منفردة أو كباقة مع وحدة AMS متعددة الألوان.",
+      "description_ar": "طابعة بامبو لاب A1 ميني هي طابعة FDM ثلاثية الأبعاد مدمجة، صُممت للسرعة والموثوقية، برأس طباعة معدني بالكامل، وتروس بثق من الفولاذ المقسّى، وفوهة من الفولاذ المقاوم للصدأ تتحمل حرارة تصل إلى 300 درجة مئوية. تدعم معايرة السرير التلقائية، وحساس نفاد الخيط، وقياس مسافة الخيط، واستعادة الطباعة عند انقطاع الكهرباء، وحساس تشابك الخيط. متوفرة منفردة أو كباقة مع وحدة AMS lite للطباعة متعددة الألوان والمواد.",
+      "specs_ar": [
+        ["حجم الطباعة", "180 × 180 × 180 مم"],
+        ["الهيكل", "فولاذ + ألمنيوم مبثوق"],
+        ["رأس الطباعة", "معدني بالكامل"],
+        ["الفوهة", "فولاذ مقاوم للصدأ، 0.4 مم (اختياري 0.2 / 0.6 / 0.8 مم)"],
+        ["أقصى حرارة لرأس الطباعة", "300 °م"],
+        ["أقصى حرارة لسرير الطباعة", "80 °م"],
+        ["أقصى سرعة لرأس الطباعة", "500 مم/ث"],
+        ["أقصى تسارع لرأس الطباعة", "10,000 مم/ث²"],
+        ["أنواع الخيوط المدعومة (الأفضل)", "PLA وPETG وTPU وPVA"],
+        ["الشاشة", "لمس مقاس 2.4 بوصة، دقة 320×240"],
+        ["الاتصال", "واي فاي، Bambu-Bus"],
+        ["التخزين", "بطاقة Micro SD"],
+        ["الأبعاد", "347 × 315 × 365 مم"],
+        ["الوزن الصافي", "5.5 كجم"],
+        ["متطلبات الطاقة", "100-240 فولت تيار متردد، 50/60 هرتز، بحد أقصى 150 واط"]
+      ],
+      "compatibility_ar": ["لوح PEI بامبو المحبب", "لوح PEI بامبو الأملس", "لوح PEI بامبو ثنائي الملمس", "وحدة AMS lite (الباقة)"]
     }
   ]
 }

@@ -789,6 +789,33 @@
   .navbar__pill span.navbar__pill-label { display: none; }
 }
 
+/* ==============================================
+   RTL (Arabic) — flex/grid axes already mirror
+   automatically under dir="rtl"; these rules cover
+   the handful of things that don't (explicit
+   text-align, absolutely-positioned elements, and
+   the breadcrumb separator glyph).
+   ============================================== */
+html[dir="rtl"] [style*="text-align:left"] { text-align: right !important; }
+html[dir="rtl"] [style*="text-align: left"] { text-align: right !important; }
+
+html[dir="rtl"] .navbar__dropdown-menu { left: auto; right: 0; }
+
+html[dir="rtl"] .breadcrumb span:not(:last-child) { display: inline-block; transform: scaleX(-1); }
+
+html[dir="rtl"] .b3d-hero__eyebrow::before,
+html[dir="rtl"] .b3d-hero__eyebrow::after { content: ''; }
+
+html[dir="rtl"] .b3d-slider__arrow--prev { left: auto; right: 14px; }
+html[dir="rtl"] .b3d-slider__arrow--next { right: auto; left: 14px; }
+
+html[dir="rtl"] .b3d-stock-badge,
+html[dir="rtl"] .b3d-corner-badge--featured,
+html[dir="rtl"] .b3d-corner-badge--sale,
+html[dir="rtl"] .b3d-sample-badge { right: auto; left: 12px; }
+html[dir="rtl"] .b3d-stock-badge { left: 12px; right: auto; }
+html[dir="rtl"] .b3d-corner-badge { left: 12px; right: auto; }
+
 /* Floating cart indicator in the 3D nav */
 .b3d-cart-link {
   position: relative;

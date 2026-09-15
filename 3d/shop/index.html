@@ -10,9 +10,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/3d/assets/css/3d-store.css">
 
@@ -30,11 +30,11 @@
 
   <div class="b3d-announce" data-b3d-announce>
     <div class="b3d-announce__track" data-b3d-announce-track>
-      <span>Black Arrow 3D preview — catalog is being set up, check back soon.</span>
+      <span data-i18n="announce_1">Black Arrow 3D preview — catalog is being set up, check back soon.</span>
       <span aria-hidden="true">&#9670;</span>
-      <span>Business quotations available now — contact us for a project quote.</span>
+      <span data-i18n="announce_2">Business quotations available now — contact us for a project quote.</span>
       <span aria-hidden="true">&#9670;</span>
-      <span>Online payment is pending gateway approval — accounts and browsing are open.</span>
+      <span data-i18n="announce_3">Online payment is pending gateway approval — accounts and browsing are open.</span>
     </div>
   </div>
 
@@ -45,19 +45,19 @@
           <svg class="navbar__brand-icon" viewBox="0 0 100 60" aria-hidden="true"><polygon points="0,18 55,18 55,0 100,30 55,60 55,42 0,42" fill="currentColor"/></svg>
           <span class="navbar__brand-text">
             <span class="name">BLACK ARROW <span class="accent">3D</span></span>
-            <span class="sub">Printing Equipment &amp; Supplies</span>
+            <span class="sub" data-i18n="nav_tagline">Printing Equipment &amp; Supplies</span>
           </span>
         </a>
         <ul class="navbar__links" role="list">
-          <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);">Shop</a></li>
-          <li><a href="/3d/shop/?cat=3D+Printers">3D Printers</a></li>
-          <li><a href="/3d/shop/?cat=Filament">Filaments</a></li>
-          <li><a href="/3d/shop/?cat=Accessories">Accessories</a></li>
+          <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);" data-i18n="nav_shop">Shop</a></li>
+          <li><a href="/3d/shop/?cat=3D+Printers" data-i18n="nav_3d_printers">3D Printers</a></li>
+          <li><a href="/3d/shop/?cat=Filament" data-i18n="nav_filaments">Filaments</a></li>
+          <li><a href="/3d/shop/?cat=Accessories" data-i18n="nav_accessories">Accessories</a></li>
           <li>
             <details class="navbar__dropdown">
-              <summary>Brands</summary>
+              <summary data-i18n="nav_brands">Brands</summary>
               <div class="navbar__dropdown-menu">
-                <a href="/3d/shop/">All Brands</a>
+                <a href="/3d/shop/" data-i18n="nav_all_brands">All Brands</a>
                 <a href="/3d/shop/?brand=Bambu+Lab">Bambu Lab</a>
                 <a href="/3d/shop/?brand=Creality">Creality</a>
                 <a href="/3d/shop/?brand=Elegoo">Elegoo</a>
@@ -71,14 +71,15 @@
           </li>
         </ul>
         <div class="navbar__right">
-          <button class="navbar__pill" data-motion-toggle type="button" aria-pressed="false"><span class="navbar__pill-label">Motion: On</span></button>
+          <button class="navbar__pill" data-lang-toggle type="button">AR</button>
+          <button class="navbar__pill" data-motion-toggle type="button" aria-pressed="false"><span class="navbar__pill-label" data-i18n-motion>Motion: On</span></button>
           <a href="/3d/account/" class="navbar__pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span class="navbar__pill-label">Profile</span>
+            <span class="navbar__pill-label" data-i18n="nav_profile">Profile</span>
           </a>
           <a href="/3d/cart/" class="navbar__pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span class="navbar__pill-label">Bag</span>
+            <span class="navbar__pill-label" data-i18n="nav_bag">Bag</span>
             <span class="navbar__pill-badge" data-b3d-cart-count hidden>0</span>
           </a>
         </div>
@@ -90,68 +91,21 @@
     <section class="section" style="padding-top:28px;padding-bottom:0;">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:18px;">
-          <a href="/3d/">Black Arrow 3D</a>
+          <a href="/3d/" data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</a>
           <span>›</span>
-          <span>Shop</span>
+          <span data-i18n="nav_shop">Shop</span>
         </nav>
       </div>
     </section>
 
-    <section class="b3d-hero b3d-hero--split">
+    <section class="b3d-hero">
       <div class="container">
-        <div class="b3d-hero__grid">
-          <div class="b3d-hero__text">
-            <span class="b3d-hero__eyebrow">Black Arrow 3D Catalog</span>
-            <h1>Build smarter. <em>Print without limits.</em></h1>
-            <p>Equipment, materials and workshop support selected for makers, educators and production teams.</p>
-            <div class="b3d-hero__actions">
-              <a href="#b3d-catalog" class="btn btn-primary">Shop products</a>
-              <a href="/3d/compare/" class="btn btn-outline">Compare printers</a>
-            </div>
-          </div>
-          <div class="b3d-slider" data-b3d-slider role="region" aria-label="Promotions" aria-roledescription="carousel">
-            <div class="b3d-slider__track" data-slider-track>
-              <div class="b3d-slide" data-slide>
-                <div class="b3d-slide__content">
-                  <span class="b3d-slide__label">Campaign Slot 01</span>
-                  <h3>New product announcement</h3>
-                  <p>Your approved campaign headline, description and link will appear here.</p>
-                  <a href="#b3d-catalog" class="btn btn-primary">Browse catalog</a>
-                </div>
-                <div class="b3d-slide__media">
-                  <span class="b3d-slide__media-label">Upload campaign image</span>
-                  <span class="b3d-slide__media-hint">Recommended 1600 × 1000 px</span>
-                </div>
-              </div>
-              <div class="b3d-slide" data-slide>
-                <div class="b3d-slide__content">
-                  <span class="b3d-slide__label">Campaign Slot 02</span>
-                  <h3>Pre-orders</h3>
-                  <p>Campaign space reserved for pre-order announcements.</p>
-                  <a href="#b3d-catalog" class="btn btn-primary">Browse catalog</a>
-                </div>
-                <div class="b3d-slide__media">
-                  <span class="b3d-slide__media-label">Upload campaign image</span>
-                  <span class="b3d-slide__media-hint">Recommended 1600 × 1000 px</span>
-                </div>
-              </div>
-              <div class="b3d-slide" data-slide>
-                <div class="b3d-slide__content">
-                  <span class="b3d-slide__label">Campaign Slot 03</span>
-                  <h3>Seasonal promotions</h3>
-                  <p>Campaign space reserved for future sales and delivery offers.</p>
-                  <a href="#b3d-catalog" class="btn btn-primary">Browse catalog</a>
-                </div>
-                <div class="b3d-slide__media">
-                  <span class="b3d-slide__media-label">Upload campaign image</span>
-                  <span class="b3d-slide__media-hint">Recommended 1600 × 1000 px</span>
-                </div>
-              </div>
-            </div>
-            <button class="b3d-slider__arrow b3d-slider__arrow--prev" type="button" data-slider-prev aria-label="Previous slide">&#8249;</button>
-            <button class="b3d-slider__arrow b3d-slider__arrow--next" type="button" data-slider-next aria-label="Next slide">&#8250;</button>
-            <div class="b3d-slider__dots" data-slider-dots></div>
-          </div>
+        <span class="b3d-hero__eyebrow" data-i18n="b3d_shop_eyebrow">Black Arrow 3D Catalog</span>
+        <h1><span data-i18n="b3d_shop_h1_a">Build smarter.</span> <em data-i18n="b3d_shop_h1_b">Print without limits.</em></h1>
+        <p data-i18n="b3d_shop_p">Equipment, materials and workshop support selected for makers, educators and production teams.</p>
+        <div class="b3d-hero__actions">
+          <a href="#b3d-catalog" class="btn btn-primary" data-i18n="b3d_shop_products">Shop products</a>
+          <a href="/3d/compare/" class="btn btn-outline" data-i18n="b3d_compare_printers">Compare printers</a>
         </div>
       </div>
     </section>
@@ -160,16 +114,16 @@
       <div class="container">
         <div class="b3d-brand-section__header">
           <div>
-            <span class="overline">Shop by Brand</span>
-            <h2 style="color:#fff;margin-top:8px;">Choose a manufacturer</h2>
+            <span class="overline" data-i18n="shop_by_brand_overline">Shop by Brand</span>
+            <h2 style="color:#fff;margin-top:8px;" data-i18n="shop_choose_manufacturer">Choose a manufacturer</h2>
           </div>
-          <p>Select one brand to view its available printers, filaments and compatible accessories.</p>
+          <p data-i18n="shop_choose_manufacturer_desc">Select one brand to view its available printers, filaments and compatible accessories.</p>
         </div>
         <div class="b3d-brand-panel">
           <div class="b3d-brand-panel__field">
-            <label for="b3d-brand-select-top">Brand</label>
+            <label for="b3d-brand-select-top" data-i18n="shop_brand_label">Brand</label>
             <select class="b3d-select" id="b3d-brand-select-top" data-b3d-brand-select aria-label="Brand">
-              <option value="All">All brands</option>
+              <option value="All" data-i18n="shop_all_brands">All brands</option>
               <option value="Bambu Lab">Bambu Lab</option>
               <option value="Creality">Creality</option>
               <option value="Elegoo">Elegoo</option>
@@ -181,9 +135,9 @@
             </select>
           </div>
           <div class="b3d-brand-panel__cats">
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="3D Printers">3D Printers</button>
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Filament">Filaments</button>
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Accessories">Accessories</button>
+            <button class="b3d-quick-pill" type="button" data-cat-shortcut="3D Printers" data-i18n="nav_3d_printers">3D Printers</button>
+            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Filament" data-i18n="nav_filaments">Filaments</button>
+            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Accessories" data-i18n="nav_accessories">Accessories</button>
           </div>
         </div>
       </div>
@@ -191,56 +145,56 @@
 
     <section class="section" id="b3d-catalog" style="padding-top:0;">
       <div class="container">
-        <div style="background:rgba(245,158,11,.1);border:1px solid var(--clr-accent);border-radius:10px;padding:14px 18px;margin-bottom:28px;color:rgba(255,255,255,.85);font-size:.88rem;">
+        <div style="background:rgba(245,158,11,.1);border:1px solid var(--clr-accent);border-radius:10px;padding:14px 18px;margin-bottom:28px;color:rgba(255,255,255,.85);font-size:.88rem;" data-i18n="shop_catalog_banner">
           We're setting up the catalog now — products are being added.
         </div>
 
         <div class="b3d-toolbar" style="margin-bottom:16px;">
           <div class="b3d-cat-tabs" data-b3d-cat-tabs role="group" aria-label="Category">
-            <button data-cat="All" aria-pressed="true" type="button">All</button>
-            <button data-cat="3D Printers" aria-pressed="false" type="button">3D Printers</button>
-            <button data-cat="Filament" aria-pressed="false" type="button">Filaments</button>
-            <button data-cat="Accessories" aria-pressed="false" type="button">Accessories</button>
+            <button data-cat="All" aria-pressed="true" type="button" data-i18n="shop_all">All</button>
+            <button data-cat="3D Printers" aria-pressed="false" type="button" data-i18n="nav_3d_printers">3D Printers</button>
+            <button data-cat="Filament" aria-pressed="false" type="button" data-i18n="nav_filaments">Filaments</button>
+            <button data-cat="Accessories" aria-pressed="false" type="button" data-i18n="nav_accessories">Accessories</button>
           </div>
-          <input class="b3d-shop-search" type="search" placeholder="Search products" aria-label="Search products" data-b3d-shop-search>
+          <input class="b3d-shop-search" type="search" placeholder="Search products" aria-label="Search products" data-b3d-shop-search data-i18n-placeholder="shop_search_placeholder">
         </div>
 
         <div class="b3d-toolbar">
           <div class="b3d-toolbar__controls">
-            <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">&#9776; Filters</button>
+            <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">&#9776; <span data-i18n="shop_filters_btn">Filters</span></button>
             <div class="b3d-quick-filters">
-              <button class="b3d-quick-pill" type="button" data-quick-featured aria-pressed="false">Featured</button>
-              <button class="b3d-quick-pill" type="button" data-quick-instock aria-pressed="false">In stock</button>
-              <button class="b3d-quick-pill" type="button" data-quick-price aria-pressed="false">Price range</button>
-              <button class="b3d-quick-pill" type="button" data-quick-top aria-pressed="false">Top quality</button>
+              <button class="b3d-quick-pill" type="button" data-quick-featured aria-pressed="false" data-i18n="shop_featured">Featured</button>
+              <button class="b3d-quick-pill" type="button" data-quick-instock aria-pressed="false" data-i18n="shop_instock">In stock</button>
+              <button class="b3d-quick-pill" type="button" data-quick-price aria-pressed="false" data-i18n="shop_pricerange">Price range</button>
+              <button class="b3d-quick-pill" type="button" data-quick-top aria-pressed="false" data-i18n="shop_topquality">Top quality</button>
             </div>
           </div>
           <div class="b3d-toolbar__controls">
-            <span class="b3d-toolbar__count"><span data-b3d-count>0</span> products published</span>
+            <span class="b3d-toolbar__count"><span data-b3d-count>0</span> <span data-i18n="shop_products_published">products published</span></span>
             <select class="b3d-select" data-b3d-sort aria-label="Sort by">
-              <option value="default">Sort: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="name-asc">Name: A–Z</option>
+              <option value="default" data-i18n="shop_sort_featured">Sort: Featured</option>
+              <option value="price-asc" data-i18n="shop_sort_price_asc">Price: Low to High</option>
+              <option value="price-desc" data-i18n="shop_sort_price_desc">Price: High to Low</option>
+              <option value="name-asc" data-i18n="shop_sort_name_asc">Name: A–Z</option>
             </select>
           </div>
         </div>
 
         <form class="b3d-filter-panel" id="b3d-filter-panel" data-b3d-filter-panel hidden data-b3d-filter-form>
           <fieldset>
-            <legend>Availability</legend>
-            <label><input type="checkbox" name="f-instock"> In stock only</label>
-            <label><input type="checkbox" name="f-preorder"> Pre-order only</label>
+            <legend data-i18n="filter_avail_legend">Availability</legend>
+            <label><input type="checkbox" name="f-instock"> <span data-i18n="filter_instock_only">In stock only</span></label>
+            <label><input type="checkbox" name="f-preorder"> <span data-i18n="filter_preorder_only">Pre-order only</span></label>
           </fieldset>
           <fieldset>
-            <legend>Highlights</legend>
-            <label><input type="checkbox" name="f-featured"> Featured</label>
-            <label><input type="checkbox" name="f-sale"> On sale</label>
+            <legend data-i18n="filter_highlights_legend">Highlights</legend>
+            <label><input type="checkbox" name="f-featured"> <span data-i18n="shop_featured">Featured</span></label>
+            <label><input type="checkbox" name="f-sale"> <span data-i18n="filter_onsale">On sale</span></label>
           </fieldset>
           <fieldset>
-            <legend>Price range (SAR)</legend>
-            <label>Min <input type="number" name="f-price-min" min="0" placeholder="0"></label>
-            <label>Max <input type="number" name="f-price-max" min="0" placeholder="Any"></label>
+            <legend data-i18n="filter_pricerange_legend">Price range (SAR)</legend>
+            <label><span data-i18n="filter_min">Min</span> <input type="number" name="f-price-min" min="0" placeholder="0"></label>
+            <label><span data-i18n="filter_max">Max</span> <input type="number" name="f-price-max" min="0" placeholder="Any"></label>
           </fieldset>
         </form>
 
@@ -255,28 +209,28 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <img src="/assets/images/black-arrow-wordmark.png" alt="Black Arrow" width="441" height="55" decoding="async">
-          <p>A Black Arrow Venture company line of business. 3D printing equipment &amp; supplies.</p>
+          <p data-i18n="footer_brand_desc">A Black Arrow Venture company line of business. 3D printing equipment &amp; supplies.</p>
         </div>
         <div class="footer__col">
-          <h3>Black Arrow 3D</h3>
+          <h3 data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</h3>
           <ul>
-            <li><a href="/3d/">Home</a></li>
-            <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);">Shop</a></li>
-            <li><a href="/3d/cart/">Cart</a></li>
-            <li><a href="/3d/compare/">Compare</a></li>
-            <li><a href="/3d/account/">My Account</a></li>
+            <li><a href="/3d/" data-i18n="footer_home">Home</a></li>
+            <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);" data-i18n="nav_shop">Shop</a></li>
+            <li><a href="/3d/cart/" data-i18n="footer_cart">Cart</a></li>
+            <li><a href="/3d/compare/" data-i18n="footer_compare">Compare</a></li>
+            <li><a href="/3d/account/" data-i18n="footer_my_account">My Account</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h3>Black Arrow Venture</h3>
+          <h3 data-i18n="footer_col_venture">Black Arrow Venture</h3>
           <ul>
-            <li><a href="/">Main Site</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/" data-i18n="footer_main_site">Main Site</a></li>
+            <li><a href="/services.html" data-i18n="footer_services">Services</a></li>
+            <li><a href="/contact.html" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h3>Contact</h3>
+          <h3 data-i18n="footer_contact">Contact</h3>
           <div class="footer__contact">
             <div class="contact-item"><span style="font-size:1.2em;">📞</span><a href="tel:+966560224715">+966 560 224 715</a></div>
             <div class="contact-item"><span style="font-size:1.2em;">✉️</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
@@ -284,10 +238,10 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; <span data-year>2026</span> Black Arrow Venture company. All rights reserved.</p>
+        <p>&copy; <span data-year>2026</span> <span data-i18n="footer_copyright">Black Arrow Venture company. All rights reserved.</span></p>
         <div class="footer__legal">
-          <a href="/privacy-policy.html">Privacy Policy</a>
-          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -296,6 +250,7 @@
 
 
   <script src="/assets/js/app.js" defer></script>
+  <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
 
 </body>

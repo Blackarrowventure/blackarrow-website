@@ -11,9 +11,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap"></noscript>
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="/3d/assets/css/3d-store.css">
 
@@ -31,11 +31,11 @@
 
   <div class="b3d-announce" data-b3d-announce>
     <div class="b3d-announce__track" data-b3d-announce-track>
-      <span>Black Arrow 3D preview — catalog is being set up, check back soon.</span>
+      <span data-i18n="announce_1">Black Arrow 3D preview — catalog is being set up, check back soon.</span>
       <span aria-hidden="true">&#9670;</span>
-      <span>Business quotations available now — contact us for a project quote.</span>
+      <span data-i18n="announce_2">Business quotations available now — contact us for a project quote.</span>
       <span aria-hidden="true">&#9670;</span>
-      <span>Online payment is pending gateway approval — accounts and browsing are open.</span>
+      <span data-i18n="announce_3">Online payment is pending gateway approval — accounts and browsing are open.</span>
     </div>
   </div>
 
@@ -46,19 +46,19 @@
           <svg class="navbar__brand-icon" viewBox="0 0 100 60" aria-hidden="true"><polygon points="0,18 55,18 55,0 100,30 55,60 55,42 0,42" fill="currentColor"/></svg>
           <span class="navbar__brand-text">
             <span class="name">BLACK ARROW <span class="accent">3D</span></span>
-            <span class="sub">Printing Equipment &amp; Supplies</span>
+            <span class="sub" data-i18n="nav_tagline">Printing Equipment &amp; Supplies</span>
           </span>
         </a>
         <ul class="navbar__links" role="list">
-          <li><a href="/3d/shop/">Shop</a></li>
-          <li><a href="/3d/shop/?cat=3D+Printers">3D Printers</a></li>
-          <li><a href="/3d/shop/?cat=Filament">Filaments</a></li>
-          <li><a href="/3d/shop/?cat=Accessories">Accessories</a></li>
+          <li><a href="/3d/shop/" data-i18n="nav_shop">Shop</a></li>
+          <li><a href="/3d/shop/?cat=3D+Printers" data-i18n="nav_3d_printers">3D Printers</a></li>
+          <li><a href="/3d/shop/?cat=Filament" data-i18n="nav_filaments">Filaments</a></li>
+          <li><a href="/3d/shop/?cat=Accessories" data-i18n="nav_accessories">Accessories</a></li>
           <li>
             <details class="navbar__dropdown">
-              <summary>Brands</summary>
+              <summary data-i18n="nav_brands">Brands</summary>
               <div class="navbar__dropdown-menu">
-                <a href="/3d/shop/">All Brands</a>
+                <a href="/3d/shop/" data-i18n="nav_all_brands">All Brands</a>
                 <a href="/3d/shop/?brand=Bambu+Lab">Bambu Lab</a>
                 <a href="/3d/shop/?brand=Creality">Creality</a>
                 <a href="/3d/shop/?brand=Elegoo">Elegoo</a>
@@ -72,14 +72,15 @@
           </li>
         </ul>
         <div class="navbar__right">
-          <button class="navbar__pill" data-motion-toggle type="button" aria-pressed="false"><span class="navbar__pill-label">Motion: On</span></button>
+          <button class="navbar__pill" data-lang-toggle type="button">AR</button>
+          <button class="navbar__pill" data-motion-toggle type="button" aria-pressed="false"><span class="navbar__pill-label" data-i18n-motion>Motion: On</span></button>
           <a href="/3d/account/" class="navbar__pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span class="navbar__pill-label">Profile</span>
+            <span class="navbar__pill-label" data-i18n="nav_profile">Profile</span>
           </a>
           <a href="/3d/cart/" class="navbar__pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span class="navbar__pill-label">Bag</span>
+            <span class="navbar__pill-label" data-i18n="nav_bag">Bag</span>
             <span class="navbar__pill-badge" data-b3d-cart-count hidden>0</span>
           </a>
         </div>
@@ -90,19 +91,19 @@
   <main id="main">
 
     <section style="position:relative;padding:20px 0 8px;text-align:center;">
-      <div style="background:rgba(245,158,11,.12);border:1px solid var(--clr-accent);color:var(--clr-accent);display:inline-block;padding:8px 18px;border-radius:999px;font-size:.8rem;font-weight:700;margin-top:16px;">
+      <div style="background:rgba(245,158,11,.12);border:1px solid var(--clr-accent);color:var(--clr-accent);display:inline-block;padding:8px 18px;border-radius:999px;font-size:.8rem;font-weight:700;margin-top:16px;" data-i18n="hub_preview_banner">
         Preview — not yet open for orders
       </div>
     </section>
 
     <section class="b3d-hero">
       <div class="container">
-        <span class="b3d-hero__eyebrow">Additive Manufacturing</span>
-        <h1>3D Printers &amp; Materials, <em>the Black Arrow Way</em></h1>
-        <p>Desktop and industrial FDM printers, resin systems, and print materials — sourced, specified, and supported with the same reliability standard as our critical infrastructure work.</p>
+        <span class="b3d-hero__eyebrow" data-i18n="hub_hero_eyebrow">Additive Manufacturing</span>
+        <h1><span data-i18n="hub_hero_h1_a">3D Printers &amp; Materials,</span> <em data-i18n="hub_hero_h1_b">the Black Arrow Way</em></h1>
+        <p data-i18n="hub_hero_p">Desktop and industrial FDM printers, resin systems, and print materials — sourced, specified, and supported with the same reliability standard as our critical infrastructure work.</p>
         <div class="b3d-hero__actions">
-          <a href="/3d/shop/" class="btn btn-primary">Explore the Shop</a>
-          <a href="/contact.html?service=3d" class="btn btn-outline">Ask a Question</a>
+          <a href="/3d/shop/" class="btn btn-primary" data-i18n="hub_explore_shop">Explore the Shop</a>
+          <a href="/contact.html?service=3d" class="btn btn-outline" data-i18n="hub_ask_question">Ask a Question</a>
         </div>
 
         <div class="b3d-cats">
@@ -110,29 +111,29 @@
             <div class="b3d-cat-tile__icon">
               <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="14" y="8" width="36" height="16" rx="2"/><rect x="10" y="24" width="44" height="20" rx="2"/><rect x="20" y="44" width="24" height="12" rx="1.5"/></svg>
             </div>
-            <h3>FDM Printers</h3>
-            <p>Desktop to industrial scale</p>
+            <h3 data-i18n="hub_cat1_title">FDM Printers</h3>
+            <p data-i18n="hub_cat1_desc">Desktop to industrial scale</p>
           </a>
           <a href="/3d/shop/" class="b3d-cat-tile">
             <div class="b3d-cat-tile__icon">
               <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 8h20v10l8 8v26a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V26l8-8V8z"/></svg>
             </div>
-            <h3>Resin (SLA/MSLA)</h3>
-            <p>High-detail printing</p>
+            <h3 data-i18n="hub_cat2_title">Resin (SLA/MSLA)</h3>
+            <p data-i18n="hub_cat2_desc">High-detail printing</p>
           </a>
           <a href="/3d/shop/" class="b3d-cat-tile">
             <div class="b3d-cat-tile__icon">
               <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="9"/></svg>
             </div>
-            <h3>Filament</h3>
-            <p>PLA, PETG, ABS &amp; more</p>
+            <h3 data-i18n="nav_filaments">Filament</h3>
+            <p data-i18n="hub_cat3_desc">PLA, PETG, ABS &amp; more</p>
           </a>
           <a href="/3d/shop/" class="b3d-cat-tile">
             <div class="b3d-cat-tile__icon">
               <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M26 6h12v10l6 8v28a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4V24l6-8V6z"/></svg>
             </div>
-            <h3>Resins &amp; Accessories</h3>
-            <p>Everything to keep printing</p>
+            <h3 data-i18n="hub_cat4_title">Resins &amp; Accessories</h3>
+            <p data-i18n="hub_cat4_desc">Everything to keep printing</p>
           </a>
         </div>
       </div>
@@ -141,13 +142,13 @@
     <section class="section section--dark">
       <div class="container">
         <div class="section-header">
-          <span class="overline">Why Black Arrow 3D</span>
-          <h2 style="color:#fff;">Sourced and Supported Like Everything Else We Sell</h2>
+          <span class="overline" data-i18n="hub_why_overline">Why Black Arrow 3D</span>
+          <h2 style="color:#fff;" data-i18n="hub_why_h2">Sourced and Supported Like Everything Else We Sell</h2>
         </div>
         <ul class="service-features" style="max-width:720px;margin:0 auto;">
-          <li>Equipment selected for reliability, not just spec-sheet numbers</li>
-          <li>Genuine spare parts and consumables kept available, not one-time drop-shipped</li>
-          <li>Support from a team that already handles critical infrastructure equipment</li>
+          <li data-i18n="hub_why_li1">Equipment selected for reliability, not just spec-sheet numbers</li>
+          <li data-i18n="hub_why_li2">Genuine spare parts and consumables kept available, not one-time drop-shipped</li>
+          <li data-i18n="hub_why_li3">Support from a team that already handles critical infrastructure equipment</li>
         </ul>
       </div>
     </section>
@@ -156,11 +157,11 @@
       <div class="container">
         <div class="wa-banner__inner">
           <div class="wa-banner__text">
-            <h2 style="color: #F59E0B !important;">Ready to Browse the Catalog?</h2>
-            <p>Catalog is being set up — check back soon</p>
+            <h2 style="color: #F59E0B !important;" data-i18n="hub_cta_h2">Ready to Browse the Catalog?</h2>
+            <p data-i18n="hub_cta_p">Catalog is being set up — check back soon</p>
           </div>
           <div style="display:flex;gap:16px;flex-wrap:wrap;">
-            <a href="/3d/shop/" class="btn btn-primary">Explore the Shop</a>
+            <a href="/3d/shop/" class="btn btn-primary" data-i18n="hub_explore_shop">Explore the Shop</a>
           </div>
         </div>
       </div>
@@ -173,28 +174,28 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <img src="/assets/images/black-arrow-wordmark.png" alt="Black Arrow" width="441" height="55" decoding="async">
-          <p>A Black Arrow Venture company line of business. 3D printing equipment &amp; supplies.</p>
+          <p data-i18n="footer_brand_desc">A Black Arrow Venture company line of business. 3D printing equipment &amp; supplies.</p>
         </div>
         <div class="footer__col">
-          <h3>Black Arrow 3D</h3>
+          <h3 data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</h3>
           <ul>
-            <li><a href="/3d/">Home</a></li>
-            <li><a href="/3d/shop/">Shop</a></li>
-            <li><a href="/3d/cart/">Cart</a></li>
-            <li><a href="/3d/compare/">Compare</a></li>
-            <li><a href="/3d/account/">My Account</a></li>
+            <li><a href="/3d/" data-i18n="footer_home">Home</a></li>
+            <li><a href="/3d/shop/" data-i18n="nav_shop">Shop</a></li>
+            <li><a href="/3d/cart/" data-i18n="footer_cart">Cart</a></li>
+            <li><a href="/3d/compare/" data-i18n="footer_compare">Compare</a></li>
+            <li><a href="/3d/account/" data-i18n="footer_my_account">My Account</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h3>Black Arrow Venture</h3>
+          <h3 data-i18n="footer_col_venture">Black Arrow Venture</h3>
           <ul>
-            <li><a href="/">Main Site</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/" data-i18n="footer_main_site">Main Site</a></li>
+            <li><a href="/services.html" data-i18n="footer_services">Services</a></li>
+            <li><a href="/contact.html" data-i18n="footer_contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h3>Contact</h3>
+          <h3 data-i18n="footer_contact">Contact</h3>
           <div class="footer__contact">
             <div class="contact-item"><span style="font-size:1.2em;">📞</span><a href="tel:+966560224715">+966 560 224 715</a></div>
             <div class="contact-item"><span style="font-size:1.2em;">✉️</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
@@ -202,10 +203,10 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; <span data-year>2026</span> Black Arrow Venture company. All rights reserved.</p>
+        <p>&copy; <span data-year>2026</span> <span data-i18n="footer_copyright">Black Arrow Venture company. All rights reserved.</span></p>
         <div class="footer__legal">
-          <a href="/privacy-policy.html">Privacy Policy</a>
-          <a href="/terms-of-service.html">Terms of Service</a>
+          <a href="/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -214,6 +215,7 @@
 
 
   <script src="/assets/js/app.js" defer></script>
+  <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
 </body>
 </html>

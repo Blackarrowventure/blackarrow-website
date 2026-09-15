@@ -25,6 +25,43 @@
     return ICONS.printer;
   }
 
+  /* ---------------- i18n helpers ---------------- */
+
+  function T(key) {
+    return (window.BlackArrow3DI18n && window.BlackArrow3DI18n.t(key)) || key;
+  }
+
+  function isAr() {
+    return !!(window.BlackArrow3DI18n && window.BlackArrow3DI18n.getLang() === 'ar');
+  }
+
+  function L(p, field) {
+    if (isAr() && p[field + '_ar']) return p[field + '_ar'];
+    return p[field];
+  }
+
+  function LSpecs(p) {
+    if (isAr() && p.specs_ar && p.specs_ar.length) return p.specs_ar;
+    return p.specs || [];
+  }
+
+  function LCompat(p) {
+    if (isAr() && p.compatibility_ar && p.compatibility_ar.length) return p.compatibility_ar;
+    return p.compatibility || [];
+  }
+
+  function LVariant(v) {
+    if (isAr() && v.label_ar) return v.label_ar;
+    return v.label;
+  }
+
+  function categoryLabel(cat) {
+    if (cat === '3D Printers') return T('nav_3d_printers');
+    if (cat === 'Filament') return T('nav_filaments');
+    if (cat === 'Accessories') return T('nav_accessories');
+    return cat;
+  }
+
   /* ---------------- Motion control ---------------- */
 
   function motionEnabled() {
@@ -40,7 +77,8 @@
     document.documentElement.setAttribute('data-b3d-motion', enabled ? 'on' : 'off');
     document.querySelectorAll('[data-motion-toggle]').forEach(function (btn) {
       btn.setAttribute('aria-pressed', String(!enabled));
-      btn.textContent = enabled ? 'Motion: On' : 'Motion: Off';
+      var label = btn.querySelector('[data-i18n-motion]') || btn;
+      label.textContent = (window.BlackArrow3DI18n ? window.BlackArrow3DI18n.t(enabled ? 'js_motion_on' : 'js_motion_off') : (enabled ? 'Motion: On' : 'Motion: Off'));
     });
   }
 
@@ -124,20 +162,20 @@
 
   function visual(p) {
     var img = primaryImage(p);
-    if (img) return '<img src="' + img + '" alt="' + p.name + '" loading="lazy">';
-    return '<div class="b3d-card__visual-placeholder">Product image</div>';
+    if (img) return '<img src="' + img + '" alt="' + L(p, 'name') + '" loading="lazy">';
+    return '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
   }
 
   function statusBadge(p) {
-    if (p.preorder) return '<span class="b3d-stock-badge b3d-stock-badge--pre">Pre-Order</span>';
-    if (p.available === false) return '<span class="b3d-stock-badge b3d-stock-badge--out">Out of Stock</span>';
+    if (p.preorder) return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order') + '</span>';
+    if (p.available === false) return '<span class="b3d-stock-badge b3d-stock-badge--out">' + T('js_out_of_stock') + '</span>';
     return '';
   }
 
   function priceBlock(p) {
     if (p.variants && p.variants.length) {
       var min = Math.min.apply(null, p.variants.map(function (v) { return v.price; }));
-      return '<span class="b3d-price-was" style="text-decoration:none;display:block;">From</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
+      return '<span class="b3d-price-was" style="text-decoration:none;display:block;">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
     }
     if (p.onSale && p.salePrice != null) {
       return '<span class="b3d-price b3d-price--sale">' + money(p.salePrice, p.currency) +
@@ -157,38 +195,38 @@
 
   function cornerBadges(p) {
     var out = '';
-    if (p.featured) out += '<span class="b3d-corner-badge b3d-corner-badge--featured">Featured</span>';
-    if (p.onSale) out += '<span class="b3d-corner-badge b3d-corner-badge--sale">Sale</span>';
+    if (p.featured) out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured') + '</span>';
+    if (p.onSale) out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge') + '</span>';
     return out;
   }
 
   function productCard(p) {
     var hasVariants = p.variants && p.variants.length;
     var disabled = (p.available === false && !p.preorder) ? 'disabled' : '';
-    var btnLabel = p.preorder ? 'Pre-Order' : (p.available === false ? 'Out of Stock' : 'Add to Cart');
+    var btnLabel = p.preorder ? T('js_pre_order') : (p.available === false ? T('js_out_of_stock') : T('js_add_to_cart'));
     var actionBtn = hasVariants
-      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add">View Options</a>'
+      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add">' + T('js_view_options') + '</a>'
       : '<button class="b3d-btn-add" data-add-id="' + p.id + '" ' + disabled + '>' + btnLabel + '</button>';
-    var specs = (p.specs || []).slice(0, 3).map(function (row) {
+    var specs = LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
     return '' +
       '<article class="b3d-card" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
-        '<a href="/3d/product/?slug=' + p.id + '" class="b3d-card__visual" aria-label="' + p.name + '">' +
+        '<a href="/3d/product/?slug=' + p.id + '" class="b3d-card__visual" aria-label="' + L(p, 'name') + '">' +
           cornerBadges(p) +
           statusBadge(p) +
           visual(p) +
         '</a>' +
         '<div class="b3d-card__body">' +
-          '<div class="b3d-card__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + p.category + '</div>' +
-          '<h3><a href="/3d/product/?slug=' + p.id + '">' + p.name + '</a></h3>' +
-          '<p>' + (p.shortDesc || '') + '</p>' +
+          '<div class="b3d-card__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
+          '<h3><a href="/3d/product/?slug=' + p.id + '">' + L(p, 'name') + '</a></h3>' +
+          '<p>' + (L(p, 'shortDesc') || '') + '</p>' +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' + priceBlock(p) + '</div>' +
           '<div class="b3d-card__actions">' +
-            '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="Add to compare" title="Compare">⇄</button>' +
+            '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + '" title="' + T('js_compare_btn') + '">⇄</button>' +
             '<button class="b3d-btn-wishlist" data-wishlist-id="' + p.id + '" aria-label="Save to wishlist" title="Save">♡</button>' +
             actionBtn +
           '</div>' +
@@ -198,8 +236,8 @@
 
   function emptyCatalogHtml(reason) {
     return '<div class="b3d-empty" style="grid-column:1/-1;">' +
-      '<h2 style="color:#fff;margin-bottom:10px;">' + (reason || 'No products published yet') + '</h2>' +
-      '<p>Check back soon, or contact us for current availability.</p>' +
+      '<h2 style="color:#fff;margin-bottom:10px;">' + (reason || T('js_no_products_published')) + '</h2>' +
+      '<p>' + T('js_check_back_soon') + '</p>' +
       '</div>';
   }
 
@@ -213,7 +251,7 @@
       btn.addEventListener('click', function () {
         addToCart(btn.getAttribute('data-add-id'), 1);
         var original = btn.textContent;
-        btn.textContent = 'Added ✓';
+        btn.textContent = T('js_added');
         setTimeout(function () { btn.textContent = original; }, 1200);
       });
     });
@@ -454,14 +492,14 @@
         var unit = variant ? variant.price : ((p.onSale && p.salePrice != null) ? p.salePrice : p.price);
         var lineTotal = unit * qty;
         subtotal += lineTotal;
-        var displayName = p.name + (variant ? ' — ' + variant.label : '');
+        var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
             '<div>' +
               '<div class="b3d-cart-item__name">' + displayName + '</div>' +
-              '<div class="b3d-cart-item__cat">' + p.category + '</div>' +
-              '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">Remove</button>' +
+              '<div class="b3d-cart-item__cat">' + categoryLabel(p.category) + '</div>' +
+              '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">' + T('js_remove') + '</button>' +
             '</div>' +
             '<div class="b3d-qty">' +
               '<button data-qty-btn="minus" data-id="' + id + '">−</button>' +
@@ -515,15 +553,16 @@
     fetchProducts().then(function (products) {
       var p = products.filter(function (x) { return x.id === slug; })[0];
       if (!p) {
-        container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">Product not found</h2><p>That product isn’t in the catalog yet. <a href="/3d/shop/" style="color:var(--clr-accent);">Back to shop</a></p></div>';
+        container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">' + T('js_product_not_found') + '</h2><p>' + T('js_product_not_found_desc') + ' <a href="/3d/shop/" style="color:var(--clr-accent);">' + T('js_back_to_shop') + '</a></p></div>';
         return;
       }
-      document.title = p.name + ' — Black Arrow 3D';
-      var specsHtml = (p.specs || []).map(function (row) {
+      document.title = L(p, 'name') + ' — Black Arrow 3D';
+      var specsHtml = LSpecs(p).map(function (row) {
         return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';
       }).join('');
-      var compatHtml = (p.compatibility && p.compatibility.length)
-        ? '<div class="b3d-pd__compat"><h3>Compatibility</h3><ul>' + p.compatibility.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
+      var compatList = LCompat(p);
+      var compatHtml = compatList.length
+        ? '<div class="b3d-pd__compat"><h3>' + T('js_compatibility_heading') + '</h3><ul>' + compatList.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
         : '';
       var images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
       var thumbsHtml = images.length > 1
@@ -532,14 +571,14 @@
           }).join('') + '</div>'
         : '';
       var pdAvailable = p.available !== false;
-      var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + p.name + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">Product image</div>';
+      var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + L(p, 'name') + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
 
       var hasVariants = !!(p.variants && p.variants.length);
       var selectedVariant = 0;
       var variantSelectorHtml = hasVariants
         ? '<div class="b3d-pd__variants" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">' +
             p.variants.map(function (v, i) {
-              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '">' + v.label + '</button>';
+              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '">' + LVariant(v) + '</button>';
             }).join('') +
           '</div>'
         : '';
@@ -556,28 +595,28 @@
           thumbsHtml +
         '</div>' +
         '<div>' +
-          '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + p.category + '</div>' +
-          '<h1 class="b3d-pd__title">' + p.name + '</h1>' +
+          '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
+          '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div>' +
           variantSelectorHtml +
           (statusBadge(p) ? '<div style="margin-bottom:16px;">' + statusBadge(p) + '</div>' : '') +
-          '<p class="b3d-pd__desc">' + (p.description || '') + '</p>' +
+          '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
           '<div class="b3d-pd__actions">' +
             '<div class="b3d-qty">' +
               '<button type="button" data-pd-qty="minus">−</button>' +
               '<input type="text" readonly value="1" data-pd-qty-val>' +
               '<button type="button" data-pd-qty="plus">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? 'Pre-Order' : (pdAvailable ? 'Add to Cart' : 'Out of Stock')) + '</button>' +
-            '<button class="btn btn-outline" data-pd-compare="' + p.id + '">Compare</button>' +
-            '<a href="/3d/cart/" class="btn btn-outline">View Cart</a>' +
+            '<button class="btn btn-primary" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
+            '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>' +
+            '<a href="/3d/cart/" class="btn btn-outline">' + T('js_view_cart') + '</a>' +
           '</div>' +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
-          (p.warranty ? '<div class="b3d-pd__warranty"><h3>Warranty</h3><p>' + p.warranty + '</p></div>' : '') +
+          (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h3>' + T('js_warranty_heading') + '</h3><p>' + L(p, 'warranty') + '</p></div>' : '') +
           '<div class="b3d-pd__shipreturn">' +
-            '<div><strong>Shipping</strong><p>Calculated at checkout, across Saudi Arabia.</p></div>' +
-            '<div><strong>Returns</strong><p>See our <a href="/terms-of-service.html">Terms of Service</a> for the return policy.</p></div>' +
+            '<div><strong>' + T('js_shipping_heading') + '</strong><p>' + T('js_shipping_desc') + '</p></div>' +
+            '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/terms-of-service.html">' + T('footer_terms') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +
           '</div>' +
         '</div>';
 
@@ -616,7 +655,7 @@
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
           addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
           var original = addBtn.textContent;
-          addBtn.textContent = 'Added ✓';
+          addBtn.textContent = T('js_added');
           setTimeout(function () { addBtn.textContent = original; }, 1200);
         });
       }
@@ -624,7 +663,7 @@
       if (compareBtn) {
         compareBtn.addEventListener('click', function () {
           toggleCompare(p.id);
-          compareBtn.textContent = getCompareList().indexOf(p.id) !== -1 ? 'Added to Compare' : 'Compare';
+          compareBtn.textContent = getCompareList().indexOf(p.id) !== -1 ? T('js_added_to_compare') : T('js_compare_btn');
         });
       }
 
@@ -639,12 +678,12 @@
     var host = document.querySelector('[data-b3d-related]');
     if (!host) return;
     if (!related.length) { host.innerHTML = ''; return; }
-    host.innerHTML = '<h2 class="b3d-related__title">Related Products</h2><div class="b3d-grid">' +
+    host.innerHTML = '<h2 class="b3d-related__title">' + T('js_related_products') + '</h2><div class="b3d-grid">' +
       related.map(productCard).join('') + '</div>';
     host.querySelectorAll('[data-add-id]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         addToCart(btn.getAttribute('data-add-id'), 1);
-        btn.textContent = 'Added ✓';
+        btn.textContent = T('js_added');
       });
     });
   }
@@ -656,21 +695,23 @@
       var ids = getCompareList();
       var items = ids.map(function (id) { return products.filter(function (p) { return p.id === id; })[0]; }).filter(Boolean);
       if (items.length < 2) {
-        container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">Nothing to compare yet</h2>' +
-          '<p>Add at least two published products to your comparison list from the shop — none published yet.</p>' +
-          '<a href="/3d/shop/" class="btn btn-primary">Go to Shop</a></div>';
+        container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">' + T('js_nothing_to_compare_h2') + '</h2>' +
+          '<p>' + T('js_nothing_to_compare_p') + '</p>' +
+          '<a href="/3d/shop/" class="btn btn-primary">' + T('cart_go_shop') + '</a></div>';
         return;
       }
-      var rows = ['Price', 'Print quality', 'Printing speed', 'Build volume', 'Material capability', 'Ease of use', 'Experience level', 'Warranty & support', 'Best use case', 'Accessories & compatibility'];
+      var rowKeys = ['js_cmp_price', 'js_cmp_quality', 'js_cmp_speed', 'js_cmp_buildvolume', 'js_cmp_material', 'js_cmp_easeofuse', 'js_cmp_experience', 'js_cmp_warranty', 'js_cmp_usecase', 'js_cmp_accessories'];
+      var enLabels = ['Price', 'Print quality', 'Printing speed', 'Build volume', 'Material capability', 'Ease of use', 'Experience level', 'Warranty & support', 'Best use case', 'Accessories & compatibility'];
       var specLookup = function (p, label) {
-        var row = (p.specs || []).filter(function (r) { return r[0].toLowerCase() === label.toLowerCase(); })[0];
+        var row = LSpecs(p).filter(function (r) { return r[0].toLowerCase() === label.toLowerCase(); })[0];
         return row ? row[1] : '—';
       };
       var html = '<table class="b3d-compare-table"><thead><tr><th></th>' +
-        items.map(function (p) { return '<th>' + p.name + '</th>'; }).join('') + '</tr></thead><tbody>';
-      html += '<tr><td>Price</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
-      rows.slice(1).forEach(function (label) {
-        html += '<tr><td>' + label + '</td>' + items.map(function (p) { return '<td>' + specLookup(p, label) + '</td>'; }).join('') + '</tr>';
+        items.map(function (p) { return '<th>' + L(p, 'name') + '</th>'; }).join('') + '</tr></thead><tbody>';
+      html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
+      rowKeys.slice(1).forEach(function (key, idx) {
+        var enLabel = enLabels[idx + 1];
+        html += '<tr><td>' + T(key) + '</td>' + items.map(function (p) { return '<td>' + specLookup(p, enLabel) + '</td>'; }).join('') + '</tr>';
       });
       html += '</tbody></table>';
       container.innerHTML = html;
