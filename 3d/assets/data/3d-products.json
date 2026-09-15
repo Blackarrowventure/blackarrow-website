@@ -15,6 +15,7 @@
     "stockQty": "number, optional",
     "featured": "boolean, optional",
     "onSale": "boolean, optional",
+    "topPick": "boolean, optional — powers the shop's 'Top quality' quick filter",
     "images": "array of image paths — first is primary",
     "shortDesc": "string",
     "description": "string",

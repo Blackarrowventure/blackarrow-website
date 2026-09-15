@@ -125,7 +125,7 @@
   function visual(p) {
     var img = primaryImage(p);
     if (img) return '<img src="' + img + '" alt="' + p.name + '" loading="lazy">';
-    return iconFor(p.category);
+    return '<div class="b3d-card__visual-placeholder">Product image</div>';
   }
 
   function statusBadge(p) {
@@ -242,6 +242,7 @@
       featuredOnly: false,
       preorderOnly: false,
       saleOnly: false,
+      topOnly: false,
       priceMin: null,
       priceMax: null,
       page: 1
@@ -268,6 +269,7 @@
       if (state.featuredOnly) list = list.filter(function (p) { return !!p.featured; });
       if (state.preorderOnly) list = list.filter(function (p) { return !!p.preorder; });
       if (state.saleOnly) list = list.filter(function (p) { return !!p.onSale; });
+      if (state.topOnly) list = list.filter(function (p) { return !!p.topPick; });
       if (state.priceMin != null) list = list.filter(function (p) { return p.price >= state.priceMin; });
       if (state.priceMax != null) list = list.filter(function (p) { return p.price <= state.priceMax; });
 
@@ -300,18 +302,27 @@
       });
     }
 
+    function setCategory(cat) {
+      state.cat = cat;
+      state.page = 1;
+      if (els.categoryTabs) {
+        els.categoryTabs.querySelectorAll('[data-cat]').forEach(function (t) {
+          t.setAttribute('aria-pressed', String(t.getAttribute('data-cat') === cat));
+        });
+      }
+      apply();
+    }
+
     if (els.categoryTabs) {
       els.categoryTabs.querySelectorAll('[data-cat]').forEach(function (tab) {
         if (tab.getAttribute('data-cat') === state.cat) tab.setAttribute('aria-pressed', 'true');
-        tab.addEventListener('click', function () {
-          els.categoryTabs.querySelectorAll('[data-cat]').forEach(function (t) { t.setAttribute('aria-pressed', 'false'); });
-          tab.setAttribute('aria-pressed', 'true');
-          state.cat = tab.getAttribute('data-cat');
-          state.page = 1;
-          apply();
-        });
+        tab.addEventListener('click', function () { setCategory(tab.getAttribute('data-cat')); });
       });
     }
+
+    document.querySelectorAll('[data-cat-shortcut]').forEach(function (btn) {
+      btn.addEventListener('click', function () { setCategory(btn.getAttribute('data-cat-shortcut')); });
+    });
 
     if (els.brandSelect) {
       els.brandSelect.value = state.brand;
@@ -358,6 +369,39 @@
         var open = els.filterPanel.hasAttribute('hidden');
         if (open) { els.filterPanel.removeAttribute('hidden'); } else { els.filterPanel.setAttribute('hidden', ''); }
         els.filterToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    if (els.quickFeatured) {
+      els.quickFeatured.addEventListener('click', function () {
+        state.featuredOnly = !state.featuredOnly;
+        els.quickFeatured.setAttribute('aria-pressed', String(state.featuredOnly));
+        state.page = 1;
+        apply();
+      });
+    }
+    if (els.quickInStock) {
+      els.quickInStock.addEventListener('click', function () {
+        state.inStockOnly = !state.inStockOnly;
+        els.quickInStock.setAttribute('aria-pressed', String(state.inStockOnly));
+        state.page = 1;
+        apply();
+      });
+    }
+    if (els.quickTop) {
+      els.quickTop.addEventListener('click', function () {
+        state.topOnly = !state.topOnly;
+        els.quickTop.setAttribute('aria-pressed', String(state.topOnly));
+        state.page = 1;
+        apply();
+      });
+    }
+    if (els.quickPriceRange && els.filterToggle && els.filterPanel) {
+      els.quickPriceRange.addEventListener('click', function () {
+        els.filterPanel.removeAttribute('hidden');
+        els.filterToggle.setAttribute('aria-expanded', 'true');
+        var minInput = els.filterPanel.querySelector('[name="f-price-min"]');
+        if (minInput) minInput.focus();
       });
     }
 
@@ -468,7 +512,7 @@
           }).join('') + '</div>'
         : '';
       var pdAvailable = p.available !== false;
-      var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + p.name + '" data-pd-main-img>' : iconFor(p.category);
+      var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + p.name + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">Product image</div>';
 
       container.innerHTML = '' +
         '<div>' +
@@ -698,7 +742,11 @@
           filterForm: document.querySelector('[data-b3d-filter-form]'),
           filterToggle: document.querySelector('[data-b3d-filter-toggle]'),
           filterPanel: document.querySelector('[data-b3d-filter-panel]'),
-          pagination: document.querySelector('[data-b3d-pagination]')
+          pagination: document.querySelector('[data-b3d-pagination]'),
+          quickFeatured: document.querySelector('[data-quick-featured]'),
+          quickInStock: document.querySelector('[data-quick-instock]'),
+          quickPriceRange: document.querySelector('[data-quick-price]'),
+          quickTop: document.querySelector('[data-quick-top]')
         });
       });
     }
