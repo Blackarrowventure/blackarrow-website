@@ -21,15 +21,10 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-accent);}
-    .navbar__inner{height:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:0;width:100%;padding:0 24px;max-width:1400px;margin:0 auto;}
-    .navbar__logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-    .navbar__logo img{height:44px;width:auto;}
-    .navbar__logo-text{display:flex;flex-direction:column;line-height:1.2;}
-    .navbar__logo-text .name{font-weight:800;color:#1a1a1a;font-size:1rem;}
-    .navbar__logo-text .sub{font-size:.68rem;color:#777;}
-    .navbar__links{display:flex;gap:24px;list-style:none;justify-content:center;}
-    .navbar__links a{color:#1a1a1a;text-decoration:none;font-weight:600;font-size:.92rem;}
-    .navbar__links a:hover{color:var(--clr-accent-dark);}
+    .navbar__inner{height:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;width:100%;padding:0 24px;max-width:1500px;margin:0 auto;}
+    .navbar__links{display:flex;gap:20px;list-style:none;justify-content:center;align-items:center;}
+    .navbar__links > li > a{color:#1a1a1a;text-decoration:none;font-weight:700;font-size:.92rem;white-space:nowrap;}
+    .navbar__links > li > a:hover{color:var(--clr-accent-dark);}
     @media (max-width:900px){.navbar__links{display:none;}}
   </style>
 </head>
@@ -38,29 +33,62 @@
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
+  <div class="b3d-announce" data-b3d-announce>
+    <div class="b3d-announce__track" data-b3d-announce-track>
+      <span>Black Arrow 3D preview — catalog is being set up, check back soon.</span>
+      <span>Business quotations available now — contact us for a project quote.</span>
+      <span>Online payment is pending gateway approval — accounts and browsing are open.</span>
+    </div>
+  </div>
+
   <header>
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
       <div class="navbar__inner">
-        <a href="/3d/" class="navbar__logo" aria-label="Black Arrow 3D - Home">
-          <img src="/assets/images/black-arrow-wordmark.png" alt="Black Arrow" width="441" height="55" decoding="async">
-          <div class="navbar__logo-text">
-            <span class="name">Black Arrow <span style="color:var(--clr-accent);">3D</span></span>
-            <span class="sub">3D Printing Equipment &amp; Supplies</span>
-          </div>
+        <a href="/" class="navbar__brand" aria-label="Black Arrow Venture - Home">
+          <img src="/assets/images/black-arrow-wordmark.png" alt="Black Arrow Venture" width="441" height="55" decoding="async">
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="/3d/">Home</a></li>
           <li><a href="/3d/shop/">Shop</a></li>
-          <li><a href="/">Black Arrow Main Site</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/3d/shop/?cat=3D+Printers">3D Printers</a></li>
+          <li><a href="/3d/shop/?cat=Filament">Filaments</a></li>
+          <li><a href="/3d/shop/?cat=Accessories">Accessories</a></li>
+          <li>
+            <details class="navbar__dropdown">
+              <summary>Brands</summary>
+              <div class="navbar__dropdown-menu">
+                <a href="/3d/shop/">All Brands</a>
+                <a href="/3d/shop/?brand=Bambu+Lab">Bambu Lab</a>
+                <a href="/3d/shop/?brand=Creality">Creality</a>
+                <a href="/3d/shop/?brand=Elegoo">Elegoo</a>
+                <a href="/3d/shop/?brand=Flashforge">Flashforge</a>
+                <a href="/3d/shop/?brand=Anycubic">Anycubic</a>
+                <a href="/3d/shop/?brand=Polymaker">Polymaker</a>
+                <a href="/3d/shop/?brand=eSUN">eSUN</a>
+                <a href="/3d/shop/?brand=Sunlu">Sunlu</a>
+              </div>
+            </details>
+          </li>
         </ul>
-        <div class="navbar__actions">
+        <div class="navbar__right">
+          <a href="/3d/" class="navbar__3d-brand">
+            <span class="name">Black Arrow <span style="color:var(--clr-accent);">3D</span></span>
+            <span class="sub">3D Printing Equipment &amp; Supplies</span>
+          </a>
+          <form class="navbar__search" data-b3d-search-form>
+            <input type="search" placeholder="Search products" aria-label="Search products">
+            <button type="submit" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          </form>
+          <a href="/3d/account/" class="navbar__icon-link" aria-label="Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
           <a href="/3d/cart/" class="btn btn-outline b3d-cart-link">
             <span style="display:inline-flex;align-items:center;gap:6px;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
               Cart <span class="b3d-cart-count" data-b3d-cart-count hidden>0</span>
             </span>
           </a>
+          <button class="navbar__motion-toggle" data-motion-toggle type="button" aria-pressed="false">Motion: On</button>
         </div>
       </div>
     </nav>
@@ -80,6 +108,8 @@
         <div class="b3d-pd" data-b3d-product>
           <div class="b3d-empty">Loading product…</div>
         </div>
+
+        <div data-b3d-related></div>
       </div>
     </section>
   </main>
@@ -97,6 +127,8 @@
             <li><a href="/3d/">Home</a></li>
             <li><a href="/3d/shop/">Shop</a></li>
             <li><a href="/3d/cart/">Cart</a></li>
+            <li><a href="/3d/compare/">Compare</a></li>
+            <li><a href="/3d/account/">My Account</a></li>
           </ul>
         </div>
         <div class="footer__col">

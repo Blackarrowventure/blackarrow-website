@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Black Arrow 3D shop — 3D printers, resin, and filament. Not yet open for orders.">
+  <meta name="description" content="Compare Black Arrow 3D printers and materials side by side.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
-  <title>Shop — Black Arrow 3D</title>
+  <title>Compare Products — Black Arrow 3D</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="/3d/">Home</a></li>
-          <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);">Shop</a></li>
+          <li><a href="/3d/shop/">Shop</a></li>
           <li><a href="/3d/shop/?cat=3D+Printers">3D Printers</a></li>
           <li><a href="/3d/shop/?cat=Filament">Filaments</a></li>
           <li><a href="/3d/shop/?cat=Accessories">Accessories</a></li>
@@ -97,73 +97,18 @@
   <main id="main">
     <section class="section" style="padding-top:36px;">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:18px;">
+        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:24px;">
           <a href="/3d/">Black Arrow 3D</a>
           <span>›</span>
-          <span>Shop</span>
+          <span>Compare</span>
         </nav>
 
-        <div style="background:rgba(245,158,11,.1);border:1px solid var(--clr-accent);border-radius:10px;padding:14px 18px;margin-bottom:28px;color:rgba(255,255,255,.85);font-size:.88rem;">
-          We're setting up the catalog now — products are being added.
-        </div>
-
         <div class="section-header" style="text-align:left;">
-          <span class="overline">Catalog</span>
-          <h1 style="color:#fff;">3D Printers &amp; Materials</h1>
+          <span class="overline">Side by Side</span>
+          <h1 style="color:#fff;">Compare Products</h1>
         </div>
 
-        <div class="b3d-cat-tabs" data-b3d-cat-tabs role="group" aria-label="Category">
-          <button data-cat="All" aria-pressed="true" type="button">All</button>
-          <button data-cat="3D Printers" aria-pressed="false" type="button">3D Printers</button>
-          <button data-cat="Filament" aria-pressed="false" type="button">Filaments</button>
-          <button data-cat="Accessories" aria-pressed="false" type="button">Accessories</button>
-        </div>
-
-        <div class="b3d-toolbar">
-          <div class="b3d-toolbar__controls">
-            <select class="b3d-select" data-b3d-brand-select aria-label="Brand">
-              <option value="All">All Brands</option>
-              <option value="Bambu Lab">Bambu Lab</option>
-              <option value="Creality">Creality</option>
-              <option value="Elegoo">Elegoo</option>
-              <option value="Flashforge">Flashforge</option>
-              <option value="Anycubic">Anycubic</option>
-              <option value="Polymaker">Polymaker</option>
-              <option value="eSUN">eSUN</option>
-              <option value="Sunlu">Sunlu</option>
-            </select>
-            <input class="b3d-shop-search" type="search" placeholder="Search this catalog" aria-label="Search this catalog" data-b3d-shop-search>
-            <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">Filters</button>
-            <select class="b3d-select" data-b3d-sort aria-label="Sort by">
-              <option value="default">Sort: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="name-asc">Name: A–Z</option>
-            </select>
-          </div>
-          <span class="b3d-toolbar__count"><span data-b3d-count>0</span> products published</span>
-        </div>
-
-        <form class="b3d-filter-panel" id="b3d-filter-panel" data-b3d-filter-panel hidden data-b3d-filter-form>
-          <fieldset>
-            <legend>Availability</legend>
-            <label><input type="checkbox" name="f-instock"> In stock only</label>
-            <label><input type="checkbox" name="f-preorder"> Pre-order only</label>
-          </fieldset>
-          <fieldset>
-            <legend>Highlights</legend>
-            <label><input type="checkbox" name="f-featured"> Featured</label>
-            <label><input type="checkbox" name="f-sale"> On sale</label>
-          </fieldset>
-          <fieldset>
-            <legend>Price range (SAR)</legend>
-            <label>Min <input type="number" name="f-price-min" min="0" placeholder="0"></label>
-            <label>Max <input type="number" name="f-price-max" min="0" placeholder="Any"></label>
-          </fieldset>
-        </form>
-
-        <div class="b3d-grid" data-b3d-grid></div>
-        <div class="b3d-pagination" data-b3d-pagination></div>
+        <div data-b3d-compare style="overflow-x:auto;"></div>
       </div>
     </section>
   </main>
@@ -182,7 +127,6 @@
             <li><a href="/3d/shop/">Shop</a></li>
             <li><a href="/3d/cart/">Cart</a></li>
             <li><a href="/3d/compare/">Compare</a></li>
-            <li><a href="/3d/account/">My Account</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -212,9 +156,7 @@
   </footer>
   </div>
 
-
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
-
 </body>
 </html>

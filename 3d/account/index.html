@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Black Arrow 3D shop — 3D printers, resin, and filament. Not yet open for orders.">
+  <meta name="description" content="Black Arrow 3D account — sign in to save products, track orders, and manage your details.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
-  <title>Shop — Black Arrow 3D</title>
+  <title>My Account — Black Arrow 3D</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="/3d/">Home</a></li>
-          <li><a href="/3d/shop/" style="color:var(--clr-accent-dark);">Shop</a></li>
+          <li><a href="/3d/shop/">Shop</a></li>
           <li><a href="/3d/shop/?cat=3D+Printers">3D Printers</a></li>
           <li><a href="/3d/shop/?cat=Filament">Filaments</a></li>
           <li><a href="/3d/shop/?cat=Accessories">Accessories</a></li>
@@ -79,7 +79,7 @@
             <input type="search" placeholder="Search products" aria-label="Search products">
             <button type="submit" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
           </form>
-          <a href="/3d/account/" class="navbar__icon-link" aria-label="Account">
+          <a href="/3d/account/" class="navbar__icon-link" aria-label="Account" style="color:var(--clr-accent-dark);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </a>
           <a href="/3d/cart/" class="btn btn-outline b3d-cart-link">
@@ -97,73 +97,61 @@
   <main id="main">
     <section class="section" style="padding-top:36px;">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:18px;">
+        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:24px;">
           <a href="/3d/">Black Arrow 3D</a>
           <span>›</span>
-          <span>Shop</span>
+          <span>My Account</span>
         </nav>
 
-        <div style="background:rgba(245,158,11,.1);border:1px solid var(--clr-accent);border-radius:10px;padding:14px 18px;margin-bottom:28px;color:rgba(255,255,255,.85);font-size:.88rem;">
-          We're setting up the catalog now — products are being added.
-        </div>
-
         <div class="section-header" style="text-align:left;">
-          <span class="overline">Catalog</span>
-          <h1 style="color:#fff;">3D Printers &amp; Materials</h1>
+          <span class="overline">Customer Account</span>
+          <h1 style="color:#fff;">My Account</h1>
         </div>
 
-        <div class="b3d-cat-tabs" data-b3d-cat-tabs role="group" aria-label="Category">
-          <button data-cat="All" aria-pressed="true" type="button">All</button>
-          <button data-cat="3D Printers" aria-pressed="false" type="button">3D Printers</button>
-          <button data-cat="Filament" aria-pressed="false" type="button">Filaments</button>
-          <button data-cat="Accessories" aria-pressed="false" type="button">Accessories</button>
-        </div>
-
-        <div class="b3d-toolbar">
-          <div class="b3d-toolbar__controls">
-            <select class="b3d-select" data-b3d-brand-select aria-label="Brand">
-              <option value="All">All Brands</option>
-              <option value="Bambu Lab">Bambu Lab</option>
-              <option value="Creality">Creality</option>
-              <option value="Elegoo">Elegoo</option>
-              <option value="Flashforge">Flashforge</option>
-              <option value="Anycubic">Anycubic</option>
-              <option value="Polymaker">Polymaker</option>
-              <option value="eSUN">eSUN</option>
-              <option value="Sunlu">Sunlu</option>
-            </select>
-            <input class="b3d-shop-search" type="search" placeholder="Search this catalog" aria-label="Search this catalog" data-b3d-shop-search>
-            <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">Filters</button>
-            <select class="b3d-select" data-b3d-sort aria-label="Sort by">
-              <option value="default">Sort: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="name-asc">Name: A–Z</option>
-            </select>
+        <div class="b3d-account">
+          <div id="b3d-auth-notconfigured" class="b3d-account__notice" hidden>
+            Sign-in isn't connected yet — we're setting up a free Black Arrow 3D account system. This page will let you sign in with email once that's ready.
           </div>
-          <span class="b3d-toolbar__count"><span data-b3d-count>0</span> products published</span>
+
+          <div id="b3d-auth-signedout" hidden>
+            <div class="b3d-account__tabs">
+              <button type="button" data-auth-tab="signin" aria-pressed="true">Sign In</button>
+              <button type="button" data-auth-tab="signup" aria-pressed="false">Create Account</button>
+            </div>
+
+            <form class="b3d-account__form" id="b3d-signin-form">
+              <label>Email<input type="email" id="signin-email" required autocomplete="email"></label>
+              <label>Password<input type="password" id="signin-password" required autocomplete="current-password"></label>
+              <p class="b3d-account__error" id="signin-error" hidden></p>
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+
+            <form class="b3d-account__form" id="b3d-signup-form" hidden>
+              <label>Email<input type="email" id="signup-email" required autocomplete="email"></label>
+              <label>Password (min. 6 characters)<input type="password" id="signup-password" required minlength="6" autocomplete="new-password"></label>
+              <p class="b3d-account__error" id="signup-error" hidden></p>
+              <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:18px;">
+              By continuing you agree to our <a href="/terms-of-service.html" style="color:var(--clr-accent);">Terms of Service</a> and <a href="/privacy-policy.html" style="color:var(--clr-accent);">Privacy Policy</a>.
+              Google and Apple sign-in are not enabled yet — email sign-in only, for now.
+            </p>
+          </div>
+
+          <div id="b3d-auth-signedin" hidden>
+            <p style="color:rgba(255,255,255,.8);margin-bottom:20px;">Signed in as <strong id="b3d-account-email" style="color:#fff;"></strong></p>
+            <button type="button" class="btn btn-outline" id="b3d-signout-btn">Sign Out</button>
+
+            <div class="b3d-account__panels">
+              <div class="b3d-account__panel"><h3>Saved Products</h3><p>Nothing saved yet — use the ♡ icon on a product to save it here.</p></div>
+              <div class="b3d-account__panel"><h3>Order History</h3><p>No orders yet.</p></div>
+              <div class="b3d-account__panel"><h3>Order Tracking</h3><p>Nothing to track yet.</p></div>
+              <div class="b3d-account__panel"><h3>Addresses</h3><p>No saved addresses yet.</p></div>
+              <div class="b3d-account__panel"><h3>Communication Preferences</h3><p>Default: order updates only. Marketing emails are off unless you opt in later.</p></div>
+            </div>
+          </div>
         </div>
-
-        <form class="b3d-filter-panel" id="b3d-filter-panel" data-b3d-filter-panel hidden data-b3d-filter-form>
-          <fieldset>
-            <legend>Availability</legend>
-            <label><input type="checkbox" name="f-instock"> In stock only</label>
-            <label><input type="checkbox" name="f-preorder"> Pre-order only</label>
-          </fieldset>
-          <fieldset>
-            <legend>Highlights</legend>
-            <label><input type="checkbox" name="f-featured"> Featured</label>
-            <label><input type="checkbox" name="f-sale"> On sale</label>
-          </fieldset>
-          <fieldset>
-            <legend>Price range (SAR)</legend>
-            <label>Min <input type="number" name="f-price-min" min="0" placeholder="0"></label>
-            <label>Max <input type="number" name="f-price-max" min="0" placeholder="Any"></label>
-          </fieldset>
-        </form>
-
-        <div class="b3d-grid" data-b3d-grid></div>
-        <div class="b3d-pagination" data-b3d-pagination></div>
       </div>
     </section>
   </main>
@@ -182,7 +170,6 @@
             <li><a href="/3d/shop/">Shop</a></li>
             <li><a href="/3d/cart/">Cart</a></li>
             <li><a href="/3d/compare/">Compare</a></li>
-            <li><a href="/3d/account/">My Account</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -212,9 +199,10 @@
   </footer>
   </div>
 
-
+  <script src="/3d/assets/js/3d-firebase-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
-
+  <script src="/3d/assets/js/3d-auth.js" defer></script>
+  <script src="/3d/assets/js/3d-account.js" defer></script>
 </body>
 </html>
