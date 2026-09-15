@@ -17,10 +17,7 @@
    on large monitors that cap left huge empty margins beside the grid, so
    widen it here (grids/cards benefit from the space; article/account
    content already self-constrains via .b3d-article / .b3d-account). */
-.b3d-layer-bg .container { max-width: 1440px; }
-@media (min-width: 1680px) {
-  .b3d-layer-bg .container { max-width: 1600px; }
-}
+.b3d-layer-bg .container { max-width: min(1900px, 94vw); }
 
 .b3d-layer-bg {
   position: relative;
