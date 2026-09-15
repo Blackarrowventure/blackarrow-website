@@ -6,7 +6,7 @@
   'use strict';
 
   var CART_KEY = 'b3d_cart_v1';
-  var DATA_URL = '/assets/data/3d-products.json';
+  var DATA_URL = '/3d/assets/data/3d-products.json';
 
   var ICONS = {
     'printer': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="8" width="36" height="16" rx="2"/><rect x="10" y="24" width="44" height="20" rx="2"/><rect x="20" y="44" width="24" height="12" rx="1.5"/><line x1="32" y1="30" x2="32" y2="40"/><circle cx="18" cy="18" r="2" fill="currentColor" stroke="none"/></svg>',
@@ -79,21 +79,29 @@
     return n.toLocaleString('en-US') + ' <small>' + currency + '</small>';
   }
 
-  function stockBadge(stock) {
-    if (stock <= 0) return '<span class="b3d-stock-badge b3d-stock-badge--out">Out of Stock</span>';
-    if (stock <= 3) return '<span class="b3d-stock-badge b3d-stock-badge--low">Only ' + stock + ' left</span>';
+  function stockBadge(p) {
+    var inStock = p.available !== false;
+    if (!inStock) return '<span class="b3d-stock-badge b3d-stock-badge--out">Out of Stock</span>';
     return '<span class="b3d-stock-badge b3d-stock-badge--in">In Stock</span>';
   }
 
+  function visual(p) {
+    if (p.image) {
+      return '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy">';
+    }
+    return icon(p.icon);
+  }
+
   function productCard(p) {
-    var disabled = p.stock <= 0 ? 'disabled' : '';
-    var btnLabel = p.stock <= 0 ? 'Out of Stock' : 'Add to Cart';
+    var inStock = p.available !== false;
+    var disabled = inStock ? '' : 'disabled';
+    var btnLabel = inStock ? 'Add to Cart' : 'Out of Stock';
     return '' +
       '<article class="b3d-card" data-cat="' + p.category + '">' +
         '<a href="/3d/product/?slug=' + p.id + '" class="b3d-card__visual" aria-label="' + p.name + '">' +
           (p.sample ? '<span class="b3d-sample-badge">Sample</span>' : '') +
-          stockBadge(p.stock) +
-          icon(p.icon) +
+          stockBadge(p) +
+          visual(p) +
         '</a>' +
         '<div class="b3d-card__body">' +
           '<div class="b3d-card__cat">' + p.category + '</div>' +
@@ -108,6 +116,13 @@
   }
 
   function renderGrid(products, container) {
+    if (!products.length) {
+      container.innerHTML = '<div class="b3d-empty" style="grid-column:1/-1;">' +
+        '<h2 style="color:#fff;margin-bottom:10px;">Catalog is being set up</h2>' +
+        '<p>Products are being added — check back soon.</p>' +
+        '</div>';
+      return;
+    }
     container.innerHTML = products.map(productCard).join('');
     container.querySelectorAll('[data-add-id]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -162,7 +177,7 @@
         subtotal += lineTotal;
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
-            '<div class="b3d-cart-item__visual">' + icon(p.icon) + '</div>' +
+            '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
             '<div>' +
               '<div class="b3d-cart-item__name">' + p.name + '</div>' +
               '<div class="b3d-cart-item__cat">' + p.category + '</div>' +
@@ -210,16 +225,17 @@
       var specsHtml = p.specs.map(function (row) {
         return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';
       }).join('');
+      var pdInStock = p.available !== false;
       container.innerHTML = '' +
         '<div class="b3d-pd__visual">' +
           (p.sample ? '<span class="b3d-sample-badge">Sample Product</span>' : '') +
-          icon(p.icon) +
+          visual(p) +
         '</div>' +
         '<div>' +
           '<div class="b3d-pd__cat">' + p.category + '</div>' +
           '<h1 class="b3d-pd__title">' + p.name + '</h1>' +
           '<div class="b3d-pd__price">' + money(p.price, p.currency) + '</div>' +
-          '<div style="margin-bottom:16px;">' + stockBadge(p.stock) + '</div>' +
+          '<div style="margin-bottom:16px;">' + stockBadge(p) + '</div>' +
           '<p class="b3d-pd__desc">' + p.description + '</p>' +
           '<div class="b3d-pd__actions">' +
             '<div class="b3d-qty">' +
@@ -227,7 +243,7 @@
               '<input type="text" readonly value="1" data-pd-qty-val>' +
               '<button type="button" data-pd-qty="plus">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary" data-pd-add ' + (p.stock <= 0 ? 'disabled' : '') + '>' + (p.stock <= 0 ? 'Out of Stock' : 'Add to Cart') + '</button>' +
+            '<button class="btn btn-primary" data-pd-add ' + (pdInStock ? '' : 'disabled') + '>' + (pdInStock ? 'Add to Cart' : 'Out of Stock') + '</button>' +
             '<a href="/3d/cart/" class="btn btn-outline">View Cart</a>' +
           '</div>' +
           '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' +
