@@ -25,5 +25,43 @@
     "seoTitle": "string, optional",
     "seoDescription": "string, optional"
   },
-  "products": []
+  "products": [
+    {
+      "id": "bambu-lab-a1-mini",
+      "name": "Bambu Lab A1 mini",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "price": 1699,
+      "currency": "SAR",
+      "available": true,
+      "preorder": true,
+      "images": [
+        "/3d/assets/images/products/bambu-a1-mini-main.webp",
+        "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp",
+        "/3d/assets/images/products/bambu-a1-mini-lifestyle.webp",
+        "/3d/assets/images/products/bambu-a1-mini-nozzle-light.webp",
+        "/3d/assets/images/products/bambu-a1-mini-screen.webp"
+      ],
+      "shortDesc": "Compact, fast FDM printer with an all-metal hot end — available standalone or as an AMS multi-color combo.",
+      "description": "The Bambu Lab A1 mini is a compact FDM 3D printer built for speed and reliability, with an all-metal hot end, hardened steel extruder gears, and a stainless steel nozzle rated to 300°C. It supports automatic bed leveling, a filament run-out sensor, filament odometry, power-loss recovery, and filament tangle detection. Available on its own or as a combo bundled with the AMS lite unit for multi-color and multi-material printing.",
+      "specs": [
+        ["Build Volume", "180 x 180 x 180 mm"],
+        ["Chassis", "Steel + Extruded Aluminum"],
+        ["Hot End", "All-Metal"],
+        ["Nozzle", "Stainless Steel, 0.4 mm (0.2 / 0.6 / 0.8 mm optional)"],
+        ["Max Hot End Temperature", "300 °C"],
+        ["Max Build Plate Temperature", "80 °C"],
+        ["Max Toolhead Speed", "500 mm/s"],
+        ["Max Toolhead Acceleration", "10,000 mm/s²"],
+        ["Supported Filament (Ideal)", "PLA, PETG, TPU, PVA"],
+        ["Display", "2.4\" 320x240 IPS Touch Screen"],
+        ["Connectivity", "Wi-Fi, Bambu-Bus"],
+        ["Storage", "Micro SD Card"],
+        ["Dimensions", "347 x 315 x 365 mm"],
+        ["Net Weight", "5.5 kg"],
+        ["Input Power", "100-240 VAC, 50/60 Hz, 150 W max"]
+      ],
+      "compatibility": ["Bambu Textured PEI Plate", "Bambu Smooth PEI Plate", "Bambu Dual-Texture PEI Plate", "AMS lite (combo)"]
+    }
+  ]
 }
