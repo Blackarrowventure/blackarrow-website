@@ -45,8 +45,8 @@
       "available": true,
       "preorder": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 1699 },
-        { "label": "Combo (with AMS lite)", "label_ar": "باقة (مع AMS lite)", "price": 2799 }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 1699, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
+        { "label": "Combo (with AMS lite)", "label_ar": "باقة (مع AMS lite)", "price": 2799, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-mini-main.webp",
@@ -107,8 +107,8 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 2699 },
-        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530 }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-01.jpg" },
+        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530, "image": "/3d/assets/images/products/bambu-a1-02.png" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-01.jpg",
@@ -161,8 +161,8 @@
       "available": true,
       "preorder": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 3699 },
-        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650 }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 3699, "image": "/3d/assets/images/products/bambu-a2l-01.jpg" },
+        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650, "image": "/3d/assets/images/products/bambu-a2l-04.png" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a2l-01.jpg",
@@ -250,8 +250,8 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Printer Only", "label_ar": "الطابعة فقط", "price": 4499 },
-        { "label": "Combo (with AMS 2 Pro)", "label_ar": "باقة (مع AMS 2 Pro)", "price": 6440 }
+        { "label": "Printer Only", "label_ar": "الطابعة فقط", "price": 4499, "image": "/3d/assets/images/products/bambu-p2s-01.jpg" },
+        { "label": "Combo (with AMS 2 Pro)", "label_ar": "باقة (مع AMS 2 Pro)", "price": 6440, "image": "/3d/assets/images/products/bambu-p2s-04.jpg" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-p2s-01.jpg",

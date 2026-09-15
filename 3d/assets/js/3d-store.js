@@ -994,19 +994,42 @@
           '<a href="/3d/shop/" class="btn btn-primary">' + T('cart_go_shop') + '</a></div>';
         return;
       }
-      var rowKeys = ['js_cmp_price', 'js_cmp_quality', 'js_cmp_speed', 'js_cmp_buildvolume', 'js_cmp_material', 'js_cmp_easeofuse', 'js_cmp_experience', 'js_cmp_warranty', 'js_cmp_usecase', 'js_cmp_accessories'];
-      var enLabels = ['Price', 'Print quality', 'Printing speed', 'Build volume', 'Material capability', 'Ease of use', 'Experience level', 'Warranty & support', 'Best use case', 'Accessories & compatibility'];
-      var specLookup = function (p, label) {
-        var row = LSpecs(p).filter(function (r) { return r[0].toLowerCase() === label.toLowerCase(); })[0];
-        return row ? row[1] : '—';
-      };
-      var html = '<table class="b3d-compare-table"><thead><tr><th></th>' +
-        items.map(function (p) { return '<th>' + L(p, 'name') + '</th>'; }).join('') + '</tr></thead><tbody>';
-      html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
-      rowKeys.slice(1).forEach(function (key, idx) {
-        var enLabel = enLabels[idx + 1];
-        html += '<tr><td>' + T(key) + '</td>' + items.map(function (p) { return '<td>' + specLookup(p, enLabel) + '</td>'; }).join('') + '</tr>';
+
+      function availabilityLabel(p) {
+        if (p.preorder) return T('promo_preorder_badge');
+        if (p.available === false) return T('js_out_of_stock');
+        return T('promo_instock_badge');
+      }
+
+      // Build the row list from the specs each product actually has,
+      // instead of a fixed list of labels that rarely match real spec
+      // keys (which left most rows blank). A spec appears as a row if
+      // at least one compared item has it.
+      var specLabels = [];
+      items.forEach(function (p) {
+        LSpecs(p).forEach(function (row) {
+          if (specLabels.indexOf(row[0]) === -1) specLabels.push(row[0]);
+        });
       });
+
+      function specLookup(p, label) {
+        var row = LSpecs(p).filter(function (r) { return r[0] === label; })[0];
+        return row ? row[1] : '—';
+      }
+
+      var html = '<table class="b3d-compare-table"><thead><tr><th></th>' +
+        items.map(function (p) {
+          return '<th><a href="/3d/product/?slug=' + p.id + '" style="color:#fff;">' + L(p, 'name') + '</a></th>';
+        }).join('') + '</tr></thead><tbody>';
+
+      html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
+      html += '<tr><td>' + T('js_cmp_availability') + '</td>' + items.map(function (p) { return '<td>' + availabilityLabel(p) + '</td>'; }).join('') + '</tr>';
+      html += '<tr><td>' + T('js_cmp_brand') + '</td>' + items.map(function (p) { return '<td>' + (p.brand || '—') + '</td>'; }).join('') + '</tr>';
+
+      specLabels.forEach(function (label) {
+        html += '<tr><td>' + label + '</td>' + items.map(function (p) { return '<td>' + specLookup(p, label) + '</td>'; }).join('') + '</tr>';
+      });
+
       html += '</tbody></table>';
       container.innerHTML = html;
     });
