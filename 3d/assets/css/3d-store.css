@@ -1091,6 +1091,10 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
   font-size: .85rem;
   font-weight: 600;
 }
+.b3d-select option {
+  color: #1a1a1a;
+  background: #fff;
+}
 
 .b3d-shop-search {
   background: rgba(255,255,255,.05);
