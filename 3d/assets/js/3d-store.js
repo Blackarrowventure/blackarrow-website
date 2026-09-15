@@ -948,6 +948,10 @@
         addBtn.addEventListener('click', function () {
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
           addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
+          if (p.preorder) {
+            location.href = '/3d/cart/';
+            return;
+          }
           var original = addBtn.textContent;
           addBtn.textContent = T('js_added');
           setTimeout(function () { addBtn.textContent = original; }, 1200);
@@ -1139,6 +1143,13 @@
     initAnnouncementBar();
     initPromoSlider();
     initBrandNavMenu();
+
+    document.querySelectorAll('[data-b3d-preorder-add]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        addToCart(btn.getAttribute('data-b3d-preorder-add'), 1);
+        location.href = '/3d/cart/';
+      });
+    });
 
     var searchForm = document.querySelector('[data-b3d-search-form]');
     if (searchForm) {
