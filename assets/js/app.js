@@ -254,6 +254,16 @@ function initForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
+  // Pre-select the service dropdown from a ?service= link (e.g. the 3D
+  // storefront's "Request a Printing Quote" button), so the visitor
+  // doesn't have to pick it again after already telling us what they want.
+  const serviceSelect = document.getElementById('service');
+  const requestedService = new URLSearchParams(location.search).get('service');
+  if (serviceSelect && requestedService) {
+    const match = Array.from(serviceSelect.options).some(o => o.value === requestedService);
+    if (match) serviceSelect.value = requestedService;
+  }
+
   function showError(fieldId, message) {
     const errorEl = document.getElementById(fieldId + '-error');
     const input = document.getElementById(fieldId);

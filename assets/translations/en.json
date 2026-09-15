@@ -77,6 +77,7 @@
   "service_electrical": "Electrical & Power Distribution",
   "service_electrical_desc": "Switchgear, distribution boards, control panels, and integrated systems for reliable energy delivery.",
   "service_ipp": "Isolated Power Panels",
+  "service_3d_printing": "3D Printing, CAD & Prototyping",
   "service_ipp_desc": "Hospital-grade isolated power systems for operating rooms and critical care areas, keeping equipment energized through a single ground fault while the fault is detected and alarmed — engineered to meet NFPA 99 requirements for wet procedure locations.",
   "critical_care_power": "Critical Care Power",
   "ipp_feat_1": "Isolated Power Systems — supply and integration of hospital-grade isolated power panels for operating rooms and wet procedure locations",
