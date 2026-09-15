@@ -93,6 +93,20 @@
 .b3d-quick-pill[aria-pressed="true"] { background: var(--clr-accent); border-color: var(--clr-accent); color: #1a1a1a; }
 .b3d-quick-pill:hover { border-color: var(--clr-accent); }
 
+.b3d-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.25);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.4) inset;
+}
+.b3d-swatch:hover { border-color: rgba(255,255,255,.55); }
+.b3d-swatch[aria-pressed="true"] { border-color: var(--clr-accent); box-shadow: 0 0 0 2px var(--clr-accent); }
+.b3d-swatch.is-unavailable { opacity: .35; cursor: not-allowed; }
+.b3d-swatch.is-unavailable::after { content: ''; display: block; width: 100%; height: 2px; background: rgba(255,255,255,.6); transform: rotate(45deg); position: relative; top: 16px; }
+
 .b3d-hero__eyebrow {
   display: inline-flex;
   align-items: center;

@@ -3,7 +3,7 @@
   "_schema": {
     "id": "unique slug, e.g. bambu-lab-a1",
     "name": "string",
-    "brand": "string, e.g. Bambu Lab / Creality / Elegoo / Flashforge / Anycubic / Snapmaker / Polymaker / eSUN / Sunlu",
+    "brand": "string, e.g. Bambu Lab / Creality / Elegoo / Flashforge / Anycubic / Snapmaker / Polymaker / eSUN / Sunlu / Generic",
     "category": "3D Printers | Filament | Accessories",
     "sku": "string, optional",
     "price": "number, SAR, excluding VAT",
@@ -16,7 +16,7 @@
     "featured": "boolean, optional",
     "onSale": "boolean, optional",
     "topPick": "boolean, optional — powers the shop's 'Top quality' quick filter",
-    "variants": "array of {label, price, label_ar}, optional — when present, the shop card shows 'From <lowest price>' + a View Options link, and the product page shows a variant picker instead of one fixed price",
+    "variants": "array of {label, price, label_ar, swatch, image, available}, optional — when present, the shop card shows 'From <lowest price>' (or the plain price if all variants cost the same) + a View Options link, and the product page shows a variant picker instead of one fixed price. `swatch` (a CSS color, e.g. a hex code) renders that variant as a color dot instead of a text pill — used for filament colors; selecting it also swaps the product photo if `image` is set. `available: false` on one variant shows it struck-through/disabled without affecting the rest.",
     "images": "array of image paths — first is primary",
     "shortDesc": "string",
     "description": "string",
@@ -577,6 +577,52 @@
         ["أبعاد الطابعة", "441 × 411 × 460 مم بدون الأنابيب وحوامل الفلمنت"],
         ["الأبعاد الكاملة", "520 × 443 × 710 مم"],
         ["الوزن", "18 كجم صافي / 22 كجم إجمالي"]
+      ]
+    },
+    {
+      "id": "filament-pla-1kg",
+      "name": "PLA Filament 1kg",
+      "brand": "Generic",
+      "category": "Filament",
+      "price": 75,
+      "currency": "SAR",
+      "available": true,
+      "variants": [
+        { "label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.jpg", "sku": "PLA-BLACK-1" },
+        { "label": "Gray", "label_ar": "رمادي", "price": 75, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/flmnt-pla-gray.jpg", "sku": "PLA-GRAY-1" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 75, "swatch": "#f5d020", "image": "/3d/assets/images/products/flmnt-pla-yellow.jpg", "sku": "PLA-YELLOW-1" },
+        { "label": "Orange", "label_ar": "برتقالي", "price": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.jpg", "sku": "PLA-ORANGE-1", "available": false },
+        { "label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.jpg", "sku": "PLA-WHITE-1" },
+        { "label": "Sky Blue", "label_ar": "سماوي", "price": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.png", "sku": "PLA-BLUE-1" },
+        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.jpg", "sku": "PLA-GREEN-1" },
+        { "label": "Red", "label_ar": "أحمر", "price": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.jpg", "sku": "PLA-RED-1" }
+      ],
+      "images": [
+        "/3d/assets/images/products/flmnt-pla-black.jpg",
+        "/3d/assets/images/products/flmnt-pla-gray.jpg",
+        "/3d/assets/images/products/flmnt-pla-yellow.jpg",
+        "/3d/assets/images/products/flmnt-pla-orange.jpg",
+        "/3d/assets/images/products/flmnt-pla-white.jpg",
+        "/3d/assets/images/products/flmnt-pla-blue.png",
+        "/3d/assets/images/products/flmnt-pla-green.jpg",
+        "/3d/assets/images/products/flmnt-pla-red.jpg"
+      ],
+      "shortDesc": "1kg PLA filament for everyday FDM printing — easy to use with clean results, available in 8 colors.",
+      "description": "PLA Filament, 1kg, for everyday printing. Well suited to figurines, products, prototypes and custom gifts. Easy to use and gives clean results with most FDM printers.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Weight", "1 kg"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Use", "FDM 3D Printing"]
+      ],
+      "name_ar": "فلمنت PLA 1 كجم",
+      "shortDesc_ar": "فلمنت PLA 1 كيلو للطباعة اليومية — سهل الاستخدام ويعطي نتائج نظيفة، متوفر بـ 8 ألوان.",
+      "description_ar": "فلمنت PLA 1kg للطباعة اليومية. فلمنت PLA مناسب للمجسمات، المنتجات، النماذج الأولية، والهدايا المخصصة. سهل الاستخدام ويعطي نتائج نظيفة مع أغلب طابعات FDM.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الوزن", "1 كيلو"],
+        ["قطر الفلمنت", "1.75 مم"],
+        ["الاستخدام", "طباعة ثلاثية الأبعاد FDM"]
       ]
     }
   ]

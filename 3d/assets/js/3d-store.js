@@ -174,7 +174,10 @@
 
   function priceBlock(p) {
     if (p.variants && p.variants.length) {
-      var min = Math.min.apply(null, p.variants.map(function (v) { return v.price; }));
+      var prices = p.variants.map(function (v) { return v.price; });
+      var min = Math.min.apply(null, prices);
+      var allSame = prices.every(function (pr) { return pr === min; });
+      if (allSame) return '<span class="b3d-price">' + money(min, p.currency) + '</span>';
       return '<span class="b3d-price-was" style="text-decoration:none;display:block;">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
     }
     if (p.onSale && p.salePrice != null) {
@@ -574,13 +577,18 @@
       var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + L(p, 'name') + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
 
       var hasVariants = !!(p.variants && p.variants.length);
+      var hasSwatches = hasVariants && p.variants.some(function (v) { return !!v.swatch; });
       var selectedVariant = 0;
       var variantSelectorHtml = hasVariants
-        ? '<div class="b3d-pd__variants" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">' +
+        ? '<div class="b3d-pd__variants' + (hasSwatches ? ' b3d-pd__swatches' : '') + '" data-pd-variants style="display:flex;gap:' + (hasSwatches ? '10px' : '8px') + ';flex-wrap:wrap;margin-bottom:20px;align-items:center;">' +
             p.variants.map(function (v, i) {
+              if (v.swatch) {
+                return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '" title="' + LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
+              }
               return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '">' + LVariant(v) + '</button>';
             }).join('') +
-          '</div>'
+          '</div>' +
+          (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(p.variants[0]) + '</div>' : '')
         : '';
       var initialPriceHtml = hasVariants
         ? '<span class="b3d-price">' + money(p.variants[0].price, p.currency) + '</span>'
@@ -645,6 +653,15 @@
             selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
             var v = p.variants[selectedVariant];
             container.querySelector('[data-pd-price]').innerHTML = '<span class="b3d-price">' + money(v.price, p.currency) + '</span>';
+            var swatchLabel = container.querySelector('[data-pd-swatch-label]');
+            if (swatchLabel) swatchLabel.textContent = LVariant(v);
+            if (v.image) {
+              var mainImg = container.querySelector('[data-pd-main-img]');
+              if (mainImg) mainImg.src = v.image;
+              container.querySelectorAll('[data-thumb-src]').forEach(function (t) {
+                t.classList.toggle('is-active', t.getAttribute('data-thumb-src') === v.image);
+              });
+            }
           });
         });
       }
