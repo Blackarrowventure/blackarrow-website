@@ -290,6 +290,29 @@
     try { localStorage.setItem(COMPARE_KEY, JSON.stringify(list.slice(-4))); } catch (e) {}
   }
 
+  function injectShopItemListSeo(products) {
+    var itemListLd = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      'itemListElement': products.map(function (p, i) {
+        return {
+          '@type': 'ListItem',
+          'position': i + 1,
+          'url': 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id,
+          'name': p.name
+        };
+      })
+    };
+    var script = document.getElementById('shop-jsonld-itemlist');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'shop-jsonld-itemlist';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(itemListLd);
+  }
+
   function initShopPage(products, els) {
     var state = {
       cat: 'All',
@@ -551,6 +574,92 @@
 
   /* ---------------- Product detail ---------------- */
 
+  function absUrl(path) {
+    if (!path) return '';
+    return path.indexOf('http') === 0 ? path : 'https://www.blackarrowksa.com' + path;
+  }
+
+  function updateProductSeo(p) {
+    var name = L(p, 'name');
+    var desc = L(p, 'shortDesc') || L(p, 'description') || '';
+    var img = (p.images && p.images[0]) || p.image || '';
+    var pageUrl = 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id;
+
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', desc);
+
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', name + ' — Black Arrow 3D');
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', desc);
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', pageUrl);
+    var ogImg = document.querySelector('meta[property="og:image"]');
+    if (ogImg && img) ogImg.setAttribute('content', absUrl(img));
+
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', pageUrl);
+
+    var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : p.price;
+    var offers = (p.variants && p.variants.length)
+      ? p.variants.map(function (v) {
+          return {
+            '@type': 'Offer',
+            'price': v.price,
+            'priceCurrency': p.currency || 'SAR',
+            'availability': v.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+            'url': pageUrl
+          };
+        })
+      : {
+          '@type': 'Offer',
+          'price': priceValue,
+          'priceCurrency': p.currency || 'SAR',
+          'availability': p.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+          'url': pageUrl
+        };
+
+    var jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': name,
+      'description': desc,
+      'sku': p.sku || p.id,
+      'brand': { '@type': 'Brand', 'name': p.brand || 'Black Arrow 3D' },
+      'image': (p.images || []).map(absUrl),
+      'offers': offers
+    };
+
+    var breadcrumbLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': 'https://www.blackarrowksa.com/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': 'https://www.blackarrowksa.com/3d/' },
+        { '@type': 'ListItem', 'position': 3, 'name': 'Shop', 'item': 'https://www.blackarrowksa.com/3d/shop/' },
+        { '@type': 'ListItem', 'position': 4, 'name': name, 'item': pageUrl }
+      ]
+    };
+
+    var script = document.getElementById('pd-jsonld-product');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'pd-jsonld-product';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd);
+
+    var bscript = document.getElementById('pd-jsonld-breadcrumb');
+    if (!bscript) {
+      bscript = document.createElement('script');
+      bscript.type = 'application/ld+json';
+      bscript.id = 'pd-jsonld-breadcrumb';
+      document.head.appendChild(bscript);
+    }
+    bscript.textContent = JSON.stringify(breadcrumbLd);
+  }
+
   function renderProductDetail(container) {
     var slug = new URLSearchParams(location.search).get('slug');
     fetchProducts().then(function (products) {
@@ -560,6 +669,7 @@
         return;
       }
       document.title = L(p, 'name') + ' — Black Arrow 3D';
+      updateProductSeo(p);
       var specsHtml = LSpecs(p).map(function (row) {
         return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';
       }).join('');
@@ -837,6 +947,7 @@
     var grid = document.querySelector('[data-b3d-grid]');
     if (grid) {
       fetchProducts().then(function (products) {
+        injectShopItemListSeo(products);
         initShopPage(products, {
           grid: grid,
           count: document.querySelector('[data-b3d-count]'),

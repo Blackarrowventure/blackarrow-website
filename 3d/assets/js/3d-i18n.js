@@ -18,6 +18,7 @@
       nav_accessories: 'Accessories',
       nav_brands: 'Brands',
       nav_all_brands: 'All Brands',
+      nav_blog: 'Blog',
       nav_profile: 'Profile',
       nav_bag: 'Bag',
       nav_tagline: 'Printing Equipment & Supplies',
@@ -36,7 +37,7 @@
       footer_privacy: 'Privacy Policy',
       footer_terms: 'Terms of Service',
 
-      hub_preview_banner: 'Preview — not yet open for orders',
+      hub_preview_banner: 'Now Live — Shop 3D Printers, Filament & Accessories',
       hub_hero_eyebrow: 'Additive Manufacturing',
       hub_hero_h1_a: '3D Printers & Materials,',
       hub_hero_h1_b: 'the Black Arrow Way',
@@ -56,7 +57,7 @@
       hub_why_li2: 'Genuine spare parts and consumables kept available, not one-time drop-shipped',
       hub_why_li3: 'Support from a team that already handles critical infrastructure equipment',
       hub_cta_h2: 'Ready to Browse the Catalog?',
-      hub_cta_p: 'Catalog is being set up — check back soon',
+      hub_cta_p: 'Browse 3D printers, filament and accessories from Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic and Flashforge.',
 
       b3d_shop_eyebrow: 'Black Arrow 3D Catalog',
       b3d_shop_h1_a: 'Build smarter.',
@@ -191,7 +192,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'Black Arrow 3D preview — catalog is being set up, check back soon.',
+      announce_1: 'Black Arrow 3D — shop 3D printers, filament and accessories, delivered across Saudi Arabia.',
       announce_2: 'Business quotations available now — contact us for a project quote.',
       announce_3: 'Online payment is pending gateway approval — accounts and browsing are open.'
     },
@@ -202,6 +203,7 @@
       nav_accessories: 'الملحقات',
       nav_brands: 'العلامات التجارية',
       nav_all_brands: 'جميع العلامات التجارية',
+      nav_blog: 'المدونة',
       nav_profile: 'الحساب',
       nav_bag: 'السلة',
       nav_tagline: 'معدات وتوريدات الطباعة ثلاثية الأبعاد',
@@ -220,7 +222,7 @@
       footer_privacy: 'سياسة الخصوصية',
       footer_terms: 'شروط الخدمة',
 
-      hub_preview_banner: 'معاينة — لم يُفتح بعد لاستقبال الطلبات',
+      hub_preview_banner: 'متاح الآن — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات',
       hub_hero_eyebrow: 'التصنيع الإضافي',
       hub_hero_h1_a: 'طابعات ومواد ثلاثية الأبعاد،',
       hub_hero_h1_b: 'على طريقة بلاك أرو',
@@ -240,7 +242,7 @@
       hub_why_li2: 'قطع غيار ومستهلكات أصلية متوفرة باستمرار، وليست بنظام الشحن المباشر لمرة واحدة',
       hub_why_li3: 'دعم من فريق يتولى بالفعل معدات البنية التحتية الحرجة',
       hub_cta_h2: 'هل أنت مستعد لتصفح الكتالوج؟',
-      hub_cta_p: 'جارٍ إعداد الكتالوج — تابعونا قريباً',
+      hub_cta_p: 'تصفح الطابعات ثلاثية الأبعاد والفلمنت والملحقات من Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge.',
 
       b3d_shop_eyebrow: 'كتالوج بلاك أرو 3D',
       b3d_shop_h1_a: 'اطبع بذكاء.',
@@ -375,7 +377,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'معاينة بلاك أرو 3D — جارٍ إعداد الكتالوج، تابعونا قريباً.',
+      announce_1: 'بلاك أرو 3D — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات، مع التوصيل داخل السعودية.',
       announce_2: 'عروض الأسعار للأعمال متاحة الآن — تواصل معنا لطلب عرض سعر لمشروعك.',
       announce_3: 'الدفع الإلكتروني بانتظار اعتماد بوابة الدفع — التصفح وإنشاء الحسابات متاحان.'
     }

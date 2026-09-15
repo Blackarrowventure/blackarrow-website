@@ -3,11 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Black Arrow 3D account — sign in to save products, track orders, and manage your details.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Buyer's guides, comparisons and maintenance tutorials for 3D printers, filament and accessories — written from the Black Arrow 3D catalog.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="3D Printing Guides & Tutorials | Black Arrow 3D">
+  <meta property="og:description" content="Buyer's guides, comparisons and maintenance tutorials for 3D printers, filament and accessories — written from the Black Arrow 3D catalog.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.blackarrowksa.com/3d/blog/">
+  <meta property="og:image" content="https://www.blackarrowksa.com/assets/images/black-arrow-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.blackarrowksa.com/3d/blog/">
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
-  <title>My Account — Black Arrow 3D</title>
-
+  <title>3D Printing Guides & Tutorials | Black Arrow 3D</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Black Arrow Venture", "item": "https://www.blackarrowksa.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Black Arrow 3D", "item": "https://www.blackarrowksa.com/3d/" },
+      { "@type": "ListItem", "position": 3, "name": "Blog", "item": "https://www.blackarrowksa.com/3d/blog/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Black Arrow 3D Blog",
+    "url": "https://www.blackarrowksa.com/3d/blog/",
+    "description": "3D printing buyer's guides, comparisons and maintenance tutorials from Black Arrow 3D."
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
@@ -30,7 +56,7 @@
 
   <div class="b3d-announce" data-b3d-announce>
     <div class="b3d-announce__track" data-b3d-announce-track>
-      <span data-i18n="announce_1">Black Arrow 3D preview — catalog is being set up, check back soon.</span>
+      <span data-i18n="announce_1">Black Arrow 3D — shop 3D printers, filament and accessories, delivered across Saudi Arabia.</span>
       <span aria-hidden="true">&#9670;</span>
       <span data-i18n="announce_2">Business quotations available now — contact us for a project quote.</span>
       <span aria-hidden="true">&#9670;</span>
@@ -70,12 +96,12 @@
               </div>
             </details>
           </li>
-          <li><a href="/3d/blog/" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/3d/blog/" style="color:var(--clr-accent-dark);" data-i18n="nav_blog">Blog</a></li>
         </ul>
         <div class="navbar__right">
           <button class="navbar__pill" data-lang-toggle type="button">AR</button>
           <button class="navbar__pill" data-motion-toggle type="button" aria-pressed="false"><span class="navbar__pill-label" data-i18n-motion>Motion: On</span></button>
-          <a href="/3d/account/" class="navbar__pill" style="background:var(--clr-accent);color:#1a1a1a;">
+          <a href="/3d/account/" class="navbar__pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <span class="navbar__pill-label" data-i18n="nav_profile">Profile</span>
           </a>
@@ -90,62 +116,51 @@
   </header>
 
   <main id="main">
-    <section class="section" style="padding-top:36px;">
+    <section class="section" style="padding-top:36px;padding-bottom:0;">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:24px;">
-          <a href="/3d/" data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</a>
-          <span>›</span>
-          <span data-i18n="footer_my_account">My Account</span>
+        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:18px;">
+          <a href="/3d/">Black Arrow 3D</a>
+          <span>&rsaquo;</span>
+          <span>Blog</span>
         </nav>
+        <h1 style="color:#fff;font-size:2rem;margin-bottom:6px;">3D Printing Guides &amp; Tutorials</h1>
+        <p style="color:rgba(255,255,255,.7);max-width:640px;">Buyer's guides, comparisons and maintenance tips for 3D printers, filament and accessories &mdash; written from our own catalog.</p>
+      </div>
+    </section>
 
-        <div class="section-header" style="text-align:left;">
-          <span class="overline" data-i18n="account_overline">Customer Account</span>
-          <h1 style="color:#fff;" data-i18n="footer_my_account">My Account</h1>
-        </div>
-
-        <div class="b3d-account">
-          <div id="b3d-auth-notconfigured" class="b3d-account__notice" hidden data-i18n="account_notconfigured">
-            Sign-in isn't connected yet — we're setting up a free Black Arrow 3D account system. This page will let you sign in with email once that's ready.
-          </div>
-
-          <div id="b3d-auth-signedout" hidden>
-            <div class="b3d-account__tabs">
-              <button type="button" data-auth-tab="signin" aria-pressed="true" data-i18n="account_signin_tab">Sign In</button>
-              <button type="button" data-auth-tab="signup" aria-pressed="false" data-i18n="account_signup_tab">Create Account</button>
-            </div>
-
-            <form class="b3d-account__form" id="b3d-signin-form">
-              <label><span data-i18n="account_email">Email</span><input type="email" id="signin-email" required autocomplete="email"></label>
-              <label><span data-i18n="account_password">Password</span><input type="password" id="signin-password" required autocomplete="current-password"></label>
-              <p class="b3d-account__error" id="signin-error" hidden></p>
-              <button type="submit" class="btn btn-primary" data-i18n="account_signin_tab">Sign In</button>
-            </form>
-
-            <form class="b3d-account__form" id="b3d-signup-form" hidden>
-              <label><span data-i18n="account_email">Email</span><input type="email" id="signup-email" required autocomplete="email"></label>
-              <label><span data-i18n="account_password_min">Password (min. 6 characters)</span><input type="password" id="signup-password" required minlength="6" autocomplete="new-password"></label>
-              <p class="b3d-account__error" id="signup-error" hidden></p>
-              <button type="submit" class="btn btn-primary" data-i18n="account_signup_tab">Create Account</button>
-            </form>
-
-            <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:18px;">
-              <span data-i18n="account_agree_1">By continuing you agree to our</span> <a href="/terms-of-service.html" style="color:var(--clr-accent);" data-i18n="footer_terms">Terms of Service</a> <span data-i18n="account_agree_and">and</span> <a href="/privacy-policy.html" style="color:var(--clr-accent);" data-i18n="footer_privacy">Privacy Policy</a>.
-              <span data-i18n="account_google_apple_note">Google and Apple sign-in are not enabled yet — email sign-in only, for now.</span>
-            </p>
-          </div>
-
-          <div id="b3d-auth-signedin" hidden>
-            <p style="color:rgba(255,255,255,.8);margin-bottom:20px;"><span data-i18n="account_signed_in_as">Signed in as</span> <strong id="b3d-account-email" style="color:#fff;"></strong></p>
-            <button type="button" class="btn btn-outline" id="b3d-signout-btn" data-i18n="account_signout">Sign Out</button>
-
-            <div class="b3d-account__panels">
-              <div class="b3d-account__panel"><h3 data-i18n="account_saved_products">Saved Products</h3><p data-i18n="account_saved_products_empty">Nothing saved yet — use the ♡ icon on a product to save it here.</p></div>
-              <div class="b3d-account__panel"><h3 data-i18n="account_order_history">Order History</h3><p data-i18n="account_order_history_empty">No orders yet.</p></div>
-              <div class="b3d-account__panel"><h3 data-i18n="account_order_tracking">Order Tracking</h3><p data-i18n="account_order_tracking_empty">Nothing to track yet.</p></div>
-              <div class="b3d-account__panel"><h3 data-i18n="account_addresses">Addresses</h3><p data-i18n="account_addresses_empty">No saved addresses yet.</p></div>
-              <div class="b3d-account__panel"><h3 data-i18n="account_comm_prefs">Communication Preferences</h3><p data-i18n="account_comm_prefs_desc">Default: order updates only. Marketing emails are off unless you opt in later.</p></div>
-            </div>
-          </div>
+    <section class="section">
+      <div class="container">
+        <div class="b3d-blog-grid">
+          <a class="b3d-blog-card" href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">
+            <span class="b3d-blog-card__meta">Buyer's Guide &middot; 7 min read</span>
+            <span class="b3d-blog-card__title">Best 3D Printer for Beginners in Saudi Arabia (2026 Guide)</span>
+            <span class="b3d-blog-card__excerpt">Which 3D printer should a first-time buyer get? We compare the Bambu Lab A1 mini and Creality SparkX i7 on price, ease of use and what's in the box.</span>
+            <span class="b3d-blog-card__read">Read article &rarr;</span>
+          </a>
+          <a class="b3d-blog-card" href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">
+            <span class="b3d-blog-card__meta">Materials Guide &middot; 6 min read</span>
+            <span class="b3d-blog-card__title">PLA vs PETG vs ABS: Which 3D Printing Filament Should You Use?</span>
+            <span class="b3d-blog-card__excerpt">A practical comparison of PLA, PETG and ABS — strength, heat resistance, ease of printing, and which printers handle each material best.</span>
+            <span class="b3d-blog-card__read">Read article &rarr;</span>
+          </a>
+          <a class="b3d-blog-card" href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">
+            <span class="b3d-blog-card__meta">Comparison &middot; 6 min read</span>
+            <span class="b3d-blog-card__title">Bambu Lab A1 vs A1 mini vs A2L: Which One Should You Buy?</span>
+            <span class="b3d-blog-card__excerpt">Comparing build volume, price and combo options across the Bambu Lab A1 mini, A1 and A2L to find the right printer for your projects.</span>
+            <span class="b3d-blog-card__read">Read article &rarr;</span>
+          </a>
+          <a class="b3d-blog-card" href="/3d/blog/multi-color-3d-printing-explained/">
+            <span class="b3d-blog-card__meta">How It Works &middot; 6 min read</span>
+            <span class="b3d-blog-card__title">Multi-Color 3D Printing Explained: AMS vs CANVAS vs SnapSwap</span>
+            <span class="b3d-blog-card__excerpt">How Bambu Lab's AMS, Elegoo's CANVAS and Snapmaker's SnapSwap multi-color systems work, and which one fits your workflow.</span>
+            <span class="b3d-blog-card__read">Read article &rarr;</span>
+          </a>
+          <a class="b3d-blog-card" href="/3d/blog/3d-printer-maintenance-guide/">
+            <span class="b3d-blog-card__meta">Maintenance &middot; 5 min read</span>
+            <span class="b3d-blog-card__title">3D Printer Maintenance Guide: Keeping Your Printer Running</span>
+            <span class="b3d-blog-card__excerpt">The most common wear parts on an FDM 3D printer — hot ends, extruders and filament cutters — and when to replace them.</span>
+            <span class="b3d-blog-card__read">Read article &rarr;</span>
+          </a>
         </div>
       </div>
     </section>
@@ -165,7 +180,8 @@
             <li><a href="/3d/shop/" data-i18n="nav_shop">Shop</a></li>
             <li><a href="/3d/cart/" data-i18n="footer_cart">Cart</a></li>
             <li><a href="/3d/compare/" data-i18n="footer_compare">Compare</a></li>
-            <li><a href="/3d/blog/" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="/3d/account/" data-i18n="footer_my_account">My Account</a></li>
+            <li><a href="/3d/blog/" style="color:var(--clr-accent-dark);" data-i18n="nav_blog">Blog</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -179,8 +195,8 @@
         <div class="footer__col">
           <h3 data-i18n="footer_contact">Contact</h3>
           <div class="footer__contact">
-            <div class="contact-item"><span style="font-size:1.2em;">📞</span><a href="tel:+966560224715">+966 560 224 715</a></div>
-            <div class="contact-item"><span style="font-size:1.2em;">✉️</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
+            <div class="contact-item"><span style="font-size:1.2em;">&#128222;</span><a href="tel:+966560224715">+966 560 224 715</a></div>
+            <div class="contact-item"><span style="font-size:1.2em;">&#9993;&#65039;</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
           </div>
         </div>
       </div>
@@ -195,11 +211,9 @@
   </footer>
   </div>
 
-  <script src="/3d/assets/js/3d-firebase-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
-  <script src="/3d/assets/js/3d-auth.js" defer></script>
-  <script src="/3d/assets/js/3d-account.js" defer></script>
+
 </body>
 </html>
