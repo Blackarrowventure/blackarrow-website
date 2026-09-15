@@ -261,6 +261,24 @@
   transition: var(--transition);
 }
 
+.b3d-card__stretched-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.b3d-card__footer {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.b3d-card__footer button,
+.b3d-card__footer a {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
 .b3d-card:hover {
   border-color: var(--clr-accent);
   transform: translateY(-6px);
@@ -268,39 +286,37 @@
 }
 
 .b3d-card__visual {
-  height: 230px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    repeating-linear-gradient(180deg, rgba(245,158,11,.07) 0, rgba(245,158,11,.07) 1px, transparent 1px, transparent 10px),
-    linear-gradient(160deg, #262420 0%, #17150f 100%);
+  background: #f4f3f0;
   position: relative;
 }
 
 .b3d-card__visual svg {
-  width: 84px;
-  height: 84px;
-  color: var(--clr-accent);
-  opacity: .92;
+  width: 72px;
+  height: 72px;
+  color: var(--clr-navy);
+  opacity: .5;
 }
 
 .b3d-card__visual img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 8px;
+  padding: 14px;
 }
 
 .b3d-card__visual-placeholder {
   width: calc(100% - 24px);
   height: calc(100% - 24px);
-  border: 2px dashed rgba(245,158,11,.35);
+  border: 2px dashed rgba(26,26,26,.25);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.4);
+  color: rgba(26,26,26,.45);
   font-size: .82rem;
   font-weight: 600;
 }
@@ -366,9 +382,26 @@
   color: rgba(255,255,255,.65);
   font-size: .85rem;
   line-height: 1.6;
-  flex: 1;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
+.b3d-card__meta-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,.45);
+  font-size: .7rem;
+  margin-top: auto;
+  padding-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.b3d-card__meta-line span { overflow: hidden; text-overflow: ellipsis; }
+.b3d-card__meta-line span:not(:last-child)::after { content: '\00b7'; margin-left: 6px; color: rgba(255,255,255,.3); }
 
 .b3d-card__footer {
   display: flex;
@@ -431,14 +464,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    repeating-linear-gradient(180deg, rgba(245,158,11,.07) 0, rgba(245,158,11,.07) 1px, transparent 1px, transparent 12px),
-    linear-gradient(160deg, #262420 0%, #17150f 100%);
+  background: #f4f3f0;
   border: 1px solid rgba(245,158,11,.2);
   position: relative;
 }
 
-.b3d-pd__visual svg { width: 45%; height: 45%; color: var(--clr-accent); }
+.b3d-pd__visual svg { width: 45%; height: 45%; color: var(--clr-navy); opacity: .5; }
 .b3d-pd__visual img { width: 100%; height: 100%; object-fit: contain; padding: 8px; overflow: hidden; border-radius: var(--radius-lg); }
 .b3d-pd__visual .b3d-card__visual-placeholder { width: calc(100% - 16px); height: calc(100% - 16px); font-size: .95rem; }
 
@@ -1154,6 +1185,62 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 .b3d-filter-panel legend { color: var(--clr-accent); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
 .b3d-filter-panel label { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.8); font-size: .85rem; margin-bottom: 8px; }
 .b3d-filter-panel input[type="number"] { width: 80px; background: rgba(255,255,255,.05); border: 1px solid rgba(245,158,11,.3); color: #fff; padding: 6px 8px; border-radius: 6px; }
+.b3d-filter-panel .b3d-select { width: 100%; }
+
+.b3d-filter-panel__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+@media (max-width: 640px) {
+  .b3d-filter-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    margin: 0;
+    border-radius: 0;
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    padding: 20px 20px 90px;
+    background: var(--clr-navy);
+  }
+  .b3d-filter-panel__actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--clr-navy);
+    padding: 14px 20px;
+    border-top: 1px solid rgba(245,158,11,.3);
+    z-index: 1201;
+  }
+  .b3d-filter-panel__actions .btn { flex: 1; }
+}
+
+/* Trust strip */
+.b3d-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(245,158,11,.15);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.b3d-trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,.8);
+  font-size: .82rem;
+  font-weight: 600;
+}
+.b3d-trust-strip__icon { font-size: 1.1rem; }
 
 /* Card additions: corner badges, specs list, extra actions */
 .b3d-corner-badge {
@@ -1171,7 +1258,7 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 .b3d-corner-badge--featured { top: 12px; background: rgba(245,158,11,.92); color: #1a1a1a; }
 .b3d-corner-badge--sale { top: 40px; background: rgba(220,38,38,.92); color: #fff; }
 
-.b3d-stock-badge--pre { background: rgba(59,130,246,.15); color: #93c5fd; border: 1px solid #93c5fd; }
+.b3d-stock-badge--pre { background: rgba(245,158,11,.92); color: #1a1a1a; border: 1px solid var(--clr-accent); }
 
 .b3d-card__specs { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 4px; }
 .b3d-card__specs li { display: flex; justify-content: space-between; font-size: .76rem; color: rgba(255,255,255,.55); }
@@ -1210,7 +1297,7 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 
 /* Product detail: thumbnails, compat, warranty, ship/return */
 .b3d-pd__thumbs { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-.b3d-pd__thumb { width: 64px; height: 64px; border-radius: 8px; overflow: hidden; border: 2px solid transparent; background: #17150f; cursor: pointer; padding: 0; }
+.b3d-pd__thumb { width: 64px; height: 64px; border-radius: 8px; overflow: hidden; border: 2px solid transparent; background: #f4f3f0; cursor: pointer; padding: 4px; }
 .b3d-pd__thumb.is-active { border-color: var(--clr-accent); }
 .b3d-pd__thumb img { width: 100%; height: 100%; object-fit: contain; }
 

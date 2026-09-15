@@ -178,7 +178,7 @@
       var min = Math.min.apply(null, prices);
       var allSame = prices.every(function (pr) { return pr === min; });
       if (allSame) return '<span class="b3d-price">' + money(min, p.currency) + '</span>';
-      return '<span class="b3d-price-was" style="text-decoration:none;display:block;">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
+      return '<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="' + T('js_from_tooltip') + '">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
     }
     if (p.onSale && p.salePrice != null) {
       return '<span class="b3d-price b3d-price--sale">' + money(p.salePrice, p.currency) +
@@ -213,18 +213,21 @@
     var specs = LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
+    var href = '/3d/product/?slug=' + p.id;
     return '' +
       '<article class="b3d-card" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
-        '<a href="/3d/product/?slug=' + p.id + '" class="b3d-card__visual" aria-label="' + L(p, 'name') + '">' +
+        '<a href="' + href + '" class="b3d-card__stretched-link" aria-label="' + L(p, 'name') + '"></a>' +
+        '<div class="b3d-card__visual">' +
           cornerBadges(p) +
           statusBadge(p) +
           visual(p) +
-        '</a>' +
+        '</div>' +
         '<div class="b3d-card__body">' +
           '<div class="b3d-card__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
-          '<h3><a href="/3d/product/?slug=' + p.id + '">' + L(p, 'name') + '</a></h3>' +
+          '<h3>' + L(p, 'name') + '</h3>' +
           '<p>' + (L(p, 'shortDesc') || '') + '</p>' +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
+          '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span><span>' + T('js_card_warranty') + '</span></div>' +
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' + priceBlock(p) + '</div>' +
@@ -313,6 +316,26 @@
     script.textContent = JSON.stringify(itemListLd);
   }
 
+  function specValue(p, labelPattern) {
+    var row = (p.specs || []).filter(function (r) { return labelPattern.test(r[0]); })[0];
+    return row ? row[1] : null;
+  }
+
+  function buildVolumeBucket(p) {
+    var val = specValue(p, /^build volume$/i);
+    if (!val) return null;
+    var m = val.match(/(\d+(\.\d+)?)/);
+    if (!m) return null;
+    var n = parseFloat(m[1]);
+    if (n < 220) return 'Compact';
+    if (n <= 300) return 'Standard';
+    return 'Large';
+  }
+
+  function filamentMaterialOf(p) {
+    return specValue(p, /^material$/i);
+  }
+
   function initShopPage(products, els) {
     var state = {
       cat: 'All',
@@ -323,7 +346,10 @@
       featuredOnly: false,
       preorderOnly: false,
       saleOnly: false,
-      topOnly: false,
+      printerType: 'All',
+      buildVolume: 'All',
+      filamentMaterial: 'All',
+      accessoryCompat: 'All',
       priceMin: null,
       priceMax: null,
       page: 1
@@ -333,6 +359,40 @@
     if (params.get('cat')) state.cat = params.get('cat');
     if (params.get('brand')) state.brand = params.get('brand');
     if (params.get('q')) state.q = params.get('q');
+
+    function populateDynamicFilters() {
+      if (els.brandSelect) {
+        brandList().forEach(function (b) {
+          var opt = document.createElement('option');
+          opt.value = b;
+          opt.textContent = b;
+          els.brandSelect.appendChild(opt);
+        });
+      }
+      function fillSelect(selectEl, fieldsetSelector, values, labelFn) {
+        if (!selectEl) return;
+        var distinct = [];
+        values.forEach(function (v) { if (v && distinct.indexOf(v) === -1) distinct.push(v); });
+        distinct.forEach(function (v) {
+          var opt = document.createElement('option');
+          opt.value = v;
+          opt.textContent = labelFn ? labelFn(v) : v;
+          selectEl.appendChild(opt);
+        });
+        var fieldset = fieldsetSelector ? document.querySelector(fieldsetSelector) : null;
+        if (fieldset && distinct.length > 0) fieldset.removeAttribute('hidden');
+      }
+      fillSelect(els.printerTypeSelect, '[data-filter-group="printerType"]',
+        products.filter(function (p) { return p.category === '3D Printers'; }).map(function (p) { return p.printerType; }));
+      fillSelect(els.buildVolumeSelect, '[data-filter-group="buildVolume"]',
+        products.map(buildVolumeBucket),
+        function (v) { return T(v === 'Compact' ? 'filter_bv_compact' : v === 'Standard' ? 'filter_bv_standard' : 'filter_bv_large'); });
+      fillSelect(els.filamentMaterialSelect, '[data-filter-group="filamentMaterial"]',
+        products.filter(function (p) { return p.category === 'Filament'; }).map(filamentMaterialOf));
+      fillSelect(els.accessoryCompatSelect, '[data-filter-group="accessoryCompat"]',
+        products.filter(function (p) { return p.category === 'Accessories'; }).reduce(function (acc, p) { return acc.concat(p.compatibility || []); }, []));
+    }
+    populateDynamicFilters();
 
     function apply() {
       var list = products.slice();
@@ -350,7 +410,10 @@
       if (state.featuredOnly) list = list.filter(function (p) { return !!p.featured; });
       if (state.preorderOnly) list = list.filter(function (p) { return !!p.preorder; });
       if (state.saleOnly) list = list.filter(function (p) { return !!p.onSale; });
-      if (state.topOnly) list = list.filter(function (p) { return !!p.topPick; });
+      if (state.printerType !== 'All') list = list.filter(function (p) { return p.printerType === state.printerType; });
+      if (state.buildVolume !== 'All') list = list.filter(function (p) { return buildVolumeBucket(p) === state.buildVolume; });
+      if (state.filamentMaterial !== 'All') list = list.filter(function (p) { return filamentMaterialOf(p) === state.filamentMaterial; });
+      if (state.accessoryCompat !== 'All') list = list.filter(function (p) { return (p.compatibility || []).indexOf(state.accessoryCompat) !== -1; });
       if (state.priceMin != null) list = list.filter(function (p) { return p.price >= state.priceMin; });
       if (state.priceMax != null) list = list.filter(function (p) { return p.price <= state.priceMax; });
 
@@ -440,8 +503,39 @@
         var maxVal = els.filterForm.querySelector('[name="f-price-max"]').value;
         state.priceMin = minVal ? parseFloat(minVal) : null;
         state.priceMax = maxVal ? parseFloat(maxVal) : null;
+        if (els.printerTypeSelect) state.printerType = els.printerTypeSelect.value;
+        if (els.buildVolumeSelect) state.buildVolume = els.buildVolumeSelect.value;
+        if (els.filamentMaterialSelect) state.filamentMaterial = els.filamentMaterialSelect.value;
+        if (els.accessoryCompatSelect) state.accessoryCompat = els.accessoryCompatSelect.value;
         state.page = 1;
         apply();
+      });
+    }
+
+    if (els.filterClear) {
+      els.filterClear.addEventListener('click', function () {
+        els.filterForm.reset();
+        if (els.brandSelect) els.brandSelect.value = 'All';
+        state.brand = 'All';
+        state.inStockOnly = false;
+        state.featuredOnly = false;
+        state.preorderOnly = false;
+        state.saleOnly = false;
+        state.priceMin = null;
+        state.priceMax = null;
+        state.printerType = 'All';
+        state.buildVolume = 'All';
+        state.filamentMaterial = 'All';
+        state.accessoryCompat = 'All';
+        state.page = 1;
+        apply();
+      });
+    }
+
+    if (els.filterApply && els.filterPanel && els.filterToggle) {
+      els.filterApply.addEventListener('click', function () {
+        els.filterPanel.setAttribute('hidden', '');
+        els.filterToggle.setAttribute('aria-expanded', 'false');
       });
     }
 
@@ -450,39 +544,6 @@
         var open = els.filterPanel.hasAttribute('hidden');
         if (open) { els.filterPanel.removeAttribute('hidden'); } else { els.filterPanel.setAttribute('hidden', ''); }
         els.filterToggle.setAttribute('aria-expanded', String(open));
-      });
-    }
-
-    if (els.quickFeatured) {
-      els.quickFeatured.addEventListener('click', function () {
-        state.featuredOnly = !state.featuredOnly;
-        els.quickFeatured.setAttribute('aria-pressed', String(state.featuredOnly));
-        state.page = 1;
-        apply();
-      });
-    }
-    if (els.quickInStock) {
-      els.quickInStock.addEventListener('click', function () {
-        state.inStockOnly = !state.inStockOnly;
-        els.quickInStock.setAttribute('aria-pressed', String(state.inStockOnly));
-        state.page = 1;
-        apply();
-      });
-    }
-    if (els.quickTop) {
-      els.quickTop.addEventListener('click', function () {
-        state.topOnly = !state.topOnly;
-        els.quickTop.setAttribute('aria-pressed', String(state.topOnly));
-        state.page = 1;
-        apply();
-      });
-    }
-    if (els.quickPriceRange && els.filterToggle && els.filterPanel) {
-      els.quickPriceRange.addEventListener('click', function () {
-        els.filterPanel.removeAttribute('hidden');
-        els.filterToggle.setAttribute('aria-expanded', 'true');
-        var minInput = els.filterPanel.querySelector('[name="f-price-min"]');
-        if (minInput) minInput.focus();
       });
     }
 
@@ -929,11 +990,26 @@
     CART_SVG: CART_SVG
   };
 
+  function brandList() {
+    return (window.BlackArrow3DBrands && window.BlackArrow3DBrands.length) ? window.BlackArrow3DBrands : [];
+  }
+
+  function initBrandNavMenu() {
+    var menu = document.querySelector('[data-b3d-brand-menu]');
+    if (!menu) return;
+    var html = menu.innerHTML;
+    brandList().forEach(function (brand) {
+      html += '<a href="/3d/shop/?brand=' + encodeURIComponent(brand) + '">' + brand + '</a>';
+    });
+    menu.innerHTML = html;
+  }
+
   function autoInit() {
     updateCartBadges();
     initMotionToggle();
     initAnnouncementBar();
     initPromoSlider();
+    initBrandNavMenu();
 
     var searchForm = document.querySelector('[data-b3d-search-form]');
     if (searchForm) {
@@ -958,11 +1034,13 @@
           filterForm: document.querySelector('[data-b3d-filter-form]'),
           filterToggle: document.querySelector('[data-b3d-filter-toggle]'),
           filterPanel: document.querySelector('[data-b3d-filter-panel]'),
+          filterApply: document.querySelector('[data-b3d-filter-apply]'),
+          filterClear: document.querySelector('[data-b3d-filter-clear]'),
           pagination: document.querySelector('[data-b3d-pagination]'),
-          quickFeatured: document.querySelector('[data-quick-featured]'),
-          quickInStock: document.querySelector('[data-quick-instock]'),
-          quickPriceRange: document.querySelector('[data-quick-price]'),
-          quickTop: document.querySelector('[data-quick-top]')
+          printerTypeSelect: document.querySelector('[data-b3d-printer-type]'),
+          buildVolumeSelect: document.querySelector('[data-b3d-build-volume]'),
+          filamentMaterialSelect: document.querySelector('[data-b3d-filament-material]'),
+          accessoryCompatSelect: document.querySelector('[data-b3d-accessory-compat]')
         });
       });
     }

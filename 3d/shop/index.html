@@ -74,17 +74,8 @@
           <li>
             <details class="navbar__dropdown">
               <summary data-i18n="nav_brands">Brands</summary>
-              <div class="navbar__dropdown-menu">
+              <div class="navbar__dropdown-menu" data-b3d-brand-menu>
                 <a href="/3d/shop/" data-i18n="nav_all_brands">All Brands</a>
-                <a href="/3d/shop/?brand=Bambu+Lab">Bambu Lab</a>
-                <a href="/3d/shop/?brand=Creality">Creality</a>
-                <a href="/3d/shop/?brand=Elegoo">Elegoo</a>
-                <a href="/3d/shop/?brand=Flashforge">Flashforge</a>
-                <a href="/3d/shop/?brand=Anycubic">Anycubic</a>
-                <a href="/3d/shop/?brand=Polymaker">Polymaker</a>
-                <a href="/3d/shop/?brand=eSUN">eSUN</a>
-                <a href="/3d/shop/?brand=Sunlu">Sunlu</a>
-                <a href="/3d/shop/?brand=Generic">Generic</a>
               </div>
             </details>
           </li>
@@ -125,44 +116,16 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="b3d-brand-section__header">
-          <div>
-            <span class="overline" data-i18n="shop_by_brand_overline">Shop by Brand</span>
-            <h2 style="color:#fff;margin-top:8px;" data-i18n="shop_choose_manufacturer">Choose a manufacturer</h2>
-          </div>
-          <p data-i18n="shop_choose_manufacturer_desc">Select one brand to view its available printers, filaments and compatible accessories.</p>
-        </div>
-        <div class="b3d-brand-panel">
-          <div class="b3d-brand-panel__field">
-            <label for="b3d-brand-select-top" data-i18n="shop_brand_label">Brand</label>
-            <select class="b3d-select" id="b3d-brand-select-top" data-b3d-brand-select aria-label="Brand">
-              <option value="All" data-i18n="shop_all_brands">All brands</option>
-              <option value="Bambu Lab">Bambu Lab</option>
-              <option value="Creality">Creality</option>
-              <option value="Elegoo">Elegoo</option>
-              <option value="Flashforge">Flashforge</option>
-              <option value="Anycubic">Anycubic</option>
-              <option value="Polymaker">Polymaker</option>
-              <option value="eSUN">eSUN</option>
-              <option value="Sunlu">Sunlu</option>
-              <option value="Generic">Generic</option>
-            </select>
-          </div>
-          <div class="b3d-brand-panel__cats">
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="3D Printers" data-i18n="nav_3d_printers">3D Printers</button>
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Filament" data-i18n="nav_filaments">Filaments</button>
-            <button class="b3d-quick-pill" type="button" data-cat-shortcut="Accessories" data-i18n="nav_accessories">Accessories</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="b3d-catalog" style="padding-top:0;">
       <div class="container">
-        <div style="background:rgba(245,158,11,.1);border:1px solid var(--clr-accent);border-radius:10px;padding:14px 18px;margin-bottom:28px;color:rgba(255,255,255,.85);font-size:.88rem;" data-i18n="shop_catalog_banner">
-          We're setting up the catalog now — products are being added.
+
+        <div class="b3d-trust-strip" data-b3d-trust-strip>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128666;</span><span data-i18n="trust_delivery">Delivery across Saudi Arabia</span></div>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128274;</span><span data-i18n="trust_payment">Secure payment</span></div>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#129534;</span><span data-i18n="trust_vat">VAT invoice</span></div>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128737;&#65039;</span><span data-i18n="trust_warranty">Manufacturer warranty</span></div>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128203;</span><span data-i18n="trust_quotation">Business quotations</span></div>
+          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#127984;</span><span data-i18n="trust_support">Local support</span></div>
         </div>
 
         <div class="b3d-toolbar" style="margin-bottom:16px;">
@@ -178,12 +141,6 @@
         <div class="b3d-toolbar">
           <div class="b3d-toolbar__controls">
             <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">&#9776; <span data-i18n="shop_filters_btn">Filters</span></button>
-            <div class="b3d-quick-filters">
-              <button class="b3d-quick-pill" type="button" data-quick-featured aria-pressed="false" data-i18n="shop_featured">Featured</button>
-              <button class="b3d-quick-pill" type="button" data-quick-instock aria-pressed="false" data-i18n="shop_instock">In stock</button>
-              <button class="b3d-quick-pill" type="button" data-quick-price aria-pressed="false" data-i18n="shop_pricerange">Price range</button>
-              <button class="b3d-quick-pill" type="button" data-quick-top aria-pressed="false" data-i18n="shop_topquality">Top quality</button>
-            </div>
           </div>
           <div class="b3d-toolbar__controls">
             <span class="b3d-toolbar__count"><span data-b3d-count>0</span> <span data-i18n="shop_products_published">products published</span></span>
@@ -198,20 +155,54 @@
 
         <form class="b3d-filter-panel" id="b3d-filter-panel" data-b3d-filter-panel hidden data-b3d-filter-form>
           <fieldset>
+            <legend data-i18n="filter_brand_legend">Brand</legend>
+            <select class="b3d-select" data-b3d-brand-select aria-label="Brand">
+              <option value="All" data-i18n="shop_all_brands">All brands</option>
+            </select>
+          </fieldset>
+          <fieldset>
             <legend data-i18n="filter_avail_legend">Availability</legend>
             <label><input type="checkbox" name="f-instock"> <span data-i18n="filter_instock_only">In stock only</span></label>
             <label><input type="checkbox" name="f-preorder"> <span data-i18n="filter_preorder_only">Pre-order only</span></label>
-          </fieldset>
-          <fieldset>
-            <legend data-i18n="filter_highlights_legend">Highlights</legend>
-            <label><input type="checkbox" name="f-featured"> <span data-i18n="shop_featured">Featured</span></label>
-            <label><input type="checkbox" name="f-sale"> <span data-i18n="filter_onsale">On sale</span></label>
           </fieldset>
           <fieldset>
             <legend data-i18n="filter_pricerange_legend">Price range (SAR)</legend>
             <label><span data-i18n="filter_min">Min</span> <input type="number" name="f-price-min" min="0" placeholder="0"></label>
             <label><span data-i18n="filter_max">Max</span> <input type="number" name="f-price-max" min="0" placeholder="Any"></label>
           </fieldset>
+          <fieldset data-filter-group="printerType" hidden>
+            <legend data-i18n="filter_printertype_legend">Printer type</legend>
+            <select class="b3d-select" data-b3d-printer-type aria-label="Printer type">
+              <option value="All" data-i18n="filter_all_option">All</option>
+            </select>
+          </fieldset>
+          <fieldset data-filter-group="buildVolume" hidden>
+            <legend data-i18n="filter_buildvolume_legend">Build volume</legend>
+            <select class="b3d-select" data-b3d-build-volume aria-label="Build volume">
+              <option value="All" data-i18n="filter_all_option">All</option>
+            </select>
+          </fieldset>
+          <fieldset data-filter-group="filamentMaterial" hidden>
+            <legend data-i18n="filter_filamentmaterial_legend">Filament material</legend>
+            <select class="b3d-select" data-b3d-filament-material aria-label="Filament material">
+              <option value="All" data-i18n="filter_all_option">All</option>
+            </select>
+          </fieldset>
+          <fieldset data-filter-group="accessoryCompat" hidden>
+            <legend data-i18n="filter_accessorycompat_legend">Accessory compatibility</legend>
+            <select class="b3d-select" data-b3d-accessory-compat aria-label="Accessory compatibility">
+              <option value="All" data-i18n="filter_all_option">All</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend data-i18n="filter_highlights_legend">Highlights</legend>
+            <label><input type="checkbox" name="f-featured"> <span data-i18n="shop_featured">Featured</span></label>
+            <label><input type="checkbox" name="f-sale"> <span data-i18n="filter_onsale">On sale</span></label>
+          </fieldset>
+          <div class="b3d-filter-panel__actions">
+            <button type="button" class="btn btn-outline" data-b3d-filter-clear data-i18n="filter_clear">Clear all</button>
+            <button type="button" class="btn btn-primary" data-b3d-filter-apply data-i18n="filter_apply">Apply Filters</button>
+          </div>
         </form>
 
         <div class="b3d-grid" data-b3d-grid></div>
@@ -250,13 +241,16 @@
           <h3 data-i18n="footer_contact">Contact</h3>
           <div class="footer__contact">
             <div class="contact-item"><span style="font-size:1.2em;">📞</span><a href="tel:+966560224715">+966 560 224 715</a></div>
+            <div class="contact-item"><span style="font-size:1.2em;">💬</span><a href="https://wa.me/966560224715?text=Hello%21%20I%27m%20interested%20in%20your%203D%20printers%2Ffilament%2Faccessories." target="_blank" rel="noopener noreferrer" data-i18n="footer_whatsapp">WhatsApp</a></div>
             <div class="contact-item"><span style="font-size:1.2em;">✉️</span><a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a></div>
+            <div class="contact-item"><span style="font-size:1.2em;">📍</span><span data-i18n="footer_address">Dammam, Eastern Province, Saudi Arabia</span></div>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> <span data-i18n="footer_copyright">Black Arrow Venture company. All rights reserved.</span></p>
         <div class="footer__legal">
+          <span data-i18n="footer_cr_vat">CR 7054542985 &middot; VAT 314841084500003</span>
           <a href="/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
           <a href="/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
         </div>
@@ -268,6 +262,7 @@
 
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js" defer></script>
+  <script src="/3d/assets/js/3d-brands.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
 
 </body>
