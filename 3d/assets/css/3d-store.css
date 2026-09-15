@@ -6,6 +6,12 @@
    No new brand colors — gold accent + existing CTA green.
    ============================================== */
 
+/* Base .overline (styles.css) defaults to black text — invisible on this
+   section's dark background wherever a page doesn't already override it. */
+.b3d-layer-bg .overline {
+  color: var(--clr-accent) !important;
+}
+
 .b3d-layer-bg {
   position: relative;
   background:
