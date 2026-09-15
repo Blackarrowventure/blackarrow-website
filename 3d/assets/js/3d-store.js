@@ -552,6 +552,20 @@
 
   /* ---------------- Cart page ---------------- */
 
+  var lastOrderSummaryText = '';
+
+  function updateCheckoutFields(method) {
+    var checkout = document.querySelector('[data-b3d-checkout]');
+    if (!checkout) return;
+    var purchasable = method === 'cod' || method === 'bank';
+    checkout.hidden = !purchasable;
+    if (!purchasable) return;
+    var payField = checkout.querySelector('[data-b3d-order-payment]');
+    if (payField) payField.value = method === 'cod' ? 'Cash on Delivery' : 'Bank Transfer';
+    var summaryField = checkout.querySelector('[data-b3d-order-summary]');
+    if (summaryField) summaryField.value = lastOrderSummaryText;
+  }
+
   function renderCartPage(listEl, summaryEl, emptyEl) {
     fetchProducts().then(function (products) {
       var cart = getCart();
@@ -570,6 +584,7 @@
       products.forEach(function (p) { byId[p.id] = p; });
 
       var subtotal = 0;
+      var summaryLines = [];
       listEl.innerHTML = ids.map(function (id) {
         var parsed = parseLineId(id);
         var p = byId[parsed.productId];
@@ -580,6 +595,7 @@
         var lineTotal = unit * qty;
         subtotal += lineTotal;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
+        summaryLines.push(displayName + ' x' + qty + ' — ' + lineTotal.toLocaleString('en-US') + ' ' + (p.currency || 'SAR'));
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
@@ -599,6 +615,13 @@
 
       summaryEl.querySelector('[data-cart-subtotal]').innerHTML = money(subtotal, 'SAR');
       summaryEl.querySelector('[data-cart-total]').innerHTML = money(subtotal, 'SAR');
+
+      lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
+      var checkout = document.querySelector('[data-b3d-checkout]');
+      if (checkout && !checkout.hidden) {
+        var summaryField = checkout.querySelector('[data-b3d-order-summary]');
+        if (summaryField) summaryField.value = lastOrderSummaryText;
+      }
 
       listEl.querySelectorAll('[data-remove-id]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -629,6 +652,7 @@
         root.querySelectorAll('[data-pm-detail]').forEach(function (d) {
           d.hidden = d.getAttribute('data-pm-detail') !== method;
         });
+        updateCheckoutFields(method);
       });
     });
   }

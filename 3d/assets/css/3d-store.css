@@ -1370,7 +1370,8 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 .b3d-account__form { display: flex; flex-direction: column; gap: 14px; }
 .b3d-account__form[hidden] { display: none; }
 .b3d-account__form label { color: rgba(255,255,255,.6); font-size: .8rem; }
-.b3d-account__form input {
+.b3d-account__form input,
+.b3d-account__form textarea {
   width: 100%;
   background: rgba(255,255,255,.05);
   border: 1px solid rgba(245,158,11,.3);
@@ -1379,7 +1380,29 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
   border-radius: var(--radius-md);
   font-size: .95rem;
   margin-top: 6px;
+  font-family: inherit;
 }
+.b3d-account__form textarea { resize: vertical; min-height: 64px; }
+
+/* Bank transfer detail card — shows real account info once configured */
+.b3d-bank-details { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.b3d-bank-details__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(245,158,11,.2);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+.b3d-bank-details__row span:first-child { color: rgba(255,255,255,.55); font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; }
+.b3d-bank-details__row span:last-child { color: #fff; font-weight: 700; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.b3d-pm__note--soon { color: rgba(255,255,255,.4); }
+.b3d-checkout { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.08); }
+.b3d-checkout[hidden] { display: none; }
+.b3d-checkout__success { color: #4ade80; font-size: .88rem; margin-top: 10px; }
+.b3d-checkout__error { color: #f87171; font-size: .88rem; margin-top: 10px; }
 .b3d-account__tabs { display: flex; gap: 10px; margin-bottom: 20px; }
 .b3d-account__tabs button {
   flex: 1;

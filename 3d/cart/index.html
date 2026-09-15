@@ -123,27 +123,24 @@
             <div class="b3d-payment" data-b3d-payment style="margin-top:26px;">
               <h4 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="cart_payment_h4">Payment Method</h4>
               <div class="b3d-payment-methods">
-                <button type="button" class="b3d-pm" data-pm="mada" disabled>mada<span class="b3d-pm__note" data-i18n="pm_pending">Pending approval</span></button>
-                <button type="button" class="b3d-pm" data-pm="cards" disabled>Visa / Mastercard<span class="b3d-pm__note" data-i18n="pm_pending">Pending approval</span></button>
-                <button type="button" class="b3d-pm" data-pm="applepay" disabled>Apple Pay<span class="b3d-pm__note" data-i18n="pm_pending">Pending approval</span></button>
-                <button type="button" class="b3d-pm" data-pm="stcpay" disabled>STC Pay<span class="b3d-pm__note" data-i18n="pm_pending">Pending approval</span></button>
-                <button type="button" class="b3d-pm" data-pm="tamara" disabled>Tamara<span class="b3d-pm__note" data-i18n="pm_notenabled">Not yet enabled</span></button>
-                <button type="button" class="b3d-pm" data-pm="tabby" disabled>Tabby<span class="b3d-pm__note" data-i18n="pm_notenabled">Not yet enabled</span></button>
-                <button type="button" class="b3d-pm" data-pm="cod" disabled><span data-i18n="pm_cod">Cash on Delivery</span><span class="b3d-pm__note" data-i18n="pm_notenabled">Not yet enabled</span></button>
+                <button type="button" class="b3d-pm" data-pm="mada" disabled>mada<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="cards" disabled>Visa / Mastercard<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="applepay" disabled>Apple Pay<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="stcpay" disabled>STC Pay<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="tamara" disabled>Tamara<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="tabby" disabled>Tabby<span class="b3d-pm__note b3d-pm__note--soon" data-i18n="pm_soon">Coming Soon</span></button>
+                <button type="button" class="b3d-pm" data-pm="cod" aria-pressed="false"><span data-i18n="pm_cod">Cash on Delivery</span></button>
                 <button type="button" class="b3d-pm" data-pm="bank" aria-pressed="false" data-i18n="pm_banktransfer">Bank Transfer</button>
                 <button type="button" class="b3d-pm" data-pm="quote" aria-pressed="false" data-i18n="pm_quotation">Business Quotation</button>
               </div>
 
               <div class="b3d-pm-detail" data-pm-detail="bank" hidden>
                 <h4 data-i18n="pm_bank_h4">Direct Bank Transfer</h4>
-                <p data-i18n="pm_bank_p">Transfer the order total to Black Arrow Venture's account and send us the reference — we'll confirm once verified. Bank details will be added here once approved.</p>
-                <div class="b3d-field-row">
-                  <div><label for="pm-bank-order" data-i18n="pm_bank_order_number">Order Number</label><input id="pm-bank-order" type="text" placeholder="Assigned after request" disabled></div>
-                  <div><label for="pm-bank-name" data-i18n="pm_bank_beneficiary">Beneficiary Name</label><input id="pm-bank-name" type="text" placeholder="To be added" disabled></div>
-                  <div><label for="pm-bank-bankname" data-i18n="pm_bank_bankname">Bank Name</label><input id="pm-bank-bankname" type="text" placeholder="To be added" disabled></div>
-                  <div><label for="pm-bank-iban" data-i18n="pm_bank_iban">IBAN</label><input id="pm-bank-iban" type="text" placeholder="To be added" disabled></div>
+                <p data-i18n="pm_bank_p">Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.</p>
+                <div class="b3d-bank-details" data-b3d-bank-details>
+                  <p style="color:rgba(255,255,255,.5);font-size:.85rem;" data-i18n="pm_bank_notready">Bank account details are being finalized — please use the button below to request them, or choose Cash on Delivery.</p>
                 </div>
-                <a href="/contact.html?service=3d" class="btn btn-outline" style="margin-top:14px;display:inline-block;" data-i18n="pm_bank_request_btn">Request Bank Details</a>
+                <a href="/contact.html?service=3d" class="btn btn-outline" style="margin-top:4px;display:inline-block;" data-i18n="pm_bank_request_btn">Request Bank Details</a>
               </div>
 
               <div class="b3d-pm-detail" data-pm-detail="quote" hidden>
@@ -151,10 +148,30 @@
                 <p data-i18n="pm_quote_p">Prefer a formal quotation or invoice for procurement? Send us your cart and we'll prepare one.</p>
                 <a href="/contact.html?service=3d" class="btn btn-primary" style="margin-top:10px;display:inline-block;" data-i18n="pm_quote_request_btn">Request a Quotation</a>
               </div>
+
+              <div class="b3d-checkout" data-b3d-checkout hidden>
+                <h4 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="checkout_h4">Delivery Details</h4>
+                <form class="b3d-account__form" id="b3d-checkout-form" data-w3f data-success="b3d-checkout-success" data-error="b3d-checkout-error" action="https://api.web3forms.com/submit" method="POST">
+                  <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
+                  <input type="hidden" name="subject" value="New Black Arrow 3D order">
+                  <input type="hidden" name="from_name" value="Black Arrow 3D Shop">
+                  <input type="hidden" name="payment_method" data-b3d-order-payment value="">
+                  <input type="hidden" name="order_summary" data-b3d-order-summary value="">
+                  <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+                  <label><span data-i18n="checkout_name">Full Name</span><input type="text" name="customer_name" required autocomplete="name"></label>
+                  <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX"></label>
+                  <label><span data-i18n="checkout_city">City</span><input type="text" name="customer_city" required autocomplete="address-level2"></label>
+                  <label><span data-i18n="checkout_address">Full Address</span><textarea name="customer_address" required autocomplete="street-address"></textarea></label>
+                  <label><span data-i18n="checkout_notes">Notes (optional)</span><textarea name="customer_notes" placeholder="Transfer reference, delivery instructions, etc."></textarea></label>
+                  <button type="submit" class="btn btn-primary" data-i18n="checkout_submit">Place Order</button>
+                  <p class="b3d-checkout__success" id="b3d-checkout-success" hidden data-i18n="checkout_success">Order received — we'll contact you shortly to confirm.</p>
+                  <p class="b3d-checkout__error" id="b3d-checkout-error" hidden data-i18n="checkout_error">Sorry, the order could not be sent. Please WhatsApp us instead.</p>
+                </form>
+              </div>
             </div>
 
             <div class="b3d-checkout-note" data-i18n="cart_checkout_note">
-              Online payment (mada / cards / Apple Pay / STC Pay) is pending our Moyasar merchant approval — it will be enabled here the moment it's live. Bank transfer and quotation requests already work via our contact form.
+              Cash on Delivery and Bank Transfer are available now. Card payments (mada / Visa / Mastercard / Apple Pay / STC Pay) are coming soon, pending our payment gateway approval.
             </div>
           </aside>
         </div>
