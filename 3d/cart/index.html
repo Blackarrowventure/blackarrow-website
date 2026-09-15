@@ -114,7 +114,7 @@
             </div>
             <div class="b3d-cart-summary__row">
               <span data-i18n="cart_shipping_label">Shipping</span>
-              <span data-i18n="cart_shipping_value">Calculated at checkout</span>
+              <span data-cart-shipping data-i18n="cart_shipping_value">Calculated at checkout</span>
             </div>
             <div class="b3d-cart-summary__total">
               <span data-i18n="cart_total_label">Total</span>
@@ -152,6 +152,13 @@
               </div>
 
               <div class="b3d-checkout" data-b3d-checkout hidden>
+                <div class="b3d-checkout__login" data-b3d-checkout-login>
+                  <a href="/3d/account/" data-i18n="checkout_login_prompt">Log in for faster checkout</a>
+                </div>
+                <div class="b3d-checkout__login b3d-checkout__signedin" data-b3d-checkout-signedin hidden>
+                  <span><span data-i18n="checkout_signed_in_as">Signed in as</span> <strong data-b3d-checkout-email></strong></span>
+                </div>
+
                 <h4 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="checkout_h4">Delivery Details</h4>
                 <form class="b3d-account__form" id="b3d-checkout-form" data-w3f data-success="b3d-checkout-success" data-error="b3d-checkout-error" action="https://api.web3forms.com/submit" method="POST">
                   <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
@@ -160,12 +167,36 @@
                   <input type="hidden" name="payment_method" data-b3d-order-payment value="">
                   <input type="hidden" name="order_summary" data-b3d-order-summary value="">
                   <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
-                  <label><span data-i18n="checkout_name">Full Name</span><input type="text" name="customer_name" required autocomplete="name"></label>
-                  <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX"></label>
-                  <label><span data-i18n="checkout_city">City</span><input type="text" name="customer_city" required autocomplete="address-level2"></label>
-                  <label><span data-i18n="checkout_address">Full Address</span><textarea name="customer_address" required autocomplete="street-address"></textarea></label>
+
+                  <div class="b3d-field-row">
+                    <label><span data-i18n="checkout_first_name">First Name</span><input type="text" name="customer_first_name" required autocomplete="given-name" data-b3d-field="first_name"></label>
+                    <label><span data-i18n="checkout_last_name">Last Name</span><input type="text" name="customer_last_name" required autocomplete="family-name" data-b3d-field="last_name"></label>
+                  </div>
+                  <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX" data-b3d-field="phone"></label>
+                  <label><span data-i18n="checkout_national_address">National Address</span><input type="text" name="customer_national_address" required autocomplete="street-address" data-b3d-field="national_address"></label>
+                  <label><span data-i18n="checkout_apartment">Apartment, suite, etc. (optional)</span><input type="text" name="customer_apartment" autocomplete="address-line2" data-b3d-field="apartment"></label>
+                  <div class="b3d-field-row">
+                    <label><span data-i18n="checkout_postal_code">Postal Code (optional)</span><input type="text" name="customer_postal_code" autocomplete="postal-code" data-b3d-field="postal_code"></label>
+                    <label><span data-i18n="checkout_city">City</span><input type="text" name="customer_city" required autocomplete="address-level2" data-b3d-field="city"></label>
+                  </div>
                   <label><span data-i18n="checkout_notes">Notes (optional)</span><textarea name="customer_notes" placeholder="Transfer reference, delivery instructions, etc."></textarea></label>
-                  <button type="submit" class="btn btn-primary" data-i18n="checkout_submit">Place Order</button>
+
+                  <label class="b3d-checkout__save"><input type="checkbox" data-b3d-save-info><span data-i18n="checkout_save_info">Save this information for next time</span></label>
+
+                  <h4 style="color:#fff;font-size:.95rem;margin:6px 0 2px;" data-i18n="checkout_shipping_h4">Shipping Method</h4>
+                  <input type="hidden" name="shipping_method" data-b3d-shipping-field value="">
+                  <div class="b3d-shipping-methods" data-b3d-shipping-methods>
+                    <label class="b3d-shipping-option">
+                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="regular" data-shipping-price="30" data-shipping-label="Regular shipping" checked><span data-i18n="checkout_shipping_regular">Regular shipping</span></span>
+                      <span class="b3d-shipping-option__price">30 SAR</span>
+                    </label>
+                    <label class="b3d-shipping-option">
+                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="fast" data-shipping-price="50" data-shipping-label="Fast shipping"><span data-i18n="checkout_shipping_fast">Fast shipping</span></span>
+                      <span class="b3d-shipping-option__price">50 SAR</span>
+                    </label>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary" style="margin-top:8px;" data-i18n="checkout_submit">Place Order</button>
                   <p class="b3d-checkout__success" id="b3d-checkout-success" hidden data-i18n="checkout_success">Order received — we'll contact you shortly to confirm.</p>
                   <p class="b3d-checkout__error" id="b3d-checkout-error" hidden data-i18n="checkout_error">Sorry, the order could not be sent. Please WhatsApp us instead.</p>
                 </form>
@@ -226,10 +257,12 @@
   </div>
 
 
+  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-brands.js" defer></script>
   <script src="/3d/assets/js/3d-store.js" defer></script>
+  <script src="/3d/assets/js/3d-auth.js" defer></script>
 
 </body>
 </html>

@@ -553,17 +553,103 @@
   /* ---------------- Cart page ---------------- */
 
   var lastOrderSummaryText = '';
+  var lastSubtotal = 0;
+  var shippingPlaceholderText = null;
+
+  function updateOrderTotals() {
+    var summaryEl = document.querySelector('[data-b3d-cart-summary]');
+    var checkout = document.querySelector('[data-b3d-checkout]');
+    if (!summaryEl) return;
+    var shippingEl = summaryEl.querySelector('[data-cart-shipping]');
+    var totalEl = summaryEl.querySelector('[data-cart-total]');
+    if (shippingPlaceholderText === null && shippingEl) shippingPlaceholderText = shippingEl.textContent;
+
+    var showShipping = checkout && !checkout.hidden;
+    if (!showShipping) {
+      if (shippingEl) shippingEl.textContent = shippingPlaceholderText;
+      if (totalEl) totalEl.innerHTML = money(lastSubtotal, 'SAR');
+      return;
+    }
+
+    var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
+    var price = checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0;
+    var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
+    if (shippingEl) shippingEl.innerHTML = money(price, 'SAR');
+    if (totalEl) totalEl.innerHTML = money(lastSubtotal + price, 'SAR');
+
+    var shipField = checkout.querySelector('[data-b3d-shipping-field]');
+    if (shipField) shipField.value = label + ' — ' + price + ' SAR';
+    var summaryField = checkout.querySelector('[data-b3d-order-summary]');
+    if (summaryField) {
+      summaryField.value = lastOrderSummaryText +
+        '\nShipping: ' + label + ' — ' + price + ' SAR' +
+        '\nGrand Total: ' + (lastSubtotal + price).toLocaleString('en-US') + ' SAR';
+    }
+  }
 
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
     var purchasable = method === 'cod' || method === 'bank';
     checkout.hidden = !purchasable;
-    if (!purchasable) return;
-    var payField = checkout.querySelector('[data-b3d-order-payment]');
-    if (payField) payField.value = method === 'cod' ? 'Cash on Delivery' : 'Bank Transfer';
-    var summaryField = checkout.querySelector('[data-b3d-order-summary]');
-    if (summaryField) summaryField.value = lastOrderSummaryText;
+    if (purchasable) {
+      var payField = checkout.querySelector('[data-b3d-order-payment]');
+      if (payField) payField.value = method === 'cod' ? 'Cash on Delivery' : 'Bank Transfer';
+    }
+    updateOrderTotals();
+  }
+
+  function initShippingMethods(root) {
+    if (!root) return;
+    root.querySelectorAll('input[name="shipping_choice"]').forEach(function (radio) {
+      radio.addEventListener('change', updateOrderTotals);
+    });
+  }
+
+  function initCheckoutAuth(root) {
+    if (!root || !window.BlackArrow3DAuth || !window.BlackArrow3DAuth.isConfigured()) return;
+    var loginRow = root.querySelector('[data-b3d-checkout-login]');
+    var signedInRow = root.querySelector('[data-b3d-checkout-signedin]');
+    var emailEl = root.querySelector('[data-b3d-checkout-email]');
+    var saveCheckbox = root.querySelector('[data-b3d-save-info]');
+    var form = root.querySelector('#b3d-checkout-form');
+    var currentUser = null;
+
+    window.BlackArrow3DAuth.init(function (ok) {
+      if (!ok) return;
+      window.BlackArrow3DAuth.onAuthChange(function (user) {
+        currentUser = user;
+        if (loginRow) loginRow.hidden = !!user;
+        if (signedInRow) signedInRow.hidden = !user;
+        if (user && emailEl) emailEl.textContent = user.email;
+        if (user) {
+          window.BlackArrow3DAuth.getProfile(user.id).then(function (profile) {
+            if (!profile || !form) return;
+            var addr = profile.last_address || {};
+            Object.keys(addr).forEach(function (key) {
+              var field = form.querySelector('[data-b3d-field="' + key + '"]');
+              if (field && !field.value) field.value = addr[key];
+            });
+            var phoneField = form.querySelector('[data-b3d-field="phone"]');
+            if (phoneField && !phoneField.value && profile.phone) phoneField.value = profile.phone;
+          });
+        }
+      });
+    });
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        if (!saveCheckbox || !saveCheckbox.checked || !currentUser) return;
+        var addr = {};
+        form.querySelectorAll('[data-b3d-field]').forEach(function (field) {
+          addr[field.getAttribute('data-b3d-field')] = field.value;
+        });
+        window.BlackArrow3DAuth.saveProfile(currentUser.id, {
+          phone: addr.phone,
+          last_address: addr
+        });
+      });
+    }
   }
 
   function renderCartPage(listEl, summaryEl, emptyEl) {
@@ -614,14 +700,10 @@
       }).join('');
 
       summaryEl.querySelector('[data-cart-subtotal]').innerHTML = money(subtotal, 'SAR');
-      summaryEl.querySelector('[data-cart-total]').innerHTML = money(subtotal, 'SAR');
 
+      lastSubtotal = subtotal;
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
-      var checkout = document.querySelector('[data-b3d-checkout]');
-      if (checkout && !checkout.hidden) {
-        var summaryField = checkout.querySelector('[data-b3d-order-summary]');
-        if (summaryField) summaryField.value = lastOrderSummaryText;
-      }
+      updateOrderTotals();
 
       listEl.querySelectorAll('[data-remove-id]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1081,6 +1163,8 @@
       var empty = document.querySelector('[data-b3d-cart-empty]');
       renderCartPage(cartList, summary, empty);
       initPaymentMethods(document.querySelector('[data-b3d-payment]'));
+      initShippingMethods(document.querySelector('[data-b3d-checkout]'));
+      initCheckoutAuth(document.querySelector('[data-b3d-checkout]'));
     }
   }
 

@@ -86,12 +86,33 @@
     return client.auth.signOut();
   }
 
+  function getProfile(userId) {
+    if (!ready || !client) return Promise.resolve(null);
+    return client.from('customers').select('name, phone, last_address').eq('id', userId).single().then(function (res) {
+      return res.error ? null : res.data;
+    }).catch(function () { return null; });
+  }
+
+  function saveProfile(userId, fields) {
+    if (!ready || !client) return Promise.resolve();
+    var row = { id: userId };
+    if (fields.name != null) row.name = fields.name;
+    if (fields.phone != null) row.phone = fields.phone;
+    if (fields.last_address != null) row.last_address = fields.last_address;
+    return client.from('customers').upsert(row).then(function (res) {
+      if (res.error) console.warn('Black Arrow 3D: could not save profile', res.error);
+      return res;
+    });
+  }
+
   window.BlackArrow3DAuth = {
     isConfigured: function () { return !!(CONFIG && CONFIG.url && CONFIG.anonKey); },
     init: init,
     onAuthChange: onAuthChange,
     signUp: signUp,
     signIn: signIn,
-    signOut: signOut
+    signOut: signOut,
+    getProfile: getProfile,
+    saveProfile: saveProfile
   };
 })();
