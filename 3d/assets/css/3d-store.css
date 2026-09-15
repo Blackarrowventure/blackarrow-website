@@ -248,7 +248,7 @@
 }
 
 .b3d-card__visual {
-  height: 190px;
+  height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,7 +269,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 18px;
+  padding: 8px;
 }
 
 .b3d-card__visual-placeholder {
@@ -384,6 +384,8 @@
   cursor: pointer;
   transition: var(--transition);
   white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .b3d-btn-add:hover { background: var(--clr-cta-dark); }
@@ -415,7 +417,7 @@
 }
 
 .b3d-pd__visual svg { width: 45%; height: 45%; color: var(--clr-accent); }
-.b3d-pd__visual img { width: 100%; height: 100%; object-fit: contain; padding: 36px; overflow: hidden; border-radius: var(--radius-lg); }
+.b3d-pd__visual img { width: 100%; height: 100%; object-fit: contain; padding: 20px; overflow: hidden; border-radius: var(--radius-lg); }
 .b3d-pd__visual .b3d-card__visual-placeholder { width: calc(100% - 48px); height: calc(100% - 48px); font-size: .95rem; }
 
 .b3d-pd__cat { color: var(--clr-accent); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }

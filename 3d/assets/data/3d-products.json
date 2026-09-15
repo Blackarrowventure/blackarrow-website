@@ -16,6 +16,7 @@
     "featured": "boolean, optional",
     "onSale": "boolean, optional",
     "topPick": "boolean, optional — powers the shop's 'Top quality' quick filter",
+    "variants": "array of {label, price}, optional — when present, the shop card shows 'From <lowest price>' + a View Options link, and the product page shows a variant picker instead of one fixed price",
     "images": "array of image paths — first is primary",
     "shortDesc": "string",
     "description": "string",
@@ -35,6 +36,10 @@
       "currency": "SAR",
       "available": true,
       "preorder": true,
+      "variants": [
+        { "label": "Standalone", "price": 1699 },
+        { "label": "Combo (with AMS lite)", "price": 2799 }
+      ],
       "images": [
         "/3d/assets/images/products/bambu-a1-mini-main.webp",
         "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp",

@@ -135,11 +135,24 @@
   }
 
   function priceBlock(p) {
+    if (p.variants && p.variants.length) {
+      var min = Math.min.apply(null, p.variants.map(function (v) { return v.price; }));
+      return '<span class="b3d-price-was" style="text-decoration:none;display:block;">From</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
+    }
     if (p.onSale && p.salePrice != null) {
       return '<span class="b3d-price b3d-price--sale">' + money(p.salePrice, p.currency) +
         '</span><span class="b3d-price-was">' + money(p.price, p.currency) + '</span>';
     }
     return '<span class="b3d-price">' + money(p.price, p.currency) + '</span>';
+  }
+
+  function lineId(productId, variantIndex) {
+    return variantIndex == null ? productId : productId + '::' + variantIndex;
+  }
+
+  function parseLineId(id) {
+    var parts = id.split('::');
+    return { productId: parts[0], variantIndex: parts.length > 1 ? parseInt(parts[1], 10) : null };
   }
 
   function cornerBadges(p) {
@@ -150,8 +163,12 @@
   }
 
   function productCard(p) {
+    var hasVariants = p.variants && p.variants.length;
     var disabled = (p.available === false && !p.preorder) ? 'disabled' : '';
     var btnLabel = p.preorder ? 'Pre-Order' : (p.available === false ? 'Out of Stock' : 'Add to Cart');
+    var actionBtn = hasVariants
+      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add">View Options</a>'
+      : '<button class="b3d-btn-add" data-add-id="' + p.id + '" ' + disabled + '>' + btnLabel + '</button>';
     var specs = (p.specs || []).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
@@ -173,7 +190,7 @@
           '<div class="b3d-card__actions">' +
             '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="Add to compare" title="Compare">⇄</button>' +
             '<button class="b3d-btn-wishlist" data-wishlist-id="' + p.id + '" aria-label="Save to wishlist" title="Save">♡</button>' +
-            '<button class="b3d-btn-add" data-add-id="' + p.id + '" ' + disabled + '>' + btnLabel + '</button>' +
+            actionBtn +
           '</div>' +
         '</div>' +
       '</article>';
@@ -429,17 +446,20 @@
 
       var subtotal = 0;
       listEl.innerHTML = ids.map(function (id) {
-        var p = byId[id];
+        var parsed = parseLineId(id);
+        var p = byId[parsed.productId];
         if (!p) return '';
+        var variant = parsed.variantIndex != null && p.variants ? p.variants[parsed.variantIndex] : null;
         var qty = cart[id];
-        var unit = (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
+        var unit = variant ? variant.price : ((p.onSale && p.salePrice != null) ? p.salePrice : p.price);
         var lineTotal = unit * qty;
         subtotal += lineTotal;
+        var displayName = p.name + (variant ? ' — ' + variant.label : '');
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
             '<div>' +
-              '<div class="b3d-cart-item__name">' + p.name + '</div>' +
+              '<div class="b3d-cart-item__name">' + displayName + '</div>' +
               '<div class="b3d-cart-item__cat">' + p.category + '</div>' +
               '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">Remove</button>' +
             '</div>' +
@@ -514,6 +534,19 @@
       var pdAvailable = p.available !== false;
       var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + p.name + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">Product image</div>';
 
+      var hasVariants = !!(p.variants && p.variants.length);
+      var selectedVariant = 0;
+      var variantSelectorHtml = hasVariants
+        ? '<div class="b3d-pd__variants" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">' +
+            p.variants.map(function (v, i) {
+              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '">' + v.label + '</button>';
+            }).join('') +
+          '</div>'
+        : '';
+      var initialPriceHtml = hasVariants
+        ? '<span class="b3d-price">' + money(p.variants[0].price, p.currency) + '</span>'
+        : priceBlock(p);
+
       container.innerHTML = '' +
         '<div>' +
           '<div class="b3d-pd__visual" data-pd-zoom>' +
@@ -525,7 +558,8 @@
         '<div>' +
           '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + p.category + '</div>' +
           '<h1 class="b3d-pd__title">' + p.name + '</h1>' +
-          '<div class="b3d-pd__price">' + priceBlock(p) + '</div>' +
+          '<div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div>' +
+          variantSelectorHtml +
           (statusBadge(p) ? '<div style="margin-bottom:16px;">' + statusBadge(p) + '</div>' : '') +
           '<p class="b3d-pd__desc">' + (p.description || '') + '</p>' +
           '<div class="b3d-pd__actions">' +
@@ -564,10 +598,23 @@
           qtyInput.value = next;
         });
       });
+      if (hasVariants) {
+        container.querySelectorAll('[data-variant-idx]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            container.querySelectorAll('[data-variant-idx]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+            btn.setAttribute('aria-pressed', 'true');
+            selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
+            var v = p.variants[selectedVariant];
+            container.querySelector('[data-pd-price]').innerHTML = '<span class="b3d-price">' + money(v.price, p.currency) + '</span>';
+          });
+        });
+      }
+
       var addBtn = container.querySelector('[data-pd-add]');
       if (addBtn) {
         addBtn.addEventListener('click', function () {
-          addToCart(p.id, parseInt(qtyInput.value, 10) || 1);
+          var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
+          addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
           var original = addBtn.textContent;
           addBtn.textContent = 'Added ✓';
           setTimeout(function () { addBtn.textContent = original; }, 1200);
