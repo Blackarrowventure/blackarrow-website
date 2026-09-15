@@ -283,6 +283,103 @@
         ["الاتصال", "Wi-Fi / Bambu Handy / Bambu Studio"],
         ["الوزن", "14.7 كجم"]
       ]
+    },
+    {
+      "id": "creality-sparkx-i7",
+      "name": "Creality SparkX i7",
+      "brand": "Creality",
+      "category": "3D Printers",
+      "sku": "CREALITY-SPARKX-I7",
+      "price": 2090,
+      "currency": "SAR",
+      "available": true,
+      "variants": [
+        { "label": "SparkX i7", "label_ar": "SparkX i7", "price": 2090 },
+        { "label": "SparkX i7 Combo", "label_ar": "SparkX i7 كومبو", "price": 2650 }
+      ],
+      "images": [
+        "/3d/assets/images/products/creality-sparkx-i7-01.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-02.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-03.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-04.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-05.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-06.jpg"
+      ],
+      "shortDesc": "An affordable, easy-to-use entry point into 3D printing — ideal for first-time makers, students and simple everyday projects.",
+      "description": "The Creality SparkX i7 is a smart, easy way to get started in 3D printing. It's well suited to figurines, gifts, prototypes and custom parts without complicated setup — a good fit for the home, students, hobbyists, and testing custom product ideas before scaling up to higher-end printers. Why choose it: an affordable entry price into 3D printing, easy day-to-day use for simple projects, a good way to learn printing and settings without a big investment, practical for hobby models and small parts, and a solid starting point for testing product ideas before scaling up. Key specs: multi-color printing support via CFS Lite, Creality Cloud connectivity, and compatibility with PLA/PETG filament. An excellent printer if you want an easy, high-quality start suited to most projects.",
+      "specs": [
+        ["Multi-Color Printing", "Supports CFS Lite"],
+        ["Connectivity", "Creality Cloud"],
+        ["Supported Filament", "PLA / PETG"]
+      ],
+      "name_ar": "كرياليتي سباركس آي 7",
+      "shortDesc_ar": "بداية ذكية وسهلة لعالم الطباعة ثلاثية الأبعاد بسعر مناسب — مثالية للمبتدئين والطلاب والمشاريع اليومية البسيطة.",
+      "description_ar": "بداية ذكية بسعر مناسب. Creality SparkX i7 Single خيار مناسب للي يبغى يدخل عالم الطباعة ثلاثية الأبعاد بتجربة سهلة وذكية. مناسبة لطباعة المجسمات، الهدايا، النماذج الأولية، والقطع المخصصة بدون تعقيد كبير في التشغيل. الطابعة موجهة للمستخدم اللي يبغى بداية قوية وسهلة في الطباعة، مع تجربة مناسبة للبيت، الطلاب، الهواة، وتجربة المنتجات المخصصة قبل التوسع لفئات أعلى. ليش تختارها؟ سعر دخول مناسب: خيار جيد كبداية في عالم الطباعة ثلاثية الأبعاد. استخدام سهل: مناسبة للتجارب اليومية والمشاريع البسيطة. مناسبة للتعلّم: تساعدك تفهم الطباعة والإعدادات بدون تكلفة عالية. عملية للهوايات: مناسبة للمجسمات والقطع الصغيرة والنماذج. بداية جيدة للإنتاج: خيار مناسب لتجربة أفكار ومنتجات قبل التوسع. المواصفات اللي تهمك: الطباعة متعددة الألوان: تدعم CFS Lite. الاتصال: دعم Creality Cloud. الخامات المناسبة: PLA / PETG. الخلاصة: طابعة ممتازة إذا تبي بداية سهلة وجودة عالية مناسب لأغلب المشاريع.",
+      "specs_ar": [
+        ["الطباعة متعددة الألوان", "تدعم CFS Lite"],
+        ["الاتصال", "دعم Creality Cloud"],
+        ["الخامات المناسبة", "PLA / PETG"]
+      ]
+    },
+    {
+      "id": "elegoo-centauri-carbon-2",
+      "name": "Elegoo Centauri Carbon 2",
+      "brand": "Elegoo",
+      "category": "3D Printers",
+      "sku": "ELEGOO-CC2",
+      "price": 3180,
+      "currency": "SAR",
+      "available": true,
+      "images": [
+        "/3d/assets/images/products/elegoo-cc2-01.jpg",
+        "/3d/assets/images/products/elegoo-cc2-02.jpg",
+        "/3d/assets/images/products/elegoo-cc2-03.jpg",
+        "/3d/assets/images/products/elegoo-cc2-04.jpg",
+        "/3d/assets/images/products/elegoo-cc2-05.jpg",
+        "/3d/assets/images/products/elegoo-cc2-06.jpg",
+        "/3d/assets/images/products/elegoo-cc2-07.jpg",
+        "/3d/assets/images/products/elegoo-cc2-08.jpg",
+        "/3d/assets/images/products/elegoo-cc2-09.jpg"
+      ],
+      "shortDesc": "Enclosed CoreXY printer built for serious work — speed, quality, and multi-color printing at a competitive price.",
+      "description": "The Elegoo Centauri Carbon 2 is an enclosed CoreXY 3D printer suited to anyone who wants speed, quality, and multi-color printing at a competitive price. An excellent choice for projects, prototypes, custom products, figurines, and functional parts. It comes with the CANVAS system for multi-color printing with up to 4 filaments, a hardened-steel nozzle rated for high temperatures, a practical build volume, and strong speed suited to daily use and light-to-medium production. Why choose it: multi-color printing via the CANVAS system (up to 4 filaments), high nozzle temperature up to 350°C for a wider range of materials, strong speed up to 500 mm/s with acceleration up to 20,000 mm/s², a practical 256 mm cubed build volume suited to most projects, business-friendly for producing models, products, gifts, and custom parts, and an easy experience with a 5-inch touchscreen, Wi-Fi, and automatic bed leveling. A strong option for anyone who wants an enclosed, fast printer that supports color and practical materials, suited to projects and daily production.",
+      "specs": [
+        ["Build Volume", "256 x 256 x 256 mm"],
+        ["Max Hot End Temperature", "350 °C"],
+        ["Max Bed Temperature", "110 °C"],
+        ["Nozzle", "Hardened Steel"],
+        ["Multi-Color Printing", "CANVAS system, up to 4 filaments"],
+        ["Supported Filament", "PLA / PETG / TPU / ABS / ASA / PC / PA / PET / PLA-CF, depending on settings"],
+        ["Max Speed", "500 mm/s"],
+        ["Max Acceleration", "20,000 mm/s²"],
+        ["Layer Resolution", "0.08 to 0.48 mm"],
+        ["Bed Leveling", "Automatic"],
+        ["Connectivity", "Wi-Fi / USB Drive"],
+        ["Display", "5\" Touchscreen"],
+        ["Software", "ElegooSlicer"],
+        ["Dimensions", "398 x 404 x 490 mm"],
+        ["Net Weight", "17.65 kg"]
+      ],
+      "name_ar": "إليجو سنتوري كاربون 2",
+      "shortDesc_ar": "طابعة CoreXY مغلقة لشغل جاد — سرعة وجودة وطباعة متعددة الألوان بسعر منافس.",
+      "description_ar": "طابعة قوية لشغل جاد. Elegoo Centauri Carbon 2 طابعة ثلاثية الأبعاد CoreXY مغلقة ومناسبة للي يبغى سرعة، جودة، وطباعة متعددة الألوان بسعر منافس. خيار ممتاز للمشاريع، النماذج الأولية، المنتجات المخصصة، المجسمات، وقطع الاستخدام العملي. تجي بنظام CANVAS للطباعة متعددة الألوان حتى 4 خيوط، مع نوزل hardened steel يتحمل حرارة عالية، حجم طباعة عملي، وسرعة قوية تناسب الاستخدام اليومي والإنتاج الخفيف إلى المتوسط. ليش تختارها؟ طباعة متعددة الألوان: نظام CANVAS يدعم حتى 4 خيوط. حرارة نوزل عالية: حتى 350°C لدعم خامات أكثر. سرعة قوية: حتى 500 مم/ث وتسارع حتى 20,000 مم/ث². حجم عملي: مساحة 256 مم مكعبة مناسبة لمعظم المشاريع. مناسبة للبزنس: تساعدك تنتج نماذج، منتجات، هدايا، وقطع مخصصة. تجربة سهلة: شاشة لمس 5 بوصات، Wi-Fi، وتسوية تلقائية. الخلاصة: خيار قوي للي يبغى طابعة مغلقة وسريعة تدعم الألوان والخامات العملية، ومناسبة للمشاريع والإنتاج اليومي.",
+      "specs_ar": [
+        ["حجم الطباعة", "256 × 256 × 256 مم"],
+        ["حرارة الهوت إند", "حتى 350°C"],
+        ["حرارة السرير", "حتى 110°C"],
+        ["نوع النوزل", "Hardened Steel"],
+        ["الطباعة متعددة الألوان", "تدعم نظام CANVAS حتى 4 خيوط"],
+        ["الخامات المناسبة", "PLA / PETG / TPU / ABS / ASA / PC / PA / PET / PLA-CF حسب الإعدادات"],
+        ["السرعة القصوى", "حتى 500 مم/ث"],
+        ["التسارع", "حتى 20,000 مم/ث²"],
+        ["دقة الطبقة", "من 0.08 إلى 0.48 مم"],
+        ["التسوية", "تسوية تلقائية للسرير"],
+        ["الاتصال", "Wi-Fi / USB Drive"],
+        ["الشاشة", "شاشة لمس 5 بوصات"],
+        ["البرامج", "ElegooSlicer"],
+        ["أبعاد الطابعة", "398 × 404 × 490 مم"],
+        ["الوزن", "17.65 كجم"]
+      ]
     }
   ]
 }
