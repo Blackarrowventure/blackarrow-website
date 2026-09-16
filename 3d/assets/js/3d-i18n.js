@@ -129,7 +129,7 @@
       b3d_shop_h1_a: 'Build smarter.',
       b3d_shop_h1_b: 'Print without limits.',
       b3d_shop_h1_page: 'Shop',
-      b3d_shop_p: 'Equipment, materials and workshop support selected for makers, educators and production teams across Saudi Arabia — priced in SAR with nationwide delivery.',
+      b3d_shop_p: 'Genuine 3D printers backed by real after-sales support across Saudi Arabia — priced in SAR with nationwide delivery.',
       b3d_shop_products: 'Shop products',
       b3d_compare_printers: 'Compare printers',
 
@@ -434,7 +434,7 @@
       b3d_shop_h1_a: 'اطبع بذكاء.',
       b3d_shop_h1_b: 'بلا حدود.',
       b3d_shop_h1_page: 'المتجر',
-      b3d_shop_p: 'معدات ومواد ودعم ورشة عمل، مُختارة لصنّاع المحتوى والمعلّمين وفرق الإنتاج في جميع أنحاء المملكة العربية السعودية — أسعار بالريال السعودي مع توصيل لكل المناطق.',
+      b3d_shop_p: 'طابعات ثلاثية الأبعاد أصلية مع دعم حقيقي لما بعد البيع في جميع أنحاء المملكة العربية السعودية — أسعار بالريال السعودي مع توصيل لكل المناطق.',
       b3d_shop_products: 'تسوّق المنتجات',
       b3d_compare_printers: 'قارن بين الطابعات',
 
