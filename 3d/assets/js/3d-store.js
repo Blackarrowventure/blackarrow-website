@@ -1055,6 +1055,42 @@
     });
   }
 
+  /* ---------------- Homepage: "Which printer is right for you?" ----------------
+     Curated persona -> product mapping. The persona copy is editorial judgment
+     grounded in each product's own real specs/price (see 3d-i18n.js picker_why_*
+     for the reasoning), not a claim about anything not already in the catalog
+     data. Product names/prices are pulled live from fetchProducts() so this
+     never drifts out of sync if pricing changes. */
+  var PRINTER_PICKER = [
+    { id: 'bambu-lab-a1-mini', tagKey: 'picker_tag_1', whyKey: 'picker_why_1' },
+    { id: 'creality-sparkx-i7', tagKey: 'picker_tag_2', whyKey: 'picker_why_2' },
+    { id: 'bambu-lab-a1', tagKey: 'picker_tag_3', whyKey: 'picker_why_3' },
+    { id: 'bambu-lab-a2l', tagKey: 'picker_tag_4', whyKey: 'picker_why_4' },
+    { id: 'snapmaker-u1', tagKey: 'picker_tag_5', whyKey: 'picker_why_5' },
+    { id: 'bambu-lab-p2s', tagKey: 'picker_tag_6', whyKey: 'picker_why_6' },
+    { id: 'bambu-lab-h2c-combo', tagKey: 'picker_tag_7', whyKey: 'picker_why_7' }
+  ];
+
+  function renderPrinterPicker(container) {
+    if (!container) return;
+    fetchProducts().then(function (products) {
+      var byId = {};
+      products.forEach(function (p) { byId[p.id] = p; });
+      container.innerHTML = PRINTER_PICKER.map(function (item) {
+        var p = byId[item.id];
+        if (!p) return '';
+        return '' +
+          '<div class="b3d-picker-card">' +
+            '<span class="b3d-picker-card__tag">' + T(item.tagKey) + '</span>' +
+            '<h3>' + L(p, 'name') + '</h3>' +
+            '<p>' + T(item.whyKey) + '</p>' +
+            '<div class="b3d-picker-card__meta">' + priceBlock(p) + '</div>' +
+            '<a href="/3d/product/?slug=' + p.id + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
+          '</div>';
+      }).join('');
+    });
+  }
+
   /* ---------------- Wishlist panel (account page) ---------------- */
 
   function renderWishlistPanel(container) {
@@ -1270,6 +1306,9 @@
     initAnnouncementBar();
     initPromoSlider();
     initBrandNavMenu();
+
+    var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
+    if (pickerGrid) renderPrinterPicker(pickerGrid);
 
     var featuredGrid = document.querySelector('[data-b3d-featured-grid]');
     if (featuredGrid) {
