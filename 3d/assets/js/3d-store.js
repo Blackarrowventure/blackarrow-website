@@ -177,10 +177,37 @@
     return null;
   }
 
+  /* Native pixel width of each product image that has a matching -500w.webp
+     variant generated alongside it (see scripts/optimize_images.py history) —
+     needed so the srcset width descriptor is accurate, not just a guess. */
+  var IMG_NATIVE_WIDTH = {
+    'a1-extruder-unit-01.webp': 1200, 'anycubic-kobra3max-01.webp': 600,
+    'bambu-a1-01.webp': 900, 'bambu-a1-02.webp': 1024,
+    'bambu-a1-mini-ams-combo.webp': 1144, 'bambu-a1-mini-main.webp': 599,
+    'bambu-a2l-01.webp': 1200, 'bambu-a2l-04.webp': 1200,
+    'bambu-h2c-01.webp': 763, 'bambu-hotend-a1-01.webp': 1200,
+    'bambu-p2s-01.webp': 892, 'bambu-p2s-04.webp': 1200,
+    'creality-sparkx-i7-01.webp': 1200, 'elegoo-cc2-01.webp': 1024,
+    'filament-cutter-lever-01.webp': 1200, 'flashforge-adv5m-01.webp': 1200,
+    'flashforge-c5pro-01.webp': 1200, 'flmnt-pla-black.webp': 1200,
+    'flmnt-pla-blue.webp': 1024, 'flmnt-pla-gray.webp': 1024,
+    'flmnt-pla-green.webp': 1024, 'flmnt-pla-orange.webp': 1200,
+    'flmnt-pla-red.webp': 1024, 'flmnt-pla-white.webp': 1200,
+    'flmnt-pla-yellow.webp': 1024, 'hotend-heating-a1-01.webp': 1200,
+    'snapmaker-u1-01.webp': 1037
+  };
+
   function visual(p) {
     var img = primaryImage(p);
-    if (img) return '<img src="' + img + '" alt="' + L(p, 'name') + '" loading="lazy" width="400" height="400">';
-    return '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
+    if (!img) return '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
+    var basename = img.split('/').pop();
+    var nativeWidth = IMG_NATIVE_WIDTH[basename];
+    var srcsetAttr = '';
+    if (nativeWidth) {
+      var small = img.replace(/\.webp$/, '-500w.webp');
+      srcsetAttr = ' srcset="' + small + ' 500w, ' + img + ' ' + nativeWidth + 'w" sizes="(max-width: 480px) 90vw, 300px"';
+    }
+    return '<img src="' + img + '"' + srcsetAttr + ' alt="' + L(p, 'name') + '" loading="lazy" width="400" height="400">';
   }
 
   function statusBadge(p) {
@@ -734,9 +761,9 @@
               '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">' + T('js_remove') + '</button>' +
             '</div>' +
             '<div class="b3d-qty">' +
-              '<button data-qty-btn="minus" data-id="' + id + '">−</button>' +
-              '<input type="text" readonly value="' + qty + '" data-qty-val="' + id + '">' +
-              '<button data-qty-btn="plus" data-id="' + id + '">+</button>' +
+              '<button data-qty-btn="minus" data-id="' + id + '" aria-label="' + T('js_qty_decrease') + '">−</button>' +
+              '<input type="text" readonly value="' + qty + '" data-qty-val="' + id + '" aria-label="' + T('js_qty_label') + '">' +
+              '<button data-qty-btn="plus" data-id="' + id + '" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
             '<div class="b3d-cart-item__price">' + money(lineTotal, p.currency) + '</div>' +
           '</div>';
@@ -916,7 +943,7 @@
       }).join('');
       var compatList = LCompat(p);
       var compatHtml = compatList.length
-        ? '<div class="b3d-pd__compat"><h3>' + T('js_compatibility_heading') + '</h3><ul>' + compatList.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
+        ? '<div class="b3d-pd__compat"><h2>' + T('js_compatibility_heading') + '</h2><ul>' + compatList.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
         : '';
       var images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
       var thumbsHtml = images.length > 1
@@ -963,9 +990,9 @@
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
           '<div class="b3d-pd__actions">' +
             '<div class="b3d-qty">' +
-              '<button type="button" data-pd-qty="minus">−</button>' +
-              '<input type="text" readonly value="1" data-pd-qty-val>' +
-              '<button type="button" data-pd-qty="plus">+</button>' +
+              '<button type="button" data-pd-qty="minus" aria-label="' + T('js_qty_decrease') + '">−</button>' +
+              '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label') + '">' +
+              '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
             '<button class="btn btn-primary" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
             '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>' +
@@ -977,7 +1004,7 @@
           '</div>' +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
-          (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h3>' + T('js_warranty_heading') + '</h3><p>' + L(p, 'warranty') + '</p></div>' : '') +
+          (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
           '<div class="b3d-pd__shipreturn">' +
             '<div><strong>' + T('js_shipping_heading') + '</strong><p>' + T('js_shipping_desc') + '</p></div>' +
             '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/terms-of-service.html">' + T('footer_terms') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +
