@@ -107,12 +107,12 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-01.jpg" },
-        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530, "image": "/3d/assets/images/products/bambu-a1-02.png" }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
+        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
       ],
       "images": [
-        "/3d/assets/images/products/bambu-a1-01.jpg",
-        "/3d/assets/images/products/bambu-a1-02.png",
+        "/3d/assets/images/products/bambu-a1-01.webp",
+        "/3d/assets/images/products/bambu-a1-02.webp",
         "/3d/assets/images/products/bambu-a1-03.jpg",
         "/3d/assets/images/products/bambu-a1-04.jpg",
         "/3d/assets/images/products/bambu-a1-05.jpg",
@@ -161,14 +161,14 @@
       "available": true,
       "preorder": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 3699, "image": "/3d/assets/images/products/bambu-a2l-01.jpg" },
-        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650, "image": "/3d/assets/images/products/bambu-a2l-04.png" }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 3699, "image": "/3d/assets/images/products/bambu-a2l-01.webp" },
+        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650, "image": "/3d/assets/images/products/bambu-a2l-04.webp" }
       ],
       "images": [
-        "/3d/assets/images/products/bambu-a2l-01.jpg",
+        "/3d/assets/images/products/bambu-a2l-01.webp",
         "/3d/assets/images/products/bambu-a2l-02.jpg",
         "/3d/assets/images/products/bambu-a2l-03.png",
-        "/3d/assets/images/products/bambu-a2l-04.png",
+        "/3d/assets/images/products/bambu-a2l-04.webp",
         "/3d/assets/images/products/bambu-a2l-05.jpg",
         "/3d/assets/images/products/bambu-a2l-06.jpg",
         "/3d/assets/images/products/bambu-a2l-07.jpg",
@@ -211,7 +211,7 @@
       "currency": "SAR",
       "available": true,
       "images": [
-        "/3d/assets/images/products/bambu-h2c-01.jpg",
+        "/3d/assets/images/products/bambu-h2c-01.webp",
         "/3d/assets/images/products/bambu-h2c-02.jpg",
         "/3d/assets/images/products/bambu-h2c-03.jpg",
         "/3d/assets/images/products/bambu-h2c-04.jpg"
@@ -250,14 +250,14 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Printer Only", "label_ar": "الطابعة فقط", "price": 4499, "image": "/3d/assets/images/products/bambu-p2s-01.jpg" },
-        { "label": "Combo (with AMS 2 Pro)", "label_ar": "باقة (مع AMS 2 Pro)", "price": 6440, "image": "/3d/assets/images/products/bambu-p2s-04.jpg" }
+        { "label": "Printer Only", "label_ar": "الطابعة فقط", "price": 4499, "image": "/3d/assets/images/products/bambu-p2s-01.webp" },
+        { "label": "Combo (with AMS 2 Pro)", "label_ar": "باقة (مع AMS 2 Pro)", "price": 6440, "image": "/3d/assets/images/products/bambu-p2s-04.webp" }
       ],
       "images": [
-        "/3d/assets/images/products/bambu-p2s-01.jpg",
+        "/3d/assets/images/products/bambu-p2s-01.webp",
         "/3d/assets/images/products/bambu-p2s-02.jpg",
         "/3d/assets/images/products/bambu-p2s-03.jpg",
-        "/3d/assets/images/products/bambu-p2s-04.jpg",
+        "/3d/assets/images/products/bambu-p2s-04.webp",
         "/3d/assets/images/products/bambu-p2s-05.jpg"
       ],
       "shortDesc": "Enclosed, fast Bambu Lab printer built for daily production — consistent results, with an optional AMS 2 Pro multi-color combo.",
@@ -305,7 +305,7 @@
         { "label": "SparkX i7 Combo", "label_ar": "SparkX i7 كومبو", "price": 2650 }
       ],
       "images": [
-        "/3d/assets/images/products/creality-sparkx-i7-01.jpg",
+        "/3d/assets/images/products/creality-sparkx-i7-01.webp",
         "/3d/assets/images/products/creality-sparkx-i7-02.jpg",
         "/3d/assets/images/products/creality-sparkx-i7-03.jpg",
         "/3d/assets/images/products/creality-sparkx-i7-04.jpg",
@@ -339,7 +339,7 @@
       "currency": "SAR",
       "available": true,
       "images": [
-        "/3d/assets/images/products/elegoo-cc2-01.jpg",
+        "/3d/assets/images/products/elegoo-cc2-01.webp",
         "/3d/assets/images/products/elegoo-cc2-02.jpg",
         "/3d/assets/images/products/elegoo-cc2-03.jpg",
         "/3d/assets/images/products/elegoo-cc2-04.jpg",
@@ -400,7 +400,7 @@
       "currency": "SAR",
       "available": true,
       "images": [
-        "/3d/assets/images/products/snapmaker-u1-01.jpg",
+        "/3d/assets/images/products/snapmaker-u1-01.webp",
         "/3d/assets/images/products/snapmaker-u1-02.jpg",
         "/3d/assets/images/products/snapmaker-u1-03.jpg",
         "/3d/assets/images/products/snapmaker-u1-04.jpg",
@@ -455,7 +455,7 @@
         { "label": "Anycubic Kobra 3 Max Combo", "label_ar": "أنيكيوبك كوبرا 3 ماكس كومبو", "price": 3920, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-2" }
       ],
       "images": [
-        "/3d/assets/images/products/anycubic-kobra3max-01.jpg",
+        "/3d/assets/images/products/anycubic-kobra3max-01.webp",
         "/3d/assets/images/products/anycubic-kobra3max-02.jpg",
         "/3d/assets/images/products/anycubic-kobra3max-03.jpg",
         "/3d/assets/images/products/anycubic-kobra3max-04.jpg",
@@ -488,7 +488,7 @@
       "currency": "SAR",
       "available": false,
       "images": [
-        "/3d/assets/images/products/flashforge-adv5m-01.jpg"
+        "/3d/assets/images/products/flashforge-adv5m-01.webp"
       ],
       "shortDesc": "An easy entry-level printer for hobbyists — fast, simple, and reliable from day one.",
       "description": "The Flashforge Adventurer 5M is a strong option for anyone entering 3D printing who wants a fast, easy experience from the first day. It combines quality with high speed, stability, and simple operation, opening the door to printing figurines, products, gifts, prototypes and custom parts at excellent quality without complexity. Whether you use it at home, in a shop, or for university projects, the printer gives you a smooth experience thanks to its CoreXY system, automatic leveling, and quick-swap nozzle. Why choose it: faster printing with movement speed up to 600 mm/s, easy operation suited to beginners and professionals with automatic leveling and simple setup, consistent results from a CoreXY metal frame, easier maintenance with a quick-release nozzle, well suited to figurines, products, models and everyday parts, and a smart experience with filament run-out sensing and power-loss print recovery.",
@@ -541,7 +541,7 @@
       "currency": "SAR",
       "available": false,
       "images": [
-        "/3d/assets/images/products/flashforge-c5pro-01.jpg"
+        "/3d/assets/images/products/flashforge-c5pro-01.webp"
       ],
       "shortDesc": "A professional printer that raises your production — 4 independent toolheads, a heated enclosure, and high speed.",
       "description": "The Flashforge Creator 5 Pro is a strong option for anyone moving into a more professional stage of 3D printing who needs multiple colors and materials in the same project. It combines 4 independent toolheads, an enclosed and heated print chamber, and high speed, opening the door to printing products, engineering models, multi-color figurines and parts in different materials efficiently with less waste. Whether you use it in a workshop, a shop, or daily production, the printer gives you a professional experience thanks to independent toolheads, automatic calibration, a built-in camera, and support for advanced engineering materials. Why choose it: multiple colors and materials with 4 independent toolheads letting you print in more than one color or material without constant swapping, less waste by reducing the need to purge filament between color changes compared to traditional swap systems, faster production with movement speed up to 600 mm/s and acceleration up to 30,000 mm/s², professional-grade materials with a heated chamber and hot end up to 320°C to support more engineering materials, well suited to selling and production for multi-color products, models, engineering parts and commercial projects, and a smart experience with automatic calibration, a Full HD camera, a filament sensor, and air filtration.",
@@ -600,24 +600,24 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.jpg", "sku": "PLA-BLACK-1" },
-        { "label": "Gray", "label_ar": "رمادي", "price": 75, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/flmnt-pla-gray.jpg", "sku": "PLA-GRAY-1" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 75, "swatch": "#f5d020", "image": "/3d/assets/images/products/flmnt-pla-yellow.jpg", "sku": "PLA-YELLOW-1" },
-        { "label": "Orange", "label_ar": "برتقالي", "price": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.jpg", "sku": "PLA-ORANGE-1", "available": false },
-        { "label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.jpg", "sku": "PLA-WHITE-1" },
-        { "label": "Sky Blue", "label_ar": "سماوي", "price": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.png", "sku": "PLA-BLUE-1" },
-        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.jpg", "sku": "PLA-GREEN-1" },
-        { "label": "Red", "label_ar": "أحمر", "price": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.jpg", "sku": "PLA-RED-1" }
+        { "label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.webp", "sku": "PLA-BLACK-1" },
+        { "label": "Gray", "label_ar": "رمادي", "price": 75, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/flmnt-pla-gray.webp", "sku": "PLA-GRAY-1" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 75, "swatch": "#f5d020", "image": "/3d/assets/images/products/flmnt-pla-yellow.webp", "sku": "PLA-YELLOW-1" },
+        { "label": "Orange", "label_ar": "برتقالي", "price": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.webp", "sku": "PLA-ORANGE-1", "available": false },
+        { "label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.webp", "sku": "PLA-WHITE-1" },
+        { "label": "Sky Blue", "label_ar": "سماوي", "price": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.webp", "sku": "PLA-BLUE-1" },
+        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.webp", "sku": "PLA-GREEN-1" },
+        { "label": "Red", "label_ar": "أحمر", "price": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.webp", "sku": "PLA-RED-1" }
       ],
       "images": [
-        "/3d/assets/images/products/flmnt-pla-black.jpg",
-        "/3d/assets/images/products/flmnt-pla-gray.jpg",
-        "/3d/assets/images/products/flmnt-pla-yellow.jpg",
-        "/3d/assets/images/products/flmnt-pla-orange.jpg",
-        "/3d/assets/images/products/flmnt-pla-white.jpg",
-        "/3d/assets/images/products/flmnt-pla-blue.png",
-        "/3d/assets/images/products/flmnt-pla-green.jpg",
-        "/3d/assets/images/products/flmnt-pla-red.jpg"
+        "/3d/assets/images/products/flmnt-pla-black.webp",
+        "/3d/assets/images/products/flmnt-pla-gray.webp",
+        "/3d/assets/images/products/flmnt-pla-yellow.webp",
+        "/3d/assets/images/products/flmnt-pla-orange.webp",
+        "/3d/assets/images/products/flmnt-pla-white.webp",
+        "/3d/assets/images/products/flmnt-pla-blue.webp",
+        "/3d/assets/images/products/flmnt-pla-green.webp",
+        "/3d/assets/images/products/flmnt-pla-red.webp"
       ],
       "shortDesc": "1kg PLA filament for everyday FDM printing — easy to use with clean results, available in 8 colors.",
       "description": "PLA Filament, 1kg, for everyday printing. Well suited to figurines, products, prototypes and custom gifts. Easy to use and gives clean results with most FDM printers.",
@@ -652,7 +652,7 @@
         { "label": "0.8mm", "label_ar": "0.8 مم", "price": 122, "sku": "BAMBU-A1-HOTEND-08" }
       ],
       "images": [
-        "/3d/assets/images/products/bambu-hotend-a1-01.jpg",
+        "/3d/assets/images/products/bambu-hotend-a1-01.webp",
         "/3d/assets/images/products/bambu-hotend-a1-02.jpg",
         "/3d/assets/images/products/bambu-hotend-a1-03.jpg",
         "/3d/assets/images/products/bambu-hotend-a1-04.jpg",
@@ -688,7 +688,7 @@
       "currency": "SAR",
       "available": false,
       "images": [
-        "/3d/assets/images/products/a1-extruder-unit-01.jpg",
+        "/3d/assets/images/products/a1-extruder-unit-01.webp",
         "/3d/assets/images/products/a1-extruder-unit-02.jpg"
       ],
       "shortDesc": "Stronger filament feeding and grip for the Bambu Lab A1 series, with hardened-steel dual gears.",
@@ -719,7 +719,7 @@
       "currency": "SAR",
       "available": false,
       "images": [
-        "/3d/assets/images/products/filament-cutter-lever-01.jpg",
+        "/3d/assets/images/products/filament-cutter-lever-01.webp",
         "/3d/assets/images/products/filament-cutter-lever-02.jpg"
       ],
       "shortDesc": "Holds the filament cutter in place and ensures a clean cut on the Bambu Lab A1 series.",
@@ -750,7 +750,7 @@
       "currency": "SAR",
       "available": false,
       "images": [
-        "/3d/assets/images/products/hotend-heating-a1-01.jpg",
+        "/3d/assets/images/products/hotend-heating-a1-01.webp",
         "/3d/assets/images/products/hotend-heating-a1-02.jpg"
       ],
       "shortDesc": "Quick-swap heating assembly for the Bambu Lab A1 series, heats up to 300°C with a built-in thermistor.",
