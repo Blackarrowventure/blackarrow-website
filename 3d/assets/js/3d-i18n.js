@@ -43,9 +43,9 @@
 
       hub_preview_banner: 'Now Live — Shop 3D Printers, Filament & Accessories',
       hub_hero_eyebrow: '3D Printing, Made Easy',
-      hub_hero_h1_a: '3D Printing Solutions',
+      hub_hero_h1_a: '3D Printers and Materials',
       hub_hero_h1_b: 'for Saudi Arabia',
-      hub_hero_p: 'Shop reliable 3D printers, filaments and accessories for makers, students and businesses across Saudi Arabia.',
+      hub_hero_p: 'Shop reliable 3D printers, filament and accessories with local support, warranty coverage and nationwide delivery.',
       hub_explore_shop: 'Shop 3D Printers',
       hub_ask_question: 'Get Expert Advice',
       hub_cat1_title: 'FDM Printers',
@@ -73,6 +73,7 @@
 
       hub_picker_h2: 'Which Printer Is Right for You?',
       hub_picker_sub: "Not sure where to start? Here's how our printers compare by real use case.",
+      hub_compare_all: 'Compare All 3D Printers',
       js_view_product: 'View Product',
       picker_tag_1: 'New to 3D Printing',
       picker_why_1: "Our smallest and most affordable printer, with the same AMS-ready platform as Bambu Lab's larger models — a low-risk way to start.",
@@ -312,9 +313,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'Black Arrow 3D — shop 3D printers, filament and accessories, delivered across Saudi Arabia.',
-      announce_2: 'Business quotations available now — contact us for a project quote.',
-      announce_3: 'Online payment is pending gateway approval — accounts and browsing are open.'
+      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -348,9 +347,9 @@
 
       hub_preview_banner: 'متاح الآن — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات',
       hub_hero_eyebrow: 'الطباعة ثلاثية الأبعاد، ببساطة',
-      hub_hero_h1_a: 'حلول الطباعة ثلاثية الأبعاد',
+      hub_hero_h1_a: 'طابعات ومواد الطباعة ثلاثية الأبعاد',
       hub_hero_h1_b: 'لكل أنحاء المملكة',
-      hub_hero_p: 'تسوّق طابعات ثلاثية الأبعاد وفلامنت وملحقات موثوقة لصناع المحتوى والطلاب والشركات في جميع أنحاء المملكة.',
+      hub_hero_p: 'تسوّق طابعات ثلاثية الأبعاد وفلامنت وملحقات موثوقة مع دعم محلي وضمان وتوصيل لجميع مناطق المملكة.',
       hub_explore_shop: 'تسوّق الطابعات ثلاثية الأبعاد',
       hub_ask_question: 'احصل على استشارة متخصص',
       hub_cat1_title: 'طابعات FDM',
@@ -378,6 +377,7 @@
 
       hub_picker_h2: 'أي طابعة تناسبك؟',
       hub_picker_sub: 'لست متأكدًا من أين تبدأ؟ إليك كيف تقارن طابعاتنا حسب الاستخدام الفعلي.',
+      hub_compare_all: 'قارن جميع الطابعات ثلاثية الأبعاد',
       js_view_product: 'عرض المنتج',
       picker_tag_1: 'جديد في عالم الطباعة ثلاثية الأبعاد',
       picker_why_1: 'أصغر طابعاتنا وأكثرها اقتصادية، مبنية على نفس منصة AMS الموثوقة التي تعتمدها طابعات بامبو لاب الأكبر — طريقة منخفضة المخاطر للبدء.',
@@ -617,9 +617,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'بلاك أرو 3D — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات، مع التوصيل داخل السعودية.',
-      announce_2: 'عروض الأسعار للأعمال متاحة الآن — تواصل معنا لطلب عرض سعر لمشروعك.',
-      announce_3: 'الدفع الإلكتروني بانتظار اعتماد بوابة الدفع — التصفح وإنشاء الحسابات متاحان.'
+      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً'
     }
   };
 

@@ -248,16 +248,15 @@
   }
 
   function productCard(p) {
-    var hasVariants = p.variants && p.variants.length;
-    var disabled = (p.available === false && !p.preorder) ? 'disabled' : '';
-    var btnLabel = p.preorder ? T('js_pre_order') : (p.available === false ? T('js_out_of_stock') : T('js_add_to_cart'));
-    var actionBtn = hasVariants
-      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add" aria-label="' + T('js_view_options') + ' — ' + L(p, 'name') + '">' + T('js_view_options') + '</a>'
-      : '<button class="b3d-btn-add" data-add-id="' + p.id + '" aria-label="' + btnLabel + ' — ' + L(p, 'name') + '" ' + disabled + '>' + btnLabel + '</button>';
+    /* A single "View Product" action everywhere a card appears — direct
+       Add to Cart / View Options used to compete with each other across
+       cards. Actual purchase happens on the product page, which already
+       has the full variant picker and quantity control. */
+    var href = '/3d/product/?slug=' + p.id;
+    var actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
     var specs = LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
-    var href = '/3d/product/?slug=' + p.id;
     return '' +
       '<article class="b3d-card" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
         '<a href="' + href + '" class="b3d-card__stretched-link" aria-label="' + L(p, 'name') + '"></a>' +
@@ -1112,13 +1111,14 @@
      for the reasoning), not a claim about anything not already in the catalog
      data. Product names/prices are pulled live from fetchProducts() so this
      never drifts out of sync if pricing changes. */
+  /* Reduced to the 4 clearest, non-overlapping use cases (was 7 — an
+     uneven second row that repeated most of the catalog already shown
+     elsewhere on the homepage). A "Compare All 3D Printers" link below
+     covers visitors who want the full lineup side by side. */
   var PRINTER_PICKER = [
     { id: 'bambu-lab-a1-mini', tagKey: 'picker_tag_1', whyKey: 'picker_why_1' },
     { id: 'creality-sparkx-i7', tagKey: 'picker_tag_2', whyKey: 'picker_why_2' },
-    { id: 'bambu-lab-a1', tagKey: 'picker_tag_3', whyKey: 'picker_why_3' },
     { id: 'bambu-lab-a2l', tagKey: 'picker_tag_4', whyKey: 'picker_why_4' },
-    { id: 'snapmaker-u1', tagKey: 'picker_tag_5', whyKey: 'picker_why_5' },
-    { id: 'bambu-lab-p2s', tagKey: 'picker_tag_6', whyKey: 'picker_why_6' },
     { id: 'bambu-lab-h2c-combo', tagKey: 'picker_tag_7', whyKey: 'picker_why_7' }
   ];
 
@@ -1141,6 +1141,13 @@
           '</div>';
       }).join('');
       injectItemListSeo(matched, 'home-jsonld-picker', 'Which Printer Is Right for You?');
+
+      var compareAllBtn = document.querySelector('[data-b3d-compare-all]');
+      if (compareAllBtn) {
+        compareAllBtn.addEventListener('click', function () {
+          try { localStorage.setItem(COMPARE_KEY, JSON.stringify(matched.map(function (p) { return p.id; }))); } catch (e) {}
+        });
+      }
     });
   }
 
@@ -1378,7 +1385,7 @@
     var featuredGrid = document.querySelector('[data-b3d-featured-grid]');
     if (featuredGrid) {
       fetchProducts().then(function (products) {
-        var featured = products.filter(function (p) { return p.available !== false; }).slice(0, 8);
+        var featured = products.filter(function (p) { return p.available !== false; }).slice(0, 4);
         renderGrid(featured, featuredGrid);
         injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
       });

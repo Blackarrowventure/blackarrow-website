@@ -19,17 +19,23 @@
    content already self-constrains via .b3d-article / .b3d-account). */
 .b3d-layer-bg .container { max-width: min(1900px, 94vw); }
 
+/* Site-wide .section-header h2 clamps up to 3.5rem (56px) — sized for the
+   main B2B site's sparser sections. On this denser product catalog that
+   towers over the cards below it, so cap it to the 42-48px desktop range
+   here only (scoped to this page's dark background, not the whole site). */
+.b3d-layer-bg .section-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+}
+.b3d-layer-bg .section-header {
+  margin-bottom: 40px;
+}
+
+/* Was a repeating-line texture behind every element on every page — kept
+   flat here so the .b3d-band--a radial glow (used sparingly) reads as the
+   page's one accent texture instead of competing with it everywhere. */
 .b3d-layer-bg {
   position: relative;
-  background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(245,158,11,.05) 0px,
-      rgba(245,158,11,.05) 1px,
-      transparent 1px,
-      transparent 14px
-    ),
-    var(--clr-navy);
+  background: var(--clr-navy);
 }
 
 .b3d-hero {
@@ -127,7 +133,7 @@
 
 .b3d-hero h1 {
   color: var(--clr-white);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   margin-bottom: 18px;
   text-wrap: balance;
 }
@@ -157,7 +163,7 @@
    instead of one continuous scroll on the same flat background. */
 .b3d-band {
   position: relative;
-  padding: 64px 0;
+  padding: 50px 0;
 }
 .b3d-band::before {
   content: '';
@@ -172,9 +178,7 @@
     var(--clr-navy);
 }
 .b3d-band--b {
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 16px),
-    #121212;
+  background: #121212;
   box-shadow: inset 0 1px 40px rgba(0,0,0,.4);
 }
 
@@ -382,7 +386,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 }
 
 .b3d-card__body p {
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.72);
   font-size: .85rem;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -420,6 +424,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   font-family: var(--ff-heading);
   font-weight: 700;
   font-size: 1.15rem;
+  white-space: nowrap;
 }
 
 .b3d-price small {
@@ -625,8 +630,8 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 }
 
 .navbar__brand-icon {
-  width: 30px;
-  height: 20px;
+  width: 34px;
+  height: 23px;
   color: var(--clr-accent);
   flex-shrink: 0;
 }
@@ -640,7 +645,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 .navbar__brand-text .name {
   font-weight: 800;
   color: #1a1a1a;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   letter-spacing: .01em;
   white-space: nowrap;
 }
@@ -1505,15 +1510,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
   border-color: var(--clr-accent);
   transform: translateY(-4px);
 }
-.b3d-brand-tile img { height: 28px; width: auto; max-width: 140px; }
-.b3d-brand-tile__chip {
-  background: #fff;
-  border-radius: var(--radius-sm);
-  padding: 8px 14px;
-  display: inline-flex;
-  align-items: center;
-}
-.b3d-brand-tile__chip img { height: 20px; }
+.b3d-brand-tile img { height: 28px; width: auto; max-width: 160px; }
 
 .b3d-picker-grid {
   display: grid;
@@ -1547,7 +1544,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
   border-radius: 999px;
 }
 .b3d-picker-card h3 { color: #fff; font-size: 1.1rem; margin: 4px 0 0; }
-.b3d-picker-card p { color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.6; margin: 0; flex: 1; }
+.b3d-picker-card p { color: rgba(255,255,255,.72); font-size: .88rem; line-height: 1.6; margin: 0; flex: 1; }
 .b3d-picker-card__meta { color: #fff; font-weight: 700; }
 .b3d-picker-card .btn { align-self: flex-start; padding: 8px 16px; font-size: .85rem; }
 
@@ -1593,10 +1590,6 @@ html[data-b3d-motion="off"] [data-slider-track] {
 }
 .b3d-slider__playpause:hover { background: rgba(255,255,255,.24); }
 
-/* Long body-copy regions sit on top of .b3d-layer-bg's repeating gold-line
-   texture (defined on <body>) by default. That's fine as decorative art
-   behind the hero/slider, but too busy behind dense reading text like a
-   blog article or an FAQ answer, so give those a flat panel instead. */
 .b3d-article {
   background: var(--clr-navy);
 }

@@ -2722,7 +2722,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .footer__brand img {
   /* was height:180px - an 8:1 wordmark at that height is 1443px wide */
-  width: 180px;
+  width: 200px;
   height: auto;
   margin-bottom: 16px;
 }
