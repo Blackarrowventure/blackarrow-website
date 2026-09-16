@@ -170,8 +170,24 @@ def build_page(entry, check_only):
         elif attrs.get('property') == 'og:locale':
             new = 'ar_SA'
         if new is not None:
+            # attrs[] comes back HTML-entity-decoded (see _htmlloc's Locator
+            # docstring), but `raw` is the literal source text. Most pages
+            # properly escape '&' as '&amp;' in the attribute, in which case
+            # only the escaped form matches `raw` - but a few pages have a
+            # bare '&' typed directly into the attribute, which already
+            # matches `raw` unescaped. Try the properly-escaped form first,
+            # then fall back to the literal attrs[] value, so this can't
+            # silently no-op and leave English content on the Arabic page
+            # uncaught by --check.
             old = attrs.get('content', '')
-            edits.append((s, e, raw.replace(f'content="{old}"', f'content="{esc_attr(new)}"', 1)))
+            new_raw = raw.replace(f'content="{esc_attr(old)}"', f'content="{esc_attr(new)}"', 1)
+            if new_raw == raw:
+                new_raw = raw.replace(f'content="{old}"', f'content="{esc_attr(new)}"', 1)
+            if new_raw == raw:
+                raise BuildError(
+                    f'{entry["src"]}: could not locate content="..." for '
+                    f'{attrs.get("name") or attrs.get("property")} meta tag to translate')
+            edits.append((s, e, new_raw))
 
     # ---- 3. canonical + hreflang ---------------------------------------
     for tag, attrs, s, e, raw in loc.tags:

@@ -224,6 +224,56 @@
       "src": "resources/case-studies/hospitality-hvac-upgrade/index.html",
       "url": "/resources/case-studies/hospitality-hvac-upgrade/",
       "ar": true
+    },
+    {
+      "src": "services/ups-maintenance-amc/index.html",
+      "url": "/services/ups-maintenance-amc/",
+      "ar": true
+    },
+    {
+      "src": "services/ups-battery-replacement/index.html",
+      "url": "/services/ups-battery-replacement/",
+      "ar": true
+    },
+    {
+      "src": "services/ups-load-bank-testing/index.html",
+      "url": "/services/ups-load-bank-testing/",
+      "ar": true
+    },
+    {
+      "src": "services/online-ups-systems/index.html",
+      "url": "/services/online-ups-systems/",
+      "ar": true
+    },
+    {
+      "src": "services/modular-three-phase-ups/index.html",
+      "url": "/services/modular-three-phase-ups/",
+      "ar": true
+    },
+    {
+      "src": "services/data-center-ups-systems/index.html",
+      "url": "/services/data-center-ups-systems/",
+      "ar": true
+    },
+    {
+      "src": "services/industrial-ups-systems/index.html",
+      "url": "/services/industrial-ups-systems/",
+      "ar": true
+    },
+    {
+      "src": "services/hospital-ups-systems/index.html",
+      "url": "/services/hospital-ups-systems/",
+      "ar": true
+    },
+    {
+      "src": "services/ups-sizing-guide/index.html",
+      "url": "/services/ups-sizing-guide/",
+      "ar": true
+    },
+    {
+      "src": "services/vrla-vs-lithium-ups-batteries/index.html",
+      "url": "/services/vrla-vs-lithium-ups-batteries/",
+      "ar": true
     }
   ],
   "noindex": [
