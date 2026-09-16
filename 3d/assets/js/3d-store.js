@@ -496,6 +496,20 @@
 
       renderGrid(pageItems, els.grid);
       if (els.count) els.count.textContent = list.length;
+      if (els.filterToggle) {
+        var activeCount = [
+          state.inStockOnly, state.preorderOnly, state.featuredOnly, state.saleOnly,
+          state.printerType !== 'All', state.buildVolume !== 'All',
+          state.filamentMaterial !== 'All', state.accessoryCompat !== 'All',
+          state.priceMin != null, state.priceMax != null
+        ].filter(Boolean).length;
+        var countEl = els.filterToggle.querySelector('[data-b3d-filter-count]');
+        if (countEl) {
+          countEl.hidden = activeCount === 0;
+          countEl.textContent = activeCount ? '(' + activeCount + ')' : '';
+        }
+        els.filterToggle.classList.toggle('has-active-filters', activeCount > 0);
+      }
       if (els.pagination) renderPagination(els.pagination, state.page, totalPages, function (p) {
         state.page = p;
         apply();

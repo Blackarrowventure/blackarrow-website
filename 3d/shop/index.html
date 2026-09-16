@@ -94,20 +94,19 @@
   </header>
 
   <main id="main">
-    <section class="section" style="padding-top:28px;padding-bottom:0;">
+    <section class="section" style="padding-top:20px;padding-bottom:14px;border-top:none;">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:18px;">
-          <a href="/3d/" data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</a>
-          <span>›</span>
-          <span data-i18n="nav_shop">Shop</span>
-        </nav>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0;padding-bottom:8px;">
-      <div class="container">
-        <h1 style="color:#fff;font-size:2rem;margin-bottom:6px;" data-i18n="b3d_shop_h1_page">Shop</h1>
-        <p style="color:rgba(255,255,255,.7);max-width:640px;" data-i18n="b3d_shop_p">Equipment, materials and workshop support selected for makers, educators and production teams.</p>
+        <div class="b3d-shop-head">
+          <div class="b3d-shop-head__title">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="/3d/" data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</a>
+              <span>›</span>
+              <span data-i18n="nav_shop">Shop</span>
+            </nav>
+            <h1 data-i18n="b3d_shop_h1_page">Shop</h1>
+          </div>
+          <p class="b3d-shop-head__intro" data-i18n="b3d_shop_p">Equipment, materials and workshop support selected for makers, educators and production teams.</p>
+        </div>
       </div>
     </section>
 
@@ -119,32 +118,34 @@
           <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128274;</span><span data-i18n="trust_payment">Secure payment</span></div>
           <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#129534;</span><span data-i18n="trust_vat">VAT invoice</span></div>
           <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128737;&#65039;</span><span data-i18n="trust_warranty">Manufacturer warranty</span></div>
-          <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#128203;</span><span data-i18n="trust_quotation">Business quotations</span></div>
+          <div class="b3d-trust-strip__item"><a href="/contact.html?service=3d_printing"><span class="b3d-trust-strip__icon">&#128203;</span><span data-i18n="trust_quotation">Business quotations</span></a></div>
           <div class="b3d-trust-strip__item"><span class="b3d-trust-strip__icon">&#127984;</span><span data-i18n="trust_support">Local support</span></div>
         </div>
 
-        <div class="b3d-toolbar" style="margin-bottom:16px;">
-          <div class="b3d-cat-tabs" data-b3d-cat-tabs role="group" aria-label="Category">
-            <button data-cat="All" aria-pressed="true" type="button" data-i18n="shop_all">All</button>
-            <button data-cat="3D Printers" aria-pressed="false" type="button" data-i18n="nav_3d_printers">3D Printers</button>
-            <button data-cat="Filament" aria-pressed="false" type="button" data-i18n="nav_filaments">Filaments</button>
-            <button data-cat="Accessories" aria-pressed="false" type="button" data-i18n="nav_accessories">Accessories</button>
+        <div class="b3d-shop-toolbar">
+          <div class="b3d-shop-toolbar__row">
+            <div class="b3d-cat-tabs" data-b3d-cat-tabs role="group" aria-label="Category">
+              <button data-cat="All" aria-pressed="true" type="button" data-i18n="shop_all">All</button>
+              <button data-cat="3D Printers" aria-pressed="false" type="button" data-i18n="nav_3d_printers">3D Printers</button>
+              <button data-cat="Filament" aria-pressed="false" type="button" data-i18n="nav_filaments">Filaments</button>
+              <button data-cat="Accessories" aria-pressed="false" type="button" data-i18n="nav_accessories">Accessories</button>
+            </div>
+            <input class="b3d-shop-search" type="search" placeholder="Search products" aria-label="Search products" data-b3d-shop-search data-i18n-placeholder="shop_search_placeholder">
           </div>
-          <input class="b3d-shop-search" type="search" placeholder="Search products" aria-label="Search products" data-b3d-shop-search data-i18n-placeholder="shop_search_placeholder">
-        </div>
 
-        <div class="b3d-toolbar">
-          <div class="b3d-toolbar__controls">
-            <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">&#9776; <span data-i18n="shop_filters_btn">Filters</span></button>
-          </div>
-          <div class="b3d-toolbar__controls">
-            <span class="b3d-toolbar__count"><span data-b3d-count>0</span> <span data-i18n="shop_products_published">products published</span></span>
-            <select class="b3d-select" data-b3d-sort aria-label="Sort by">
-              <option value="default" data-i18n="shop_sort_featured">Sort: Featured</option>
-              <option value="price-asc" data-i18n="shop_sort_price_asc">Price: Low to High</option>
-              <option value="price-desc" data-i18n="shop_sort_price_desc">Price: High to Low</option>
-              <option value="name-asc" data-i18n="shop_sort_name_asc">Name: A–Z</option>
-            </select>
+          <div class="b3d-shop-toolbar__row b3d-shop-toolbar__row--controls">
+            <div class="b3d-toolbar__controls">
+              <button class="b3d-filter-toggle" type="button" data-b3d-filter-toggle aria-expanded="false" aria-controls="b3d-filter-panel">&#9776; <span data-i18n="shop_filters_btn">Filters</span><span class="b3d-filter-toggle__count" data-b3d-filter-count hidden></span></button>
+            </div>
+            <div class="b3d-toolbar__controls">
+              <span class="b3d-toolbar__count"><span data-b3d-count>0</span> <span data-i18n="shop_products_published">products published</span></span>
+              <select class="b3d-select" data-b3d-sort aria-label="Sort by">
+                <option value="default" data-i18n="shop_sort_featured">Sort: Featured</option>
+                <option value="price-asc" data-i18n="shop_sort_price_asc">Price: Low to High</option>
+                <option value="price-desc" data-i18n="shop_sort_price_desc">Price: High to Low</option>
+                <option value="name-asc" data-i18n="shop_sort_name_asc">Name: A–Z</option>
+              </select>
+            </div>
           </div>
         </div>
 

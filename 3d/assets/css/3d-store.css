@@ -310,7 +310,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 }
 
 .b3d-card__visual {
-  height: 190px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1023,7 +1023,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
 
 .b3d-cat-tabs button {
   background: rgba(255,255,255,.03);
-  border: 1px solid rgba(245,158,11,.25);
+  border: 1px solid rgba(255,255,255,.14);
   color: rgba(255,255,255,.8);
   padding: 9px 18px;
   border-radius: 999px;
@@ -1043,7 +1043,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
 
 .b3d-select {
   background: rgba(255,255,255,.05);
-  border: 1px solid rgba(245,158,11,.3);
+  border: 1px solid rgba(255,255,255,.16);
   color: #fff;
   padding: 9px 14px;
   border-radius: var(--radius-md);
@@ -1057,17 +1057,19 @@ html[data-b3d-motion="off"] [data-slider-track] {
 
 .b3d-shop-search {
   background: rgba(255,255,255,.05);
-  border: 1px solid rgba(245,158,11,.3);
+  border: 1px solid rgba(255,255,255,.16);
   color: #fff;
   padding: 9px 14px;
   border-radius: var(--radius-md);
   font-size: .85rem;
-  min-width: 160px;
+  min-width: 220px;
+  flex: 1;
+  max-width: 340px;
 }
 
 .b3d-filter-toggle {
   background: rgba(255,255,255,.05);
-  border: 1px solid rgba(245,158,11,.3);
+  border: 1px solid rgba(255,255,255,.16);
   color: #fff;
   padding: 9px 16px;
   border-radius: var(--radius-md);
@@ -1129,26 +1131,87 @@ html[data-b3d-motion="off"] [data-slider-track] {
   .b3d-filter-panel__actions .btn { flex: 1; }
 }
 
-/* Trust strip */
+/* Trust strip — one compact line; scrolls horizontally rather than
+   wrapping into extra rows, so it never grows taller than its icons. */
 .b3d-trust-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 14px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(245,158,11,.15);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  margin-bottom: 18px;
 }
+.b3d-trust-strip::-webkit-scrollbar { display: none; }
 .b3d-trust-strip__item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,.8);
-  font-size: .82rem;
+  gap: 7px;
+  color: rgba(255,255,255,.75);
+  font-size: .78rem;
   font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.b3d-trust-strip__icon { font-size: 1.1rem; }
+.b3d-trust-strip__item a { display: flex; align-items: center; gap: 7px; color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,.4); }
+.b3d-trust-strip__item a:hover { color: var(--clr-accent); border-color: var(--clr-accent); }
+.b3d-trust-strip__icon { font-size: 1rem; }
+
+/* Shop header: title/breadcrumb beside the intro line instead of stacked */
+.b3d-shop-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.b3d-shop-head__title .breadcrumb { margin-bottom: 6px; }
+.b3d-shop-head__title h1 { color: #fff; font-size: 1.9rem; margin: 0; }
+.b3d-shop-head__intro {
+  color: rgba(255,255,255,.65);
+  font-size: .92rem;
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0;
+  text-align: right;
+}
+html[dir="rtl"] .b3d-shop-head__intro { text-align: left; }
+@media (max-width: 760px) {
+  .b3d-shop-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .b3d-shop-head__intro { text-align: left; max-width: none; }
+  html[dir="rtl"] .b3d-shop-head__intro { text-align: right; }
+}
+
+/* Unified shopping toolbar: category/search + filter/sort share one
+   surface instead of two separate floating rows. */
+.b3d-shop-toolbar {
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+.b3d-shop-toolbar__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.b3d-shop-toolbar__row--controls {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.b3d-filter-toggle__count {
+  color: var(--clr-accent);
+  font-weight: 800;
+  margin-left: 4px;
+}
+html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
+.b3d-filter-toggle.has-active-filters { border-color: var(--clr-accent); color: var(--clr-accent); }
 
 /* Card additions: corner badges, specs list, extra actions */
 .b3d-corner-badge {
