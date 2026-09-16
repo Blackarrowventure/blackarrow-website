@@ -1363,7 +1363,22 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 
 .b3d-price--sale { color: var(--clr-accent); }
 .b3d-price-was { color: rgba(255,255,255,.4); font-size: .82rem; text-decoration: line-through; margin-left: 8px; }
-.b3d-price-wrap { display: flex; flex-direction: column; }
+.b3d-price-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.b3d-price-block { display: flex; flex-direction: column; }
+
+.b3d-card__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--clr-whatsapp);
+  color: #fff;
+  flex-shrink: 0;
+}
+.b3d-card__whatsapp svg { width: 15px; height: 15px; fill: currentColor; }
+.b3d-card__whatsapp:hover { filter: brightness(1.1); }
 
 .b3d-card__actions { display: flex; align-items: center; gap: 8px; }
 .b3d-btn-compare, .b3d-btn-wishlist {
