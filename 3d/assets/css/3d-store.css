@@ -869,9 +869,9 @@ html[data-b3d-motion="off"] [data-slider-track] {
 /* Promo slider */
 .b3d-slider {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(245,158,11,.25);
+  border: 1px solid rgba(245,158,11,.35);
   outline: none;
 }
 
@@ -880,42 +880,37 @@ html[data-b3d-motion="off"] [data-slider-track] {
   transition: transform .5s ease;
 }
 
+/* One quiet dark surface for every slide — a single warm glow instead of a
+   different accent hue and striped texture per slide, so the product,
+   price and CTA read as premium rather than competing for attention. */
 .b3d-slide {
   min-width: 100%;
-  min-height: 520px;
+  min-height: 420px;
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
   align-items: center;
-  gap: 30px;
-  padding: 48px;
+  gap: 40px;
+  padding: 44px 48px;
   background:
-    repeating-linear-gradient(180deg, rgba(245,158,11,.07) 0, rgba(245,158,11,.07) 1px, transparent 1px, transparent 12px),
-    linear-gradient(160deg, #262420 0%, #17150f 100%);
+    radial-gradient(circle at 75% 45%, rgba(245,158,11,.09), transparent 38%),
+    #242522;
   --slide-accent: var(--clr-accent);
 }
 
-/* Each slide gets its own accent wash so the 5 slides read as distinct,
-   not the same card repeated with a swapped photo. */
-.b3d-slide:nth-of-type(1) { --slide-accent: #f59e0b; background: repeating-linear-gradient(180deg, rgba(245,158,11,.08) 0, rgba(245,158,11,.08) 1px, transparent 1px, transparent 12px), linear-gradient(160deg, #2b2417 0%, #14110a 100%); }
-.b3d-slide:nth-of-type(2) { --slide-accent: #22b8b0; background: repeating-linear-gradient(180deg, rgba(34,184,176,.08) 0, rgba(34,184,176,.08) 1px, transparent 1px, transparent 12px), linear-gradient(160deg, #17282a 0%, #0b1516 100%); }
-.b3d-slide:nth-of-type(3) { --slide-accent: #e0524a; background: repeating-linear-gradient(180deg, rgba(224,82,74,.08) 0, rgba(224,82,74,.08) 1px, transparent 1px, transparent 12px), linear-gradient(160deg, #2b1a18 0%, #150e0d 100%); }
-.b3d-slide:nth-of-type(4) { --slide-accent: #4c8bf5; background: repeating-linear-gradient(180deg, rgba(76,139,245,.08) 0, rgba(76,139,245,.08) 1px, transparent 1px, transparent 12px), linear-gradient(160deg, #182233 0%, #0b1119 100%); }
-.b3d-slide:nth-of-type(5) { --slide-accent: #a855f7; background: repeating-linear-gradient(180deg, rgba(168,85,247,.08) 0, rgba(168,85,247,.08) 1px, transparent 1px, transparent 12px), linear-gradient(160deg, #241a2e 0%, #120e17 100%); }
-
 @media (max-width: 720px) {
-  .b3d-slide { grid-template-columns: 1fr; text-align: center; padding: 32px 22px; }
+  .b3d-slide { grid-template-columns: 1fr; text-align: center; padding: 28px 22px; gap: 22px; }
 }
 
-.b3d-slide__content { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
-@media (max-width: 720px) { .b3d-slide__content { align-items: center; } }
+.b3d-slide__content { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 440px; }
+@media (max-width: 720px) { .b3d-slide__content { align-items: center; max-width: none; } }
 
-.b3d-slide__top { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+.b3d-slide__top { display: flex; align-items: center; gap: 14px; }
 @media (max-width: 720px) { .b3d-slide__top { justify-content: center; } }
 .b3d-slide__brand-logo { height: 22px; width: auto; opacity: .9; }
 
 .b3d-slide__label {
-  background: color-mix(in srgb, var(--slide-accent) 16%, transparent);
-  color: var(--slide-accent);
+  background: color-mix(in srgb, var(--clr-accent) 16%, transparent);
+  color: var(--clr-accent);
   font-size: .78rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -925,15 +920,13 @@ html[data-b3d-motion="off"] [data-slider-track] {
 }
 
 .b3d-slide__media {
-  aspect-ratio: 16 / 10;
-  border: 2px dashed rgba(245,158,11,.4);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-  text-align: center;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  overflow: hidden;
+  background: #f4f4f1;
 }
 
 .b3d-slide__media-label {
@@ -944,53 +937,64 @@ html[data-b3d-motion="off"] [data-slider-track] {
 
 .b3d-slide__media-hint { color: rgba(255,255,255,.6); font-size: .74rem; }
 
-.b3d-slide__media:has(img) {
-  border-style: solid;
-  border-color: color-mix(in srgb, var(--slide-accent) 45%, transparent);
-  padding: 0;
-  background: #f4f3f0;
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--slide-accent) 10%, transparent), 0 20px 50px -20px color-mix(in srgb, var(--slide-accent) 55%, transparent);
-}
-.b3d-slide__media img { width: 100%; height: 100%; object-fit: contain; border-radius: inherit; padding: 22px; }
+.b3d-slide__media img { width: 82%; height: 82%; object-fit: contain; }
 
 .b3d-slide__label--preorder { background: var(--clr-accent); color: #1a1a1a; }
-.b3d-slide__price { color: rgba(255,255,255,.6); font-size: 1rem; }
-.b3d-slide__price strong { color: #fff; font-size: 1.6rem; margin-left: 6px; }
+.b3d-slide__price { color: rgba(255,255,255,.6); font-size: 1rem; margin: 0; }
+.b3d-slide__price strong { color: #fff; font-size: 2rem; margin-left: 8px; }
 
-.b3d-slide__title { color: #fff; font-size: 2.8rem; font-weight: 700; font-family: var(--ff-heading); line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
-.b3d-slide__title em { color: var(--slide-accent); font-style: normal; }
-.b3d-slide p { color: rgba(255,255,255,.75); font-size: 1.08rem; line-height: 1.6; max-width: 460px; }
+.b3d-slide__title { margin: 0; color: #fff; font-size: clamp(2rem, 3vw, 3rem); font-weight: 700; font-family: var(--ff-heading); line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
+.b3d-slide__title em { color: var(--clr-accent); font-style: normal; }
+.b3d-slide p { margin: 0; color: rgba(255,255,255,.82); font-size: 1.05rem; line-height: 1.65; max-width: 40ch; }
+
+.b3d-slide__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 4px; }
+.b3d-slide__secondary { color: rgba(255,255,255,.75); font-size: .92rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.b3d-slide__secondary:hover { color: #fff; }
+@media (max-width: 720px) { .b3d-slide__actions { justify-content: center; } }
 
 @media (max-width: 720px) {
-  .b3d-slide__title { font-size: 2rem; }
-  .b3d-slide p { font-size: .95rem; }
+  .b3d-slide__title { font-size: 1.8rem; }
+  .b3d-slide p { font-size: .95rem; max-width: none; }
+  .b3d-slide__actions .btn { width: 100%; min-height: 48px; }
 }
 
 .b3d-slider__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,.4);
+  background: rgba(0,0,0,.5);
   color: #fff;
-  border: 1px solid rgba(255,255,255,.2);
-  width: 38px;
-  height: 38px;
+  border: 1px solid rgba(255,255,255,.3);
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   cursor: pointer;
   z-index: 2;
 }
+.b3d-slider__arrow:hover { background: rgba(0,0,0,.7); }
 
 .b3d-slider__arrow--prev { left: 14px; }
 .b3d-slider__arrow--next { right: 14px; }
 
-.b3d-slider__dots {
+/* Dots and pause/play share one control cluster at bottom-center instead of
+   the pause button sitting alone at the far edge. */
+.b3d-slider__controls {
   position: absolute;
-  bottom: 14px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 14px;
   z-index: 2;
+  background: rgba(0,0,0,.35);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.b3d-slider__dots {
+  display: flex;
+  gap: 8px;
 }
 
 .b3d-slider__dot {
@@ -1574,24 +1578,20 @@ html[data-b3d-motion="off"] [data-slider-track] {
 .b3d-faq__item p { color: rgba(255,255,255,.7); font-size: .9rem; line-height: 1.7; margin: 0 0 16px; }
 
 .b3d-slider__playpause {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  z-index: 3;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   border: none;
-  background: rgba(0,0,0,.45);
+  background: rgba(255,255,255,.12);
   color: #fff;
   font-size: .7rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  flex: none;
 }
-.b3d-slider__playpause:hover { background: rgba(0,0,0,.65); }
-html[dir="rtl"] .b3d-slider__playpause { right: auto; left: 14px; }
+.b3d-slider__playpause:hover { background: rgba(255,255,255,.24); }
 
 /* Long body-copy regions sit on top of .b3d-layer-bg's repeating gold-line
    texture (defined on <body>) by default. That's fine as decorative art

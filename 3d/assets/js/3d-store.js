@@ -1291,19 +1291,22 @@
     });
 
     var paused = false;
+    var interacting = false;
 
     function resetTimer() {
-      /* Not gated on motionEnabled(): that preference was only ever
-         changeable via the Motion On/Off toggle, which has been removed
-         from the page. Gating on it here (or on the OS-level
-         prefers-reduced-motion setting many laptops ship with on) would
-         silently freeze this promo carousel on slide 1 with no way for
-         the visitor to turn it back on. Manual controls (arrows, dots,
-         keyboard, swipe) remain fully available regardless. */
+      /* Autoplay is gated on paused (the play/pause button) and interacting
+         (hover/focus, below) but never permanently disabled by
+         prefers-reduced-motion — a visitor with that preference still has
+         a working play button, they just don't get an unrequested start. */
       if (timer) clearInterval(timer);
-      if (paused) return;
+      if (paused || interacting) return;
       timer = setInterval(function () { go(index + 1); }, 6000);
     }
+
+    slider.addEventListener('mouseenter', function () { interacting = true; resetTimer(); });
+    slider.addEventListener('mouseleave', function () { interacting = false; resetTimer(); });
+    slider.addEventListener('focusin', function () { interacting = true; resetTimer(); });
+    slider.addEventListener('focusout', function () { interacting = false; resetTimer(); });
 
     var playPauseBtn = slider.querySelector('[data-slider-playpause]');
     if (playPauseBtn) {
@@ -1314,6 +1317,15 @@
         playPauseBtn.innerHTML = paused ? '&#9654;' : '&#10074;&#10074;';
         if (paused) { if (timer) clearInterval(timer); } else { resetTimer(); }
       });
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      paused = true;
+      if (playPauseBtn) {
+        playPauseBtn.setAttribute('aria-pressed', 'true');
+        playPauseBtn.setAttribute('aria-label', 'Play slideshow');
+        playPauseBtn.innerHTML = '&#9654;';
+      }
     }
 
     resetTimer();
