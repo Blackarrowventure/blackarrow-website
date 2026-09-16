@@ -14,6 +14,7 @@
     'Polymaker',
     'eSUN',
     'Sunlu',
-    'Generic'
+    'Generic',
+    'Black Arrow'
   ];
 })();

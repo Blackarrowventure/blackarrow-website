@@ -814,6 +814,46 @@
         ["محتويات الصندوق", "Hotend Heating Assembly عدد 1، BT3-10 Screws عدد 3"]
       ],
       "compatibility_ar": ["Bambu Lab A1", "Bambu Lab A1 mini"]
+    },
+    {
+      "id": "oni-mask-ps5-controller-stand",
+      "name": "Oni Mask PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "Gaming Accessories",
+      "price": 49,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "images": [
+        "/3d/assets/images/products/oni-controller-stand-01.webp",
+        "/3d/assets/images/products/oni-controller-stand-02.webp",
+        "/3d/assets/images/products/oni-controller-stand-03.webp",
+        "/3d/assets/images/products/oni-controller-stand-04.webp",
+        "/3d/assets/images/products/oni-controller-stand-05.webp",
+        "/3d/assets/images/products/oni-controller-stand-06.webp",
+        "/3d/assets/images/products/oni-controller-stand-07-promo.webp"
+      ],
+      "shortDesc": "3D printed oni-mask stand for the PS5 DualSense controller.",
+      "description": "An original oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. The demon-face design cradles a PS5 DualSense controller by its handles while doubling as a striking desk piece. Printed in PLA with two screw-thread support legs, finished in a raw, unpainted grey.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Compatibility", "PS5 DualSense controller"],
+        ["Design", "Oni mask — designed and printed in-house"],
+        ["Finish", "Raw, unpainted grey PLA"],
+        ["Support Legs", "2x screw-thread legs included"]
+      ],
+      "compatibility": ["PS5 DualSense"],
+      "name_ar": "حامل يد تحكم PS5 بتصميم قناع أوني",
+      "shortDesc_ar": "حامل يد تحكم PS5 مطبوع ثلاثي الأبعاد بتصميم قناع أوني.",
+      "description_ar": "حامل يد تحكم أصلي بتصميم قناع أوني، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يحتضن تصميم الوجه الشيطاني يد تحكم PS5 DualSense من مقابضها، ليكون قطعة مكتبية مميزة إلى جانب وظيفته. مطبوع من مادة PLA مع رجلين داعمتين بشكل برغي، بتشطيب خام غير مطلي باللون الرمادي.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التوافق", "يد تحكم PS5 DualSense"],
+        ["التصميم", "قناع أوني — تصميم وطباعة داخلية"],
+        ["التشطيب", "رمادي خام غير مطلي"],
+        ["أرجل الدعم", "رجلان بشكل برغي مرفقتان"]
+      ],
+      "compatibility_ar": ["يد تحكم PS5 DualSense"]
     }
   ]
 }
