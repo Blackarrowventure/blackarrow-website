@@ -152,6 +152,36 @@
   flex-wrap: wrap;
 }
 
+/* Homepage section bands — alternates two distinct full-bleed treatments
+   so "Shop by Category", "Shop by Brand" etc. read as separate sections
+   instead of one continuous scroll on the same flat background. */
+.b3d-band {
+  position: relative;
+  padding: 64px 0;
+}
+.b3d-band::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,.3), transparent);
+}
+.b3d-band--a {
+  background:
+    radial-gradient(ellipse 900px 420px at 50% -12%, rgba(245,158,11,.10), transparent 65%),
+    var(--clr-navy);
+}
+.b3d-band--b {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 1px, transparent 16px),
+    #121212;
+  box-shadow: inset 0 1px 40px rgba(0,0,0,.4);
+}
+
+@media (max-width: 720px) {
+  .b3d-band { padding: 44px 0; }
+}
+
 /* Category tiles on the hub page */
 .b3d-cats {
   display: grid;
