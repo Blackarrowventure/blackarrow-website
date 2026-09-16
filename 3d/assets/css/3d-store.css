@@ -775,11 +775,20 @@ html[dir="rtl"] .b3d-corner-badge { left: 12px; right: auto; }
 html[data-b3d-motion="off"] .b3d-card,
 html[data-b3d-motion="off"] .b3d-cat-tile,
 html[data-b3d-motion="off"] .b3d-card__visual img,
-html[data-b3d-motion="off"] [data-b3d-announce-track],
-html[data-b3d-motion="off"] [data-slider-track] {
+html[data-b3d-motion="off"] [data-b3d-announce-track] {
   transition: none !important;
   animation: none !important;
   transform: none !important;
+}
+
+/* The promo slider's transform isn't decorative — it's how the visitor
+   actually reaches other slides' content, so "reduce motion" only
+   removes the sliding animation here (see .b3d-slider__track rule
+   below), not the transform itself. Blocking transform too would
+   permanently freeze the slider on slide 1 while the dots kept
+   cycling underneath it. */
+html[data-b3d-motion="off"] [data-slider-track] {
+  transition: none !important;
 }
 
 
@@ -830,8 +839,6 @@ html[data-b3d-motion="off"] [data-slider-track] {
   display: flex;
   transition: transform .5s ease;
 }
-
-html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 
 .b3d-slide {
   min-width: 100%;
@@ -906,11 +913,11 @@ html[data-b3d-motion="off"] .b3d-slider__track { transition: none; }
 .b3d-slide__price { color: rgba(255,255,255,.6); font-size: 1rem; }
 .b3d-slide__price strong { color: #fff; font-size: 1.6rem; margin-left: 6px; }
 
-.b3d-slide h3 { color: #fff; font-size: 2.4rem; line-height: 1.15; text-wrap: balance; }
+.b3d-slide__title { color: #fff; font-size: 2.4rem; font-weight: 700; font-family: var(--ff-heading); line-height: 1.15; text-wrap: balance; }
 .b3d-slide p { color: rgba(255,255,255,.75); font-size: 1.08rem; line-height: 1.6; max-width: 460px; }
 
 @media (max-width: 720px) {
-  .b3d-slide h3 { font-size: 1.7rem; }
+  .b3d-slide__title { font-size: 1.7rem; }
   .b3d-slide p { font-size: .95rem; }
 }
 

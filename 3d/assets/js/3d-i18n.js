@@ -61,7 +61,6 @@
       hub_why_li2: 'Genuine spare parts and consumables kept in stock — not a one-time drop-ship',
       hub_why_li3: 'Setup help and after-sales support from a real local team, in Arabic or English',
 
-      hub_promo_h2: 'Featured This Week',
       hub_cat_h2: 'Shop by Category',
       hub_trust_1: 'Genuine, authorized products',
       hub_trust_2: 'Business quotations available',
@@ -361,7 +360,6 @@
       hub_why_li2: 'قطع غيار ومستهلكات أصلية متوفرة باستمرار، وليست بنظام الشحن المباشر لمرة واحدة',
       hub_why_li3: 'مساعدة في التركيب ودعم ما بعد البيع من فريق محلي حقيقي، بالعربية أو الإنجليزية',
 
-      hub_promo_h2: 'مميز هذا الأسبوع',
       hub_cat_h2: 'تسوّق حسب الفئة',
       hub_trust_1: 'منتجات أصلية ومعتمدة',
       hub_trust_2: 'عروض أسعار للشركات متاحة',
