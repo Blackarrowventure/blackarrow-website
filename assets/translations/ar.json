@@ -1779,5 +1779,17 @@
   "placeholder_project_city": "مثال: الرياض، جدة، الدمام",
   "form_project_capacity": "السعة / الكمية التقريبية",
   "placeholder_project_capacity": "مثال: 100 كيلو فولت أمبير، 4 شواحن، غرفتا عمليات",
-  "form_privacy_ack": "بإرسال هذا النموذج، فإنك تقر باطلاعك على <a href=\"/ar/privacy-policy.html\">سياسة الخصوصية</a>."
+  "form_privacy_ack": "بإرسال هذا النموذج، فإنك تقر باطلاعك على <a href=\"/ar/privacy-policy.html\">سياسة الخصوصية</a>.",
+  "cert_overline": "شهادات معتمدة",
+  "cert_heading": "شهاداتنا",
+  "cert_subtitle": "معتمدة ومدققة بشكل مستقل من Magnitude Management Services (MMS)، المعتمدة من EGAC وعضو في IAF",
+  "cert_9001_title": "ISO 9001:2015",
+  "cert_9001_desc": "نظام إدارة الجودة",
+  "cert_14001_title": "ISO 14001:2015",
+  "cert_14001_desc": "نظام الإدارة البيئية",
+  "cert_45001_title": "ISO 45001:2018",
+  "cert_45001_desc": "نظام إدارة الصحة والسلامة المهنية",
+  "cert_number_label": "رقم الشهادة:",
+  "cert_valid_label": "سارية حتى:",
+  "cert_view_btn": "عرض الشهادة"
 }
