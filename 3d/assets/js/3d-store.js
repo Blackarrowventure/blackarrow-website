@@ -233,7 +233,7 @@
           '<div class="b3d-price-wrap">' + priceBlock(p) + '</div>' +
           '<div class="b3d-card__actions">' +
             '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + '" title="' + T('js_compare_btn') + '">⇄</button>' +
-            '<button class="b3d-btn-wishlist" data-wishlist-id="' + p.id + '" aria-label="Save to wishlist" title="Save">♡</button>' +
+            '<button class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-label="Save to wishlist" title="Save">' + (isWishlisted(p.id) ? '♥' : '♡') + '</button>' +
             actionBtn +
           '</div>' +
         '</div>' +
@@ -263,8 +263,9 @@
     });
     container.querySelectorAll('[data-wishlist-id]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        btn.classList.toggle('is-active');
-        btn.textContent = btn.classList.contains('is-active') ? '♥' : '♡';
+        var nowSaved = toggleWishlist(btn.getAttribute('data-wishlist-id'));
+        btn.classList.toggle('is-active', nowSaved);
+        btn.textContent = nowSaved ? '♥' : '♡';
       });
     });
     container.querySelectorAll('[data-compare-id]').forEach(function (btn) {
@@ -276,6 +277,27 @@
   }
 
   /* ---------------- Shop: filters, sort, pagination ---------------- */
+
+  var WISHLIST_KEY = 'b3d_wishlist_v1';
+
+  function getWishlist() {
+    try {
+      var raw = localStorage.getItem(WISHLIST_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+
+  function isWishlisted(id) {
+    return getWishlist().indexOf(id) !== -1;
+  }
+
+  function toggleWishlist(id) {
+    var list = getWishlist();
+    var idx = list.indexOf(id);
+    if (idx === -1) { list.push(id); } else { list.splice(idx, 1); }
+    try { localStorage.setItem(WISHLIST_KEY, JSON.stringify(list)); } catch (e) {}
+    return idx === -1;
+  }
 
   var COMPARE_KEY = 'b3d_compare_v1';
 
@@ -827,6 +849,32 @@
     bscript.textContent = JSON.stringify(breadcrumbLd);
   }
 
+  function openImageZoom(src, name) {
+    var overlay = document.querySelector('[data-b3d-zoom-overlay]');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'b3d-zoom-overlay';
+      overlay.setAttribute('data-b3d-zoom-overlay', '');
+      overlay.hidden = true;
+      overlay.innerHTML = '<button type="button" class="b3d-zoom-overlay__close" aria-label="Close">&times;</button><img alt="">';
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay || e.target.closest('.b3d-zoom-overlay__close')) closeImageZoom();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !overlay.hidden) closeImageZoom();
+      });
+    }
+    overlay.querySelector('img').src = src;
+    overlay.querySelector('img').alt = name || '';
+    overlay.hidden = false;
+  }
+
+  function closeImageZoom() {
+    var overlay = document.querySelector('[data-b3d-zoom-overlay]');
+    if (overlay) overlay.hidden = true;
+  }
+
   function renderProductDetail(container) {
     var slug = new URLSearchParams(location.search).get('slug');
     fetchProducts().then(function (products) {
@@ -837,6 +885,8 @@
       }
       document.title = L(p, 'name') + ' — Black Arrow 3D';
       updateProductSeo(p);
+      var crumbEl = document.querySelector('[data-b3d-crumb]');
+      if (crumbEl) crumbEl.textContent = L(p, 'name');
       var specsHtml = LSpecs(p).map(function (row) {
         return '<tr><td>' + row[0] + '</td><td>' + row[1] + '</td></tr>';
       }).join('');
@@ -847,7 +897,8 @@
       var images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
       var thumbsHtml = images.length > 1
         ? '<div class="b3d-pd__thumbs">' + images.map(function (src, i) {
-            return '<button class="b3d-pd__thumb' + (i === 0 ? ' is-active' : '') + '" data-thumb-src="' + src + '"><img src="' + src + '" alt=""></button>';
+            var thumbLabel = T('js_view_image') + ' ' + (i + 1) + ' — ' + L(p, 'name');
+            return '<button class="b3d-pd__thumb' + (i === 0 ? ' is-active' : '') + '" data-thumb-src="' + src + '" aria-label="' + thumbLabel + '"><img src="' + src + '" alt=""></button>';
           }).join('') + '</div>'
         : '';
       var pdAvailable = p.available !== false;
@@ -896,6 +947,10 @@
             '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>' +
             '<a href="/3d/cart/" class="btn btn-outline">' + T('js_view_cart') + '</a>' +
           '</div>' +
+          '<div class="b3d-pd__contact-actions">' +
+            '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp') + '</a>' +
+            '<a href="/contact.html?service=3d_printing" class="btn btn-outline">' + T('js_request_quote_pd') + '</a>' +
+          '</div>' +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h3>' + T('js_warranty_heading') + '</h3><p>' + L(p, 'warranty') + '</p></div>' : '') +
@@ -913,6 +968,20 @@
           if (mainImg) mainImg.src = btn.getAttribute('data-thumb-src');
         });
       });
+
+      var zoomTarget = container.querySelector('[data-pd-zoom]');
+      var mainImgEl = container.querySelector('[data-pd-main-img]');
+      if (zoomTarget && mainImgEl) {
+        zoomTarget.classList.add('is-zoomable');
+        zoomTarget.setAttribute('role', 'button');
+        zoomTarget.setAttribute('tabindex', '0');
+        zoomTarget.setAttribute('aria-label', T('js_zoom_image'));
+        var openZoom = function () { openImageZoom(mainImgEl.src, L(p, 'name')); };
+        zoomTarget.addEventListener('click', openZoom);
+        zoomTarget.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZoom(); }
+        });
+      }
 
       var qtyInput = container.querySelector('[data-pd-qty-val]');
       container.querySelectorAll('[data-pd-qty]').forEach(function (btn) {
@@ -982,6 +1051,39 @@
       btn.addEventListener('click', function () {
         addToCart(btn.getAttribute('data-add-id'), 1);
         btn.textContent = T('js_added');
+      });
+    });
+  }
+
+  /* ---------------- Wishlist panel (account page) ---------------- */
+
+  function renderWishlistPanel(container) {
+    if (!container) return;
+    var ids = getWishlist();
+    if (!ids.length) return;
+    fetchProducts().then(function (products) {
+      var items = ids.map(function (id) { return products.filter(function (p) { return p.id === id; })[0]; }).filter(Boolean);
+      if (!items.length) return;
+      container.innerHTML = '<div class="b3d-grid">' + items.map(productCard).join('') + '</div>';
+      container.querySelectorAll('[data-wishlist-id]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          toggleWishlist(btn.getAttribute('data-wishlist-id'));
+          renderWishlistPanel(container);
+        });
+      });
+      container.querySelectorAll('[data-compare-id]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          toggleCompare(btn.getAttribute('data-compare-id'));
+          btn.classList.toggle('is-active');
+        });
+      });
+      container.querySelectorAll('[data-add-id]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          addToCart(btn.getAttribute('data-add-id'), 1);
+          var original = btn.textContent;
+          btn.textContent = T('js_added');
+          setTimeout(function () { btn.textContent = original; }, 1200);
+        });
       });
     });
   }
@@ -1099,6 +1201,8 @@
       startX = null;
     });
 
+    var paused = false;
+
     function resetTimer() {
       /* Not gated on motionEnabled(): that preference was only ever
          changeable via the Motion On/Off toggle, which has been removed
@@ -1108,7 +1212,19 @@
          the visitor to turn it back on. Manual controls (arrows, dots,
          keyboard, swipe) remain fully available regardless. */
       if (timer) clearInterval(timer);
+      if (paused) return;
       timer = setInterval(function () { go(index + 1); }, 6000);
+    }
+
+    var playPauseBtn = slider.querySelector('[data-slider-playpause]');
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', function () {
+        paused = !paused;
+        playPauseBtn.setAttribute('aria-pressed', String(paused));
+        playPauseBtn.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
+        playPauseBtn.innerHTML = paused ? '&#9654;' : '&#10074;&#10074;';
+        if (paused) { if (timer) clearInterval(timer); } else { resetTimer(); }
+      });
     }
 
     resetTimer();
@@ -1126,6 +1242,10 @@
     updateCartBadges: updateCartBadges,
     getCompareList: getCompareList,
     toggleCompare: toggleCompare,
+    getWishlist: getWishlist,
+    isWishlisted: isWishlisted,
+    toggleWishlist: toggleWishlist,
+    renderWishlistPanel: renderWishlistPanel,
     motionEnabled: motionEnabled,
     CART_SVG: CART_SVG
   };
@@ -1151,12 +1271,13 @@
     initPromoSlider();
     initBrandNavMenu();
 
-    document.querySelectorAll('[data-b3d-preorder-add]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        addToCart(btn.getAttribute('data-b3d-preorder-add'), 1);
-        location.href = '/3d/cart/';
+    var featuredGrid = document.querySelector('[data-b3d-featured-grid]');
+    if (featuredGrid) {
+      fetchProducts().then(function (products) {
+        var featured = products.filter(function (p) { return p.available !== false; }).slice(0, 8);
+        renderGrid(featured, featuredGrid);
       });
-    });
+    }
 
     var searchForm = document.querySelector('[data-b3d-search-form]');
     if (searchForm) {

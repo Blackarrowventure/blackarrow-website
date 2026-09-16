@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Black Arrow 3D account — sign in to save products, track orders, and manage your details.">
   <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.blackarrowksa.com/3d/account/">
   <link rel="icon" type="image/png" href="/assets/images/black-arrow-logo.png">
   <title>My Account — Black Arrow 3D</title>
 
@@ -110,6 +111,16 @@
               <label><span data-i18n="account_password">Password</span><input type="password" id="signin-password" required autocomplete="current-password"></label>
               <p class="b3d-account__error" id="signin-error" hidden></p>
               <button type="submit" class="btn btn-primary" data-i18n="account_signin_tab">Sign In</button>
+              <button type="button" class="b3d-account__link-btn" id="b3d-forgot-link" data-i18n="account_forgot_password">Forgot password?</button>
+            </form>
+
+            <form class="b3d-account__form" id="b3d-reset-form" hidden>
+              <p class="b3d-account__hint" data-i18n="account_reset_hint">Enter your email and we'll send you a password reset link. It may take a minute to arrive — check your spam folder too.</p>
+              <label><span data-i18n="account_email">Email</span><input type="email" id="reset-email" required autocomplete="email"></label>
+              <p class="b3d-account__error" id="reset-error" hidden></p>
+              <p class="b3d-account__success" id="reset-success" hidden data-i18n="account_reset_sent">Reset link sent — check your inbox.</p>
+              <button type="submit" class="btn btn-primary" data-i18n="account_reset_submit">Send Reset Link</button>
+              <button type="button" class="b3d-account__link-btn" id="b3d-reset-cancel" data-i18n="account_back_to_signin">Back to Sign In</button>
             </form>
 
             <form class="b3d-account__form" id="b3d-signup-form" hidden>
@@ -128,17 +139,34 @@
           </div>
 
           <div id="b3d-auth-signedin" hidden>
-            <p style="color:rgba(255,255,255,.8);margin-bottom:20px;"><span data-i18n="account_signed_in_as">Signed in as</span> <strong id="b3d-account-email" style="color:#fff;"></strong></p>
+            <p style="color:rgba(255,255,255,.8);margin-bottom:8px;"><span data-i18n="account_signed_in_as">Signed in as</span> <strong id="b3d-account-email" style="color:#fff;"></strong></p>
+            <p class="b3d-account__verify" id="b3d-verify-notice" hidden data-i18n="account_verify_notice">Please verify your email — check your inbox for a confirmation link.</p>
             <button type="button" class="btn btn-outline" id="b3d-signout-btn" data-i18n="account_signout">Sign Out</button>
 
             <div class="b3d-account__panels">
-              <div class="b3d-account__panel"><h3 data-i18n="account_saved_products">Saved Products</h3><p data-i18n="account_saved_products_empty">Nothing saved yet — use the ♡ icon on a product to save it here.</p></div>
+              <div class="b3d-account__panel">
+                <h3 data-i18n="account_your_details">Your Details</h3>
+                <form class="b3d-account__form" id="b3d-details-form" style="margin-top:10px;">
+                  <label><span data-i18n="account_name">Full name</span><input type="text" id="details-name" autocomplete="name"></label>
+                  <label><span data-i18n="account_phone">Phone</span><input type="tel" id="details-phone" autocomplete="tel" placeholder="+966 5XX XXX XXX"></label>
+                  <p class="b3d-account__success" id="details-success" hidden data-i18n="account_details_saved">Saved.</p>
+                  <button type="submit" class="btn btn-outline" data-i18n="account_details_save">Save Details</button>
+                </form>
+              </div>
+              <div class="b3d-account__panel" id="b3d-saved-products-panel"><h3 data-i18n="account_saved_products">Saved Products</h3><p data-i18n="account_saved_products_empty">Nothing saved yet — use the ♡ icon on a product to save it here.</p></div>
               <div class="b3d-account__panel"><h3 data-i18n="account_order_history">Order History</h3><p data-i18n="account_order_history_empty">No orders yet.</p></div>
               <div class="b3d-account__panel"><h3 data-i18n="account_order_tracking">Order Tracking</h3><p data-i18n="account_order_tracking_empty">Nothing to track yet.</p></div>
               <div class="b3d-account__panel"><h3 data-i18n="account_addresses">Addresses</h3><p data-i18n="account_addresses_empty">No saved addresses yet.</p></div>
               <div class="b3d-account__panel"><h3 data-i18n="account_comm_prefs">Communication Preferences</h3><p data-i18n="account_comm_prefs_desc">Default: order updates only. Marketing emails are off unless you opt in later.</p></div>
             </div>
           </div>
+
+          <form class="b3d-account__form" id="b3d-newpass-form" hidden>
+            <p class="b3d-account__hint" data-i18n="account_newpass_hint">Choose a new password for your account.</p>
+            <label><span data-i18n="account_newpass">New Password (min. 6 characters)</span><input type="password" id="newpass-password" required minlength="6" autocomplete="new-password"></label>
+            <p class="b3d-account__error" id="newpass-error" hidden></p>
+            <button type="submit" class="btn btn-primary" data-i18n="account_newpass_submit">Set New Password</button>
+          </form>
         </div>
       </div>
     </section>
@@ -155,7 +183,6 @@
           <h3 data-i18n="nav_black_arrow_3d_full">Black Arrow 3D</h3>
           <ul>
             <li><a href="/3d/" data-i18n="footer_home">Home</a></li>
-            <li><a href="/3d/" data-i18n="nav_home">Home</a></li>
           <li><a href="/3d/shop/" data-i18n="nav_shop">Shop</a></li>
             <li><a href="/3d/cart/" data-i18n="footer_cart">Cart</a></li>
             <li><a href="/3d/compare/" data-i18n="footer_compare">Compare</a></li>

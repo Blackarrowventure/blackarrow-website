@@ -86,6 +86,22 @@
     return client.auth.signOut();
   }
 
+  function resetPassword(email) {
+    return client.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/3d/account/'
+    }).then(function (res) {
+      if (res.error) throw res.error;
+      return res;
+    });
+  }
+
+  function updatePassword(newPassword) {
+    return client.auth.updateUser({ password: newPassword }).then(function (res) {
+      if (res.error) throw res.error;
+      return res;
+    });
+  }
+
   function getProfile(userId) {
     if (!ready || !client) return Promise.resolve(null);
     return client.from('customers').select('name, phone, last_address').eq('id', userId).single().then(function (res) {
@@ -112,6 +128,8 @@
     signUp: signUp,
     signIn: signIn,
     signOut: signOut,
+    resetPassword: resetPassword,
+    updatePassword: updatePassword,
     getProfile: getProfile,
     saveProfile: saveProfile
   };
