@@ -39,7 +39,8 @@
       footer_brand_desc: 'A Black Arrow Venture company line of business. 3D printing equipment & supplies.',
       footer_copyright: 'Black Arrow Venture company. All rights reserved.',
       footer_privacy: 'Privacy Policy',
-      footer_terms: 'Terms of Service',
+      footer_terms: 'Terms and Conditions',
+      footer_returns: 'Returns and Refunds',
 
       hub_preview_banner: 'Now Live — Shop 3D Printers, Filament & Accessories',
       hub_hero_eyebrow: '3D Printing, Made Easy',
@@ -343,7 +344,8 @@
       footer_brand_desc: 'أحد قطاعات أعمال شركة بلاك أرو فنتشر. معدات وتوريدات الطباعة ثلاثية الأبعاد.',
       footer_copyright: 'شركة بلاك أرو فنتشر. جميع الحقوق محفوظة.',
       footer_privacy: 'سياسة الخصوصية',
-      footer_terms: 'شروط الخدمة',
+      footer_terms: 'الشروط والأحكام',
+      footer_returns: 'الاسترجاع والاسترداد',
 
       hub_preview_banner: 'متاح الآن — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات',
       hub_hero_eyebrow: 'الطباعة ثلاثية الأبعاد، ببساطة',

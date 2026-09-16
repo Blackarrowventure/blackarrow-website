@@ -1006,7 +1006,7 @@
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
           '<div class="b3d-pd__shipreturn">' +
             '<div><strong>' + T('js_shipping_heading') + '</strong><p>' + T('js_shipping_desc') + '</p></div>' +
-            '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/terms-of-service.html">' + T('footer_terms') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +
+            '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/3d/returns/">' + T('footer_returns') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +
           '</div>' +
         '</div>';
 
