@@ -21,6 +21,13 @@
 
   var WHATSAPP_SVG = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
 
+  /* Official Saudi Riyal symbol (SAMA, approved by royal decree Feb 2025;
+     Unicode 17.0 encodes it at U+20C1, but font support for that code
+     point is not yet reliable, so the government's own SVG shape is
+     inlined here instead — same source file saved at
+     3d/assets/images/icons/saudi-riyal-symbol.svg for reference). */
+  var RIYAL_SVG = '<svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg>';
+
   function whatsappCardLink(p) {
     var msg = 'Hello! I have a question about ' + L(p, 'name') + '.';
     return 'https://wa.me/966560224715?text=' + encodeURIComponent(msg);
@@ -158,7 +165,10 @@
   }
 
   function money(n, currency) {
-    return n.toLocaleString('en-US') + ' <small>' + (currency || 'SAR') + '</small>';
+    if ((currency || 'SAR') === 'SAR') {
+      return n.toLocaleString('en-US') + ' <small class="b3d-riyal" aria-hidden="true">' + RIYAL_SVG + '</small><span class="sr-only"> SAR</span>';
+    }
+    return n.toLocaleString('en-US') + ' <small>' + currency + '</small>';
   }
 
   function primaryImage(p) {
@@ -169,7 +179,7 @@
 
   function visual(p) {
     var img = primaryImage(p);
-    if (img) return '<img src="' + img + '" alt="' + L(p, 'name') + '" loading="lazy">';
+    if (img) return '<img src="' + img + '" alt="' + L(p, 'name') + '" loading="lazy" width="400" height="400">';
     return '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
   }
 
@@ -215,8 +225,8 @@
     var disabled = (p.available === false && !p.preorder) ? 'disabled' : '';
     var btnLabel = p.preorder ? T('js_pre_order') : (p.available === false ? T('js_out_of_stock') : T('js_add_to_cart'));
     var actionBtn = hasVariants
-      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add">' + T('js_view_options') + '</a>'
-      : '<button class="b3d-btn-add" data-add-id="' + p.id + '" ' + disabled + '>' + btnLabel + '</button>';
+      ? '<a href="/3d/product/?slug=' + p.id + '" class="b3d-btn-add" aria-label="' + T('js_view_options') + ' — ' + L(p, 'name') + '">' + T('js_view_options') + '</a>'
+      : '<button class="b3d-btn-add" data-add-id="' + p.id + '" aria-label="' + btnLabel + ' — ' + L(p, 'name') + '" ' + disabled + '>' + btnLabel + '</button>';
     var specs = LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
@@ -242,8 +252,8 @@
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
           '<div class="b3d-card__actions">' +
-            '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + '" title="' + T('js_compare_btn') + '">⇄</button>' +
-            '<button class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-label="Save to wishlist" title="Save">' + (isWishlisted(p.id) ? '♥' : '♡') + '</button>' +
+            '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + ' — ' + L(p, 'name') + '" title="' + T('js_compare_btn') + '">⇄</button>' +
+            '<button class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-label="' + (isWishlisted(p.id) ? 'Remove from wishlist' : 'Save to wishlist') + ' — ' + L(p, 'name') + '" title="Save">' + (isWishlisted(p.id) ? '♥' : '♡') + '</button>' +
             actionBtn +
           '</div>' +
         '</div>' +
@@ -325,7 +335,7 @@
     try { localStorage.setItem(COMPARE_KEY, JSON.stringify(list.slice(-4))); } catch (e) {}
   }
 
-  function injectShopItemListSeo(products) {
+  function injectItemListSeo(products, scriptId, listName) {
     var itemListLd = {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -334,15 +344,16 @@
           '@type': 'ListItem',
           'position': i + 1,
           'url': 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id,
-          'name': p.name
+          'name': L(p, 'name')
         };
       })
     };
-    var script = document.getElementById('shop-jsonld-itemlist');
+    if (listName) itemListLd.name = listName;
+    var script = document.getElementById(scriptId);
     if (!script) {
       script = document.createElement('script');
       script.type = 'application/ld+json';
-      script.id = 'shop-jsonld-itemlist';
+      script.id = scriptId;
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(itemListLd);
@@ -807,6 +818,7 @@
             'price': v.price,
             'priceCurrency': p.currency || 'SAR',
             'availability': v.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+            'itemCondition': 'https://schema.org/NewCondition',
             'url': pageUrl
           };
         })
@@ -815,6 +827,7 @@
           'price': priceValue,
           'priceCurrency': p.currency || 'SAR',
           'availability': p.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+          'itemCondition': 'https://schema.org/NewCondition',
           'url': pageUrl
         };
 
@@ -823,6 +836,7 @@
       '@type': 'Product',
       'name': name,
       'description': desc,
+      'url': pageUrl,
       'sku': p.sku || p.id,
       'brand': { '@type': 'Brand', 'name': p.brand || 'Black Arrow 3D' },
       'image': (p.images || []).map(absUrl),
@@ -1086,6 +1100,7 @@
     fetchProducts().then(function (products) {
       var byId = {};
       products.forEach(function (p) { byId[p.id] = p; });
+      var matched = PRINTER_PICKER.map(function (item) { return byId[item.id]; }).filter(Boolean);
       container.innerHTML = PRINTER_PICKER.map(function (item) {
         var p = byId[item.id];
         if (!p) return '';
@@ -1098,6 +1113,7 @@
             '<a href="/3d/product/?slug=' + p.id + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
           '</div>';
       }).join('');
+      injectItemListSeo(matched, 'home-jsonld-picker', 'Which Printer Is Right for You?');
     });
   }
 
@@ -1325,6 +1341,7 @@
       fetchProducts().then(function (products) {
         var featured = products.filter(function (p) { return p.available !== false; }).slice(0, 8);
         renderGrid(featured, featuredGrid);
+        injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
       });
     }
 
@@ -1340,7 +1357,7 @@
     var grid = document.querySelector('[data-b3d-grid]');
     if (grid) {
       fetchProducts().then(function (products) {
-        injectShopItemListSeo(products);
+        injectItemListSeo(products, 'shop-jsonld-itemlist', 'Black Arrow 3D — Shop');
         initShopPage(products, {
           grid: grid,
           count: document.querySelector('[data-b3d-count]'),
