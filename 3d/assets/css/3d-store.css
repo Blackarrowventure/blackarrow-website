@@ -1228,6 +1228,7 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 
 .b3d-corner-badge--featured { top: 12px; background: rgba(245,158,11,.92); color: #1a1a1a; }
 .b3d-corner-badge--sale { top: 40px; background: rgba(220,38,38,.92); color: #fff; }
+.b3d-corner-badge--new { top: 68px; background: rgba(4,120,87,.92); color: #fff; }
 
 .b3d-stock-badge--pre { background: rgba(245,158,11,.92); color: #1a1a1a; border: 1px solid var(--clr-accent); }
 

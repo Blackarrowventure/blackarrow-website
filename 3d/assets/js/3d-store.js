@@ -175,6 +175,7 @@
   }
 
   function primaryImage(p) {
+    if (p.cardImage) return p.cardImage;
     if (p.images && p.images.length) return p.images[0];
     if (p.image) return p.image;
     return null;
@@ -247,6 +248,7 @@
     var out = '';
     if (p.featured) out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured') + '</span>';
     if (p.onSale) out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge') + '</span>';
+    if (p.newArrival) out += '<span class="b3d-corner-badge b3d-corner-badge--new">' + T('shop_new_badge') + '</span>';
     return out;
   }
 
@@ -835,7 +837,7 @@
   function updateProductSeo(p) {
     var name = L(p, 'name');
     var desc = L(p, 'shortDesc') || L(p, 'description') || '';
-    var img = (p.images && p.images[0]) || p.image || '';
+    var img = primaryImage(p) || '';
     var pageUrl = 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id;
 
     var metaDesc = document.querySelector('meta[name="description"]');
@@ -962,14 +964,15 @@
         ? '<div class="b3d-pd__compat"><h2>' + T('js_compatibility_heading') + '</h2><ul>' + compatList.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
         : '';
       var images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
+      var heroImg = p.cardImage || (images.length ? images[0] : null);
       var thumbsHtml = images.length > 1
         ? '<div class="b3d-pd__thumbs">' + images.map(function (src, i) {
             var thumbLabel = T('js_view_image') + ' ' + (i + 1) + ' — ' + L(p, 'name');
-            return '<button class="b3d-pd__thumb' + (i === 0 ? ' is-active' : '') + '" data-thumb-src="' + src + '" aria-label="' + thumbLabel + '"><img src="' + src + '" alt=""></button>';
+            return '<button class="b3d-pd__thumb' + (src === heroImg ? ' is-active' : '') + '" data-thumb-src="' + src + '" aria-label="' + thumbLabel + '"><img src="' + src + '" alt=""></button>';
           }).join('') + '</div>'
         : '';
       var pdAvailable = p.available !== false;
-      var mainVisual = images.length ? '<img src="' + images[0] + '" alt="' + L(p, 'name') + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
+      var mainVisual = heroImg ? '<img src="' + heroImg + '" alt="' + L(p, 'name') + '" data-pd-main-img>' : '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
 
       var hasVariants = !!(p.variants && p.variants.length);
       var hasSwatches = hasVariants && p.variants.some(function (v) { return !!v.swatch; });
@@ -1402,7 +1405,10 @@
     var featuredGrid = document.querySelector('[data-b3d-featured-grid]');
     if (featuredGrid) {
       fetchProducts().then(function (products) {
-        var featured = products.filter(function (p) { return p.available !== false; }).slice(0, 4);
+        var available = products.filter(function (p) { return p.available !== false; });
+        var pinned = available.filter(function (p) { return !!p.featured; });
+        var rest = available.filter(function (p) { return !p.featured; });
+        var featured = pinned.concat(rest).slice(0, 4);
         renderGrid(featured, featuredGrid);
         injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
       });
