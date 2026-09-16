@@ -1019,7 +1019,6 @@
           '</div>' +
           '<div class="b3d-pd__contact-actions">' +
             '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp') + '</a>' +
-            '<a href="/contact.html" class="btn btn-outline">' + T('js_request_quote_pd') + '</a>' +
           '</div>' +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
