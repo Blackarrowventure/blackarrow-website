@@ -916,6 +916,35 @@
         ["اللون", "أخضر أو أبيض"],
         ["يتضمن", "حلقة مفاتيح معدنية"]
       ]
+    },
+    {
+      "id": "mustang-gt-3d-model",
+      "name": "3D Printed Mustang GT",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 29.99,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/mustang-gt-promo.webp"
+      ],
+      "shortDesc": "In-house 3D printed Mustang GT display model, rear-view design.",
+      "description": "A detailed, in-house 3D printed Mustang GT model built around its rear-view styling — diffuser, quad exhaust tips and spoiler all printed in. Ships in a raw, unpainted PLA finish — a DIY paint job lets you finish it in your own colors, just like the display piece shown.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Rear-view Mustang GT"],
+        ["Finish", "Raw, unpainted PLA (DIY paint job)"]
+      ],
+      "name_ar": "نموذج فورد موستنج GT مطبوع ثلاثي الأبعاد",
+      "shortDesc_ar": "نموذج عرض فورد موستنج GT مطبوع ثلاثي الأبعاد داخليًا، بتصميم من الخلف.",
+      "description_ar": "نموذج فورد موستنج GT مفصّل مطبوع ثلاثي الأبعاد داخليًا، مصمم على شكل مؤخرة السيارة — بما في ذلك الدفيوزر وفتحات العادم الرباعية والسبويلر. يُشحن بتشطيب خام غير مطلي من PLA — لتقوم أنت بطلائه بألوانك الخاصة، تماماً كما في القطعة المعروضة.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "فورد موستنج GT من الخلف"],
+        ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
+      ]
     }
   ]
 }
