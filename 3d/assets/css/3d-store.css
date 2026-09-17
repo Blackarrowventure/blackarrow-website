@@ -917,6 +917,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
   background: #111;
 }
 .b3d-slide--img-only img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.b3d-slide--img-only a { display: block; width: 100%; height: 100%; }
 
 /* Hero variant — the slider fills the existing square hero media box,
    so it borrows that box's radius/shadow instead of drawing its own. */

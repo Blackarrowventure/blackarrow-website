@@ -1274,6 +1274,32 @@
 
   /* ---------------- Promo slider ---------------- */
 
+  /* Adds one slide per product flagged "newArrival": true in
+     3d-products.json to the hero slider, so uploading a new product and
+     setting that flag is enough to get it on the homepage slider — no
+     HTML edit required. The first (workshop photo) slide already in the
+     markup is left as a permanent brand anchor and never removed. */
+  function populateHeroSlider() {
+    var slider = document.querySelector('.b3d-slider--hero[data-b3d-slider]');
+    if (!slider) return Promise.resolve();
+    var track = slider.querySelector('[data-slider-track]');
+    return fetchProducts().then(function (products) {
+      var picks = products.filter(function (p) {
+        return p.newArrival && p.available !== false;
+      }).slice(0, 3);
+      picks.forEach(function (p) {
+        var img = primaryImage(p);
+        if (!img) return;
+        var slide = document.createElement('div');
+        slide.className = 'b3d-slide b3d-slide--img-only';
+        slide.setAttribute('data-slide', '');
+        var alt = ((p.name || 'New arrival') + ' — new arrival').replace(/"/g, '&quot;');
+        slide.innerHTML = '<a href="/3d/product/?slug=' + encodeURIComponent(p.id) + '"><img src="' + img + '" alt="' + alt + '" width="700" height="700" loading="lazy"></a>';
+        track.appendChild(slide);
+      });
+    }).catch(function () {});
+  }
+
   function initPromoSlider() {
     var slider = document.querySelector('[data-b3d-slider]');
     if (!slider) return;
@@ -1396,7 +1422,7 @@
     updateCartBadges();
     initMotionToggle();
     initAnnouncementBar();
-    initPromoSlider();
+    populateHeroSlider().then(initPromoSlider);
     initBrandNavMenu();
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
