@@ -1391,6 +1391,7 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 }
 .b3d-account__form textarea { resize: vertical; min-height: 64px; }
 .b3d-account__form .b3d-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.b3d-account__form label small { display: block; margin-top: 5px; }
 @media (max-width: 500px) { .b3d-account__form .b3d-field-row { grid-template-columns: 1fr; } }
 
 .b3d-checkout__login {

@@ -156,7 +156,7 @@
                 </div>
 
                 <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="checkout_h4">Delivery Details</h3>
-                <form class="b3d-account__form" id="b3d-checkout-form" data-w3f data-success="b3d-checkout-success" data-error="b3d-checkout-error" action="https://api.web3forms.com/submit" method="POST">
+                <form class="b3d-account__form" id="b3d-checkout-form" data-b3d-checkout-submit action="https://api.web3forms.com/submit" method="POST">
                   <input type="hidden" name="access_key" value="08f9a003-ccb1-4bd0-9c6f-382ef05cd3bc">
                   <input type="hidden" name="subject" value="New Black Arrow 3D order">
                   <input type="hidden" name="from_name" value="Black Arrow 3D Shop">
@@ -169,6 +169,7 @@
                     <label><span data-i18n="checkout_last_name">Last Name</span><input type="text" name="customer_last_name" required autocomplete="family-name" data-b3d-field="last_name"></label>
                   </div>
                   <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX" data-b3d-field="phone"></label>
+                  <label><span data-i18n="checkout_email">Email Address</span><input type="email" name="email" required autocomplete="email" data-b3d-field="email"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_email_note">We'll send your order confirmation to this address.</small></label>
                   <label><span data-i18n="checkout_national_address">National Address</span><input type="text" name="customer_national_address" required autocomplete="street-address" data-b3d-field="national_address"></label>
                   <label><span data-i18n="checkout_apartment">Apartment, suite, etc. (optional)</span><input type="text" name="customer_apartment" autocomplete="address-line2" data-b3d-field="apartment"></label>
                   <div class="b3d-field-row">
@@ -270,6 +271,7 @@
 
 
   <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
+  <script src="/3d/assets/js/3d-emailjs-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js" defer></script>
   <script src="/3d/assets/js/3d-brands.js" defer></script>

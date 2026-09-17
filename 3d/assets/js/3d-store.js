@@ -728,6 +728,8 @@
         if (signedInRow) signedInRow.hidden = !user;
         if (user && emailEl) emailEl.textContent = user.email;
         if (user) {
+          var checkoutEmailField = form && form.querySelector('[data-b3d-field="email"]');
+          if (checkoutEmailField && !checkoutEmailField.value) checkoutEmailField.value = user.email;
           window.BlackArrow3DAuth.getProfile(user.id).then(function (profile) {
             if (!profile || !form) return;
             var addr = profile.last_address || {};
@@ -755,6 +757,86 @@
         });
       });
     }
+  }
+
+  function loadEmailJsSdk(cb) {
+    if (window.emailjs) { cb(true); return; }
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    script.onload = function () { cb(!!window.emailjs); };
+    script.onerror = function () { cb(false); };
+    document.head.appendChild(script);
+  }
+
+  function sendCustomerConfirmation(form) {
+    var cfg = window.BLACK_ARROW_EMAILJS_CONFIG;
+    if (!cfg || !cfg.publicKey || !cfg.serviceId || !cfg.templateId) return;
+
+    var field = function (name) {
+      var el = form.querySelector('[name="' + name + '"]');
+      return el ? el.value : '';
+    };
+    var toEmail = field('email');
+    if (!toEmail) return;
+
+    var payField = form.querySelector('[data-b3d-order-payment]');
+    var shipField = form.querySelector('[data-b3d-shipping-field]');
+    var summaryField = form.querySelector('[data-b3d-order-summary]');
+
+    var params = {
+      to_email: toEmail,
+      to_name: (field('customer_first_name') + ' ' + field('customer_last_name')).trim(),
+      order_summary: summaryField ? summaryField.value : '',
+      shipping_method: shipField ? shipField.value : '',
+      payment_method: payField ? payField.value : '',
+      order_total: document.querySelector('[data-cart-total]') ? document.querySelector('[data-cart-total]').textContent : ''
+    };
+
+    loadEmailJsSdk(function (ok) {
+      if (!ok) { console.warn('Black Arrow 3D: EmailJS SDK failed to load, customer confirmation not sent'); return; }
+      try {
+        window.emailjs.init({ publicKey: cfg.publicKey });
+        window.emailjs.send(cfg.serviceId, cfg.templateId, params).catch(function (err) {
+          console.warn('Black Arrow 3D: customer confirmation email failed', err);
+        });
+      } catch (e) {
+        console.warn('Black Arrow 3D: customer confirmation email failed', e);
+      }
+    });
+  }
+
+  function initCheckoutSubmit(form) {
+    if (!form) return;
+    var successEl = document.getElementById('b3d-checkout-success');
+    var errorEl = document.getElementById('b3d-checkout-error');
+    var submitBtn = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var label = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) { submitBtn.textContent = '...'; submitBtn.disabled = true; }
+      if (errorEl) errorEl.hidden = true;
+      if (successEl) successEl.hidden = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
+          sendCustomerConfirmation(form);
+          form.reset();
+          if (successEl) successEl.hidden = false;
+        });
+      }).catch(function () {
+        if (errorEl) errorEl.hidden = false;
+      }).then(function () {
+        if (submitBtn) { submitBtn.textContent = label; submitBtn.disabled = false; }
+      });
+    });
   }
 
   function renderCartPage(listEl, summaryEl, emptyEl) {
@@ -1508,6 +1590,7 @@
       initPaymentMethods(document.querySelector('[data-b3d-payment]'));
       initShippingMethods(document.querySelector('[data-b3d-checkout]'));
       initCheckoutAuth(document.querySelector('[data-b3d-checkout]'));
+      initCheckoutSubmit(document.querySelector('#b3d-checkout-form'));
     }
   }
 
