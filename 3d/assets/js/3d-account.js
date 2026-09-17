@@ -140,7 +140,9 @@
 
       guardedSubmit(signupForm, function () {
         var err = document.getElementById('signup-error');
+        var success = document.getElementById('signup-success');
         err.hidden = true;
+        success.hidden = true;
         return window.BlackArrow3DAuth.signUp(
           document.getElementById('signup-email').value,
           document.getElementById('signup-password').value,
@@ -148,7 +150,17 @@
             name: document.getElementById('signup-name').value,
             phone: document.getElementById('signup-phone').value
           }
-        ).catch(function (error) { showError(err, error); throw error; });
+        ).then(function (res) {
+          // Email confirmation is on by default: a successful signUp() call
+          // returns a user but no session until they click the confirmation
+          // link, so the page would otherwise just sit there looking broken.
+          var user = res && res.data && res.data.user;
+          var session = res && res.data && res.data.session;
+          if (user && !session) {
+            signupForm.reset();
+            success.hidden = false;
+          }
+        }).catch(function (error) { showError(err, error); throw error; });
       });
 
       var forgotLink = document.getElementById('b3d-forgot-link');
