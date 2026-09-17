@@ -309,22 +309,12 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   box-shadow: 0 20px 40px rgba(0,0,0,.35);
 }
 
-.b3d-card--art .b3d-card__visual {
-  height: 280px;
-  background: #111;
-}
-
-.b3d-card--art .b3d-card__visual img {
-  object-fit: cover;
-  padding: 0;
-}
-
 .b3d-card__visual {
-  height: 160px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f4f3f0;
+  background: #111;
   position: relative;
 }
 
@@ -338,8 +328,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 .b3d-card__visual img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 14px;
+  object-fit: cover;
 }
 
 .b3d-card__visual-placeholder {
@@ -397,11 +386,11 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .b3d-card__body p {
   color: rgba(255,255,255,.72);
-  font-size: .85rem;
-  line-height: 1.6;
+  font-size: .8rem;
+  line-height: 1.5;
   margin-bottom: 12px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
