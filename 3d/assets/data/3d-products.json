@@ -858,6 +858,35 @@
         ["أرجل الدعم", "رجلان بشكل برغي مرفقتان"]
       ],
       "compatibility_ar": ["يد تحكم PS5 DualSense"]
+    },
+    {
+      "id": "custom-3d-artwork",
+      "name": "Custom 3D Artwork",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/custom-3d-artwork-promo.webp"
+      ],
+      "shortDesc": "Turn your sketch, character or logo into a custom 3D printed piece.",
+      "description": "Send us a character, logo, drawing or original idea and we'll design and 3D print it into a unique display piece, layer by layer. Ships in a raw, unpainted PLA finish — a DIY paint job lets you finish it in your own colors. Order and share your reference image via WhatsApp.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Custom — based on your reference image"],
+        ["Finish", "Raw, unpainted PLA (DIY paint job)"]
+      ],
+      "name_ar": "أعمال فنية ثلاثية الأبعاد مخصصة",
+      "shortDesc_ar": "حوّل رسمتك أو شخصيتك أو شعارك إلى قطعة مطبوعة ثلاثية الأبعاد مخصصة.",
+      "description_ar": "أرسل لنا شخصية أو شعارًا أو رسمة أو فكرة أصلية وسنصممها ونطبعها ثلاثي الأبعاد لتكون قطعة عرض مميزة. تُشحن بتشطيب خام غير مطلي من PLA — لتقوم أنت بطلائها بألوانك الخاصة. اطلب وشارك صورتك المرجعية عبر واتساب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "مخصص — بناءً على صورتك المرجعية"],
+        ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
+      ]
     }
   ]
 }
