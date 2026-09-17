@@ -629,7 +629,26 @@
     }
   };
 
+  /* Pages under /3d/ar/ (real, separately-indexable Arabic pages, not the
+     old localStorage-driven toggle) are always Arabic regardless of any
+     stale toggle choice from elsewhere on the site — and their English
+     counterparts (home, shop, category and product pages, which now also
+     ship a real /3d/ar/... twin) are always English for the same reason:
+     the URL is the source of truth wherever a real bilingual URL pair
+     exists. Everywhere else (cart, account, compare, blog, etc., which
+     don't have a separate Arabic URL yet) keeps the original
+     localStorage-based toggle unchanged. */
+  function isBilingualEnRoute(path) {
+    return path === '/3d/' || path === '/3d/index.html' ||
+      path === '/3d/shop/' || path === '/3d/shop/index.html' ||
+      /^\/3d\/shop\/[a-z0-9-]+\/$/.test(path) ||
+      /^\/3d\/product\/[a-z0-9-]+\/$/.test(path);
+  }
+
   function getLang() {
+    var path = location.pathname;
+    if (path.indexOf('/3d/ar/') === 0) return 'ar';
+    if (isBilingualEnRoute(path)) return 'en';
     try {
       return localStorage.getItem(LANG_KEY) === 'ar' ? 'ar' : 'en';
     } catch (e) { return 'en'; }

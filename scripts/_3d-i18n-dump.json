@@ -1,0 +1,606 @@
+{
+  "announce_1": {
+    "en": "COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon · New: 3D Artwork now available · Restocking all printers soon",
+    "ar": "الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً"
+  },
+  "b3d_shop_h1_page": {
+    "en": "Shop",
+    "ar": "المتجر"
+  },
+  "b3d_shop_p": {
+    "en": "Genuine 3D printers backed by real after-sales support across Saudi Arabia — priced in SAR with nationwide delivery.",
+    "ar": "طابعات ثلاثية الأبعاد أصلية مع دعم حقيقي لما بعد البيع في جميع أنحاء المملكة العربية السعودية — أسعار بالريال السعودي مع توصيل لكل المناطق."
+  },
+  "cat_coming_soon": {
+    "en": "Coming Soon",
+    "ar": "قريباً"
+  },
+  "faq_a1": {
+    "en": "Yes — WhatsApp us or use the contact page, and we will follow up directly.",
+    "ar": "نعم — راسلنا عبر واتساب أو استخدم صفحة التواصل وسنتابع معك مباشرة."
+  },
+  "faq_a2": {
+    "en": "Cash on Delivery, Bank Transfer and Business Quotation are active now. Card and wallet payments (mada, Visa/Mastercard, Apple Pay, STC Pay, Tamara, Tabby) are coming soon, pending payment gateway approval.",
+    "ar": "الدفع عند الاستلام والتحويل البنكي وعرض السعر للشركات متاحة الآن. الدفع بالبطاقات والمحافظ الإلكترونية (مدى، فيزا/ماستركارد، Apple Pay، STC Pay، تمارا، تابي) قريبًا، بانتظار اعتماد بوابة الدفع."
+  },
+  "faq_a5": {
+    "en": "Across Saudi Arabia.",
+    "ar": "إلى جميع مناطق المملكة العربية السعودية."
+  },
+  "faq_a6": {
+    "en": "By phone, WhatsApp or email — see the footer for our contact details.",
+    "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
+  },
+  "faq_h2": {
+    "en": "Frequently Asked Questions",
+    "ar": "الأسئلة الشائعة"
+  },
+  "faq_q1": {
+    "en": "Do you offer business quotations?",
+    "ar": "هل تقدمون عروض أسعار للشركات؟"
+  },
+  "faq_q2": {
+    "en": "What payment methods are available?",
+    "ar": "ما هي طرق الدفع المتاحة؟"
+  },
+  "faq_q5": {
+    "en": "Where do you deliver?",
+    "ar": "أين تقومون بالتوصيل؟"
+  },
+  "faq_q6": {
+    "en": "How can I contact you?",
+    "ar": "كيف يمكنني التواصل معكم؟"
+  },
+  "filter_accessorycompat_legend": {
+    "en": "Accessory compatibility",
+    "ar": "التوافق مع الطابعات"
+  },
+  "filter_all_option": {
+    "en": "All",
+    "ar": "الكل"
+  },
+  "filter_apply": {
+    "en": "Apply Filters",
+    "ar": "تطبيق الفلاتر"
+  },
+  "filter_avail_legend": {
+    "en": "Availability",
+    "ar": "التوفر"
+  },
+  "filter_brand_legend": {
+    "en": "Brand",
+    "ar": "العلامة التجارية"
+  },
+  "filter_buildvolume_legend": {
+    "en": "Build volume",
+    "ar": "حجم الطباعة"
+  },
+  "filter_clear": {
+    "en": "Clear all",
+    "ar": "مسح الكل"
+  },
+  "filter_filamentmaterial_legend": {
+    "en": "Filament material",
+    "ar": "خامة الفلمنت"
+  },
+  "filter_highlights_legend": {
+    "en": "Highlights",
+    "ar": "أبرز الميزات"
+  },
+  "filter_instock_only": {
+    "en": "In stock only",
+    "ar": "المتوفر فقط"
+  },
+  "filter_max": {
+    "en": "Max",
+    "ar": "الأقصى"
+  },
+  "filter_min": {
+    "en": "Min",
+    "ar": "الأدنى"
+  },
+  "filter_onsale": {
+    "en": "On sale",
+    "ar": "عليه تخفيض"
+  },
+  "filter_preorder_only": {
+    "en": "Pre-order only",
+    "ar": "الطلب المسبق فقط"
+  },
+  "filter_pricerange_legend": {
+    "en": "Price range (SAR)",
+    "ar": "نطاق السعر (ريال سعودي)"
+  },
+  "filter_printertype_legend": {
+    "en": "Printer type",
+    "ar": "نوع الطابعة"
+  },
+  "footer_address": {
+    "en": "Dammam, Eastern Province, Saudi Arabia",
+    "ar": "الدمام، المنطقة الشرقية، المملكة العربية السعودية"
+  },
+  "footer_brand_desc": {
+    "en": "A Black Arrow Venture company line of business. 3D printing equipment & supplies.",
+    "ar": "أحد قطاعات أعمال شركة بلاك أرو فنتشر. معدات وتوريدات الطباعة ثلاثية الأبعاد."
+  },
+  "footer_cart": {
+    "en": "Cart",
+    "ar": "عربة التسوق"
+  },
+  "footer_col_venture": {
+    "en": "Black Arrow Venture",
+    "ar": "بلاك أرو فنتشر"
+  },
+  "footer_compare": {
+    "en": "Compare",
+    "ar": "مقارنة"
+  },
+  "footer_contact": {
+    "en": "Contact",
+    "ar": "اتصل بنا"
+  },
+  "footer_copyright": {
+    "en": "Black Arrow Venture company. All rights reserved.",
+    "ar": "شركة بلاك أرو فنتشر. جميع الحقوق محفوظة."
+  },
+  "footer_cr_vat": {
+    "en": "CR 7054542985 · VAT 314841084500003",
+    "ar": "سجل تجاري 7054542985 · الرقم الضريبي 314841084500003"
+  },
+  "footer_home": {
+    "en": "Home",
+    "ar": "الرئيسية"
+  },
+  "footer_main_site": {
+    "en": "Main Site",
+    "ar": "الموقع الرئيسي"
+  },
+  "footer_my_account": {
+    "en": "My Account",
+    "ar": "حسابي"
+  },
+  "footer_privacy": {
+    "en": "Privacy Policy",
+    "ar": "سياسة الخصوصية"
+  },
+  "footer_returns": {
+    "en": "Returns and Refunds",
+    "ar": "الاسترجاع والاسترداد"
+  },
+  "footer_services": {
+    "en": "Services",
+    "ar": "الخدمات"
+  },
+  "footer_terms": {
+    "en": "Terms and Conditions",
+    "ar": "الشروط والأحكام"
+  },
+  "footer_whatsapp": {
+    "en": "WhatsApp",
+    "ar": "واتساب"
+  },
+  "hub_ask_question": {
+    "en": "Get Expert Advice",
+    "ar": "احصل على استشارة متخصص"
+  },
+  "hub_blog_cta": {
+    "en": "View All Guides",
+    "ar": "عرض جميع الأدلة"
+  },
+  "hub_blog_h2": {
+    "en": "Guides & Tutorials",
+    "ar": "أدلة ومقالات"
+  },
+  "hub_brand_h2": {
+    "en": "Shop by Brand",
+    "ar": "تسوّق حسب العلامة التجارية"
+  },
+  "hub_brand_sub": {
+    "en": "Browse the catalog by manufacturer",
+    "ar": "تصفح الكتالوج حسب الشركة المصنّعة"
+  },
+  "hub_cat1_desc": {
+    "en": "Desktop to industrial scale",
+    "ar": "من الحجم المكتبي إلى الصناعي"
+  },
+  "hub_cat2_desc": {
+    "en": "High-detail printing",
+    "ar": "طباعة عالية الدقة"
+  },
+  "hub_cat2_title": {
+    "en": "Resin (SLA/MSLA)",
+    "ar": "الراتنج (SLA/MSLA)"
+  },
+  "hub_cat3_desc": {
+    "en": "PLA, PETG, ABS & more",
+    "ar": "PLA وPETG وABS وغيرها"
+  },
+  "hub_cat4_desc": {
+    "en": "Everything to keep printing",
+    "ar": "كل ما يلزم لمواصلة الطباعة"
+  },
+  "hub_cat5_desc": {
+    "en": "Designed & printed in-house",
+    "ar": "تصميم وطباعة داخلية"
+  },
+  "hub_cat_h2": {
+    "en": "Shop by Category",
+    "ar": "تسوّق حسب الفئة"
+  },
+  "hub_compare_all": {
+    "en": "Compare All 3D Printers",
+    "ar": "قارن جميع الطابعات ثلاثية الأبعاد"
+  },
+  "hub_cta_h2": {
+    "en": "Ready to Browse the Catalog?",
+    "ar": "هل أنت مستعد لتصفح الكتالوج؟"
+  },
+  "hub_cta_p": {
+    "en": "Browse 3D printers, filament and accessories from Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic and Flashforge.",
+    "ar": "تصفح الطابعات ثلاثية الأبعاد والفلمنت والملحقات من Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge."
+  },
+  "hub_explore_shop": {
+    "en": "Shop 3D Printers",
+    "ar": "تسوّق الطابعات ثلاثية الأبعاد"
+  },
+  "hub_featured_h2": {
+    "en": "Featured Products",
+    "ar": "منتجات مختارة"
+  },
+  "hub_featured_sub": {
+    "en": "A snapshot of what is available right now",
+    "ar": "لمحة عمّا هو متاح الآن"
+  },
+  "hub_hero_eyebrow": {
+    "en": "3D Printing, Made Easy",
+    "ar": "الطباعة ثلاثية الأبعاد، ببساطة"
+  },
+  "hub_hero_h1_a": {
+    "en": "3D Printers and Materials",
+    "ar": "طابعات ومواد الطباعة ثلاثية الأبعاد"
+  },
+  "hub_hero_h1_b": {
+    "en": "for Saudi Arabia",
+    "ar": "لكل أنحاء المملكة"
+  },
+  "hub_hero_p": {
+    "en": "Shop reliable 3D printers, filament and accessories with local support, warranty coverage and nationwide delivery.",
+    "ar": "تسوّق طابعات ثلاثية الأبعاد وفلامنت وملحقات موثوقة مع دعم محلي وضمان وتوصيل لجميع مناطق المملكة."
+  },
+  "hub_picker_h2": {
+    "en": "Which Printer Is Right for You?",
+    "ar": "أي طابعة تناسبك؟"
+  },
+  "hub_picker_sub": {
+    "en": "Not sure where to start? Here's how our printers compare by real use case.",
+    "ar": "لست متأكدًا من أين تبدأ؟ إليك كيف تقارن طابعاتنا حسب الاستخدام الفعلي."
+  },
+  "hub_trust_1": {
+    "en": "Genuine, authorized products",
+    "ar": "منتجات أصلية ومعتمدة"
+  },
+  "hub_trust_2": {
+    "en": "Business quotations available",
+    "ar": "عروض أسعار للشركات متاحة"
+  },
+  "hub_trust_3": {
+    "en": "WhatsApp support",
+    "ar": "دعم عبر واتساب"
+  },
+  "hub_trust_4": {
+    "en": "Cash on delivery & bank transfer",
+    "ar": "الدفع عند الاستلام والتحويل البنكي"
+  },
+  "hub_why_h2": {
+    "en": "Real Printers, Real Support, Real Warranty",
+    "ar": "طابعات حقيقية، ودعم حقيقي، وضمان حقيقي"
+  },
+  "hub_why_li1": {
+    "en": "Printers picked for everyday reliability, not just spec-sheet numbers",
+    "ar": "طابعات تُختار لموثوقيتها في الاستخدام اليومي، لا لمجرد أرقام في نشرة المواصفات"
+  },
+  "hub_why_li2": {
+    "en": "Genuine spare parts and consumables kept in stock — not a one-time drop-ship",
+    "ar": "قطع غيار ومستهلكات أصلية متوفرة باستمرار، وليست بنظام الشحن المباشر لمرة واحدة"
+  },
+  "hub_why_li3": {
+    "en": "Setup help and after-sales support from a real local team, in Arabic or English",
+    "ar": "مساعدة في التركيب ودعم ما بعد البيع من فريق محلي حقيقي، بالعربية أو الإنجليزية"
+  },
+  "hub_why_overline": {
+    "en": "Why Buy From Black Arrow 3D",
+    "ar": "لماذا تشتري من بلاك أرو 3D"
+  },
+  "nav_3d_printers": {
+    "en": "3D Printers",
+    "ar": "طابعات ثلاثية الأبعاد"
+  },
+  "nav_accessories": {
+    "en": "Accessories",
+    "ar": "الملحقات"
+  },
+  "nav_all_brands": {
+    "en": "All Brands",
+    "ar": "جميع العلامات التجارية"
+  },
+  "nav_bag": {
+    "en": "Bag",
+    "ar": "السلة"
+  },
+  "nav_black_arrow_3d_full": {
+    "en": "Black Arrow 3D",
+    "ar": "بلاك أرو 3D"
+  },
+  "nav_blog": {
+    "en": "Blog",
+    "ar": "المدونة"
+  },
+  "nav_brands": {
+    "en": "Brands",
+    "ar": "العلامات التجارية"
+  },
+  "nav_filaments": {
+    "en": "Filaments",
+    "ar": "خيوط الطباعة"
+  },
+  "nav_gaming_accessories": {
+    "en": "3D Artwork",
+    "ar": "أعمال فنية ثلاثية الأبعاد"
+  },
+  "nav_home": {
+    "en": "Home",
+    "ar": "الرئيسية"
+  },
+  "nav_profile": {
+    "en": "Profile",
+    "ar": "الحساب"
+  },
+  "nav_shop": {
+    "en": "Shop",
+    "ar": "المتجر"
+  },
+  "nav_tagline": {
+    "en": "Printing Equipment & Supplies",
+    "ar": "معدات وتوريدات الطباعة ثلاثية الأبعاد"
+  },
+  "pd_crumb_default": {
+    "en": "Product",
+    "ar": "المنتج"
+  },
+  "pd_loading": {
+    "en": "Loading product…",
+    "ar": "جارٍ تحميل المنتج…"
+  },
+  "shop_all": {
+    "en": "All",
+    "ar": "الكل"
+  },
+  "shop_all_brands": {
+    "en": "All brands",
+    "ar": "جميع العلامات التجارية"
+  },
+  "shop_featured": {
+    "en": "Featured",
+    "ar": "مميز"
+  },
+  "shop_filters_btn": {
+    "en": "Filters",
+    "ar": "التصفية"
+  },
+  "shop_products_published": {
+    "en": "products published",
+    "ar": "منتج منشور"
+  },
+  "shop_results_h2": {
+    "en": "Products",
+    "ar": "المنتجات"
+  },
+  "shop_sort_featured": {
+    "en": "Sort: Featured",
+    "ar": "الترتيب: المميز"
+  },
+  "shop_sort_name_asc": {
+    "en": "Name: A–Z",
+    "ar": "الاسم: أ-ي"
+  },
+  "shop_sort_price_asc": {
+    "en": "Price: Low to High",
+    "ar": "السعر: من الأقل إلى الأعلى"
+  },
+  "shop_sort_price_desc": {
+    "en": "Price: High to Low",
+    "ar": "السعر: من الأعلى إلى الأقل"
+  },
+  "trust_delivery": {
+    "en": "Delivery across Saudi Arabia",
+    "ar": "توصيل لجميع مناطق السعودية"
+  },
+  "trust_payment": {
+    "en": "Online payment coming soon",
+    "ar": "الدفع الإلكتروني قريباً"
+  },
+  "trust_quotation": {
+    "en": "Business quotations",
+    "ar": "عروض أسعار للأعمال"
+  },
+  "trust_support": {
+    "en": "Local support",
+    "ar": "دعم محلي"
+  },
+  "trust_vat": {
+    "en": "VAT invoice",
+    "ar": "فاتورة ضريبية"
+  },
+  "trust_warranty": {
+    "en": "Manufacturer warranty",
+    "ar": "ضمان الشركة المصنّعة"
+  },
+  "cart_go_shop": {
+    "en": "Go to Shop",
+    "ar": "الذهاب إلى المتجر"
+  },
+  "js_add_to_cart": {
+    "en": "Add to Cart",
+    "ar": "أضف إلى السلة"
+  },
+  "js_added": {
+    "en": "Added ✓",
+    "ar": "أُضيف ✓"
+  },
+  "js_added_to_compare": {
+    "en": "Added to Compare",
+    "ar": "أُضيف للمقارنة"
+  },
+  "js_ask_whatsapp": {
+    "en": "Ask on WhatsApp",
+    "ar": "اسأل عبر واتساب"
+  },
+  "js_back_to_shop": {
+    "en": "Back to shop",
+    "ar": "العودة إلى المتجر"
+  },
+  "js_card_delivery": {
+    "en": "Delivery: KSA-wide",
+    "ar": "توصيل لكل المملكة"
+  },
+  "js_card_warranty": {
+    "en": "Warranty included",
+    "ar": "يشمل الضمان"
+  },
+  "js_check_back_soon": {
+    "en": "Check back soon, or contact us for current availability.",
+    "ar": "تابعونا قريباً، أو تواصلوا معنا لمعرفة التوفر الحالي."
+  },
+  "js_cmp_availability": {
+    "en": "Availability",
+    "ar": "التوفر"
+  },
+  "js_cmp_brand": {
+    "en": "Brand",
+    "ar": "العلامة التجارية"
+  },
+  "js_cmp_price": {
+    "en": "Price",
+    "ar": "السعر"
+  },
+  "js_compare_btn": {
+    "en": "Compare",
+    "ar": "قارن"
+  },
+  "js_compatibility_heading": {
+    "en": "Compatibility",
+    "ar": "التوافق"
+  },
+  "js_from": {
+    "en": "From",
+    "ar": "يبدأ من"
+  },
+  "js_from_tooltip": {
+    "en": "Starting price — final price depends on the option you choose (e.g. Standalone vs Combo).",
+    "ar": "السعر الابتدائي — السعر النهائي يعتمد على الخيار الذي تختاره (مثلاً منفردة أو باقة)."
+  },
+  "js_no_products_published": {
+    "en": "No products published yet",
+    "ar": "لا توجد منتجات منشورة بعد"
+  },
+  "js_nothing_to_compare_h2": {
+    "en": "Nothing to compare yet",
+    "ar": "لا يوجد ما يمكن مقارنته بعد"
+  },
+  "js_nothing_to_compare_p": {
+    "en": "Select at least two products from the shop to compare specifications, features and prices.",
+    "ar": "اختر منتجين على الأقل من المتجر لمقارنة المواصفات والميزات والأسعار."
+  },
+  "js_out_of_stock": {
+    "en": "Out of Stock",
+    "ar": "غير متوفر"
+  },
+  "js_pre_order": {
+    "en": "Pre-Order",
+    "ar": "طلب مسبق"
+  },
+  "js_product_image": {
+    "en": "Product image",
+    "ar": "صورة المنتج"
+  },
+  "js_product_not_found": {
+    "en": "Product not found",
+    "ar": "المنتج غير موجود"
+  },
+  "js_product_not_found_desc": {
+    "en": "That product isn’t in the catalog yet.",
+    "ar": "هذا المنتج غير متوفر في الكتالوج بعد."
+  },
+  "js_qty_decrease": {
+    "en": "Decrease quantity",
+    "ar": "إنقاص الكمية"
+  },
+  "js_qty_increase": {
+    "en": "Increase quantity",
+    "ar": "زيادة الكمية"
+  },
+  "js_qty_label": {
+    "en": "Quantity",
+    "ar": "الكمية"
+  },
+  "js_related_products": {
+    "en": "Related Products",
+    "ar": "منتجات ذات صلة"
+  },
+  "js_remove": {
+    "en": "Remove",
+    "ar": "إزالة"
+  },
+  "js_returns_desc_prefix": {
+    "en": "See our",
+    "ar": "راجع"
+  },
+  "js_returns_desc_suffix": {
+    "en": "for the return policy.",
+    "ar": "لمعرفة سياسة الإرجاع."
+  },
+  "js_returns_heading": {
+    "en": "Returns",
+    "ar": "الإرجاع"
+  },
+  "js_sale_badge": {
+    "en": "Sale",
+    "ar": "خصم"
+  },
+  "js_shipping_desc": {
+    "en": "Calculated at checkout, across Saudi Arabia.",
+    "ar": "يُحتسب عند إتمام الطلب، لجميع مناطق المملكة العربية السعودية."
+  },
+  "js_shipping_heading": {
+    "en": "Shipping",
+    "ar": "الشحن"
+  },
+  "js_view_cart": {
+    "en": "View Cart",
+    "ar": "عرض السلة"
+  },
+  "js_view_image": {
+    "en": "View image",
+    "ar": "عرض الصورة"
+  },
+  "js_view_product": {
+    "en": "View Product",
+    "ar": "عرض المنتج"
+  },
+  "js_warranty_heading": {
+    "en": "Warranty",
+    "ar": "الضمان"
+  },
+  "js_zoom_image": {
+    "en": "Click to zoom image",
+    "ar": "اضغط لتكبير الصورة"
+  },
+  "promo_instock_badge": {
+    "en": "In Stock",
+    "ar": "متوفرة الآن"
+  },
+  "promo_preorder_badge": {
+    "en": "Pre-Order",
+    "ar": "حجز مسبق"
+  }
+}

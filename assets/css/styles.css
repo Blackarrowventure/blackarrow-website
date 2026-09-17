@@ -697,6 +697,33 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .btn-3d-explore:focus-visible { background: var(--clr-accent-dark); color: #1a1400; transform: translateY(-1px); }
 .btn-3d-explore__icon { width: 15px; height: 12px; flex-shrink: 0; color: #1a1400; }
 
+/* Homepage banner promoting the /3d/ storefront as its own line of
+   business — the nav pill above is easy to miss, this is a full-width,
+   can't-miss call-out further down the page. */
+.b3d-promo-banner {
+  background: var(--clr-navy-dark, #10151f);
+  color: #fff;
+}
+.b3d-promo-banner__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.b3d-promo-banner__img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.b3d-promo-banner__text .overline { color: var(--clr-accent); }
+.b3d-promo-banner__text h2 { color: #fff; margin-bottom: 14px; }
+.b3d-promo-banner__text p { color: rgba(255, 255, 255, .8); margin-bottom: 24px; }
+@media (max-width: 860px) {
+  .b3d-promo-banner__inner { grid-template-columns: 1fr; }
+  .b3d-promo-banner__img { order: -1; }
+}
+
 /* Employee Login - a quiet, secondary utility action (gold-tinted, using
    the same --clr-accent-hover/--clr-accent-active tokens the accent color
    already defines) so it never competes with the real conversion action,

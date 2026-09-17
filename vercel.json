@@ -37,6 +37,12 @@
       "source": "/ar/services/general-trading/",
       "destination": "/ar/services.html",
       "permanent": true
+    },
+    {
+      "source": "/3d/product/",
+      "has": [{ "type": "query", "key": "slug", "value": "(?<slug>.*)" }],
+      "destination": "/3d/product/:slug/",
+      "permanent": true
     }
   ],
   "headers": [

@@ -181,6 +181,22 @@
     return null;
   }
 
+  /* Clean, crawlable product URLs (/3d/product/<id>/) replaced the old
+     query-string form (/3d/product/?slug=<id>) so search engines can
+     index each product at its own address — see
+     scripts/generate-3d-static-pages.js, which pre-renders the actual
+     HTML for these URLs. Every link this file builds should point at
+     the clean form; the old query-string page still works (read via
+     renderProductDetail's fallback below) and is 301-redirected at the
+     edge (vercel.json) for anyone with an old link bookmarked. */
+  function isArPage() {
+    return location.pathname.indexOf('/3d/ar/') === 0;
+  }
+
+  function productUrl(p) {
+    return (isArPage() ? '/3d/ar' : '/3d') + '/product/' + p.id + '/';
+  }
+
   /* Native pixel width of each product image that has a matching -500w.webp
      variant generated alongside it (see scripts/optimize_images.py history) —
      needed so the srcset width descriptor is accurate, not just a guess. */
@@ -257,7 +273,7 @@
        Add to Cart / View Options used to compete with each other across
        cards. Actual purchase happens on the product page, which already
        has the full variant picker and quantity control. */
-    var href = '/3d/product/?slug=' + p.id;
+    var href = productUrl(p);
     var actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
     var isArt = p.category === '3D Artwork';
     var specs = isArt ? '' : LSpecs(p).slice(0, 3).map(function (row) {
@@ -375,7 +391,7 @@
         return {
           '@type': 'ListItem',
           'position': i + 1,
-          'url': 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id,
+          'url': 'https://www.blackarrowksa.com' + productUrl(p),
           'name': L(p, 'name')
         };
       })
@@ -839,7 +855,7 @@
     var name = L(p, 'name');
     var desc = L(p, 'shortDesc') || L(p, 'description') || '';
     var img = primaryImage(p) || '';
-    var pageUrl = 'https://www.blackarrowksa.com/3d/product/?slug=' + p.id;
+    var pageUrl = 'https://www.blackarrowksa.com' + productUrl(p);
 
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', desc);
@@ -947,6 +963,10 @@
 
   function renderProductDetail(container) {
     var slug = new URLSearchParams(location.search).get('slug');
+    if (!slug) {
+      var pathMatch = location.pathname.match(/\/product\/([^\/]+)\/?$/);
+      if (pathMatch) slug = decodeURIComponent(pathMatch[1]);
+    }
     fetchProducts().then(function (products) {
       var p = products.filter(function (x) { return x.id === slug; })[0];
       if (!p) {
@@ -1157,7 +1177,7 @@
             '<h3>' + L(p, 'name') + '</h3>' +
             '<p>' + T(item.whyKey) + '</p>' +
             '<div class="b3d-picker-card__meta">' + priceBlock(p) + '</div>' +
-            '<a href="/3d/product/?slug=' + p.id + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
+            '<a href="' + productUrl(p) + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
           '</div>';
       }).join('');
       injectItemListSeo(matched, 'home-jsonld-picker', 'Which Printer Is Right for You?');
@@ -1241,7 +1261,7 @@
 
       var html = '<table class="b3d-compare-table"><thead><tr><th></th>' +
         items.map(function (p) {
-          return '<th><a href="/3d/product/?slug=' + p.id + '" style="color:#fff;">' + L(p, 'name') + '</a></th>';
+          return '<th><a href="' + productUrl(p) + '" style="color:#fff;">' + L(p, 'name') + '</a></th>';
         }).join('') + '</tr></thead><tbody>';
 
       html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
@@ -1294,7 +1314,7 @@
         slide.className = 'b3d-slide b3d-slide--img-only';
         slide.setAttribute('data-slide', '');
         var alt = ((p.name || 'New arrival') + ' — new arrival').replace(/"/g, '&quot;');
-        slide.innerHTML = '<a href="/3d/product/?slug=' + encodeURIComponent(p.id) + '"><img src="' + img + '" alt="' + alt + '" width="700" height="700" loading="lazy"></a>';
+        slide.innerHTML = '<a href="' + productUrl(p) + '"><img src="' + img + '" alt="' + alt + '" width="700" height="700" loading="lazy"></a>';
         track.appendChild(slide);
       });
     }).catch(function () {});

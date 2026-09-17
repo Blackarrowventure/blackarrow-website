@@ -1,0 +1,585 @@
+#!/usr/bin/env python3
+"""Generates pre-rendered, crawlable static pages for the Black Arrow 3D
+store: one page per product at /3d/product/<id>/ (+ /3d/ar/product/<id>/),
+one landing page per category at /3d/shop/<slug>/ (+ AR), and the AR
+mirrors of the homepage and shop index.
+
+Run this after ANY change to 3d/assets/data/3d-products.json (new product,
+price change, new category) — it is the only thing that keeps the
+pre-rendered pages in sync with the catalog. The interactive site (cart,
+compare, live shop filtering) is untouched; 3d-store.js still hydrates
+every one of these pages on load exactly as before, this script only
+bakes in the same content server-side so search engines see it without
+running JavaScript.
+
+Usage: python scripts/generate_3d_static.py
+"""
+import json
+import os
+import re
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PRODUCTS_JSON = os.path.join(ROOT, '3d', 'assets', 'data', '3d-products.json')
+I18N_JSON = os.path.join(ROOT, 'scripts', '_3d-i18n-dump.json')
+PRODUCT_TEMPLATE = os.path.join(ROOT, '3d', 'product', 'index.html')
+SHOP_TEMPLATE = os.path.join(ROOT, '3d', 'shop', 'index.html')
+HOME_TEMPLATE = os.path.join(ROOT, '3d', 'index.html')
+
+SITE = 'https://www.blackarrowksa.com'
+
+CATEGORY_SLUGS = {
+    '3D Printers': '3d-printers',
+    'Filament': 'filament',
+    'Accessories': 'accessories',
+    '3D Artwork': '3d-artwork',
+}
+CATEGORY_NAV_KEY = {
+    '3D Printers': 'nav_3d_printers',
+    'Filament': 'nav_filaments',
+    'Accessories': 'nav_accessories',
+    '3D Artwork': 'nav_gaming_accessories',
+}
+
+with open(I18N_JSON, encoding='utf-8') as f:
+    I18N = json.load(f)
+
+with open(PRODUCTS_JSON, encoding='utf-8') as f:
+    PRODUCTS = json.load(f)['products']
+
+
+def T(key, lang):
+    entry = I18N.get(key)
+    if not entry:
+        return key
+    return entry.get(lang) or entry.get('en') or key
+
+
+def L(p, field, lang):
+    if lang == 'ar' and p.get(field + '_ar'):
+        return p[field + '_ar']
+    return p.get(field)
+
+
+def L_specs(p, lang):
+    if lang == 'ar' and p.get('specs_ar'):
+        return p['specs_ar']
+    return p.get('specs') or []
+
+
+def L_compat(p, lang):
+    if lang == 'ar' and p.get('compatibility_ar'):
+        return p['compatibility_ar']
+    return p.get('compatibility') or []
+
+
+def L_variant(v, lang):
+    if lang == 'ar' and v.get('label_ar'):
+        return v['label_ar']
+    return v.get('label')
+
+
+def category_label(cat, lang):
+    key = CATEGORY_NAV_KEY.get(cat)
+    return T(key, lang) if key else cat
+
+
+def money(n, currency):
+    return '{:,}'.format(n) + ' ' + (currency or 'SAR')
+
+
+def primary_image(p):
+    if p.get('cardImage'):
+        return p['cardImage']
+    if p.get('images'):
+        return p['images'][0]
+    if p.get('image'):
+        return p['image']
+    return None
+
+
+def product_url(p, lang):
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/product/' + p['id'] + '/'
+
+
+def category_url(cat, lang):
+    slug = CATEGORY_SLUGS.get(cat, cat.lower().replace(' ', '-'))
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/shop/' + slug + '/'
+
+
+def shop_url(lang):
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/shop/'
+
+
+def home_url(lang):
+    return '/3d/ar/' if lang == 'ar' else '/3d/'
+
+
+def abs_url(path):
+    if not path:
+        return ''
+    return SITE + path if path.startswith('/') else SITE + '/' + path
+
+
+def esc(s):
+    return (s or '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
+
+
+def corner_badges(p, lang):
+    out = ''
+    if p.get('featured'):
+        out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured', lang) + '</span>'
+    if p.get('onSale'):
+        out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>'
+    if p.get('newArrival'):
+        out += '<span class="b3d-corner-badge b3d-corner-badge--new">' + T('shop_new_badge', lang) + '</span>'
+    return out
+
+
+def status_badge(p, lang):
+    if p.get('preorder'):
+        return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order', lang) + '</span>'
+    if p.get('available') is False:
+        return '<span class="b3d-stock-badge b3d-stock-badge--out">' + T('js_out_of_stock', lang) + '</span>'
+    return ''
+
+
+def price_block(p, lang):
+    variants = p.get('variants')
+    if variants:
+        prices = [v['price'] for v in variants]
+        lo = min(prices)
+        if all(pr == lo for pr in prices):
+            return '<span class="b3d-price">' + money(lo, p.get('currency')) + '</span>'
+        return ('<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="'
+                + T('js_from_tooltip', lang) + '">' + T('js_from', lang) + '</span><span class="b3d-price">'
+                + money(lo, p.get('currency')) + '</span>')
+    if p.get('onSale') and p.get('salePrice') is not None:
+        return ('<span class="b3d-price b3d-price--sale">' + money(p['salePrice'], p.get('currency')) + '</span>'
+                + '<span class="b3d-price-was">' + money(p['price'], p.get('currency')) + '</span>')
+    return '<span class="b3d-price">' + money(p['price'], p.get('currency')) + '</span>'
+
+
+def product_detail_html(p, lang):
+    name = L(p, 'name', lang)
+    desc = L(p, 'description', lang) or ''
+    images = p.get('images') or ([p['image']] if p.get('image') else [])
+    hero_img = p.get('cardImage') or (images[0] if images else None)
+    main_visual = ('<img src="' + hero_img + '" alt="' + esc(name) + '" data-pd-main-img>') if hero_img else \
+        '<div class="b3d-card__visual-placeholder">' + T('js_product_image', lang) + '</div>'
+
+    thumbs_html = ''
+    if len(images) > 1:
+        thumbs = []
+        for i, src in enumerate(images):
+            label = T('js_view_image', lang) + ' ' + str(i + 1) + ' — ' + name
+            active = ' is-active' if src == hero_img else ''
+            thumbs.append('<button class="b3d-pd__thumb' + active + '" data-thumb-src="' + src
+                           + '" aria-label="' + esc(label) + '"><img src="' + src + '" alt=""></button>')
+        thumbs_html = '<div class="b3d-pd__thumbs">' + ''.join(thumbs) + '</div>'
+
+    specs_html = ''.join(
+        '<tr><td>' + esc(row[0]) + '</td><td>' + esc(row[1]) + '</td></tr>' for row in L_specs(p, lang)
+    )
+    compat_list = L_compat(p, lang)
+    compat_html = ''
+    if compat_list:
+        compat_html = ('<div class="b3d-pd__compat"><h2>' + T('js_compatibility_heading', lang) + '</h2><ul>'
+                        + ''.join('<li>' + esc(c) + '</li>' for c in compat_list) + '</ul></div>')
+
+    variants = p.get('variants')
+    variant_selector_html = ''
+    if variants:
+        has_swatches = any(v.get('swatch') for v in variants)
+        pills = []
+        for i, v in enumerate(variants):
+            if v.get('swatch'):
+                pills.append('<button type="button" class="b3d-swatch" data-variant-idx="' + str(i)
+                              + '" aria-pressed="' + ('true' if i == 0 else 'false') + '" title="'
+                              + esc(L_variant(v, lang)) + '" style="background:' + v['swatch'] + ';"></button>')
+            else:
+                pills.append('<button type="button" class="b3d-quick-pill" data-variant-idx="' + str(i)
+                              + '" aria-pressed="' + ('true' if i == 0 else 'false') + '">'
+                              + esc(L_variant(v, lang)) + '</button>')
+        variant_selector_html = ('<div class="b3d-pd__variants' + (' b3d-pd__swatches' if has_swatches else '')
+                                  + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
+                                  + ''.join(pills) + '</div>')
+        initial_price_html = '<span class="b3d-price">' + money(variants[0]['price'], p.get('currency')) + '</span>'
+    else:
+        initial_price_html = price_block(p, lang)
+
+    pd_available = p.get('available') is not False
+    is_art = p.get('category') == '3D Artwork'
+    compare_btn = '' if is_art else ('<button class="btn btn-outline" data-pd-compare="' + p['id'] + '">'
+                                      + T('js_compare_btn', lang) + '</button>')
+    add_label = T('js_pre_order', lang) if p.get('preorder') else (T('js_add_to_cart', lang) if pd_available else T('js_out_of_stock', lang))
+    add_disabled = '' if (pd_available or p.get('preorder')) else 'disabled'
+    status = status_badge(p, lang)
+    wa_msg = 'Hello! I have a question about ' + name + '.'
+
+    html = (
+        '<div>'
+        + '<div class="b3d-pd__visual' + (' b3d-pd__visual--art' if is_art else '') + '">'
+        + corner_badges(p, lang) + main_visual + '</div>'
+        + thumbs_html + '</div>'
+        + '<div>'
+        + '<div class="b3d-pd__cat">' + (esc(p['brand']) + ' &middot; ' if p.get('brand') else '') + category_label(p.get('category'), lang) + '</div>'
+        + '<h1 class="b3d-pd__title">' + esc(name) + '</h1>'
+        + '<div class="b3d-pd__price" data-pd-price>' + initial_price_html + '</div>'
+        + variant_selector_html
+        + ('<div style="margin-bottom:16px;">' + status + '</div>' if status else '')
+        + '<p class="b3d-pd__desc">' + esc(desc) + '</p>'
+        + '<div class="b3d-pd__actions">'
+        + '<div class="b3d-qty">'
+        + '<button type="button" data-pd-qty="minus" aria-label="' + T('js_qty_decrease', lang) + '">−</button>'
+        + '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label', lang) + '">'
+        + '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase', lang) + '">+</button>'
+        + '</div>'
+        + '<button class="btn btn-primary" data-pd-add ' + add_disabled + '>' + add_label + '</button>'
+        + compare_btn
+        + '<a href="/3d/cart/" class="btn btn-outline">' + T('js_view_cart', lang) + '</a>'
+        + '</div>'
+        + '<div class="b3d-pd__contact-actions">'
+        + '<a href="https://wa.me/966560224715?text=' + wa_msg.replace(' ', '%20') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp', lang) + '</a>'
+        + '</div>'
+        + ('<table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table>' if specs_html else '')
+        + compat_html
+        + ('<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading', lang) + '</h2><p>' + esc(L(p, 'warranty', lang)) + '</p></div>' if L(p, 'warranty', lang) else '')
+        + '<div class="b3d-pd__shipreturn">'
+        + '<div><strong>' + T('js_shipping_heading', lang) + '</strong><p>' + T('js_shipping_desc', lang) + '</p></div>'
+        + '<div><strong>' + T('js_returns_heading', lang) + '</strong><p>' + T('js_returns_desc_prefix', lang)
+        + ' <a href="/3d/returns/">' + T('footer_returns', lang) + '</a> ' + T('js_returns_desc_suffix', lang) + '</p></div>'
+        + '</div>'
+        + '</div>'
+    )
+    return html
+
+
+I18N_ATTR_RE = re.compile(r'(<([a-zA-Z0-9]+)([^>]*?)\bdata-i18n="([a-zA-Z0-9_]+)"([^>]*)>)(.*?)(</\2>)', re.DOTALL)
+I18N_PLACEHOLDER_RE = re.compile(r'data-i18n-placeholder="([a-zA-Z0-9_]+)"')
+
+
+def translate_static_chrome(html, lang):
+    """Bakes data-i18n text (and data-i18n-placeholder attrs) into the given
+    language, exactly like 3d-i18n.js's translateStaticPage() does at
+    runtime (both just set textContent from the same dictionary) — so the
+    pre-rendered HTML matches what JS would produce, with nothing invented."""
+
+    def repl(m):
+        open_tag, tag, pre_attrs, key, post_attrs, _inner, close_tag = m.groups()
+        val = T(key, lang)
+        return open_tag + esc(val) + close_tag
+
+    html = I18N_ATTR_RE.sub(repl, html)
+    html = I18N_PLACEHOLDER_RE.sub(lambda m: 'data-i18n-placeholder="' + m.group(1) + '" placeholder="' + esc(T(m.group(1), lang)) + '"', html)
+    return html
+
+
+def localize_ar_hrefs(html, lang):
+    """The shared nav/footer chrome (copied as-is from the EN templates)
+    only has its text translated by translate_static_chrome(); its hrefs
+    still point at the English home/shop URLs. On AR pages, redirect the
+    handful of links that DO have a real Arabic twin (home, shop index,
+    shop's own ?cat= filters) to their /3d/ar/... equivalent. Everything
+    without an Arabic twin yet (cart, account, compare, blog, terms,
+     returns) is deliberately left pointing at the English-only page."""
+    if lang != 'ar':
+        return html
+    html = html.replace('href="/3d/shop/?cat=', 'href="/3d/ar/shop/?cat=')
+    html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')
+    html = html.replace('href="/3d/"', 'href="/3d/ar/"')
+    return html
+
+
+def set_lang_attrs(html, lang):
+    html = html.replace('<html lang="en" dir="ltr">', '<html lang="ar" dir="rtl">' if lang == 'ar' else '<html lang="en" dir="ltr">')
+    return html
+
+
+def lang_toggle_link(html, lang, counterpart_url):
+    """Replaces the JS localStorage-toggle button with a real link to the
+    counterpart page — these pages have a genuine separate URL per
+    language now, so the toggle should navigate there directly instead of
+    reloading in place."""
+    label = 'EN' if lang == 'ar' else 'AR'
+    old = '<button class="navbar__pill" data-lang-toggle type="button">AR</button>'
+    new = '<a class="navbar__pill" href="' + counterpart_url + '">' + label + '</a>'
+    return html.replace(old, new)
+
+
+def write(path, content):
+    d = os.path.dirname(path)
+    if not os.path.isdir(d):
+        os.makedirs(d)
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(content)
+
+
+def build_product_page(p, lang):
+    with open(PRODUCT_TEMPLATE, encoding='utf-8') as f:
+        html = f.read()
+
+    name = L(p, 'name', lang)
+    desc = L(p, 'shortDesc', lang) or L(p, 'description', lang) or ''
+    url = SITE + product_url(p, lang)
+    img = abs_url(primary_image(p))
+
+    html = set_lang_attrs(html, lang)
+    html = html.replace(
+        '<meta name="description" content="Full specs, SAR pricing and warranty details for 3D printers, filament and accessories at Black Arrow 3D — order online with delivery across Saudi Arabia.">',
+        '<meta name="description" content="' + esc(desc) + '">'
+    )
+    html = html.replace('<meta property="og:title" content="Product — Black Arrow 3D">',
+                         '<meta property="og:title" content="' + esc(name) + ' — Black Arrow 3D">')
+    html = html.replace('<meta property="og:description" content="Full specs, SAR pricing and warranty details — order online with delivery across Saudi Arabia.">',
+                         '<meta property="og:description" content="' + esc(desc) + '">')
+    html = html.replace('<meta property="og:url" content="https://www.blackarrowksa.com/3d/product/">',
+                         '<meta property="og:url" content="' + url + '">')
+    if img:
+        html = html.replace('<meta property="og:image" content="https://www.blackarrowksa.com/assets/images/black-arrow-og.png">',
+                             '<meta property="og:image" content="' + img + '">')
+    html = html.replace('<link rel="canonical" href="https://www.blackarrowksa.com/3d/product/" data-pd-canonical>',
+                         '<link rel="canonical" href="' + url + '">'
+                         + '\n  <link rel="alternate" hreflang="en" href="' + SITE + product_url(p, "en") + '">'
+                         + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + product_url(p, "ar") + '">'
+                         + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + product_url(p, "en") + '">')
+    html = html.replace('<title>Product — Black Arrow 3D</title>', '<title>' + esc(name) + ' — Black Arrow 3D</title>')
+
+    price_value = p['variants'][0]['price'] if p.get('variants') else p.get('price')
+    offer = {
+        '@type': 'Offer',
+        'price': price_value,
+        'priceCurrency': p.get('currency', 'SAR'),
+        'availability': 'https://schema.org/OutOfStock' if p.get('available') is False else 'https://schema.org/InStock',
+        'itemCondition': 'https://schema.org/NewCondition',
+        'url': url,
+    }
+    json_ld = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        'name': name,
+        'description': desc,
+        'url': url,
+        'sku': p.get('sku', p['id']),
+        'brand': {'@type': 'Brand', 'name': p.get('brand', 'Black Arrow 3D')},
+        'image': [abs_url(i) for i in (p.get('images') or [])],
+        'offers': offer,
+    }
+    breadcrumb_ld = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': SITE + home_url(lang)},
+            {'@type': 'ListItem', 'position': 3, 'name': T('nav_shop', lang), 'item': SITE + shop_url(lang)},
+            {'@type': 'ListItem', 'position': 4, 'name': name, 'item': url},
+        ],
+    }
+    html = html.replace('</head>',
+                         '  <script type="application/ld+json">' + json.dumps(json_ld, ensure_ascii=False) + '</script>\n'
+                         + '  <script type="application/ld+json">' + json.dumps(breadcrumb_ld, ensure_ascii=False) + '</script>\n'
+                         + '</head>')
+
+    html = translate_static_chrome(html, lang)
+    html = localize_ar_hrefs(html, lang)
+    html = lang_toggle_link(html, lang, product_url(p, 'ar' if lang == 'en' else 'en'))
+
+    html = html.replace('<span data-b3d-crumb data-i18n="pd_crumb_default">' + T('pd_crumb_default', 'en') + '</span>',
+                         '<span data-b3d-crumb>' + esc(name) + '</span>')
+    html = html.replace('<span data-b3d-crumb>' + esc(T('pd_crumb_default', lang)) + '</span>',
+                         '<span data-b3d-crumb>' + esc(name) + '</span>')
+
+    detail_html = product_detail_html(p, lang)
+    html = html.replace(
+        '<div class="b3d-pd" data-b3d-product">',
+        '<div class="b3d-pd" data-b3d-product>'
+    )
+    html = re.sub(
+        r'<div class="b3d-pd" data-b3d-product>.*?</div>\s*\n\s*(<div data-b3d-related></div>)',
+        lambda m: '<div class="b3d-pd" data-b3d-product>' + detail_html + '</div>\n\n        ' + m.group(1),
+        html, count=1, flags=re.DOTALL
+    )
+
+    out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'product', p['id'], 'index.html')
+    write(out_path, html)
+
+
+def build_category_page(cat, lang, products_in_cat):
+    with open(SHOP_TEMPLATE, encoding='utf-8') as f:
+        html = f.read()
+
+    label = category_label(cat, lang)
+    url = SITE + category_url(cat, lang)
+    intro = T('b3d_shop_p', lang)
+    title = label + ' — Black Arrow 3D'
+    desc = label + ': ' + intro
+
+    html = set_lang_attrs(html, lang)
+    html = re.sub(r'<meta name="description" content="[^"]*">',
+                  '<meta name="description" content="' + esc(desc) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">',
+                  '<meta property="og:title" content="' + esc(title) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">',
+                  '<meta property="og:description" content="' + esc(desc) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:url" content="[^"]*">',
+                  '<meta property="og:url" content="' + url + '">', html, count=1)
+    html = re.sub(r'<link rel="canonical" href="[^"]*">',
+                  '<link rel="canonical" href="' + url + '">'
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + category_url(cat, "en") + '">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + category_url(cat, "ar") + '">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + category_url(cat, "en") + '">',
+                  html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(title) + '</title>', html, count=1)
+
+    cards = []
+    for p in products_in_cat:
+        name = L(p, 'name', lang)
+        img = primary_image(p)
+        cards.append(
+            '<a class="b3d-cat-landing__card" href="' + product_url(p, lang) + '">'
+            + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
+            + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
+            + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
+            + '</a>'
+        )
+
+    breadcrumb_ld = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': SITE + home_url(lang)},
+            {'@type': 'ListItem', 'position': 3, 'name': T('nav_shop', lang), 'item': SITE + shop_url(lang)},
+            {'@type': 'ListItem', 'position': 4, 'name': label, 'item': url},
+        ],
+    }
+    item_list_ld = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'name': L(p, 'name', lang), 'url': SITE + product_url(p, lang)}
+            for i, p in enumerate(products_in_cat)
+        ],
+    }
+    html = html.replace('</head>',
+                         '  <script type="application/ld+json">' + json.dumps(breadcrumb_ld, ensure_ascii=False) + '</script>\n'
+                         + '  <script type="application/ld+json">' + json.dumps(item_list_ld, ensure_ascii=False) + '</script>\n'
+                         + '</head>')
+
+    html = translate_static_chrome(html, lang)
+    html = localize_ar_hrefs(html, lang)
+    html = lang_toggle_link(html, lang, category_url(cat, 'ar' if lang == 'en' else 'en'))
+
+    live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + '/shop/?cat=' + cat.replace(' ', '+')
+    landing_block = (
+        '<section class="section" style="padding-top:20px;">'
+        + '<div class="container">'
+        + '<nav class="breadcrumb" aria-label="Breadcrumb">'
+        + '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span>'
+        + '<a href="' + shop_url(lang) + '">' + esc(T('nav_shop', lang)) + '</a><span>›</span>'
+        + '<span>' + esc(label) + '</span>'
+        + '</nav>'
+        + '<h1>' + esc(label) + '</h1>'
+        + '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>'
+        + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
+        + '<div class="b3d-cat-landing__grid">' + ''.join(cards) + '</div>'
+        + '</div></section>'
+    )
+    html = re.sub(r'<main id="main">.*?</main>', '<main id="main">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
+
+    slug = CATEGORY_SLUGS[cat]
+    out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'shop', slug, 'index.html')
+    write(out_path, html)
+
+
+"""DRAFT machine-assisted Arabic SEO copy — literal, not creative,
+translations of the existing English marketing metadata. Flagged for
+Afzal's review/approval like every other AR copy block in this project;
+nothing here is a new business claim, just an Arabic rendering of
+strings that already exist in English on the same pages."""
+AR_HOME_META = {
+    'description': 'تسوق طابعات ثلاثية الأبعاد وخيوط طباعة وإكسسوارات في السعودية من Bambu Lab وCreality والمزيد. ضمان شامل وتوصيل لكل مناطق المملكة.',
+    'og_title': 'شراء طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
+    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — طابعات ثلاثية الأبعاد وخيوط وإكسسوارات لصناع المحتوى والطلاب والاستخدام المنزلي. ضمان شامل وتوصيل سريع لكل مناطق السعودية.',
+    'title': 'طابعات ثلاثية الأبعاد وخيوط الطباعة في السعودية | Black Arrow 3D',
+}
+AR_SHOP_META = {
+    'description': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge. قارن الأسعار بالريال، صفِّ حسب الميزانية وحجم الطباعة، واحصل على التوصيل لأي مكان في السعودية.',
+    'og_title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
+    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — قارن الطابعات ثلاثية الأبعاد والخيوط والإكسسوارات بالسعر والعلامة التجارية وحجم الطباعة. ضمان شامل، توصيل لكل مناطق السعودية.',
+    'title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين في السعودية — Black Arrow 3D',
+}
+
+
+def apply_ar_meta(html, meta):
+    html = re.sub(r'<meta name="description" content="[^"]*">',
+                  '<meta name="description" content="' + esc(meta['description']) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">',
+                  '<meta property="og:title" content="' + esc(meta['og_title']) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">',
+                  '<meta property="og:description" content="' + esc(meta['og_description']) + '">', html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(meta['title']) + '</title>', html, count=1)
+    return html
+
+
+def build_ar_home():
+    with open(HOME_TEMPLATE, encoding='utf-8') as f:
+        html = f.read()
+    html = set_lang_attrs(html, 'ar')
+    html = re.sub(r'<link rel="canonical" href="[^"]*">',
+                  '<link rel="canonical" href="' + SITE + '/3d/ar/">'
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + '/3d/">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + '/3d/ar/">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + '/3d/">',
+                  html, count=1)
+    html = re.sub(r'<meta property="og:url" content="[^"]*">',
+                  '<meta property="og:url" content="' + SITE + '/3d/ar/">', html, count=1)
+    html = apply_ar_meta(html, AR_HOME_META)
+    html = translate_static_chrome(html, 'ar')
+    html = localize_ar_hrefs(html, 'ar')
+    html = lang_toggle_link(html, 'ar', '/3d/')
+    write(os.path.join(ROOT, '3d', 'ar', 'index.html'), html)
+
+
+def build_ar_shop_index():
+    with open(SHOP_TEMPLATE, encoding='utf-8') as f:
+        html = f.read()
+    html = set_lang_attrs(html, 'ar')
+    html = re.sub(r'<link rel="canonical" href="[^"]*">',
+                  '<link rel="canonical" href="' + SITE + '/3d/ar/shop/">'
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + '/3d/shop/">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + '/3d/ar/shop/">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + '/3d/shop/">',
+                  html, count=1)
+    html = re.sub(r'<meta property="og:url" content="[^"]*">',
+                  '<meta property="og:url" content="' + SITE + '/3d/ar/shop/">', html, count=1)
+    html = apply_ar_meta(html, AR_SHOP_META)
+    html = translate_static_chrome(html, 'ar')
+    html = localize_ar_hrefs(html, 'ar')
+    html = lang_toggle_link(html, 'ar', '/3d/shop/')
+    write(os.path.join(ROOT, '3d', 'ar', 'shop', 'index.html'), html)
+
+
+def main():
+    by_cat = {}
+    for p in PRODUCTS:
+        by_cat.setdefault(p['category'], []).append(p)
+
+    for p in PRODUCTS:
+        build_product_page(p, 'en')
+        build_product_page(p, 'ar')
+    print('generated', len(PRODUCTS) * 2, 'product pages')
+
+    for cat, products_in_cat in by_cat.items():
+        if cat not in CATEGORY_SLUGS:
+            continue
+        build_category_page(cat, 'en', products_in_cat)
+        build_category_page(cat, 'ar', products_in_cat)
+    print('generated', len(by_cat) * 2, 'category pages')
+
+    build_ar_home()
+    build_ar_shop_index()
+    print('generated AR home + shop index')
+
+
+if __name__ == '__main__':
+    main()
