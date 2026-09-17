@@ -15,7 +15,7 @@
     'printer': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="8" width="36" height="16" rx="2"/><rect x="10" y="24" width="44" height="20" rx="2"/><rect x="20" y="44" width="24" height="12" rx="1.5"/><line x1="32" y1="30" x2="32" y2="40"/><circle cx="18" cy="18" r="2" fill="currentColor" stroke="none"/></svg>',
     'spool': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="9"/><path d="M12 20c8 6 32 6 40 0" opacity=".5"/><path d="M12 44c8-6 32-6 40 0" opacity=".5"/></svg>',
     'accessory': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="14" width="36" height="36" rx="6"/><path d="M24 32h16M32 24v16" /></svg>',
-    'gamepad': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 22h24a12 12 0 0 1 12 12v6a8 8 0 0 1-14.5 4.6L38 40H26l-3.5 4.6A8 8 0 0 1 8 40v-6a12 12 0 0 1 12-12z"/><line x1="18" y1="32" x2="18" y2="38"/><line x1="15" y1="35" x2="21" y2="35"/><circle cx="46" cy="30" r="1.6" fill="currentColor" stroke="none"/><circle cx="41" cy="35" r="1.6" fill="currentColor" stroke="none"/></svg>'
+    'artwork': '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8c9 0 16 7 16 15 0 6-4 8-9 8h-3c-2 0-3 1.5-3 3.5S34 38 34 40c0 8-6 16-14 16A16 16 0 0 1 4 40a16 16 0 0 1 4-10.6"/><circle cx="20" cy="20" r="2" fill="currentColor" stroke="none"/><circle cx="30" cy="14" r="2" fill="currentColor" stroke="none"/><circle cx="42" cy="22" r="2" fill="currentColor" stroke="none"/><circle cx="14" cy="34" r="2" fill="currentColor" stroke="none"/></svg>'
   };
 
   var CART_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>';
@@ -37,7 +37,7 @@
   function iconFor(category) {
     if (category === 'Filament') return ICONS.spool;
     if (category === 'Accessories') return ICONS.accessory;
-    if (category === 'Gaming Accessories') return ICONS.gamepad;
+    if (category === '3D Artwork') return ICONS.artwork;
     return ICONS.printer;
   }
 
@@ -75,7 +75,7 @@
     if (cat === '3D Printers') return T('nav_3d_printers');
     if (cat === 'Filament') return T('nav_filaments');
     if (cat === 'Accessories') return T('nav_accessories');
-    if (cat === 'Gaming Accessories') return T('nav_gaming_accessories');
+    if (cat === '3D Artwork') return T('nav_gaming_accessories');
     return cat;
   }
 
@@ -259,11 +259,12 @@
        has the full variant picker and quantity control. */
     var href = '/3d/product/?slug=' + p.id;
     var actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
-    var specs = LSpecs(p).slice(0, 3).map(function (row) {
+    var isArt = p.category === '3D Artwork';
+    var specs = isArt ? '' : LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
     }).join('');
     return '' +
-      '<article class="b3d-card" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
+      '<article class="b3d-card' + (isArt ? ' b3d-card--art' : '') + '" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
         '<a href="' + href + '" class="b3d-card__stretched-link" aria-label="' + L(p, 'name') + '"></a>' +
         '<div class="b3d-card__visual">' +
           cornerBadges(p) +
@@ -273,9 +274,9 @@
         '<div class="b3d-card__body">' +
           '<div class="b3d-card__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
           '<h3>' + L(p, 'name') + '</h3>' +
-          '<p>' + (L(p, 'shortDesc') || '') + '</p>' +
+          (isArt ? '' : '<p>' + (L(p, 'shortDesc') || '') + '</p>') +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
-          '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span><span>' + T('js_card_warranty') + '</span></div>' +
+          '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span>' + (isArt ? '' : '<span>' + T('js_card_warranty') + '</span>') + '</div>' +
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' +
@@ -283,7 +284,7 @@
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
           '<div class="b3d-card__actions">' +
-            '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + ' — ' + L(p, 'name') + '" title="' + T('js_compare_btn') + '">⇄</button>' +
+            (p.category === '3D Artwork' ? '' : '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + ' — ' + L(p, 'name') + '" title="' + T('js_compare_btn') + '">⇄</button>') +
             '<button class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-label="' + (isWishlisted(p.id) ? 'Remove from wishlist' : 'Save to wishlist') + ' — ' + L(p, 'name') + '" title="Save">' + (isWishlisted(p.id) ? '♥' : '♡') + '</button>' +
             actionBtn +
           '</div>' +
@@ -1014,7 +1015,7 @@
               '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
             '<button class="btn btn-primary" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
-            '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>' +
+            (p.category === '3D Artwork' ? '' : '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
             '<a href="/3d/cart/" class="btn btn-outline">' + T('js_view_cart') + '</a>' +
           '</div>' +
           '<div class="b3d-pd__contact-actions">' +

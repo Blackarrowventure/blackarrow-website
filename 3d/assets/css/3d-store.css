@@ -309,6 +309,10 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   box-shadow: 0 20px 40px rgba(0,0,0,.35);
 }
 
+.b3d-card--art .b3d-card__visual {
+  height: 280px;
+}
+
 .b3d-card__visual {
   height: 160px;
   display: flex;
