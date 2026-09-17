@@ -124,18 +124,6 @@
       promo_p2s_desc: 'Enclosed, high-speed Bambu Lab printer built for engineering filaments — standalone or with the AMS 2 Pro combo.',
       promo_centauri_desc: 'Elegoo\'s enclosed CoreXY printer with the CANVAS multi-filament system — up to 4 colors, hardened-steel nozzle for abrasive materials.',
       promo_kobra3max_desc: 'Anycubic\'s large-format printer — built for oversized prints and figurines that outgrow a standard bed.',
-      promo_new_badge: 'New',
-      promo_artwork_title_a: 'Now you can buy',
-      promo_artwork_title_b: '3D Artwork',
-      promo_artwork_title_c: 'too',
-      promo_artwork_desc: "Original, in-house designed pieces like the Oni Mask PS5 controller stand — 3D printing isn't just for printers and filament anymore.",
-      promo_artwork_cta: 'Shop 3D Artwork',
-      promo_restock_badge: 'Coming Soon',
-      promo_restock_title_a: 'Restocking',
-      promo_restock_title_b: 'all printers',
-      promo_restock_title_c: 'soon',
-      promo_restock_desc: "We're restocking our full printer lineup soon. Message us on WhatsApp to be first in line when your model is back.",
-      promo_restock_cta: 'Ask on WhatsApp',
       hub_cta_h2: 'Ready to Browse the Catalog?',
       hub_cta_p: 'Browse 3D printers, filament and accessories from Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic and Flashforge.',
 
@@ -328,7 +316,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon'
+      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon · New: 3D Artwork now available · Restocking all printers soon'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -443,18 +431,6 @@
       promo_p2s_desc: 'طابعة بامبو لاب مغلقة وعالية السرعة، مصممة للفلمنت الهندسي — تُباع منفردة أو ضمن حزمة AMS 2 Pro.',
       promo_centauri_desc: 'طابعة إليجو المغلقة بتقنية CoreXY مع نظام CANVAS متعدد الفلمنت — حتى 4 ألوان، ونوزل من الفولاذ المقسّى للمواد الكاشطة.',
       promo_kobra3max_desc: 'طابعة أنيكيوبيك كبيرة الحجم — مصممة للمطبوعات والمجسمات كبيرة الحجم التي تتجاوز سرير الطباعة العادي.',
-      promo_new_badge: 'جديد',
-      promo_artwork_title_a: 'الآن بإمكانك شراء',
-      promo_artwork_title_b: 'أعمال فنية ثلاثية الأبعاد',
-      promo_artwork_title_c: 'أيضاً',
-      promo_artwork_desc: 'قطع أصلية مصممة داخلياً مثل حامل يد تحكم PS5 بتصميم قناع أوني — الطباعة ثلاثية الأبعاد لم تعد فقط للطابعات وخيوط الطباعة.',
-      promo_artwork_cta: 'تسوّق الأعمال الفنية',
-      promo_restock_badge: 'قريباً',
-      promo_restock_title_a: 'إعادة تعبئة',
-      promo_restock_title_b: 'جميع الطابعات',
-      promo_restock_title_c: 'قريباً',
-      promo_restock_desc: 'سنعيد تعبئة مخزون جميع الطابعات قريباً. راسلنا عبر واتساب لتكون أول من يعلم عند توفر طرازك.',
-      promo_restock_cta: 'راسلنا عبر واتساب',
       hub_cta_h2: 'هل أنت مستعد لتصفح الكتالوج؟',
       hub_cta_p: 'تصفح الطابعات ثلاثية الأبعاد والفلمنت والملحقات من Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge.',
 
@@ -647,7 +623,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً'
+      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً'
     }
   };
 
