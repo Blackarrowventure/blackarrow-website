@@ -995,7 +995,7 @@
 
       container.innerHTML = '' +
         '<div>' +
-          '<div class="b3d-pd__visual" data-pd-zoom>' +
+          '<div class="b3d-pd__visual' + (p.category === '3D Artwork' ? ' b3d-pd__visual--art' : '') + '" data-pd-zoom>' +
             cornerBadges(p) +
             mainVisual +
           '</div>' +
