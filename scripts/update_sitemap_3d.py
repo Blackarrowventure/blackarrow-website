@@ -61,7 +61,8 @@ def build_3d_urls():
     out.append(url_block(SITE + '/3d/shop/', '0.9', 'weekly', en=SITE + '/3d/shop/', ar=SITE + '/3d/ar/shop/'))
     out.append(url_block(SITE + '/3d/ar/shop/', '0.9', 'weekly', en=SITE + '/3d/shop/', ar=SITE + '/3d/ar/shop/'))
     out.append(url_block(SITE + '/3d/compare/', '0.4', 'monthly'))
-    out.append(url_block(SITE + '/3d/blog/', '0.6', 'weekly'))
+    out.append(url_block(SITE + '/3d/blog/', '0.6', 'weekly', en=SITE + '/3d/blog/', ar=SITE + '/3d/ar/blog/'))
+    out.append(url_block(SITE + '/3d/ar/blog/', '0.6', 'weekly', en=SITE + '/3d/blog/', ar=SITE + '/3d/ar/blog/'))
 
     for cat, slug in CATEGORY_SLUGS.items():
         en = SITE + '/3d/shop/' + slug + '/'
@@ -78,7 +79,10 @@ def build_3d_urls():
         out.append(url_block(ar, '0.85', 'weekly', en=en, ar=ar))
 
     for slug in BLOG_SLUGS:
-        out.append(url_block(SITE + '/3d/blog/' + slug + '/', '0.6', 'monthly'))
+        en = SITE + '/3d/blog/' + slug + '/'
+        ar = SITE + '/3d/ar/blog/' + slug + '/'
+        out.append(url_block(en, '0.6', 'monthly', en=en, ar=ar))
+        out.append(url_block(ar, '0.6', 'monthly', en=en, ar=ar))
 
     out.append(END_MARK)
     return ''.join(out)

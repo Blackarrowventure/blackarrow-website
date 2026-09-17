@@ -1003,6 +1003,18 @@
     <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/3d-printers/</loc>
@@ -1333,36 +1345,108 @@
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/3d-printer-maintenance-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/3d-printer-maintenance-guide/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/3d-printer-maintenance-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/multi-color-3d-printing-explained/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/multi-color-3d-printing-explained/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/multi-color-3d-printing-explained/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>
   </url>
   <!-- END /3d/ store URLs -->
 </urlset>

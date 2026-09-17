@@ -277,15 +277,18 @@ def translate_static_chrome(html, lang):
 def localize_ar_hrefs(html, lang):
     """The shared nav/footer chrome (copied as-is from the EN templates)
     only has its text translated by translate_static_chrome(); its hrefs
-    still point at the English home/shop URLs. On AR pages, redirect the
-    handful of links that DO have a real Arabic twin (home, shop index,
-    shop's own ?cat= filters) to their /3d/ar/... equivalent. Everything
-    without an Arabic twin yet (cart, account, compare, blog, terms,
-     returns) is deliberately left pointing at the English-only page."""
+    still point at the English home/shop/blog URLs. On AR pages, redirect
+    the handful of links that DO have a real Arabic twin (home, shop
+    index, shop's own ?cat= filters, blog index) to their /3d/ar/...
+    equivalent. Everything without an Arabic twin yet (cart, account,
+    compare, terms, returns, individual blog posts linked from outside
+    their own page) is deliberately left pointing at the English-only
+    page."""
     if lang != 'ar':
         return html
     html = html.replace('href="/3d/shop/?cat=', 'href="/3d/ar/shop/?cat=')
     html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')
+    html = html.replace('href="/3d/blog/"', 'href="/3d/ar/blog/"')
     html = html.replace('href="/3d/"', 'href="/3d/ar/"')
     return html
 
