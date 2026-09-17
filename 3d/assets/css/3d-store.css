@@ -929,6 +929,20 @@ html[data-b3d-motion="off"] [data-slider-track] {
 }
 .b3d-slide--img-only img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
+/* Hero variant — the slider fills the existing square hero media box,
+   so it borrows that box's radius/shadow instead of drawing its own. */
+.b3d-slider--hero {
+  height: 100%;
+  border-radius: 0;
+  border: none;
+}
+.b3d-slider--hero .b3d-slider__track { height: 100%; }
+.b3d-slider--hero .b3d-slide--img-only {
+  aspect-ratio: auto;
+  height: 100%;
+}
+.b3d-slider--hero .b3d-slide--img-only img { object-fit: cover; }
+
 .b3d-slide__content { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 440px; }
 @media (max-width: 720px) { .b3d-slide__content { align-items: center; max-width: none; } }
 
