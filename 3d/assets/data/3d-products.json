@@ -887,6 +887,35 @@
         ["التصميم", "مخصص — بناءً على صورتك المرجعية"],
         ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
       ]
+    },
+    {
+      "id": "anime-straw-hat-keychain",
+      "name": "Anime Straw Hat Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/luffy-keychain-promo.webp"
+      ],
+      "shortDesc": "In-house 3D printed anime character keychain — choose green or white.",
+      "description": "A detailed, in-house 3D printed keychain of a grinning straw-hat anime character, printed in solid PLA with a keyring attached. Available in green or white — let us know your choice when ordering via WhatsApp.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Color", "Green or White"],
+        ["Includes", "Metal keyring"]
+      ],
+      "name_ar": "ميدالية مفاتيح أنمي بقبعة القش",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد داخليًا لشخصية أنمي — اختر الأخضر أو الأبيض.",
+      "description_ar": "ميدالية مفاتيح مفصّلة مطبوعة ثلاثية الأبعاد داخليًا لشخصية أنمي مبتسمة بقبعة القش، مطبوعة من مادة PLA الصلبة مع حلقة مفاتيح معدنية. متوفرة باللونين الأخضر أو الأبيض — أخبرنا باختيارك عند الطلب عبر واتساب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["اللون", "أخضر أو أبيض"],
+        ["يتضمن", "حلقة مفاتيح معدنية"]
+      ]
     }
   ]
 }
