@@ -535,6 +535,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   justify-content: center;
   padding: 40px;
 }
+.b3d-zoom-overlay[hidden] { display: none; }
 .b3d-zoom-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: var(--radius-md); }
 .b3d-zoom-overlay__close {
   position: absolute;
