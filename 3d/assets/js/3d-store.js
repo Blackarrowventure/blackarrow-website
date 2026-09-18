@@ -1397,7 +1397,7 @@
     return fetchProducts().then(function (products) {
       var picks = products.filter(function (p) {
         return p.newArrival && p.available !== false;
-      }).slice(0, 3);
+      }).reverse().slice(0, 3);
       picks.forEach(function (p) {
         var img = primaryImage(p);
         if (!img) return;
@@ -1544,8 +1544,9 @@
       fetchProducts().then(function (products) {
         var available = products.filter(function (p) { return p.available !== false; });
         var pinned = available.filter(function (p) { return !!p.featured; });
-        var rest = available.filter(function (p) { return !p.featured; });
-        var featured = pinned.concat(rest).slice(0, 4);
+        var fresh = available.filter(function (p) { return !p.featured && p.newArrival; }).reverse();
+        var rest = available.filter(function (p) { return !p.featured && !p.newArrival; });
+        var featured = pinned.concat(fresh, rest).slice(0, 8);
         renderGrid(featured, featuredGrid);
         injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
       });
