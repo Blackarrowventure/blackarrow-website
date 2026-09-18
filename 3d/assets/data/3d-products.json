@@ -945,6 +945,33 @@
         ["التصميم", "فورد موستنج GT من الخلف"],
         ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
       ]
+    },
+    {
+      "id": "saudi-map-hanging-decor",
+      "name": "Saudi Map Hanging Decor",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 25,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": ["/3d/assets/images/products/saudi-map-decor-promo.webp"],
+      "shortDesc": "Small 3D printed Saudi Arabia map decor with articulated hanging legs — for Saudi National Day.",
+      "description": "A fun, small-size 3D printed decor piece shaped like the map of Saudi Arabia, in National Day green, with articulated legs that dangle over the edge of a shelf or desk. Perfect for home and office, and a great Saudi National Day gift.",
+      "specs": [
+        ["Design", "Saudi Arabia map with articulated hanging legs"],
+        ["Size", "Small"],
+        ["Color", "Green"]
+      ],
+      "name_ar": "ديكور خريطة السعودية بأرجل متدلية",
+      "shortDesc_ar": "ديكور صغير مطبوع ثلاثي الأبعاد على شكل خريطة السعودية بأرجل متحركة متدلية — لليوم الوطني السعودي.",
+      "description_ar": "قطعة ديكور ممتعة وصغيرة الحجم مطبوعة ثلاثي الأبعاد على شكل خريطة المملكة العربية السعودية، بلون اليوم الوطني الأخضر، مع أرجل متحركة تتدلى من حافة الرف أو المكتب. مثالية للمنزل والمكتب، وهدية رائعة لليوم الوطني السعودي.",
+      "specs_ar": [
+        ["التصميم", "خريطة السعودية بأرجل متحركة متدلية"],
+        ["الحجم", "صغير"],
+        ["اللون", "أخضر"]
+      ]
     }
   ]
 }
