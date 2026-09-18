@@ -669,10 +669,11 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .navbar__links {
   display: flex;
-  gap: 22px;
+  gap: clamp(10px, 1.1vw, 22px);
   list-style: none;
   align-items: center;
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .navbar__links > li > a {
@@ -684,6 +685,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 }
 
 .navbar__links > li > a:hover { color: var(--clr-accent-dark); }
+@media (max-width: 1500px) { .navbar__links > li > a { font-size: .82rem; } .navbar__inner { gap: 12px; padding: 0 16px; } .navbar__right { gap: 6px; } }
 
 .navbar__right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
@@ -1377,6 +1379,7 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 }
 .b3d-account__form { display: flex; flex-direction: column; gap: 14px; }
 .b3d-account__form[hidden] { display: none; }
+.b3d-account__form [hidden] { display: none !important; }
 .b3d-account__form label { color: rgba(255,255,255,.6); font-size: .8rem; }
 .b3d-account__form input,
 .b3d-account__form textarea {

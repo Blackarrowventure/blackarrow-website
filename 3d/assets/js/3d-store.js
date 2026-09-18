@@ -828,8 +828,17 @@
         return res.json().catch(function () { return {}; }).then(function (data) {
           if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
           sendCustomerConfirmation(form);
-          form.reset();
-          if (successEl) successEl.hidden = false;
+          var mailCfg = window.BLACK_ARROW_EMAILJS_CONFIG;
+          if (successEl && mailCfg && mailCfg.publicKey && mailCfg.serviceId && mailCfg.templateId) {
+            successEl.textContent = T('checkout_success_email');
+          }
+          saveCart({});
+          var list = document.querySelector('[data-b3d-cart-list]');
+          if (list) list.hidden = true;
+          Array.prototype.forEach.call(form.children, function (child) {
+            if (child !== successEl) child.hidden = true;
+          });
+          if (successEl) { successEl.hidden = false; successEl.scrollIntoView({ block: 'center' }); }
         });
       }).catch(function () {
         if (errorEl) errorEl.hidden = false;

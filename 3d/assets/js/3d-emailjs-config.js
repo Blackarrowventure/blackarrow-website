@@ -29,7 +29,7 @@
    5. Paste all three below and it starts working immediately, no deploy step
       beyond saving this file. */
 window.BLACK_ARROW_EMAILJS_CONFIG = {
-  publicKey: '',
-  serviceId: '',
-  templateId: ''
+  publicKey: 'DN3sB2Ge_A6IXCu_f',
+  serviceId: 'service_2rpw1y5',
+  templateId: 'template_hopo6zf'
 };

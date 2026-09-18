@@ -235,7 +235,8 @@
       checkout_shipping_fast: 'Fast shipping',
       checkout_shipping_fast_eta: '2–5 business days',
       checkout_submit: 'Place Order',
-      checkout_success: "Order received — check your email for confirmation, and we'll contact you shortly to arrange delivery.",
+      checkout_success: "Order received — we'll contact you shortly to confirm.",
+      checkout_success_email: "Order received — check your email for confirmation, and we'll contact you shortly to arrange delivery.",
       checkout_error: 'Sorry, the order could not be sent. Please WhatsApp us instead.',
 
       account_overline: 'Customer Account',
@@ -545,7 +546,8 @@
       checkout_shipping_fast: 'شحن سريع',
       checkout_shipping_fast_eta: 'من 2 إلى 5 أيام عمل',
       checkout_submit: 'تأكيد الطلب',
-      checkout_success: 'تم استلام طلبك — تحقق من بريدك الإلكتروني للتأكيد، وسنتواصل معك قريباً لترتيب التوصيل.',
+      checkout_success: 'تم استلام طلبك — سنتواصل معك قريباً للتأكيد.',
+      checkout_success_email: 'تم استلام طلبك — تحقق من بريدك الإلكتروني للتأكيد، وسنتواصل معك قريباً لترتيب التوصيل.',
       checkout_error: 'عذراً، تعذّر إرسال الطلب. يرجى التواصل معنا عبر واتساب.',
 
       account_overline: 'حساب العميل',
