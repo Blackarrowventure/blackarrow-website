@@ -1746,3 +1746,31 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
   font-weight: 600;
   font-size: .95rem;
 }
+
+/* Saudi National Day feature band (visible 1-24 Sept; see initNationalDay) */
+.b3d-nd {
+  position: relative;
+  overflow: hidden;
+  padding: 44px 0 52px;
+  color: #fff;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.045) 0 2px, transparent 2px 18px),
+    linear-gradient(135deg, #00391f 0%, #006c35 55%, #008a44 100%);
+  border-bottom: 4px solid var(--clr-accent);
+}
+.b3d-nd[hidden] { display: none; }
+.b3d-nd__head { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 30px; }
+.b3d-nd__text { max-width: 640px; }
+.b3d-nd__eyebrow { display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #FDE68A; margin-bottom: 10px; }
+.b3d-nd h2 { color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.15; margin: 0 0 12px; }
+.b3d-nd p { color: rgba(255,255,255,.88); margin: 0 0 20px; font-size: 1.02rem; }
+.b3d-nd__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.b3d-nd__count { flex-shrink: 0; text-align: center; padding: 20px 30px; border: 2px solid rgba(253,230,138,.7); border-radius: 20px; background: rgba(0,0,0,.22); min-width: 170px; }
+.b3d-nd__num { display: block; font-size: 3.6rem; font-weight: 800; line-height: 1; color: #FDE68A; font-variant-numeric: tabular-nums; }
+.b3d-nd__label { display: block; margin-top: 6px; font-weight: 700; }
+.b3d-nd__date { display: block; margin-top: 4px; font-size: .85rem; color: rgba(255,255,255,.75); }
+.b3d-nd__grid { grid-template-columns: repeat(auto-fill, minmax(230px, 300px)); justify-content: start; }
+@media (max-width: 760px) {
+  .b3d-nd__head { flex-direction: column; align-items: flex-start; }
+  .b3d-nd__count { align-self: stretch; }
+}

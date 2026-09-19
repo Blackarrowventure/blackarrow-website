@@ -1529,11 +1529,40 @@
     menu.innerHTML = html;
   }
 
+  function initNationalDay() {
+    var band = document.querySelector('[data-b3d-nd]');
+    if (!band) return;
+    var now = new Date();
+    var day = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var target = new Date(now.getFullYear(), 8, 23);
+    var daysLeft = Math.round((target - day) / 86400000);
+    var inWindow = now.getMonth() === 8 && now.getDate() <= 24;
+    if (!inWindow) return;
+    fetchProducts().then(function (products) {
+      var picks = products.filter(function (p) { return p.nationalDay && p.available !== false; });
+      if (!picks.length) return;
+      renderGrid(picks, band.querySelector('[data-b3d-nd-grid]'));
+      var num = band.querySelector('[data-b3d-nd-num]');
+      var label = band.querySelector('[data-b3d-nd-label]');
+      if (daysLeft > 0) {
+        num.textContent = daysLeft;
+      } else if (daysLeft === 0) {
+        num.textContent = '23';
+        label.setAttribute('data-i18n', 'nd_today_label');
+        label.textContent = T('nd_today_label');
+      } else {
+        band.querySelector('[data-b3d-nd-count]').hidden = true;
+      }
+      band.hidden = false;
+    }).catch(function () {});
+  }
+
   function autoInit() {
     updateCartBadges();
     initMotionToggle();
     initAnnouncementBar();
     populateHeroSlider().then(initPromoSlider);
+    initNationalDay();
     initBrandNavMenu();
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');

@@ -602,5 +602,37 @@
   "promo_preorder_badge": {
     "en": "Pre-Order",
     "ar": "حجز مسبق"
+  },
+  "nd_eyebrow": {
+    "en": "Saudi National Day",
+    "ar": "اليوم الوطني السعودي"
+  },
+  "nd_h2": {
+    "en": "Celebrate the 23rd of September in green",
+    "ar": "احتفل بالثالث والعشرين من سبتمبر بالأخضر"
+  },
+  "nd_sub": {
+    "en": "3D-printed pieces made for Saudi National Day — decor and gifts in the colours of the Kingdom.",
+    "ar": "قطع مطبوعة ثلاثية الأبعاد لليوم الوطني السعودي — ديكور وهدايا بألوان المملكة."
+  },
+  "nd_days_label": {
+    "en": "days to go",
+    "ar": "أيام متبقية"
+  },
+  "nd_today_label": {
+    "en": "Today is Saudi National Day",
+    "ar": "اليوم هو اليوم الوطني السعودي"
+  },
+  "nd_date_line": {
+    "en": "23 September",
+    "ar": "٢٣ سبتمبر"
+  },
+  "nd_cta_shop": {
+    "en": "Shop National Day pieces",
+    "ar": "تسوق قطع اليوم الوطني"
+  },
+  "nd_cta_wa": {
+    "en": "Order on WhatsApp",
+    "ar": "اطلب عبر واتساب"
   }
 }
