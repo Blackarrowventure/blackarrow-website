@@ -1002,6 +1002,34 @@
         ["اللون", "أخضر"],
         ["المحتويات", "حلقة مفاتيح معدنية"]
       ]
+    },
+    {
+      "id": "saudi-palm-swords-keychain",
+      "name": "Saudi Palm & Swords Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "nationalDay": true,
+      "images": ["/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp"],
+      "shortDesc": "Green 3D printed keychain of the palm tree and crossed swords — for Saudi National Day.",
+      "description": "A green 3D printed keychain shaped like the palm tree and crossed swords, with a metal chain and key ring. A proud, simple gift for Saudi National Day.",
+      "specs": [
+        ["Design", "Palm tree and crossed swords"],
+        ["Color", "Green"],
+        ["Includes", "Metal chain and key ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح النخلة والسيفين",
+      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين — لليوم الوطني السعودي.",
+      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين، مع سلسلة وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي.",
+      "specs_ar": [
+        ["التصميم", "النخلة والسيفان المتقاطعان"],
+        ["اللون", "أخضر"],
+        ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
+      ]
     }
   ]
 }
