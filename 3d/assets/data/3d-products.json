@@ -974,6 +974,34 @@
         ["الحجم", "صغير"],
         ["اللون", "أخضر"]
       ]
+    },
+    {
+      "id": "saudi-map-keychain",
+      "name": "Saudi Map Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "nationalDay": true,
+      "images": ["/3d/assets/images/products/saudi-map-keychain-promo.webp"],
+      "shortDesc": "Green 3D printed keychain shaped like the map of Saudi Arabia — for Saudi National Day.",
+      "description": "A green 3D printed keychain shaped like the map of Saudi Arabia, with raised round studs across its surface and a metal key ring. A simple, proud gift for Saudi National Day.",
+      "specs": [
+        ["Design", "Saudi Arabia map with raised studs"],
+        ["Color", "Green"],
+        ["Includes", "Metal key ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح خريطة السعودية",
+      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية — لليوم الوطني السعودي.",
+      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بنقاط دائرية بارزة على سطحها وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي.",
+      "specs_ar": [
+        ["التصميم", "خريطة السعودية بنقاط بارزة"],
+        ["اللون", "أخضر"],
+        ["المحتويات", "حلقة مفاتيح معدنية"]
+      ]
     }
   ]
 }
