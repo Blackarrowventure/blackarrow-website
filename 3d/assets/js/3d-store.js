@@ -1411,9 +1411,16 @@
     if (now.getFullYear() === 2026 && now.getMonth() === 8 && now.getDate() <= 24) {
       track.textContent = '';
       track.classList.add('b3d-announce__track--nd');
+      var greetings = [
+        { text: 'Happy 96th Saudi National Day', lang: 'en', dir: 'ltr' },
+        { text: 'كل عام والمملكة بخير — اليوم الوطني السعودي الـ 96', lang: 'ar', dir: 'rtl' }
+      ];
       for (var g = 0; g < 16; g++) {
+        var item = greetings[g % 2];
         var greet = document.createElement('span');
-        greet.textContent = T('nd_announce');
+        greet.textContent = item.text;
+        greet.setAttribute('lang', item.lang);
+        greet.setAttribute('dir', item.dir);
         track.appendChild(greet);
       }
     }
