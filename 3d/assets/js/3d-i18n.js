@@ -134,6 +134,7 @@
       nd_date_line: "23 September",
       nd_cta_shop: "Shop National Day pieces",
       nd_cta_wa: "Order on WhatsApp",
+      nd_announce: "Happy 96th Saudi National Day",
 
       b3d_shop_eyebrow: 'Black Arrow 3D Catalog',
       b3d_shop_h1_a: 'Build smarter.',
@@ -453,6 +454,7 @@
       nd_date_line: "٢٣ سبتمبر",
       nd_cta_shop: "تسوق قطع اليوم الوطني",
       nd_cta_wa: "اطلب عبر واتساب",
+      nd_announce: "كل عام والمملكة بخير — اليوم الوطني السعودي الـ 96",
 
       b3d_shop_eyebrow: 'كتالوج بلاك أرو 3D',
       b3d_shop_h1_a: 'اطبع بذكاء.',

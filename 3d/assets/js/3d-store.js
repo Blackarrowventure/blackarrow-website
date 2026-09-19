@@ -1375,6 +1375,12 @@
     if (!bar) return;
     var track = bar.querySelector('[data-b3d-announce-track]');
     if (!track) return;
+    var now = new Date();
+    if (now.getFullYear() === 2026 && now.getMonth() === 8 && now.getDate() <= 24) {
+      var greet = document.createElement('span');
+      greet.textContent = T('nd_announce');
+      track.insertBefore(greet, track.firstChild);
+    }
     if (!motionEnabled()) { bar.setAttribute('data-paused', 'true'); }
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('[data-motion-toggle]')) {
