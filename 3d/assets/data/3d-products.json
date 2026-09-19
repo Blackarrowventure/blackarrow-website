@@ -898,6 +898,7 @@
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
+      "nationalDay": true,
       "images": [
         "/3d/assets/images/products/luffy-keychain-promo.webp"
       ],
