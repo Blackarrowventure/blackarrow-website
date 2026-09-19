@@ -1058,6 +1058,32 @@
         ["اللون", "أخضر"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
       ]
+    },
+    {
+      "id": "national-day-key-holder",
+      "name": "Saudi National Day Key Holder",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 25,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "nationalDay": true,
+      "images": ["/3d/assets/images/products/national-day-key-holder-promo.webp"],
+      "shortDesc": "3D printed key holder for Saudi National Day, with a keychain included.",
+      "description": "A 3D printed key holder made for Saudi National Day, with a keychain included. A useful, proud gift for home or office.",
+      "specs": [
+        ["Includes", "Keychain"],
+        ["Made", "3D printed in-house"]
+      ],
+      "name_ar": "حامل مفاتيح اليوم الوطني السعودي",
+      "shortDesc_ar": "حامل مفاتيح مطبوع ثلاثي الأبعاد لليوم الوطني السعودي، مع ميدالية مفاتيح.",
+      "description_ar": "حامل مفاتيح مطبوع ثلاثي الأبعاد لليوم الوطني السعودي، مع ميدالية مفاتيح مرفقة. هدية عملية ومميزة للمنزل أو المكتب.",
+      "specs_ar": [
+        ["المحتويات", "ميدالية مفاتيح"],
+        ["الصنع", "مطبوع ثلاثي الأبعاد داخلياً"]
+      ]
     }
   ]
 }
