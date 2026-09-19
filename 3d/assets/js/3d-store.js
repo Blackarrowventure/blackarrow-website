@@ -1377,9 +1377,13 @@
     if (!track) return;
     var now = new Date();
     if (now.getFullYear() === 2026 && now.getMonth() === 8 && now.getDate() <= 24) {
-      var greet = document.createElement('span');
-      greet.textContent = T('nd_announce');
-      track.insertBefore(greet, track.firstChild);
+      track.textContent = '';
+      track.classList.add('b3d-announce__track--nd');
+      for (var g = 0; g < 16; g++) {
+        var greet = document.createElement('span');
+        greet.textContent = T('nd_announce');
+        track.appendChild(greet);
+      }
     }
     if (!motionEnabled()) { bar.setAttribute('data-paused', 'true'); }
     document.addEventListener('click', function (e) {

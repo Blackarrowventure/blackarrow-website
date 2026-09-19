@@ -1774,3 +1774,18 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
   .b3d-nd__head { flex-direction: column; align-items: flex-start; }
   .b3d-nd__count { align-self: stretch; }
 }
+
+/* National Day greeting: 16 identical copies, animated by exactly half the
+   track so the loop is seamless. */
+.b3d-announce__track--nd { padding-left: 0; animation: b3d-marquee-half 40s linear infinite; }
+@keyframes b3d-marquee-half {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .b3d-announce__track--nd { animation: none; } }
+html[data-b3d-motion="off"] .b3d-announce__track--nd { animation: none !important; transform: none !important; }
+html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl; }
+@keyframes b3d-marquee-half-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
