@@ -805,6 +805,45 @@
     });
   }
 
+  function showThankYou(form, mailOn) {
+    var view = document.querySelector('[data-b3d-thanks]');
+    if (!view) return;
+    var val = function (sel) { var el = form.querySelector(sel); return el ? el.value : ''; };
+    var summary = val('[data-b3d-order-summary]');
+    var linesEl = view.querySelector('[data-b3d-thanks-lines]');
+    linesEl.textContent = '';
+    var grand = '';
+    summary.split('\n').forEach(function (line) {
+      if (!line) return;
+      if (line.indexOf('Grand Total:') === 0) { grand = line.replace('Grand Total:', '').trim(); return; }
+      if (line.indexOf('Shipping:') === 0) return;
+      if (line.indexOf('Total:') === 0) return;
+      var row = document.createElement('div');
+      row.textContent = line;
+      linesEl.appendChild(row);
+    });
+    view.querySelector('[data-b3d-thanks-payment]').textContent = val('[data-b3d-order-payment]');
+    view.querySelector('[data-b3d-thanks-shipping]').textContent = val('[data-b3d-shipping-field]');
+    view.querySelector('[data-b3d-thanks-total]').textContent = grand;
+    var lead = view.querySelector('[data-b3d-thanks-lead]');
+    var emailEl = view.querySelector('[data-b3d-thanks-email]');
+    if (mailOn) {
+      lead.setAttribute('data-i18n', 'thanks_p_email');
+      lead.textContent = T('thanks_p_email');
+      emailEl.textContent = val('[name="email"]');
+    } else {
+      emailEl.textContent = '';
+    }
+    ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.hidden = true;
+    });
+    var layout = document.querySelector('.b3d-cart-layout');
+    if (layout) layout.style.display = 'none';
+    view.hidden = false;
+    window.scrollTo(0, 0);
+  }
+
   function initCheckoutSubmit(form) {
     if (!form) return;
     var successEl = document.getElementById('b3d-checkout-success');
@@ -827,18 +866,11 @@
       }).then(function (res) {
         return res.json().catch(function () { return {}; }).then(function (data) {
           if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
-          sendCustomerConfirmation(form);
           var mailCfg = window.BLACK_ARROW_EMAILJS_CONFIG;
-          if (successEl && mailCfg && mailCfg.publicKey && mailCfg.serviceId && mailCfg.templateId) {
-            successEl.textContent = T('checkout_success_email');
-          }
+          var mailOn = !!(mailCfg && mailCfg.publicKey && mailCfg.serviceId && mailCfg.templateId);
+          showThankYou(form, mailOn);
+          sendCustomerConfirmation(form);
           saveCart({});
-          var list = document.querySelector('[data-b3d-cart-list]');
-          if (list) list.hidden = true;
-          Array.prototype.forEach.call(form.children, function (child) {
-            if (child !== successEl) child.hidden = true;
-          });
-          if (successEl) { successEl.hidden = false; successEl.scrollIntoView({ block: 'center' }); }
         });
       }).catch(function () {
         if (errorEl) errorEl.hidden = false;

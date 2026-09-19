@@ -4355,3 +4355,21 @@ a[href^="mailto:"],
   direction: ltr;
   unicode-bidi: isolate;
 }
+
+/* Phone header: the logo, language switcher and three action buttons cannot
+   share one row, so the buttons were squeezed and their labels spilled over
+   each other. Stack them: logo, then actions (wrapping if needed), then links.
+   The hero scroll hint sat on top of the hero's last button. */
+@media (max-width: 600px) {
+  .navbar__inner {
+    grid-template-areas: "logo" "actions" "links";
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .navbar__logo { justify-content: center; }
+  .navbar__actions { flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .navbar__actions .btn,
+  .navbar__actions .lang-switcher { flex: 0 0 auto; }
+  .scroll-indicator { display: none; }
+  /* Hover-only tooltip; on a phone its off-centre box pushed the RTL page wider. */
+  .btn-employee-login__label { display: none; }
+}

@@ -87,7 +87,7 @@
           <span data-i18n="footer_cart">Cart</span>
         </nav>
 
-        <div class="section-header" style="text-align:left;">
+        <div class="section-header" style="text-align:left;" data-b3d-cart-header>
           <span class="overline" data-i18n="cart_overline">Your Selection</span>
           <h1 style="color:#fff;" data-i18n="cart_h1">Shopping Cart</h1>
         </div>
@@ -97,6 +97,29 @@
           <h2 style="color:#fff;margin-bottom:10px;" data-i18n="cart_empty_h2">Your cart is empty</h2>
           <p style="margin-bottom:20px;" data-i18n="cart_empty_p">Browse the catalog and add a product to get started.</p>
           <a href="/3d/shop/" class="btn btn-primary" data-i18n="cart_go_shop">Go to Shop</a>
+        </div>
+
+        <div class="b3d-thanks" data-b3d-thanks hidden role="status">
+          <div class="b3d-thanks__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h2 data-i18n="thanks_h1">Thank you for your order!</h2>
+          <p class="b3d-thanks__lead"><span data-b3d-thanks-lead data-i18n="thanks_p_plain">We have received your order and will contact you shortly to confirm and arrange delivery.</span> <strong data-b3d-thanks-email></strong></p>
+          <div class="b3d-thanks__card">
+            <h3 data-i18n="thanks_details_h">Your order</h3>
+            <div class="b3d-thanks__lines" data-b3d-thanks-lines></div>
+            <dl class="b3d-thanks__meta">
+              <div><dt data-i18n="thanks_payment">Payment</dt><dd data-b3d-thanks-payment></dd></div>
+              <div><dt data-i18n="thanks_shipping">Shipping</dt><dd data-b3d-thanks-shipping></dd></div>
+            </dl>
+            <div class="b3d-thanks__total"><span data-i18n="cart_total_label">Total</span><strong data-b3d-thanks-total></strong></div>
+          </div>
+          <div class="b3d-thanks__next">
+            <h3 data-i18n="thanks_next_h">What happens next</h3>
+            <ol><li data-i18n="thanks_next_1">We will contact you to confirm your order and delivery details.</li><li data-i18n="thanks_next_2">Your order is then prepared and shipped to your address.</li></ol>
+          </div>
+          <div class="b3d-thanks__actions">
+            <a href="/3d/shop/" class="btn btn-primary" data-i18n="thanks_shop">Continue Shopping</a>
+            <a href="https://wa.me/966560224715" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="thanks_wa">Message us on WhatsApp</a>
+          </div>
         </div>
 
         <div class="b3d-cart-layout">
