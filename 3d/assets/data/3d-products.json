@@ -1030,6 +1030,34 @@
         ["اللون", "أخضر"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
       ]
+    },
+    {
+      "id": "saudi-riyal-keychain",
+      "name": "Saudi Riyal Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "nationalDay": true,
+      "images": ["/3d/assets/images/products/saudi-riyal-keychain-promo.webp"],
+      "shortDesc": "Green 3D printed keychain shaped like the Saudi Riyal symbol.",
+      "description": "A green 3D printed keychain shaped like the Saudi Riyal symbol, with a metal chain and key ring. A neat, proud gift, ideal for Saudi National Day.",
+      "specs": [
+        ["Design", "Saudi Riyal symbol"],
+        ["Color", "Green"],
+        ["Includes", "Metal chain and key ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح الريال السعودي",
+      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي.",
+      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي، مع سلسلة وحلقة مفاتيح معدنية. هدية أنيقة ومميزة، مثالية لليوم الوطني السعودي.",
+      "specs_ar": [
+        ["التصميم", "رمز الريال السعودي"],
+        ["اللون", "أخضر"],
+        ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
+      ]
     }
   ]
 }
