@@ -980,13 +980,15 @@
     var img = primaryImage(p) || '';
     var pageUrl = 'https://www.blackarrowksa.com' + productUrl(p);
 
+    // Pre-rendered product pages already carry a keyword-rich title/description; only fill them in on the generic template.
+    var generic = document.title.indexOf('Product') === 0;
     var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', desc);
+    if (metaDesc && generic) metaDesc.setAttribute('content', desc);
 
     var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', name + ' — Black Arrow 3D');
+    if (ogTitle && generic) ogTitle.setAttribute('content', name + ' — Black Arrow 3D');
     var ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', desc);
+    if (ogDesc && generic) ogDesc.setAttribute('content', desc);
     var ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) ogUrl.setAttribute('content', pageUrl);
     var ogImg = document.querySelector('meta[property="og:image"]');
@@ -1096,8 +1098,8 @@
         container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">' + T('js_product_not_found') + '</h2><p>' + T('js_product_not_found_desc') + ' <a href="/3d/shop/" style="color:var(--clr-accent);">' + T('js_back_to_shop') + '</a></p></div>';
         return;
       }
-      document.title = L(p, 'name') + ' — Black Arrow 3D';
       updateProductSeo(p);
+      if (document.title.indexOf('Product') === 0) document.title = L(p, 'name') + ' — Black Arrow 3D';
       var crumbEl = document.querySelector('[data-b3d-crumb]');
       if (crumbEl) crumbEl.textContent = L(p, 'name');
       var specsHtml = LSpecs(p).map(function (row) {
