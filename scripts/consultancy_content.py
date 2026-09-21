@@ -7,7 +7,7 @@ on this site. No fee, timeline, licence, certification or savings figure is
 stated anywhere: fees are quoted per request, and the policy says so.
 """
 
-SECTORS = ['ups', 'firefighting', 'hvac', 'isolated-power', 'modular-or', 'facility-management', 'airports']
+SECTORS = ['ups', 'firefighting', 'hvac', 'isolated-power', 'modular-or', 'lead-shielding', 'ev-charging', 'facility-management', 'airports']
 
 # Shared strings ------------------------------------------------------------
 S = {
@@ -212,6 +212,50 @@ SECTOR = {
            ('Yes. It can be done for a new operating theatre or for refurbishing an existing one, depending on your project.',
             'نعم. يمكن إجراؤها لغرفة عمليات جديدة أو لتجديد غرفة قائمة، بحسب مشروعك.')),
         wa=('operating room consultancy', 'استشارة غرف العمليات'),
+    ),
+    'lead-shielding': dict(
+        name=('Radiation Shielding (Lead)', 'الحماية الإشعاعية (الرصاص)'),
+        meta_title=('Radiation Shielding Consultancy Saudi Arabia | Lead Sheet Plan', 'استشارات الحماية الإشعاعية في السعودية | خطة صفائح الرصاص'),
+        meta_desc=('Paid radiation shielding consultancy in Saudi Arabia: lead thickness per room, NCRP-147 guided survey approach and a project plan with reference costing.',
+                   'استشارات مدفوعة للحماية الإشعاعية في السعودية: سماكة الرصاص لكل غرفة ومنهجية مسح وفق NCRP-147 وخطة مشروع مع تكلفة مرجعية.'),
+        h1=('Radiation Shielding Consultancy for Hospitals', 'استشارات الحماية الإشعاعية للمستشفيات'),
+        sub=('Know how much lead each room needs, and what it will cost, before any material is ordered.', 'اعرف كمية الرصاص التي تحتاجها كل غرفة وتكلفتها قبل طلب أي مواد.'),
+        intro=('Lead thickness is not one number applied everywhere. It is worked out room by room from the equipment, how often it is used and what sits on the other side of each wall. The consultancy sets out that logic, so you neither under-protect a room nor pay for shielding you do not need.',
+               'سماكة الرصاص ليست رقماً واحداً يُطبَّق في كل مكان، بل تُحسب لكل غرفة من الجهاز وكثافة استخدامه وما يقع خلف كل جدار. توضح الاستشارة هذا المنطق حتى لا تحمي الغرفة أقل من اللازم ولا تدفع ثمن حماية لا تحتاجها.'),
+        covers=[
+            (('Shielding survey approach', 'منهجية المسح الإشعاعي'), ('Workload, use factor, occupancy factor and distance considered for each wall, door and window.', 'أخذ حجم العمل وعامل الاستخدام وعامل الإشغال والمسافة في الاعتبار لكل جدار وباب ونافذة.')),
+            (('Thickness and cost', 'السماكة والتكلفة'), ('Lead thickness matched to each room, with the cost effect of the choices made visible.', 'سماكة رصاص مناسبة لكل غرفة مع إظهار أثر الخيارات على التكلفة.')),
+            (('Rooms and equipment', 'الغرف والأجهزة'), ('X-ray, CT, fluoroscopy, cath lab, radiotherapy, nuclear medicine and dental radiography rooms.', 'غرف الأشعة السينية والمقطعية والتنظير الإشعاعي وقسطرة القلب والعلاج الإشعاعي والطب النووي وأشعة الأسنان.')),
+            (('Existing rooms and renovations', 'الغرف القائمة وأعمال التجديد'), ('Review after a wall penetration, renovation or equipment change that may have affected shielding.', 'مراجعة بعد اختراق جدار أو تجديد أو تغيير جهاز قد يكون أثّر في الحماية.')),
+            (('Verification and records', 'التحقق والسجلات'), ('How the finished room is verified, and the documentation kept for regulatory and accreditation files.', 'كيفية التحقق من الغرفة بعد إنجازها والمستندات التي تُحفظ لملفات الجهات التنظيمية والاعتماد.')),
+        ],
+        service=('/services/lead-sheets-hospital/', ('Lead Sheets for Hospitals', 'صفائح الرصاص للمستشفيات')),
+        q=(('Is it useful before I buy new imaging equipment?', 'هل تفيد قبل شراء جهاز تصوير جديد؟'),
+           ('Yes. Shielding depends on the equipment and how it will be used, so planning early helps you budget for it and avoid surprises.',
+            'نعم. تعتمد الحماية على الجهاز وطريقة استخدامه، لذلك يساعدك التخطيط المبكر على رصد الميزانية وتفادي المفاجآت.')),
+        wa=('radiation shielding consultancy', 'استشارة الحماية الإشعاعية'),
+    ),
+    'ev-charging': dict(
+        name=('EV Charging', 'شحن المركبات الكهربائية'),
+        meta_title=('EV Charging Consultancy Saudi Arabia | AC & DC Charger Plan', 'استشارات شحن المركبات الكهربائية في السعودية | خطة الشواحن'),
+        meta_desc=('Paid EV charging consultancy in Saudi Arabia: site load review, AC and DC charger choice, OCPP network, standards and a project plan with reference costing.',
+                   'استشارات مدفوعة لشحن المركبات الكهربائية في السعودية: مراجعة أحمال الموقع واختيار الشواحن وشبكة OCPP والمعايير وخطة مشروع مع تكلفة مرجعية.'),
+        h1=('EV Charging Consultancy for Sites and Fleets', 'استشارات شحن المركبات الكهربائية للمواقع والأساطيل'),
+        sub=('Plan the right chargers, and the power to run them, before you build.', 'خطّط للشواحن المناسبة والطاقة اللازمة لتشغيلها قبل التنفيذ.'),
+        intro=('A charging station is more than a unit on a wall. It has to fit the electrical capacity of the site, suit the vehicles and traffic it will serve, and be manageable once it is running. The consultancy works through these points and gives you a staged plan and a cost reference.',
+               'محطة الشحن أكثر من جهاز على الجدار. يجب أن تناسب القدرة الكهربائية للموقع والمركبات وحركة المرور التي ستخدمها وأن تكون قابلة للإدارة بعد تشغيلها. تعالج الاستشارة هذه النقاط وتقدم لك خطة مرحلية ومرجعاً للتكلفة.'),
+        covers=[
+            (('Site load and capacity', 'أحمال الموقع وقدرته'), ('Charger demand checked against the existing electrical capacity of the building or site.', 'مراجعة حاجة الشواحن مقارنةً بالقدرة الكهربائية القائمة للمبنى أو الموقع.')),
+            (('AC or DC charging', 'الشحن المتناوب أم المستمر'), ('Level 2 AC and DC fast chargers matched to your traffic, dwell time and vehicle mix.', 'مطابقة شواحن AC المستوى 2 وشواحن DC السريعة لحركة المرور ومدة التوقف ونوع المركبات.')),
+            (('Network and payment', 'الشبكة والدفع'), ('An OCPP network layer for access control, payment and remote diagnostics across chargers and locations.', 'طبقة شبكة OCPP للتحكم في الدخول والدفع والتشخيص عن بُعد عبر الشواحن والمواقع.')),
+            (('Standards review', 'مراجعة المعايير'), ('IEC 61851, NFPA 70 and SASO requirements identified before design starts.', 'تحديد متطلبات IEC 61851 وNFPA 70 وSASO قبل بدء التصميم.')),
+            (('Rollout and upkeep', 'التنفيذ والصيانة'), ('Phased installation, testing and a maintenance plan that keeps chargers online.', 'تركيب على مراحل واختبار وخطة صيانة تُبقي الشواحن عاملة.')),
+        ],
+        service=('/services/ev-charging-solutions/', ('EV Solutions', 'حلول المركبات الكهربائية')),
+        q=(('Can the consultancy plan a rollout across several sites?', 'هل يمكن للاستشارة تخطيط تنفيذ على عدة مواقع؟'),
+           ('Yes. A network layer can manage several chargers and locations together, and the plan can phase the rollout site by site.',
+            'نعم. يمكن لطبقة الشبكة إدارة عدة شواحن ومواقع معاً، ويمكن للخطة تنفيذها موقعاً بعد موقع.')),
+        wa=('EV charging consultancy', 'استشارة شحن المركبات الكهربائية'),
     ),
     'facility-management': dict(
         name=('Facility Management', 'إدارة المرافق'),

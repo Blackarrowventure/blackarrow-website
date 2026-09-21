@@ -319,6 +319,16 @@
       "src": "services/consultancy/modular-or/index.html",
       "url": "/services/consultancy/modular-or/",
       "ar": true
+    },
+    {
+      "src": "services/consultancy/lead-shielding/index.html",
+      "url": "/services/consultancy/lead-shielding/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/ev-charging/index.html",
+      "url": "/services/consultancy/ev-charging/",
+      "ar": true
     }
   ],
   "noindex": [
