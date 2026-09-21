@@ -274,7 +274,30 @@
        cards. Actual purchase happens on the product page, which already
        has the full variant picker and quantity control. */
     var href = productUrl(p);
-    var actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
+    /* Colour products (filament): show every colour by name on the card, mark
+       the ones out of stock, and let the shopper add the chosen colour
+       straight to the cart. */
+    var colorProduct = !!(p.variants && p.variants.length && p.variants.every(function (v) { return v.swatch; }));
+    var colorIdx = 0;
+    if (colorProduct) {
+      for (var ci = 0; ci < p.variants.length; ci++) { if (p.variants[ci].available !== false) { colorIdx = ci; break; } }
+    }
+    var colorsHtml = '';
+    if (colorProduct) {
+      colorsHtml = '<div class="b3d-card__colors" data-card-colors="' + p.id + '" role="group" aria-label="' + T('js_colour') + '">' +
+        p.variants.map(function (v, i) {
+          var out = v.available === false;
+          return '<button type="button" class="b3d-color-chip' + (out ? ' is-out' : '') + '" data-card-color="' + i + '" aria-pressed="' + (i === colorIdx) + '"' +
+            ' data-out="' + (out ? '1' : '0') + '"' + (v.image ? ' data-img="' + v.image + '"' : '') + '>' +
+            '<span class="b3d-color-chip__dot" style="background:' + v.swatch + ';"></span>' +
+            '<span class="b3d-color-chip__name">' + LVariant(v) + (out ? ' <em>' + T('js_out_of_stock') + '</em>' : '') + '</span></button>';
+        }).join('') + '</div>';
+    }
+    var colorOut = colorProduct && p.variants[colorIdx].available === false;
+    var actionBtn = colorProduct
+      ? '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + colorIdx + '"' + (colorOut ? ' disabled' : '') + '>' + (colorOut ? T('js_out_of_stock') : T('js_add_to_cart')) + '</button>'
+      : null;
+    if (actionBtn === null) actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
     var isArt = p.category === '3D Artwork';
     var specs = isArt ? '' : LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
@@ -292,6 +315,7 @@
           '<h3>' + L(p, 'name') + '</h3>' +
           (isArt ? '' : '<p>' + (L(p, 'shortDesc') || '') + '</p>') +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
+          colorsHtml +
           '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span>' + (isArt ? '' : '<span>' + T('js_card_warranty') + '</span>') + '</div>' +
         '</div>' +
         '<div class="b3d-card__footer">' +
@@ -306,6 +330,36 @@
           '</div>' +
         '</div>' +
       '</article>';
+  }
+
+  /* Colour chips + Add to Cart on product cards (delegated, so it works in every grid). */
+  if (!window.__b3dCardColors) {
+    window.__b3dCardColors = true;
+    document.addEventListener('click', function (e) {
+      var chip = e.target.closest && e.target.closest('[data-card-color]');
+      if (chip) {
+        var card = chip.closest('.b3d-card');
+        card.querySelectorAll('[data-card-color]').forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        var out = chip.getAttribute('data-out') === '1';
+        var btn = card.querySelector('[data-card-add]');
+        if (btn) {
+          btn.setAttribute('data-variant-idx', chip.getAttribute('data-card-color'));
+          btn.disabled = out;
+          btn.textContent = out ? T('js_out_of_stock') : T('js_add_to_cart');
+        }
+        var src = chip.getAttribute('data-img');
+        var img = card.querySelector('.b3d-card__visual img');
+        if (src && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = src; }
+        return;
+      }
+      var add = e.target.closest && e.target.closest('[data-card-add]');
+      if (add && !add.disabled) {
+        addToCart(lineId(add.getAttribute('data-card-add'), parseInt(add.getAttribute('data-variant-idx'), 10)), 1);
+        var label = T('js_add_to_cart');
+        add.textContent = T('js_added');
+        setTimeout(function () { if (!add.disabled) add.textContent = label; }, 1200);
+      }
+    });
   }
 
   function emptyCatalogHtml(reason) {

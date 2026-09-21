@@ -1862,3 +1862,14 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
 .b3d-card__footer { flex-wrap: wrap; }
 .b3d-card__actions { flex-wrap: wrap; min-width: 0; flex: 1 1 auto; justify-content: flex-end; }
 .b3d-card__actions .b3d-btn-add { flex: 1 1 120px; min-width: 0; text-align: center; white-space: normal; }
+
+/* Colour chips on filament cards: every colour by name, out-of-stock marked */
+.b3d-card__colors { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.b3d-color-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px 4px 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.b3d-color-chip:hover { border-color: rgba(255,255,255,.6); }
+.b3d-color-chip[aria-pressed="true"] { border-color: var(--clr-accent); box-shadow: 0 0 0 1px var(--clr-accent); }
+.b3d-color-chip__dot { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,.55); flex: none; }
+.b3d-color-chip.is-out { color: rgba(255,255,255,.6); }
+.b3d-color-chip.is-out .b3d-color-chip__name { text-decoration: line-through; }
+.b3d-color-chip.is-out .b3d-color-chip__name em { text-decoration: none; display: inline-block; font-style: normal; color: #fca5a5; margin-inline-start: 4px; }
+.b3d-color-chip.is-out .b3d-color-chip__dot { opacity: .5; }

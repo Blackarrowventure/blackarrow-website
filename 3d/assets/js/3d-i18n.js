@@ -303,6 +303,7 @@
 
       js_add_to_cart: 'Add to Cart',
       js_out_of_stock: 'Out of Stock',
+      js_colour: 'Colour',
       js_pre_order: 'Pre-Order',
       js_view_options: 'View Options',
       js_view_image: 'View image',
@@ -634,6 +635,7 @@
 
       js_add_to_cart: 'أضف إلى السلة',
       js_out_of_stock: 'غير متوفر',
+      js_colour: 'اللون',
       js_pre_order: 'طلب مسبق',
       js_view_options: 'عرض الخيارات',
       js_view_image: 'عرض الصورة',
