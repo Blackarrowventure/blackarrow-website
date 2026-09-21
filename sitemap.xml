@@ -551,6 +551,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/consultancy-policy.html"/>
   </url>
   <url>
+    <loc>https://www.blackarrowksa.com/services/consultancy/modular-or/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/services/consultancy/modular-or/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/services/consultancy/modular-or/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/services/consultancy/modular-or/"/>
+  </url>
+  <url>
     <loc>https://www.blackarrowksa.com/ar/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1098,6 +1107,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/consultancy-policy.html"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/consultancy-policy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/consultancy-policy.html"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/services/consultancy/modular-or/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/services/consultancy/modular-or/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/services/consultancy/modular-or/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/services/consultancy/modular-or/"/>
   </url>
   <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->
   <url>

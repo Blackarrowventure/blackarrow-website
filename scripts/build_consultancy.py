@@ -223,9 +223,9 @@ def build_hub():
     for k in S:
         T(k)
     t = 'Technical Consultancy Saudi Arabia | UPS, HVAC, Fire Safety'
-    d = 'Paid technical consultancy for UPS, firefighting, HVAC, isolated power, facility management and airports in Saudi Arabia. Project plan with reference costing.'
+    d = 'Paid technical consultancy for UPS, firefighting, HVAC, isolated power, operating rooms, facility management and airports in Saudi Arabia. Project plan with reference costing.'
     meta_ar = ('الاستشارات الفنية في السعودية | UPS والتكييف والحريق',
-               'استشارات فنية مدفوعة لأنظمة UPS ومكافحة الحريق والتكييف والطاقة المعزولة وإدارة المرافق والمطارات في السعودية. خطة مشروع مع تكلفة مرجعية.')
+               'استشارات فنية مدفوعة لأنظمة UPS ومكافحة الحريق والتكييف والطاقة المعزولة وغرف العمليات وإدارة المرافق والمطارات في السعودية. خطة مشروع مع تكلفة مرجعية.')
     faqs = [('cons_q%d' % i, 'cons_a%d' % i) for i in range(1, 6)]
     ld_blocks = [
         ld({"@context": "https://schema.org", "@type": "Service", "serviceType": "Technical consultancy",

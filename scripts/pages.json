@@ -314,6 +314,11 @@
       "src": "consultancy-policy.html",
       "url": "/consultancy-policy.html",
       "ar": true
+    },
+    {
+      "src": "services/consultancy/modular-or/index.html",
+      "url": "/services/consultancy/modular-or/",
+      "ar": true
     }
   ],
   "noindex": [

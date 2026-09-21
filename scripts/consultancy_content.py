@@ -7,7 +7,7 @@ on this site. No fee, timeline, licence, certification or savings figure is
 stated anywhere: fees are quoted per request, and the policy says so.
 """
 
-SECTORS = ['ups', 'firefighting', 'hvac', 'isolated-power', 'facility-management', 'airports']
+SECTORS = ['ups', 'firefighting', 'hvac', 'isolated-power', 'modular-or', 'facility-management', 'airports']
 
 # Shared strings ------------------------------------------------------------
 S = {
@@ -190,6 +190,28 @@ SECTOR = {
            ('Yes. It can be done at design stage for a new wing or as a review of an existing room, depending on your project.',
             'نعم. يمكن إجراؤها في مرحلة التصميم لجناح جديد أو كمراجعة لغرفة قائمة، بحسب مشروعك.')),
         wa=('isolated power panel consultancy', 'استشارة لوحات الطاقة المعزولة'),
+    ),
+    'modular-or': dict(
+        name=('Modular Operating Rooms', 'غرف العمليات الجاهزة'),
+        meta_title=('Operating Room Consultancy Saudi Arabia | Modular OR Plan', 'استشارات غرف العمليات في السعودية | خطة الغرف الجاهزة'),
+        meta_desc=('Paid consultancy for hospital operating rooms in Saudi Arabia: modular or conventional, ISO 14644 and ASHRAE 170 requirements, and a project plan with reference costing.',
+                   'استشارات مدفوعة لغرف العمليات في المستشفيات بالسعودية: جاهزة أم تقليدية، ومتطلبات ISO 14644 وASHRAE 170، وخطة مشروع مع تكلفة مرجعية.'),
+        h1=('Operating Room Consultancy for Hospitals', 'استشارات غرف العمليات للمستشفيات'),
+        sub=('Decide between modular and conventional construction, and see the cost, before you commit.', 'قرّر بين البناء الجاهز والتقليدي، واطّلع على التكلفة قبل الالتزام.'),
+        intro=('An operating room is a system: walls and ceilings, air, power, lighting and infection control all have to work together. The consultancy looks at your hospital’s needs and sets out the options, the order of the work and a cost reference before construction begins.',
+               'غرفة العمليات منظومة متكاملة: الجدران والأسقف والهواء والطاقة والإضاءة ومكافحة العدوى يجب أن تعمل معاً. تنظر الاستشارة في احتياجات مستشفاك وتبيّن الخيارات وترتيب الأعمال ومرجعاً للتكلفة قبل بدء التنفيذ.'),
+        covers=[
+            (('Modular or conventional', 'جاهزة أم تقليدية'), ('The trade-offs in speed, cost, disruption and flexibility for your particular project.', 'المفاضلة بين السرعة والتكلفة والتعطيل والمرونة لمشروعك تحديداً.')),
+            (('Cleanroom and air requirements', 'متطلبات الغرف النظيفة والهواء'), ('ISO 14644 classification and ASHRAE 170 air-change requirements explained for your rooms.', 'شرح تصنيف ISO 14644 ومتطلبات تغيير الهواء وفق ASHRAE 170 لغرفك.')),
+            (('Integration with power and HVAC', 'التكامل مع الطاقة والتكييف'), ('Isolated power, UPS and air handling planned together so they do not clash on site.', 'تخطيط الطاقة المعزولة وUPS ومعالجة الهواء معاً حتى لا تتعارض في الموقع.')),
+            (('Layout and construction planning', 'تخطيط التوزيع والتنفيذ'), ('Room layout, wall and ceiling systems and the order of works, with disruption to the running hospital kept in view.', 'توزيع الغرفة وأنظمة الجدران والأسقف وترتيب الأعمال مع مراعاة التعطيل على المستشفى العامل.')),
+            (('Commissioning and maintenance plan', 'خطة التشغيل التجريبي والصيانة'), ('Testing before handover and a maintenance routine for the finished rooms.', 'اختبارات قبل التسليم وبرنامج صيانة للغرف بعد إنجازها.')),
+        ],
+        service=('/services/hospital-modular-or-rooms/', ('Hospital Modular OR Rooms', 'غرف العمليات الجاهزة للمستشفيات')),
+        q=(('Does the consultancy cover both new builds and refurbishments?', 'هل تشمل الاستشارة المباني الجديدة وأعمال التجديد؟'),
+           ('Yes. It can be done for a new operating theatre or for refurbishing an existing one, depending on your project.',
+            'نعم. يمكن إجراؤها لغرفة عمليات جديدة أو لتجديد غرفة قائمة، بحسب مشروعك.')),
+        wa=('operating room consultancy', 'استشارة غرف العمليات'),
     ),
     'facility-management': dict(
         name=('Facility Management', 'إدارة المرافق'),
