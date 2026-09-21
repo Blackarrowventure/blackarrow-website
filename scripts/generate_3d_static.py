@@ -363,6 +363,13 @@ def build_product_page(p, lang):
         'availability': 'https://schema.org/OutOfStock' if p.get('available') is False else 'https://schema.org/InStock',
         'itemCondition': 'https://schema.org/NewCondition',
         'url': url,
+        'hasMerchantReturnPolicy': {
+            '@type': 'MerchantReturnPolicy',
+            'applicableCountry': 'SA',
+            'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+            'merchantReturnDays': 7,
+            'merchantReturnLink': SITE + '/3d/returns/',
+        },
     }
     json_ld = {
         '@context': 'https://schema.org',

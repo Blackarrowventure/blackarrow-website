@@ -998,6 +998,13 @@
     if (canonical) canonical.setAttribute('href', pageUrl);
 
     var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : p.price;
+    var returnPolicy = {
+      '@type': 'MerchantReturnPolicy',
+      'applicableCountry': 'SA',
+      'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      'merchantReturnDays': 7,
+      'merchantReturnLink': 'https://www.blackarrowksa.com/3d/returns/'
+    };
     var offers = (p.variants && p.variants.length)
       ? p.variants.map(function (v) {
           return {
@@ -1006,7 +1013,8 @@
             'priceCurrency': p.currency || 'SAR',
             'availability': v.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
             'itemCondition': 'https://schema.org/NewCondition',
-            'url': pageUrl
+            'url': pageUrl,
+            'hasMerchantReturnPolicy': returnPolicy
           };
         })
       : {
@@ -1015,7 +1023,8 @@
           'priceCurrency': p.currency || 'SAR',
           'availability': p.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
           'itemCondition': 'https://schema.org/NewCondition',
-          'url': pageUrl
+          'url': pageUrl,
+          'hasMerchantReturnPolicy': returnPolicy
         };
 
     var jsonLd = {
