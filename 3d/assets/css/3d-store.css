@@ -1814,3 +1814,19 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
 .b3d-thanks__next { text-align: start; margin-bottom: 26px; }
 .b3d-thanks__next ol { margin: 0; padding-inline-start: 22px; display: grid; gap: 6px; font-size: .92rem; }
 .b3d-thanks__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+/* ==============================================
+   AUDIT FIXES (22 Sep 2026): contrast + small text
+   ============================================== */
+.navbar__links a.active { color: #b45309; }
+.navbar__brand-text .sub { color: #666; font-size: 12px; }
+.b3d-blog-card__meta,
+.b3d-article__meta { color: rgba(255,255,255,.7); }
+.b3d-article__cta .btn-primary { color: #fff; }
+.b3d-card__meta-line span,
+.b3d-card__cat,
+.b3d-picker-card__tag,
+.b3d-cat-tile__soon,
+.b3d-slider__playpause,
+.b3d-corner-badge,
+.b3d-stock-badge { font-size: 12px; }

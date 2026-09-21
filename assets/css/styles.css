@@ -73,9 +73,9 @@
   --clr-secondary-light: #f5f5f5;
   --clr-whatsapp:   #075E54;
 
-  --ff-body:    'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ff-body:    'Noto Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --ff-heading: 'Playfair Display', serif;
-  --ff-ar:      'Noto Kufi Arabic', 'Segoe UI', sans-serif;
+  --ff-ar:      'Noto Kufi Arabic', 'Noto Sans', 'Segoe UI', sans-serif;
 
   --fs-xs:   0.75rem;
   --fs-sm:   0.875rem;
@@ -4380,3 +4380,34 @@ a[href^="mailto:"],
 .svc-card__footer .svc-card__actions { display: contents; }
 .svc-card__footer .svc-card__actions .btn-outline { order: -1; background: #F59E0B; color: #1a1400 !important; border: 2px solid #F59E0B; position: relative; z-index: 2; }
 .svc-card__footer .svc-card__actions .btn-outline:hover { background: #d97706; border-color: #d97706; }
+
+/* ==============================================
+   AUDIT FIXES (22 Sep 2026): contrast + small text
+   Kept last on purpose: .section--dark * forces every descendant to
+   white/.85 with !important, and .svc-card * forces black; these rules use
+   higher specificity so the right colour wins on each surface.
+   ============================================== */
+.section--dark .svc-card__footer a,
+.section--dark .svc-card__footer a *,
+.section--gray .svc-card__footer a,
+.section--gray .svc-card__footer a * { color: #1a1a1a !important; }
+.section--dark .svc-card__footer .btn-primary,
+.section--dark .svc-card__footer .btn-primary *,
+.section--gray .svc-card__footer .btn-primary,
+.section--gray .svc-card__footer .btn-primary * { color: #fff !important; }
+.section--dark .btn-primary,
+.section--dark .btn-primary *,
+.section--gray .btn-primary,
+.section--gray .btn-primary * { color: #fff !important; }
+.footer__newsletter .btn,
+.footer__newsletter button { color: #fff !important; opacity: 1; }
+.seg__card .link { color: #b45309 !important; }
+.btn-white,
+.btn-white:hover { color: #1a1a1a !important; }
+.btn-navy,
+.btn-navy:hover { color: #1a1a1a !important; }
+.cta-btn--call { background: #1d4ed8; }
+.lang-btn,
+.navbar .lang-btn { font-size: 12px !important; }
+.navbar__logo-text .sub { font-size: 12px !important; }
+.btn-employee-login__label { font-size: 12px; }

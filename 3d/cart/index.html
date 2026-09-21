@@ -11,15 +11,15 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260922">
   <link rel="stylesheet" href="/3d/assets/css/3d-store.css">
 
   <style>
     :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:104px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
+    body{font-family:'Noto Sans','Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-accent);}
     .b3d-cart-layout{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:start;}
     @media (max-width:860px){.b3d-cart-layout{grid-template-columns:1fr;}}
@@ -185,7 +185,7 @@
                   <input type="hidden" name="from_name" value="Black Arrow 3D Shop">
                   <input type="hidden" name="payment_method" data-b3d-order-payment value="">
                   <input type="hidden" name="order_summary" data-b3d-order-summary value="">
-                  <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="checkbox" name="botcheck" aria-label="Leave this box empty" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
 
                   <div class="b3d-field-row">
                     <label><span data-i18n="checkout_first_name">First Name</span><input type="text" name="customer_first_name" required autocomplete="given-name" data-b3d-field="first_name"></label>
