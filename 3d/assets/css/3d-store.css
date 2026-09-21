@@ -1857,3 +1857,8 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
 @media (max-width: 768px) {
   [data-cat], .b3d-trust-strip a, .footer__links a, .b3d-footer a { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* AUDIT ROUND 3c: card footer wraps instead of clipping the main button */
+.b3d-card__footer { flex-wrap: wrap; }
+.b3d-card__actions { flex-wrap: wrap; min-width: 0; flex: 1 1 auto; justify-content: flex-end; }
+.b3d-card__actions .b3d-btn-add { flex: 1 1 120px; min-width: 0; text-align: center; white-space: normal; }
