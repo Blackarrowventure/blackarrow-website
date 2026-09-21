@@ -4425,3 +4425,7 @@ a[href^="mailto:"],
 
 /* AUDIT ROUND 3: hero trust badges were mid-green on a photo; solid dark chip with white text */
 .trust-badge { background: rgba(6,78,59,.92); border-color: #34d399; color: #fff; }
+
+/* Compliance badges: centre however many there are (was a fixed 4-column grid with 3 cards) */
+.compliance-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+.compliance-grid > .compliance-badge { flex: 0 1 calc(25% - 18px); min-width: 240px; }
