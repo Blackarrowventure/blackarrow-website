@@ -174,7 +174,7 @@ def product_detail_html(p, lang):
             label = T('js_view_image', lang) + ' ' + str(i + 1) + ' — ' + name
             active = ' is-active' if src == hero_img else ''
             thumbs.append('<button class="b3d-pd__thumb' + active + '" data-thumb-src="' + src
-                           + '" aria-label="' + esc(label) + '"><img src="' + src + '" alt=""></button>')
+                           + '" aria-label="' + esc(label) + '"><img src="' + src + '" alt="' + esc(label) + '"></button>')
         thumbs_html = '<div class="b3d-pd__thumbs">' + ''.join(thumbs) + '</div>'
 
     specs_html = ''.join(

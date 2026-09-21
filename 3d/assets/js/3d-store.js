@@ -1137,7 +1137,7 @@
       var thumbsHtml = images.length > 1
         ? '<div class="b3d-pd__thumbs">' + images.map(function (src, i) {
             var thumbLabel = T('js_view_image') + ' ' + (i + 1) + ' — ' + L(p, 'name');
-            return '<button class="b3d-pd__thumb' + (src === heroImg ? ' is-active' : '') + '" data-thumb-src="' + src + '" aria-label="' + thumbLabel + '"><img src="' + src + '" alt=""></button>';
+            return '<button class="b3d-pd__thumb' + (src === heroImg ? ' is-active' : '') + '" data-thumb-src="' + src + '" aria-label="' + thumbLabel + '"><img src="' + src + '" alt="' + thumbLabel + '"></button>';
           }).join('') + '</div>'
         : '';
       var pdAvailable = p.available !== false;
