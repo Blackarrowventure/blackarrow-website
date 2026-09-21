@@ -1981,5 +1981,6 @@
   "cp_updated": "<strong>Last updated:</strong> 21 September 2026",
   "pillar_consultancy": "Advisory & Planning",
   "cons_svc_desc": "Paid technical consultancy for UPS, firefighting, HVAC, isolated power, facility management and airports. You receive a start-to-finish project plan with reference costing and an explanation of how the work was done. The fee is quoted after we receive your request.",
-  "cons_svc_cta": "View Consultancy Sectors"
+  "cons_svc_cta": "View Consultancy Sectors",
+  "consultancy_btn": "Consultancy"
 }

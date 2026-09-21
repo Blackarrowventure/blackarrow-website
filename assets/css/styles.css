@@ -4373,3 +4373,10 @@ a[href^="mailto:"],
   /* Hover-only tooltip; on a phone its off-centre box pushed the RTL page wider. */
   .btn-employee-login__label { display: none; }
 }
+
+/* Homepage service cards: optional "Consultancy" button beside "Get Quote". */
+.svc-card__actions { display: flex; align-items: center; gap: 8px; position: relative; z-index: 2; }
+.svc-card__footer .btn-outline { color: #1a1a1a !important; border: 2px solid var(--clr-accent); background: transparent; }
+.svc-card__footer .btn-outline:hover { background: rgba(245,158,11,.18); }
+.svc-card__footer { flex-wrap: wrap; gap: 10px; }
+.svc-card__actions { margin-inline-start: auto; }
