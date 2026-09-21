@@ -1,7 +1,7 @@
 {
   "announce_1": {
-    "en": "COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon · New: 3D Artwork now available · Restocking all printers soon",
-    "ar": "الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً"
+    "en": "COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Restocking all printers soon",
+    "ar": "الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع عند الاستلام والتحويل البنكي · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً"
   },
   "b3d_shop_h1_page": {
     "en": "Shop",
@@ -416,8 +416,8 @@
     "ar": "توصيل لجميع مناطق السعودية"
   },
   "trust_payment": {
-    "en": "Online payment coming soon",
-    "ar": "الدفع الإلكتروني قريباً"
+    "en": "Cash on delivery & bank transfer",
+    "ar": "الدفع عند الاستلام والتحويل البنكي"
   },
   "trust_quotation": {
     "en": "Business quotations",

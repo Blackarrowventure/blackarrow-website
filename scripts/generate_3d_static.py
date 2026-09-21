@@ -547,6 +547,9 @@ def build_category_page(cat, lang, products_in_cat):
 
     html = translate_static_chrome(html, lang)
     html = localize_ar_hrefs(html, lang)
+    # category pages have no H2 before the footer columns: footer headings are H2 so the outline does not jump H1 -> H3
+    _a, _b, _c = html.partition('<footer')
+    html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
     html = lang_toggle_link(html, lang, category_url(cat, 'ar' if lang == 'en' else 'en'))
 
     live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + '/shop/?cat=' + cat.replace(' ', '+')

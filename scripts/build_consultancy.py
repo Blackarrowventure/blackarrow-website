@@ -188,11 +188,11 @@ def hero(h1_key, sub_key, crumb_key, crumb_link=None, ctas=True):
     bc += '              <span data-i18n="%s">%s</span>' % (crumb_key, e(EN_KEYS[crumb_key]))
     btn = ''
     if ctas:
-        btn = ('<div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;">\n'
+        btn = ('<div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px;">\n'
                '              <a href="/contact.html?service=consultancy" class="btn btn-primary" data-i18n="cons_cta_request">%s</a>\n'
                '              <a href="/consultancy-policy.html" class="btn btn-outline" data-i18n="cons_cta_policy">%s</a>\n            </div>'
                % (e(EN_KEYS['cons_cta_request']), e(EN_KEYS['cons_cta_policy'])))
-    return ('    <section class="page-hero">\n      <div class="container">\n        <div class="page-hero__text" style="max-width:860px;">\n'
+    return ('    <section class="page-hero">\n      <div class="container">\n        <div class="page-hero__text" style="max-width:860px;margin-inline:auto;">\n'
             '            <nav class="breadcrumb" aria-label="Breadcrumb" data-i18n-aria-label="breadcrumb_aria">\n              %s\n            </nav>\n'
             '            <h1 data-i18n="%s">%s</h1>\n            <p data-i18n="%s">%s</p>\n            %s\n          </div>\n      </div>\n    </section>\n\n'
             % (bc, h1_key, e(EN_KEYS[h1_key]), sub_key, e(EN_KEYS[sub_key]), btn))

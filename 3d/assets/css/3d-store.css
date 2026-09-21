@@ -1830,3 +1830,30 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
 .b3d-slider__playpause,
 .b3d-corner-badge,
 .b3d-stock-badge { font-size: 12px; }
+
+/* AUDIT ROUND 3: readable riyal symbol and currency label, 44px touch targets on phones */
+.b3d-riyal svg { width: .8em; height: .86em; }
+.b3d-price small { color: rgba(255,255,255,.78); font-size: .75rem; }
+@media (max-width: 768px) {
+  .b3d-card__whatsapp,
+  .b3d-btn-compare,
+  .b3d-btn-wishlist,
+  .b3d-btn-add,
+  .b3d-page-btn,
+  .b3d-quick-pill,
+  .b3d-filter-toggle,
+  .b3d-shop-search,
+  .b3d-select,
+  .navbar__pill,
+  .navbar__brand { min-height: 44px; min-width: 44px; }
+  .b3d-card__whatsapp,
+  .b3d-btn-compare,
+  .b3d-btn-wishlist { display: inline-flex; align-items: center; justify-content: center; }
+}
+
+/* AUDIT ROUND 3b: bigger hit areas without changing the look */
+.b3d-slider__dot { position: relative; }
+.b3d-slider__dot::after { content: ""; position: absolute; inset: -18px -8px; }
+@media (max-width: 768px) {
+  [data-cat], .b3d-trust-strip a, .footer__links a, .b3d-footer a { min-height: 44px; display: inline-flex; align-items: center; }
+}

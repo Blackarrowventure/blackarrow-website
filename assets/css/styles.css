@@ -283,6 +283,7 @@ body {
 .footer * { color: rgba(255,255,255,.75) !important; }
 .footer a { color: rgba(255,255,255,.75) !important; }
 .footer a:hover { color: var(--clr-accent) !important; }
+.footer h2,
 .footer h3 { color: var(--clr-accent) !important; }
 
 .page-hero { color: #ffffff !important; }
@@ -2882,6 +2883,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform: translateY(-2px);
 }
 
+.footer__col h2,
 .footer__col h3 {
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
@@ -4411,3 +4413,15 @@ a[href^="mailto:"],
 .navbar .lang-btn { font-size: 12px !important; }
 .navbar__logo-text .sub { font-size: 12px !important; }
 .btn-employee-login__label { font-size: 12px; }
+
+/* AUDIT ROUND 3: 44px touch targets on phones */
+@media (max-width: 768px) {
+  .footer a, .footer__col a, .hero__solutions-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer__col li { margin-bottom: 0; }
+}
+
+/* AUDIT ROUND 3: tighter heading lines in page heroes */
+.page-hero h1 { line-height: 1.2; text-wrap: balance; }
+
+/* AUDIT ROUND 3: hero trust badges were mid-green on a photo; solid dark chip with white text */
+.trust-badge { background: rgba(6,78,59,.92); border-color: #34d399; color: #fff; }

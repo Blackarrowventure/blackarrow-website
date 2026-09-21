@@ -186,7 +186,7 @@
       filter_clear: 'Clear all',
       js_from_tooltip: 'Starting price — final price depends on the option you choose (e.g. Standalone vs Combo).',
       trust_delivery: 'Delivery across Saudi Arabia',
-      trust_payment: 'Online payment coming soon',
+      trust_payment: 'Cash on delivery & bank transfer',
       trust_vat: 'VAT invoice',
       trust_warranty: 'Manufacturer warranty',
       trust_quotation: 'Business quotations',
@@ -340,7 +340,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · Online card payments coming soon · New: 3D Artwork now available · Restocking all printers soon'
+      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Restocking all printers soon'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -517,7 +517,7 @@
       filter_clear: 'مسح الكل',
       js_from_tooltip: 'السعر الابتدائي — السعر النهائي يعتمد على الخيار الذي تختاره (مثلاً منفردة أو باقة).',
       trust_delivery: 'توصيل لجميع مناطق السعودية',
-      trust_payment: 'الدفع الإلكتروني قريباً',
+      trust_payment: 'الدفع عند الاستلام والتحويل البنكي',
       trust_vat: 'فاتورة ضريبية',
       trust_warranty: 'ضمان الشركة المصنّعة',
       trust_quotation: 'عروض أسعار للأعمال',
@@ -671,7 +671,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع الإلكتروني قريباً · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً'
+      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً'
     }
   };
 
