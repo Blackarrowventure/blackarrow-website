@@ -4374,9 +4374,9 @@ a[href^="mailto:"],
   .btn-employee-login__label { display: none; }
 }
 
-/* Homepage service cards: optional "Consultancy" button beside "Get Quote". */
-.svc-card__actions { display: flex; align-items: center; gap: 8px; position: relative; z-index: 2; }
-.svc-card__footer .btn-outline { color: #1a1a1a !important; border: 2px solid var(--clr-accent); background: transparent; }
-.svc-card__footer .btn-outline:hover { background: rgba(245,158,11,.18); }
-.svc-card__footer { flex-wrap: wrap; gap: 10px; }
-.svc-card__actions { margin-inline-start: auto; }
+/* Homepage service cards: optional "Consultancy" button, far left of the footer, solid amber. */
+.svc-card__footer { flex-wrap: wrap; gap: 8px; }
+.svc-card__footer:has(.svc-card__actions) { padding-inline: 16px; }
+.svc-card__footer .svc-card__actions { display: contents; }
+.svc-card__footer .svc-card__actions .btn-outline { order: -1; background: #F59E0B; color: #1a1400 !important; border: 2px solid #F59E0B; position: relative; z-index: 2; }
+.svc-card__footer .svc-card__actions .btn-outline:hover { background: #d97706; border-color: #d97706; }
