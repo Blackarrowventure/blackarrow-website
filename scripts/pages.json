@@ -274,6 +274,46 @@
       "src": "services/vrla-vs-lithium-ups-batteries/index.html",
       "url": "/services/vrla-vs-lithium-ups-batteries/",
       "ar": true
+    },
+    {
+      "src": "services/consultancy/index.html",
+      "url": "/services/consultancy/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/ups/index.html",
+      "url": "/services/consultancy/ups/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/firefighting/index.html",
+      "url": "/services/consultancy/firefighting/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/hvac/index.html",
+      "url": "/services/consultancy/hvac/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/isolated-power/index.html",
+      "url": "/services/consultancy/isolated-power/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/facility-management/index.html",
+      "url": "/services/consultancy/facility-management/",
+      "ar": true
+    },
+    {
+      "src": "services/consultancy/airports/index.html",
+      "url": "/services/consultancy/airports/",
+      "ar": true
+    },
+    {
+      "src": "consultancy-policy.html",
+      "url": "/consultancy-policy.html",
+      "ar": true
     }
   ],
   "noindex": [

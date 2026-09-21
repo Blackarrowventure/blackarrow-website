@@ -94,27 +94,13 @@
   </style>
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "لماذا قد تعطيني القدرة المدونة على لوحة البيانات حجم UPS خاطئًا؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "لوحات بيانات المعدات تذكر أقصى استهلاك مقرر، وهو غالبًا أعلى بكثير مما تستهلكه المعدات فعليًا في التشغيل العادي. تحديد الحجم اعتمادًا على أرقام لوحة البيانات وحدها يميل إلى إنتاج جهاز UPS أكبر من اللازم وأغلى ثمنًا — أو، إذا قلل أحدهم من التقدير تعويضًا عن ذلك، جهاز أصغر من اللازم. القياس الفعلي للحمل يعطي رقمًا أدق بكثير."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "كم هامش إضافي لمدة التشغيل يجب أن أخطط له بعد الحد الأدنى؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "يعتمد ذلك على مدى ثقتكم في زمن تشغيل المولد ومدى تأثير أي نقص. نضيف عادة هامش أمان بدلاً من التحديد على الحد الأدنى تمامًا، لأن البطاريات تفقد أيضًا بعض سعتها مع مرور عمر الخدمة — فالتحديد على الحد الأدنى تمامًا في اليوم الأول يعني مدة تشغيل أقل من المطلوب قبل نهاية العمر المقرر للبطارية بوقت طويل."
-      }
-    }
-  ]
-}
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question","name": "Why would nameplate wattage give me the wrong UPS size?","acceptedAnswer": {"@type": "Answer","text": "Equipment nameplates list maximum rated draw, which is often well above what the equipment actually pulls in normal operation. Sizing off nameplate figures alone tends to produce an oversized, more expensive UPS — or, if someone under-corrects for it, an undersized one. A real load measurement gives a much more accurate number."}},
+      {"@type": "Question","name": "How much extra runtime should I plan for beyond my minimum requirement?","acceptedAnswer": {"@type": "Answer","text": "It depends on how confident you are in your generator's start time and how disruptive a shortfall would be. We typically build in headroom rather than sizing to the exact minimum, since batteries also lose some capacity over their service life — sizing to the bare minimum on day one means undersized runtime well before the battery's rated end of life."}}
+    ]
+  }
   </script>
 </head>
 <body>

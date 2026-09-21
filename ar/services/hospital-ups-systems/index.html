@@ -94,27 +94,13 @@
   </style>
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "كيف يتفاعل UPS مع لوحة الطاقة المعزولة في المستشفى؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "لوحة الطاقة المعزولة (IPP) تحمي من مخاطر تسرب التيار الأرضي في المواقع الرطبة كغرف العمليات؛ أما UPS فيسد فجوة الطاقة إذا انقطعت التغذية الرئيسية قبل تشغيل المولد. نحدد حجم وننسق كليهما معًا بدلاً من التعامل معهما كنظامين منفصلين، لأنهما يحميان الدائرة الحرجة نفسها."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ما مدة التشغيل التي يحتاجها UPS الفرع الحرج في المستشفى؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "يُحدَّد حجمه ليسد الفجوة حتى يتأكد تشغيل المولد الاحتياطي وتوليه الحمل — وعادة تكون دقائق معدودة وليست مدة تشغيل مستقلة طويلة، لأن المولد هو النسخة الاحتياطية طويلة المدى. نحدد الرقم الدقيق وفق زمن تشغيل المولد في منشأتكم، وليس افتراضًا عامًا."
-      }
-    }
-  ]
-}
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question","name": "How does a UPS interact with a hospital's isolated power panel?","acceptedAnswer": {"@type": "Answer","text": "The isolated power panel (IPP) protects against ground-fault risk in wet locations like operating rooms; the UPS bridges the power gap if mains fails before the generator starts. We size and coordinate both together rather than treating them as unrelated systems, since they're protecting the same critical circuit."}},
+      {"@type": "Question","name": "What runtime does a critical-branch UPS need in a hospital?","acceptedAnswer": {"@type": "Answer","text": "It's sized to bridge the gap until the emergency generator is confirmed running and has taken the load — typically a matter of minutes rather than a long standalone runtime, since the generator is the long-duration backup. We confirm the exact figure against your facility's generator start time, not a generic assumption."}}
+    ]
+  }
   </script>
 </head>
 <body>
