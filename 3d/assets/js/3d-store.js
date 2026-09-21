@@ -1003,8 +1003,20 @@
       'applicableCountry': 'SA',
       'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
       'merchantReturnDays': 7,
-      'merchantReturnLink': 'https://www.blackarrowksa.com/3d/returns/'
+      'merchantReturnLink': 'https://www.blackarrowksa.com/3d/returns/',
+      'returnMethod': 'https://schema.org/ReturnByMail',
+      'returnFees': 'https://schema.org/FreeReturn'
     };
+    function shipOption(label, price, lo, hi) {
+      return {
+        '@type': 'OfferShippingDetails',
+        'shippingLabel': label,
+        'shippingRate': { '@type': 'MonetaryAmount', 'value': price, 'currency': 'SAR' },
+        'shippingDestination': { '@type': 'DefinedRegion', 'addressCountry': 'SA' },
+        'deliveryTime': { '@type': 'ShippingDeliveryTime', 'transitTime': { '@type': 'QuantitativeValue', 'minValue': lo, 'maxValue': hi, 'unitCode': 'DAY' } }
+      };
+    }
+    var shippingDetails = [shipOption('Standard shipping', 30, 4, 5), shipOption('Fast shipping', 50, 2, 3)];
     var offers = (p.variants && p.variants.length)
       ? p.variants.map(function (v) {
           return {
@@ -1014,7 +1026,8 @@
             'availability': v.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
             'itemCondition': 'https://schema.org/NewCondition',
             'url': pageUrl,
-            'hasMerchantReturnPolicy': returnPolicy
+            'hasMerchantReturnPolicy': returnPolicy,
+            'shippingDetails': shippingDetails
           };
         })
       : {
@@ -1024,7 +1037,8 @@
           'availability': p.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
           'itemCondition': 'https://schema.org/NewCondition',
           'url': pageUrl,
-          'hasMerchantReturnPolicy': returnPolicy
+          'hasMerchantReturnPolicy': returnPolicy,
+          'shippingDetails': shippingDetails
         };
 
     var jsonLd = {

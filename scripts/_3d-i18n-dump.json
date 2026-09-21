@@ -568,8 +568,8 @@
     "ar": "خصم"
   },
   "js_shipping_desc": {
-    "en": "Calculated at checkout, across Saudi Arabia.",
-    "ar": "يُحتسب عند إتمام الطلب، لجميع مناطق المملكة العربية السعودية."
+    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
+    "ar": "شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية."
   },
   "js_shipping_heading": {
     "en": "Shipping",

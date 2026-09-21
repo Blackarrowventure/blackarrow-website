@@ -317,6 +317,20 @@ def write(path, content):
         f.write(content)
 
 
+def _ship(label, price, lo, hi):
+    return {
+        '@type': 'OfferShippingDetails',
+        'shippingLabel': label,
+        'shippingRate': {'@type': 'MonetaryAmount', 'value': price, 'currency': 'SAR'},
+        'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'SA'},
+        'deliveryTime': {'@type': 'ShippingDeliveryTime',
+                         'transitTime': {'@type': 'QuantitativeValue', 'minValue': lo, 'maxValue': hi, 'unitCode': 'DAY'}},
+    }
+
+
+SHIPPING_DETAILS = [_ship('Standard shipping', 30, 4, 5), _ship('Fast shipping', 50, 2, 3)]
+
+
 def build_product_page(p, lang):
     with open(PRODUCT_TEMPLATE, encoding='utf-8') as f:
         html = f.read()
@@ -369,7 +383,10 @@ def build_product_page(p, lang):
             'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
             'merchantReturnDays': 7,
             'merchantReturnLink': SITE + '/3d/returns/',
+            'returnMethod': 'https://schema.org/ReturnByMail',
+            'returnFees': 'https://schema.org/FreeReturn',
         },
+        'shippingDetails': SHIPPING_DETAILS,
     }
     json_ld = {
         '@context': 'https://schema.org',
