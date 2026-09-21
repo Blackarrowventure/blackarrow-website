@@ -464,15 +464,15 @@ CATEGORY_SEO = {
         'en': ('3D Printer Accessories in Saudi Arabia | Black Arrow 3D',
                'Buy 3D printer accessories and spare parts in Saudi Arabia: hotends, extruders and more for Bambu Lab A1 series printers. Prices in SAR.',
                'Spare parts and upgrades for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. See our maintenance guide for when to replace a hotend or extruder.'),
-        'ar': ('إكسسوارات الطابعات ثلاثية الأبعاد في السعودية',
+        'ar': ('إكسسوارات الطابعات ثلاثية الأبعاد في السعودية | Black Arrow',
                'اشترِ إكسسوارات وقطع غيار الطابعات ثلاثية الأبعاد في السعودية: هوت إند ووحدات بثق وغيرها لطابعات Bambu Lab سلسلة A1. الأسعار بالريال.',
                'قطع غيار وترقيات لطابعتك ثلاثية الأبعاد بالريال السعودي مع التوصيل لكل مناطق المملكة. اطّلع على دليل الصيانة لمعرفة متى تستبدل الهوت إند أو وحدة البثق.'),
     },
     '3D Artwork': {
-        'en': ('3D Printed Gifts & Keychains in Saudi Arabia',
+        'en': ('3D Printed Gifts & Keychains in Saudi Arabia | Black Arrow',
                'Shop 3D printed artwork, keychains and gifts made by Black Arrow in Saudi Arabia, including Saudi National Day designs. Prices in SAR.',
                'Unique 3D printed artwork, keychains, decor and gifts, printed by Black Arrow, including Saudi National Day designs. Priced in Saudi riyals and delivered across Saudi Arabia.'),
-        'ar': ('هدايا ومفاتيح مطبوعة ثلاثية الأبعاد في السعودية',
+        'ar': ('هدايا ومفاتيح ثلاثية الأبعاد في السعودية | Black Arrow',
                'تسوّق أعمالًا فنية وميدالِيات مفاتيح وهدايا مطبوعة بالطباعة ثلاثية الأبعاد من Black Arrow في السعودية، بما فيها تصاميم اليوم الوطني السعودي. الأسعار بالريال.',
                'أعمال فنية وميدالِيات مفاتيح وديكور وهدايا مطبوعة بالطباعة ثلاثية الأبعاد من Black Arrow، بما فيها تصاميم اليوم الوطني السعودي. الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة.'),
     },
@@ -586,7 +586,7 @@ AR_SHOP_META = {
     'description': 'تسوّق طابعات ثلاثية الأبعاد وخيوطاً وإكسسوارات في السعودية من Bambu Lab وCreality وElegoo وغيرها. قارن الأسعار بالريال مع التوصيل لكل المملكة.',
     'og_title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
     'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — قارن الطابعات ثلاثية الأبعاد والخيوط والإكسسوارات بالسعر والعلامة التجارية وحجم الطباعة. ضمان شامل، توصيل لكل مناطق السعودية.',
-    'title': 'تسوق طابعات وخيوط ثلاثية الأبعاد في السعودية',
+    'title': 'تسوق طابعات وخيوط ثلاثية الأبعاد في السعودية | Black Arrow',
 }
 
 
