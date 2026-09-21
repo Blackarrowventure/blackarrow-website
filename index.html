@@ -37,9 +37,15 @@
     .navbar__logo{display:flex;align-items:center;gap:12px;}
     .navbar__logo img{height:70px;width:auto;}
     .hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);}
+    /* Service-card "Consultancy" button: kept inline so it always arrives together with its markup, even if a browser still holds an older styles.css */
+    .svc-card__footer{flex-wrap:wrap;gap:10px;}
+    .svc-card__footer .svc-card__actions{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin-inline-start:auto;position:relative;z-index:2;}
+    .svc-card__footer .svc-card__actions .btn-outline{color:#1a1a1a !important;background:transparent;border:2px solid #F59E0B;}
+    .svc-card__footer .svc-card__actions .btn-outline:hover{background:rgba(245,158,11,.18);}
+    .svc-card__footer .svc-card__actions .btn-primary{color:#fff !important;}
   </style>
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260921b">
 
   <!-- Schema.org JSON-LD for Local Business -->
   <script type="application/ld+json">
