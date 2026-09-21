@@ -341,11 +341,16 @@ def build_product_page(p, lang):
     img = abs_url(primary_image(p))
     price_now = p['variants'][0]['price'] if p.get('variants') else p.get('price')
     price_txt = ('{:g}'.format(price_now) if isinstance(price_now, (int, float)) else str(price_now))
+    def _fit(*cands):
+        for c in cands:
+            if len(c) <= 60:
+                return c
+        return cands[-1]
     if lang == 'ar':
-        seo_title = name + ' في السعودية — ' + price_txt + ' ريال | Black Arrow 3D'
+        seo_title = _fit(name + ' — ' + price_txt + ' ريال | Black Arrow 3D', name + ' | Black Arrow 3D', name)
         seo_desc = (desc.rstrip('.') + '. السعر ' + price_txt + ' ريال. توصيل لكل مناطق السعودية.')
     else:
-        seo_title = name + ' in Saudi Arabia — ' + price_txt + ' SAR | Black Arrow 3D'
+        seo_title = _fit(name + ' — ' + price_txt + ' SAR | Black Arrow 3D', name + ' | Black Arrow 3D', name)
         seo_desc = (desc.rstrip('.') + '. Price: ' + price_txt + ' SAR. Delivery across Saudi Arabia.')
 
     html = set_lang_attrs(html, lang)
@@ -443,31 +448,31 @@ CATEGORY_SEO = {
         'en': ('3D Printers in Saudi Arabia — Buy Online | Black Arrow 3D',
                'Buy 3D printers online in Saudi Arabia: Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge. Prices in SAR with delivery across the Kingdom.',
                'Browse 3D printers for beginners, hobbyists, students and professionals. Every price is in Saudi riyals and orders are delivered across Saudi Arabia. Compare models by price and build volume in the shop, or read our buying guides before you choose.'),
-        'ar': ('طابعات ثلاثية الأبعاد في السعودية — اشترِ أونلاين | Black Arrow 3D',
+        'ar': ('طابعات ثلاثية الأبعاد في السعودية | Black Arrow 3D',
                'اشترِ طابعات ثلاثية الأبعاد أونلاين في السعودية: Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
                'تصفّح الطابعات ثلاثية الأبعاد للمبتدئين والهواة والطلاب والمحترفين. جميع الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة. قارن الطرازات حسب السعر وحجم الطباعة في المتجر، أو اقرأ أدلة الشراء قبل الاختيار.'),
     },
     'Filament': {
-        'en': ('3D Printer Filament in Saudi Arabia — PLA & More | Black Arrow 3D',
+        'en': ('3D Printer Filament in Saudi Arabia | Black Arrow 3D',
                'Buy 3D printer filament in Saudi Arabia, including PLA. Prices in SAR with delivery across the Kingdom.',
                'Filament for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. Not sure which material to pick? Read our PLA vs PETG vs ABS filament guide.'),
-        'ar': ('خيوط الطباعة ثلاثية الأبعاد في السعودية — PLA وأكثر | Black Arrow 3D',
+        'ar': ('خيوط الطباعة ثلاثية الأبعاد في السعودية | Black Arrow 3D',
                'اشترِ خيوط الطباعة ثلاثية الأبعاد في السعودية، بما فيها PLA. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
                'خيوط لطابعتك ثلاثية الأبعاد بالريال السعودي مع التوصيل لكل مناطق المملكة. لست متأكدًا من الخامة؟ اقرأ دليلنا للمقارنة بين PLA وPETG وABS.'),
     },
     'Accessories': {
-        'en': ('3D Printer Accessories & Spare Parts in Saudi Arabia | Black Arrow 3D',
+        'en': ('3D Printer Accessories in Saudi Arabia | Black Arrow 3D',
                'Buy 3D printer accessories and spare parts in Saudi Arabia: hotends, extruders and more for Bambu Lab A1 series printers. Prices in SAR.',
                'Spare parts and upgrades for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. See our maintenance guide for when to replace a hotend or extruder.'),
-        'ar': ('إكسسوارات وقطع غيار الطابعات ثلاثية الأبعاد في السعودية | Black Arrow 3D',
+        'ar': ('إكسسوارات الطابعات ثلاثية الأبعاد في السعودية',
                'اشترِ إكسسوارات وقطع غيار الطابعات ثلاثية الأبعاد في السعودية: هوت إند ووحدات بثق وغيرها لطابعات Bambu Lab سلسلة A1. الأسعار بالريال.',
                'قطع غيار وترقيات لطابعتك ثلاثية الأبعاد بالريال السعودي مع التوصيل لكل مناطق المملكة. اطّلع على دليل الصيانة لمعرفة متى تستبدل الهوت إند أو وحدة البثق.'),
     },
     '3D Artwork': {
-        'en': ('3D Printed Gifts, Keychains & Decor in Saudi Arabia | Black Arrow 3D',
+        'en': ('3D Printed Gifts & Keychains in Saudi Arabia',
                'Shop 3D printed artwork, keychains and gifts made by Black Arrow in Saudi Arabia, including Saudi National Day designs. Prices in SAR.',
                'Unique 3D printed artwork, keychains, decor and gifts, printed by Black Arrow, including Saudi National Day designs. Priced in Saudi riyals and delivered across Saudi Arabia.'),
-        'ar': ('هدايا ومفاتيح وديكور مطبوعة ثلاثية الأبعاد في السعودية | Black Arrow 3D',
+        'ar': ('هدايا ومفاتيح مطبوعة ثلاثية الأبعاد في السعودية',
                'تسوّق أعمالًا فنية وميدالِيات مفاتيح وهدايا مطبوعة بالطباعة ثلاثية الأبعاد من Black Arrow في السعودية، بما فيها تصاميم اليوم الوطني السعودي. الأسعار بالريال.',
                'أعمال فنية وميدالِيات مفاتيح وديكور وهدايا مطبوعة بالطباعة ثلاثية الأبعاد من Black Arrow، بما فيها تصاميم اليوم الوطني السعودي. الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة.'),
     },
@@ -572,16 +577,16 @@ Afzal's review/approval like every other AR copy block in this project;
 nothing here is a new business claim, just an Arabic rendering of
 strings that already exist in English on the same pages."""
 AR_HOME_META = {
-    'description': 'اشترِ طابعات ثلاثية الأبعاد وخيوط طباعة وإكسسوارات وهدايا مطبوعة ثلاثية الأبعاد في السعودية: Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge. الأسعار بالريال، ضمان شامل، توصيل لكل مناطق المملكة.',
+    'description': 'اشترِ طابعات ثلاثية الأبعاد وخيوطاً وإكسسوارات وهدايا مطبوعة في السعودية من Bambu Lab وCreality وElegoo وغيرها. الأسعار بالريال والتوصيل لكل المملكة.',
     'og_title': 'شراء طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
     'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — طابعات ثلاثية الأبعاد وخيوط وإكسسوارات لصناع المحتوى والطلاب والاستخدام المنزلي. ضمان شامل وتوصيل سريع لكل مناطق السعودية.',
-    'title': 'طابعات ثلاثية الأبعاد وخيوط طباعة وهدايا مطبوعة في السعودية | Black Arrow 3D',
+    'title': 'طابعات وخيوط وهدايا ثلاثية الأبعاد | Black Arrow 3D',
 }
 AR_SHOP_META = {
-    'description': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge. قارن الأسعار بالريال، صفِّ حسب الميزانية وحجم الطباعة، واحصل على التوصيل لأي مكان في السعودية.',
+    'description': 'تسوّق طابعات ثلاثية الأبعاد وخيوطاً وإكسسوارات في السعودية من Bambu Lab وCreality وElegoo وغيرها. قارن الأسعار بالريال مع التوصيل لكل المملكة.',
     'og_title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
     'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — قارن الطابعات ثلاثية الأبعاد والخيوط والإكسسوارات بالسعر والعلامة التجارية وحجم الطباعة. ضمان شامل، توصيل لكل مناطق السعودية.',
-    'title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين في السعودية — Black Arrow 3D',
+    'title': 'تسوق طابعات وخيوط ثلاثية الأبعاد في السعودية',
 }
 
 
