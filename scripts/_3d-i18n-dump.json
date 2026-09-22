@@ -24,12 +24,12 @@
     "ar": "الدفع عند الاستلام والتحويل البنكي وعرض السعر للشركات متاحة الآن. الدفع بالبطاقات والمحافظ الإلكترونية (مدى، فيزا/ماستركارد، Apple Pay، STC Pay، تمارا، تابي) قريبًا، بانتظار اعتماد بوابة الدفع."
   },
   "faq_a5": {
-    "en": "Across Saudi Arabia.",
-    "ar": "إلى جميع مناطق المملكة العربية السعودية."
+    "en": "Orders are typically prepared within 3 to 5 business days, as most items are made to order to ensure the best results.",
+    "ar": "يتم تجهيز الطلبات عادةً خلال 3 إلى 5 أيام عمل، حيث تُصنَّع معظم المنتجات حسب الطلب لضمان أفضل النتائج."
   },
   "faq_a6": {
-    "en": "By phone, WhatsApp or email — see the footer for our contact details.",
-    "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
+    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
+    "ar": "الشحن القياسي 30 ريالًا (4 إلى 5 أيام عمل) أو الشحن السريع 50 ريالًا (2 إلى 3 أيام عمل)، إلى جميع مناطق المملكة العربية السعودية."
   },
   "faq_h2": {
     "en": "Frequently Asked Questions",
@@ -44,12 +44,12 @@
     "ar": "ما هي طرق الدفع المتاحة؟"
   },
   "faq_q5": {
-    "en": "Where do you deliver?",
-    "ar": "أين تقومون بالتوصيل؟"
+    "en": "How long does it take to prepare an order?",
+    "ar": "كم يستغرق تجهيز الطلب؟"
   },
   "faq_q6": {
-    "en": "How can I contact you?",
-    "ar": "كيف يمكنني التواصل معكم؟"
+    "en": "How long does shipping take?",
+    "ar": "كم تستغرق مدة الشحن؟"
   },
   "filter_accessorycompat_legend": {
     "en": "Accessory compatibility",
@@ -638,5 +638,69 @@
   "nd_announce": {
     "en": "Happy 96th Saudi National Day",
     "ar": "كل عام والمملكة بخير — اليوم الوطني السعودي الـ 96"
+  },
+  "faq_q3": {
+    "en": "Are the products the same as shown in the images?",
+    "ar": "هل المنتجات مطابقة للصور المعروضة؟"
+  },
+  "faq_a3": {
+    "en": "Yes, all products are carefully manufactured using 3D printing technology. You may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the manufacturing process, not a defect. We ensure every product is delivered at the highest possible quality.",
+    "ar": "نعم، تُصنَّع جميع منتجاتنا بعناية باستخدام تقنية الطباعة ثلاثية الأبعاد. وقد تلاحظ خطوط طبقات بسيطة أو اختلافات طفيفة في اللون أو الملمس، وهذا أمر طبيعي يعكس طريقة التصنيع وليس عيبًا. ونحرص على تسليم كل منتج بأعلى جودة ممكنة."
+  },
+  "faq_q4": {
+    "en": "Are the products worth the price?",
+    "ar": "هل تستحق المنتجات سعرها؟"
+  },
+  "faq_a4": {
+    "en": "Our products are not standard items. They are unique designs produced with high precision, often made to order. Each piece goes through multiple stages of design and production to ensure quality and a distinctive experience.",
+    "ar": "منتجاتنا ليست سلعًا قياسية، بل تصاميم فريدة تُنتَج بدقة عالية، وغالبًا ما تُصنَّع حسب الطلب. وتمر كل قطعة بعدة مراحل من التصميم والتصنيع لضمان الجودة وتجربة مميزة."
+  },
+  "faq_q7": {
+    "en": "Can I track my order?",
+    "ar": "هل يمكنني تتبع طلبي؟"
+  },
+  "faq_a7": {
+    "en": "Yes, a tracking number will be provided once your order has shipped, so you can easily monitor its status.",
+    "ar": "نعم، سيتم تزويدك برقم تتبع بمجرد شحن طلبك لمتابعة حالته بسهولة."
+  },
+  "faq_q8": {
+    "en": "Can I return or exchange a product?",
+    "ar": "هل يمكنني إرجاع أو استبدال منتج؟"
+  },
+  "faq_a8": {
+    "en": "Yes, only in the following cases: a manufacturing defect, receiving the wrong product, or damage during shipping. Since products are made to order, returns are not accepted for a change of mind. See our Return & Exchange Policy for details.",
+    "ar": "نعم، فقط في الحالات التالية: وجود عيب تصنيع، استلام منتج خاطئ، أو تلف أثناء الشحن. وبما أن المنتجات تُصنَّع حسب الطلب، لا يُقبل الإرجاع بسبب تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
+  },
+  "faq_q9": {
+    "en": "Can I cancel my order?",
+    "ar": "هل يمكنني إلغاء طلبي؟"
+  },
+  "faq_a9": {
+    "en": "Cancellation is possible only before production begins. Once production has started, cancellation is not available.",
+    "ar": "يمكن الإلغاء فقط قبل بدء التصنيع. وبمجرد بدء التصنيع، لا يمكن إلغاء الطلب."
+  },
+  "faq_q10": {
+    "en": "Do you offer custom orders?",
+    "ar": "هل تقدمون طلبات مخصصة؟"
+  },
+  "faq_a10": {
+    "en": "Yes, custom orders are available based on your requested design. All details are confirmed before production.",
+    "ar": "نعم، تتوفر الطلبات المخصصة وفق التصميم الذي تطلبه، ويتم تأكيد جميع التفاصيل قبل بدء التصنيع."
+  },
+  "faq_q11": {
+    "en": "Are your products suitable as gifts?",
+    "ar": "هل منتجاتكم مناسبة كهدايا؟"
+  },
+  "faq_a11": {
+    "en": "Yes, our products are a great choice for gifts, especially for gaming enthusiasts and those who appreciate unique designs.",
+    "ar": "نعم، تُعد منتجاتنا خيارًا رائعًا للهدايا، خاصةً لعشاق الألعاب ومحبي التصاميم الفريدة."
+  },
+  "faq_q12": {
+    "en": "How can I contact you?",
+    "ar": "كيف يمكنني التواصل معكم؟"
+  },
+  "faq_a12": {
+    "en": "By phone, WhatsApp or email — see the footer for our contact details.",
+    "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
   }
 }
