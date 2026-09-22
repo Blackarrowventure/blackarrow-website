@@ -386,7 +386,7 @@ def build_product_page(p, lang):
             '@type': 'MerchantReturnPolicy',
             'applicableCountry': 'SA',
             'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            'merchantReturnDays': 7,
+            'merchantReturnDays': 3,
             'merchantReturnLink': SITE + '/3d/returns/',
             'returnMethod': 'https://schema.org/ReturnByMail',
             'returnFees': 'https://schema.org/FreeReturn',

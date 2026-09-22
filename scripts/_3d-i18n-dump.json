@@ -164,8 +164,8 @@
     "ar": "سياسة الخصوصية"
   },
   "footer_returns": {
-    "en": "Returns and Refunds",
-    "ar": "الاسترجاع والاسترداد"
+    "en": "Return & Exchange Policy",
+    "ar": "سياسة الاسترجاع والاستبدال"
   },
   "footer_services": {
     "en": "Services",
@@ -560,8 +560,8 @@
     "ar": "لمعرفة سياسة الإرجاع."
   },
   "js_returns_heading": {
-    "en": "Returns",
-    "ar": "الإرجاع"
+    "en": "Returns & Exchanges",
+    "ar": "الإرجاع والاستبدال"
   },
   "js_sale_badge": {
     "en": "Sale",
