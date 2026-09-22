@@ -932,23 +932,34 @@
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
-      "images": [
-        "/3d/assets/images/products/mustang-gt-promo.webp"
+      "variants": [
+        { "label": "White", "label_ar": "أبيض", "price": 29.99, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/mustang-gt-promo.webp" },
+        { "label": "Green", "label_ar": "أخضر", "price": 29.99, "swatch": "#006c35", "image": "/3d/assets/images/products/mustang-gt-green.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 29.99, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/mustang-gt-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 29.99, "swatch": "#f5d020", "image": "/3d/assets/images/products/mustang-gt-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 29.99, "swatch": "#d92b2b", "image": "/3d/assets/images/products/mustang-gt-red.webp" }
       ],
-      "shortDesc": "In-house 3D printed Mustang GT display model, rear-view design.",
-      "description": "A detailed, in-house 3D printed Mustang GT model built around its rear-view styling — diffuser, quad exhaust tips and spoiler all printed in. Ships in a raw, unpainted PLA finish — a DIY paint job lets you finish it in your own colors, just like the display piece shown.",
+      "images": [
+        "/3d/assets/images/products/mustang-gt-promo.webp",
+        "/3d/assets/images/products/mustang-gt-green.webp",
+        "/3d/assets/images/products/mustang-gt-black.webp",
+        "/3d/assets/images/products/mustang-gt-yellow.webp",
+        "/3d/assets/images/products/mustang-gt-red.webp"
+      ],
+      "shortDesc": "In-house 3D printed Mustang GT display model, rear-view design — pick your color.",
+      "description": "A detailed, in-house 3D printed Mustang GT model built around its rear-view styling — diffuser, quad exhaust tips and spoiler all printed in. Available in the five body colors shown.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Rear-view Mustang GT"],
-        ["Finish", "Raw, unpainted PLA (DIY paint job)"]
+        ["Finish", "Available in the colors shown"]
       ],
       "name_ar": "نموذج فورد موستنج GT مطبوع ثلاثي الأبعاد",
-      "shortDesc_ar": "نموذج عرض فورد موستنج GT مطبوع ثلاثي الأبعاد داخليًا، بتصميم من الخلف.",
-      "description_ar": "نموذج فورد موستنج GT مفصّل مطبوع ثلاثي الأبعاد داخليًا، مصمم على شكل مؤخرة السيارة — بما في ذلك الدفيوزر وفتحات العادم الرباعية والسبويلر. يُشحن بتشطيب خام غير مطلي من PLA — لتقوم أنت بطلائه بألوانك الخاصة، تماماً كما في القطعة المعروضة.",
+      "shortDesc_ar": "نموذج عرض فورد موستنج GT مطبوع ثلاثي الأبعاد داخليًا، بتصميم من الخلف — اختر لونك.",
+      "description_ar": "نموذج فورد موستنج GT مفصّل مطبوع ثلاثي الأبعاد داخليًا، مصمم على شكل مؤخرة السيارة — بما في ذلك الدفيوزر وفتحات العادم الرباعية والسبويلر. متوفر بألوان الهيكل الخمسة الموضحة.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "فورد موستنج GT من الخلف"],
-        ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
+        ["التشطيب", "متوفر بالألوان الموضحة"]
       ]
     },
     {
@@ -962,21 +973,32 @@
       "available": true,
       "newArrival": true,
       "nationalDay": true,
-      "images": ["/3d/assets/images/products/saudi-map-decor-promo.webp"],
-      "shortDesc": "Small 3D printed Saudi Arabia map decor with articulated hanging legs — for Saudi National Day.",
-      "description": "A fun, small-size 3D printed decor piece shaped like the map of Saudi Arabia, in National Day green, with articulated legs that dangle over the edge of a shelf or desk. Perfect for home and office, and a great Saudi National Day gift.",
+      "variants": [
+        { "label": "Green", "label_ar": "أخضر", "price": 25, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-decor-promo.webp" },
+        { "label": "White", "label_ar": "أبيض", "price": 25, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-hanging-decor-white.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 25, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/saudi-map-hanging-decor-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 25, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-map-hanging-decor-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 25, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-map-hanging-decor-red.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/saudi-map-decor-promo.webp",
+        "/3d/assets/images/products/saudi-map-hanging-decor-white.webp",
+        "/3d/assets/images/products/saudi-map-hanging-decor-black.webp",
+        "/3d/assets/images/products/saudi-map-hanging-decor-yellow.webp",
+        "/3d/assets/images/products/saudi-map-hanging-decor-red.webp"
+      ],
+      "shortDesc": "Small 3D printed Saudi Arabia map decor with articulated hanging legs — pick your color.",
+      "description": "A fun, small-size 3D printed decor piece shaped like the map of Saudi Arabia, with articulated legs that dangle over the edge of a shelf or desk. Perfect for home and office, and a great Saudi National Day gift. Available in the five colors shown.",
       "specs": [
         ["Design", "Saudi Arabia map with articulated hanging legs"],
-        ["Size", "Small"],
-        ["Color", "Green"]
+        ["Size", "Small"]
       ],
       "name_ar": "ديكور خريطة السعودية بأرجل متدلية",
-      "shortDesc_ar": "ديكور صغير مطبوع ثلاثي الأبعاد على شكل خريطة السعودية بأرجل متحركة متدلية — لليوم الوطني السعودي.",
-      "description_ar": "قطعة ديكور ممتعة وصغيرة الحجم مطبوعة ثلاثي الأبعاد على شكل خريطة المملكة العربية السعودية، بلون اليوم الوطني الأخضر، مع أرجل متحركة تتدلى من حافة الرف أو المكتب. مثالية للمنزل والمكتب، وهدية رائعة لليوم الوطني السعودي.",
+      "shortDesc_ar": "ديكور صغير مطبوع ثلاثي الأبعاد على شكل خريطة السعودية بأرجل متحركة متدلية — اختر لونك.",
+      "description_ar": "قطعة ديكور ممتعة وصغيرة الحجم مطبوعة ثلاثي الأبعاد على شكل خريطة المملكة العربية السعودية، مع أرجل متحركة تتدلى من حافة الرف أو المكتب. مثالية للمنزل والمكتب، وهدية رائعة لليوم الوطني السعودي. متوفرة بالألوان الخمسة الموضحة.",
       "specs_ar": [
         ["التصميم", "خريطة السعودية بأرجل متحركة متدلية"],
-        ["الحجم", "صغير"],
-        ["اللون", "أخضر"]
+        ["الحجم", "صغير"]
       ]
     },
     {
@@ -990,20 +1012,31 @@
       "available": true,
       "newArrival": true,
       "nationalDay": true,
-      "images": ["/3d/assets/images/products/saudi-map-keychain-promo.webp"],
-      "shortDesc": "Green 3D printed keychain shaped like the map of Saudi Arabia — for Saudi National Day.",
-      "description": "A green 3D printed keychain shaped like the map of Saudi Arabia, with raised round studs across its surface and a metal key ring. A simple, proud gift for Saudi National Day.",
+      "variants": [
+        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-keychain-promo.webp" },
+        { "label": "White", "label_ar": "أبيض", "price": 20, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-keychain-white.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 20, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/saudi-map-keychain-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-map-keychain-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-map-keychain-red.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/saudi-map-keychain-promo.webp",
+        "/3d/assets/images/products/saudi-map-keychain-white.webp",
+        "/3d/assets/images/products/saudi-map-keychain-black.webp",
+        "/3d/assets/images/products/saudi-map-keychain-yellow.webp",
+        "/3d/assets/images/products/saudi-map-keychain-red.webp"
+      ],
+      "shortDesc": "3D printed keychain shaped like the map of Saudi Arabia — pick your color.",
+      "description": "A 3D printed keychain shaped like the map of Saudi Arabia, with raised round studs across its surface and a metal key ring. A simple, proud gift for Saudi National Day. Available in the five colors shown.",
       "specs": [
         ["Design", "Saudi Arabia map with raised studs"],
-        ["Color", "Green"],
         ["Includes", "Metal key ring"]
       ],
       "name_ar": "ميدالية مفاتيح خريطة السعودية",
-      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية — لليوم الوطني السعودي.",
-      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بنقاط دائرية بارزة على سطحها وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي.",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية — اختر لونك.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بنقاط دائرية بارزة على سطحها وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي. متوفرة بالألوان الخمسة الموضحة.",
       "specs_ar": [
         ["التصميم", "خريطة السعودية بنقاط بارزة"],
-        ["اللون", "أخضر"],
         ["المحتويات", "حلقة مفاتيح معدنية"]
       ]
     },
@@ -1018,20 +1051,27 @@
       "available": true,
       "newArrival": true,
       "nationalDay": true,
-      "images": ["/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp"],
-      "shortDesc": "Green 3D printed keychain of the palm tree and crossed swords — for Saudi National Day.",
-      "description": "A green 3D printed keychain shaped like the palm tree and crossed swords, with a metal chain and key ring. A proud, simple gift for Saudi National Day.",
+      "variants": [
+        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-red.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp",
+        "/3d/assets/images/products/saudi-palm-swords-keychain-red.webp",
+        "/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp"
+      ],
+      "shortDesc": "3D printed keychain of the palm tree and crossed swords — pick your color.",
+      "description": "A 3D printed keychain shaped like the palm tree and crossed swords, with a metal chain and key ring. A proud, simple gift for Saudi National Day. Available in the three colors shown.",
       "specs": [
         ["Design", "Palm tree and crossed swords"],
-        ["Color", "Green"],
         ["Includes", "Metal chain and key ring"]
       ],
       "name_ar": "ميدالية مفاتيح النخلة والسيفين",
-      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين — لليوم الوطني السعودي.",
-      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين، مع سلسلة وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي.",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين — اختر لونك.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين، مع سلسلة وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي. متوفرة بالألوان الثلاثة الموضحة.",
       "specs_ar": [
         ["التصميم", "النخلة والسيفان المتقاطعان"],
-        ["اللون", "أخضر"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
       ]
     },
@@ -1046,21 +1086,64 @@
       "available": true,
       "newArrival": true,
       "nationalDay": true,
-      "images": ["/3d/assets/images/products/saudi-riyal-keychain-promo.webp"],
-      "shortDesc": "Green 3D printed keychain shaped like the Saudi Riyal symbol.",
-      "description": "A green 3D printed keychain shaped like the Saudi Riyal symbol, with a metal chain and key ring. A neat, proud gift, ideal for Saudi National Day.",
+      "variants": [
+        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-riyal-keychain-promo.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-riyal-keychain-red.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-riyal-keychain-yellow.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/saudi-riyal-keychain-promo.webp",
+        "/3d/assets/images/products/saudi-riyal-keychain-red.webp",
+        "/3d/assets/images/products/saudi-riyal-keychain-yellow.webp"
+      ],
+      "shortDesc": "3D printed keychain shaped like the Saudi Riyal symbol — pick your color.",
+      "description": "A 3D printed keychain shaped like the Saudi Riyal symbol, with a metal chain and key ring. A neat, proud gift, ideal for Saudi National Day. Available in the three colors shown.",
       "specs": [
         ["Design", "Saudi Riyal symbol"],
-        ["Color", "Green"],
         ["Includes", "Metal chain and key ring"]
       ],
       "name_ar": "ميدالية مفاتيح الريال السعودي",
-      "shortDesc_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي.",
-      "description_ar": "ميدالية مفاتيح خضراء مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي، مع سلسلة وحلقة مفاتيح معدنية. هدية أنيقة ومميزة، مثالية لليوم الوطني السعودي.",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي — اختر لونك.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي، مع سلسلة وحلقة مفاتيح معدنية. هدية أنيقة ومميزة، مثالية لليوم الوطني السعودي. متوفرة بالألوان الثلاثة الموضحة.",
       "specs_ar": [
         ["التصميم", "رمز الريال السعودي"],
-        ["اللون", "أخضر"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
+      ]
+    },
+    {
+      "id": "naruto-portrait-plaque",
+      "name": "Naruto Portrait Plaque",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/naruto-portrait-plaque-green.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 20, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/naruto-portrait-plaque-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/naruto-portrait-plaque-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/naruto-portrait-plaque-red.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/naruto-portrait-plaque-green.webp",
+        "/3d/assets/images/products/naruto-portrait-plaque-black.webp",
+        "/3d/assets/images/products/naruto-portrait-plaque-yellow.webp",
+        "/3d/assets/images/products/naruto-portrait-plaque-red.webp"
+      ],
+      "shortDesc": "3D printed square plaque with an engraved anime character portrait — pick your color.",
+      "description": "A square 3D printed wall/shelf plaque with an engraved anime character portrait design, raised in a contrasting color against the plaque's base color. Available in the four colors shown.",
+      "specs": [
+        ["Design", "Engraved anime portrait, square plaque"],
+        ["Use", "Wall or shelf display"]
+      ],
+      "name_ar": "لوحة ناروتو الجدارية",
+      "shortDesc_ar": "لوحة مربعة مطبوعة ثلاثية الأبعاد بنقش لشخصية أنمي — اختر لونك.",
+      "description_ar": "لوحة جدارية أو للرف مربعة الشكل، مطبوعة ثلاثية الأبعاد، بنقش لشخصية أنمي بارز بلون متباين عن لون خلفية اللوحة. متوفرة بالألوان الأربعة الموضحة.",
+      "specs_ar": [
+        ["التصميم", "نقش أنمي بارز على لوحة مربعة"],
+        ["الاستخدام", "عرض على الحائط أو الرف"]
       ]
     },
     {
