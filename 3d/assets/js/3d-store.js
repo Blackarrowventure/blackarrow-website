@@ -1525,7 +1525,7 @@
     return fetchProducts().then(function (products) {
       var picks = products.filter(function (p) {
         return p.newArrival && p.available !== false;
-      }).reverse().slice(0, 3);
+      }).reverse().slice(0, 7);
       picks.forEach(function (p) {
         var img = primaryImage(p);
         if (!img) return;
@@ -1592,7 +1592,7 @@
          a working play button, they just don't get an unrequested start. */
       if (timer) clearInterval(timer);
       if (paused || interacting) return;
-      timer = setInterval(function () { go(index + 1); }, 6000);
+      timer = setInterval(function () { go(index + 1); }, 3200);
     }
 
     slider.addEventListener('mouseenter', function () { interacting = true; resetTimer(); });

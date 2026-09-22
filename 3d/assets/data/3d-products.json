@@ -161,6 +161,7 @@
       "price": 3699,
       "currency": "SAR",
       "available": true,
+      "newArrival": true,
       "preorder": true,
       "variants": [
         { "label": "Standalone", "label_ar": "منفردة", "price": 3699, "image": "/3d/assets/images/products/bambu-a2l-01.webp" },
@@ -212,6 +213,7 @@
       "price": 15990,
       "currency": "SAR",
       "available": true,
+      "newArrival": true,
       "images": [
         "/3d/assets/images/products/bambu-h2c-01.webp",
         "/3d/assets/images/products/bambu-h2c-02.jpg",
@@ -302,6 +304,7 @@
       "price": 2090,
       "currency": "SAR",
       "available": true,
+      "newArrival": true,
       "variants": [
         { "label": "SparkX i7", "label_ar": "SparkX i7", "price": 2090 },
         { "label": "SparkX i7 Combo", "label_ar": "SparkX i7 كومبو", "price": 2650 }
@@ -421,6 +424,7 @@
       "price": 5690,
       "currency": "SAR",
       "available": true,
+      "newArrival": true,
       "images": [
         "/3d/assets/images/products/snapmaker-u1-01.webp",
         "/3d/assets/images/products/snapmaker-u1-02.jpg",
