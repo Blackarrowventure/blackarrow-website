@@ -1373,13 +1373,17 @@
       container.innerHTML = PRINTER_PICKER.map(function (item) {
         var p = byId[item.id];
         if (!p) return '';
+        var img = primaryImage(p);
         return '' +
           '<div class="b3d-picker-card">' +
-            '<span class="b3d-picker-card__tag">' + T(item.tagKey) + '</span>' +
-            '<h3>' + L(p, 'name') + '</h3>' +
-            '<p>' + T(item.whyKey) + '</p>' +
-            '<div class="b3d-picker-card__meta">' + priceBlock(p) + '</div>' +
-            '<a href="' + productUrl(p) + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
+            (img ? '<div class="b3d-picker-card__visual"><img src="' + img + '" alt="' + L(p, 'name') + '" loading="lazy" width="300" height="300"></div>' : '') +
+            '<div class="b3d-picker-card__body">' +
+              '<span class="b3d-picker-card__tag">' + T(item.tagKey) + '</span>' +
+              '<h3>' + L(p, 'name') + '</h3>' +
+              '<p>' + T(item.whyKey) + '</p>' +
+              '<div class="b3d-picker-card__meta">' + priceBlock(p) + '</div>' +
+              '<a href="' + productUrl(p) + '" class="btn btn-outline">' + T('js_view_product') + '</a>' +
+            '</div>' +
           '</div>';
       }).join('');
       injectItemListSeo(matched, 'home-jsonld-picker', 'Which Printer Is Right for You?');

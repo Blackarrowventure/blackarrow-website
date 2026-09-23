@@ -1636,13 +1636,28 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(245,158,11,.18);
   border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+.b3d-picker-card:hover { border-color: var(--clr-accent); transform: translateY(-4px); }
+.b3d-picker-card__visual {
+  aspect-ratio: 4 / 3;
+  background: #f4f3f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.b3d-picker-card__visual img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+.b3d-picker-card__body {
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: var(--transition);
+  flex: 1;
 }
-.b3d-picker-card:hover { border-color: var(--clr-accent); transform: translateY(-4px); }
 .b3d-picker-card__tag {
   display: inline-block;
   align-self: flex-start;
