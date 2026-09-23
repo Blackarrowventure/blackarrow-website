@@ -1888,3 +1888,14 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
 .b3d-color-chip.is-out .b3d-color-chip__name { text-decoration: line-through; }
 .b3d-color-chip.is-out .b3d-color-chip__name em { text-decoration: none; display: inline-block; font-style: normal; color: #fca5a5; margin-inline-start: 4px; }
 .b3d-color-chip.is-out .b3d-color-chip__dot { opacity: .5; }
+
+/* Header logo: the artwork is gold/white on black, so it sits on its own
+   black plate against the white navbar. */
+.navbar__brand-logo {
+  display: block;
+  height: 54px;
+  width: auto;
+  background: #000;
+  border-radius: 8px;
+}
+@media (max-width: 640px) { .navbar__brand-logo { height: 40px; } }
