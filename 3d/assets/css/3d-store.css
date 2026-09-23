@@ -1899,3 +1899,15 @@ html[dir="rtl"] .b3d-announce__track--nd { animation-name: b3d-marquee-half-rtl;
   border-radius: 8px;
 }
 @media (max-width: 640px) { .navbar__brand-logo { height: 40px; } }
+
+/* Black header: the logo artwork is on black, so the navbar itself is black
+   and the logo blends in with no plate. */
+header .navbar { background: #000; }
+.navbar__brand-logo { border-radius: 0; }
+header .navbar__links > li > a { color: #fff; }
+header .navbar__links > li > a:hover,
+header .navbar__links a.active { color: var(--clr-accent); }
+header .navbar__dropdown summary { color: #fff; border-color: rgba(255,255,255,.35); }
+header .navbar__dropdown summary::after { color: var(--clr-accent); }
+header .navbar__pill { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
+header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: var(--clr-accent); }
