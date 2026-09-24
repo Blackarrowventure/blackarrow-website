@@ -1911,3 +1911,19 @@ header .navbar__dropdown summary { color: #fff; border-color: rgba(255,255,255,.
 header .navbar__dropdown summary::after { color: var(--clr-accent); }
 header .navbar__pill { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
 header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: var(--clr-accent); }
+
+/* Coupon / redeem code */
+.b3d-cart-summary__row--discount { color: #6ee7a8; }
+.b3d-coupon { margin: 6px 0 14px; }
+.b3d-coupon label { display: block; color: rgba(255,255,255,.75); font-size: .85rem; margin-bottom: 6px; }
+.b3d-coupon__row { display: flex; gap: 8px; }
+.b3d-coupon__row input {
+  flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); color: #fff;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.b3d-coupon__row .btn { min-height: 44px; padding: 0 18px; }
+.b3d-coupon__msg { font-size: .82rem; margin-top: 6px; min-height: 1em; }
+.b3d-coupon__msg.is-err { color: #ff8a8a; }
+.b3d-coupon__remove { background: none; border: 0; color: rgba(255,255,255,.7); text-decoration: underline; cursor: pointer; font-size: .8rem; padding: 4px; }
+.b3d-cart-summary__row[hidden], .b3d-coupon[hidden] { display: none; }

@@ -715,6 +715,88 @@
   var lastSubtotal = 0;
   var shippingPlaceholderText = null;
 
+  var COUPON_KEY = 'b3d_coupon';
+  var appliedCoupon = null; // { code, amount }
+
+  function couponHash(code) {
+    var data = new TextEncoder().encode('b3d:' + code.trim().toUpperCase());
+    return window.crypto.subtle.digest('SHA-256', data).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    });
+  }
+
+  // Resolves { ok:true, code, amount } or { ok:false, reason: 'invalid'|'expired'|'min' }
+  function checkCoupon(code, subtotal) {
+    if (!window.crypto || !window.crypto.subtle) return Promise.resolve({ ok: false, reason: 'invalid' });
+    return Promise.all([
+      couponHash(code),
+      fetch('/3d/assets/data/3d-coupons.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return { coupons: [] }; })
+    ]).then(function (res) {
+      var entry = (res[1].coupons || []).filter(function (c) { return c.hash === res[0]; })[0];
+      if (!entry) return { ok: false, reason: 'invalid' };
+      if (entry.expires && new Date().toISOString().slice(0, 10) > entry.expires) return { ok: false, reason: 'expired' };
+      if (entry.minOrder && subtotal < entry.minOrder) return { ok: false, reason: 'min', min: entry.minOrder };
+      return { ok: true, code: code.trim().toUpperCase(), amount: entry.amount };
+    });
+  }
+
+  function couponDiscount() {
+    return appliedCoupon ? Math.min(appliedCoupon.amount, lastSubtotal) : 0;
+  }
+
+  function initCoupon(summaryEl) {
+    var box = summaryEl && summaryEl.querySelector('[data-b3d-coupon]');
+    if (!box) return;
+    var input = box.querySelector('[data-b3d-coupon-input]');
+    var applyBtn = box.querySelector('[data-b3d-coupon-apply]');
+    var msg = box.querySelector('[data-b3d-coupon-msg]');
+    var removeBtn = summaryEl.querySelector('[data-b3d-coupon-remove]');
+
+    function say(text, ok) {
+      msg.textContent = text || '';
+      msg.className = 'b3d-coupon__msg' + (text ? (ok ? ' is-ok' : ' is-err') : '');
+    }
+    function store(code) {
+      try { if (code) sessionStorage.setItem(COUPON_KEY, code); else sessionStorage.removeItem(COUPON_KEY); } catch (e) {}
+    }
+    function failText(r) {
+      if (r.reason === 'expired') return T('coupon_expired');
+      if (r.reason === 'min') return T('coupon_min').replace('{n}', r.min);
+      return T('coupon_invalid');
+    }
+    function apply(code, quiet) {
+      return checkCoupon(code, lastSubtotal).then(function (r) {
+        if (!r.ok) {
+          appliedCoupon = null; store('');
+          if (!quiet) say(failText(r), false);
+        } else {
+          appliedCoupon = { code: r.code, amount: r.amount };
+          store(r.code); input.value = '';
+          say('', true);
+        }
+        updateOrderTotals();
+      });
+    }
+
+    applyBtn.addEventListener('click', function () {
+      if (!input.value.trim()) { say(T('coupon_invalid'), false); return; }
+      apply(input.value, false);
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); applyBtn.click(); }
+    });
+    if (removeBtn) removeBtn.addEventListener('click', function () {
+      appliedCoupon = null; store(''); say('', true); updateOrderTotals();
+    });
+
+    // Re-check on every cart render (quantities change the subtotal / min-order).
+    summaryEl._recheckCoupon = function () {
+      var saved = null;
+      try { saved = sessionStorage.getItem(COUPON_KEY); } catch (e) {}
+      if (saved) apply(saved, false); else updateOrderTotals();
+    };
+  }
+
   function updateOrderTotals() {
     var summaryEl = document.querySelector('[data-b3d-cart-summary]');
     var checkout = document.querySelector('[data-b3d-checkout]');
@@ -723,10 +805,26 @@
     var totalEl = summaryEl.querySelector('[data-cart-total]');
     if (shippingPlaceholderText === null && shippingEl) shippingPlaceholderText = shippingEl.textContent;
 
+    var discount = couponDiscount();
+    var discountRow = summaryEl.querySelector('[data-b3d-discount-row]');
+    if (discountRow) {
+      discountRow.hidden = !discount;
+      if (discount) {
+        summaryEl.querySelector('[data-b3d-discount-code]').textContent = appliedCoupon.code;
+        summaryEl.querySelector('[data-cart-discount]').innerHTML = '\u2212' + money(discount, 'SAR');
+      }
+    }
+    var couponForm = summaryEl.querySelector('[data-b3d-coupon]');
+    if (couponForm) couponForm.hidden = !!discount;
+    var couponField = document.querySelector('[data-b3d-coupon-field]');
+    if (couponField) couponField.value = discount ? appliedCoupon.code : '';
+    var discountLine = discount ? '\nDiscount (' + appliedCoupon.code + '): -' + discount + ' SAR' : '';
+    var after = lastSubtotal - discount;
+
     var showShipping = checkout && !checkout.hidden;
     if (!showShipping) {
       if (shippingEl) shippingEl.textContent = shippingPlaceholderText;
-      if (totalEl) totalEl.innerHTML = money(lastSubtotal, 'SAR');
+      if (totalEl) totalEl.innerHTML = money(after, 'SAR');
       return;
     }
 
@@ -734,15 +832,15 @@
     var price = checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0;
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
     if (shippingEl) shippingEl.innerHTML = money(price, 'SAR');
-    if (totalEl) totalEl.innerHTML = money(lastSubtotal + price, 'SAR');
+    if (totalEl) totalEl.innerHTML = money(after + price, 'SAR');
 
     var shipField = checkout.querySelector('[data-b3d-shipping-field]');
     if (shipField) shipField.value = label + ' — ' + price + ' SAR';
     var summaryField = checkout.querySelector('[data-b3d-order-summary]');
     if (summaryField) {
-      summaryField.value = lastOrderSummaryText +
+      summaryField.value = lastOrderSummaryText + discountLine +
         '\nShipping: ' + label + ' — ' + price + ' SAR' +
-        '\nGrand Total: ' + (lastSubtotal + price).toLocaleString('en-US') + ' SAR';
+        '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
   }
 
@@ -985,7 +1083,7 @@
 
       lastSubtotal = subtotal;
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
-      updateOrderTotals();
+      if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();
 
       listEl.querySelectorAll('[data-remove-id]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1056,7 +1154,7 @@
       '@type': 'MerchantReturnPolicy',
       'applicableCountry': 'SA',
       'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-      'merchantReturnDays': 7,
+      'merchantReturnDays': 3,
       'merchantReturnLink': 'https://www.blackarrowksa.com/3d/returns/',
       'returnMethod': 'https://schema.org/ReturnByMail',
       'returnFees': 'https://schema.org/FreeReturn'
@@ -1757,6 +1855,7 @@
     if (cartList) {
       var summary = document.querySelector('[data-b3d-cart-summary]');
       var empty = document.querySelector('[data-b3d-cart-empty]');
+      initCoupon(summary);
       renderCartPage(cartList, summary, empty);
       initPaymentMethods(document.querySelector('[data-b3d-payment]'));
       initShippingMethods(document.querySelector('[data-b3d-checkout]'));
