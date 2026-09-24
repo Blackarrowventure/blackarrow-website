@@ -236,12 +236,28 @@
     return '';
   }
 
+  // A variant may carry `oldPrice` (the pre-offer price): it renders as an
+  // offer, with the old price struck through next to the new one.
+  function variantPriceHtml(v, p) {
+    if (v.oldPrice && v.oldPrice > v.price) {
+      return '<span class="b3d-price b3d-price--sale">' + money(v.price, p.currency) +
+        '</span><span class="b3d-price-was">' + money(v.oldPrice, p.currency) + '</span>';
+    }
+    return '<span class="b3d-price">' + money(v.price, p.currency) + '</span>';
+  }
+
+  // The price a customer actually pays for the product's base listing.
+  function currentPrice(p) {
+    if (p.variants && p.variants.length) return Math.min.apply(null, p.variants.map(function (v) { return v.price; }));
+    return (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
+  }
+
   function priceBlock(p) {
     if (p.variants && p.variants.length) {
       var prices = p.variants.map(function (v) { return v.price; });
       var min = Math.min.apply(null, prices);
       var allSame = prices.every(function (pr) { return pr === min; });
-      if (allSame) return '<span class="b3d-price">' + money(min, p.currency) + '</span>';
+      if (allSame) return variantPriceHtml(p.variants[0], p);
       return '<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="' + T('js_from_tooltip') + '">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
     }
     if (p.onSale && p.salePrice != null) {
@@ -1176,7 +1192,7 @@
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', pageUrl);
 
-    var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : p.price;
+    var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : currentPrice(p);
     var returnPolicy = {
       '@type': 'MerchantReturnPolicy',
       'applicableCountry': 'SA',
@@ -1337,7 +1353,7 @@
           (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(p.variants[0]) + '</div>' : '')
         : '';
       var initialPriceHtml = hasVariants
-        ? '<span class="b3d-price">' + money(p.variants[0].price, p.currency) + '</span>'
+        ? variantPriceHtml(p.variants[0], p)
         : priceBlock(p);
 
       container.innerHTML = '' +
@@ -1415,7 +1431,7 @@
             btn.setAttribute('aria-pressed', 'true');
             selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
             var v = p.variants[selectedVariant];
-            container.querySelector('[data-pd-price]').innerHTML = '<span class="b3d-price">' + money(v.price, p.currency) + '</span>';
+            container.querySelector('[data-pd-price]').innerHTML = variantPriceHtml(v, p);
             var swatchLabel = container.querySelector('[data-pd-swatch-label]');
             if (swatchLabel) swatchLabel.textContent = LVariant(v);
             if (v.image) {
@@ -1595,7 +1611,7 @@
           return '<th><a href="' + productUrl(p) + '" style="color:#fff;">' + L(p, 'name') + '</a></th>';
         }).join('') + '</tr></thead><tbody>';
 
-      html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(p.price, p.currency) + '</td>'; }).join('') + '</tr>';
+      html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(currentPrice(p), p.currency) + '</td>'; }).join('') + '</tr>';
       html += '<tr><td>' + T('js_cmp_availability') + '</td>' + items.map(function (p) { return '<td>' + availabilityLabel(p) + '</td>'; }).join('') + '</tr>';
       html += '<tr><td>' + T('js_cmp_brand') + '</td>' + items.map(function (p) { return '<td>' + (p.brand || '—') + '</td>'; }).join('') + '</tr>';
 

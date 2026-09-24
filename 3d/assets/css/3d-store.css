@@ -1744,6 +1744,7 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
   margin-top: 24px;
 }
 .b3d-cat-landing__card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1761,6 +1762,8 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
   border-radius: 8px;
   background: #111;
 }
+.b3d-cat-landing__card .b3d-corner-badge { top: 24px; left: 24px; }
+html[dir="rtl"] .b3d-cat-landing__card .b3d-corner-badge { left: auto; right: 24px; }
 .b3d-cat-landing__name {
   font-weight: 600;
   font-size: .95rem;

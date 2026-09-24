@@ -18,7 +18,7 @@
     "onSale": "boolean, optional",
     "newArrival": "boolean, optional — shows a green 'New Arrival' corner badge on the shop/featured card and product page",
     "topPick": "boolean, optional — powers the shop's 'Top quality' quick filter",
-    "variants": "array of {label, price, label_ar, swatch, image, available}, optional — when present, the shop card shows 'From <lowest price>' (or the plain price if all variants cost the same) + a View Options link, and the product page shows a variant picker instead of one fixed price. `swatch` (a CSS color, e.g. a hex code) renders that variant as a color dot instead of a text pill — used for filament colors; selecting it also swaps the product photo if `image` is set. `available: false` on one variant shows it struck-through/disabled without affecting the rest.",
+    "variants": "array of {label, price, label_ar, swatch, image, available}, optional — when present, the shop card shows 'From <lowest price>' (or the plain price if all variants cost the same) + a View Options link, and the product page shows a variant picker instead of one fixed price. `swatch` (a CSS color, e.g. a hex code) renders that variant as a color dot instead of a text pill — used for filament colors; selecting it also swaps the product photo if `image` is set. `available: false` on one variant shows it struck-through/disabled without affecting the rest. `oldPrice` on a variant (with `price` set to the offer price) shows the offer price with the old price struck through; set `onSale: true` and `salePrice` on the product too so the Offer badge shows.",
     "images": "array of image paths — first is primary (gallery photos of the actual product)",
     "cardImage": "string, optional — image path used as the shop card / product page hero / SEO og:image instead of images[0], e.g. a branded promo graphic that shouldn't sit in the photo gallery",
     "shortDesc": "string",
@@ -828,6 +828,8 @@
       "category": "3D Artwork",
       "price": 49,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 30,
       "vatIncluded": true,
       "available": true,
       "featured": true,
@@ -899,6 +901,8 @@
       "category": "3D Artwork",
       "price": 20,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 10,
       "vatIncluded": true,
       "available": true,
       "images": [
@@ -1004,14 +1008,16 @@
       "category": "3D Artwork",
       "price": 20,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 10,
       "vatIncluded": true,
       "available": true,
       "variants": [
-        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-keychain-promo.webp" },
-        { "label": "White", "label_ar": "أبيض", "price": 20, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-keychain-white.webp" },
-        { "label": "Black", "label_ar": "أسود", "price": 20, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/saudi-map-keychain-black.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-map-keychain-yellow.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-map-keychain-red.webp" }
+        { "label": "Green", "label_ar": "أخضر", "price": 10, "oldPrice": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-keychain-promo.webp" },
+        { "label": "White", "label_ar": "أبيض", "price": 10, "oldPrice": 20, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-keychain-white.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 10, "oldPrice": 20, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/saudi-map-keychain-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 10, "oldPrice": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-map-keychain-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 10, "oldPrice": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-map-keychain-red.webp" }
       ],
       "images": [
         "/3d/assets/images/products/saudi-map-keychain-promo.webp",
@@ -1041,12 +1047,14 @@
       "category": "3D Artwork",
       "price": 20,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 10,
       "vatIncluded": true,
       "available": true,
       "variants": [
-        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-red.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp" }
+        { "label": "Green", "label_ar": "أخضر", "price": 10, "oldPrice": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 10, "oldPrice": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-red.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 10, "oldPrice": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp" }
       ],
       "images": [
         "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp",
@@ -1074,12 +1082,14 @@
       "category": "3D Artwork",
       "price": 20,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 10,
       "vatIncluded": true,
       "available": true,
       "variants": [
-        { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-riyal-keychain-promo.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-riyal-keychain-red.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-riyal-keychain-yellow.webp" }
+        { "label": "Green", "label_ar": "أخضر", "price": 10, "oldPrice": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-riyal-keychain-promo.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 10, "oldPrice": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-riyal-keychain-red.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 10, "oldPrice": 20, "swatch": "#f5d020", "image": "/3d/assets/images/products/saudi-riyal-keychain-yellow.webp" }
       ],
       "images": [
         "/3d/assets/images/products/saudi-riyal-keychain-promo.webp",
@@ -1143,6 +1153,8 @@
       "category": "3D Artwork",
       "price": 20,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 10,
       "vatIncluded": true,
       "available": true,
       "newArrival": true,

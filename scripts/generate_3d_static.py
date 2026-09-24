@@ -143,13 +143,30 @@ def status_badge(p, lang):
     return ''
 
 
+def variant_price_html(v, p):
+    """A variant with `oldPrice` renders as an offer (old price struck through)."""
+    if v.get('oldPrice') and v['oldPrice'] > v['price']:
+        return ('<span class="b3d-price b3d-price--sale">' + money(v['price'], p.get('currency')) + '</span>'
+                + '<span class="b3d-price-was">' + money(v['oldPrice'], p.get('currency')) + '</span>')
+    return '<span class="b3d-price">' + money(v['price'], p.get('currency')) + '</span>'
+
+
+def current_price(p):
+    """The price a customer actually pays for the base listing."""
+    if p.get('variants'):
+        return min(v['price'] for v in p['variants'])
+    if p.get('onSale') and p.get('salePrice') is not None:
+        return p['salePrice']
+    return p.get('price')
+
+
 def price_block(p, lang):
     variants = p.get('variants')
     if variants:
         prices = [v['price'] for v in variants]
         lo = min(prices)
         if all(pr == lo for pr in prices):
-            return '<span class="b3d-price">' + money(lo, p.get('currency')) + '</span>'
+            return variant_price_html(variants[0], p)
         return ('<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="'
                 + T('js_from_tooltip', lang) + '">' + T('js_from', lang) + '</span><span class="b3d-price">'
                 + money(lo, p.get('currency')) + '</span>')
@@ -203,7 +220,7 @@ def product_detail_html(p, lang):
         variant_selector_html = ('<div class="b3d-pd__variants' + (' b3d-pd__swatches' if has_swatches else '')
                                   + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
                                   + ''.join(pills) + '</div>')
-        initial_price_html = '<span class="b3d-price">' + money(variants[0]['price'], p.get('currency')) + '</span>'
+        initial_price_html = variant_price_html(variants[0], p)
     else:
         initial_price_html = price_block(p, lang)
 
@@ -339,7 +356,7 @@ def build_product_page(p, lang):
     desc = L(p, 'shortDesc', lang) or L(p, 'description', lang) or ''
     url = SITE + product_url(p, lang)
     img = abs_url(primary_image(p))
-    price_now = p['variants'][0]['price'] if p.get('variants') else p.get('price')
+    price_now = p['variants'][0]['price'] if p.get('variants') else current_price(p)
     price_txt = ('{:g}'.format(price_now) if isinstance(price_now, (int, float)) else str(price_now))
     def _fit(*cands):
         for c in cands:
@@ -374,7 +391,7 @@ def build_product_page(p, lang):
                          + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + product_url(p, "en") + '">')
     html = html.replace('<title>Product — Black Arrow 3D</title>', '<title>' + esc(seo_title) + '</title>')
 
-    price_value = p['variants'][0]['price'] if p.get('variants') else p.get('price')
+    price_value = p['variants'][0]['price'] if p.get('variants') else current_price(p)
     offer = {
         '@type': 'Offer',
         'price': price_value,
@@ -516,6 +533,7 @@ def build_category_page(cat, lang, products_in_cat):
         img = primary_image(p)
         cards.append(
             '<a class="b3d-cat-landing__card" href="' + product_url(p, lang) + '">'
+            + (('<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>') if p.get('onSale') else '')
             + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
             + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
             + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
