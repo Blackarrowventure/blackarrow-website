@@ -464,7 +464,7 @@ def build_product_page(p, lang):
 
 CATEGORY_SEO = {
     '3D Printers': {
-        'en': ('3D Printers in Saudi Arabia — Buy Online | Black Arrow 3D',
+        'en': ('3D Printers in Saudi Arabia | Bambu Lab, Creality & More',
                'Buy 3D printers online in Saudi Arabia: Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge. Prices in SAR with delivery across the Kingdom.',
                'Browse 3D printers for beginners, hobbyists, students and professionals. Every price is in Saudi riyals and orders are delivered across Saudi Arabia. Compare models by price and build volume in the shop, or read our buying guides before you choose.'),
         'ar': ('طابعات ثلاثية الأبعاد في السعودية | Black Arrow 3D',
@@ -516,6 +516,96 @@ BRAND_SEO = {
 
 def brand_url(brand, lang):
     return ('/3d/ar' if lang == 'ar' else '/3d') + '/brands/' + BRAND_SLUGS[brand] + '/'
+
+
+# Longer, genuinely useful copy for the 3D Printers landing page. Every claim
+# below is taken from the product data (build volume, multicolor system,
+# enclosure, listed materials) - nothing here is a new business claim.
+# Arabic is DRAFT machine-assisted copy, flagged for review like the rest.
+CATEGORY_H1 = {
+    '3D Printers': {'en': '3D Printers in Saudi Arabia'},
+}
+
+CATEGORY_GUIDE = {
+    '3D Printers': {
+        'en': {
+            'intro': [
+                "Shop desktop 3D printers online in Saudi Arabia from Black Arrow 3D. We offer printers from Bambu Lab, Creality, Elegoo, Anycubic and Snapmaker, from compact, beginner-friendly models to enclosed printers for professional use and large-format machines with far more build room.",
+                "Many models can print in several colors: Bambu Lab's AMS Lite, Creality's CFS Lite and Elegoo's CANVAS system each handle up to four filaments, and the Snapmaker U1 uses four independent toolheads. Every price is in Saudi riyals (SAR) and orders are delivered across Saudi Arabia.",
+                "Not sure which one to pick? Use the guides below, compare build volume and price in the shop, or ask us on WhatsApp and we will help you choose.",
+            ],
+            'sections': [
+                ('3D Printers for Beginners',
+                 "Printers suited to first-time users, with automatic bed leveling and simple setup on the models that include them.",
+                 ['bambu-lab-a1-mini', 'bambu-lab-a1', 'creality-sparkx-i7']),
+                ('Professional & Engineering Printers',
+                 "Enclosed printers built for everyday production. The H2C Combo and Centauri Carbon 2 also list engineering materials such as ABS and ASA.",
+                 ['bambu-lab-h2c-combo', 'bambu-lab-p2s', 'elegoo-centauri-carbon-2']),
+                ('Large-Format Printers',
+                 "More build room for bigger models, prototypes, decor and oversized parts.",
+                 ['bambu-lab-a2l', 'anycubic-kobra-3-max']),
+                ('Multicolor 3D Printers',
+                 "Print in several colors in one job: filament systems that handle up to four colors, or independent toolheads.",
+                 ['bambu-lab-a1', 'creality-sparkx-i7', 'elegoo-centauri-carbon-2', 'snapmaker-u1', 'anycubic-kobra-3-max']),
+            ],
+            'vol': 'build volume',
+            'shop_link': 'Compare all printers in the shop',
+        },
+        'ar': {
+            'intro': [
+                "تسوّق الطابعات ثلاثية الأبعاد المكتبية أونلاين في السعودية من Black Arrow 3D. نوفّر طابعات Bambu Lab وCreality وElegoo وAnycubic وSnapmaker، من الموديلات الصغيرة المناسبة للمبتدئين إلى الطابعات المغلقة للاستخدام المهني والطابعات كبيرة الحجم ذات مساحة الطباعة الأوسع.",
+                "كثير من الموديلات تطبع بعدة ألوان: نظام AMS Lite من Bambu Lab ونظام CFS Lite من Creality ونظام CANVAS من Elegoo يتعامل كلٌّ منها مع ما يصل إلى أربعة خيوط، وتستخدم Snapmaker U1 أربعة رؤوس طباعة مستقلة. جميع الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة.",
+                "لست متأكدًا من الطابعة المناسبة؟ استعن بالأدلة أدناه، وقارن حجم الطباعة والسعر في المتجر، أو راسلنا عبر واتساب لنساعدك في الاختيار.",
+            ],
+            'sections': [
+                ('طابعات ثلاثية الأبعاد للمبتدئين',
+                 "طابعات مناسبة لمن يبدأ لأول مرة، مع معايرة تلقائية للسرير وإعداد بسيط في الموديلات التي توفّر ذلك.",
+                 None),
+                ('طابعات احترافية وهندسية',
+                 "طابعات مغلقة مصمّمة للإنتاج اليومي. كما تذكر H2C Combo وCentauri Carbon 2 خامات هندسية مثل ABS وASA.",
+                 None),
+                ('طابعات كبيرة الحجم',
+                 "مساحة طباعة أكبر للنماذج الكبيرة والنماذج الأولية والديكور والقطع كبيرة الحجم.",
+                 None),
+                ('طابعات ثلاثية الأبعاد متعددة الألوان',
+                 "اطبع بعدة ألوان في مهمة واحدة: أنظمة خيوط تدعم حتى أربعة ألوان، أو رؤوس طباعة مستقلة.",
+                 None),
+            ],
+            'vol': 'حجم الطباعة',
+            'shop_link': 'قارن كل الطابعات في المتجر',
+        },
+    },
+}
+
+
+def category_guide_html(cat, lang, by_id):
+    """H2 sections with linked products under the category grid."""
+    g = CATEGORY_GUIDE.get(cat, {}).get(lang)
+    if not g:
+        return ''
+    en_sections = CATEGORY_GUIDE[cat]['en']['sections']
+    out = ['<div class="b3d-cat-guide">']
+    for i, (heading, para, ids) in enumerate(g['sections']):
+        ids = ids or en_sections[i][2]
+        items = []
+        for pid in ids:
+            p = by_id.get(pid)
+            if not p or p.get('available') is False:
+                continue
+            vol = ''
+            for row in p.get('specs') or []:
+                if row[0] == 'Build Volume':
+                    vol = row[1].replace(' x ', ' \u00d7 ')
+                    break
+            price = money(current_price(p), p.get('currency'))
+            items.append('<li><a href="' + product_url(p, lang) + '">' + esc(L(p, 'name', lang)) + '</a>'
+                         + (' \u2014 ' + g['vol'] + ' <bdi dir="ltr">' + esc(vol.replace(' mm', '')) + '</bdi> ' + ('\u0645\u0645' if lang == 'ar' else 'mm') if vol else '')
+                         + ' \u00b7 <bdi dir="ltr">' + price + '</bdi></li>')
+        out.append('<section><h2>' + esc(heading) + '</h2><p>' + esc(para) + '</p><ul>' + ''.join(items) + '</ul></section>')
+    out.append('<p><a class="btn btn-outline" href="' + shop_url(lang) + '">' + esc(g['shop_link']) + '</a></p>')
+    out.append('</div>')
+    return ''.join(out)
+
 
 
 def build_category_page(cat, lang, products_in_cat, brand=None):
@@ -596,6 +686,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
     html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
     html = lang_toggle_link(html, lang, _url('ar' if lang == 'en' else 'en'))
 
+    guide_copy = None if brand else CATEGORY_GUIDE.get(cat, {}).get(lang)
     live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + ('/shop/?brand=' + brand.replace(' ', '+') if brand else '/shop/?cat=' + cat.replace(' ', '+'))
     landing_block = (
         '<section class="section" style="padding-top:20px;">'
@@ -605,10 +696,11 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<a href="' + shop_url(lang) + '">' + esc(T('nav_shop', lang)) + '</a><span>›</span>'
         + '<span>' + esc(label) + '</span>'
         + '</nav>'
-        + '<h1>' + esc(label) + '</h1>'
-        + '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>'
+        + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
+        + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
         + '<div class="b3d-cat-landing__grid">' + ''.join(cards) + '</div>'
+        + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
     )
     html = re.sub(r'<main id="main">.*?</main>', '<main id="main">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)

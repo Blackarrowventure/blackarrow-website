@@ -1891,3 +1891,13 @@ header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: va
 .b3d-coupon__msg.is-err { color: #ff8a8a; }
 .b3d-coupon__remove { background: none; border: 0; color: rgba(255,255,255,.7); text-decoration: underline; cursor: pointer; font-size: .8rem; padding: 4px; }
 .b3d-cart-summary__row[hidden], .b3d-coupon[hidden] { display: none; }
+
+/* Guide sections under a category landing grid */
+.b3d-cat-guide { margin-top: 44px; display: grid; gap: 28px; max-width: 900px; }
+.b3d-cat-guide h2 { font-size: 1.35rem; margin: 0 0 8px; }
+.b3d-cat-guide p { color: rgba(255,255,255,.8); margin: 0 0 10px; }
+.b3d-cat-guide ul { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; color: rgba(255,255,255,.85); }
+.b3d-cat-guide a:not(.btn) { color: var(--clr-accent); text-decoration: underline; text-underline-offset: 2px; }
+.b3d-shop-head__intro + .b3d-shop-head__intro { margin-top: 12px; }
+main > .section > .container > .b3d-shop-head__intro { text-align: start; max-width: 760px; }
+main > .section > .container > .b3d-shop-head__intro + p { margin-top: 20px; }
