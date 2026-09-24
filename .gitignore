@@ -21,3 +21,6 @@ black_arrow_final.py
 
 # Superseded by downloads/profile.pdf, which is the one the site links.
 company-profile.pdf
+
+# Local secrets (Supabase service key for coupon codes). NEVER commit - repo is public.
+.env.local
