@@ -1155,6 +1155,60 @@
   </url>
   <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->
   <url>
+    <loc>https://www.blackarrowksa.com/solutions/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/solutions/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/resources/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/certifications/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/certifications/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/certifications/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/certifications/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/solutions/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/solutions/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/resources/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/certifications/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/certifications/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/certifications/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/certifications/"/>
+  </url>
+  <url>
     <loc>https://www.blackarrowksa.com/3d/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>

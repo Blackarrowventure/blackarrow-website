@@ -3657,7 +3657,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .navbar__logo-text .name { font-size: 15px; }
   .navbar__logo-text .sub { font-size: 11px; }
   .navbar__links { flex-wrap: wrap; row-gap: 4px; padding: 6px 10px; }
-  .navbar__links a { padding: 6px 10px; font-size: 14px; }
+  .navbar__links a { padding: 6px 8px; font-size: 14px; }
   .navbar__actions { gap: 8px; padding-inline-start: 12px; padding-inline-end: 12px; }
   .navbar__actions .btn { padding: 8px 14px; font-size: 13px; }
   .lang-btn { padding: 5px 8px; font-size: 10px; }
@@ -4442,3 +4442,44 @@ header .navbar { background: #000; }
 header .navbar__logo img { width: 270px; height: auto; filter: none; }
 @media (max-width: 1300px) { header .navbar__logo img { width: 210px; } }
 @media (max-width: 640px) { header .navbar__logo img { width: min(190px, 46vw); } }
+
+/* Grouped navigation: hover / keyboard-focus dropdowns (desktop only; on small
+   screens the top-level link opens the hub page that lists the same items). */
+.navbar__links > li { position: relative; }
+.navbar__links .navbar__sub {
+  display: none; position: absolute; top: 100%; inset-inline-start: 0; z-index: 1100;
+  min-width: 270px; margin: 0; padding: 8px; list-style: none; flex-direction: column;
+  background: #111; border: 1px solid rgba(245,158,11,.35); border-radius: 10px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+.navbar__links .has-sub:hover > .navbar__sub,
+.navbar__links .has-sub:focus-within > .navbar__sub { display: flex; }
+.navbar__links .navbar__sub a { display: block; padding: 9px 12px; font-size: 14px; font-weight: 600; white-space: normal; }
+.navbar__links .navbar__sub a::after { display: none; }
+.navbar__links .navbar__sub a:hover { background: rgba(245,158,11,.12); }
+@media (max-width: 1024px) { .navbar__links .navbar__sub { display: none !important; } }
+
+.hub-links { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.hub-links a { display: block; padding: 12px 14px; background: #222; border: 1px solid #333; border-radius: 8px; color: #e8e8e8; text-decoration: none; font-weight: 600; }
+.hub-links a:hover, .hub-links a:focus-visible { border-color: var(--clr-accent); color: var(--clr-accent); }
+
+/* seven grouped menu items need the room the tagline beside the wordmark used */
+@media (max-width: 2100px) { .navbar__logo-text { display: none; } }
+
+/* /certifications/ detail cards */
+.cert-detail-list { display: grid; gap: 28px; }
+.cert-detail { display: grid; grid-template-columns: minmax(180px, 260px) 1fr; gap: 28px; padding: 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(245,158,11,.22); border-radius: 14px; }
+.cert-detail__img { display: block; background: #fff; border-radius: 8px; overflow: hidden; align-self: start; }
+.cert-detail__img img { display: block; width: 100%; height: auto; }
+.cert-detail h2 { margin: 0 0 12px; font-size: 1.5rem; color: #F59E0B; }
+.cert-detail dl { margin: 0; display: grid; gap: 10px; }
+.cert-detail dl > div { display: grid; grid-template-columns: 190px 1fr; gap: 14px; }
+.cert-detail dt { color: #9a9a9a; font-size: .9rem; }
+.cert-detail dd { margin: 0; color: #eee; line-height: 1.6; }
+.cert-scope { font-size: .9rem; color: #cfcfcf; }
+.cert-detail__actions { margin: 18px 0 0; }
+@media (max-width: 720px) {
+  .cert-detail { grid-template-columns: 1fr; padding: 16px; }
+  .cert-detail__img { max-width: 260px; }
+  .cert-detail dl > div { grid-template-columns: 1fr; gap: 2px; }
+}

@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260927">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260953">
 
   <style>
     .sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
@@ -111,9 +111,47 @@
         </a>
         <ul class="navbar__links" role="list">
           <li><a href="/ar/" data-i18n="nav_home">الرئيسية</a></li>
-          <li><a href="/ar/services.html" data-i18n="nav_services">خدماتنا</a></li>
-          <li><a href="/ar/about.html" data-i18n="nav_about">من نحن</a></li>
-          <li><a href="/ar/become-a-partner.html" data-i18n="nav_partner">كن شريكاً</a></li>
+          <li class="has-sub"><a href="/ar/services.html" data-i18n="nav_services">خدماتنا</a>
+            <ul class="navbar__sub" role="list">
+              <li><a href="/ar/services/ups-power-backup/" data-i18n="service_ups">حلول أنظمة UPS</a></li>
+              <li><a href="/ar/services/isolated-power-panels/" data-i18n="service_ipp">لوحات الطاقة المعزولة</a></li>
+              <li><a href="/ar/services/ev-charging-solutions/" data-i18n="service_ev">حلول السيارات الكهربائية</a></li>
+              <li><a href="/ar/services/hvac-solutions/" data-i18n="service_hvac">حلول التكييف والتهوية</a></li>
+              <li><a href="/ar/services/electrical-distribution/" data-i18n="service_electrical">التوزيع الكهربائي والطاقة</a></li>
+              <li><a href="/ar/services/firefighting-systems/" data-i18n="service_fire">أنظمة الحريق</a></li>
+              <li><a href="/ar/services/lighting-solutions/" data-i18n="service_lighting">حلول الإضاءة</a></li>
+              <li><a href="/ar/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</a></li>
+              <li><a href="/ar/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">صفائح الرصاص للمستشفيات</a></li>
+              <li><a href="/ar/services/consultancy/" data-i18n="service_consultancy">الاستشارات الفنية</a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="/ar/solutions/" class="active" data-i18n="nav_industries">القطاعات</a>
+            <ul class="navbar__sub" role="list">
+              <li><a href="/ar/solutions/hospitals/" data-i18n="nav_ind_hospitals">المستشفيات والرعاية الصحية</a></li>
+              <li><a href="/ar/solutions/commercial/" data-i18n="nav_ind_commercial">المولات والمكاتب والتجزئة</a></li>
+              <li><a href="/ar/solutions/government/" data-i18n="nav_ind_government">المنشآت الحكومية</a></li>
+              <li><a href="/ar/solutions/hospitality/" data-i18n="nav_ind_hospitality">الفنادق والضيافة</a></li>
+              <li><a href="/ar/solutions/industrial/" data-i18n="nav_ind_industrial">المصانع والمنشآت الصناعية</a></li>
+              <li><a href="/ar/solutions/aviation/" data-i18n="nav_ind_aviation">الطيران</a></li>
+            </ul>
+          </li>
+          <li><a href="/ar/resources/case-studies/" data-i18n="nav_projects">المشاريع</a></li>
+          <li class="has-sub"><a href="/ar/resources/" data-i18n="nav_resources">المصادر</a>
+            <ul class="navbar__sub" role="list">
+              <li><a href="/ar/resources/blog/" data-i18n="nav_technical_articles">مقالات تقنية</a></li>
+              <li><a href="/ar/resources/faqs/" data-i18n="nav_faqs">الأسئلة الشائعة</a></li>
+              <li><a href="/ar/resources/case-studies/" data-i18n="nav_case_studies">دراسات الحالة</a></li>
+              <li><a href="/ar/company-profile.html" data-i18n="nav_company_profile">ملف الشركة</a></li>
+            </ul>
+          </li>
+          <li class="has-sub"><a href="/ar/about.html" data-i18n="nav_about">من نحن</a>
+            <ul class="navbar__sub" role="list">
+              <li><a href="/ar/about.html" data-i18n="nav_about">من نحن</a></li>
+              <li><a href="/ar/certifications/" data-i18n="nav_certifications">الشهادات</a></li>
+              <li><a href="/ar/company-profile.html" data-i18n="nav_company_profile">ملف الشركة</a></li>
+              <li><a href="/ar/become-a-partner.html" data-i18n="nav_partner">كن شريكاً</a></li>
+            </ul>
+          </li>
           <li><a href="/ar/contact.html" data-i18n="nav_contact">اتصل بنا</a></li>
         </ul>
         <div class="navbar__actions">

@@ -329,6 +329,21 @@
       "src": "services/consultancy/ev-charging/index.html",
       "url": "/services/consultancy/ev-charging/",
       "ar": true
+    },
+    {
+      "src": "solutions/index.html",
+      "url": "/solutions/",
+      "ar": true
+    },
+    {
+      "src": "resources/index.html",
+      "url": "/resources/",
+      "ar": true
+    },
+    {
+      "src": "certifications/index.html",
+      "url": "/certifications/",
+      "ar": true
     }
   ],
   "noindex": [
