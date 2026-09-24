@@ -454,7 +454,7 @@ def build_product_page(p, lang):
     )
     html = re.sub(
         r'<div class="b3d-pd" data-b3d-product>.*?</div>\s*\n\s*(<div data-b3d-related></div>)',
-        lambda m: '<div class="b3d-pd" data-b3d-product>' + detail_html + '</div>\n\n        ' + m.group(1),
+        lambda m: '<div class="b3d-pd" data-b3d-product>' + detail_html + '</div>\n\n        ' + related_products_html(p, lang),
         html, count=1, flags=re.DOTALL
     )
 
@@ -531,6 +531,48 @@ def landing_card(p, lang):
             + '</a>')
 
 
+
+def related_products_html(current, lang):
+    """Same picks as the product-page script (same category or brand, first four),
+    as plain links; the script replaces this on load."""
+    related = [x for x in PRODUCTS if x['id'] != current['id']
+               and (x['category'] == current['category'] or x.get('brand') == current.get('brand'))][:4]
+    if not related:
+        return '<div data-b3d-related></div>'
+    return ('<div data-b3d-related><h2 class="b3d-related__title">' + esc(T('js_related_products', lang)) + '</h2>'
+            '<div class="b3d-grid">' + ''.join(landing_card(x, lang) for x in related) + '</div></div>')
+
+
+# Keep in sync with PRINTER_PICKER in 3d/assets/js/3d-store.js
+PRINTER_PICKER = [
+    ('bambu-lab-a1-mini', 'picker_tag_1', 'picker_why_1'),
+    ('creality-sparkx-i7', 'picker_tag_2', 'picker_why_2'),
+    ('bambu-lab-a2l', 'picker_tag_4', 'picker_why_4'),
+    ('bambu-lab-h2c-combo', 'picker_tag_7', 'picker_why_7'),
+]
+PICKER_RX = re.compile(r'(<div class="b3d-picker-grid" data-b3d-picker-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)', re.S)
+
+
+def picker_cards_html(lang):
+    by_id = {x['id']: x for x in PRODUCTS}
+    out = []
+    for pid, tag_key, why_key in PRINTER_PICKER:
+        x = by_id.get(pid)
+        if not x:
+            continue
+        img = primary_image(x)
+        out.append('<div class="b3d-picker-card">'
+                   + ('<div class="b3d-picker-card__visual"><img src="' + img + '" alt="' + esc(L(x, 'name', lang)) + '" loading="lazy" width="300" height="300"></div>' if img else '')
+                   + '<div class="b3d-picker-card__body">'
+                   + '<span class="b3d-picker-card__tag">' + esc(T(tag_key, lang)) + '</span>'
+                   + '<h3>' + esc(L(x, 'name', lang)) + '</h3>'
+                   + '<p>' + esc(T(why_key, lang)) + '</p>'
+                   + '<div class="b3d-picker-card__meta">' + price_block(x, lang) + '</div>'
+                   + '<a href="' + product_url(x, lang) + '" class="btn btn-outline">' + esc(T('js_view_product', lang)) + '</a>'
+                   + '</div></div>')
+    return ''.join(out)
+
+
 PRERENDER_RX = re.compile(r'(<div class="b3d-grid" data-b3d-(?:grid|featured-grid)>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)', re.S)
 
 
@@ -549,6 +591,8 @@ def prerender_grids(html, lang, kind):
     items = PRODUCTS if kind == 'shop' else featured_products()
     cards = ''.join(landing_card(p, lang) for p in items)
     html = PRERENDER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + cards + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
+    if kind == 'home':
+        html = PICKER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + picker_cards_html(lang) + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'shop':
         html = re.sub(r'(data-b3d-count>)[^<]*(<)', lambda m: m.group(1) + str(len(PRODUCTS)) + m.group(2), html, count=1)
     return html
