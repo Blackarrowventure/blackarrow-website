@@ -718,25 +718,39 @@
   var COUPON_KEY = 'b3d_coupon';
   var appliedCoupon = null; // { code, amount }
 
-  function couponHash(code) {
-    var data = new TextEncoder().encode('b3d:' + code.trim().toUpperCase());
-    return window.crypto.subtle.digest('SHA-256', data).then(function (buf) {
-      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+  // Codes live in Supabase (table not readable by the site); the site can only
+  // ask "is this code valid?" and "use it up", one code at a time.
+  function couponRpc(fn, code, subtotal) {
+    var cfg = window.BLACK_ARROW_SUPABASE_CONFIG;
+    if (!cfg || !cfg.url || !cfg.anonKey) return Promise.resolve({ ok: false, reason: 'unavailable' });
+    return fetch(cfg.url + '/rest/v1/rpc/' + fn, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: cfg.anonKey, Authorization: 'Bearer ' + cfg.anonKey },
+      body: JSON.stringify({ p_code: code, p_subtotal: subtotal })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('rpc');
+      return r.json();
+    }).catch(function () { return { ok: false, reason: 'unavailable' }; });
+  }
+
+  function checkCoupon(code, subtotal) {
+    return couponRpc('check_coupon', code.trim(), subtotal).then(function (r) {
+      if (r.ok) r.code = code.trim().toUpperCase();
+      return r;
     });
   }
 
-  // Resolves { ok:true, code, amount } or { ok:false, reason: 'invalid'|'expired'|'min' }
-  function checkCoupon(code, subtotal) {
-    if (!window.crypto || !window.crypto.subtle) return Promise.resolve({ ok: false, reason: 'invalid' });
-    return Promise.all([
-      couponHash(code),
-      fetch('/3d/assets/data/3d-coupons.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return { coupons: [] }; })
-    ]).then(function (res) {
-      var entry = (res[1].coupons || []).filter(function (c) { return c.hash === res[0]; })[0];
-      if (!entry) return { ok: false, reason: 'invalid' };
-      if (entry.expires && new Date().toISOString().slice(0, 10) > entry.expires) return { ok: false, reason: 'expired' };
-      if (entry.minOrder && subtotal < entry.minOrder) return { ok: false, reason: 'min', min: entry.minOrder };
-      return { ok: true, code: code.trim().toUpperCase(), amount: entry.amount };
+  // Called at checkout: uses the code up for real. Resolves true if the order
+  // may go ahead (no coupon, or redeemed). A redemption id is kept so a retry
+  // after a failed send doesn't burn a second use.
+  function redeemAppliedCoupon() {
+    if (!appliedCoupon || appliedCoupon.redemption) return Promise.resolve({ ok: true });
+    return couponRpc('redeem_coupon', appliedCoupon.code, lastSubtotal).then(function (r) {
+      if (r.ok) {
+        appliedCoupon = { code: appliedCoupon.code, amount: r.amount, redemption: r.redemption };
+        updateOrderTotals();
+      }
+      return r;
     });
   }
 
@@ -761,6 +775,8 @@
     }
     function failText(r) {
       if (r.reason === 'expired') return T('coupon_expired');
+      if (r.reason === 'used') return T('coupon_used');
+      if (r.reason === 'unavailable') return T('coupon_unavailable');
       if (r.reason === 'min') return T('coupon_min').replace('{n}', r.min);
       return T('coupon_invalid');
     }
@@ -793,7 +809,8 @@
     summaryEl._recheckCoupon = function () {
       var saved = null;
       try { saved = sessionStorage.getItem(COUPON_KEY); } catch (e) {}
-      if (saved) apply(saved, false); else updateOrderTotals();
+      if (appliedCoupon && appliedCoupon.redemption) updateOrderTotals();
+      else if (saved) apply(saved, false); else updateOrderTotals();
     };
   }
 
@@ -817,8 +834,8 @@
     var couponForm = summaryEl.querySelector('[data-b3d-coupon]');
     if (couponForm) couponForm.hidden = !!discount;
     var couponField = document.querySelector('[data-b3d-coupon-field]');
-    if (couponField) couponField.value = discount ? appliedCoupon.code : '';
-    var discountLine = discount ? '\nDiscount (' + appliedCoupon.code + '): -' + discount + ' SAR' : '';
+    if (couponField) couponField.value = discount ? appliedCoupon.code + (appliedCoupon.redemption ? ' / ' + appliedCoupon.redemption : '') : '';
+    var discountLine = discount ? '\nDiscount (' + appliedCoupon.code + (appliedCoupon.redemption ? ', redemption ' + appliedCoupon.redemption : '') + '): -' + discount + ' SAR' : '';
     var after = lastSubtotal - discount;
 
     var showShipping = checkout && !checkout.hidden;
@@ -1011,10 +1028,20 @@
       if (errorEl) errorEl.hidden = true;
       if (successEl) successEl.hidden = true;
 
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+      redeemAppliedCoupon().then(function (r) {
+        if (!r.ok) {
+          appliedCoupon = null;
+          try { sessionStorage.removeItem(COUPON_KEY); } catch (e) {}
+          updateOrderTotals();
+          var cm = document.querySelector('[data-b3d-coupon-msg]');
+          if (cm) { cm.textContent = T('coupon_gone'); cm.className = 'b3d-coupon__msg is-err'; }
+          throw new Error('coupon');
+        }
+        return fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
       }).then(function (res) {
         return res.json().catch(function () { return {}; }).then(function (data) {
           if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
@@ -1024,8 +1051,8 @@
           sendCustomerConfirmation(form);
           saveCart({});
         });
-      }).catch(function () {
-        if (errorEl) errorEl.hidden = false;
+      }).catch(function (err) {
+        if (errorEl && !(err && err.message === 'coupon')) errorEl.hidden = false;
       }).then(function () {
         if (submitBtn) { submitBtn.textContent = label; submitBtn.disabled = false; }
       });
