@@ -16,8 +16,8 @@
     "ar": "قريباً"
   },
   "faq_a1": {
-    "en": "Yes. Use \"Get a 3D Printing Quote\" above or WhatsApp us, and we will follow up directly.",
-    "ar": "نعم. استخدم زر \"احصل على عرض سعر للطباعة ثلاثية الأبعاد\" أعلاه أو راسلنا عبر واتساب وسنتواصل معك مباشرة."
+    "en": "Yes. Use \"Get Your Design Printed\" above or WhatsApp us, and we will follow up directly.",
+    "ar": "نعم. استخدم زر \"اطبع تصميمك\" أعلاه أو راسلنا عبر واتساب وسنتواصل معك مباشرة."
   },
   "faq_a2": {
     "en": "Cash on Delivery, Bank Transfer and Business Quotation are available.",
@@ -180,8 +180,8 @@
     "ar": "واتساب"
   },
   "hub_ask_question": {
-    "en": "Get a 3D Printing Quote",
-    "ar": "احصل على عرض سعر للطباعة ثلاثية الأبعاد"
+    "en": "Get Your Design Printed",
+    "ar": "اطبع تصميمك"
   },
   "hub_blog_cta": {
     "en": "View All Guides",
@@ -732,8 +732,8 @@
     "ar": "ديكور وأعمال فنية"
   },
   "journey_b_6": {
-    "en": "Request a quotation",
-    "ar": "اطلب عرض سعر"
+    "en": "Ask for a price on WhatsApp",
+    "ar": "اسأل عن السعر عبر واتساب"
   },
   "journey_b_cta2": {
     "en": "Browse 3D Artwork",

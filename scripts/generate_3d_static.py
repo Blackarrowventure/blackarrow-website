@@ -868,7 +868,7 @@ def apply_ar_meta(html, meta):
 # site already states are used (see /3d/returns/, FAQ, product pages).
 # Arabic is DRAFT copy, flagged for review like every other AR block.
 # ---------------------------------------------------------------------------
-WA_QUOTE = 'https://wa.me/966560224715?text=Hello%21%20I%27d%20like%20a%20quote%20for%203D%20printing.'
+WA_QUOTE = 'https://wa.me/966560224715?text=Hello%21%20I%27d%20like%20to%20get%20something%203D%20printed.'
 
 STATIC_PAGES = {
     '3d-printing-service-saudi-arabia': {
@@ -879,7 +879,7 @@ STATIC_PAGES = {
             'crumb': '3D Printing Service',
             'body': [
                 ('p', "Have a design you want printed? Send it to Black Arrow 3D and we will print it for you. We handle custom gifts, prototypes, decor and artwork, personalized products, customized parts and small batches, and we deliver across Saudi Arabia."),
-                ('cta', 'Get a 3D Printing Quote'),
+                ('cta', 'Get Your Design Printed'),
                 ('h2', 'What you can send us'),
                 ('ul', ["Your own design file", "A MakerWorld link", "A sketch or an idea, and we will discuss it with you", "A photo or reference of what you want"]),
                 ('h2', 'What we print'),
@@ -916,7 +916,7 @@ STATIC_PAGES = {
             'crumb': 'خدمة الطباعة ثلاثية الأبعاد',
             'body': [
                 ('p', "لديك تصميم تريد طباعته؟ أرسله إلى Black Arrow 3D ونطبعه لك. نتولى الهدايا المخصصة والنماذج الأولية والديكور والأعمال الفنية والمنتجات الشخصية والقطع المخصصة والدفعات الصغيرة، ونوصّل لجميع مناطق المملكة."),
-                ('cta', 'احصل على عرض سعر للطباعة ثلاثية الأبعاد'),
+                ('cta', 'اطبع تصميمك'),
                 ('h2', 'ما الذي يمكنك إرساله'),
                 ('ul', ["ملف تصميمك الخاص", "رابط من MakerWorld", "رسمة أو فكرة، ونناقشها معك", "صورة أو مرجع لما تريده"]),
                 ('h2', 'ما الذي نطبعه'),
