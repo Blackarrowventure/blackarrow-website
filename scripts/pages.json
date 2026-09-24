@@ -344,6 +344,11 @@
       "src": "certifications/index.html",
       "url": "/certifications/",
       "ar": true
+    },
+    {
+      "src": "services/aviation/index.html",
+      "url": "/services/aviation/",
+      "ar": true
     }
   ],
   "noindex": [

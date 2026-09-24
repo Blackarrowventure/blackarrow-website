@@ -135,8 +135,13 @@
       },
       {
         "@type": "Offer",
+        "name": "Aviation Services",
+        "description": "Helipad lighting, obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities"
+      },
+      {
+        "@type": "Offer",
         "name": "Lighting Solutions",
-        "description": "LED lighting solutions, interior lighting, exterior lighting, facade lighting, aviation lighting, helipad lighting, heliport lighting, runway lighting, obstruction lighting systems, building warning lights, OBS lighting, airport lighting systems"
+        "description": "LED lighting solutions, interior lighting, exterior lighting, facade lighting"
       },
       {
         "@type": "Offer",
@@ -177,7 +182,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260953">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260954">
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="skip_main">Skip to main content</a>
@@ -203,6 +208,7 @@
               <li><a href="/services/electrical-distribution/" data-i18n="service_electrical">Electrical &amp; Power</a></li>
               <li><a href="/services/firefighting-systems/" data-i18n="service_fire">Firefighting</a></li>
               <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
+              <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
               <li><a href="/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a></li>
               <li><a href="/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">Lead Sheets for Hospitals</a></li>
               <li><a href="/services/consultancy/" data-i18n="service_consultancy">Technical Consultancy</a></li>
@@ -218,12 +224,10 @@
               <li><a href="/solutions/aviation/" data-i18n="nav_ind_aviation">Aviation</a></li>
             </ul>
           </li>
-          <li><a href="/resources/case-studies/" data-i18n="nav_projects">Projects</a></li>
           <li class="has-sub"><a href="/resources/" data-i18n="nav_resources">Resources</a>
             <ul class="navbar__sub" role="list">
               <li><a href="/resources/blog/" data-i18n="nav_technical_articles">Technical Articles</a></li>
               <li><a href="/resources/faqs/" data-i18n="nav_faqs">FAQs</a></li>
-              <li><a href="/resources/case-studies/" data-i18n="nav_case_studies">Case Studies</a></li>
               <li><a href="/company-profile.html" data-i18n="nav_company_profile">Company Profile</a></li>
             </ul>
           </li>
@@ -291,6 +295,7 @@
           <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
             <a href="/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">HVAC</span></a>
             <a href="/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">Lighting</span></a>
+            <a href="/services/aviation/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>✈️</span> <span data-i18n="service_aviation">Aviation</span></a>
             <a href="/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">Firefighting</span></a>
           </div>
         </div>
@@ -394,12 +399,35 @@
             <p data-i18n="service_lighting_desc_full">Our lighting systems are engineered to provide optimal illumination, durability, and energy efficiency. From architectural façade lighting to customized signage and specialized applications, we offer end-to-end solutions tailored to every project requirement — reducing energy consumption while enhancing aesthetics and safety.</p>
             <ul class="service-features">
               <li data-i18n="light_feat_1">Façade Lighting — architectural LED systems, RGB color control, and dynamic effects</li>
-              <li data-i18n="light_feat_5">Specialized Lighting — obstruction lights, helipad lighting, and emergency systems</li>
+              <li data-i18n="light_feat_5">Specialized Lighting — emergency lighting systems</li>
               <li data-i18n="light_feat_6">Smart controls, DALI, and IoT-integrated lighting management systems</li>
             </ul>
             <div style="display:flex;gap:16px;flex-wrap:wrap;">
               <a href="/services/lighting-solutions/" class="btn btn-primary" data-i18n="light_full_details">Full Lighting Details &amp; Specifications</a>
               <a href="/contact.html?service=lighting" class="btn btn-outline" data-i18n="request_lighting_consultation">Request Lighting Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ AVIATION ═══ -->
+    <section id="aviation" class="service-detail" aria-labelledby="aviation-heading">
+      <div class="container">
+        <div class="service-detail__inner" style="grid-template-columns:1fr;">
+          <div class="service-detail__content">
+            <span class="overline" data-i18n="avi_svc_overline">Aviation Services</span>
+            <h2 id="aviation-heading" data-i18n="service_aviation">Aviation</h2>
+            <p data-i18n="avi_svc_desc_full">Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.</p>
+            <ul class="service-features">
+              <li data-i18n="avi_c1t">Helipad lighting</li>
+              <li data-i18n="avi_c2t">Obstruction and warning lights</li>
+              <li data-i18n="avi_c3t">Runway and taxiway edge lighting</li>
+              <li data-i18n="avi_c4t">Airside electrical distribution</li>
+            </ul>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <a href="/services/aviation/" class="btn btn-primary" data-i18n="avi_view_service">View Aviation Services</a>
+              <a href="/contact.html?service=aviation" class="btn btn-outline" data-i18n="request_avi_consultation">Request Facility Consultation</a>
             </div>
           </div>
         </div>
@@ -630,7 +658,6 @@
             <li><a href="/become-a-partner.html" data-i18n="nav_partner">Become Partner</a></li>
             <li><a href="/resources/faqs/" data-i18n="nav_faqs">FAQs</a></li>
             <li><a href="/resources/blog/" data-i18n="blog_title">Blog</a></li>
-            <li><a href="/resources/case-studies/" data-i18n="nav_case_studies">Case Studies</a></li>
           
             <li><a href="/3d/shop/" data-i18n="nav_black_arrow_3d">Black Arrow 3D</a></li></ul>
         </div>
@@ -647,6 +674,7 @@
             <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
             <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
+            <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
             <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
           </ul>
         </div>

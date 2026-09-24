@@ -48,8 +48,8 @@ NEW_AR = {
     'ind_hub_services_h2': 'الخدمات',
     'ind_hub_services_p': 'كل قطاع يعتمد على مجموعة من هذه الخدمات. يمكنك أيضاً تصفح جميع خدماتنا مباشرة.',
     'res_hub_h1': 'المصادر',
-    'res_hub_sub': 'مقالات تقنية وأدلة وأسئلة شائعة ودراسات حالة وملف الشركة',
-    'res_hub_intro': 'كل ما نشرناه في مكان واحد: مقالات تقنية عن المعايير والتصميم، وأدلة عملية، وإجابات عن الأسئلة المتكررة، وحسابات مشاريع تمثيلية.',
+    'res_hub_sub': 'مقالات تقنية وأدلة وأسئلة شائعة وملف الشركة',
+    'res_hub_intro': 'كل ما نشرناه في مكان واحد: مقالات تقنية عن المعايير والتصميم، وأدلة عملية، وإجابات عن الأسئلة المتكررة وملف الشركة.',
     'res_hub_articles_h2': 'المقالات التقنية',
     'res_hub_articles_p': 'شروحات عن المعايير والاختيار والتصميم في المنشآت السعودية.',
     'res_hub_all_articles': 'جميع المقالات ←',
@@ -57,9 +57,6 @@ NEW_AR = {
     'res_hub_faq_h2': 'الأسئلة الشائعة',
     'res_hub_faq_p': 'إجابات عن الأسئلة التي نتلقاها بشكل متكرر عن خدماتنا وطريقة العمل.',
     'res_hub_faq_link': 'عرض الأسئلة الشائعة ←',
-    'res_hub_cs_h2': 'دراسات الحالة',
-    'res_hub_cs_p': 'حسابات تمثيلية لمشاريع في الرعاية الصحية والتجارة والضيافة والطيران.',
-    'res_hub_cs_link': 'عرض دراسات الحالة ←',
     'res_hub_dl_h2': 'التحميلات',
     'res_hub_dl_p': 'ملف الشركة بصيغة PDF أو عبر الإنترنت.',
     'res_hub_dl_pdf': 'تحميل ملف الشركة (PDF)',
@@ -96,6 +93,7 @@ SERVICES = [
     ('/services/electrical-distribution/', 'service_electrical', 'Electrical &amp; Power'),
     ('/services/firefighting-systems/', 'service_fire', 'Firefighting'),
     ('/services/lighting-solutions/', 'service_lighting', 'Lighting Solutions'),
+    ('/services/aviation/', 'service_aviation', 'Aviation'),
     ('/services/hospital-modular-or-rooms/', 'service_or_rooms', 'Hospital Modular OR Rooms'),
     ('/services/lead-sheets-hospital/', 'service_lead_shielding', 'Lead Sheets for Hospitals'),
     ('/services/consultancy/', 'service_consultancy', 'Technical Consultancy'),
@@ -136,7 +134,6 @@ def nav_block(active):
     res_sub = [
         a('/resources/blog/', 'nav_technical_articles', 'Technical Articles'),
         a('/resources/faqs/', 'nav_faqs', 'FAQs'),
-        a('/resources/case-studies/', 'nav_case_studies', 'Case Studies'),
         a('/company-profile.html', 'nav_company_profile', 'Company Profile'),
     ]
     about_sub = [
@@ -149,7 +146,6 @@ def nav_block(active):
     out += link('/', 'nav_home', 'Home', 'home')
     out += link('/services.html', 'nav_services', 'Services', 'services', services_sub)
     out += link('/solutions/', 'nav_industries', 'Industries', 'industries', ind_sub)
-    out += link('/resources/case-studies/', 'nav_projects', 'Projects', 'projects')
     out += link('/resources/', 'nav_resources', 'Resources', 'resources', res_sub)
     out += link('/about.html', 'nav_about', 'About', 'about', about_sub)
     out += link('/contact.html', 'nav_contact', 'Contact', 'contact')
@@ -215,6 +211,7 @@ def make_hub(url_path, title, desc, h1_key, h1, sub_key, sub, body, active):
     ar_full = SITE + '/ar' + url_path
     # head
     s = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % desc, s, 1)
+    s = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="index, follow">', s, 1)
     s = re.sub(r'<link rel="canonical" href="[^"]*">', '<link rel="canonical" href="%s">' % full, s, 1)
     s = re.sub(r'(<link rel="alternate" hreflang="en" href=")[^"]*(">)', r'\g<1>' + full + r'\2', s, 1)
     s = re.sub(r'(<link rel="alternate" hreflang="ar" href=")[^"]*(">)', r'\g<1>' + ar_full + r'\2', s, 1)
@@ -258,7 +255,7 @@ def industries_body():
                   '            <p data-i18n="%s">%s</p>\n'
                   '            <span class="blog-card__more" data-i18n="ind_hub_more">View solutions &rarr;</span>\n'
                   '          </a>\n') % (slug, hk, h, sk, sub)
-    svc = ''.join('<li>%s</li>' % a(h, k, t) for h, k, t in SERVICES[:9])
+    svc = ''.join('<li>%s</li>' % a(h, k, t) for h, k, t in SERVICES[:-1])
     return ('<section class="section">\n      <div class="container" style="max-width:1100px;">\n'
             '        <p style="color:#b8b8b8;line-height:1.8;max-width:760px;margin-bottom:40px;" data-i18n="ind_hub_intro">'
             'Power, cooling and safety requirements differ from one type of facility to the next. Choose your sector to see the services we provide for it.</p>\n'
@@ -278,7 +275,7 @@ def resources_body():
     p = 'style="color:#b8b8b8;line-height:1.8;max-width:760px;margin-bottom:14px;"'
     return ('<section class="section">\n      <div class="container" style="max-width:1100px;">\n'
             '        <p style="color:#b8b8b8;line-height:1.8;max-width:760px;margin-bottom:8px;" data-i18n="res_hub_intro">'
-            'Everything we have published in one place: technical articles on standards and design, practical guides, answers to common questions and representative project accounts.</p>\n'
+            'Everything we have published in one place: technical articles on standards and design, practical guides, answers to common questions and our company profile.</p>\n'
             '        <h2 %s data-i18n="res_hub_articles_h2">Technical Articles</h2>\n'
             '        <p %s data-i18n="res_hub_articles_p">Explainers on standards, selection and design for Saudi facilities.</p>\n'
             '        <ul class="hub-links">%s</ul>\n'
@@ -288,14 +285,11 @@ def resources_body():
             '        <h2 %s data-i18n="res_hub_faq_h2">FAQs</h2>\n'
             '        <p %s data-i18n="res_hub_faq_p">Answers to the questions we are asked most often about our services and how we work.</p>\n'
             '        <p><a class="btn btn-outline" href="/resources/faqs/" data-i18n="res_hub_faq_link">View the FAQs &rarr;</a></p>\n'
-            '        <h2 %s data-i18n="res_hub_cs_h2">Case Studies</h2>\n'
-            '        <p %s data-i18n="res_hub_cs_p">Representative project accounts across healthcare, commercial, hospitality and aviation.</p>\n'
-            '        <p><a class="btn btn-outline" href="/resources/case-studies/" data-i18n="res_hub_cs_link">View the case studies &rarr;</a></p>\n'
             '        <h2 %s data-i18n="res_hub_dl_h2">Downloads</h2>\n'
             '        <p %s data-i18n="res_hub_dl_p">Our company profile, as a PDF or online.</p>\n'
             '        <p style="display:flex;gap:12px;flex-wrap:wrap;"><a class="btn btn-primary" href="/downloads/profile.pdf" data-i18n="res_hub_dl_pdf">Download the company profile (PDF)</a>'
             '<a class="btn btn-outline" href="/company-profile.html" data-i18n="res_hub_dl_web">View the company profile</a></p>\n'
-            '      </div>\n    </section>') % (h2, p, arts, h2, guides, h2, p, h2, p, h2, p)
+            '      </div>\n    </section>') % (h2, p, arts, h2, guides, h2, p, h2, p)
 
 
 def write(path, s):
@@ -318,8 +312,8 @@ def main():
                    industries_body(), 'industries')
     write('solutions/index.html', ind)
     res = make_hub('/resources/', 'Resources | Black Arrow Venture',
-                   'Technical articles, guides, FAQs, case studies and the company profile from Black Arrow Venture.',
-                   'res_hub_h1', 'Resources', 'res_hub_sub', 'Technical articles, guides, FAQs, case studies and the company profile',
+                   'Technical articles, guides, FAQs and the company profile from Black Arrow Venture.',
+                   'res_hub_h1', 'Resources', 'res_hub_sub', 'Technical articles, guides, FAQs and the company profile',
                    resources_body(), 'resources')
     write('resources/index.html', res)
 
@@ -347,9 +341,9 @@ def main():
     }
     pp['resources/index.html'] = {
         'title': 'المصادر | السهم الأسود ڤنتشر',
-        'description': 'مقالات تقنية وأدلة وأسئلة شائعة ودراسات حالة وملف الشركة من السهم الأسود ڤنتشر.',
+        'description': 'مقالات تقنية وأدلة وأسئلة شائعة وملف الشركة من السهم الأسود ڤنتشر.',
         'og_title': 'المصادر | السهم الأسود ڤنتشر',
-        'og_description': 'مقالات تقنية وأدلة وأسئلة شائعة ودراسات حالة وملف الشركة من السهم الأسود ڤنتشر.',
+        'og_description': 'مقالات تقنية وأدلة وأسئلة شائعة وملف الشركة من السهم الأسود ڤنتشر.',
     }
     out = json.dumps(pp, ensure_ascii=False, indent=2)
     pp_path.write_text(out.replace('\n', '\r\n') if crlf else out + '', encoding='utf-8', newline='')

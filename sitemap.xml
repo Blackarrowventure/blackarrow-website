@@ -137,6 +137,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/services/lighting-solutions/"/>
   </url>
   <url>
+    <loc>https://www.blackarrowksa.com/services/aviation/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/services/aviation/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/services/aviation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/services/aviation/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/ar/services/aviation/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/services/aviation/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/services/aviation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/services/aviation/"/>
+  </url>
+  <url>
     <loc>https://www.blackarrowksa.com/services/firefighting-systems/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -333,60 +351,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/hospital-isolated-power-operating-theatres/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/commercial-complex-ev-charging-rollout/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/healthcare-ups-critical-branch-replacement/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/high-rise-obstruction-helipad-lighting/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/resources/case-studies/hospitality-hvac-upgrade/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/hospitality-hvac-upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/hospitality-hvac-upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/hospitality-hvac-upgrade/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/services/ups-maintenance-amc/</loc>
@@ -909,60 +873,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/blog/why-ups-batteries-die-early-saudi-heat/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/hospital-isolated-power-operating-theatres/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/hospital-isolated-power-operating-theatres/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/commercial-complex-ev-charging-rollout/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/commercial-complex-ev-charging-rollout/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/healthcare-ups-critical-branch-replacement/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/healthcare-ups-critical-branch-replacement/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/high-rise-obstruction-helipad-lighting/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/high-rise-obstruction-helipad-lighting/"/>
-  </url>
-  <url>
-    <loc>https://www.blackarrowksa.com/ar/resources/case-studies/hospitality-hvac-upgrade/</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/resources/case-studies/hospitality-hvac-upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/ar/resources/case-studies/hospitality-hvac-upgrade/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/resources/case-studies/hospitality-hvac-upgrade/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/ar/services/ups-maintenance-amc/</loc>
