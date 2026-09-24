@@ -359,7 +359,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Restocking all printers soon'
+      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Send your custom design to get it printed · Restocking all printers soon'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -709,7 +709,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · إعادة تعبئة جميع الطابعات قريباً'
+      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · أرسل تصميمك الخاص ليتم طباعته · إعادة تعبئة جميع الطابعات قريباً'
     }
   };
 
