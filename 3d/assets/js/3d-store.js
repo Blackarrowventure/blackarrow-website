@@ -1645,7 +1645,11 @@
         });
       }
     }
-    if (!motionEnabled()) { bar.setAttribute('data-paused', 'true'); }
+    // The ticker keeps running even when the OS asks for reduced motion; it
+    // only stops if the visitor switches the site's own Motion toggle off.
+    var tickerOff = false;
+    try { tickerOff = localStorage.getItem(MOTION_KEY) === 'off'; } catch (e) {}
+    if (tickerOff) { bar.setAttribute('data-paused', 'true'); }
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('[data-motion-toggle]')) {
         bar.setAttribute('data-paused', motionEnabled() ? 'false' : 'true');

@@ -828,8 +828,7 @@ html[dir="rtl"] .b3d-corner-badge { left: 12px; right: auto; }
    ============================================== */
 html[data-b3d-motion="off"] .b3d-card,
 html[data-b3d-motion="off"] .b3d-cat-tile,
-html[data-b3d-motion="off"] .b3d-card__visual img,
-html[data-b3d-motion="off"] [data-b3d-announce-track] {
+html[data-b3d-motion="off"] .b3d-card__visual img {
   transition: none !important;
   animation: none !important;
   transform: none !important;
@@ -877,7 +876,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .b3d-announce__track, .b3d-announce__track--run { animation: none; padding-left: 16px; }
+  .b3d-announce__track:not(.b3d-announce__track--run) { animation: none; padding-left: 16px; }
 }
 
 /* Running ticker (built by initAnnouncementBar): messages repeat and the
@@ -1895,3 +1894,10 @@ header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: va
 .b3d-coupon__msg.is-err { color: #ff8a8a; }
 .b3d-coupon__remove { background: none; border: 0; color: rgba(255,255,255,.7); text-decoration: underline; cursor: pointer; font-size: .8rem; padding: 4px; }
 .b3d-cart-summary__row[hidden], .b3d-coupon[hidden] { display: none; }
+
+/* styles.css forces every animation to a single 0.01ms pass when the OS asks
+   for reduced motion; the ticker is the one thing that must keep running
+   (visitors can still stop it with the Motion toggle). */
+@media (prefers-reduced-motion: reduce) {
+  .b3d-announce__track--run { animation-duration: 60s !important; animation-iteration-count: infinite !important; }
+}
