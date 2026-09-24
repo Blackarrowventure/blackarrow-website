@@ -70,6 +70,15 @@ def build_3d_urls():
         out.append(url_block(en, '0.8', 'weekly', en=en, ar=ar))
         out.append(url_block(ar, '0.8', 'weekly', en=en, ar=ar))
 
+    # Indexable brand landing pages (see BRAND_SLUGS in generate_3d_static.py):
+    # only brands with enough available stock get one.
+    for brand, slug in {'Bambu Lab': 'bambu-lab'}.items():
+        if sum(1 for p in products if p.get('brand') == brand and p.get('available') is not False) >= 3:
+            en = SITE + '/3d/brands/' + slug + '/'
+            ar = SITE + '/3d/ar/brands/' + slug + '/'
+            out.append(url_block(en, '0.8', 'weekly', en=en, ar=ar))
+            out.append(url_block(ar, '0.8', 'weekly', en=en, ar=ar))
+
     for p in products:
         if p.get('available') is False:
             continue

@@ -47,6 +47,116 @@
   ],
   "headers": [
     {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "cat" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "brand" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "q" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "sort" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "price" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "min" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "max" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "availability" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "type" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "page" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/shop/",
+      "has": [{ "type": "query", "key": "view" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "cat" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "brand" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "q" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "sort" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "price" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "min" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "max" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "availability" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "type" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "page" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
+      "source": "/3d/ar/shop/",
+      "has": [{ "type": "query", "key": "view" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
       "source": "/assets/css/(.*)",
       "headers": [
         {

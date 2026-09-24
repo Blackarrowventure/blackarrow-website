@@ -520,6 +520,15 @@
     if (params.get('brand')) state.brand = params.get('brand');
     if (params.get('q')) state.q = params.get('q');
 
+    // Filtered views are for visitors, not the search index (the server also
+    // sends X-Robots-Tag: noindex for these); the clean /shop/<category>/ and
+    // /brands/<brand>/ pages are the indexable ones.
+    if (location.search.length > 1) {
+      var robotsMeta = document.querySelector('meta[name="robots"]');
+      if (!robotsMeta) { robotsMeta = document.createElement('meta'); robotsMeta.name = 'robots'; document.head.appendChild(robotsMeta); }
+      robotsMeta.setAttribute('content', 'noindex, follow');
+    }
+
     function populateDynamicFilters() {
       if (els.brandSelect) {
         brandList().forEach(function (b) {
@@ -1812,14 +1821,30 @@
     return (window.BlackArrow3DBrands && window.BlackArrow3DBrands.length) ? window.BlackArrow3DBrands : [];
   }
 
+  // Brands that have no stock (or are our own / generic labels) are not listed.
+  // A brand with a full landing page links there; a single-product brand goes
+  // straight to that product, so the menu never points at a thin filter URL.
+  var BRAND_PAGES = { 'Bambu Lab': 'bambu-lab' };
+  var BRAND_PAGE_MIN = 3;
+
   function initBrandNavMenu() {
     var menu = document.querySelector('[data-b3d-brand-menu]');
     if (!menu) return;
-    var html = menu.innerHTML;
-    brandList().forEach(function (brand) {
-      html += '<a href="/3d/shop/?brand=' + encodeURIComponent(brand) + '">' + brand + '</a>';
+    var base = isArPage() ? '/3d/ar' : '/3d';
+    fetchProducts().then(function (products) {
+      var html = menu.innerHTML;
+      brandList().forEach(function (brand) {
+        if (brand === 'Black Arrow' || brand === 'Generic') return;
+        var items = products.filter(function (p) { return p.brand === brand && p.available !== false; });
+        if (!items.length) return;
+        var href;
+        if (BRAND_PAGES[brand] && items.length >= BRAND_PAGE_MIN) href = base + '/brands/' + BRAND_PAGES[brand] + '/';
+        else if (items.length === 1) href = productUrl(items[0]);
+        else href = base + '/shop/?brand=' + encodeURIComponent(brand);
+        html += '<a href="' + href + '">' + brand + '</a>';
+      });
+      menu.innerHTML = html;
     });
-    menu.innerHTML = html;
   }
 
   function autoInit() {

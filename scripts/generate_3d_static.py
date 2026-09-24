@@ -302,6 +302,10 @@ def localize_ar_hrefs(html, lang):
     if lang != 'ar':
         return html
     html = html.replace('href="/3d/shop/?cat=', 'href="/3d/ar/shop/?cat=')
+    for slug in CATEGORY_SLUGS.values():
+        html = html.replace('href="/3d/shop/' + slug + '/"', 'href="/3d/ar/shop/' + slug + '/"')
+    html = html.replace('href="/3d/brands/', 'href="/3d/ar/brands/')
+    html = re.sub(r'href="/3d/product/([a-z0-9-]+)/"', r'href="/3d/ar/product/\1/"', html)
     html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')
     html = html.replace('href="/3d/blog/"', 'href="/3d/ar/blog/"')
     html = html.replace('href="/3d/"', 'href="/3d/ar/"')
@@ -494,13 +498,37 @@ CATEGORY_SEO = {
 }
 
 
-def build_category_page(cat, lang, products_in_cat):
+BRAND_SLUGS = {'Bambu Lab': 'bambu-lab'}
+# A brand only gets an indexable page when it has enough stock and its own
+# copy here (thin one-product brand pages are just duplicate filter pages).
+BRAND_MIN_PRODUCTS = 3
+BRAND_SEO = {
+    'Bambu Lab': {
+        'en': ('Bambu Lab 3D Printers & Parts in Saudi Arabia | Black Arrow 3D',
+               'Buy Bambu Lab 3D printers and spare parts in Saudi Arabia from Black Arrow 3D. Prices in SAR with delivery across the Kingdom.',
+               'Bambu Lab 3D printers and spare parts, priced in Saudi riyals and delivered across Saudi Arabia. Compare models by price and build volume in the shop.'),
+        'ar': ('طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار في السعودية | Black Arrow 3D',
+               'اشترِ طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار في السعودية من Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
+               'طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار بالريال السعودي مع التوصيل لكل مناطق المملكة. قارن الموديلات بالسعر وحجم الطباعة في المتجر.'),
+    },
+}
+
+
+def brand_url(brand, lang):
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/brands/' + BRAND_SLUGS[brand] + '/'
+
+
+def build_category_page(cat, lang, products_in_cat, brand=None):
+    """Static landing page for a category, or (brand=...) for a brand."""
+    def _url(l):
+        return brand_url(brand, l) if brand else category_url(cat, l)
+
     with open(SHOP_TEMPLATE, encoding='utf-8') as f:
         html = f.read()
 
-    label = category_label(cat, lang)
-    url = SITE + category_url(cat, lang)
-    seo = CATEGORY_SEO.get(cat, {}).get(lang)
+    label = brand if brand else category_label(cat, lang)
+    url = SITE + _url(lang)
+    seo = (BRAND_SEO[brand] if brand else CATEGORY_SEO.get(cat, {})).get(lang)
     if seo:
         title, desc, intro = seo
     else:
@@ -519,9 +547,9 @@ def build_category_page(cat, lang, products_in_cat):
                   '<meta property="og:url" content="' + url + '">', html, count=1)
     html = re.sub(r'<link rel="canonical" href="[^"]*">',
                   '<link rel="canonical" href="' + url + '">'
-                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + category_url(cat, "en") + '">'
-                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + category_url(cat, "ar") + '">'
-                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + category_url(cat, "en") + '">',
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + _url("en") + '">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + _url("ar") + '">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + _url("en") + '">',
                   html, count=1)
     html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(title) + '</title>', html, count=1)
 
@@ -566,9 +594,9 @@ def build_category_page(cat, lang, products_in_cat):
     # category pages have no H2 before the footer columns: footer headings are H2 so the outline does not jump H1 -> H3
     _a, _b, _c = html.partition('<footer')
     html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
-    html = lang_toggle_link(html, lang, category_url(cat, 'ar' if lang == 'en' else 'en'))
+    html = lang_toggle_link(html, lang, _url('ar' if lang == 'en' else 'en'))
 
-    live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + '/shop/?cat=' + cat.replace(' ', '+')
+    live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + ('/shop/?brand=' + brand.replace(' ', '+') if brand else '/shop/?cat=' + cat.replace(' ', '+'))
     landing_block = (
         '<section class="section" style="padding-top:20px;">'
         + '<div class="container">'
@@ -585,8 +613,10 @@ def build_category_page(cat, lang, products_in_cat):
     )
     html = re.sub(r'<main id="main">.*?</main>', '<main id="main">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
 
-    slug = CATEGORY_SLUGS[cat]
-    out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'shop', slug, 'index.html')
+    if brand:
+        out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'brands', BRAND_SLUGS[brand], 'index.html')
+    else:
+        out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'shop', CATEGORY_SLUGS[cat], 'index.html')
     write(out_path, html)
 
 
@@ -674,6 +704,18 @@ def main():
         build_category_page(cat, 'en', products_in_cat)
         build_category_page(cat, 'ar', products_in_cat)
     print('generated', len(by_cat) * 2, 'category pages')
+
+    by_brand = {}
+    for p in PRODUCTS:
+        by_brand.setdefault(p.get('brand'), []).append(p)
+    n_brands = 0
+    for brand in BRAND_SLUGS:
+        prods = by_brand.get(brand, [])
+        if sum(1 for p in prods if p.get('available') is not False) >= BRAND_MIN_PRODUCTS and brand in BRAND_SEO:
+            build_category_page(None, 'en', prods, brand=brand)
+            build_category_page(None, 'ar', prods, brand=brand)
+            n_brands += 2
+    print('generated', n_brands, 'brand pages')
 
     build_ar_home()
     build_ar_shop_index()
