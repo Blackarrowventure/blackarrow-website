@@ -518,6 +518,55 @@ def brand_url(brand, lang):
     return ('/3d/ar' if lang == 'ar' else '/3d') + '/brands/' + BRAND_SLUGS[brand] + '/'
 
 
+
+def landing_card(p, lang):
+    """Plain crawlable product card: an ordinary <a href> with image, name and price."""
+    name = L(p, 'name', lang)
+    img = primary_image(p)
+    return ('<a class="b3d-cat-landing__card" href="' + product_url(p, lang) + '">'
+            + (('<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>') if p.get('onSale') else '')
+            + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
+            + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
+            + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
+            + '</a>')
+
+
+PRERENDER_RX = re.compile(r'(<div class="b3d-grid" data-b3d-(?:grid|featured-grid)>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)', re.S)
+
+
+def featured_products():
+    """Same pick as the homepage script: pinned, then new arrivals, then the rest (max 8)."""
+    avail = [p for p in PRODUCTS if p.get('available') is not False]
+    pinned = [p for p in avail if p.get('featured')]
+    fresh = [p for p in avail if not p.get('featured') and p.get('newArrival')][::-1]
+    rest = [p for p in avail if not p.get('featured') and not p.get('newArrival')]
+    return (pinned + fresh + rest)[:8]
+
+
+def prerender_grids(html, lang, kind):
+    """Put real product links into the JS-filled grid so the first HTML already has them.
+    kind: 'shop' (all products) or 'home' (featured picks). The script replaces these on load."""
+    items = PRODUCTS if kind == 'shop' else featured_products()
+    cards = ''.join(landing_card(p, lang) for p in items)
+    html = PRERENDER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + cards + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
+    if kind == 'shop':
+        html = re.sub(r'(data-b3d-count>)[^<]*(<)', lambda m: m.group(1) + str(len(PRODUCTS)) + m.group(2), html, count=1)
+    return html
+
+
+def prerender_english_pages():
+    """3d/shop/index.html and 3d/index.html are hand-authored templates that are
+    also the live English pages; refresh their pre-rendered grids in place."""
+    for path, kind in ((SHOP_TEMPLATE, 'shop'), (HOME_TEMPLATE, 'home')):
+        with open(path, encoding='utf-8', newline='') as f:
+            html = f.read()
+        nl = '\r\n' if '\r\n' in html else '\n'
+        new = prerender_grids(html.replace('\r\n', '\n'), 'en', kind).replace('\n', nl)
+        if new != html:
+            with open(path, 'w', encoding='utf-8', newline='') as f:
+                f.write(new)
+
+
 # Longer, genuinely useful copy for the 3D Printers landing page. Every claim
 # below is taken from the product data (build volume, multicolor system,
 # enclosure, listed materials) - nothing here is a new business claim.
@@ -643,18 +692,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
                   html, count=1)
     html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(title) + '</title>', html, count=1)
 
-    cards = []
-    for p in products_in_cat:
-        name = L(p, 'name', lang)
-        img = primary_image(p)
-        cards.append(
-            '<a class="b3d-cat-landing__card" href="' + product_url(p, lang) + '">'
-            + (('<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>') if p.get('onSale') else '')
-            + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
-            + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
-            + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
-            + '</a>'
-        )
+    cards = [landing_card(p, lang) for p in products_in_cat]
 
     breadcrumb_ld = {
         '@context': 'https://schema.org',
@@ -755,6 +793,7 @@ def build_ar_home():
     html = re.sub(r'<meta property="og:url" content="[^"]*">',
                   '<meta property="og:url" content="' + SITE + '/3d/ar/">', html, count=1)
     html = apply_ar_meta(html, AR_HOME_META)
+    html = prerender_grids(html, 'ar', 'home')
     html = translate_static_chrome(html, 'ar')
     html = localize_ar_hrefs(html, 'ar')
     html = lang_toggle_link(html, 'ar', '/3d/')
@@ -774,6 +813,7 @@ def build_ar_shop_index():
     html = re.sub(r'<meta property="og:url" content="[^"]*">',
                   '<meta property="og:url" content="' + SITE + '/3d/ar/shop/">', html, count=1)
     html = apply_ar_meta(html, AR_SHOP_META)
+    html = prerender_grids(html, 'ar', 'shop')
     html = translate_static_chrome(html, 'ar')
     html = localize_ar_hrefs(html, 'ar')
     html = lang_toggle_link(html, 'ar', '/3d/shop/')
@@ -781,6 +821,7 @@ def build_ar_shop_index():
 
 
 def main():
+    prerender_english_pages()
     by_cat = {}
     for p in PRODUCTS:
         by_cat.setdefault(p['category'], []).append(p)
