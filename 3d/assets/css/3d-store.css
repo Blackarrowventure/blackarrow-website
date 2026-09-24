@@ -403,10 +403,10 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   font-size: .7rem;
   margin-top: auto;
   padding-top: 10px;
-  white-space: nowrap;
-  overflow: hidden;
+  flex-wrap: wrap;
+  row-gap: 2px;
 }
-.b3d-card__meta-line span { overflow: hidden; text-overflow: ellipsis; }
+.b3d-card__meta-line span { overflow-wrap: anywhere; }
 .b3d-card__meta-line span:not(:last-child)::after { content: '\00b7'; margin-left: 6px; color: rgba(255,255,255,.3); }
 
 .b3d-card__footer {
@@ -877,8 +877,16 @@ html[data-b3d-motion="off"] [data-slider-track] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .b3d-announce__track { animation: none; padding-left: 16px; }
+  .b3d-announce__track, .b3d-announce__track--run { animation: none; padding-left: 16px; }
 }
+
+/* Running ticker (built by initAnnouncementBar): messages repeat and the
+   track slides by half its length for a seamless loop. */
+.b3d-announce__track--run { gap: 0; padding-left: 0; animation: b3d-ticker 60s linear infinite; }
+.b3d-announce__track--run > span { padding-inline-end: 64px; }
+@keyframes b3d-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+html[dir="rtl"] .b3d-announce__track--run { animation-name: b3d-ticker-rtl; }
+@keyframes b3d-ticker-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
 
 /* Promo slider */
 .b3d-slider {

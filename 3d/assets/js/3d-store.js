@@ -1630,6 +1630,21 @@
     if (!bar) return;
     var track = bar.querySelector('[data-b3d-announce-track]');
     if (!track) return;
+    // Running ticker: the messages repeat end to end and the track slides by
+    // exactly half its length, so the loop never shows a gap or a jump.
+    var msg = T('announce_1');
+    if (msg && msg !== 'announce_1') {
+      var parts = msg.split(' · ');
+      track.textContent = '';
+      track.classList.add('b3d-announce__track--run');
+      for (var c = 0; c < 12; c++) {
+        parts.forEach(function (text) {
+          var item = document.createElement('span');
+          item.textContent = text;
+          track.appendChild(item);
+        });
+      }
+    }
     if (!motionEnabled()) { bar.setAttribute('data-paused', 'true'); }
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('[data-motion-toggle]')) {

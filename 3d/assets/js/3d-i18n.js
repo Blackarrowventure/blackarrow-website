@@ -200,7 +200,7 @@
       trust_quotation: 'Business quotations',
       trust_support: 'Local support',
       js_card_delivery: 'Delivery: KSA-wide',
-      js_card_warranty: 'Warranty included',
+      js_card_warranty: 'Manufacturer warranty, defective products only',
 
       pd_crumb_default: 'Product',
       pd_loading: 'Loading product…',
@@ -359,7 +359,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Send your custom design to get it printed · Restocking all printers soon'
+      announce_1: 'Nationwide Saudi delivery · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -550,7 +550,7 @@
       trust_quotation: 'عروض أسعار للأعمال',
       trust_support: 'دعم محلي',
       js_card_delivery: 'توصيل لكل المملكة',
-      js_card_warranty: 'يشمل الضمان',
+      js_card_warranty: 'الضمان حسب الشركة المصنّعة، للمنتجات المعيبة فقط',
 
       pd_crumb_default: 'المنتج',
       pd_loading: 'جارٍ تحميل المنتج…',
@@ -709,7 +709,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · أرسل تصميمك الخاص ليتم طباعته · إعادة تعبئة جميع الطابعات قريباً'
+      announce_1: 'توصيل لجميع مناطق المملكة · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 

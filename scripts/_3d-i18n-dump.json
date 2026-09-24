@@ -1,7 +1,7 @@
 {
   "announce_1": {
-    "en": "COD, bank transfer and business quotations available · Nationwide Saudi delivery · New: 3D Artwork now available · Send your custom design to get it printed · Restocking all printers soon",
-    "ar": "الدفع عند الاستلام والتحويل البنكي وعروض الأسعار للأعمال متاحة · توصيل لجميع مناطق المملكة · الدفع عند الاستلام والتحويل البنكي · جديد: أعمال فنية ثلاثية الأبعاد متوفرة الآن · أرسل تصميمك الخاص ليتم طباعته · إعادة تعبئة جميع الطابعات قريباً"
+    "en": "Nationwide Saudi delivery · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "توصيل لجميع مناطق المملكة · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
   },
   "b3d_shop_h1_page": {
     "en": "Shop",
@@ -464,8 +464,8 @@
     "ar": "توصيل لكل المملكة"
   },
   "js_card_warranty": {
-    "en": "Warranty included",
-    "ar": "يشمل الضمان"
+    "en": "Manufacturer warranty, defective products only",
+    "ar": "الضمان حسب الشركة المصنّعة، للمنتجات المعيبة فقط"
   },
   "js_check_back_soon": {
     "en": "Check back soon, or contact us for current availability.",
