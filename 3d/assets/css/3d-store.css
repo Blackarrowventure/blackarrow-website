@@ -879,13 +879,10 @@ html[data-b3d-motion="off"] [data-slider-track] {
   .b3d-announce__track:not(.b3d-announce__track--run) { animation: none; padding-left: 16px; }
 }
 
-/* Running ticker (built by initAnnouncementBar): messages repeat and the
-   track slides by half its length for a seamless loop. */
-.b3d-announce__track--run { gap: 0; padding-left: 0; animation: b3d-ticker 60s linear infinite; }
+/* Running ticker (built by initAnnouncementBar): messages repeat end to end
+   and script slides the track by half its length for a seamless loop. */
+.b3d-announce__track--run { gap: 0; padding-left: 0; animation: none !important; will-change: transform; }
 .b3d-announce__track--run > span { padding-inline-end: 64px; }
-@keyframes b3d-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-html[dir="rtl"] .b3d-announce__track--run { animation-name: b3d-ticker-rtl; }
-@keyframes b3d-ticker-rtl { from { transform: translateX(0); } to { transform: translateX(50%); } }
 
 /* Promo slider */
 .b3d-slider {
@@ -1894,10 +1891,3 @@ header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: va
 .b3d-coupon__msg.is-err { color: #ff8a8a; }
 .b3d-coupon__remove { background: none; border: 0; color: rgba(255,255,255,.7); text-decoration: underline; cursor: pointer; font-size: .8rem; padding: 4px; }
 .b3d-cart-summary__row[hidden], .b3d-coupon[hidden] { display: none; }
-
-/* styles.css forces every animation to a single 0.01ms pass when the OS asks
-   for reduced motion; the ticker is the one thing that must keep running
-   (visitors can still stop it with the Motion toggle). */
-@media (prefers-reduced-motion: reduce) {
-  .b3d-announce__track--run { animation-duration: 60s !important; animation-iteration-count: infinite !important; }
-}

@@ -1650,6 +1650,25 @@
     var tickerOff = false;
     try { tickerOff = localStorage.getItem(MOTION_KEY) === 'off'; } catch (e) {}
     if (tickerOff) { bar.setAttribute('data-paused', 'true'); }
+    // The slide is driven from script rather than a CSS animation, so no
+    // browser/OS "reduce animations" setting or extension can freeze it.
+    if (track.classList.contains('b3d-announce__track--run')) {
+      var rtl = document.documentElement.getAttribute('dir') === 'rtl';
+      var pos = 0, last = null, speed = 70;
+      var step = function (now) {
+        if (last === null) last = now;
+        var dt = Math.min((now - last) / 1000, 0.1);
+        last = now;
+        if (bar.getAttribute('data-paused') !== 'true') {
+          var half = track.scrollWidth / 2;
+          pos += (rtl ? 1 : -1) * speed * dt;
+          if (half > 0 && Math.abs(pos) >= half) pos += (rtl ? -half : half);
+          track.style.transform = 'translateX(' + pos + 'px)';
+        }
+        window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    }
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('[data-motion-toggle]')) {
         bar.setAttribute('data-paused', motionEnabled() ? 'false' : 'true');
