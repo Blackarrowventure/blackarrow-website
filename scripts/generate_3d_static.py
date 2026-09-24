@@ -728,10 +728,14 @@ def category_guide_html(cat, lang, by_id):
                     vol = row[1].replace(' x ', ' \u00d7 ')
                     break
             price = money(current_price(p), p.get('currency'))
-            items.append('<li><a href="' + product_url(p, lang) + '">' + esc(L(p, 'name', lang)) + '</a>'
-                         + (' \u2014 ' + g['vol'] + ' <bdi dir="ltr">' + esc(vol.replace(' mm', '')) + '</bdi> ' + ('\u0645\u0645' if lang == 'ar' else 'mm') if vol else '')
-                         + ' \u00b7 <bdi dir="ltr">' + price + '</bdi></li>')
-        out.append('<section><h2>' + esc(heading) + '</h2><p>' + esc(para) + '</p><ul>' + ''.join(items) + '</ul></section>')
+            img = primary_image(p)
+            name = L(p, 'name', lang)
+            items.append('<li><a class="b3d-guide-card" href="' + product_url(p, lang) + '">'
+                         + '<span class="b3d-guide-card__img">' + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="240" height="240">' if img else '') + '</span>'
+                         + '<span class="b3d-guide-card__name">' + esc(name) + '</span>'
+                         + ('<span class="b3d-guide-card__spec">' + g['vol'] + ' <bdi dir="ltr">' + esc(vol.replace(' mm', '')) + '</bdi> ' + ('مم' if lang == 'ar' else 'mm') + '</span>' if vol else '')
+                         + '<span class="b3d-guide-card__price"><bdi dir="ltr">' + price + '</bdi></span></a></li>')
+        out.append('<section class="b3d-guide-sec"><h2>' + esc(heading) + '</h2><p>' + esc(para) + '</p><ul class="b3d-guide-grid">' + ''.join(items) + '</ul></section>')
     out.append('<p><a class="btn btn-outline" href="' + shop_url(lang) + '">' + esc(g['shop_link']) + '</a></p>')
     out.append('</div>')
     return ''.join(out)

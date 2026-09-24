@@ -108,8 +108,8 @@
 }
 .b3d-swatch:hover { border-color: rgba(255,255,255,.7); }
 .b3d-swatch[aria-pressed="true"] { border-color: var(--clr-accent); box-shadow: 0 0 0 2px var(--clr-accent); }
-.b3d-swatch.is-unavailable { opacity: .35; cursor: not-allowed; }
-.b3d-swatch.is-unavailable::after { content: ''; display: block; width: 100%; height: 2px; background: rgba(255,255,255,.6); transform: rotate(45deg); position: relative; top: 16px; }
+.b3d-swatch.is-unavailable { opacity: .55; cursor: not-allowed; position: relative; overflow: hidden; }
+.b3d-swatch.is-unavailable::after { content: ''; position: absolute; left: 50%; top: 50%; width: 140%; height: 2px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.55); transform: translate(-50%, -50%) rotate(-45deg); }
 
 .b3d-hero__eyebrow {
   display: inline-flex;
@@ -1930,3 +1930,18 @@ html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
 .b3d-page ol { list-style: decimal; }
 .b3d-page a.btn { color: #fff; text-decoration: none; }
 .b3d-page a.btn.btn-outline { color: #fff; }
+
+/* Category guide: product cards instead of plain text lists */
+.b3d-cat-guide { max-width: none; gap: 20px; }
+.b3d-guide-sec { background: rgba(255,255,255,.04); border: 1px solid rgba(245,158,11,.22); border-radius: 14px; padding: 22px; }
+.b3d-guide-sec h2 { font-size: 1.4rem; }
+.b3d-cat-guide .b3d-guide-sec > p { max-width: 70ch; margin-bottom: 16px; }
+.b3d-cat-guide .b3d-guide-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.b3d-guide-card { display: flex; flex-direction: column; gap: 4px; height: 100%; background: #fff; color: #111; border-radius: 10px; padding: 10px 10px 14px; text-decoration: none !important; transition: transform .15s, box-shadow .15s; }
+.b3d-guide-card:hover, .b3d-guide-card:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+.b3d-guide-card__img { display: block; aspect-ratio: 1; background: #f4f3f0; border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+.b3d-guide-card__img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.b3d-guide-card__name { font-weight: 700; font-size: .98rem; line-height: 1.25; color: #111; }
+.b3d-guide-card__spec { font-size: .82rem; color: #555; }
+.b3d-guide-card__price { margin-top: auto; padding-top: 6px; font-weight: 800; color: #047857; }
+@media (max-width: 480px) { .b3d-guide-sec { padding: 16px; } .b3d-cat-guide .b3d-guide-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
