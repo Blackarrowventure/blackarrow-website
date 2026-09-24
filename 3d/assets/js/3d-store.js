@@ -1615,23 +1615,6 @@
     if (!bar) return;
     var track = bar.querySelector('[data-b3d-announce-track]');
     if (!track) return;
-    var now = new Date();
-    if (now.getFullYear() === 2026 && now.getMonth() === 8 && now.getDate() <= 24) {
-      track.textContent = '';
-      track.classList.add('b3d-announce__track--nd');
-      var greetings = [
-        { text: 'Happy 96th Saudi National Day', lang: 'en', dir: 'ltr' },
-        { text: 'كل عام والمملكة بخير — اليوم الوطني السعودي الـ 96', lang: 'ar', dir: 'rtl' }
-      ];
-      for (var g = 0; g < 16; g++) {
-        var item = greetings[g % 2];
-        var greet = document.createElement('span');
-        greet.textContent = item.text;
-        greet.setAttribute('lang', item.lang);
-        greet.setAttribute('dir', item.dir);
-        track.appendChild(greet);
-      }
-    }
     if (!motionEnabled()) { bar.setAttribute('data-paused', 'true'); }
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('[data-motion-toggle]')) {
@@ -1786,40 +1769,11 @@
     menu.innerHTML = html;
   }
 
-  function initNationalDay() {
-    var band = document.querySelector('[data-b3d-nd]');
-    if (!band) return;
-    var now = new Date();
-    var day = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var target = new Date(now.getFullYear(), 8, 23);
-    var daysLeft = Math.round((target - day) / 86400000);
-    var inWindow = now.getMonth() === 8 && now.getDate() <= 24;
-    if (!inWindow) return;
-    fetchProducts().then(function (products) {
-      var picks = products.filter(function (p) { return p.nationalDay && p.available !== false; });
-      if (!picks.length) return;
-      renderGrid(picks, band.querySelector('[data-b3d-nd-grid]'));
-      var num = band.querySelector('[data-b3d-nd-num]');
-      var label = band.querySelector('[data-b3d-nd-label]');
-      if (daysLeft > 0) {
-        num.textContent = daysLeft;
-      } else if (daysLeft === 0) {
-        num.textContent = '23';
-        label.setAttribute('data-i18n', 'nd_today_label');
-        label.textContent = T('nd_today_label');
-      } else {
-        band.querySelector('[data-b3d-nd-count]').hidden = true;
-      }
-      band.hidden = false;
-    }).catch(function () {});
-  }
-
   function autoInit() {
     updateCartBadges();
     initMotionToggle();
     initAnnouncementBar();
     populateHeroSlider().then(initPromoSlider);
-    initNationalDay();
     initBrandNavMenu();
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');

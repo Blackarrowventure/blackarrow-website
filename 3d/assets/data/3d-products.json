@@ -901,8 +901,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "images": [
         "/3d/assets/images/products/luffy-keychain-promo.webp"
       ],
@@ -971,8 +969,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "variants": [
         { "label": "Green", "label_ar": "أخضر", "price": 25, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-decor-promo.webp" },
         { "label": "White", "label_ar": "أبيض", "price": 25, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-hanging-decor-white.webp" },
@@ -1010,8 +1006,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "variants": [
         { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-keychain-promo.webp" },
         { "label": "White", "label_ar": "أبيض", "price": 20, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-keychain-white.webp" },
@@ -1049,8 +1043,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "variants": [
         { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp" },
         { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-palm-swords-keychain-red.webp" },
@@ -1084,8 +1076,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "variants": [
         { "label": "Green", "label_ar": "أخضر", "price": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-riyal-keychain-promo.webp" },
         { "label": "Red", "label_ar": "أحمر", "price": 20, "swatch": "#d92b2b", "image": "/3d/assets/images/products/saudi-riyal-keychain-red.webp" },
@@ -1155,8 +1145,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "newArrival": true,
-      "nationalDay": true,
       "images": ["/3d/assets/images/products/national-day-key-holder-promo.webp"],
       "shortDesc": "3D printed key holder for Saudi National Day, with a keychain included.",
       "description": "A 3D printed key holder made for Saudi National Day, with a keychain included. A useful, proud gift for home or office.",
