@@ -1164,6 +1164,33 @@
       ]
     },
     {
+      "id": "infinity-cube-fidget-toy",
+      "name": "Infinity Cube Fidget Toy",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 30,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/infinity-cube-fidget-toy-promo.webp"
+      ],
+      "shortDesc": "3D printed infinity cube fidget toy with a honeycomb texture.",
+      "description": "A 3D printed infinity cube fidget toy with a honeycomb texture on every block. Fold and flip it in your hands. Shown in green.",
+      "specs": [
+        ["Design", "Infinity cube with honeycomb texture"],
+        ["Use", "Desk or hand fidget toy"]
+      ],
+      "name_ar": "مكعب اللانهاية للتحريك بالأيدي",
+      "shortDesc_ar": "مكعب لانهاية مطبوع ثلاثي الأبعاد بملمس خلية النحل.",
+      "description_ar": "مكعب لانهاية مطبوع ثلاثي الأبعاد بملمس خلية النحل على كل قطعة. اطوِه وقلّبه بين يديك. موضّح باللون الأخضر.",
+      "specs_ar": [
+        ["التصميم", "مكعب لانهاية بملمس خلية النحل"],
+        ["الاستخدام", "لعبة تحريك للمكتب أو اليد"]
+      ]
+    },
+    {
       "id": "national-day-key-holder",
       "name": "Saudi National Day Key Holder",
       "brand": "Black Arrow",
