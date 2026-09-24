@@ -16,16 +16,16 @@
     "ar": "قريباً"
   },
   "faq_a1": {
-    "en": "Yes — WhatsApp us or use the contact page, and we will follow up directly.",
-    "ar": "نعم — راسلنا عبر واتساب أو استخدم صفحة التواصل وسنتابع معك مباشرة."
+    "en": "Yes. Use \"Get a 3D Printing Quote\" above or WhatsApp us, and we will follow up directly.",
+    "ar": "نعم. استخدم زر \"احصل على عرض سعر للطباعة ثلاثية الأبعاد\" أعلاه أو راسلنا عبر واتساب وسنتواصل معك مباشرة."
   },
   "faq_a2": {
     "en": "Cash on Delivery, Bank Transfer and Business Quotation are active now. Card and wallet payments (mada, Visa/Mastercard, Apple Pay, STC Pay, Tamara, Tabby) are coming soon, pending payment gateway approval.",
     "ar": "الدفع عند الاستلام والتحويل البنكي وعرض السعر للشركات متاحة الآن. الدفع بالبطاقات والمحافظ الإلكترونية (مدى، فيزا/ماستركارد، Apple Pay، STC Pay، تمارا، تابي) قريبًا، بانتظار اعتماد بوابة الدفع."
   },
   "faq_a5": {
-    "en": "Orders are typically prepared within 3 to 5 business days, as most items are made to order to ensure the best results.",
-    "ar": "يتم تجهيز الطلبات عادةً خلال 3 إلى 5 أيام عمل، حيث تُصنَّع معظم المنتجات حسب الطلب لضمان أفضل النتائج."
+    "en": "3D printed items are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability (including pre-order status) is shown on each product page.",
+    "ar": "تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد عادةً خلال 3 إلى 5 أيام عمل، لأن معظمها يُصنع حسب الطلب. أما الطابعات والفلامنت والإكسسوارات فتظهر حالة التوفر (بما فيها الحجز المسبق) في صفحة كل منتج."
   },
   "faq_a6": {
     "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
@@ -180,8 +180,8 @@
     "ar": "واتساب"
   },
   "hub_ask_question": {
-    "en": "Get Expert Advice",
-    "ar": "احصل على استشارة متخصص"
+    "en": "Get a 3D Printing Quote",
+    "ar": "احصل على عرض سعر للطباعة ثلاثية الأبعاد"
   },
   "hub_blog_cta": {
     "en": "View All Guides",
@@ -264,8 +264,8 @@
     "ar": "لكل أنحاء المملكة"
   },
   "hub_hero_p": {
-    "en": "Shop reliable 3D printers, filament and accessories with local support, warranty coverage and nationwide delivery.",
-    "ar": "تسوّق طابعات ثلاثية الأبعاد وفلامنت وملحقات موثوقة مع دعم محلي وضمان وتوصيل لجميع مناطق المملكة."
+    "en": "Shop 3D printers, filament and accessories, or send us a design and we will print it for you. Nationwide delivery across Saudi Arabia.",
+    "ar": "تسوّق الطابعات ثلاثية الأبعاد والفلامنت والإكسسوارات، أو أرسل لنا تصميمك ونطبعه لك. توصيل لجميع مناطق المملكة."
   },
   "hub_picker_h2": {
     "en": "Which Printer Is Right for You?",
@@ -608,16 +608,16 @@
     "ar": "هل المنتجات مطابقة للصور المعروضة؟"
   },
   "faq_a3": {
-    "en": "Yes, all products are carefully manufactured using 3D printing technology. You may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the manufacturing process, not a defect. We ensure every product is delivered at the highest possible quality.",
-    "ar": "نعم، تُصنَّع جميع منتجاتنا بعناية باستخدام تقنية الطباعة ثلاثية الأبعاد. وقد تلاحظ خطوط طبقات بسيطة أو اختلافات طفيفة في اللون أو الملمس، وهذا أمر طبيعي يعكس طريقة التصنيع وليس عيبًا. ونحرص على تسليم كل منتج بأعلى جودة ممكنة."
+    "en": "Printers, filament and accessories are the manufacturer's products, as shown and described on each product page. Our 3D printed items (artwork, keychains, gifts) are made by 3D printing, so you may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the printing process, not a defect.",
+    "ar": "الطابعات والفلامنت والإكسسوارات هي منتجات الشركة المصنّعة كما تظهر وتُوصف في صفحة كل منتج. أما منتجاتنا المطبوعة ثلاثية الأبعاد (الأعمال الفنية وميدالِيات المفاتيح والهدايا) فتُصنع بالطباعة ثلاثية الأبعاد، لذا قد تلاحظ خطوط طبقات خفيفة أو اختلافات بسيطة في اللون أو الملمس. هذا أمر طبيعي يعكس عملية الطباعة وليس عيبًا."
   },
   "faq_q4": {
     "en": "Are the products worth the price?",
-    "ar": "هل تستحق المنتجات سعرها؟"
+    "ar": "هل المنتجات تستحق سعرها؟"
   },
   "faq_a4": {
-    "en": "Our products are not standard items. They are unique designs produced with high precision, often made to order. Each piece goes through multiple stages of design and production to ensure quality and a distinctive experience.",
-    "ar": "منتجاتنا ليست سلعًا قياسية، بل تصاميم فريدة تُنتَج بدقة عالية، وغالبًا ما تُصنَّع حسب الطلب. وتمر كل قطعة بعدة مراحل من التصميم والتصنيع لضمان الجودة وتجربة مميزة."
+    "en": "Printers, filament and accessories are standard manufacturer products, priced in SAR, and you can compare models in the shop. Our 3D printed items are unique designs produced in-house, often made to order, and each piece goes through several stages of design and production.",
+    "ar": "الطابعات والفلامنت والإكسسوارات منتجات قياسية من الشركات المصنّعة وأسعارها بالريال، ويمكنك مقارنة الموديلات في المتجر. أما منتجاتنا المطبوعة ثلاثية الأبعاد فهي تصاميم فريدة تُنتج لدينا، وغالبًا حسب الطلب، وتمر كل قطعة بعدة مراحل من التصميم والإنتاج."
   },
   "faq_q7": {
     "en": "Can I track my order?",
@@ -632,32 +632,32 @@
     "ar": "هل يمكنني إرجاع أو استبدال منتج؟"
   },
   "faq_a8": {
-    "en": "Yes, only in the following cases: a manufacturing defect, receiving the wrong product, or damage during shipping. Since products are made to order, returns are not accepted for a change of mind. See our Return & Exchange Policy for details.",
-    "ar": "نعم، فقط في الحالات التالية: وجود عيب تصنيع، استلام منتج خاطئ، أو تلف أثناء الشحن. وبما أن المنتجات تُصنَّع حسب الطلب، لا يُقبل الإرجاع بسبب تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
+    "en": "Yes, only in the following cases: a manufacturing defect, receiving the wrong product, or damage during shipping. Returns are not accepted for a change of mind. See our Return & Exchange Policy for details.",
+    "ar": "نعم، فقط في الحالات التالية: عيب تصنيع، أو استلام منتج خاطئ، أو ضرر أثناء الشحن. لا يُقبل الإرجاع لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
   },
   "faq_q9": {
     "en": "Can I cancel my order?",
     "ar": "هل يمكنني إلغاء طلبي؟"
   },
   "faq_a9": {
-    "en": "Cancellation is possible only before production begins. Once production has started, cancellation is not available.",
-    "ar": "يمكن الإلغاء فقط قبل بدء التصنيع. وبمجرد بدء التصنيع، لا يمكن إلغاء الطلب."
+    "en": "For 3D printed items, cancellation is possible only before production begins; once production has started, it is not available. For other orders, contact us as soon as possible.",
+    "ar": "بالنسبة للمنتجات المطبوعة ثلاثية الأبعاد، يمكن الإلغاء فقط قبل بدء الإنتاج، وبعد بدئه لا يتوفر الإلغاء. وبالنسبة للطلبات الأخرى، تواصل معنا في أقرب وقت."
   },
   "faq_q10": {
     "en": "Do you offer custom orders?",
     "ar": "هل تقدمون طلبات مخصصة؟"
   },
   "faq_a10": {
-    "en": "Yes, custom orders are available based on your requested design. All details are confirmed before production.",
-    "ar": "نعم، تتوفر الطلبات المخصصة وفق التصميم الذي تطلبه، ويتم تأكيد جميع التفاصيل قبل بدء التصنيع."
+    "en": "Yes. Send us your design file or a MakerWorld link, or tell us what you have in mind. All details are confirmed before production.",
+    "ar": "نعم. أرسل لنا ملف التصميم أو رابط MakerWorld، أو أخبرنا بما تفكر فيه. تُؤكَّد جميع التفاصيل قبل بدء الإنتاج."
   },
   "faq_q11": {
     "en": "Are your products suitable as gifts?",
     "ar": "هل منتجاتكم مناسبة كهدايا؟"
   },
   "faq_a11": {
-    "en": "Yes, our products are a great choice for gifts, especially for gaming enthusiasts and those who appreciate unique designs.",
-    "ar": "نعم، تُعد منتجاتنا خيارًا رائعًا للهدايا، خاصةً لعشاق الألعاب ومحبي التصاميم الفريدة."
+    "en": "Yes. Our 3D printed items are a great choice for gifts, especially for gaming enthusiasts and those who appreciate unique designs.",
+    "ar": "نعم. منتجاتنا المطبوعة ثلاثية الأبعاد خيار رائع للهدايا، خاصة لمحبي الألعاب ولمن يقدّر التصاميم الفريدة."
   },
   "faq_q12": {
     "en": "How can I contact you?",
@@ -666,5 +666,77 @@
   "faq_a12": {
     "en": "By phone, WhatsApp or email — see the footer for our contact details.",
     "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
+  },
+  "journeys_h2": {
+    "en": "How can we help you?",
+    "ar": "كيف نساعدك؟"
+  },
+  "journey_a_h3": {
+    "en": "Buy 3D Printing Equipment",
+    "ar": "اشترِ معدات الطباعة ثلاثية الأبعاد"
+  },
+  "journey_a_p": {
+    "en": "Printers, filament and accessories from Bambu Lab, Creality, Elegoo, Anycubic and Snapmaker.",
+    "ar": "طابعات وفلامنت وإكسسوارات من Bambu Lab وCreality وElegoo وAnycubic وSnapmaker."
+  },
+  "journey_a_1": {
+    "en": "3D printers",
+    "ar": "طابعات ثلاثية الأبعاد"
+  },
+  "journey_a_2": {
+    "en": "Filament",
+    "ar": "فلامنت"
+  },
+  "journey_a_3": {
+    "en": "Accessories",
+    "ar": "إكسسوارات"
+  },
+  "journey_a_4": {
+    "en": "Business quotations",
+    "ar": "عروض أسعار للشركات"
+  },
+  "journey_a_5": {
+    "en": "After-sales support",
+    "ar": "دعم ما بعد البيع"
+  },
+  "journey_a_cta2": {
+    "en": "Browse all products",
+    "ar": "تصفح كل المنتجات"
+  },
+  "journey_b_h3": {
+    "en": "Get Something 3D Printed",
+    "ar": "اطبع شيئًا بتصميمك"
+  },
+  "journey_b_p": {
+    "en": "Tell us what you need on WhatsApp. All details are confirmed with you before production.",
+    "ar": "أخبرنا بما تحتاجه عبر واتساب. نؤكد معك جميع التفاصيل قبل بدء الإنتاج."
+  },
+  "journey_b_1": {
+    "en": "Send your design file",
+    "ar": "أرسل ملف التصميم"
+  },
+  "journey_b_2": {
+    "en": "Send a MakerWorld link",
+    "ar": "أرسل رابط MakerWorld"
+  },
+  "journey_b_3": {
+    "en": "Custom gifts",
+    "ar": "هدايا مخصصة"
+  },
+  "journey_b_4": {
+    "en": "Prototypes",
+    "ar": "نماذج أولية"
+  },
+  "journey_b_5": {
+    "en": "Decor and artwork",
+    "ar": "ديكور وأعمال فنية"
+  },
+  "journey_b_6": {
+    "en": "Request a quotation",
+    "ar": "اطلب عرض سعر"
+  },
+  "journey_b_cta2": {
+    "en": "Browse 3D Artwork",
+    "ar": "تصفح الأعمال الفنية"
   }
 }

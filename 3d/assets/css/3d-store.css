@@ -1901,3 +1901,19 @@ header .navbar__pill:hover { background: rgba(255,255,255,.12); border-color: va
 .b3d-shop-head__intro + .b3d-shop-head__intro { margin-top: 12px; }
 main > .section > .container > .b3d-shop-head__intro { text-align: start; max-width: 760px; }
 main > .section > .container > .b3d-shop-head__intro + p { margin-top: 20px; }
+
+/* Homepage: two journeys (buy equipment / get something printed) */
+.b3d-journeys { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.b3d-journey {
+  display: flex; flex-direction: column; gap: 14px; padding: 28px;
+  border: 1px solid rgba(245,158,11,.3); border-radius: var(--radius-lg, 16px);
+  background: rgba(255,255,255,.03);
+}
+.b3d-journey h3 { font-size: 1.35rem; margin: 0; color: #fff; }
+.b3d-journey p { margin: 0; color: rgba(255,255,255,.8); }
+.b3d-journey ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: rgba(255,255,255,.92); }
+.b3d-journey li { padding-inline-start: 22px; position: relative; }
+.b3d-journey li::before { content: '\2192'; position: absolute; inset-inline-start: 0; color: var(--clr-accent); }
+html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
+.b3d-journey__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 6px; }
+@media (max-width: 760px) { .b3d-journeys { grid-template-columns: 1fr; } .b3d-journey { padding: 22px; } }
