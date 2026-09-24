@@ -1201,14 +1201,19 @@
     if (canonical) canonical.setAttribute('href', pageUrl);
 
     var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : currentPrice(p);
+    // Unused printers and filament: 7 days; everything else: defects / wrong item / shipping damage within 3 days.
+    var sevenDay = p.category === '3D Printers' || p.category === 'Filament';
     var returnPolicy = {
       '@type': 'MerchantReturnPolicy',
       'applicableCountry': 'SA',
       'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-      'merchantReturnDays': 3,
+      'merchantReturnDays': sevenDay ? 7 : 3,
       'merchantReturnLink': 'https://www.blackarrowksa.com/3d/returns/',
       'returnMethod': 'https://schema.org/ReturnByMail',
-      'returnFees': 'https://schema.org/FreeReturn'
+      'returnFees': sevenDay ? 'https://schema.org/ReturnShippingFees' : 'https://schema.org/FreeReturn'
+    };
+    var stockUrl = function (unavailable) {
+      return unavailable ? 'https://schema.org/OutOfStock' : (p.preorder ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock');
     };
     function shipOption(label, price, lo, hi) {
       return {
@@ -1226,7 +1231,7 @@
             '@type': 'Offer',
             'price': v.price,
             'priceCurrency': p.currency || 'SAR',
-            'availability': v.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+            'availability': stockUrl(v.available === false),
             'itemCondition': 'https://schema.org/NewCondition',
             'url': pageUrl,
             'hasMerchantReturnPolicy': returnPolicy,
@@ -1237,7 +1242,7 @@
           '@type': 'Offer',
           'price': priceValue,
           'priceCurrency': p.currency || 'SAR',
-          'availability': p.available === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+          'availability': stockUrl(p.available === false),
           'itemCondition': 'https://schema.org/NewCondition',
           'url': pageUrl,
           'hasMerchantReturnPolicy': returnPolicy,

@@ -20,8 +20,8 @@
     "ar": "نعم. استخدم زر \"احصل على عرض سعر للطباعة ثلاثية الأبعاد\" أعلاه أو راسلنا عبر واتساب وسنتواصل معك مباشرة."
   },
   "faq_a2": {
-    "en": "Cash on Delivery, Bank Transfer and Business Quotation are active now. Card and wallet payments (mada, Visa/Mastercard, Apple Pay, STC Pay, Tamara, Tabby) are coming soon, pending payment gateway approval.",
-    "ar": "الدفع عند الاستلام والتحويل البنكي وعرض السعر للشركات متاحة الآن. الدفع بالبطاقات والمحافظ الإلكترونية (مدى، فيزا/ماستركارد، Apple Pay، STC Pay، تمارا، تابي) قريبًا، بانتظار اعتماد بوابة الدفع."
+    "en": "Cash on Delivery, Bank Transfer and Business Quotation are available.",
+    "ar": "الدفع عند الاستلام والتحويل البنكي وعرض سعر الأعمال متاحة."
   },
   "faq_a5": {
     "en": "3D printed items are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability (including pre-order status) is shown on each product page.",
@@ -256,16 +256,16 @@
     "ar": "الطباعة ثلاثية الأبعاد، ببساطة"
   },
   "hub_hero_h1_a": {
-    "en": "3D Printers and Materials",
-    "ar": "طابعات ومواد الطباعة ثلاثية الأبعاد"
+    "en": "3D Printers and Custom 3D Printing",
+    "ar": "طابعات ثلاثية الأبعاد وطباعة حسب الطلب"
   },
   "hub_hero_h1_b": {
-    "en": "for Saudi Arabia",
-    "ar": "لكل أنحاء المملكة"
+    "en": "in Saudi Arabia",
+    "ar": "في السعودية"
   },
   "hub_hero_p": {
-    "en": "Shop 3D printers, filament and accessories, or send us a design and we will print it for you. Nationwide delivery across Saudi Arabia.",
-    "ar": "تسوّق الطابعات ثلاثية الأبعاد والفلامنت والإكسسوارات، أو أرسل لنا تصميمك ونطبعه لك. توصيل لجميع مناطق المملكة."
+    "en": "Shop Bambu Lab, Creality, Elegoo and more, or send us your model and we will print it for you. Nationwide delivery across Saudi Arabia.",
+    "ar": "تسوّق طابعات Bambu Lab وCreality وElegoo وغيرها، أو أرسل لنا تصميمك ونطبعه لك. توصيل لجميع مناطق المملكة."
   },
   "hub_picker_h2": {
     "en": "Which Printer Is Right for You?",
@@ -632,8 +632,8 @@
     "ar": "هل يمكنني إرجاع أو استبدال منتج؟"
   },
   "faq_a8": {
-    "en": "Yes, only in the following cases: a manufacturing defect, receiving the wrong product, or damage during shipping. Returns are not accepted for a change of mind. See our Return & Exchange Policy for details.",
-    "ar": "نعم، فقط في الحالات التالية: عيب تصنيع، أو استلام منتج خاطئ، أو ضرر أثناء الشحن. لا يُقبل الإرجاع لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
+    "en": "Unused printers and unused filament can be returned within 7 days of receiving the order. For any product, a return or exchange can be requested within 3 days if there is a manufacturing defect, you received the wrong product, or it was damaged during shipping. Accessories, 3D printed items and custom orders are not returnable for change of mind. See our Return & Exchange Policy for details.",
+    "ar": "يمكن إرجاع الطابعات غير المستخدمة وخيوط الطباعة غير المستخدمة خلال 7 أيام من استلام الطلب. ولأي منتج، يمكن طلب الاسترجاع أو الاستبدال خلال 3 أيام في حال وجود عيب تصنيع أو استلام منتج خاطئ أو تلفه أثناء الشحن. ولا تُقبل إعادة الإكسسوارات والمنتجات المطبوعة ثلاثية الأبعاد والطلبات المخصصة لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
   },
   "faq_q9": {
     "en": "Can I cancel my order?",
@@ -738,5 +738,65 @@
   "journey_b_cta2": {
     "en": "Browse 3D Artwork",
     "ar": "تصفح الأعمال الفنية"
+  },
+  "cart_checkout_note": {
+    "en": "Cash on Delivery and Bank Transfer are available now.",
+    "ar": "الدفع عند الاستلام والتحويل البنكي متاحان الآن."
+  },
+  "cmp_help_h2": {
+    "en": "What to compare when choosing a 3D printer",
+    "ar": "ما الذي تقارنه عند اختيار طابعة ثلاثية الأبعاد"
+  },
+  "cmp_help_p": {
+    "en": "Use the compare button on any printer in the shop to see printers side by side. These are the specifications that matter most:",
+    "ar": "استخدم زر المقارنة في أي طابعة داخل المتجر لعرض الطابعات جنبًا إلى جنب. هذه أهم المواصفات:"
+  },
+  "cmp_help_1": {
+    "en": "Build volume: the largest part you can print in one piece.",
+    "ar": "حجم الطباعة: أكبر قطعة يمكنك طباعتها دفعة واحدة."
+  },
+  "cmp_help_2": {
+    "en": "Enclosure: enclosed printers keep the print chamber stable and suit more materials.",
+    "ar": "الغرفة المغلقة: الطابعات المغلقة تحافظ على استقرار غرفة الطباعة وتناسب خامات أكثر."
+  },
+  "cmp_help_3": {
+    "en": "Maximum hot end temperature: sets which materials the printer can handle.",
+    "ar": "أقصى حرارة للهوت إند: تحدد الخامات التي تتعامل معها الطابعة."
+  },
+  "cmp_help_4": {
+    "en": "Multicolor system: filament changers such as AMS Lite, CFS Lite or CANVAS, or independent toolheads.",
+    "ar": "نظام الألوان المتعددة: مبدّلات الفلمنت مثل AMS Lite أو CFS Lite أو CANVAS، أو رؤوس طباعة مستقلة."
+  },
+  "cmp_help_5": {
+    "en": "Print speed and acceleration.",
+    "ar": "سرعة الطباعة والتسارع."
+  },
+  "cmp_help_6": {
+    "en": "Supported filament and material compatibility.",
+    "ar": "الخامات المدعومة وتوافق المواد."
+  },
+  "cmp_help_7": {
+    "en": "Price in Saudi riyals (SAR).",
+    "ar": "السعر بالريال السعودي."
+  },
+  "cmp_help_link1": {
+    "en": "Browse 3D printers",
+    "ar": "تصفح الطابعات ثلاثية الأبعاد"
+  },
+  "cmp_help_link2": {
+    "en": "Read: Bambu Lab A1 vs A1 mini vs A2L",
+    "ar": "اقرأ: مقارنة Bambu Lab A1 وA1 mini وA2L"
+  },
+  "footer_shipping": {
+    "en": "Shipping Policy",
+    "ar": "سياسة الشحن"
+  },
+  "footer_service": {
+    "en": "3D Printing Service",
+    "ar": "خدمة الطباعة ثلاثية الأبعاد"
+  },
+  "journey_b_link": {
+    "en": "How our printing service works",
+    "ar": "كيف تعمل خدمة الطباعة لدينا"
   }
 }

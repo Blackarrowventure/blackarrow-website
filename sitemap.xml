@@ -1305,6 +1305,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/brands/bambu-lab/"/>
   </url>
   <url>
+    <loc>https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/3d-printing-service-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/3d-printing-service-saudi-arabia/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/3d-printing-service-saudi-arabia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/shipping/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shipping/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shipping/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/shipping/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/shipping/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shipping/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shipping/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/shipping/"/>
+  </url>
+  <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-a1-mini/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>

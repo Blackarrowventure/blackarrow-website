@@ -305,6 +305,8 @@ def localize_ar_hrefs(html, lang):
     for slug in CATEGORY_SLUGS.values():
         html = html.replace('href="/3d/shop/' + slug + '/"', 'href="/3d/ar/shop/' + slug + '/"')
     html = html.replace('href="/3d/brands/', 'href="/3d/ar/brands/')
+    for _slug in ('3d-printing-service-saudi-arabia', 'shipping'):
+        html = html.replace('href="/3d/' + _slug + '/"', 'href="/3d/ar/' + _slug + '/"')
     html = re.sub(r'href="/3d/product/([a-z0-9-]+)/"', r'href="/3d/ar/product/\1/"', html)
     html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')
     html = html.replace('href="/3d/blog/"', 'href="/3d/ar/blog/"')
@@ -350,6 +352,24 @@ def _ship(label, price, lo, hi):
 SHIPPING_DETAILS = [_ship('Standard shipping', 30, 4, 5), _ship('Fast shipping', 50, 2, 3)]
 
 
+# Unused printers and filament can be returned within 7 days (see /3d/returns/);
+# everything else: defects, wrong product or shipping damage within 3 days.
+RETURN_7_DAY_CATEGORIES = ('3D Printers', 'Filament')
+
+
+def merchant_return_policy(p):
+    seven = p.get('category') in RETURN_7_DAY_CATEGORIES
+    return {
+        '@type': 'MerchantReturnPolicy',
+        'applicableCountry': 'SA',
+        'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        'merchantReturnDays': 7 if seven else 3,
+        'merchantReturnLink': SITE + '/3d/returns/',
+        'returnMethod': 'https://schema.org/ReturnByMail',
+        'returnFees': 'https://schema.org/ReturnShippingFees' if seven else 'https://schema.org/FreeReturn',
+    }
+
+
 def build_product_page(p, lang):
     with open(PRODUCT_TEMPLATE, encoding='utf-8') as f:
         html = f.read()
@@ -366,10 +386,13 @@ def build_product_page(p, lang):
                 return c
         return cands[-1]
     if lang == 'ar':
-        seo_title = _fit(name + ' — ' + price_txt + ' ريال | Black Arrow 3D', name + ' | Black Arrow 3D', name)
+        # Stable keyword-led title; the live SAR price comes from the Product markup and the page itself.
+        lead = ('طابعة ' + name if p.get('category') == '3D Printers' and not name.startswith('طابعة') else name)
+        seo_title = _fit(*([lead + ' في السعودية | Black Arrow 3D'] if 'السعود' not in name else []), lead + ' | Black Arrow 3D', name)
         seo_desc = (desc.rstrip('.') + '. السعر ' + price_txt + ' ريال. توصيل لكل مناطق السعودية.')
     else:
-        seo_title = _fit(name + ' — ' + price_txt + ' SAR | Black Arrow 3D', name + ' | Black Arrow 3D', name)
+        lead = (name + ' 3D Printer' if p.get('category') == '3D Printers' else name)
+        seo_title = _fit(*([lead + ' in Saudi Arabia | Black Arrow 3D'] if 'Saudi' not in name else []), lead + ' | Black Arrow 3D', name + ' | Black Arrow 3D', name)
         seo_desc = (desc.rstrip('.') + '. Price: ' + price_txt + ' SAR. Delivery across Saudi Arabia.')
 
     html = set_lang_attrs(html, lang)
@@ -398,18 +421,12 @@ def build_product_page(p, lang):
         '@type': 'Offer',
         'price': price_value,
         'priceCurrency': p.get('currency', 'SAR'),
-        'availability': 'https://schema.org/OutOfStock' if p.get('available') is False else 'https://schema.org/InStock',
+        'availability': ('https://schema.org/OutOfStock' if p.get('available') is False
+                         else 'https://schema.org/PreOrder' if p.get('preorder')
+                         else 'https://schema.org/InStock'),
         'itemCondition': 'https://schema.org/NewCondition',
         'url': url,
-        'hasMerchantReturnPolicy': {
-            '@type': 'MerchantReturnPolicy',
-            'applicableCountry': 'SA',
-            'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            'merchantReturnDays': 3,
-            'merchantReturnLink': SITE + '/3d/returns/',
-            'returnMethod': 'https://schema.org/ReturnByMail',
-            'returnFees': 'https://schema.org/FreeReturn',
-        },
+        'hasMerchantReturnPolicy': merchant_return_policy(p),
         'shippingDetails': SHIPPING_DETAILS,
     }
     json_ld = {
@@ -519,6 +536,24 @@ def brand_url(brand, lang):
 
 
 
+
+HREFLANG_RX = re.compile(r'\n?[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*">')
+
+
+def strip_hreflang(html):
+    """Templates (home, shop) now carry their own English hreflang set; every page
+    built from them writes its own, so drop the inherited lines first."""
+    return HREFLANG_RX.sub('', html)
+
+
+def ensure_english_hreflang(html, en_path, ar_path):
+    html = strip_hreflang(html)
+    block = ('\n  <link rel="alternate" hreflang="en" href="' + SITE + en_path + '">'
+             '\n  <link rel="alternate" hreflang="ar" href="' + SITE + ar_path + '">'
+             '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + en_path + '">')
+    return re.sub(r'(<link rel="canonical" href="[^"]*">)', lambda m: m.group(1) + block, html, count=1)
+
+
 def landing_card(p, lang):
     """Plain crawlable product card: an ordinary <a href> with image, name and price."""
     name = L(p, 'name', lang)
@@ -605,7 +640,9 @@ def prerender_english_pages():
         with open(path, encoding='utf-8', newline='') as f:
             html = f.read()
         nl = '\r\n' if '\r\n' in html else '\n'
-        new = prerender_grids(html.replace('\r\n', '\n'), 'en', kind).replace('\n', nl)
+        new = prerender_grids(html.replace('\r\n', '\n'), 'en', kind)
+        en_path, ar_path = ('/3d/shop/', '/3d/ar/shop/') if kind == 'shop' else ('/3d/', '/3d/ar/')
+        new = ensure_english_hreflang(new, en_path, ar_path).replace('\n', nl)
         if new != html:
             with open(path, 'w', encoding='utf-8', newline='') as f:
                 f.write(new)
@@ -707,7 +744,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         return brand_url(brand, l) if brand else category_url(cat, l)
 
     with open(SHOP_TEMPLATE, encoding='utf-8') as f:
-        html = f.read()
+        html = strip_hreflang(f.read())
 
     label = brand if brand else category_label(cat, lang)
     url = SITE + _url(lang)
@@ -824,9 +861,243 @@ def apply_ar_meta(html, meta):
     return html
 
 
+
+# ---------------------------------------------------------------------------
+# Standalone content pages built from the shop template (own URL per language):
+# the 3D printing service landing page and the shipping policy. Only facts the
+# site already states are used (see /3d/returns/, FAQ, product pages).
+# Arabic is DRAFT copy, flagged for review like every other AR block.
+# ---------------------------------------------------------------------------
+WA_QUOTE = 'https://wa.me/966560224715?text=Hello%21%20I%27d%20like%20a%20quote%20for%203D%20printing.'
+
+STATIC_PAGES = {
+    '3d-printing-service-saudi-arabia': {
+        'en': {
+            'title': '3D Printing Service in Saudi Arabia | Black Arrow 3D',
+            'desc': 'Custom 3D printing in Saudi Arabia: send your design file or a MakerWorld link, or tell us your idea. Get a quote on WhatsApp, with delivery across the Kingdom.',
+            'h1': '3D Printing Service in Saudi Arabia',
+            'crumb': '3D Printing Service',
+            'body': [
+                ('p', "Have a design you want printed? Send it to Black Arrow 3D and we will print it for you. We handle custom gifts, prototypes, decor and artwork, personalized products, customized parts and small batches, and we deliver across Saudi Arabia."),
+                ('cta', 'Get a 3D Printing Quote'),
+                ('h2', 'What you can send us'),
+                ('ul', ["Your own design file", "A MakerWorld link", "A sketch or an idea, and we will discuss it with you", "A photo or reference of what you want"]),
+                ('h2', 'What we print'),
+                ('ul', ["Custom gifts and personalized products", "Prototypes and rapid prototyping", "Decor and artwork", "Customized parts", "Small-batch production"]),
+                ('h2', 'How it works'),
+                ('ol', [
+                    "Send us your design, MakerWorld link or idea on WhatsApp and ask for a quote.",
+                    "We confirm all the details with you before production begins, including the file, material, colour, size and timing for your order.",
+                    "We print your order. 3D printed items are typically prepared within 3 to 5 business days, as most are made to order.",
+                    "We deliver across Saudi Arabia: standard shipping 30 SAR (4-5 business days) or fast shipping 50 SAR (2-3 business days). You receive a tracking number once your order has shipped.",
+                ]),
+                ('h2', 'Good to know'),
+                ('ul', [
+                    "Cancellation is possible only before production begins.",
+                    "Custom and personalized orders are not returnable for change of mind. Defects, a wrong product or shipping damage are covered by our Return & Exchange Policy.",
+                    "Payment: Cash on Delivery, Bank Transfer or a Business Quotation.",
+                ]),
+                ('h2', 'Ready-made 3D printed items'),
+                ('p', "Prefer something ready to order? Browse our in-house designs in 3D Artwork: keychains, decor and gifts."),
+                ('links', [('/3d/shop/3d-artwork/', 'Browse 3D Artwork'), ('/3d/product/custom-3d-artwork/', 'Custom 3D Artwork'), ('/3d/returns/', 'Return & Exchange Policy'), ('/3d/shipping/', 'Shipping Policy')]),
+            ],
+            'faq': [
+                ("How do I get a price for a custom print?", "Send your design, MakerWorld link or idea on WhatsApp and ask for a 3D printing quote. We confirm the details with you before production."),
+                ("How long does a custom order take?", "3D printed items are typically prepared within 3 to 5 business days, then shipped: standard shipping takes 4-5 business days and fast shipping 2-3 business days."),
+                ("Do you deliver outside Saudi Arabia?", "No. We deliver across Saudi Arabia only."),
+                ("Can I cancel a custom order?", "Only before production begins. Once production has started, cancellation is not available."),
+            ],
+            'service_name': '3D Printing Service',
+        },
+        'ar': {
+            'title': 'خدمة الطباعة ثلاثية الأبعاد في السعودية | Black Arrow 3D',
+            'desc': 'طباعة ثلاثية الأبعاد حسب الطلب في السعودية: أرسل ملف تصميمك أو رابط MakerWorld أو أخبرنا بفكرتك. احصل على عرض سعر عبر واتساب مع توصيل لكل مناطق المملكة.',
+            'h1': 'خدمة الطباعة ثلاثية الأبعاد في السعودية',
+            'crumb': 'خدمة الطباعة ثلاثية الأبعاد',
+            'body': [
+                ('p', "لديك تصميم تريد طباعته؟ أرسله إلى Black Arrow 3D ونطبعه لك. نتولى الهدايا المخصصة والنماذج الأولية والديكور والأعمال الفنية والمنتجات الشخصية والقطع المخصصة والدفعات الصغيرة، ونوصّل لجميع مناطق المملكة."),
+                ('cta', 'احصل على عرض سعر للطباعة ثلاثية الأبعاد'),
+                ('h2', 'ما الذي يمكنك إرساله'),
+                ('ul', ["ملف تصميمك الخاص", "رابط من MakerWorld", "رسمة أو فكرة، ونناقشها معك", "صورة أو مرجع لما تريده"]),
+                ('h2', 'ما الذي نطبعه'),
+                ('ul', ["الهدايا المخصصة والمنتجات الشخصية", "النماذج الأولية والنماذج الأولية السريعة", "الديكور والأعمال الفنية", "القطع المخصصة", "الإنتاج بدفعات صغيرة"]),
+                ('h2', 'كيف تتم الخدمة'),
+                ('ol', [
+                    "أرسل لنا تصميمك أو رابط MakerWorld أو فكرتك عبر واتساب واطلب عرض سعر.",
+                    "نؤكد معك جميع التفاصيل قبل بدء الإنتاج، بما فيها الملف والخامة واللون والحجم والمدة لطلبك.",
+                    "نطبع طلبك. تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد عادةً خلال 3 إلى 5 أيام عمل، لأن معظمها يُصنع حسب الطلب.",
+                    "نوصّل لجميع مناطق المملكة: شحن عادي 30 ريال (4-5 أيام عمل) أو شحن سريع 50 ريال (2-3 أيام عمل). ويصلك رقم تتبع بعد شحن الطلب.",
+                ]),
+                ('h2', 'من المفيد أن تعرف'),
+                ('ul', [
+                    "يمكن الإلغاء فقط قبل بدء الإنتاج.",
+                    "لا يُقبل إرجاع الطلبات المخصصة والشخصية لمجرد تغيير الرأي. أما العيوب أو المنتج الخاطئ أو التلف أثناء الشحن فتشملها سياسة الاسترجاع والاستبدال.",
+                    "الدفع: عند الاستلام أو بالتحويل البنكي أو عبر عرض سعر للأعمال.",
+                ]),
+                ('h2', 'منتجات مطبوعة جاهزة'),
+                ('p', "تفضّل شيئًا جاهزًا للطلب؟ تصفح تصاميمنا الخاصة في قسم الأعمال الفنية: ميدالِيات المفاتيح والديكور والهدايا."),
+                ('links', [('/3d/shop/3d-artwork/', 'تصفح الأعمال الفنية'), ('/3d/product/custom-3d-artwork/', 'أعمال فنية مخصصة'), ('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/shipping/', 'سياسة الشحن')]),
+            ],
+            'faq': [
+                ("كيف أحصل على سعر للطباعة المخصصة؟", "أرسل تصميمك أو رابط MakerWorld أو فكرتك عبر واتساب واطلب عرض سعر للطباعة ثلاثية الأبعاد. نؤكد معك التفاصيل قبل بدء الإنتاج."),
+                ("كم يستغرق الطلب المخصص؟", "تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد عادةً خلال 3 إلى 5 أيام عمل ثم تُشحن: الشحن العادي 4-5 أيام عمل والسريع 2-3 أيام عمل."),
+                ("هل تشحنون خارج السعودية؟", "لا. نوصّل داخل المملكة العربية السعودية فقط."),
+                ("هل يمكنني إلغاء طلب مخصص؟", "فقط قبل بدء الإنتاج. وبعد بدئه لا يتوفر الإلغاء."),
+            ],
+            'service_name': 'خدمة الطباعة ثلاثية الأبعاد',
+        },
+    },
+    'shipping': {
+        'en': {
+            'title': 'Shipping Policy | Black Arrow 3D',
+            'desc': 'Black Arrow 3D shipping policy: delivery across Saudi Arabia, standard and fast shipping options with costs and delivery times, preparation time and tracking.',
+            'h1': 'Shipping Policy',
+            'crumb': 'Shipping Policy',
+            'body': [
+                ('meta', 'Effective date: 24 September 2026'),
+                ('h2', '1. Where we deliver'),
+                ('p', "We deliver across Saudi Arabia. We do not ship internationally."),
+                ('h2', '2. Shipping options and costs'),
+                ('ul', ["Standard shipping: 30 SAR, delivered in 4-5 business days.", "Fast shipping: 50 SAR, delivered in 2-3 business days."]),
+                ('p', "You choose the shipping option at checkout. Delivery times count from the day your order ships."),
+                ('h2', '3. Order preparation'),
+                ('p', "3D printed items (artwork, keychains, gifts and custom prints) are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability, including pre-order status, is shown on each product page."),
+                ('h2', '4. Tracking'),
+                ('p', "A tracking number is provided once your order has shipped, so you can follow its status."),
+                ('h2', '5. Damage during shipping'),
+                ('p', "If your order arrives damaged, contact us within 3 days of receiving it with clear photos. See the Return & Exchange Policy for details."),
+                ('h2', '6. Payment'),
+                ('p', "Cash on Delivery, Bank Transfer and Business Quotation are available."),
+                ('h2', '7. Contact'),
+                ('contact', ''),
+                ('links', [('/3d/returns/', 'Return & Exchange Policy'), ('/3d/terms/', 'Terms and Conditions')]),
+            ],
+            'faq': [],
+            'service_name': None,
+        },
+        'ar': {
+            'title': 'سياسة الشحن | Black Arrow 3D',
+            'desc': 'سياسة الشحن في Black Arrow 3D: التوصيل لكل مناطق السعودية، وخيارات الشحن العادي والسريع بتكلفتها ومدد التوصيل، ومدة تجهيز الطلب والتتبع.',
+            'h1': 'سياسة الشحن',
+            'crumb': 'سياسة الشحن',
+            'body': [
+                ('meta', 'تاريخ السريان: 24 سبتمبر 2026'),
+                ('h2', '1. أين نوصّل'),
+                ('p', "نوصّل لجميع مناطق المملكة العربية السعودية. ولا نشحن خارج المملكة."),
+                ('h2', '2. خيارات الشحن وتكلفتها'),
+                ('ul', ["الشحن العادي: 30 ريال، يصل خلال 4-5 أيام عمل.", "الشحن السريع: 50 ريال، يصل خلال 2-3 أيام عمل."]),
+                ('p', "تختار خيار الشحن عند إتمام الطلب. وتُحتسب مدة التوصيل من يوم شحن طلبك."),
+                ('h2', '3. تجهيز الطلب'),
+                ('p', "تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد (الأعمال الفنية وميدالِيات المفاتيح والهدايا والطباعة المخصصة) عادةً خلال 3 إلى 5 أيام عمل، لأن معظمها يُصنع حسب الطلب. أما الطابعات وخيوط الطباعة والإكسسوارات فتظهر حالة التوفر، بما فيها الحجز المسبق، في صفحة كل منتج."),
+                ('h2', '4. التتبع'),
+                ('p', "يصلك رقم تتبع بعد شحن طلبك لتتمكن من متابعة حالته."),
+                ('h2', '5. التلف أثناء الشحن'),
+                ('p', "إذا وصل طلبك تالفًا، تواصل معنا خلال 3 أيام من استلامه مع صور واضحة. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."),
+                ('h2', '6. الدفع'),
+                ('p', "الدفع عند الاستلام والتحويل البنكي وعرض سعر الأعمال متاحة."),
+                ('h2', '7. التواصل'),
+                ('contact', ''),
+                ('links', [('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/terms/', 'الشروط والأحكام')]),
+            ],
+            'faq': [],
+            'service_name': None,
+        },
+    },
+}
+
+
+def static_page_url(slug, lang):
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/' + slug + '/'
+
+
+def build_static_page(slug, lang):
+    cfg = STATIC_PAGES[slug][lang]
+    with open(SHOP_TEMPLATE, encoding='utf-8') as f:
+        html = strip_hreflang(f.read())
+    url = SITE + static_page_url(slug, lang)
+    html = set_lang_attrs(html, lang)
+    html = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="' + esc(cfg['desc']) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="' + esc(cfg['title']) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + esc(cfg['desc']) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:url" content="[^"]*">', '<meta property="og:url" content="' + url + '">', html, count=1)
+    html = re.sub(r'<link rel="canonical" href="[^"]*">',
+                  '<link rel="canonical" href="' + url + '">'
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + static_page_url(slug, 'en') + '">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + static_page_url(slug, 'ar') + '">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + static_page_url(slug, 'en') + '">',
+                  html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(cfg['title']) + '</title>', html, count=1)
+
+    ld = [{
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': SITE + home_url(lang)},
+            {'@type': 'ListItem', 'position': 3, 'name': cfg['crumb'], 'item': url},
+        ],
+    }]
+    if cfg.get('service_name'):
+        ld.append({
+            '@context': 'https://schema.org', '@type': 'Service',
+            'name': cfg['service_name'], 'serviceType': '3D printing', 'url': url,
+            'areaServed': {'@type': 'Country', 'name': 'Saudi Arabia'},
+            'provider': {'@type': 'Organization', 'name': 'Black Arrow 3D', 'url': SITE + '/3d/'},
+        })
+    if cfg.get('faq'):
+        ld.append({
+            '@context': 'https://schema.org', '@type': 'FAQPage',
+            'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in cfg['faq']],
+        })
+    html = html.replace('</head>', ''.join('  <script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>\n' for x in ld) + '</head>')
+
+    html = translate_static_chrome(html, lang)
+    html = localize_ar_hrefs(html, lang)
+    _a, _b, _c = html.partition('<footer')
+    html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
+    html = lang_toggle_link(html, lang, static_page_url(slug, 'ar' if lang == 'en' else 'en'))
+
+    out = []
+    for kind, val in cfg['body']:
+        if kind == 'p':
+            out.append('<p>' + esc(val) + '</p>')
+        elif kind == 'meta':
+            out.append('<p class="b3d-legal__updated">' + esc(val) + '</p>')
+        elif kind == 'h2':
+            out.append('<h2>' + esc(val) + '</h2>')
+        elif kind == 'ul':
+            out.append('<ul>' + ''.join('<li>' + esc(x) + '</li>' for x in val) + '</ul>')
+        elif kind == 'ol':
+            out.append('<ol>' + ''.join('<li>' + esc(x) + '</li>' for x in val) + '</ol>')
+        elif kind == 'cta':
+            out.append('<p><a class="btn btn-primary" href="' + WA_QUOTE + '" target="_blank" rel="noopener noreferrer">' + esc(val) + '</a></p>')
+        elif kind == 'contact':
+            if lang == 'ar':
+                out.append('<p>Black Arrow 3D &mdash; تُدار بواسطة Black Arrow Venture<br>الدمام، المنطقة الشرقية، المملكة العربية السعودية<br>البريد الإلكتروني: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>الهاتف/واتساب: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
+            else:
+                out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
+        elif kind == 'links':
+            base = '/3d/ar' if lang == 'ar' else '/3d'
+            out.append('<p class="b3d-page__links">' + ' &middot; '.join(
+                '<a href="' + (base + h[3:] if lang == 'ar' and not h.startswith(('/3d/returns', '/3d/terms')) else h) + '">' + esc(t) + '</a>' for h, t in val) + '</p>')
+    if cfg.get('faq'):
+        faq_title = 'الأسئلة الشائعة' if lang == 'ar' else 'Frequently asked questions'
+        out.append('<h2>' + faq_title + '</h2><div class="b3d-faq">' + ''.join(
+            '<details class="b3d-faq__item"><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>' for q, a in cfg['faq']) + '</div>')
+
+    main = (
+        '<section class="section" style="padding-top:20px;"><div class="container">'
+        '<nav class="breadcrumb" aria-label="Breadcrumb">'
+        '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span><span>' + esc(cfg['crumb']) + '</span></nav>'
+        '<article class="b3d-article b3d-page"><h1>' + esc(cfg['h1']) + '</h1>' + ''.join(out) + '</article>'
+        '</div></section>'
+    )
+    html = re.sub(r'<main id="main">.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
+    write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
+
+
 def build_ar_home():
     with open(HOME_TEMPLATE, encoding='utf-8') as f:
-        html = f.read()
+        html = strip_hreflang(f.read())
     html = set_lang_attrs(html, 'ar')
     html = re.sub(r'<link rel="canonical" href="[^"]*">',
                   '<link rel="canonical" href="' + SITE + '/3d/ar/">'
@@ -846,7 +1117,7 @@ def build_ar_home():
 
 def build_ar_shop_index():
     with open(SHOP_TEMPLATE, encoding='utf-8') as f:
-        html = f.read()
+        html = strip_hreflang(f.read())
     html = set_lang_attrs(html, 'ar')
     html = re.sub(r'<link rel="canonical" href="[^"]*">',
                   '<link rel="canonical" href="' + SITE + '/3d/ar/shop/">'
@@ -893,6 +1164,11 @@ def main():
             build_category_page(None, 'ar', prods, brand=brand)
             n_brands += 2
     print('generated', n_brands, 'brand pages')
+
+    for _slug in STATIC_PAGES:
+        for _lang in ('en', 'ar'):
+            build_static_page(_slug, _lang)
+    print('generated', len(STATIC_PAGES) * 2, 'content pages')
 
     build_ar_home()
     build_ar_shop_index()
