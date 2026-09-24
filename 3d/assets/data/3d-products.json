@@ -1137,6 +1137,33 @@
       ]
     },
     {
+      "id": "naruto-leaf-keychain",
+      "name": "Naruto Leaf Village Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/naruto-leaf-keychain-promo.webp"
+      ],
+      "shortDesc": "3D printed keychain with the embossed Hidden Leaf village symbol, with clip and key ring.",
+      "description": "A 3D printed rectangular keychain with the Hidden Leaf village symbol embossed on the front, finished with a metal clip and key ring. Shown in green.",
+      "specs": [
+        ["Design", "Embossed Hidden Leaf village symbol"],
+        ["Includes", "Metal clip and key ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح شعار قرية الورقة (ناروتو)",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد بشعار قرية الورقة المجسّم، مع مشبك وحلقة مفاتيح.",
+      "description_ar": "ميدالية مفاتيح مستطيلة مطبوعة ثلاثية الأبعاد بشعار قرية الورقة مجسّمًا على الواجهة، مع مشبك وحلقة مفاتيح معدنية. موضحة باللون الأخضر.",
+      "specs_ar": [
+        ["التصميم", "شعار قرية الورقة مجسّم"],
+        ["المحتويات", "مشبك وحلقة مفاتيح معدنية"]
+      ]
+    },
+    {
       "id": "national-day-key-holder",
       "name": "Saudi National Day Key Holder",
       "brand": "Black Arrow",
