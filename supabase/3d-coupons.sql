@@ -67,9 +67,41 @@ end $$;
 grant execute on function public.check_coupon(text, numeric) to anon, authenticated;
 grant execute on function public.redeem_coupon(text, numeric) to anon, authenticated;
 
--- ---- Making a code (repeat whenever you need one) -------------------------
--- insert into public.coupons (code, amount, max_uses, note)
---   values ('BAV50-K7Q2', 50, 1, 'for Ahmed');
--- Optional columns: min_order (SAR), expires_on ('2026-12-31'), max_uses (>1 = shared code)
--- Turn a code off:   update public.coupons set active = false where code = 'BAV50-K7Q2';
+-- ---- Making a code: always unique, always single-use ----------------------
+-- Run this in the SQL editor whenever you need a code. It invents a random,
+-- unguessable code, saves it with ONE use, and shows it to you to hand over:
+--
+--   select public.generate_coupon(50);                       -- 50 SAR off
+--   select public.generate_coupon(50, 'for Ahmed');          -- with a private note
+--   select public.generate_coupon(100, 'Ramadan', 300, '2027-03-30');
+--                                   -- amount, note, min order SAR, last valid day
+--   select public.generate_coupon(50) from generate_series(1, 10);   -- 10 codes at once
+--
+-- Turn a code off:   update public.coupons set active = false where code = 'BAV-XXXXXXXX';
 -- See who used what: select * from public.coupon_redemptions order by redeemed_at desc;
+-- See unused codes:  select code, amount, note from public.coupons where used_count = 0 and active;
+
+create or replace function public.generate_coupon(
+  p_amount integer, p_note text default null, p_min_order integer default 0, p_expires date default null)
+returns text language plpgsql security definer set search_path = public as $$
+declare
+  alphabet constant text := 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';  -- no 0/O/1/I/L
+  new_code text; i integer;
+begin
+  loop
+    new_code := 'BAV-';
+    for i in 1..8 loop
+      new_code := new_code || substr(alphabet, 1 + floor(random() * length(alphabet))::int, 1);
+    end loop;
+    begin
+      insert into public.coupons(code, amount, max_uses, min_order, expires_on, note)
+      values (new_code, p_amount, 1, coalesce(p_min_order, 0), p_expires, p_note);
+      return new_code;
+    exception when unique_violation then
+      null;  -- extremely unlikely clash: try another code
+    end;
+  end loop;
+end $$;
+
+-- Only you (dashboard / service role) can mint codes - never the website.
+revoke execute on function public.generate_coupon(integer, text, integer, date) from public, anon, authenticated;
