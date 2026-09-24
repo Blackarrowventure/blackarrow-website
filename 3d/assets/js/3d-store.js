@@ -280,7 +280,6 @@
     var out = '';
     if (p.featured) out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured') + '</span>';
     if (p.onSale) out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge') + '</span>';
-    if (p.newArrival) out += '<span class="b3d-corner-badge b3d-corner-badge--new">' + T('shop_new_badge') + '</span>';
     return out;
   }
 

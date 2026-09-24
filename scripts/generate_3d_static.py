@@ -130,8 +130,6 @@ def corner_badges(p, lang):
         out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured', lang) + '</span>'
     if p.get('onSale'):
         out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>'
-    if p.get('newArrival'):
-        out += '<span class="b3d-corner-badge b3d-corner-badge--new">' + T('shop_new_badge', lang) + '</span>'
     return out
 
 
