@@ -1225,6 +1225,63 @@
         ["المحتويات", "ميدالية مفاتيح"],
         ["الصنع", "مطبوع ثلاثي الأبعاد داخلياً"]
       ]
+    },
+    {
+      "id": "green-knit-cap",
+      "name": "Knitted Green Cap Figure, Luigi Style",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 80,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/green-knit-cap-01.webp",
+        "/3d/assets/images/products/green-knit-cap-02.webp",
+        "/3d/assets/images/products/green-knit-cap-03.webp"
+      ],
+      "shortDesc": "3D printed knitted-texture green cap figure with a white \"L\" badge, for gamers' shelves and desks.",
+      "description": "A 3D printed green cap figure with a detailed knitted texture and a white round \"L\" badge on the front, in a Luigi-inspired style. Displays nicely on a shelf, desk or next to your gaming setup, and makes a fun gift for gaming fans. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Knitted-texture cap with \"L\" badge, Luigi style"
+        ],
+        [
+          "Colours",
+          "Green and white"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ],
+        [
+          "Use",
+          "Shelf, desk or gaming-corner display"
+        ]
+      ],
+      "name_ar": "مجسّم قبعة خضراء منسوجة بطراز لويجي",
+      "shortDesc_ar": "مجسّم قبعة خضراء مطبوع ثلاثي الأبعاد بملمس منسوج وشارة بيضاء عليها حرف L، للرفوف والمكاتب.",
+      "description_ar": "مجسّم قبعة خضراء مطبوع ثلاثي الأبعاد بملمس منسوج مفصّل وشارة بيضاء دائرية عليها حرف L في المقدمة، بطراز مستوحى من لويجي. مناسب للعرض على الرف أو المكتب أو بجانب ركن الألعاب، وهدية لطيفة لمحبي الألعاب. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "قبعة بملمس منسوج وشارة L بطراز لويجي"
+        ],
+        [
+          "الألوان",
+          "أخضر وأبيض"
+        ],
+        [
+          "التصنيع",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ],
+        [
+          "الاستخدام",
+          "عرض على الرف أو المكتب أو ركن الألعاب"
+        ]
+      ]
     }
   ]
 }
