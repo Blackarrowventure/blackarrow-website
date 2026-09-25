@@ -1285,6 +1285,62 @@
           "عرض على الرف أو المكتب أو ركن الألعاب"
         ]
       ]
+    },
+    {
+      "id": "question-block-ps5-controller-stand",
+      "name": "Question Block PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 75,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/question-block-stand-01.webp",
+        "/3d/assets/images/products/question-block-stand-02.webp"
+      ],
+      "shortDesc": "3D printed yellow question block stand that holds a PS5 controller, for gaming desks and shelves.",
+      "description": "A 3D printed controller stand in bright yellow, with raised white question marks on the sides and rounded corner studs. Rest your PS5 controller on top to keep it displayed and within reach on your desk or gaming shelf. Shown here with a PS5 controller. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Question block controller stand"
+        ],
+        [
+          "Colours",
+          "Yellow and white"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ],
+        [
+          "Use",
+          "Holds a PS5 controller on a desk or shelf"
+        ]
+      ],
+      "name_ar": "ستاند يد تحكم PS5 بتصميم مكعب الاستفهام",
+      "shortDesc_ar": "ستاند بتصميم مكعب الاستفهام الأصفر مطبوع ثلاثي الأبعاد لحمل يد تحكم PS5، لمكاتب وأرفف الألعاب.",
+      "description_ar": "ستاند لأيادي التحكم مطبوع ثلاثي الأبعاد باللون الأصفر الزاهي، بعلامات استفهام بيضاء بارزة على الجوانب ومسامير مستديرة عند الزوايا. ضع يد تحكم PS5 فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. موضّح في الصورة مع يد تحكم PS5. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "ستاند يد تحكم بتصميم مكعب الاستفهام"
+        ],
+        [
+          "الألوان",
+          "أصفر وأبيض"
+        ],
+        [
+          "التصنيع",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ],
+        [
+          "الاستخدام",
+          "يحمل يد تحكم PS5 على المكتب أو الرف"
+        ]
+      ]
     }
   ]
 }
