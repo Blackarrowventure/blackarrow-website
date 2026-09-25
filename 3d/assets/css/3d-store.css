@@ -481,6 +481,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .b3d-pd__visual--art { background: #111; }
 .b3d-pd__visual--art img { object-fit: cover; padding: 0; }
+.b3d-pd__visual--art.is-wide img { object-fit: contain; }
 .b3d-pd__visual .b3d-card__visual-placeholder { width: calc(100% - 16px); height: calc(100% - 16px); font-size: .95rem; }
 
 .b3d-pd__cat { color: var(--clr-accent); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
@@ -2048,3 +2049,57 @@ html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
 .b3d-band--light .b3d-picker-card * { color: #222; }
 /* the search strip already sits under the header rule, so category pages drop their own gold top edge */
 .b3d-searchbar + main > section:first-child { border-top: 0 !important; }
+
+/* ---- Shop, category and product pages: light content area under the dark brand header ---- */
+main.b3d-light { background: #f5f4f0; color: #1a1a1a; }
+main.b3d-light :is(h1, h2, h3, h4, h5, p, li, span, label, small, strong, em, dt, dd, td, th, summary, bdi, div) { color: #1a1a1a; }
+main.b3d-light a:not([class*="btn"]) { color: #1a1a1a; }
+main.b3d-light .breadcrumb, main.b3d-light .breadcrumb * { color: #555; }
+main.b3d-light .breadcrumb > span:last-child, main.b3d-light .breadcrumb [data-b3d-crumb] { color: #b45309; }
+main.b3d-light .btn-primary, main.b3d-light .btn-primary * { color: #fff !important; }
+main.b3d-light .btn-outline { color: #1a1a1a !important; border-color: #1a1a1a; background: transparent; }
+main.b3d-light .btn-outline:hover { background: #1a1a1a; color: #fff !important; }
+main.b3d-light :is(.b3d-pd__cat, legend, [class*="__brand"], [class*="eyebrow"], .overline) { color: #b45309 !important; }
+main.b3d-light .b3d-price--sale, main.b3d-light .b3d-pd__price .b3d-price--sale { color: #b91c1c !important; }
+main.b3d-light .b3d-price-was, main.b3d-light [class*="was"] { color: #777 !important; }
+main.b3d-light :is(input, select, textarea) { background: #fff !important; color: #111 !important; border: 1px solid #d8d5cc !important; }
+main.b3d-light :is(.b3d-filter-panel, .b3d-shop-toolbar, .b3d-trust-strip) { background: #fff; border-color: #e6e3dc; }
+main.b3d-light .b3d-trust-strip__item, main.b3d-light .b3d-trust-strip__item * { color: #333; }
+main.b3d-light .b3d-trust-strip__icon, main.b3d-light svg { color: #b45309; }
+main.b3d-light .b3d-filter-toggle, main.b3d-light .b3d-filter-toggle * { color: #1a1a1a; border-color: #cfcbc0; background: #fff; }
+main.b3d-light .b3d-filter-toggle.has-active-filters, main.b3d-light .b3d-filter-toggle.has-active-filters * { color: #b45309; border-color: #b45309; }
+main.b3d-light .b3d-cat-tabs a, main.b3d-light .b3d-filter-pills button, main.b3d-light .b3d-pd__variants button { background: #fff; border: 1px solid #cfcbc0; color: #1a1a1a; }
+main.b3d-light .b3d-cat-tabs a[aria-current], main.b3d-light .b3d-cat-tabs a.is-active, main.b3d-light .b3d-pd__variants button.is-active, main.b3d-light .b3d-pd__variants button[aria-pressed="true"] { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+main.b3d-light .b3d-pd__variants button.is-active *, main.b3d-light .b3d-pd__variants button[aria-pressed="true"] * { color: #fff; }
+main.b3d-light .b3d-pagination :is(a, button) { background: #fff; border: 1px solid #cfcbc0; color: #1a1a1a; }
+main.b3d-light .b3d-cat-landing__card, main.b3d-light .b3d-guide-card { background: #fff; border: 1px solid #e6e3dc; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+main.b3d-light .b3d-cat-landing__card *, main.b3d-light .b3d-guide-card * { color: #222; }
+main.b3d-light .b3d-cat-landing__card .b3d-price, main.b3d-light .b3d-guide-card__price, main.b3d-light .b3d-guide-card__price * { color: #111; font-weight: 700; }
+main.b3d-light .b3d-guide-card__spec, main.b3d-light .b3d-guide-card__spec * { color: #666; }
+main.b3d-light .b3d-grid > * { background: #fff !important; border: 1px solid #e6e3dc !important; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+main.b3d-light .b3d-grid > * * { color: #222 !important; }
+main.b3d-light .b3d-grid > * [class*="__brand"], main.b3d-light .b3d-grid > * [class*="__cat"] { color: #b45309 !important; }
+main.b3d-light .b3d-grid > * :is(.btn, a[class*="btn"], [class*="btn-add"], .btn *) { color: #fff !important; }
+main.b3d-light .b3d-grid > * [class*="badge"] { color: #1a1a1a !important; }
+main.b3d-light .b3d-grid > * [class*="spec"], main.b3d-light .b3d-grid > * [class*="meta"] { color: #555 !important; }
+main.b3d-light .b3d-grid > * button:not([class*="btn"]) { background: #f1f1ee !important; border-color: #d8d5cc !important; }
+main.b3d-light .b3d-corner-badge--sale, main.b3d-light .b3d-corner-badge--sale * { color: #fff !important; }
+/* product detail */
+main.b3d-light .b3d-pd__title, main.b3d-light .b3d-pd__price { color: #111; }
+main.b3d-light .b3d-pd__desc { color: #333; }
+main.b3d-light .b3d-pd__visual { background: #fff; border: 1px solid #e6e3dc; }
+main.b3d-light .b3d-pd__thumb { background: #fff; border: 1px solid #cfcbc0; }
+main.b3d-light .b3d-pd__thumb.is-active { border-color: #b45309; }
+main.b3d-light .b3d-pd__shipreturn { border-top-color: #e6e3dc; }
+main.b3d-light .b3d-pd__shipreturn strong { color: #111; }
+main.b3d-light .b3d-pd__shipreturn p, main.b3d-light .b3d-pd__warranty p { color: #555; }
+main.b3d-light :is(table, tr, td, th, dl, dt, dd, ul.b3d-pd__specs li, .b3d-pd__spec-row) { border-color: #e6e3dc !important; }
+main.b3d-light .b3d-pd__qty, main.b3d-light .b3d-pd__qty * { background: #fff; border-color: #cfcbc0; color: #111; }
+main.b3d-light .b3d-stock-badge, main.b3d-light .b3d-stock-badge * { color: #fff; }
+main.b3d-light .b3d-empty { color: #555; }
+main.b3d-light > section, main.b3d-light .section { background: transparent !important; }
+main.b3d-light .b3d-spec-table td { color: #222 !important; border-bottom-color: #e6e3dc !important; }
+main.b3d-light .b3d-spec-table td:first-child { color: #666 !important; }
+main.b3d-light .b3d-qty, main.b3d-light .b3d-qty button, main.b3d-light .b3d-qty input { background: #fff !important; color: #111 !important; border-color: #cfcbc0 !important; }
+main.b3d-light .b3d-qty button:hover { background: #f1f1ee !important; }
+main.b3d-light .b3d-pd__swatch-label { color: #555 !important; }

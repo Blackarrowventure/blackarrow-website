@@ -1341,6 +1341,65 @@
           "يحمل يد تحكم PS5 على المكتب أو الرف"
         ]
       ]
+    },
+    {
+      "id": "fc27-ps5-controller-stand",
+      "name": "FC27 PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 50,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/fc27-stand-01.webp",
+        "/3d/assets/images/products/fc27-stand-02.webp",
+        "/3d/assets/images/products/fc27-stand-03.webp",
+        "/3d/assets/images/products/fc27-stand-04.webp",
+        "/3d/assets/images/products/fc27-stand-05.webp"
+      ],
+      "shortDesc": "3D printed FC27 PS5 controller stand in yellow, green, white, red or black, for gaming desks and shelves.",
+      "description": "A 3D printed controller stand with a raised FC27 logo on the front. Rest your PS5 controller in the cradle to keep it displayed and within reach on your desk or gaming shelf. Available in yellow, green, white, red and black. Images show the stand with a PS5 controller. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "FC27 controller stand"
+        ],
+        [
+          "Colours",
+          "Yellow, green, white, red, black"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ],
+        [
+          "Use",
+          "Holds a PS5 controller on a desk or shelf"
+        ]
+      ],
+      "name_ar": "ستاند يد تحكم PS5 بتصميم FC27",
+      "shortDesc_ar": "ستاند FC27 مطبوع ثلاثي الأبعاد لحمل يد تحكم PS5، بألوان أصفر وأخضر وأبيض وأحمر وأسود، لمكاتب وأرفف الألعاب.",
+      "description_ar": "ستاند لأيادي التحكم مطبوع ثلاثي الأبعاد بشعار FC27 بارز في الواجهة. ضع يد تحكم PS5 في التجويف لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. متوفر بألوان الأصفر والأخضر والأبيض والأحمر والأسود. الصور توضح الستاند مع يد تحكم PS5. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "ستاند يد تحكم FC27"
+        ],
+        [
+          "الألوان",
+          "أصفر، أخضر، أبيض، أحمر، أسود"
+        ],
+        [
+          "التصنيع",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ],
+        [
+          "الاستخدام",
+          "يحمل يد تحكم PS5 على المكتب أو الرف"
+        ]
+      ]
     }
   ]
 }

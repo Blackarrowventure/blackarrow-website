@@ -1417,6 +1417,11 @@
 
       var zoomTarget = container.querySelector('[data-pd-zoom]');
       var mainImgEl = container.querySelector('[data-pd-main-img]');
+      // near-square or wide artwork (marketing renders with text) is shown whole instead of cropped to the 4:5 frame
+      var fitFrame = function () {
+        if (mainImgEl && mainImgEl.naturalHeight) mainImgEl.parentNode.classList.toggle('is-wide', mainImgEl.naturalWidth / mainImgEl.naturalHeight > 0.85);
+      };
+      if (mainImgEl) { mainImgEl.addEventListener('load', fitFrame); fitFrame(); }
       if (zoomTarget && mainImgEl) {
         zoomTarget.classList.add('is-zoomable');
         zoomTarget.setAttribute('role', 'button');

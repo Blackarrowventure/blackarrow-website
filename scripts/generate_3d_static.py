@@ -867,7 +867,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
     )
-    html = re.sub(r'<main id="main">.*?</main>', '<main id="main">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
+    html = re.sub(r'<main id="main"[^>]*>.*?</main>', '<main id="main" class="b3d-light">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
 
     if brand:
         out_path = os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'brands', BRAND_SLUGS[brand], 'index.html')
