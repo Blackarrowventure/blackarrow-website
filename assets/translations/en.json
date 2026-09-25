@@ -2037,13 +2037,13 @@
   "service_aviation": "Aviation",
   "avi_svc_overline": "Aviation Services",
   "avi_svc_h1": "Aviation Infrastructure Services in Saudi Arabia",
-  "avi_svc_sub": "Helipad lighting, obstruction lighting, airside electrical distribution and backup power",
+  "avi_svc_sub": "Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution and backup power",
   "avi_svc_desc_full": "Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.",
   "avi_c1t": "Helipad lighting",
   "avi_c1d": "Helipad lighting that performs reliably in all the weather conditions pilots depend on.",
   "avi_c2t": "Obstruction and warning lights",
   "avi_c2d": "Obstruction and warning lights for tall structures, placed and rated to ICAO intensity and placement guidance.",
-  "avi_c3t": "Runway and taxiway edge lighting",
+  "avi_c3t": "Runway lighting system",
   "avi_c3d": "Edge lighting for runways and taxiways, sourced to aviation-specific standards rather than repurposed commercial fixtures.",
   "avi_c4t": "Airside electrical distribution",
   "avi_c5t": "Backup power for lighting circuits",
@@ -2052,5 +2052,8 @@
   "avi_cons_h": "Planning an Airport Upgrade?",
   "avi_cons_btn": "Airport Consultancy",
   "avi_view_service": "View Aviation Services",
-  "light_see_aviation": "Aviation Services"
+  "light_see_aviation": "Aviation Services",
+  "svc_cat_aviation": "Aviation & Airside",
+  "avi_alt": "Helipad on a rooftop with perimeter lighting at dusk",
+  "service_aviation_desc_home": "Helipad and obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power."
 }

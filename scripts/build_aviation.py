@@ -38,8 +38,8 @@ NEW = {  # key: (EN, AR)
     'service_aviation': ('Aviation', 'الطيران'),
     'avi_svc_overline': ('Aviation Services', 'خدمات الطيران'),
     'avi_svc_h1': ('Aviation Infrastructure Services in Saudi Arabia', 'خدمات البنية التحتية للطيران في المملكة العربية السعودية'),
-    'avi_svc_sub': ('Helipad lighting, obstruction lighting, airside electrical distribution and backup power',
-                    'إضاءة المهابط وإضاءة العوائق والتوزيع الكهربائي للمناطق الجانبية والطاقة الاحتياطية'),
+    'avi_svc_sub': ('Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution and backup power',
+                    'إضاءة المهابط وإضاءة العوائق وإضاءة المدارج والتوزيع الكهربائي للمناطق الجانبية والطاقة الاحتياطية'),
     'avi_svc_desc_full': ('Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.',
                           'إضاءة المهابط وإضاءة عوائق الهياكل العالية وإضاءة حواف المدارج والممرات والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية لمنشآت الطيران في أنحاء المملكة.'),
     'avi_c1t': ('Helipad lighting', 'إضاءة المهابط'),
@@ -48,7 +48,7 @@ NEW = {  # key: (EN, AR)
     'avi_c2t': ('Obstruction and warning lights', 'أضواء العوائق والتحذير'),
     'avi_c2d': ('Obstruction and warning lights for tall structures, placed and rated to ICAO intensity and placement guidance.',
                 'أضواء عوائق وتحذير للهياكل العالية، تُحدَّد شدتها ومواضعها وفق إرشادات ICAO.'),
-    'avi_c3t': ('Runway and taxiway edge lighting', 'إضاءة حواف المدارج والممرات'),
+    'avi_c3t': ('Runway lighting system', 'نظام إضاءة المدارج'),
     'avi_c3d': ('Edge lighting for runways and taxiways, sourced to aviation-specific standards rather than repurposed commercial fixtures.',
                 'إضاءة حواف المدارج والممرات، تُورَّد وفق معايير الطيران المتخصصة وليس تركيبات تجارية معاد استخدامها.'),
     'avi_c4t': ('Airside electrical distribution', 'التوزيع الكهربائي للمناطق الجانبية'),
@@ -262,7 +262,7 @@ def build_page():
     s = re.sub(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="Aviation Services Saudi Arabia | Black Arrow">', s, count=1)
     s = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="%s">' % DESC, s, count=1)
     s = re.sub(r'<meta property="og:url" content="[^"]*">', '<meta property="og:url" content="%s">' % url, s, count=1)
-    s = re.sub(r'<meta property="og:image" content="[^"]*">', '<meta property="og:image" content="%s/assets/images/black-arrow-og.png">' % SITE, s, count=1)
+    s = re.sub(r'<meta property="og:image" content="[^"]*">', '<meta property="og:image" content="%s/assets/images/services/aviation-solutions.jpg">' % SITE, s, count=1)
     # structured data: replace every ld+json block with Service + Breadcrumb + FAQPage
     prov = {"@type": "LocalBusiness", "name": "Black Arrow Venture company",
             "sameAs": ["https://www.instagram.com/blackarrowventure/"], "telephone": "+966560224715",
