@@ -2012,3 +2012,37 @@ html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
 .navbar__dropdown-menu a { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 /* The logo files are white on transparent, so each sits on a dark chip on the white menu */
 .navbar__dropdown-menu .navbar__brand-logo { height: 28px; width: auto; max-width: 104px; padding: 6px 9px; background: #141414; border-radius: 6px; box-sizing: border-box; object-fit: contain; flex: none; }
+
+/* ---- Storefront look: light shopping areas under a dark brand header and hero ---- */
+.b3d-searchbar { background: #000; padding: 0 16px 14px; display: flex; justify-content: center; }
+.b3d-searchbar form { display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 999px; padding: 4px 4px 4px 16px; width: min(640px, 100%); box-sizing: border-box; }
+.b3d-searchbar svg { width: 18px; height: 18px; color: #777; flex: none; }
+.b3d-searchbar input { flex: 1; min-width: 0; border: 0; outline: 0; font: inherit; font-size: .95rem; padding: 8px 4px; background: transparent; color: #111; }
+.b3d-searchbar button { background: var(--clr-cta); color: #fff; border: 0; border-radius: 999px; padding: 9px 20px; font: inherit; font-weight: 600; cursor: pointer; }
+.b3d-searchbar button:focus-visible, .b3d-searchbar input:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
+
+.b3d-band .section-header h2 { font-family: 'Noto Sans', 'Segoe UI', sans-serif; font-weight: 700; font-style: normal; letter-spacing: -.01em; }
+.b3d-band .section-header h2::after { content: ""; display: block; width: 56px; height: 3px; background: var(--clr-accent); border-radius: 2px; margin: 10px auto 0; }
+
+.b3d-cat-tile__photo { width: 100% !important; height: auto !important; aspect-ratio: 4 / 3; margin: 0 0 12px !important; border-radius: 10px; background: #f1f1ee; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.b3d-cat-tile__photo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box; }
+
+.b3d-band--light { background: #f5f4f0 !important; color: #1a1a1a; border-color: #e6e3dc; }
+.b3d-band--light .section-header h2 { color: #1a1a1a !important; }
+.b3d-band--light .section-header p { color: #555 !important; }
+.b3d-band--light .b3d-cat-tile { background: #fff; border: 1px solid #e6e3dc; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.b3d-band--light .b3d-cat-tile h3 { color: #1a1a1a; }
+.b3d-band--light .b3d-cat-tile p { color: #666; }
+.b3d-band--light .b3d-grid > * { background: #fff !important; border: 1px solid #e6e3dc !important; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.b3d-band--light .b3d-grid > * * { color: #222 !important; }
+.b3d-band--light .b3d-grid > * [class*="__brand"], .b3d-band--light .b3d-grid > * [class*="__cat"], .b3d-band--light .b3d-grid > * [class*="eyebrow"] { color: #b45309 !important; }
+.b3d-band--light .b3d-grid > * .btn, .b3d-band--light .b3d-grid > * a[class*="btn"], .b3d-band--light .b3d-grid > * [class*="btn-add"] { color: #fff !important; }
+.b3d-band--light .b3d-grid > * [class*="badge"] { color: #1a1a1a !important; }
+.b3d-band--light .b3d-grid > * [class*="spec"], .b3d-band--light .b3d-grid > * [class*="meta"] { color: #555 !important; }
+.b3d-band--light .b3d-grid > * button:not([class*="btn"]) { background: #f1f1ee !important; border-color: #d8d5cc !important; }
+.b3d-band--light .btn-outline { color: #1a1a1a; border-color: #1a1a1a; }
+.b3d-band--light .btn-outline:hover { background: #1a1a1a; color: #fff; }
+.b3d-band--light .b3d-brand-tile { background: #141414; border-color: #141414; }
+.b3d-band--light .b3d-picker-card { background: #fff; border: 1px solid #e6e3dc; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.b3d-band--light .b3d-picker-card * { color: #222; }
