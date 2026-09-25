@@ -2126,3 +2126,25 @@ main.b3d-light .b3d-pd__swatch-label { color: #555 !important; }
 main.b3d-light .b3d-grid > * .b3d-price { color: #111 !important; }
 main.b3d-light .b3d-grid > * .b3d-price--sale { color: #b91c1c !important; }
 .b3d-band--light .b3d-grid > * .b3d-price { color: #111 !important; }
+
+/* ---- Light pages: guide panels become real cards with a visible border and gold top edge ---- */
+main.b3d-light .b3d-guide-sec { background: #fff; border: 1px solid #d9d3c3; border-top: 4px solid #D97706; box-shadow: 0 4px 16px rgba(0,0,0,.07); border-radius: 12px; }
+main.b3d-light .b3d-guide-sec h2 { color: #111; }
+main.b3d-light .b3d-guide-sec > p { color: #444; }
+main.b3d-light .b3d-guide-card { background: #fff; border: 1px solid #e3dfd3; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+main.b3d-light .b3d-guide-card:hover, main.b3d-light .b3d-guide-card:focus-visible { box-shadow: 0 8px 22px rgba(0,0,0,.14); border-color: #D97706; }
+
+/* ---- All pages: boxed panels get a clear border and amber top edge (dark pages) ---- */
+.b3d-guide-sec, .b3d-account__panel, .b3d-pm-detail, .b3d-reviews__form, .b3d-thanks { border-color: rgba(245,158,11,.5); border-top: 3px solid var(--clr-accent); box-shadow: 0 6px 20px rgba(0,0,0,.28); }
+.b3d-article__related a { border-color: rgba(245,158,11,.4); }
+.b3d-article table th, .b3d-article table td { border-color: rgba(245,158,11,.4); }
+/* light pages: reviews */
+main.b3d-light .b3d-reviews { border-top: 1px solid #d9d3c3; }
+main.b3d-light .b3d-reviews__form, main.b3d-light .b3d-review { background: #fff; border: 1px solid #d9d3c3; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+main.b3d-light .b3d-reviews__form { border-top: 4px solid #D97706; }
+main.b3d-light .b3d-review__name, main.b3d-light .b3d-reviews__top h2, main.b3d-light .b3d-reviews__avg { color: #111; }
+main.b3d-light .b3d-review__text { color: #333; }
+main.b3d-light .b3d-review__date, main.b3d-light .b3d-reviews__count, main.b3d-light .b3d-reviews__none { color: #666; }
+main.b3d-light .b3d-review__tag { color: #555; border-color: #cfcbc0; }
+main.b3d-light .b3d-star { color: #d8d5cc; }
+main.b3d-light .b3d-star.is-on { color: #D97706; }
