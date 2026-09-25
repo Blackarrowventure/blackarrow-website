@@ -101,6 +101,22 @@
           var savedPanel = document.getElementById('b3d-saved-products-panel');
           if (savedPanel && window.BlackArrow3D) window.BlackArrow3D.renderWishlistPanel(savedPanel);
 
+          // Only for the approved admin account: a shortcut to the review approval page.
+          window.BlackArrow3DAuth.reviewAdminInfo().then(function (info) {
+            var panels = document.querySelector('.b3d-account__panels');
+            var old = document.getElementById('b3d-admin-panel');
+            if (old) old.remove();
+            if (!info.isAdmin || !panels) return;
+            var panel = document.createElement('div');
+            panel.className = 'b3d-account__panel';
+            panel.id = 'b3d-admin-panel';
+            panel.innerHTML = '<h2>Admin: review approval</h2><p>' +
+              (info.pending === 0 ? 'No reviews are waiting for approval.' :
+                info.pending + (info.pending === 1 ? ' review is' : ' reviews are') + ' waiting for approval.') +
+              '</p><p style="margin-top:12px;"><a class="btn btn-primary" href="/3d/review-admin/">Open review approval</a></p>';
+            panels.insertBefore(panel, panels.firstChild);
+          });
+
           window.BlackArrow3DAuth.getProfile(user.id).then(function (profile) {
             if (!profile) return;
             var nameField = document.getElementById('details-name');

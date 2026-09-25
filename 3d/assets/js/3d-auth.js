@@ -121,6 +121,18 @@
     });
   }
 
+  // Is the signed-in user allowed to approve reviews? (the database decides;
+  // ordinary customers get false and never see anything about it)
+  function reviewAdminInfo() {
+    if (!ready || !client) return Promise.resolve({ isAdmin: false, pending: 0 });
+    return client.rpc('is_review_admin').then(function (res) {
+      if (res.error || res.data !== true) return { isAdmin: false, pending: 0 };
+      return client.rpc('admin_list_reviews', { p_status: 'pending' }).then(function (r2) {
+        return { isAdmin: true, pending: (r2.data || []).length };
+      });
+    }).catch(function () { return { isAdmin: false, pending: 0 }; });
+  }
+
   window.BlackArrow3DAuth = {
     isConfigured: function () { return !!(CONFIG && CONFIG.url && CONFIG.anonKey); },
     init: init,
@@ -131,6 +143,7 @@
     resetPassword: resetPassword,
     updatePassword: updatePassword,
     getProfile: getProfile,
-    saveProfile: saveProfile
+    saveProfile: saveProfile,
+    reviewAdminInfo: reviewAdminInfo
   };
 })();
