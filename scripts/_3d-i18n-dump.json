@@ -247,6 +247,18 @@
     "en": "A snapshot of what is available right now",
     "ar": "لمحة عمّا هو متاح الآن"
   },
+  "hub_printers_h2": {
+    "en": "3D Printers",
+    "ar": "طابعات ثلاثية الأبعاد"
+  },
+  "hub_printers_sub": {
+    "en": "Choose your next 3D printer",
+    "ar": "اختر طابعتك القادمة"
+  },
+  "hub_printers_all": {
+    "en": "View all 3D printers",
+    "ar": "عرض كل الطابعات"
+  },
   "hub_hero_eyebrow": {
     "en": "3D Printing, Made Easy",
     "ar": "الطباعة ثلاثية الأبعاد، ببساطة"

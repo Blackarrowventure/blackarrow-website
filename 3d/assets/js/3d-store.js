@@ -1832,6 +1832,15 @@
   var BRAND_PAGES = { 'Bambu Lab': 'bambu-lab' };
   var BRAND_PAGE_MIN = 3;
 
+  // Logo files for the brand dropdown: [file, width, height]. Brands without a file show the name only.
+  var BRAND_LOGOS = {
+    'Bambu Lab': ['bambu-lab.svg', 62, 18],
+    'Creality': ['creality.svg', 400, 92],
+    'Elegoo': ['elegoo.webp', 372, 70],
+    'Anycubic': ['anycubic.png', 187, 48],
+    'Snapmaker': ['snapmaker.svg', 125, 24]
+  };
+
   function initBrandNavMenu() {
     var menu = document.querySelector('[data-b3d-brand-menu]');
     if (!menu) return;
@@ -1846,7 +1855,9 @@
         if (BRAND_PAGES[brand] && items.length >= BRAND_PAGE_MIN) href = base + '/brands/' + BRAND_PAGES[brand] + '/';
         else if (items.length === 1) href = productUrl(items[0]);
         else href = base + '/shop/?brand=' + encodeURIComponent(brand);
-        html += '<a href="' + href + '">' + brand + '</a>';
+        var logo = BRAND_LOGOS[brand];
+        html += '<a href="' + href + '">' + '<span>' + brand + '</span>' +
+          (logo ? '<img class="navbar__brand-logo" src="/3d/assets/images/brands/' + logo[0] + '" alt="" width="' + logo[1] + '" height="' + logo[2] + '" loading="lazy">' : '') + '</a>';
       });
       menu.innerHTML = html;
     });
@@ -1872,6 +1883,14 @@
         var featured = pinned.concat(fresh, rest).slice(0, 8);
         renderGrid(featured, featuredGrid);
         injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
+      });
+    }
+
+    var printersGrid = document.querySelector('[data-b3d-printers-grid]');
+    if (printersGrid) {
+      fetchProducts().then(function (products) {
+        var printers = products.filter(function (p) { return p.category === '3D Printers' && p.available !== false; }).slice(0, 8);
+        renderGrid(printers, printersGrid);
       });
     }
 

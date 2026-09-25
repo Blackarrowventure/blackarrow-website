@@ -126,6 +126,9 @@
 
       hub_featured_h2: 'Featured Products',
       hub_featured_sub: 'A snapshot of what is available right now',
+      hub_printers_h2: '3D Printers',
+      hub_printers_sub: 'Choose your next 3D printer',
+      hub_printers_all: 'View all 3D printers',
 
       hub_blog_h2: 'Guides & Tutorials',
       hub_blog_cta: 'View All Guides',
@@ -500,6 +503,9 @@
 
       hub_featured_h2: 'منتجات مختارة',
       hub_featured_sub: 'لمحة عمّا هو متاح الآن',
+      hub_printers_h2: 'طابعات ثلاثية الأبعاد',
+      hub_printers_sub: 'اختر طابعتك القادمة',
+      hub_printers_all: 'عرض كل الطابعات',
 
       hub_blog_h2: 'أدلة ومقالات',
       hub_blog_cta: 'عرض جميع الأدلة',

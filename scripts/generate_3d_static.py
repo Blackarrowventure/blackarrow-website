@@ -663,6 +663,10 @@ def prerender_grids(html, lang, kind):
     cards = ''.join(landing_card(p, lang) for p in items)
     html = PRERENDER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + cards + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'home':
+        printers = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Printers' and q.get('available') is not False][:8])
+        html = re.sub(r'(<div class="b3d-grid" data-b3d-printers-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)',
+                      lambda m: m.group(1) + '<!--b3d-prerender-->' + printers + '<!--/b3d-prerender-->' + m.group(2), html, count=1, flags=re.S)
+    if kind == 'home':
         html = refresh_home_blog(html, lang)
         html = PICKER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + picker_cards_html(lang) + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'shop':
