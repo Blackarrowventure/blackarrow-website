@@ -15,6 +15,7 @@ running JavaScript.
 Usage: python scripts/generate_3d_static.py
 """
 import json
+import sys
 import os
 import re
 
@@ -620,6 +621,41 @@ def featured_products():
     return (pinned + fresh + rest)[:8]
 
 
+BLOG_EN_INDEX = os.path.join(ROOT, '3d', 'blog', 'index.html')
+HOME_BLOG_RX = re.compile(r'(<div class="b3d-blog-grid">\n)(.*?)(\n      </div>\n      <div style="text-align:center;margin-top:24px;">)', re.S)
+
+
+def refresh_home_blog(html, lang):
+    """All guides on the homepage (was three), with excerpts; Arabic cards use the Arabic copy."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from generate_3d_blog_ar import BLOG_INDEX_CARDS
+    with open(BLOG_EN_INDEX, encoding='utf-8') as f:
+        idx = f.read()
+    en = {}
+    for m in re.finditer(r'<article class="b3d-blog-card">(.*?)</article>', idx, re.S):
+        blk = m.group(1)
+        slug = re.search(r'href="/3d/blog/([^/"]+)/"', blk).group(1)
+        meta = re.search(r'b3d-blog-card__meta">(.*?)</span>', blk, re.S).group(1).strip()
+        title = re.search(r'b3d-blog-card__title">(.*?)</h2>', blk, re.S).group(1).strip()
+        exc = re.search(r'b3d-blog-card__excerpt">(.*?)</span>', blk, re.S).group(1).strip()
+        en[slug] = (meta, title, exc)
+    cards = []
+    for slug, meta_ar, read_ar, title_ar, exc_ar in BLOG_INDEX_CARDS:
+        if lang == 'ar':
+            meta, title, exc, read, base = meta_ar + ' &middot; ' + read_ar, title_ar, exc_ar, '\u0627\u0642\u0631\u0623 \u0627\u0644\u0645\u0642\u0627\u0644 &rarr;', '/3d/ar/blog/'
+        else:
+            meta, title, exc = en[slug]
+            read, base = 'Read article &rarr;', '/3d/blog/'
+        cards.append('        <article class="b3d-blog-card">\n'
+                     '          <a href="' + base + slug + '/" class="b3d-card__stretched-link" aria-label="' + title + '"></a>\n'
+                     '          <span class="b3d-blog-card__meta">' + meta + '</span>\n'
+                     '          <h3 class="b3d-blog-card__title">' + title + '</h3>\n'
+                     '          <span class="b3d-blog-card__excerpt">' + exc + '</span>\n'
+                     '          <span class="b3d-blog-card__read">' + read + '</span>\n'
+                     '        </article>')
+    return HOME_BLOG_RX.sub(lambda m: m.group(1) + '\n'.join(cards) + m.group(3), html, count=1)
+
+
 def prerender_grids(html, lang, kind):
     """Put real product links into the JS-filled grid so the first HTML already has them.
     kind: 'shop' (all products) or 'home' (featured picks). The script replaces these on load."""
@@ -627,6 +663,7 @@ def prerender_grids(html, lang, kind):
     cards = ''.join(landing_card(p, lang) for p in items)
     html = PRERENDER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + cards + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'home':
+        html = refresh_home_blog(html, lang)
         html = PICKER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + picker_cards_html(lang) + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'shop':
         html = re.sub(r'(data-b3d-count>)[^<]*(<)', lambda m: m.group(1) + str(len(PRODUCTS)) + m.group(2), html, count=1)
@@ -899,7 +936,7 @@ STATIC_PAGES = {
                 ('ul', [
                     "Cancellation is possible only before production begins.",
                     "Custom and personalized orders are not returnable for change of mind. Defects, a wrong product or shipping damage are covered by our Return & Exchange Policy.",
-                    "Payment: Cash on Delivery, Bank Transfer or a Business Quotation.",
+                    "Payment: Cash on Delivery or Bank Transfer.",
                 ]),
                 ('h2', 'Ready-made 3D printed items'),
                 ('p', "Prefer something ready to order? Browse our in-house designs in 3D Artwork: keychains, decor and gifts."),
@@ -936,7 +973,7 @@ STATIC_PAGES = {
                 ('ul', [
                     "يمكن الإلغاء فقط قبل بدء الإنتاج.",
                     "لا يُقبل إرجاع الطلبات المخصصة والشخصية لمجرد تغيير الرأي. أما العيوب أو المنتج الخاطئ أو التلف أثناء الشحن فتشملها سياسة الاسترجاع والاستبدال.",
-                    "الدفع: عند الاستلام أو بالتحويل البنكي أو عبر عرض سعر للأعمال.",
+                    "الدفع: عند الاستلام أو بالتحويل البنكي.",
                 ]),
                 ('h2', 'منتجات مطبوعة جاهزة'),
                 ('p', "تفضّل شيئًا جاهزًا للطلب؟ تصفح تصاميمنا الخاصة في قسم الأعمال الفنية: ميدالِيات المفاتيح والديكور والهدايا."),
@@ -971,7 +1008,7 @@ STATIC_PAGES = {
                 ('h2', '5. Damage during shipping'),
                 ('p', "If your order arrives damaged, contact us within 3 days of receiving it with clear photos. See the Return & Exchange Policy for details."),
                 ('h2', '6. Payment'),
-                ('p', "Cash on Delivery, Bank Transfer and Business Quotation are available."),
+                ('p', "Cash on Delivery and Bank Transfer are available."),
                 ('h2', '7. Contact'),
                 ('contact', ''),
                 ('links', [('/3d/returns/', 'Return & Exchange Policy'), ('/3d/terms/', 'Terms and Conditions')]),
@@ -998,7 +1035,7 @@ STATIC_PAGES = {
                 ('h2', '5. التلف أثناء الشحن'),
                 ('p', "إذا وصل طلبك تالفًا، تواصل معنا خلال 3 أيام من استلامه مع صور واضحة. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."),
                 ('h2', '6. الدفع'),
-                ('p', "الدفع عند الاستلام والتحويل البنكي وعرض سعر الأعمال متاحة."),
+                ('p', "الدفع عند الاستلام والتحويل البنكي متاحة."),
                 ('h2', '7. التواصل'),
                 ('contact', ''),
                 ('links', [('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/terms/', 'الشروط والأحكام')]),

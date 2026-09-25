@@ -2037,8 +2037,8 @@
   "service_aviation": "Aviation",
   "avi_svc_overline": "Aviation Services",
   "avi_svc_h1": "Aviation Infrastructure Services in Saudi Arabia",
-  "avi_svc_sub": "Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution and backup power",
-  "avi_svc_desc_full": "Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.",
+  "avi_svc_sub": "Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution, backup power and maintenance",
+  "avi_svc_desc_full": "Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution, UPS backup power and maintenance for aviation facilities across Saudi Arabia.",
   "avi_c1t": "Helipad lighting",
   "avi_c1d": "Helipad lighting that performs reliably in all the weather conditions pilots depend on.",
   "avi_c2t": "Obstruction and warning lights",
@@ -2055,5 +2055,13 @@
   "light_see_aviation": "Aviation Services",
   "svc_cat_aviation": "Aviation & Airside",
   "avi_alt": "Helipad on a rooftop with perimeter lighting at dusk",
-  "service_aviation_desc_home": "Helipad and obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power."
+  "service_aviation_desc_home": "Helipad and obstruction lighting, runway and taxiway edge lighting, airside electrical distribution, UPS backup power and maintenance.",
+  "avi_maint_h": "Maintenance for Aviation Lighting",
+  "avi_maint_p": "Helipad, obstruction and runway lights only do their job when they stay lit. We maintain them under the same three plan types we use for our other lighting work.",
+  "avi_maint_onetime_desc": "A single scheduled visit: inspection of the lighting, replacement of failed parts and a check of the control system. Suited to a one-off facility audit.",
+  "avi_maint_preventive_desc": "Scheduled inspections and replacement of drivers and fixtures, so failures are caught before they affect operations.",
+  "avi_maint_corrective_desc": "Repair when a light, driver or control fails. Our technicians diagnose the fault and fix it quickly.",
+  "avi_maint_li": "Maintenance of aviation lighting",
+  "avi_faq_maint_q": "Do you maintain helipad, obstruction and runway lighting?",
+  "avi_faq_maint_a": "Yes. We offer one-time, preventive and corrective maintenance for aviation lighting: scheduled inspections, replacement of drivers and fixtures, and repair when a light or control fails."
 }

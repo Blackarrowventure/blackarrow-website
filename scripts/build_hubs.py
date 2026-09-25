@@ -86,16 +86,16 @@ IND = [
 ]
 
 SERVICES = [
+    ('/services/aviation/', 'service_aviation', 'Aviation'),
     ('/services/ups-power-backup/', 'service_ups', 'UPS Solutions'),
     ('/services/isolated-power-panels/', 'service_ipp', 'Isolated Power Panels'),
     ('/services/ev-charging-solutions/', 'service_ev', 'EV Solutions'),
-    ('/services/hvac-solutions/', 'service_hvac', 'HVAC Solutions'),
     ('/services/electrical-distribution/', 'service_electrical', 'Electrical &amp; Power'),
     ('/services/firefighting-systems/', 'service_fire', 'Firefighting'),
     ('/services/lighting-solutions/', 'service_lighting', 'Lighting Solutions'),
-    ('/services/aviation/', 'service_aviation', 'Aviation'),
     ('/services/hospital-modular-or-rooms/', 'service_or_rooms', 'Hospital Modular OR Rooms'),
     ('/services/lead-sheets-hospital/', 'service_lead_shielding', 'Lead Sheets for Hospitals'),
+    ('/services/hvac-solutions/', 'service_hvac', 'HVAC Solutions'),
     ('/services/consultancy/', 'service_consultancy', 'Technical Consultancy'),
 ]
 

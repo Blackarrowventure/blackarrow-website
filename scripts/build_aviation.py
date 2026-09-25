@@ -38,10 +38,10 @@ NEW = {  # key: (EN, AR)
     'service_aviation': ('Aviation', 'الطيران'),
     'avi_svc_overline': ('Aviation Services', 'خدمات الطيران'),
     'avi_svc_h1': ('Aviation Infrastructure Services in Saudi Arabia', 'خدمات البنية التحتية للطيران في المملكة العربية السعودية'),
-    'avi_svc_sub': ('Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution and backup power',
-                    'إضاءة المهابط وإضاءة العوائق وإضاءة المدارج والتوزيع الكهربائي للمناطق الجانبية والطاقة الاحتياطية'),
-    'avi_svc_desc_full': ('Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.',
-                          'إضاءة المهابط وإضاءة عوائق الهياكل العالية وإضاءة حواف المدارج والممرات والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية لمنشآت الطيران في أنحاء المملكة.'),
+    'avi_svc_sub': ('Helipad lighting, obstruction lighting, runway lighting, airside electrical distribution, backup power and maintenance',
+                    'إضاءة المهابط وإضاءة العوائق وإضاءة المدارج والتوزيع الكهربائي للمناطق الجانبية والطاقة الاحتياطية والصيانة'),
+    'avi_svc_desc_full': ('Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution, UPS backup power and maintenance for aviation facilities across Saudi Arabia.',
+                          'إضاءة المهابط وإضاءة عوائق الهياكل العالية وإضاءة حواف المدارج والممرات والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية والصيانة لمنشآت الطيران في أنحاء المملكة.'),
     'avi_c1t': ('Helipad lighting', 'إضاءة المهابط'),
     'avi_c1d': ('Helipad lighting that performs reliably in all the weather conditions pilots depend on.',
                 'إضاءة مهابط تعمل بموثوقية في جميع الأحوال الجوية التي يعتمد عليها الطيارون.'),
@@ -58,6 +58,19 @@ NEW = {  # key: (EN, AR)
     'avi_cons_h': ('Planning an Airport Upgrade?', 'هل تخطط لتطوير منشأة مطار؟'),
     'avi_cons_btn': ('Airport Consultancy', 'استشارات المطارات'),
     'avi_view_service': ('View Aviation Services', 'عرض خدمات الطيران'),
+    'avi_maint_h': ('Maintenance for Aviation Lighting', 'صيانة إضاءة الطيران'),
+    'avi_maint_p': ('Helipad, obstruction and runway lights only do their job when they stay lit. We maintain them under the same three plan types we use for our other lighting work.',
+                    'لا تؤدي أضواء المهابط والعوائق والمدارج دورها إلا حين تبقى مضاءة. نصونها ضمن أنواع الخطط الثلاث نفسها التي نعتمدها في أعمال الإضاءة الأخرى.'),
+    'avi_maint_onetime_desc': ('A single scheduled visit: inspection of the lighting, replacement of failed parts and a check of the control system. Suited to a one-off facility audit.',
+                               'زيارة واحدة مجدولة: فحص الإضاءة واستبدال الأجزاء التالفة ومراجعة نظام التحكم. مناسبة لتدقيق لمرة واحدة على المنشأة.'),
+    'avi_maint_preventive_desc': ('Scheduled inspections and replacement of drivers and fixtures, so failures are caught before they affect operations.',
+                                  'فحوصات مجدولة واستبدال للمشغّلات والتركيبات، لاكتشاف الأعطال قبل أن تؤثر على التشغيل.'),
+    'avi_maint_corrective_desc': ('Repair when a light, driver or control fails. Our technicians diagnose the fault and fix it quickly.',
+                                  'إصلاح عند تعطل ضوء أو مشغّل أو نظام تحكم. يشخّص فنيونا العطل ويصلحونه بسرعة.'),
+    'avi_maint_li': ('Maintenance of aviation lighting', 'صيانة إضاءة الطيران'),
+    'avi_faq_maint_q': ('Do you maintain helipad, obstruction and runway lighting?', 'هل تقدمون صيانة لإضاءة المهابط والعوائق والمدارج؟'),
+    'avi_faq_maint_a': ('Yes. We offer one-time, preventive and corrective maintenance for aviation lighting: scheduled inspections, replacement of drivers and fixtures, and repair when a light or control fails.',
+                        'نعم. نقدم صيانة لمرة واحدة ووقائية وتصحيحية لإضاءة الطيران: فحوصات مجدولة واستبدال المشغّلات والتركيبات وإصلاح عند تعطل ضوء أو نظام تحكم.'),
     # changed lighting wording (EN mirrors the HTML, AR is new)
     'light_page_h1': ('LED Lighting Solutions Across Saudi Arabia — Façade, Exterior &amp; Interior',
                       'حلول إضاءة LED في جميع أنحاء المملكة العربية السعودية — إضاءة الواجهات والإضاءة الخارجية والداخلية'),
@@ -72,11 +85,11 @@ NEW = {  # key: (EN, AR)
 }
 
 TITLE = 'Helipad, Obstruction & Runway Lighting Saudi Arabia | Black Arrow'
-DESC = ('Helipad, obstruction and runway lighting, airside electrical distribution and UPS backup power across Saudi Arabia. '
+DESC = ('Helipad, obstruction and runway lighting, airside electrical, UPS backup power and maintenance across Saudi Arabia. '
         'Request an aviation facility consultation.')
 AR_PAGE = {
     'title': 'إنارة المهابط والعوائق والمدارج في السعودية | السهم الأسود',
-    'description': 'إضاءة المهابط والعوائق والمدارج والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية في أنحاء المملكة. اطلب استشارة لمنشأتك.',
+    'description': 'إضاءة المهابط والعوائق والمدارج والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية والصيانة في أنحاء المملكة. اطلب استشارة لمنشأتك.',
     'og_title': 'إنارة المهابط والعوائق والمدارج في السعودية | السهم الأسود',
     'og_description': 'إضاءة المهابط وإضاءة العوائق والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية للمنشآت الجوية في السعودية.',
 }
@@ -100,6 +113,9 @@ FAQ = [
     ('faq_q29', 'faq_a29',
      'Does Black Arrow supply backup power for helipad and airside lighting circuits?',
      'Yes — we size and install UPS backup power for helipad and airside lighting circuits alongside the lighting and electrical distribution work itself, so obstruction and approach lighting stays lit through a utility outage rather than depending on mains power alone.'),
+    ('avi_faq_maint_q', 'avi_faq_maint_a',
+     'Do you maintain helipad, obstruction and runway lighting?',
+     'Yes. We offer one-time, preventive and corrective maintenance for aviation lighting: scheduled inspections, replacement of drivers and fixtures, and repair when a light or control fails.'),
 ]
 WHY1 = 'Helipads, tall structures near flight paths, and airside facilities carry lighting and electrical requirements defined by international aviation standards, not ordinary building codes. Obstruction lighting has to meet ICAO intensity and placement guidance, and helipad lighting needs to perform reliably in all weather conditions pilots depend on.'
 WHY2 = 'We supply and install helipad lighting, tall-structure obstruction/warning lights, runway and taxiway edge lighting, and airside equipment — sourced to meet the aviation-specific standards these installations require, not repurposed commercial fixtures. Airside electrical and lighting circuits also fall under General Authority of Civil Aviation (GACA) oversight in Saudi Arabia, alongside the ICAO guidance the equipment itself is designed to.'
@@ -183,7 +199,22 @@ def main_html():
       </div>
     </section>
 
-    <section class="section section--dark" aria-labelledby="avi-compliance-heading">
+    <section class="section section--dark" aria-labelledby="avi-maint-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="overline" data-i18n="maintenance_options">Maintenance Options</span>
+          <h2 id="avi-maint-heading" data-i18n="avi_maint_h">{h('avi_maint_h')}</h2>
+          <p data-i18n="avi_maint_p">{h('avi_maint_p')}</p>
+        </div>
+        <div class="svc-maint-grid">
+          <div class="svc-maint-card"><h3 data-i18n="maint_onetime_title">One-Time Maintenance</h3><p data-i18n="avi_maint_onetime_desc">{h('avi_maint_onetime_desc')}</p></div>
+          <div class="svc-maint-card"><h3 data-i18n="maint_preventive_title">Preventive Maintenance</h3><p data-i18n="avi_maint_preventive_desc">{h('avi_maint_preventive_desc')}</p></div>
+          <div class="svc-maint-card"><h3 data-i18n="maint_corrective_title">Corrective Maintenance</h3><p data-i18n="avi_maint_corrective_desc">{h('avi_maint_corrective_desc')}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="avi-compliance-heading">
       <div class="container">
         <div class="section-header">
           <span class="overline" data-i18n="compliance_first">Compliance First</span>
@@ -193,7 +224,7 @@ def main_html():
       </div>
     </section>
 
-    <section class="section" aria-labelledby="avi-cons-heading">
+    <section class="section section--dark" aria-labelledby="avi-cons-heading">
       <div class="container" style="text-align:center;">
         <div class="section-header">
           <span class="overline" data-i18n="cons_overline">Consultancy</span>
@@ -204,7 +235,7 @@ def main_html():
       </div>
     </section>
 
-    <section class="section section--dark" aria-labelledby="avi-areas-heading">
+    <section class="section" aria-labelledby="avi-areas-heading">
       <div class="container">
         <div class="section-header">
           <span class="overline" data-i18n="nationwide_coverage">Nationwide Coverage</span>
@@ -215,7 +246,7 @@ def main_html():
       </div>
     </section>
 
-    <section class="section" aria-labelledby="avi-faq-heading">
+    <section class="section section--dark" aria-labelledby="avi-faq-heading">
       <div class="container">
         <div class="section-header">
           <span class="overline" data-i18n="svc_faq_overline">Common Questions</span>
@@ -285,7 +316,7 @@ def build_page():
                "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Aviation Services", "itemListElement": [
                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}} for n in (
                        "Helipad lighting", "Obstruction and warning lights", "Runway lighting system",
-                       "Airside electrical distribution", "Backup power for lighting circuits", "Airside equipment supply")]},
+                       "Airside electrical distribution", "Backup power for lighting circuits", "Airside equipment supply", "Aviation lighting maintenance")]},
                "areaServed": ["Saudi Arabia", "Riyadh", "Jeddah", "Dammam", "Al Khobar", "Eastern Province"],
                "audience": {"@type": "Audience", "audienceType": "Aviation and airside facility operators"}}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [

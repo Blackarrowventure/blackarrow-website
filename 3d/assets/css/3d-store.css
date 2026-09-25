@@ -1945,3 +1945,10 @@ html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
 .b3d-guide-card__spec { font-size: .82rem; color: #555; }
 .b3d-guide-card__price { margin-top: auto; padding-top: 6px; font-weight: 800; color: #047857; }
 @media (max-width: 480px) { .b3d-guide-sec { padding: 16px; } .b3d-cat-guide .b3d-guide-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+
+/* Homepage: breathing room between sections, and a centred, evenly filled guides grid */
+.b3d-hub-section { padding-block: 40px; }
+.b3d-hub-blog .b3d-blog-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1200px; margin-inline: auto; }
+.b3d-hub-blog .b3d-blog-card { height: 100%; }
+@media (max-width: 900px) { .b3d-hub-blog .b3d-blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .b3d-hub-blog .b3d-blog-grid { grid-template-columns: 1fr; } }

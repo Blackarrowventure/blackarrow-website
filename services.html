@@ -136,7 +136,7 @@
       {
         "@type": "Offer",
         "name": "Aviation Services",
-        "description": "Helipad lighting, obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities"
+        "description": "Helipad lighting, obstruction lighting, runway and taxiway edge lighting, airside electrical distribution, UPS backup power and maintenance for aviation facilities"
       },
       {
         "@type": "Offer",
@@ -182,7 +182,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260956">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260957">
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="skip_main">Skip to main content</a>
@@ -201,16 +201,16 @@
           <li><a href="/" data-i18n="nav_home">Home</a></li>
           <li class="has-sub"><a href="/services.html" class="active" data-i18n="nav_services">Services</a>
             <ul class="navbar__sub" role="list">
+              <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
               <li><a href="/services/ups-power-backup/" data-i18n="service_ups">UPS Solutions</a></li>
               <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
               <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
-              <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
               <li><a href="/services/electrical-distribution/" data-i18n="service_electrical">Electrical &amp; Power</a></li>
               <li><a href="/services/firefighting-systems/" data-i18n="service_fire">Firefighting</a></li>
               <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
-              <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
               <li><a href="/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a></li>
               <li><a href="/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">Lead Sheets for Hospitals</a></li>
+              <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
               <li><a href="/services/consultancy/" data-i18n="service_consultancy">Technical Consultancy</a></li>
             </ul>
           </li>
@@ -273,6 +273,13 @@
       <div class="container" style="display:flex;flex-direction:column;gap:18px;">
 
         <div>
+          <span style="display:block;text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="svc_cat_aviation">Aviation &amp; Airside</span>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="/services/aviation/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>✈️</span> <span data-i18n="service_aviation">Aviation</span></a>
+          </div>
+        </div>
+
+        <div>
           <span style="display:block;text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_healthcare">Healthcare &amp; Critical Power</span>
           <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
             <a href="/services/isolated-power-panels/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🏥</span> <span data-i18n="service_ipp">Isolated Power Panels</span></a>
@@ -293,10 +300,9 @@
         <div>
           <span style="display:block;text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#F59E0B;margin-bottom:10px;" data-i18n="pillar_lifesafety">Building &amp; Life-Safety Systems</span>
           <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-            <a href="/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">HVAC</span></a>
             <a href="/services/lighting-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>💡</span> <span data-i18n="service_lighting">Lighting</span></a>
-            <a href="/services/aviation/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>✈️</span> <span data-i18n="service_aviation">Aviation</span></a>
             <a href="/services/firefighting-systems/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>🔥</span> <span data-i18n="service_fire">Firefighting</span></a>
+            <a href="/services/hvac-solutions/" class="btn btn-outline" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);"><span>❄️</span> <span data-i18n="service_hvac">HVAC</span></a>
           </div>
         </div>
 
@@ -309,6 +315,37 @@
 
       </div>
     </nav>
+
+    <!-- ═══ AVIATION ═══ -->
+    <section id="aviation" class="service-detail" aria-labelledby="aviation-heading">
+      <div class="container">
+        <div class="service-detail__inner">
+          <div class="media-fx fx-static">
+            <picture>
+              <source srcset="/assets/images/services/aviation-solutions.webp" type="image/webp">
+              <img src="/assets/images/services/aviation-solutions.jpg" alt="Helipad on a rooftop with perimeter lighting at dusk" class="service-detail__img" loading="lazy" width="1536" height="1152" decoding="async" data-i18n-alt="avi_alt">
+            </picture>
+          </div>
+          <div class="service-detail__content">
+            <span class="overline" data-i18n="avi_svc_overline">Aviation Services</span>
+            <h2 id="aviation-heading" data-i18n="service_aviation">Aviation</h2>
+            <p data-i18n="avi_svc_desc_full">Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.</p>
+            <ul class="service-features">
+              <li data-i18n="avi_c1t">Helipad lighting</li>
+              <li data-i18n="avi_c2t">Obstruction and warning lights</li>
+              <li data-i18n="avi_c3t">Runway lighting system</li>
+              <li data-i18n="avi_c4t">Airside electrical distribution</li>
+              <li data-i18n="avi_maint_li">Maintenance of aviation lighting</li>
+            </ul>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <a href="/services/aviation/" class="btn btn-primary" data-i18n="avi_view_service">View Aviation Services</a>
+              <a href="/contact.html?service=aviation" class="btn btn-outline" data-i18n="request_avi_consultation">Request Facility Consultation</a>
+              <a href="/services/consultancy/airports/" class="btn btn-outline" data-i18n="avi_cons_btn">Airport Consultancy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══ 1. EV SOLUTIONS ═══ -->
     <section id="ev" class="service-detail" aria-labelledby="ev-heading">
@@ -411,36 +448,6 @@
       </div>
     </section>
 
-    <!-- ═══ AVIATION ═══ -->
-    <section id="aviation" class="service-detail" aria-labelledby="aviation-heading">
-      <div class="container">
-        <div class="service-detail__inner">
-          <div class="media-fx fx-static">
-            <picture>
-              <source srcset="/assets/images/services/aviation-solutions.webp" type="image/webp">
-              <img src="/assets/images/services/aviation-solutions.jpg" alt="Helipad on a rooftop with perimeter lighting at dusk" class="service-detail__img" loading="lazy" width="1536" height="1152" decoding="async" data-i18n-alt="avi_alt">
-            </picture>
-          </div>
-          <div class="service-detail__content">
-            <span class="overline" data-i18n="avi_svc_overline">Aviation Services</span>
-            <h2 id="aviation-heading" data-i18n="service_aviation">Aviation</h2>
-            <p data-i18n="avi_svc_desc_full">Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical distribution and UPS backup power for aviation facilities across Saudi Arabia.</p>
-            <ul class="service-features">
-              <li data-i18n="avi_c1t">Helipad lighting</li>
-              <li data-i18n="avi_c2t">Obstruction and warning lights</li>
-              <li data-i18n="avi_c3t">Runway lighting system</li>
-              <li data-i18n="avi_c4t">Airside electrical distribution</li>
-            </ul>
-            <div style="display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="/services/aviation/" class="btn btn-primary" data-i18n="avi_view_service">View Aviation Services</a>
-              <a href="/contact.html?service=aviation" class="btn btn-outline" data-i18n="request_avi_consultation">Request Facility Consultation</a>
-              <a href="/services/consultancy/airports/" class="btn btn-outline" data-i18n="avi_cons_btn">Airport Consultancy</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ 4. FIREFIGHTING SOLUTIONS ═══ -->
     <section id="firefighting" class="service-detail" aria-labelledby="fire-heading">
       <div class="container">
@@ -463,32 +470,6 @@
             <div style="display:flex;gap:16px;flex-wrap:wrap;">
               <a href="/services/firefighting-systems/" class="btn btn-primary" data-i18n="fire_full_details">Full Firefighting Details &amp; Specifications</a>
               <a href="/contact.html?service=firefighting" class="btn btn-outline" data-i18n="request_firefighting_consultation">Request Firefighting Consultation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ 5. HVAC SOLUTIONS ═══ -->
-    <section id="hvac" class="service-detail" aria-labelledby="hvac-heading">
-      <div class="container">
-        <div class="service-detail__inner">
-          <picture>
-            <source srcset="/assets/images/services/hvac-solutions.webp" type="image/webp">
-            <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="service-detail__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_hvac">
-          </picture>
-          <div class="service-detail__content">
-            <span class="overline" data-i18n="climate_control">Climate Control</span>
-            <h2 id="hvac-heading" data-i18n="service_hvac">HVAC Solutions</h2>
-            <p data-i18n="service_hvac_desc_full">We provide advanced HVAC solutions designed for efficient climate control, energy optimization, and indoor air quality. Our systems include supply, installation, and maintenance of air handling units, ductwork, and smart controls, ensuring reliable and customized environmental comfort for commercial, industrial, and public facilities.</p>
-            <ul class="service-features">
-              <li data-i18n="hvac_feat_2">Air Handling Units (AHU) — central plant, split, and VRF/VRV systems</li>
-              <li data-i18n="hvac_feat_4">Smart Controls — BMS integration, temperature zones, and energy optimization</li>
-              <li data-i18n="hvac_feat_6">ASHRAE, SASO, and Saudi Building Code compliant designs</li>
-            </ul>
-            <div style="display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="/services/hvac-solutions/" class="btn btn-primary" data-i18n="hvac_full_details">Full HVAC Details &amp; Specifications</a>
-              <a href="/contact.html?service=hvac" class="btn btn-outline" data-i18n="request_hvac_consultation">Request HVAC Consultation</a>
             </div>
           </div>
         </div>
@@ -599,6 +580,32 @@
       </div>
     </section>
 
+    <!-- ═══ 5. HVAC SOLUTIONS ═══ -->
+    <section id="hvac" class="service-detail" aria-labelledby="hvac-heading">
+      <div class="container">
+        <div class="service-detail__inner">
+          <picture>
+            <source srcset="/assets/images/services/hvac-solutions.webp" type="image/webp">
+            <img src="/assets/images/services/hvac-solutions.jpg" alt="HVAC Climate Control Systems" class="service-detail__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_hvac">
+          </picture>
+          <div class="service-detail__content">
+            <span class="overline" data-i18n="climate_control">Climate Control</span>
+            <h2 id="hvac-heading" data-i18n="service_hvac">HVAC Solutions</h2>
+            <p data-i18n="service_hvac_desc_full">We provide advanced HVAC solutions designed for efficient climate control, energy optimization, and indoor air quality. Our systems include supply, installation, and maintenance of air handling units, ductwork, and smart controls, ensuring reliable and customized environmental comfort for commercial, industrial, and public facilities.</p>
+            <ul class="service-features">
+              <li data-i18n="hvac_feat_2">Air Handling Units (AHU) — central plant, split, and VRF/VRV systems</li>
+              <li data-i18n="hvac_feat_4">Smart Controls — BMS integration, temperature zones, and energy optimization</li>
+              <li data-i18n="hvac_feat_6">ASHRAE, SASO, and Saudi Building Code compliant designs</li>
+            </ul>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <a href="/services/hvac-solutions/" class="btn btn-primary" data-i18n="hvac_full_details">Full HVAC Details &amp; Specifications</a>
+              <a href="/contact.html?service=hvac" class="btn btn-outline" data-i18n="request_hvac_consultation">Request HVAC Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Technical Consultancy -->
     <section id="consultancy" class="section section--dark" aria-labelledby="consultancy-heading">
       <div class="container" style="max-width:820px;text-align:center;">
@@ -673,16 +680,16 @@
         <div class="footer__col">
           <h3 data-i18n="footer_services">Our Services</h3>
           <ul>
+            <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
             <li><a href="/services/isolated-power-panels/" data-i18n="service_ipp">Isolated Power Panels</a></li>
+            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
             <li><a href="/services/ups-power-backup/" data-i18n="service_ups">UPS Solutions</a></li>
+            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
+            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
+            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/services/hospital-modular-or-rooms/" data-i18n="service_or_rooms">Hospital Modular OR Rooms</a></li>
             <li><a href="/services/lead-sheets-hospital/" data-i18n="service_lead_shielding">Lead Sheets for Hospitals</a></li>
-            <li><a href="/services/ev-charging-solutions/" data-i18n="service_ev">EV Solutions</a></li>
-            <li><a href="/services/electrical-distribution/">Electrical &amp; Power</a></li>
             <li><a href="/services/hvac-solutions/" data-i18n="service_hvac">HVAC Solutions</a></li>
-            <li><a href="/services/lighting-solutions/" data-i18n="service_lighting">Lighting Solutions</a></li>
-            <li><a href="/services/aviation/" data-i18n="service_aviation">Aviation</a></li>
-            <li><a href="/services/firefighting-systems/" data-i18n="firefighting_service">Firefighting</a></li>
           </ul>
         </div>
 

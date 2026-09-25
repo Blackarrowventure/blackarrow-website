@@ -15,13 +15,9 @@
     "en": "Coming Soon",
     "ar": "قريباً"
   },
-  "faq_a1": {
-    "en": "Yes. Use \"Get Your Design Printed\" above or WhatsApp us, and we will follow up directly.",
-    "ar": "نعم. استخدم زر \"اطبع تصميمك\" أعلاه أو راسلنا عبر واتساب وسنتواصل معك مباشرة."
-  },
   "faq_a2": {
-    "en": "Cash on Delivery, Bank Transfer and Business Quotation are available.",
-    "ar": "الدفع عند الاستلام والتحويل البنكي وعرض سعر الأعمال متاحة."
+    "en": "Cash on Delivery and Bank Transfer are available.",
+    "ar": "الدفع عند الاستلام والتحويل البنكي متاحة."
   },
   "faq_a5": {
     "en": "3D printed items are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability (including pre-order status) is shown on each product page.",
@@ -34,10 +30,6 @@
   "faq_h2": {
     "en": "Frequently Asked Questions",
     "ar": "الأسئلة الشائعة"
-  },
-  "faq_q1": {
-    "en": "Do you offer business quotations?",
-    "ar": "هل تقدمون عروض أسعار للشركات؟"
   },
   "faq_q2": {
     "en": "What payment methods are available?",
@@ -279,10 +271,6 @@
     "en": "Genuine, authorized products",
     "ar": "منتجات أصلية ومعتمدة"
   },
-  "hub_trust_2": {
-    "en": "Business quotations available",
-    "ar": "عروض أسعار للشركات متاحة"
-  },
   "hub_trust_3": {
     "en": "WhatsApp support",
     "ar": "دعم عبر واتساب"
@@ -418,10 +406,6 @@
   "trust_payment": {
     "en": "Cash on delivery & bank transfer",
     "ar": "الدفع عند الاستلام والتحويل البنكي"
-  },
-  "trust_quotation": {
-    "en": "Business quotations",
-    "ar": "عروض أسعار للأعمال"
   },
   "trust_support": {
     "en": "Local support",
@@ -690,10 +674,6 @@
   "journey_a_3": {
     "en": "Accessories",
     "ar": "إكسسوارات"
-  },
-  "journey_a_4": {
-    "en": "Business quotations",
-    "ar": "عروض أسعار للشركات"
   },
   "journey_a_5": {
     "en": "After-sales support",
