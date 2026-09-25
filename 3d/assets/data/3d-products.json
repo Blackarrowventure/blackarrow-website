@@ -213,6 +213,7 @@
       "price": 15990,
       "currency": "SAR",
       "available": true,
+      "preorder": true,
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/bambu-h2c-01.webp",
@@ -304,6 +305,7 @@
       "price": 2090,
       "currency": "SAR",
       "available": true,
+      "preorder": true,
       "newArrival": true,
       "variants": [
         { "label": "SparkX i7", "label_ar": "SparkX i7", "price": 2090 },
@@ -424,6 +426,7 @@
       "price": 5690,
       "currency": "SAR",
       "available": true,
+      "preorder": true,
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/snapmaker-u1-01.webp",
