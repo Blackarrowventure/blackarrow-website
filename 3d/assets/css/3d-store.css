@@ -2115,3 +2115,14 @@ main.b3d-light .b3d-pd__swatch-label { color: #555 !important; }
     linear-gradient(#D97706, #D97706) center / 88px 5px no-repeat,
     linear-gradient(90deg, transparent, rgba(217,119,6,.6) 22%, rgba(217,119,6,.6) 78%, transparent) center / 100% 1px no-repeat;
 }
+
+/* ---- Prices: bold sans figures with the official riyal symbol ---- */
+.b3d-price, .b3d-guide-card__price { font-family: 'Noto Sans', 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -.01em; font-variant-numeric: tabular-nums lining-nums; line-height: 1.2; }
+.b3d-price .b3d-riyal, .b3d-guide-card__price .b3d-riyal { font-size: 1em; margin-inline-start: 4px; color: inherit; opacity: .9; vertical-align: -.08em; }
+.b3d-price .b3d-riyal svg, .b3d-guide-card__price .b3d-riyal svg { width: .78em; height: .84em; }
+.b3d-price-was { font-family: 'Noto Sans', 'Segoe UI', Arial, sans-serif; font-weight: 500; }
+.b3d-price-was .b3d-riyal svg { width: .8em; height: .86em; }
+.b3d-price-was + .b3d-price, .b3d-price + .b3d-price-was { margin-inline-start: 0; }
+main.b3d-light .b3d-grid > * .b3d-price { color: #111 !important; }
+main.b3d-light .b3d-grid > * .b3d-price--sale { color: #b91c1c !important; }
+.b3d-band--light .b3d-grid > * .b3d-price { color: #111 !important; }

@@ -84,8 +84,15 @@ def category_label(cat, lang):
     return T(key, lang) if key else cat
 
 
+_js = open(os.path.join(ROOT, '3d', 'assets', 'js', '3d-store.js'), encoding='utf-8').read()
+RIYAL_SVG = re.search(r"var RIYAL_SVG = '(.*?)';", _js).group(1)
+
+
 def money(n, currency):
-    return '{:,}'.format(n) + ' ' + (currency or 'SAR')
+    # same official riyal symbol the live store script draws, so prerendered prices match
+    if (currency or 'SAR') == 'SAR':
+        return '{:,}'.format(n) + ' <small class="b3d-riyal" aria-hidden="true">' + RIYAL_SVG + '</small><span class="sr-only"> SAR</span>'
+    return '{:,}'.format(n) + ' ' + currency
 
 
 def primary_image(p):
