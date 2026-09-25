@@ -1044,6 +1044,28 @@ STATIC_PAGES = {
             'service_name': None,
         },
     },
+    'reviews': {
+        'en': {
+            'title': 'Customer Reviews | Black Arrow 3D',
+            'desc': 'Read what customers say about Black Arrow 3D, and share your own review and photos of your order.',
+            'h1': 'Customer Reviews',
+            'crumb': 'Customer Reviews',
+            'body': [
+                ('p', "Ordered from Black Arrow 3D? Tell us how it went and add photos of your order. Reviews appear on the site after we approve them."),
+                ('reviews', ''),
+            ],
+        },
+        'ar': {
+            'title': 'آراء العملاء | Black Arrow 3D',
+            'desc': 'اقرأ ما يقوله عملاء Black Arrow 3D، وشاركنا تقييمك وصور طلبك.',
+            'h1': 'آراء العملاء',
+            'crumb': 'آراء العملاء',
+            'body': [
+                ('p', "طلبت من Black Arrow 3D؟ شاركنا تجربتك وأضف صور طلبك. تظهر التقييمات في الموقع بعد موافقتنا عليها."),
+                ('reviews', ''),
+            ],
+        },
+    },
 }
 
 
@@ -1116,6 +1138,8 @@ def build_static_page(slug, lang):
                 out.append('<p>Black Arrow 3D &mdash; تُدار بواسطة Black Arrow Venture<br>الدمام، المنطقة الشرقية، المملكة العربية السعودية<br>البريد الإلكتروني: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>الهاتف/واتساب: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
             else:
                 out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
+        elif kind == 'reviews':
+            out.append('<div data-b3d-reviews="page"></div>')
         elif kind == 'links':
             base = '/3d/ar' if lang == 'ar' else '/3d'
             out.append('<p class="b3d-page__links">' + ' &middot; '.join(
@@ -1133,6 +1157,8 @@ def build_static_page(slug, lang):
         '</div></section>'
     )
     html = re.sub(r'<main id="main">.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
+    if any(k == 'reviews' for k, _v in cfg['body']):
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20260963" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
 
 
