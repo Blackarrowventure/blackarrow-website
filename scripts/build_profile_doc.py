@@ -3,14 +3,14 @@
 
 This is NOT company-profile.html. That one is a web page on the site, with a
 generated Arabic twin and its own pre-rebrand palette (see scripts/pages.json).
-This is a 16-page A4 brochure you send to a client or print to PDF.
+This is an 18-page A4 brochure you send to a client or print to PDF.
 
 SHAPE: a company profile, not a form. Full-bleed photography, editorial
 headlines, an ink cover and back cover. The only thing carried over from
 Quotation_Q2026756_Rev01.html is the COLOUR SCHEME - ink / paper / gold /
 band / rule / muted. Afzal asked for the palette, not the letterhead.
 
-CONTENT: everything is lifted from the live site. Pages 6-13 are scraped
+CONTENT: everything is lifted from the live site. Pages 6-15 are scraped
 straight out of services/<slug>/index.html at build time - tagline, intro,
 the numbered process, the standards list and the application scenarios - so
 the profile cannot drift from the site without this build failing loudly.
@@ -31,7 +31,7 @@ Printing:
 
 Every page is a fixed 1123px box that clips, so an overlong page would be
 silently cut rather than reflowing. The --probe build is the same document
-with the height released; print THAT and it must come out at exactly 16
+with the height released; print THAT and it must come out at exactly 18
 pages. If it comes out at more, a page has outgrown its sheet - shorten that
 page rather than shrinking the type.
 """
@@ -147,6 +147,20 @@ def scrape(slug):
         if h and d:
             maint.append((clean(h.group(1)), clean(d.group(1))))
 
+    if slug == 'aviation':
+        # The Aviation page lays "what we provide" out as six cards, not a numbered
+        # process, and its maintenance plans sit after those cards. Split at the
+        # maintenance heading so the two card groups are not mixed up.
+        cut = s.find('Maintenance for Aviation Lighting')
+        cards = []
+        for blk in re.findall(r'(?is)<div class="svc-maint-card"[^>]*>(.*?)</div>', s):
+            h = re.search(r'(?is)<h3[^>]*>(.*?)</h3>', blk)
+            d = re.search(r'(?is)<p[^>]*>(.*?)</p>', blk)
+            if h and d:
+                cards.append((s.find(blk), clean(h.group(1)), clean(d.group(1))))
+        steps = [(h, d) for pos, h, d in cards if pos < cut]
+        maint = [(h, d) for pos, h, d in cards if pos >= cut]
+
     assert tagline, '%s: no tagline found' % slug
     assert intro, '%s: no intro prose found' % slug
     assert len(steps) >= 5, '%s: found %d process steps, expected 5+' % (slug, len(steps))
@@ -157,6 +171,9 @@ def scrape(slug):
 
 # slug, page title, eyebrow, image, label over the numbered block
 SERVICES = [
+    ('aviation', 'Aviation Infrastructure', 'Helipad, obstruction &amp; runway lighting',
+     'assets/images/services/aviation-solutions.jpg',
+     'What we provide'),
     ('isolated-power-panels', 'Isolated Power Panels', 'Critical care power',
      'assets/images/services/isolated-power-panels.jpg',
      'From supply to long-term support'),
@@ -172,9 +189,6 @@ SERVICES = [
     ('firefighting-systems', 'Firefighting Systems', 'Life safety',
      'assets/images/services/firefighting-solutions.jpg',
      'From risk assessment to periodic maintenance'),
-    ('hvac-solutions', 'HVAC Solutions', 'Climate control',
-     'assets/images/services/hvac-solutions.jpg',
-     'From load calculation to ongoing maintenance'),
     ('electrical-distribution', 'Electrical &amp; Power Distribution', 'Power infrastructure',
      'assets/images/services/electrical-power.jpg',
      'From load study to corrective maintenance'),
@@ -184,6 +198,9 @@ SERVICES = [
     ('lead-sheets-hospital', 'Lead Sheets for Hospitals', 'Radiation shielding',
      'assets/images/services/lead-sheets-hospital.jpg',
      'From shielding survey to compliance verification'),
+    ('hvac-solutions', 'HVAC Solutions', 'Climate control',
+     'assets/images/services/hvac-solutions.jpg',
+     'From load calculation to ongoing maintenance'),
 ]
 
 DATA = {slug: scrape(slug) for slug, _, _, _, _ in SERVICES}
@@ -237,7 +254,7 @@ def service_page(slug, title, eyebrow, image, steps_label):
                 + ''.join('<p class="lead">' + esc(x) + '</p>' for x in d['intro'][:2]) +
                 '</div></div>')
     else:
-        hero = ('<figure class="hero-band">'
+        hero = ('<figure class="hero-band' + (' hero-band--short' if slug == 'aviation' else '') + '">'
                 '<img src="' + band(image) + '" alt="' + esc(clean(title)) + '">'
                 '<figcaption><div class="eyebrow light">' + eyebrow + '</div>'
                 '<h2 class="svc-title">' + title + '</h2></figcaption></figure>'
@@ -263,7 +280,7 @@ def service_page(slug, title, eyebrow, image, steps_label):
 
     # The IPP page carries a portrait plate rather than a 360px band and only
     # three standards, so it runs short. Its maintenance plans fill it out.
-    if portrait and d['maint']:
+    if (portrait or slug == 'aviation') and d['maint']:
         cols.append('<h3 class="rule-head">Maintenance plans</h3><div class="commits">')
         cols += ['<div class="commit"><b>%s</b><span>%s</span></div>' % (esc(t), esc(x))
                  for t, x in d['maint'][:4]]
@@ -288,8 +305,8 @@ add('', (
     '<p class="cover__ar">&#1588;&#1585;&#1603;&#1577; &#1575;&#1604;&#1587;&#1607;&#1605; '
     '&#1575;&#1604;&#1571;&#1587;&#1608;&#1583; &#1700;&#1606;&#1578;&#1588;&#1585;</p>'
     '<p class="cover__line">Infrastructure that has to <em>keep working.</em></p>'
-    '<p class="cover__sub">Isolated power, EV charging, UPS, lighting, firefighting, HVAC, '
-    'electrical distribution, modular OR rooms and radiation shielding &mdash; supplied, '
+    '<p class="cover__sub">Aviation lighting, isolated power, EV charging, UPS, lighting, firefighting, '
+    'electrical distribution, modular OR rooms, radiation shielding and HVAC &mdash; supplied, '
     'installed, commissioned and maintained across the Kingdom of Saudi Arabia.</p>'
     '</div>'
     '<div class="cover__foot">'
@@ -310,18 +327,19 @@ TOC = [
     (3, 'Who we are', 'The company, how it works, and the figures behind it'),
     (4, 'Vision &amp; mission', 'What we are building toward, and how Vision 2030 fits'),
     (5, 'Sectors we serve', 'Six sectors and what each one actually needs'),
-    (6, 'Isolated power panels', 'NFPA 99 power for operating theatres and wet procedure locations'),
-    (7, 'EV charging solutions', 'AC and DC charging, OCPP-managed across multiple sites'),
-    (8, 'UPS &amp; power backup', '1 kVA to 1 MVA, sized against the load and the runtime'),
-    (9, 'Lighting solutions', 'Fa&ccedil;ade, obstruction, helipad and DALI-controlled systems'),
-    (10, 'Firefighting systems', 'Detection, suppression and evacuation integration'),
-    (11, 'HVAC solutions', 'AHUs, VRF/VRV systems and BMS-integrated controls'),
+    (6, 'Aviation infrastructure', 'Helipad, obstruction and runway lighting, airside power and maintenance'),
+    (7, 'Isolated power panels', 'NFPA 99 power for operating theatres and wet procedure locations'),
+    (8, 'EV charging solutions', 'AC and DC charging, OCPP-managed across multiple sites'),
+    (9, 'UPS &amp; power backup', '1 kVA to 1 MVA, sized against the load and the runtime'),
+    (10, 'Lighting solutions', 'Fa&ccedil;ade, exterior and DALI-controlled lighting systems'),
+    (11, 'Firefighting systems', 'Detection, suppression and evacuation integration'),
     (12, 'Electrical &amp; power distribution', 'Switchgear, boards, control panels and testing'),
     (13, 'Hospital modular OR rooms', 'Cleanroom-grade operating theatres, design to commissioning'),
     (14, 'Lead sheets for hospitals', 'Radiation shielding for X-ray, CT and radiotherapy rooms'),
-    (15, 'Project experience', 'Representative work, with the constraints that shaped it'),
-    (16, 'Standards &amp; commitments', 'What we build to, and what happens after handover'),
-    (17, 'Contact', 'Company records and who to call for what'),
+    (15, 'HVAC solutions', 'AHUs, VRF/VRV systems and BMS-integrated controls'),
+    (16, 'Project experience', 'Representative work, with the constraints that shaped it'),
+    (17, 'Standards &amp; commitments', 'What we build to, and what happens after handover'),
+    (18, 'Contact', 'Company records and who to call for what'),
 ]
 add('Contents', '<div class="pad">' +
     opener('Company Profile', 'Contents') +
@@ -351,7 +369,7 @@ add('Who we are', '<div class="pad">' +
     '<div class="figures">' +
     ''.join('<div class="fig"><div class="n">%s</div><div class="l">%s</div></div>' % f for f in [
         ('2022', 'Established'), ('58', 'Projects completed'), ('33+', 'B2B clients served'),
-        ('5', 'Ongoing projects'), ('9', 'Solution categories'), ('24/7', 'Technical support'),
+        ('5', 'Ongoing projects'), ('10', 'Solution categories'), ('24/7', 'Technical support'),
     ]) + '</div>'
     '<h3 class="rule-head">How we work</h3>'
     '<div class="flow">'
@@ -747,6 +765,8 @@ p{margin:0 0 10px;}
 /* ---- service pages ---- */
 .hero-band{position:relative;margin:0;width:794px;height:360px;overflow:hidden;flex:none;}
 .hero-band img{width:100%;height:100%;object-fit:cover;display:block;}
+/* Aviation carries six 'what we provide' items plus maintenance plans: a shorter photo band keeps it on one sheet. */
+.hero-band--short{height:270px;}
 .hero-band figcaption{position:absolute;inset:auto 0 0 0;padding:88px 52px 26px;
   background:linear-gradient(to top,rgba(21,22,28,.93) 12%,rgba(21,22,28,.58) 52%,
     rgba(21,22,28,0));}

@@ -1325,7 +1325,7 @@
   "cp_g5d": "Future-ready technologies helping Saudi industries compete globally.",
   "cp_g6": "Vision 2030 Partnership",
   "cp_g6d": "A trusted partner in the Kingdom's technology-driven economy.",
-  "cp_s3": "03-09 — Our Services",
+  "cp_s3": "03-10 — Our Services",
   "cp_lbl_solutions": "Solutions",
   "cp_ev_h": "EV Charging Solutions",
   "cp_ev_d": "Comprehensive electric-mobility infrastructure engineered for reliability.",
@@ -2063,5 +2063,11 @@
   "avi_maint_corrective_desc": "Repair when a light, driver or control fails. Our technicians diagnose the fault and fix it quickly.",
   "avi_maint_li": "Maintenance of aviation lighting",
   "avi_faq_maint_q": "Do you maintain helipad, obstruction and runway lighting?",
-  "avi_faq_maint_a": "Yes. We offer one-time, preventive and corrective maintenance for aviation lighting: scheduled inspections, replacement of drivers and fixtures, and repair when a light or control fails."
+  "avi_faq_maint_a": "Yes. We offer one-time, preventive and corrective maintenance for aviation lighting: scheduled inspections, replacement of drivers and fixtures, and repair when a light or control fails.",
+  "cp_avi_h": "Aviation Infrastructure",
+  "cp_avi_d": "Helipad, obstruction and runway lighting with airside electrical, backup power and maintenance.",
+  "cp_avi_1": "Helipad lighting and obstruction and warning lights",
+  "cp_avi_2": "Runway lighting system and airside electrical distribution",
+  "cp_avi_3": "Backup power for lighting circuits and airside equipment supply",
+  "cp_avi_4": "Maintenance for aviation lighting: one-time, preventive and corrective"
 }
