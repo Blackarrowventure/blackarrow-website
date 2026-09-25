@@ -382,7 +382,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'Nationwide Saudi delivery · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -755,7 +755,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'توصيل لجميع مناطق المملكة · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 
