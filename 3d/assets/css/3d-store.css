@@ -2006,3 +2006,6 @@ html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
 .b3d-hub-reviews { margin-top: 0; border-top: 0; padding-top: 40px; }
 .b3d-page .b3d-reviews { margin-top: 24px; padding-top: 0; border-top: 0; }
 .b3d-hub-reviews .b3d-reviews__summary { justify-content: center; }
+.b3d-ra-tr { margin-top: 12px; color: rgba(255,255,255,.75); font-size: .88rem; }
+.b3d-ra-tr label { display: grid; gap: 4px; margin-top: 10px; }
+.b3d-ra-tr textarea { width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(245,158,11,.3); color: #fff; padding: 8px 10px; border-radius: var(--radius-md); font-family: inherit; }
