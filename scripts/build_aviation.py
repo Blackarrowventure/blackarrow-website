@@ -71,13 +71,13 @@ NEW = {  # key: (EN, AR)
     'light_see_aviation': ('Aviation Services', 'خدمات الطيران'),
 }
 
-TITLE = 'Aviation Lighting & Airside Electrical Saudi Arabia | Black Arrow'
-DESC = ('Helipad lighting, tall-structure obstruction lighting, runway and taxiway edge lighting, airside electrical '
-        'distribution and UPS backup power across Saudi Arabia.')
+TITLE = 'Helipad, Obstruction & Runway Lighting Saudi Arabia | Black Arrow'
+DESC = ('Helipad, obstruction and runway lighting, airside electrical distribution and UPS backup power across Saudi Arabia. '
+        'Request an aviation facility consultation.')
 AR_PAGE = {
-    'title': 'إنارة الطيران والكهرباء الجانبية في السعودية | السهم الأسود',
-    'description': 'إضاءة المهابط وإضاءة عوائق الهياكل العالية وإضاءة حواف المدارج والممرات والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية في أنحاء المملكة.',
-    'og_title': 'خدمات الطيران: إنارة المهابط والعوائق والكهرباء الجانبية | السهم الأسود',
+    'title': 'إنارة المهابط والعوائق والمدارج في السعودية | السهم الأسود',
+    'description': 'إضاءة المهابط والعوائق والمدارج والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية في أنحاء المملكة. اطلب استشارة لمنشأتك.',
+    'og_title': 'إنارة المهابط والعوائق والمدارج في السعودية | السهم الأسود',
     'og_description': 'إضاءة المهابط وإضاءة العوائق والتوزيع الكهربائي للمناطق الجانبية وطاقة UPS الاحتياطية للمنشآت الجوية في السعودية.',
 }
 AR_LIGHT_PAGE = {
@@ -135,18 +135,26 @@ def main_html():
 
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb" data-i18n-aria-label="breadcrumb_aria">
-          <a href="/" data-i18n="nav_home">Home</a>
-          <span>›</span>
-          <a href="/services.html" data-i18n="nav_services">Services</a>
-          <span>›</span>
-          <span data-i18n="service_aviation">Aviation</span>
-        </nav>
-        <h1 data-i18n="avi_svc_h1">{h('avi_svc_h1')}</h1>
-        <p data-i18n="avi_svc_sub">{h('avi_svc_sub')}</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;">
-          <a href="/contact.html?service=aviation" class="btn btn-primary" data-i18n="request_avi_consultation">Request Facility Consultation</a>
-          <a href="tel:+966560224715" class="btn btn-outline">+966 560 224 715</a>
+        <div class="page-hero__grid">
+          <div class="page-hero__text">
+            <nav class="breadcrumb" aria-label="Breadcrumb" data-i18n-aria-label="breadcrumb_aria">
+              <a href="/" data-i18n="nav_home">Home</a>
+              <span>›</span>
+              <a href="/services.html" data-i18n="nav_services">Services</a>
+              <span>›</span>
+              <span data-i18n="service_aviation">Aviation</span>
+            </nav>
+            <h1 data-i18n="avi_svc_h1">{h('avi_svc_h1')}</h1>
+            <p data-i18n="avi_svc_sub">{h('avi_svc_sub')}</p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;">
+              <a href="/contact.html?service=aviation" class="btn btn-primary" data-i18n="request_avi_consultation">Request Facility Consultation</a>
+              <a href="tel:+966560224715" class="btn btn-outline">+966 560 224 715</a>
+            </div>
+          </div>
+          <picture>
+            <source srcset="/assets/images/services/aviation-solutions.webp" type="image/webp">
+            <img src="/assets/images/services/aviation-solutions.jpg" alt="Helipad on a rooftop with perimeter lighting at dusk" class="page-hero__img" loading="eager" width="1536" height="1152" decoding="async" data-i18n-alt="avi_alt">
+          </picture>
         </div>
       </div>
     </section>
@@ -273,6 +281,11 @@ def build_page():
     service = {"@context": "https://schema.org", "@type": "Service",
                "serviceType": "Aviation Lighting and Airside Electrical Supply & Installation",
                "name": "Aviation Services", "description": DESC, "provider": prov,
+               "url": url, "image": SITE + "/assets/images/services/aviation-solutions.jpg",
+               "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Aviation Services", "itemListElement": [
+                   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}} for n in (
+                       "Helipad lighting", "Obstruction and warning lights", "Runway lighting system",
+                       "Airside electrical distribution", "Backup power for lighting circuits", "Airside equipment supply")]},
                "areaServed": ["Saudi Arabia", "Riyadh", "Jeddah", "Dammam", "Al Khobar", "Eastern Province"],
                "audience": {"@type": "Audience", "audienceType": "Aviation and airside facility operators"}}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
