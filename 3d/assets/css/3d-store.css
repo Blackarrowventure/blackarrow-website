@@ -2103,3 +2103,15 @@ main.b3d-light .b3d-spec-table td:first-child { color: #666 !important; }
 main.b3d-light .b3d-qty, main.b3d-light .b3d-qty button, main.b3d-light .b3d-qty input { background: #fff !important; color: #111 !important; border-color: #cfcbc0 !important; }
 main.b3d-light .b3d-qty button:hover { background: #f1f1ee !important; }
 main.b3d-light .b3d-pd__swatch-label { color: #555 !important; }
+
+/* ---- Stronger section-title divider: thick gold bar on a fading hairline ---- */
+.b3d-band .section-header h2::after {
+  width: min(280px, 70%); height: 5px; margin: 14px auto 0; border-radius: 0; background:
+    linear-gradient(#F59E0B, #F59E0B) center / 88px 5px no-repeat,
+    linear-gradient(90deg, transparent, rgba(245,158,11,.75) 22%, rgba(245,158,11,.75) 78%, transparent) center / 100% 1px no-repeat;
+}
+.b3d-band--light .section-header h2::after {
+  background:
+    linear-gradient(#D97706, #D97706) center / 88px 5px no-repeat,
+    linear-gradient(90deg, transparent, rgba(217,119,6,.6) 22%, rgba(217,119,6,.6) 78%, transparent) center / 100% 1px no-repeat;
+}
