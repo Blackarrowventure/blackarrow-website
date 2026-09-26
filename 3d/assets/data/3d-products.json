@@ -308,11 +308,12 @@
       "preorder": true,
       "newArrival": true,
       "variants": [
-        { "label": "SparkX i7", "label_ar": "SparkX i7", "price": 2090 },
-        { "label": "SparkX i7 Combo", "label_ar": "SparkX i7 كومبو", "price": 2650 }
+        { "label": "SparkX i7", "label_ar": "SparkX i7", "price": 2090, "image": "/3d/assets/images/products/creality-sparkx-i7-01.webp" },
+        { "label": "SparkX i7 Combo", "label_ar": "SparkX i7 كومبو", "price": 2650, "image": "/3d/assets/images/products/creality-sparkx-i7-combo.webp" }
       ],
       "images": [
         "/3d/assets/images/products/creality-sparkx-i7-01.webp",
+        "/3d/assets/images/products/creality-sparkx-i7-combo.webp",
         "/3d/assets/images/products/creality-sparkx-i7-02.jpg",
         "/3d/assets/images/products/creality-sparkx-i7-03.jpg",
         "/3d/assets/images/products/creality-sparkx-i7-04.jpg",
@@ -480,11 +481,12 @@
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Anycubic Kobra 3 Max", "label_ar": "أنيكيوبك كوبرا 3 ماكس", "price": 3090, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-1" },
-        { "label": "Anycubic Kobra 3 Max Combo", "label_ar": "أنيكيوبك كوبرا 3 ماكس كومبو", "price": 3920, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-2" }
+        { "label": "Anycubic Kobra 3 Max", "label_ar": "أنيكيوبك كوبرا 3 ماكس", "price": 3090, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-1", "image": "/3d/assets/images/products/anycubic-kobra3max-01.webp" },
+        { "label": "Anycubic Kobra 3 Max Combo", "label_ar": "أنيكيوبك كوبرا 3 ماكس كومبو", "price": 3920, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-2", "image": "/3d/assets/images/products/anycubic-kobra3max-combo.webp" }
       ],
       "images": [
         "/3d/assets/images/products/anycubic-kobra3max-01.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-combo.webp",
         "/3d/assets/images/products/anycubic-kobra3max-02.jpg",
         "/3d/assets/images/products/anycubic-kobra3max-03.jpg",
         "/3d/assets/images/products/anycubic-kobra3max-04.jpg",
