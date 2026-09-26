@@ -908,6 +908,10 @@
       "salePrice": 10,
       "vatIncluded": true,
       "available": true,
+      "variants": [
+        {"label": "Green", "label_ar": "أخضر", "price": 10, "oldPrice": 20, "swatch": "#006c35"},
+        {"label": "White", "label_ar": "أبيض", "price": 10, "oldPrice": 20, "swatch": "#f2f2ec"}
+      ],
       "images": [
         "/3d/assets/images/products/luffy-keychain-promo.webp"
       ],
@@ -1352,6 +1356,13 @@
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
+      "variants": [
+        {"label": "Yellow", "label_ar": "أصفر", "price": 50, "swatch": "#f5d020", "image": "/3d/assets/images/products/fc27-stand-01.webp"},
+        {"label": "Green", "label_ar": "أخضر", "price": 50, "swatch": "#006c35", "image": "/3d/assets/images/products/fc27-stand-02.webp"},
+        {"label": "White", "label_ar": "أبيض", "price": 50, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/fc27-stand-03.webp"},
+        {"label": "Red", "label_ar": "أحمر", "price": 50, "swatch": "#d92b2b", "image": "/3d/assets/images/products/fc27-stand-04.webp"},
+        {"label": "Black", "label_ar": "أسود", "price": 50, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/fc27-stand-05.webp"}
+      ],
       "images": [
         "/3d/assets/images/products/fc27-stand-01.webp",
         "/3d/assets/images/products/fc27-stand-02.webp",

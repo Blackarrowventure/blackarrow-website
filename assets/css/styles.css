@@ -4491,3 +4491,6 @@ header .navbar__logo img { width: 270px; height: auto; filter: none; }
 .svc-card--wide .svc-card__img-wrap picture { display: block; height: 100%; }
 .svc-card--wide .svc-card__img { height: 100%; min-height: 260px; }
 @media (max-width: 768px) { .svc-card--wide { display: flex; flex-direction: column; } .svc-card--wide .svc-card__img-wrap picture { height: auto; } .svc-card--wide .svc-card__img { height: 200px; min-height: 0; } }
+
+/* Centered page heroes: keep the CTA row centered under the centered text (rows placed directly in the hero container) */
+.page-hero > .container > div[style*="display:flex"], .page-hero__text > div[style*="display:flex"] { justify-content: center; }
