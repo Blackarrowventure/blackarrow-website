@@ -161,9 +161,12 @@
 
   /* ---------------- Data ---------------- */
 
+  var __b3dProductsById = {};
   function fetchProducts() {
     return fetch(DATA_URL).then(function (r) { return r.json(); }).then(function (data) {
-      return data.products || [];
+      var list = data.products || [];
+      list.forEach(function (p) { __b3dProductsById[p.id] = p; });
+      return list;
     });
   }
 
@@ -303,16 +306,24 @@
     return out;
   }
 
+  function cardActionLabel(p, disabled) {
+    if (p.preorder) return T('js_pre_order');
+    return disabled ? T('js_out_of_stock') : T('js_add_to_cart');
+  }
+
   function productCard(p) {
-    /* A single "View Product" action everywhere a card appears — direct
-       Add to Cart / View Options used to compete with each other across
-       cards. Actual purchase happens on the product page, which already
-       has the full variant picker and quantity control. */
+    /* Add to Cart directly on every card, everywhere one appears — opening the
+       product page is now optional, not required, to buy. Three shapes:
+       - every variant has a swatch (colour products): colour chips + Add to Cart (unchanged).
+       - variants exist but aren't colours (e.g. a printer's Standalone/Combo, a
+         nozzle's mm size): inline pills pick the variant right on the card,
+         never a guessed default, then Add to Cart for the picked one.
+       - no variants at all: Add to Cart straight away. */
     var href = productUrl(p);
-    /* Colour products (filament): show every colour by name on the card, mark
-       the ones out of stock, and let the shopper add the chosen colour
-       straight to the cart. */
-    var colorProduct = !!(p.variants && p.variants.length && p.variants.every(function (v) { return v.swatch; }));
+    var hasVariants = !!(p.variants && p.variants.length);
+    var colorProduct = hasVariants && p.variants.every(function (v) { return v.swatch; });
+    var pillProduct = hasVariants && !colorProduct;
+
     var colorIdx = 0;
     if (colorProduct) {
       for (var ci = 0; ci < p.variants.length; ci++) { if (p.variants[ci].available !== false) { colorIdx = ci; break; } }
@@ -329,10 +340,33 @@
         }).join('') + '</div>';
     }
     var colorOut = colorProduct && p.variants[colorIdx].available === false;
-    var actionBtn = colorProduct
-      ? '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + colorIdx + '"' + (colorOut ? ' disabled' : '') + '>' + (colorOut ? T('js_out_of_stock') : T('js_add_to_cart')) + '</button>'
-      : null;
-    if (actionBtn === null) actionBtn = '<a href="' + href + '" class="b3d-btn-add" aria-label="' + T('js_view_product') + ' — ' + L(p, 'name') + '">' + T('js_view_product') + '</a>';
+
+    var pillIdx = 0;
+    if (pillProduct) {
+      for (var pi = 0; pi < p.variants.length; pi++) { if (p.variants[pi].available !== false) { pillIdx = pi; break; } }
+    }
+    var pillsHtml = '';
+    if (pillProduct) {
+      pillsHtml = '<div class="b3d-card__pills" data-card-pills="' + p.id + '" role="group" aria-label="' + T('js_options') + '">' +
+        p.variants.map(function (v, i) {
+          var out = v.available === false;
+          return '<button type="button" class="b3d-quick-pill" data-card-pill="' + i + '" aria-pressed="' + (i === pillIdx) + '"' +
+            (out ? ' data-out="1" disabled' : '') + '>' + LVariant(v) + '</button>';
+        }).join('') + '</div>';
+    }
+    var pillOut = pillProduct && p.variants[pillIdx].available === false;
+
+    var priceHtml = pillProduct ? variantPriceHtml(p.variants[pillIdx], p) : priceBlock(p);
+    var simpleOut = !hasVariants && p.available === false;
+
+    var actionBtn;
+    if (colorProduct) {
+      actionBtn = '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + colorIdx + '"' + (colorOut ? ' disabled' : '') + '>' + (colorOut ? T('js_out_of_stock') : T('js_add_to_cart')) + '</button>';
+    } else if (pillProduct) {
+      actionBtn = '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + pillIdx + '"' + ((pillOut && !p.preorder) ? ' disabled' : '') + '>' + cardActionLabel(p, pillOut) + '</button>';
+    } else {
+      actionBtn = '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '"' + ((simpleOut && !p.preorder) ? ' disabled' : '') + '>' + cardActionLabel(p, simpleOut) + '</button>';
+    }
     var isArt = p.category === '3D Artwork';
     var specs = isArt ? '' : LSpecs(p).slice(0, 3).map(function (row) {
       return '<li><span>' + row[0] + '</span><span>' + row[1] + '</span></li>';
@@ -351,11 +385,12 @@
           (isArt ? '' : '<p>' + (L(p, 'shortDesc') || '') + '</p>') +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
           colorsHtml +
+          pillsHtml +
           '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span>' + (isArt ? '' : '<span>' + T('js_card_warranty') + '</span>') + '</div>' +
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' +
-            '<div class="b3d-price-block">' + priceBlock(p) + '</div>' +
+            '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' +
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
           '<div class="b3d-card__actions">' +
@@ -367,7 +402,8 @@
       '</article>';
   }
 
-  /* Colour chips + Add to Cart on product cards (delegated, so it works in every grid). */
+  /* Colour chips, option pills and Add to Cart on product cards (delegated,
+     so it works in every grid this card renders into, no per-container binding needed). */
   if (!window.__b3dCardColors) {
     window.__b3dCardColors = true;
     document.addEventListener('click', function (e) {
@@ -387,10 +423,29 @@
         if (src && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = src; }
         return;
       }
+      var pill = e.target.closest && e.target.closest('[data-card-pill]');
+      if (pill) {
+        var pid = pill.closest('[data-card-pills]').getAttribute('data-card-pills');
+        var pCard = pill.closest('.b3d-card');
+        var pIdx = parseInt(pill.getAttribute('data-card-pill'), 10);
+        var product = __b3dProductsById && __b3dProductsById[pid];
+        pCard.querySelectorAll('[data-card-pill]').forEach(function (c) { c.setAttribute('aria-pressed', c === pill ? 'true' : 'false'); });
+        var pOut = pill.getAttribute('data-out') === '1';
+        var pBtn = pCard.querySelector('[data-card-add]');
+        if (pBtn) {
+          pBtn.setAttribute('data-variant-idx', pIdx);
+          pBtn.disabled = pOut && !(product && product.preorder);
+          pBtn.textContent = product ? cardActionLabel(product, pOut) : (pOut ? T('js_out_of_stock') : T('js_add_to_cart'));
+        }
+        var priceEl = pCard.querySelector('[data-card-price]');
+        if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
+        return;
+      }
       var add = e.target.closest && e.target.closest('[data-card-add]');
       if (add && !add.disabled) {
-        addToCart(lineId(add.getAttribute('data-card-add'), parseInt(add.getAttribute('data-variant-idx'), 10)), 1);
-        var label = T('js_add_to_cart');
+        var viRaw = add.getAttribute('data-variant-idx');
+        addToCart(lineId(add.getAttribute('data-card-add'), viRaw === null ? null : parseInt(viRaw, 10)), 1);
+        var label = add.textContent;
         add.textContent = T('js_added');
         setTimeout(function () { if (!add.disabled) add.textContent = label; }, 1200);
       }
@@ -1924,6 +1979,22 @@
         renderGrid(printers, printersGrid);
       });
     }
+
+    // Category and brand landing pages (/3d/shop/<category>/, /3d/brands/<brand>/): swap the
+    // plain crawlable links for the real interactive card, so Add to Cart works without
+    // opening the product page — the links above stay in the initial HTML for SEO and no-JS.
+    document.querySelectorAll('[data-b3d-cat-grid]').forEach(function (grid) {
+      var cat = grid.getAttribute('data-b3d-cat-grid');
+      fetchProducts().then(function (products) {
+        renderGrid(products.filter(function (p) { return p.category === cat; }), grid);
+      });
+    });
+    document.querySelectorAll('[data-b3d-brand-grid]').forEach(function (grid) {
+      var brand = grid.getAttribute('data-b3d-brand-grid');
+      fetchProducts().then(function (products) {
+        renderGrid(products.filter(function (p) { return p.brand === brand; }), grid);
+      });
+    });
 
     var searchForm = document.querySelector('[data-b3d-search-form]');
     if (searchForm) {

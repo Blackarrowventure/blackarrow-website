@@ -2168,3 +2168,11 @@ main.b3d-light .b3d-pd__trust { border-color: #e6e3dc; color: #444; }
 .b3d-pd__contact-actions { gap: 18px; align-items: center; }
 .b3d-pd__contact-actions a, .b3d-pd__contact-actions button { background: none; border: none; padding: 0; font: inherit; font-size: .88rem; font-weight: 600; color: var(--clr-accent); text-decoration: underline; cursor: pointer; }
 main.b3d-light .b3d-pd__contact-actions a, main.b3d-light .b3d-pd__contact-actions button { color: #b45309; }
+
+/* ---- Card option pills (non-colour variants, e.g. printer Standalone/Combo) ---- */
+.b3d-card__pills { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+.b3d-card__pills .b3d-quick-pill { font-size: 12px; padding: 6px 12px; }
+main.b3d-light .b3d-card__pills .b3d-quick-pill { background: #fff !important; border-color: #cfcbc0 !important; color: #1a1a1a !important; }
+main.b3d-light .b3d-card__pills .b3d-quick-pill[aria-pressed="true"] { background: #1a1a1a !important; border-color: #1a1a1a !important; color: #fff !important; }
+.b3d-band--light .b3d-card__pills .b3d-quick-pill { background: #fff !important; border-color: #cfcbc0 !important; color: #1a1a1a !important; }
+.b3d-band--light .b3d-card__pills .b3d-quick-pill[aria-pressed="true"] { background: #1a1a1a !important; border-color: #1a1a1a !important; color: #fff !important; }

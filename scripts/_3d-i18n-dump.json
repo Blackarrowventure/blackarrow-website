@@ -451,6 +451,10 @@
     "en": "In Stock",
     "ar": "متوفر"
   },
+  "js_options": {
+    "en": "Options",
+    "ar": "الخيارات"
+  },
   "js_you_save": {
     "en": "You save",
     "ar": "توفّر"

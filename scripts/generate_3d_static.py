@@ -870,7 +870,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
-        + '<div class="b3d-cat-landing__grid">' + ''.join(cards) + '</div>'
+        + '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>'
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
     )

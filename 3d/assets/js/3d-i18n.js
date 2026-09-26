@@ -351,6 +351,7 @@
 
       js_add_to_cart: 'Add to Cart',
       js_in_stock: 'In Stock',
+      js_options: 'Options',
       js_you_save: 'You save',
       js_out_of_stock: 'Out of Stock',
       js_colour: 'Colour',
@@ -733,6 +734,7 @@
 
       js_add_to_cart: 'أضف إلى السلة',
       js_in_stock: 'متوفر',
+      js_options: 'الخيارات',
       js_you_save: 'توفّر',
       js_out_of_stock: 'غير متوفر',
       js_colour: 'اللون',
