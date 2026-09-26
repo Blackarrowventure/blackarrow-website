@@ -66,7 +66,9 @@
       (photos ? '<div class="b3d-review__photos">' + photos + '</div>' : '') +
       '<details class="b3d-ra-tr"><summary>Add a translation (optional)</summary>' +
       '<label>English version<textarea rows="2" data-tr="en" maxlength="600">' + esc(r.comment_en || '') + '</textarea></label>' +
-      '<label>Arabic version<textarea rows="2" data-tr="ar" maxlength="600" dir="rtl">' + esc(r.comment_ar || '') + '</textarea></label></details>' +
+      '<label>Arabic version<textarea rows="2" data-tr="ar" maxlength="600" dir="rtl">' + esc(r.comment_ar || '') + '</textarea></label>' +
+      '<button type="button" class="btn btn-outline" data-ra-translate style="margin-top:6px">Auto-translate the missing side</button>' +
+      '<span class="b3d-rv-msg" data-ra-tr-msg hidden></span></details>' +
       '<div class="b3d-rv-actions" style="margin-top:12px">' + btns + '</div></article>';
   }
 
@@ -83,6 +85,36 @@
       b.addEventListener('click', function () { status = b.getAttribute('data-tab'); load(); });
     });
     host.querySelector('[data-ra-out]').addEventListener('click', function () { client.auth.signOut().then(function () { loginView(''); }); });
+    // Machine translation, filling only the empty side; the admin can edit before approving.
+    // Free MyMemory API — no key, adequate for short customer reviews, not used for anything else on the site.
+    function translate(text, from, to) {
+      var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=' + from + '|' + to;
+      return fetch(url).then(function (r) { return r.json(); }).then(function (j) {
+        return (j.responseData && j.responseData.translatedText) || '';
+      });
+    }
+    host.querySelectorAll('[data-ra-translate]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var art = btn.closest('article');
+        var id = parseInt(art.getAttribute('data-id'), 10);
+        var r = list.filter(function (x) { return x.id === id; })[0];
+        var enBox = art.querySelector('[data-tr="en"]');
+        var arBox = art.querySelector('[data-tr="ar"]');
+        var msg = art.querySelector('[data-ra-tr-msg]');
+        var original = r.lang === 'ar' ? arBox : enBox;
+        if (!original.value) original.value = r.comment;
+        var target = r.lang === 'ar' ? enBox : arBox;
+        var fromTo = r.lang === 'ar' ? ['ar', 'en'] : ['en', 'ar'];
+        btn.disabled = true; msg.hidden = false; msg.textContent = 'Translating…'; msg.className = 'b3d-rv-msg';
+        translate(original.value, fromTo[0], fromTo[1]).then(function (out) {
+          btn.disabled = false;
+          if (out) { target.value = out; msg.textContent = 'Draft added — check it before approving.'; }
+          else { msg.textContent = 'Could not translate automatically — please type it in.'; msg.className = 'b3d-rv-msg is-err'; }
+        }).catch(function () {
+          btn.disabled = false; msg.textContent = 'Could not translate automatically — please type it in.'; msg.className = 'b3d-rv-msg is-err';
+        });
+      });
+    });
     host.querySelectorAll('[data-act]').forEach(function (b) {
       b.addEventListener('click', function () {
         var art = b.closest('article');
