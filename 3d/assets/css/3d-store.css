@@ -2176,3 +2176,10 @@ main.b3d-light .b3d-card__pills .b3d-quick-pill { background: #fff !important; b
 main.b3d-light .b3d-card__pills .b3d-quick-pill[aria-pressed="true"] { background: #1a1a1a !important; border-color: #1a1a1a !important; color: #fff !important; }
 .b3d-band--light .b3d-card__pills .b3d-quick-pill { background: #fff !important; border-color: #cfcbc0 !important; color: #1a1a1a !important; }
 .b3d-band--light .b3d-card__pills .b3d-quick-pill[aria-pressed="true"] { background: #1a1a1a !important; border-color: #1a1a1a !important; color: #fff !important; }
+
+/* ---- Out-of-stock Add to Cart: the translucent-white disabled style only reads on a dark
+   card; on the white cards used on category/brand/home pages it was invisible against
+   the white background. Give it real contrast on both. ---- */
+.b3d-btn-add:disabled { background: rgba(120,120,120,.35); color: rgba(255,255,255,.85); }
+main.b3d-light .b3d-grid > * .b3d-btn-add:disabled,
+.b3d-band--light .b3d-grid > * .b3d-btn-add:disabled { background: #e2e0d8 !important; color: #777 !important; }
