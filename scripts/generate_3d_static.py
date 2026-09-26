@@ -1167,7 +1167,7 @@ def build_static_page(slug, lang):
         '<article class="b3d-article b3d-page"><h1>' + esc(cfg['h1']) + '</h1>' + ''.join(out) + '</article>'
         '</div></section>'
     )
-    html = re.sub(r'<main id="main">.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
+    html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
     if any(k == 'reviews' for k, _v in cfg['body']):
         html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20260963" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
