@@ -231,6 +231,7 @@
       trust_payment: 'Cash on delivery & bank transfer',
       trust_vat: 'VAT invoice',
       trust_warranty: 'Manufacturer warranty',
+      trust_damaged_replace: 'Replaced if it arrives damaged',
       trust_support: 'Local support',
       js_card_delivery: 'Delivery: KSA-wide',
       js_card_warranty: 'Manufacturer warranty, defective products only',
@@ -349,6 +350,8 @@
       compare_h1: 'Compare Products',
 
       js_add_to_cart: 'Add to Cart',
+      js_in_stock: 'In Stock',
+      js_you_save: 'You save',
       js_out_of_stock: 'Out of Stock',
       js_colour: 'Colour',
       js_pre_order: 'Pre-Order',
@@ -610,6 +613,7 @@
       trust_payment: 'الدفع عند الاستلام والتحويل البنكي',
       trust_vat: 'فاتورة ضريبية',
       trust_warranty: 'ضمان الشركة المصنّعة',
+      trust_damaged_replace: 'يُستبدل إذا وصل تالفًا',
       trust_support: 'دعم محلي',
       js_card_delivery: 'توصيل لكل المملكة',
       js_card_warranty: 'الضمان حسب الشركة المصنّعة، للمنتجات المعيبة فقط',
@@ -728,6 +732,8 @@
       compare_h1: 'مقارنة المنتجات',
 
       js_add_to_cart: 'أضف إلى السلة',
+      js_in_stock: 'متوفر',
+      js_you_save: 'توفّر',
       js_out_of_stock: 'غير متوفر',
       js_colour: 'اللون',
       js_pre_order: 'طلب مسبق',

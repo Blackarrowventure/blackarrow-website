@@ -435,6 +435,10 @@
     "en": "Manufacturer warranty",
     "ar": "ضمان الشركة المصنّعة"
   },
+  "trust_damaged_replace": {
+    "en": "Replaced if it arrives damaged",
+    "ar": "يُستبدل إذا وصل تالفًا"
+  },
   "cart_go_shop": {
     "en": "Go to Shop",
     "ar": "الذهاب إلى المتجر"
@@ -442,6 +446,14 @@
   "js_add_to_cart": {
     "en": "Add to Cart",
     "ar": "أضف إلى السلة"
+  },
+  "js_in_stock": {
+    "en": "In Stock",
+    "ar": "متوفر"
+  },
+  "js_you_save": {
+    "en": "You save",
+    "ar": "توفّر"
   },
   "js_added": {
     "en": "Added ✓",

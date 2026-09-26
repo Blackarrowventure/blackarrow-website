@@ -146,7 +146,7 @@ def status_badge(p, lang):
         return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order', lang) + '</span>'
     if p.get('available') is False:
         return '<span class="b3d-stock-badge b3d-stock-badge--out">' + T('js_out_of_stock', lang) + '</span>'
-    return ''
+    return '<span class="b3d-stock-badge b3d-stock-badge--in">' + T('js_in_stock', lang) + '</span>'
 
 
 def variant_price_html(v, p):

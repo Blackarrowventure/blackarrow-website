@@ -2154,3 +2154,17 @@ main.b3d-light .b3d-star.is-on { color: #D97706; }
 .b3d-admin-link-row span { font-weight: 600; min-width: 56px; color: var(--clr-accent); font-size: .85rem; }
 .b3d-admin-link-row code { background: rgba(255,255,255,.06); border: 1px solid rgba(245,158,11,.2); border-radius: 6px; padding: 4px 8px; font-size: .82rem; color: rgba(255,255,255,.8); overflow-wrap: anywhere; }
 .b3d-admin-link-row .btn { padding: 6px 14px; font-size: .85rem; }
+
+/* ---- Product page: one clear buy action, trust facts and real savings next to the price ---- */
+.b3d-stock-badge--in { background: rgba(4,120,87,.92); color: #fff; }
+.b3d-pd__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.b3d-pd__save { background: rgba(4,120,87,.14); color: #059669; font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+main.b3d-light .b3d-pd__save { background: rgba(4,120,87,.12); color: #047857; }
+.b3d-pd__trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 20px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); font-size: .82rem; color: rgba(255,255,255,.75); }
+main.b3d-light .b3d-pd__trust { border-color: #e6e3dc; color: #444; }
+.b3d-pd__buy { width: 100%; padding: 16px; font-size: 1.05rem; font-weight: 700; box-shadow: 0 8px 18px rgba(4,120,87,.28); }
+.b3d-pd__actions { flex-direction: column; align-items: stretch; }
+.b3d-pd__actions .b3d-qty { align-self: flex-start; }
+.b3d-pd__contact-actions { gap: 18px; align-items: center; }
+.b3d-pd__contact-actions a, .b3d-pd__contact-actions button { background: none; border: none; padding: 0; font: inherit; font-size: .88rem; font-weight: 600; color: var(--clr-accent); text-decoration: underline; cursor: pointer; }
+main.b3d-light .b3d-pd__contact-actions a, main.b3d-light .b3d-pd__contact-actions button { color: #b45309; }

@@ -233,7 +233,7 @@
   function statusBadge(p) {
     if (p.preorder) return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order') + '</span>';
     if (p.available === false) return '<span class="b3d-stock-badge b3d-stock-badge--out">' + T('js_out_of_stock') + '</span>';
-    return '';
+    return '<span class="b3d-stock-badge b3d-stock-badge--in">' + T('js_in_stock') + '</span>';
   }
 
   // A variant may carry `oldPrice` (the pre-offer price): it renders as an
@@ -265,6 +265,26 @@
         '</span><span class="b3d-price-was">' + money(p.price, p.currency) + '</span>';
     }
     return '<span class="b3d-price">' + money(p.price, p.currency) + '</span>';
+  }
+
+  // Real per-category fact, not a blanket claim: only the printers themselves carry a
+  // manufacturer's factory warranty; everything Black Arrow prints or supplies otherwise
+  // is replaced if it arrives damaged (see /3d/returns/), never described as "warrantied".
+  function trustRowHtml(p) {
+    var middle = p.category === '3D Printers'
+      ? '<span>&#128737;&#65039; ' + T('trust_warranty') + '</span>'
+      : '<span>&#128260; ' + T('trust_damaged_replace') + '</span>';
+    return '<div class="b3d-pd__trust">' +
+      '<span>&#128666; ' + T('trust_delivery') + '</span>' + middle +
+      '<span>&#128274; ' + T('trust_payment') + '</span>' +
+    '</div>';
+  }
+
+  // The actual SAR amount saved, from the real old/new prices already in the data — never a made-up percentage.
+  function saveAmountHtml(was, now, currency) {
+    if (!(was > now)) return '';
+    var diff = Math.round((was - now) * 100) / 100;
+    return '<span class="b3d-pd__save">' + T('js_you_save') + ' ' + money(diff, currency) + '</span>';
   }
 
   function lineId(productId, variantIndex) {
@@ -1368,11 +1388,15 @@
       var initialPriceHtml = hasVariants
         ? variantPriceHtml(p.variants[0], p)
         : priceBlock(p);
+      var initialSaveHtml = hasVariants
+        ? (p.variants[0].oldPrice ? saveAmountHtml(p.variants[0].oldPrice, p.variants[0].price, p.currency) : '')
+        : ((p.onSale && p.salePrice != null) ? saveAmountHtml(p.price, p.salePrice, p.currency) : '');
 
       container.innerHTML = '' +
         '<div>' +
           '<div class="b3d-pd__visual' + (p.category === '3D Artwork' ? ' b3d-pd__visual--art' : '') + '" data-pd-zoom>' +
             cornerBadges(p) +
+            statusBadge(p) +
             mainVisual +
           '</div>' +
           thumbsHtml +
@@ -1380,9 +1404,9 @@
         '<div>' +
           '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
-          '<div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div>' +
+          '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' +
           variantSelectorHtml +
-          (statusBadge(p) ? '<div style="margin-bottom:16px;">' + statusBadge(p) + '</div>' : '') +
+          trustRowHtml(p) +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
           '<div class="b3d-pd__actions">' +
             '<div class="b3d-qty">' +
@@ -1390,12 +1414,12 @@
               '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label') + '">' +
               '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
-            (p.category === '3D Artwork' ? '' : '<button class="btn btn-outline" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
-            '<a href="/3d/cart/" class="btn btn-outline">' + T('js_view_cart') + '</a>' +
+            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
           '</div>' +
           '<div class="b3d-pd__contact-actions">' +
-            '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp') + '</a>' +
+            '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
+            '<a href="/3d/cart/">' + T('js_view_cart') + '</a>' +
+            (p.category === '3D Artwork' ? '' : '<button type="button" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
           '</div>' +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
@@ -1450,6 +1474,8 @@
             selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
             var v = p.variants[selectedVariant];
             container.querySelector('[data-pd-price]').innerHTML = variantPriceHtml(v, p);
+            var saveEl = container.querySelector('[data-pd-save]');
+            if (saveEl) saveEl.innerHTML = v.oldPrice ? saveAmountHtml(v.oldPrice, v.price, p.currency) : '';
             var swatchLabel = container.querySelector('[data-pd-swatch-label]');
             if (swatchLabel) swatchLabel.textContent = LVariant(v);
             if (v.image) {
