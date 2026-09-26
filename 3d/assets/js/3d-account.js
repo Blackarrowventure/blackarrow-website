@@ -113,8 +113,22 @@
             panel.innerHTML = '<h2>Admin: review approval</h2><p>' +
               (info.pending === 0 ? 'No reviews are waiting for approval.' :
                 info.pending + (info.pending === 1 ? ' review is' : ' reviews are') + ' waiting for approval.') +
-              '</p><p style="margin-top:12px;"><a class="btn btn-primary" href="/3d/review-admin/">Open review approval</a></p>';
+              '</p><p style="margin-top:12px;"><a class="btn btn-primary" href="/3d/review-admin/">Open review approval</a></p>' +
+              '<div class="b3d-admin-links" style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(245,158,11,.2);">' +
+              '<p style="margin-bottom:10px;">Send a customer the review link:</p>' +
+              '<div class="b3d-admin-link-row"><span>English</span><code>https://www.blackarrowksa.com/3d/reviews/</code><button type="button" class="btn btn-outline" data-copy-link="https://www.blackarrowksa.com/3d/reviews/">Copy link</button></div>' +
+              '<div class="b3d-admin-link-row"><span>Arabic</span><code>https://www.blackarrowksa.com/3d/ar/reviews/</code><button type="button" class="btn btn-outline" data-copy-link="https://www.blackarrowksa.com/3d/ar/reviews/">Copy link</button></div>' +
+              '</div>';
             panels.insertBefore(panel, panels.firstChild);
+            panel.querySelectorAll('[data-copy-link]').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                var url = btn.getAttribute('data-copy-link');
+                var done = function () { var old = btn.textContent; btn.textContent = 'Copied!'; setTimeout(function () { btn.textContent = old; }, 1800); };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  navigator.clipboard.writeText(url).then(done).catch(function () { window.prompt('Copy this link:', url); });
+                } else { window.prompt('Copy this link:', url); }
+              });
+            });
           });
 
           window.BlackArrow3DAuth.getProfile(user.id).then(function (profile) {

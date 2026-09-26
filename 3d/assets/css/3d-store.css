@@ -2148,3 +2148,9 @@ main.b3d-light .b3d-review__date, main.b3d-light .b3d-reviews__count, main.b3d-l
 main.b3d-light .b3d-review__tag { color: #555; border-color: #cfcbc0; }
 main.b3d-light .b3d-star { color: #d8d5cc; }
 main.b3d-light .b3d-star.is-on { color: #D97706; }
+
+/* ---- Account page: admin panel "copy review link" row ---- */
+.b3d-admin-link-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.b3d-admin-link-row span { font-weight: 600; min-width: 56px; color: var(--clr-accent); font-size: .85rem; }
+.b3d-admin-link-row code { background: rgba(255,255,255,.06); border: 1px solid rgba(245,158,11,.2); border-radius: 6px; padding: 4px 8px; font-size: .82rem; color: rgba(255,255,255,.8); overflow-wrap: anywhere; }
+.b3d-admin-link-row .btn { padding: 6px 14px; font-size: .85rem; }
