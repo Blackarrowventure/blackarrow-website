@@ -439,6 +439,9 @@
         }
         var priceEl = pCard.querySelector('[data-card-price]');
         if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
+        var pv = product && product.variants[pIdx];
+        var pImg = pCard.querySelector('.b3d-card__visual img');
+        if (pv && pv.image && pImg) { pImg.removeAttribute('srcset'); pImg.removeAttribute('sizes'); pImg.src = pv.image; }
         return;
       }
       var add = e.target.closest && e.target.closest('[data-card-add]');
