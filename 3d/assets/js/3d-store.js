@@ -1036,6 +1036,17 @@
     document.head.appendChild(script);
   }
 
+  // Catches obvious placeholder/test addresses (a@b.co, test@test.com, foo@example.com, ...):
+  // a single-letter name and/or domain, or a handful of known fake/example domains.
+  function isPlaceholderEmail(email) {
+    var m = /^([^@]+)@([^@]+)$/.exec(String(email).trim().toLowerCase());
+    if (!m) return false;
+    var local = m[1], domain = m[2];
+    if (local.length <= 1 || domain.replace(/\.[a-z.]+$/, '').length <= 1) return true;
+    var fakeDomains = ['example.com', 'example.org', 'example.net', 'test.com', 'test.co', 'a.com', 'b.com', 'asdf.com', 'mailinator.com'];
+    return fakeDomains.indexOf(domain) !== -1;
+  }
+
   function sendCustomerConfirmation(form) {
     var cfg = window.BLACK_ARROW_EMAILJS_CONFIG;
     if (!cfg || !cfg.publicKey || !cfg.serviceId || !cfg.templateId) return;
@@ -1046,6 +1057,12 @@
     };
     var toEmail = field('email');
     if (!toEmail) return;
+    // Placeholder addresses used while testing checkout (a@b.co, test@test.com, ...) are
+    // syntactically valid so the browser's own email check passes them, but they don't exist -
+    // sending to them fails days later and Gmail bounces the "Mail Delivery Subsystem" notice
+    // back into the shop's inbox. Skip the send for those; the order itself still goes through
+    // to Black Arrow either way, only the customer's own confirmation copy is skipped.
+    if (isPlaceholderEmail(toEmail)) return;
 
     var payField = form.querySelector('[data-b3d-order-payment]');
     var shipField = form.querySelector('[data-b3d-shipping-field]');
