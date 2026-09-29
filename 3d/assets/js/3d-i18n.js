@@ -102,6 +102,9 @@
       hub_trust_4: 'Cash on delivery & bank transfer',
       cat_coming_soon: 'Coming Soon',
 
+      partners_h2: 'Nationwide Delivery, Powered by OTO',
+      partners_desc: 'We ship every order through OTO, a Saudi logistics platform, giving us access to a network of the Kingdom’s leading courier companies.',
+
       hub_brand_h2: 'Shop by Brand',
       hub_brand_sub: 'Browse the catalog by manufacturer',
 
@@ -484,6 +487,9 @@
       hub_trust_3: 'دعم عبر واتساب',
       hub_trust_4: 'الدفع عند الاستلام والتحويل البنكي',
       cat_coming_soon: 'قريباً',
+
+      partners_h2: 'توصيل لكل مناطق المملكة عبر OTO',
+      partners_desc: 'نشحن جميع الطلبات عبر OTO، منصة الخدمات اللوجستية السعودية، مما يمنحنا الوصول إلى شبكة من أبرز شركات الشحن في المملكة.',
 
       hub_brand_h2: 'تسوّق حسب العلامة التجارية',
       hub_brand_sub: 'تصفح الكتالوج حسب الشركة المصنّعة',

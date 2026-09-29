@@ -810,5 +810,13 @@
   "journey_b_link": {
     "en": "How our printing service works",
     "ar": "كيف تعمل خدمة الطباعة لدينا"
+  },
+  "partners_h2": {
+    "en": "Nationwide Delivery, Powered by OTO",
+    "ar": "توصيل لكل مناطق المملكة عبر OTO"
+  },
+  "partners_desc": {
+    "en": "We ship every order through OTO, a Saudi logistics platform, giving us access to a network of the Kingdom’s leading courier companies.",
+    "ar": "نشحن جميع الطلبات عبر OTO، منصة الخدمات اللوجستية السعودية، مما يمنحنا الوصول إلى شبكة من أبرز شركات الشحن في المملكة."
   }
 }

@@ -871,6 +871,42 @@
       "compatibility_ar": ["يد تحكم PS5 DualSense"]
     },
     {
+      "id": "straw-hat-ps5-controller-stand",
+      "name": "Straw Hat PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 85,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/straw-hat-controller-stand-01.webp",
+        "/3d/assets/images/products/straw-hat-controller-stand-02.webp"
+      ],
+      "shortDesc": "3D printed straw hat controller stand for the PS5 DualSense controller.",
+      "description": "A detailed straw-hat controller stand, designed and 3D printed in-house at Black Arrow 3D. The woven-texture straw hat with a red band cradles a PS5 DualSense controller resting on top, making a fun display piece for any anime or gaming setup. Printed in PLA with a sturdy circular base.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Compatibility", "PS5 DualSense controller"],
+        ["Design", "Straw hat — designed and printed in-house"],
+        ["Colours", "Yellow, red and white"],
+        ["Base", "Circular display base included"]
+      ],
+      "compatibility": ["PS5 DualSense"],
+      "name_ar": "حامل يد تحكم PS5 بتصميم قبعة القش",
+      "shortDesc_ar": "حامل يد تحكم PS5 مطبوع ثلاثي الأبعاد بتصميم قبعة القش.",
+      "description_ar": "حامل يد تحكم مفصّل بتصميم قبعة القش، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تحمل قبعة القش المنسوجة بحزام أحمر يد تحكم PS5 DualSense فوقها، لتكون قطعة عرض ممتعة لأي إعداد ألعاب أو أنمي. مطبوعة من مادة PLA مع قاعدة دائرية متينة.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التوافق", "يد تحكم PS5 DualSense"],
+        ["التصميم", "قبعة القش — تصميم وطباعة داخلية"],
+        ["الألوان", "أصفر وأحمر وأبيض"],
+        ["القاعدة", "قاعدة دائرية للعرض مرفقة"]
+      ],
+      "compatibility_ar": ["يد تحكم PS5 DualSense"]
+    },
+    {
       "id": "custom-3d-artwork",
       "name": "Custom 3D Artwork",
       "brand": "Black Arrow",
