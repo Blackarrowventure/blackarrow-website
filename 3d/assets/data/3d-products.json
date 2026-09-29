@@ -907,6 +907,47 @@
       "compatibility_ar": ["يد تحكم PS5 DualSense"]
     },
     {
+      "id": "air-filter-style-lamp",
+      "name": "Air Filter Style LED Lamp",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        {"label": "Green — No Light", "label_ar": "أخضر — بدون إضاءة", "price": 65},
+        {"label": "Green — With Light", "label_ar": "أخضر — مع إضاءة", "price": 85},
+        {"label": "Red — No Light", "label_ar": "أحمر — بدون إضاءة", "price": 65},
+        {"label": "Red — With Light", "label_ar": "أحمر — مع إضاءة", "price": 85}
+      ],
+      "images": [
+        "/3d/assets/images/products/air-filter-lamp-01.webp",
+        "/3d/assets/images/products/air-filter-lamp-04.webp",
+        "/3d/assets/images/products/air-filter-lamp-02.webp",
+        "/3d/assets/images/products/air-filter-lamp-03.webp"
+      ],
+      "shortDesc": "3D printed car air-filter style lamp, with an optional built-in LED light. Choose green or red.",
+      "description": "A pleated, cone-style lamp designed and 3D printed in-house at Black Arrow 3D, styled after a car cold-air intake filter. The colour name is embossed on the black top cap. Choose the With Light option to add a built-in LED module that glows through the pleats for an ambient desk or shelf light, or the No Light option as a display piece on its own. Available in green or red.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Air-filter style cone, designed and printed in-house"],
+        ["Colours", "Green or Red"],
+        ["Options", "With built-in LED light, or without"],
+        ["Top cap", "Colour name embossed"]
+      ],
+      "name_ar": "لمبة إضاءة بتصميم فلتر هواء السيارة",
+      "shortDesc_ar": "لمبة مطبوعة ثلاثية الأبعاد بتصميم فلتر هواء السيارة، مع خيار إضاءة LED مدمجة. اختر الأخضر أو الأحمر.",
+      "description_ar": "لمبة مخروطية بتصميم مطوي، صُممت وطُبعت بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D، مستوحاة من فلتر هواء السيارة. اسم اللون محفور على الغطاء العلوي الأسود. اختر خيار \"مع إضاءة\" لإضافة وحدة LED مدمجة تضيء عبر الطيات لإضاءة مكتبية أو رفوف هادئة، أو خيار \"بدون إضاءة\" كقطعة عرض فقط. متوفرة باللونين الأخضر أو الأحمر.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "مخروط بتصميم فلتر هواء — تصميم وطباعة داخلية"],
+        ["الألوان", "أخضر أو أحمر"],
+        ["الخيارات", "مع إضاءة LED مدمجة أو بدونها"],
+        ["الغطاء العلوي", "اسم اللون محفور عليه"]
+      ]
+    },
+    {
       "id": "custom-3d-artwork",
       "name": "Custom 3D Artwork",
       "brand": "Black Arrow",
