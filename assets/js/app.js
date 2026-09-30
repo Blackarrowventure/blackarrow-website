@@ -356,6 +356,7 @@ function initForm() {
         submitBtn.style.background = '#2e7d32';
         form.reset();
         successEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        pushLead('contact_form');
       } else {
         throw new Error(result.message || 'Submission failed');
       }
@@ -411,6 +412,12 @@ function initWeb3Forms() {
           btn.textContent = '✓ Subscribed';
         }
         if (btn) btn.style.background = '#2e7d32';
+        if (form.id === 'partner-form') {
+          pushLead('partner_inquiry');
+        } else {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'newsletter_signup', page_path: location.pathname });
+        }
       } catch (err) {
         if (errorEl) {
           errorEl.style.display = 'block';
@@ -601,6 +608,30 @@ function initServiceWorker() {
 }
 
 /* ──────────────────────────────────────────────
+   9c. LEAD EVENT TRACKING (GTM / GA4)
+   Pushes a standard GA4 'generate_lead' event so leads can be measured and
+   used for Google Ads conversion optimization, independent of which channel
+   (WhatsApp, phone, or the contact form) the visitor used.
+   ────────────────────────────────────────────── */
+function pushLead(leadType, extra) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({
+    event: 'generate_lead',
+    lead_type: leadType,
+    page_path: location.pathname,
+  }, extra || {}));
+}
+
+function initLeadTracking() {
+  document.addEventListener('click', (e) => {
+    const wa = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+    if (wa) { pushLead('whatsapp'); return; }
+    const tel = e.target.closest('a[href^="tel:"]');
+    if (tel) { pushLead('phone'); }
+  });
+}
+
+/* ──────────────────────────────────────────────
    9c. CLICKABLE CARDS
    ──────────────────────────────────────────────
    The "Who We Serve" cards were divs carrying onclick="location.href=..."
@@ -650,6 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initWhatsAppLinks();
   initFooterYear();
+  initLeadTracking();
 });
 
 // Expose WhatsApp functions globally for inline use

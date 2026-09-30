@@ -145,6 +145,42 @@
     var cart = getCart();
     cart[id] = (cart[id] || 0) + qty;
     saveCart(cart);
+    pushAddToCartEvent(id, qty);
+  }
+
+  /* GA4/GTM ecommerce event — best-effort: if the product isn't in the
+     local cache yet (fetchProducts() hasn't resolved), it's skipped rather
+     than guessed at. */
+  function pushAddToCartEvent(id, qty) {
+    try {
+      var parsed = parseLineId(id);
+      var product = __b3dProductsById[parsed.productId];
+      if (!product) return;
+      var variant = (parsed.variantIndex != null && product.variants) ? product.variants[parsed.variantIndex] : null;
+      var price = variant ? variant.price : currentPrice(product);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'add_to_cart',
+        ecommerce: {
+          currency: product.currency || 'SAR',
+          value: price * qty,
+          items: [{
+            item_id: parsed.productId,
+            item_name: L(product, 'name'),
+            item_variant: variant ? LVariant(variant) : undefined,
+            item_brand: product.brand,
+            item_category: product.category,
+            price: price,
+            quantity: qty
+          }]
+        }
+      });
+    } catch (e) {}
+  }
+
+  function pushLeadEvent(leadType) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'generate_lead', lead_type: leadType, page_path: location.pathname });
   }
 
   function setQty(id, qty) {
@@ -452,6 +488,18 @@
         add.textContent = T('js_added');
         setTimeout(function () { if (!add.disabled) add.textContent = label; }, 1200);
       }
+    });
+  }
+
+  /* Lead tracking (GTM / GA4) — delegated, so it works site-wide without
+     binding to every WhatsApp/phone link individually. */
+  if (!window.__b3dLeadTracking) {
+    window.__b3dLeadTracking = true;
+    document.addEventListener('click', function (e) {
+      var wa = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+      if (wa) { pushLeadEvent('whatsapp'); return; }
+      var tel = e.target.closest && e.target.closest('a[href^="tel:"]');
+      if (tel) { pushLeadEvent('phone'); }
     });
   }
 
