@@ -988,22 +988,29 @@
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
+      "variants": [
+        {"label": "Black", "label_ar": "أسود", "price": 15, "swatch": "#1a1a1a"},
+        {"label": "Red", "label_ar": "أحمر", "price": 15, "swatch": "#d92b2b"},
+        {"label": "White", "label_ar": "أبيض", "price": 15, "swatch": "#f2f2ec"}
+      ],
       "images": [
         "/3d/assets/images/products/gear-fidget-spinner-01.webp",
         "/3d/assets/images/products/gear-fidget-spinner-02.webp"
       ],
-      "shortDesc": "3D printed interlocking gear fidget spinner, designed and printed in-house.",
-      "description": "A fidget spinner made of interlocking gears, designed and 3D printed in-house at Black Arrow 3D. The gears mesh and spin together for a satisfying fidget toy and desk piece. Printed in PLA.",
+      "shortDesc": "3D printed interlocking gear fidget spinner, designed and printed in-house. Choose black, red or white.",
+      "description": "A fidget spinner made of interlocking gears, designed and 3D printed in-house at Black Arrow 3D. The gears mesh and spin together for a satisfying fidget toy and desk piece. Printed in PLA. Available in black, red or white.",
       "specs": [
         ["Material", "PLA"],
-        ["Design", "Interlocking gears — designed and printed in-house"]
+        ["Design", "Interlocking gears — designed and printed in-house"],
+        ["Colours", "Black, Red, White"]
       ],
       "name_ar": "دبوس دوران (فيدجت سبينر) بتصميم تروس متشابكة",
-      "shortDesc_ar": "دبوس دوران مطبوع ثلاثي الأبعاد بتصميم تروس متشابكة، تصميم وطباعة داخلية.",
-      "description_ar": "دبوس دوران (فيدجت سبينر) مكوّن من تروس متشابكة، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تتشابك التروس وتدور معًا لتمنح تجربة دوران ممتعة وقطعة عرض على المكتب. مطبوع من مادة PLA.",
+      "shortDesc_ar": "دبوس دوران مطبوع ثلاثي الأبعاد بتصميم تروس متشابكة، تصميم وطباعة داخلية. اختر الأسود أو الأحمر أو الأبيض.",
+      "description_ar": "دبوس دوران (فيدجت سبينر) مكوّن من تروس متشابكة، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تتشابك التروس وتدور معًا لتمنح تجربة دوران ممتعة وقطعة عرض على المكتب. مطبوع من مادة PLA. متوفر باللون الأسود أو الأحمر أو الأبيض.",
       "specs_ar": [
         ["الخامة", "PLA"],
-        ["التصميم", "تروس متشابكة — تصميم وطباعة داخلية"]
+        ["التصميم", "تروس متشابكة — تصميم وطباعة داخلية"],
+        ["الألوان", "أسود، أحمر، أبيض"]
       ]
     },
     {
