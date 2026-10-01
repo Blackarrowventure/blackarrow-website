@@ -651,16 +651,18 @@
       "category": "Filament",
       "price": 75,
       "currency": "SAR",
+      "onSale": true,
+      "salePrice": 70,
       "available": true,
       "variants": [
-        { "label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.webp", "sku": "PLA-BLACK-1" },
-        { "label": "Gray", "label_ar": "رمادي", "price": 75, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/flmnt-pla-gray.webp", "sku": "PLA-GRAY-1" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 75, "swatch": "#f5d020", "image": "/3d/assets/images/products/flmnt-pla-yellow.webp", "sku": "PLA-YELLOW-1" },
-        { "label": "Orange", "label_ar": "برتقالي", "price": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.webp", "sku": "PLA-ORANGE-1", "available": false },
-        { "label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.webp", "sku": "PLA-WHITE-1" },
-        { "label": "Sky Blue", "label_ar": "سماوي", "price": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.webp", "sku": "PLA-BLUE-1" },
-        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.webp", "sku": "PLA-GREEN-1" },
-        { "label": "Red", "label_ar": "أحمر", "price": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.webp", "sku": "PLA-RED-1" }
+        { "label": "Black", "label_ar": "أسود", "price": 70, "oldPrice": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.webp", "sku": "PLA-BLACK-1" },
+        { "label": "Gray", "label_ar": "رمادي", "price": 70, "oldPrice": 75, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/flmnt-pla-gray.webp", "sku": "PLA-GRAY-1" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 70, "oldPrice": 75, "swatch": "#f5d020", "image": "/3d/assets/images/products/flmnt-pla-yellow.webp", "sku": "PLA-YELLOW-1" },
+        { "label": "Orange", "label_ar": "برتقالي", "price": 70, "oldPrice": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.webp", "sku": "PLA-ORANGE-1", "available": false },
+        { "label": "White", "label_ar": "أبيض", "price": 70, "oldPrice": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.webp", "sku": "PLA-WHITE-1" },
+        { "label": "Sky Blue", "label_ar": "سماوي", "price": 70, "oldPrice": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.webp", "sku": "PLA-BLUE-1", "available": false },
+        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 70, "oldPrice": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.webp", "sku": "PLA-GREEN-1" },
+        { "label": "Red", "label_ar": "أحمر", "price": 70, "oldPrice": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.webp", "sku": "PLA-RED-1" }
       ],
       "images": [
         "/3d/assets/images/products/flmnt-pla-black.webp",
