@@ -979,6 +979,34 @@
       ]
     },
     {
+      "id": "gear-fidget-spinner",
+      "name": "3D Printed Gear Fidget Spinner",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gear-fidget-spinner-01.webp",
+        "/3d/assets/images/products/gear-fidget-spinner-02.webp"
+      ],
+      "shortDesc": "3D printed interlocking gear fidget spinner, designed and printed in-house.",
+      "description": "A fidget spinner made of interlocking gears, designed and 3D printed in-house at Black Arrow 3D. The gears mesh and spin together for a satisfying fidget toy and desk piece. Printed in PLA.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Interlocking gears — designed and printed in-house"]
+      ],
+      "name_ar": "دبوس دوران (فيدجت سبينر) بتصميم تروس متشابكة",
+      "shortDesc_ar": "دبوس دوران مطبوع ثلاثي الأبعاد بتصميم تروس متشابكة، تصميم وطباعة داخلية.",
+      "description_ar": "دبوس دوران (فيدجت سبينر) مكوّن من تروس متشابكة، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تتشابك التروس وتدور معًا لتمنح تجربة دوران ممتعة وقطعة عرض على المكتب. مطبوع من مادة PLA.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "تروس متشابكة — تصميم وطباعة داخلية"]
+      ]
+    },
+    {
       "id": "anime-straw-hat-keychain",
       "name": "Anime Straw Hat Keychain",
       "brand": "Black Arrow",
