@@ -908,6 +908,22 @@
     return appliedCoupon ? Math.min(appliedCoupon.amount, lastSubtotal) : 0;
   }
 
+  // Sequential order numbers (BAV-3D-5001, ...) come from a Supabase sequence
+  // so two checkouts can't collide. If Supabase is unreachable, falls back to
+  // a timestamp-based id so checkout never blocks on this.
+  function nextOrderId() {
+    var cfg = window.BLACK_ARROW_SUPABASE_CONFIG;
+    if (!cfg || !cfg.url || !cfg.anonKey) return Promise.resolve('BAV-3D-' + Date.now());
+    return fetch(cfg.url + '/rest/v1/rpc/next_order_id', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: cfg.anonKey, Authorization: 'Bearer ' + cfg.anonKey },
+      body: '{}'
+    }).then(function (r) {
+      if (!r.ok) throw new Error('rpc');
+      return r.json();
+    }).catch(function () { return 'BAV-3D-' + Date.now(); });
+  }
+
   function initCoupon(summaryEl) {
     var box = summaryEl && summaryEl.querySelector('[data-b3d-coupon]');
     if (!box) return;
@@ -1122,6 +1138,7 @@
     var params = {
       to_email: toEmail,
       to_name: (field('customer_first_name') + ' ' + field('customer_last_name')).trim(),
+      order_id: field('order_id'),
       order_summary: summaryField ? summaryField.value : '',
       shipping_method: shipField ? shipField.value : '',
       payment_method: payField ? payField.value : '',
@@ -1158,6 +1175,7 @@
       row.textContent = line;
       linesEl.appendChild(row);
     });
+    view.querySelector('[data-b3d-thanks-order-id]').textContent = val('[data-b3d-order-id]');
     view.querySelector('[data-b3d-thanks-payment]').textContent = val('[data-b3d-order-payment]');
     view.querySelector('[data-b3d-thanks-shipping]').textContent = val('[data-b3d-shipping-field]');
     view.querySelector('[data-b3d-thanks-total]').textContent = grand;
@@ -1178,6 +1196,42 @@
     if (layout) layout.style.display = 'none';
     view.hidden = false;
     window.scrollTo(0, 0);
+    renderGoogleCustomerReviewsOptIn(val('[data-b3d-order-id]'), val('[name="email"]'));
+  }
+
+  // Google Customer Reviews opt-in: shows Google's own survey prompt after
+  // checkout so customers can agree to be asked for a seller rating later.
+  // Loaded lazily, only once an order actually succeeds.
+  var GOOGLE_MERCHANT_ID = 5863134037;
+
+  function renderGoogleCustomerReviewsOptIn(orderId, email) {
+    if (!orderId || !email) return;
+    var deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 5); // matches the site's "4-5 business days" shipping copy
+    var yyyy = deliveryDate.getFullYear();
+    var mm = String(deliveryDate.getMonth() + 1).padStart(2, '0');
+    var dd = String(deliveryDate.getDate()).padStart(2, '0');
+
+    window.renderOptIn = function () {
+      window.gapi.load('surveyoptin', function () {
+        window.gapi.surveyoptin.render({
+          merchant_id: GOOGLE_MERCHANT_ID,
+          order_id: orderId,
+          email: email,
+          delivery_country: 'SA',
+          estimated_delivery_date: yyyy + '-' + mm + '-' + dd
+        });
+      });
+    };
+
+    if (window.gapi && window.gapi.surveyoptin) { window.renderOptIn(); return; }
+    if (document.getElementById('b3d-gcr-optin-script')) return;
+    var script = document.createElement('script');
+    script.id = 'b3d-gcr-optin-script';
+    script.src = 'https://apis.google.com/js/platform.js?onload=renderOptIn';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
   }
 
   function initCheckoutSubmit(form) {
@@ -1195,7 +1249,11 @@
       if (errorEl) errorEl.hidden = true;
       if (successEl) successEl.hidden = true;
 
-      redeemAppliedCoupon().then(function (r) {
+      nextOrderId().then(function (orderId) {
+        var orderIdField = form.querySelector('[data-b3d-order-id]');
+        if (orderIdField) orderIdField.value = orderId;
+        return redeemAppliedCoupon();
+      }).then(function (r) {
         if (!r.ok) {
           appliedCoupon = null;
           try { sessionStorage.removeItem(COUPON_KEY); } catch (e) {}
