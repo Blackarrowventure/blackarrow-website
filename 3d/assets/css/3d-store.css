@@ -807,10 +807,6 @@ header .navbar__pill-badge { border-color: #000; }
 
 .navbar__toggle svg { width: 24px; height: 24px; }
 
-/* Hidden on desktop (>1150px), where the AR/EN pill already lives in
-   .navbar__right); shown only inside the mobile hamburger panel. */
-.navbar__lang-mobile-item { display: none; }
-
 @media (max-width: 1150px) {
   .navbar__toggle { display: inline-flex; }
 
@@ -860,16 +856,6 @@ header .navbar__pill-badge { border-color: #000; }
     cursor: pointer;
   }
 
-  /* The AR/EN language pill is relocated here by initMobileLangItem() —
-     reset its pill look (black background, pill radius) back to a plain
-     list row matching the other panel links. */
-  .navbar__lang-mobile-item {
-    display: block;
-    background: transparent;
-    border-radius: 0;
-    padding: 0;
-  }
-
   .navbar__links.is-open .navbar__dropdown-menu {
     position: static;
     box-shadow: none;
@@ -895,6 +881,20 @@ header .navbar__pill-badge { border-color: #000; }
   .navbar__pill { padding: 8px 11px; }
   .navbar__brand-text .name { font-size: 1rem; }
   .navbar__brand-icon { width: 28px; }
+  .navbar__right { gap: 6px; }
+
+  /* The Profile/Cart pills carry real icons, so icon-only still reads
+     clearly at 44px; "AR"/"EN" is just two letters, so it's kept a notch
+     smaller here to leave room for Profile + Cart without overflowing a
+     360-390px phone. */
+  .navbar__right .navbar__pill--lang {
+    min-width: 34px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    justify-content: center;
+    font-size: .72rem;
+  }
 }
 
 /* ==============================================
