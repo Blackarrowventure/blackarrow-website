@@ -3706,6 +3706,18 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   .contact-layout { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; gap: 32px; }
   .footer__bottom { flex-direction: column; text-align: center; }
+
+  /* .footer__legal never wrapped its links (Privacy Policy, Terms, Returns,
+     Reviews, ...) onto multiple lines, so on a phone they were forced onto
+     one row far wider than the screen. html{overflow-x:hidden} clips that
+     instead of letting the page scroll sideways to reveal it, so the row -
+     and the copyright line sharing this flex column - just looked cut off. */
+  .footer__legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+
   .wa-banner__inner { flex-direction: column; text-align: center; }
   .form-row { grid-template-columns: 1fr; }
   .aims-grid { grid-template-columns: 1fr; }
