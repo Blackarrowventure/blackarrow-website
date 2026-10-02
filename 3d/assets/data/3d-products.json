@@ -165,7 +165,7 @@
       "preorder": true,
       "variants": [
         { "label": "Standalone", "label_ar": "منفردة", "price": 3699, "image": "/3d/assets/images/products/bambu-a2l-01.webp" },
-        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4650, "image": "/3d/assets/images/products/bambu-a2l-04.webp" }
+        { "label": "Combo (with AMS)", "label_ar": "باقة (مع AMS)", "price": 4200, "image": "/3d/assets/images/products/bambu-a2l-04.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a2l-01.webp",
