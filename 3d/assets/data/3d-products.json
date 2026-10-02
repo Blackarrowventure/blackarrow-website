@@ -42,23 +42,19 @@
       "brand": "Bambu Lab",
       "category": "3D Printers",
       "printerType": "FDM",
-      "price": 1699,
+      "price": 2799,
       "currency": "SAR",
       "available": true,
       "preorder": true,
-      "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 1699, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
-        { "label": "Combo (with AMS lite)", "label_ar": "باقة (مع AMS lite)", "price": 2799, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
-      ],
       "images": [
-        "/3d/assets/images/products/bambu-a1-mini-main.webp",
         "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp",
+        "/3d/assets/images/products/bambu-a1-mini-main.webp",
         "/3d/assets/images/products/bambu-a1-mini-lifestyle.webp",
         "/3d/assets/images/products/bambu-a1-mini-nozzle-light.webp",
         "/3d/assets/images/products/bambu-a1-mini-screen.webp"
       ],
-      "shortDesc": "Compact, beginner-friendly printer with optional multicolor printing.",
-      "description": "The Bambu Lab A1 mini is a compact FDM 3D printer built for speed and reliability, with an all-metal hot end, hardened steel extruder gears, and a stainless steel nozzle rated to 300°C. It supports automatic bed leveling, a filament run-out sensor, filament odometry, power-loss recovery, and filament tangle detection. Available on its own or as a combo bundled with the AMS lite unit for multi-color and multi-material printing.",
+      "shortDesc": "Compact, beginner-friendly printer with multicolor printing via its included AMS lite.",
+      "description": "The Bambu Lab A1 mini is a compact FDM 3D printer built for speed and reliability, with an all-metal hot end, hardened steel extruder gears, and a stainless steel nozzle rated to 300°C. It supports automatic bed leveling, a filament run-out sensor, filament odometry, power-loss recovery, and filament tangle detection. It ships as a combo bundled with the AMS lite unit for multi-color and multi-material printing.",
       "specs": [
         ["Build Volume", "180 x 180 x 180 mm"],
         ["Chassis", "Steel + Extruded Aluminum"],
@@ -78,8 +74,8 @@
       ],
       "compatibility": ["Bambu Textured PEI Plate", "Bambu Smooth PEI Plate", "Bambu Dual-Texture PEI Plate", "AMS lite (combo)"],
       "name_ar": "بامبو لاب A1 ميني",
-      "shortDesc_ar": "طابعة مدمجة وسهلة للمبتدئين مع طباعة اختيارية متعددة الألوان.",
-      "description_ar": "طابعة بامبو لاب A1 ميني هي طابعة FDM ثلاثية الأبعاد مدمجة، صُممت للسرعة والموثوقية، برأس طباعة معدني بالكامل، وتروس بثق من الفولاذ المقسّى، وفوهة من الفولاذ المقاوم للصدأ تتحمل حرارة تصل إلى 300 درجة مئوية. تدعم معايرة السرير التلقائية، وحساس نفاد الخيط، وقياس مسافة الخيط، واستعادة الطباعة عند انقطاع الكهرباء، وحساس تشابك الخيط. متوفرة منفردة أو كباقة مع وحدة AMS lite للطباعة متعددة الألوان والمواد.",
+      "shortDesc_ar": "طابعة مدمجة وسهلة للمبتدئين، بطباعة متعددة الألوان عبر وحدة AMS lite المرفقة.",
+      "description_ar": "طابعة بامبو لاب A1 ميني هي طابعة FDM ثلاثية الأبعاد مدمجة، صُممت للسرعة والموثوقية، برأس طباعة معدني بالكامل، وتروس بثق من الفولاذ المقسّى، وفوهة من الفولاذ المقاوم للصدأ تتحمل حرارة تصل إلى 300 درجة مئوية. تدعم معايرة السرير التلقائية، وحساس نفاد الخيط، وقياس مسافة الخيط، واستعادة الطباعة عند انقطاع الكهرباء، وحساس تشابك الخيط. تُباع كباقة مع وحدة AMS lite للطباعة متعددة الألوان والمواد.",
       "specs_ar": [
         ["حجم الطباعة", "180 × 180 × 180 مم"],
         ["الهيكل", "فولاذ + ألمنيوم مبثوق"],
@@ -105,16 +101,12 @@
       "brand": "Bambu Lab",
       "category": "3D Printers",
       "printerType": "FDM",
-      "price": 1600,
+      "price": 3400,
       "currency": "SAR",
       "available": true,
-      "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 1600, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
-        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3400, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
-      ],
       "images": [
-        "/3d/assets/images/products/bambu-a1-01.webp",
         "/3d/assets/images/products/bambu-a1-02.webp",
+        "/3d/assets/images/products/bambu-a1-01.webp",
         "/3d/assets/images/products/bambu-a1-03.jpg",
         "/3d/assets/images/products/bambu-a1-04.jpg",
         "/3d/assets/images/products/bambu-a1-05.jpg",
