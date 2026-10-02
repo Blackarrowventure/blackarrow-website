@@ -29,10 +29,13 @@ CATEGORY_SLUGS = {
 BLOG_SLUGS = [
     '3d-printer-maintenance-guide',
     'bambu-lab-a1-vs-a1-mini-vs-a2l',
+    'bambu-lab-vs-creality-vs-snapmaker',
     'best-3d-printer-for-beginners-saudi-arabia',
     'buy-3d-printer-saudi-arabia-price-guide',
+    'custom-3d-printing-cost-saudi-arabia',
     'multi-color-3d-printing-explained',
     'pla-vs-petg-vs-abs-filament-guide',
+    '3d-printed-gifts-home-decor-saudi-arabia',
 ]
 
 BEGIN_MARK = '  <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->\n'
