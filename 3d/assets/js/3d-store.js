@@ -2053,6 +2053,42 @@
     'Snapmaker': ['snapmaker.svg', 125, 24]
   };
 
+  function initMobileNav() {
+    var toggle = document.querySelector('[data-b3d-nav-toggle]');
+    var links = document.getElementById('b3d-navbar-links');
+    if (!toggle || !links) return;
+
+    function close() {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    function open() {
+      links.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle.addEventListener('click', function () {
+      if (links.classList.contains('is-open')) close(); else open();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!links.classList.contains('is-open')) return;
+      if (links.contains(e.target) || toggle.contains(e.target)) return;
+      close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    // A real navigation (not the Brands <details> toggle) closes the panel
+    // the same way clicking outside it would.
+    links.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]');
+      if (a) close();
+    });
+  }
+
   function initBrandNavMenu() {
     var menu = document.querySelector('[data-b3d-brand-menu]');
     if (!menu) return;
@@ -2081,6 +2117,7 @@
     initAnnouncementBar();
     populateHeroSlider().then(initPromoSlider);
     initBrandNavMenu();
+    initMobileNav();
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
     if (pickerGrid) renderPrinterPicker(pickerGrid);

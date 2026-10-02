@@ -781,8 +781,78 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .navbar__dropdown-menu a:hover { background: rgba(245,158,11,.1); color: var(--clr-accent-dark); }
 
+.navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navbar__toggle svg { width: 24px; height: 24px; }
+
 @media (max-width: 1150px) {
-  .navbar__links { display: none !important; }
+  .navbar__toggle { display: inline-flex; }
+
+  /* Below 1150px .navbar__links (3D Printers, Filaments, Accessories, 3D
+     Artwork, Brands, Blog) had no replacement, so phones and tablets lost
+     all category navigation from the header. .navbar__toggle opens it as a
+     dropdown panel instead of hiding it outright. */
+  .navbar__links {
+    display: none !important;
+  }
+
+  /* header .navbar is always black with white link text (not just on a
+     hero overlay), so the dropdown panel stays on that same dark background
+     rather than the light .navbar__dropdown-menu styling - a white panel
+     here would make every link white-on-white and invisible. */
+  .navbar__links.is-open {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    background: #000;
+    padding: 8px 16px 16px;
+    border-top: 1px solid rgba(245,158,11,.4);
+    box-shadow: 0 16px 28px rgba(0,0,0,.5);
+    z-index: 1000;
+    max-height: calc(100vh - 100%);
+    overflow-y: auto;
+  }
+
+  .navbar__links.is-open > li > a,
+  .navbar__links.is-open .navbar__dropdown > summary {
+    display: block;
+    padding: 13px 8px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .navbar__links.is-open .navbar__dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 8px 16px;
+  }
+
+  .navbar__links.is-open .navbar__dropdown-menu a {
+    color: #fff;
+  }
+
+  .navbar__links.is-open .navbar__dropdown-menu a:hover {
+    background: rgba(245,158,11,.15);
+    color: var(--clr-accent);
+  }
 }
 
 @media (max-width: 560px) {
