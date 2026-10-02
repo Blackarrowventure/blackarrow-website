@@ -1066,7 +1066,7 @@
   <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->
   <url>
     <loc>https://www.blackarrowksa.com/3d/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/"/>
@@ -1075,7 +1075,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/"/>
@@ -1084,7 +1084,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/"/>
@@ -1093,7 +1093,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/"/>
@@ -1102,13 +1102,13 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/compare/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/"/>
@@ -1117,7 +1117,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/"/>
@@ -1126,7 +1126,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/3d-printers/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/3d-printers/"/>
@@ -1135,7 +1135,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/3d-printers/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/3d-printers/"/>
@@ -1144,7 +1144,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/filament/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/filament/"/>
@@ -1153,7 +1153,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/filament/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/filament/"/>
@@ -1162,7 +1162,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/accessories/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/accessories/"/>
@@ -1171,7 +1171,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/accessories/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/accessories/"/>
@@ -1180,7 +1180,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/3d-artwork/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/3d-artwork/"/>
@@ -1189,7 +1189,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/3d-artwork/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/3d-artwork/"/>
@@ -1198,7 +1198,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/brands/bambu-lab/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/brands/bambu-lab/"/>
@@ -1207,7 +1207,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/brands/bambu-lab/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/brands/bambu-lab/"/>
@@ -1216,7 +1216,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-a1-mini/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a1-mini/"/>
@@ -1225,7 +1225,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-a1-mini/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a1-mini/"/>
@@ -1234,7 +1234,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-a1/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a1/"/>
@@ -1243,7 +1243,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-a1/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a1/"/>
@@ -1252,7 +1252,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-a2l/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a2l/"/>
@@ -1261,7 +1261,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-a2l/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-a2l/"/>
@@ -1270,7 +1270,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-h2c-combo/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-h2c-combo/"/>
@@ -1279,7 +1279,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-h2c-combo/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-h2c-combo/"/>
@@ -1288,7 +1288,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-p2s/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-p2s/"/>
@@ -1297,7 +1297,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-p2s/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-p2s/"/>
@@ -1306,7 +1306,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/creality-sparkx-i7/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/creality-sparkx-i7/"/>
@@ -1315,7 +1315,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/creality-sparkx-i7/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/creality-sparkx-i7/"/>
@@ -1324,7 +1324,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/elegoo-centauri-carbon-2/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/elegoo-centauri-carbon-2/"/>
@@ -1333,7 +1333,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/elegoo-centauri-carbon-2/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/elegoo-centauri-carbon-2/"/>
@@ -1342,7 +1342,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/snapmaker-u1/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/snapmaker-u1/"/>
@@ -1351,7 +1351,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/snapmaker-u1/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/snapmaker-u1/"/>
@@ -1360,7 +1360,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/anycubic-kobra-3-max/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/anycubic-kobra-3-max/"/>
@@ -1369,7 +1369,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/anycubic-kobra-3-max/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/anycubic-kobra-3-max/"/>
@@ -1378,7 +1378,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/filament-pla-1kg/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/filament-pla-1kg/"/>
@@ -1387,7 +1387,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/filament-pla-1kg/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/filament-pla-1kg/"/>
@@ -1396,7 +1396,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/"/>
@@ -1405,7 +1405,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-hotend-a1-series/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/"/>
@@ -1414,7 +1414,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/oni-mask-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/oni-mask-ps5-controller-stand/"/>
@@ -1423,7 +1423,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/oni-mask-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/oni-mask-ps5-controller-stand/"/>
@@ -1432,7 +1432,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/straw-hat-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/straw-hat-ps5-controller-stand/"/>
@@ -1441,7 +1441,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/straw-hat-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/straw-hat-ps5-controller-stand/"/>
@@ -1450,7 +1450,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/air-filter-style-lamp/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/air-filter-style-lamp/"/>
@@ -1459,7 +1459,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/air-filter-style-lamp/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/air-filter-style-lamp/"/>
@@ -1468,7 +1468,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/custom-3d-artwork/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/custom-3d-artwork/"/>
@@ -1477,7 +1477,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/custom-3d-artwork/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/custom-3d-artwork/"/>
@@ -1486,7 +1486,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/gear-fidget-spinner/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/gear-fidget-spinner/"/>
@@ -1495,7 +1495,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/gear-fidget-spinner/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/gear-fidget-spinner/"/>
@@ -1504,7 +1504,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/anime-straw-hat-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/anime-straw-hat-keychain/"/>
@@ -1513,7 +1513,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/anime-straw-hat-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/anime-straw-hat-keychain/"/>
@@ -1522,7 +1522,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/mustang-gt-3d-model/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/mustang-gt-3d-model/"/>
@@ -1531,7 +1531,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/mustang-gt-3d-model/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/mustang-gt-3d-model/"/>
@@ -1540,7 +1540,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/saudi-map-hanging-decor/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-map-hanging-decor/"/>
@@ -1549,7 +1549,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/saudi-map-hanging-decor/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-map-hanging-decor/"/>
@@ -1558,7 +1558,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/saudi-map-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-map-keychain/"/>
@@ -1567,7 +1567,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/saudi-map-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-map-keychain/"/>
@@ -1576,7 +1576,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/saudi-palm-swords-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-palm-swords-keychain/"/>
@@ -1585,7 +1585,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/saudi-palm-swords-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-palm-swords-keychain/"/>
@@ -1594,7 +1594,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/saudi-riyal-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-riyal-keychain/"/>
@@ -1603,7 +1603,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/saudi-riyal-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/saudi-riyal-keychain/"/>
@@ -1612,7 +1612,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/naruto-portrait-plaque/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/naruto-portrait-plaque/"/>
@@ -1621,7 +1621,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/naruto-portrait-plaque/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/naruto-portrait-plaque/"/>
@@ -1630,7 +1630,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/naruto-leaf-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/naruto-leaf-keychain/"/>
@@ -1639,7 +1639,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/naruto-leaf-keychain/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/naruto-leaf-keychain/"/>
@@ -1648,7 +1648,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/infinity-cube-fidget-toy/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/infinity-cube-fidget-toy/"/>
@@ -1657,7 +1657,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/infinity-cube-fidget-toy/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/infinity-cube-fidget-toy/"/>
@@ -1666,7 +1666,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/national-day-key-holder/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/national-day-key-holder/"/>
@@ -1675,7 +1675,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/national-day-key-holder/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/national-day-key-holder/"/>
@@ -1684,7 +1684,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/green-knit-cap/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/green-knit-cap/"/>
@@ -1693,7 +1693,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/green-knit-cap/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/green-knit-cap/"/>
@@ -1702,7 +1702,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/question-block-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/question-block-ps5-controller-stand/"/>
@@ -1711,7 +1711,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/question-block-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/question-block-ps5-controller-stand/"/>
@@ -1720,7 +1720,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/fc27-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/fc27-ps5-controller-stand/"/>
@@ -1729,7 +1729,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/fc27-ps5-controller-stand/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/fc27-ps5-controller-stand/"/>
@@ -1738,7 +1738,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
@@ -1747,7 +1747,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/3d-printing-service-saudi-arabia/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/"/>
@@ -1756,7 +1756,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shipping/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shipping/"/>
@@ -1765,7 +1765,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shipping/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shipping/"/>
@@ -1774,7 +1774,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
@@ -1783,7 +1783,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/3d-printer-maintenance-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/3d-printer-maintenance-guide/"/>
@@ -1792,7 +1792,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
@@ -1801,7 +1801,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/"/>
@@ -1810,7 +1810,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
@@ -1819,7 +1819,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/best-3d-printer-for-beginners-saudi-arabia/"/>
@@ -1828,7 +1828,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
@@ -1837,7 +1837,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/buy-3d-printer-saudi-arabia-price-guide/"/>
@@ -1846,7 +1846,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
@@ -1855,7 +1855,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/multi-color-3d-printing-explained/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/multi-color-3d-printing-explained/"/>
@@ -1864,7 +1864,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>
@@ -1873,7 +1873,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/blog/pla-vs-petg-vs-abs-filament-guide/"/>

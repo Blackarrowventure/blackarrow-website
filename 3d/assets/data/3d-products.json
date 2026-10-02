@@ -105,12 +105,12 @@
       "brand": "Bambu Lab",
       "category": "3D Printers",
       "printerType": "FDM",
-      "price": 2699,
+      "price": 1600,
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Standalone", "label_ar": "منفردة", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
-        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3530, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
+        { "label": "Standalone", "label_ar": "منفردة", "price": 1600, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
+        { "label": "Combo (with AMS Lite)", "label_ar": "باقة (مع AMS Lite)", "price": 3400, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-01.webp",
