@@ -589,6 +589,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .b3d-cart-item__name { color: #fff; font-weight: 600; font-size: .95rem; margin-bottom: 4px; }
 .b3d-cart-item__cat { color: rgba(255,255,255,.5); font-size: .78rem; }
+.b3d-cart-item__preorder { color: var(--clr-accent); font-weight: 700; }
 .b3d-cart-item__price { color: #fff; font-weight: 700; font-family: var(--ff-heading); white-space: nowrap; }
 .b3d-cart-item__remove { background: none; border: none; color: rgba(255,255,255,.65); cursor: pointer; font-size: .78rem; text-decoration: underline; margin-top: 6px; }
 .b3d-cart-item__remove:hover { color: #f87171; }
@@ -1557,6 +1558,22 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 .b3d-shipping-option input { width: auto !important; margin: 0 !important; accent-color: var(--clr-accent); }
 
 /* Bank transfer detail card — shows real account info once configured */
+.b3d-preorder-notice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: rgba(245,158,11,.08);
+  border: 1px solid rgba(245,158,11,.3);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  color: rgba(255,255,255,.85);
+  font-size: .85rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.b3d-preorder-notice svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--clr-accent); margin-top: 1px; }
+.b3d-preorder-notice strong { color: #fff; }
+
 .b3d-bank-details { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
 .b3d-bank-details__row {
   display: flex;

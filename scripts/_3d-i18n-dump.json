@@ -16,8 +16,8 @@
     "ar": "قريباً"
   },
   "faq_a2": {
-    "en": "Cash on Delivery and Bank Transfer are available.",
-    "ar": "الدفع عند الاستلام والتحويل البنكي متاحة."
+    "en": "Bank Transfer is available.",
+    "ar": "التحويل البنكي متاح."
   },
   "faq_a5": {
     "en": "3D printed items are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability (including pre-order status) is shown on each product page.",
@@ -292,8 +292,8 @@
     "ar": "دعم عبر واتساب"
   },
   "hub_trust_4": {
-    "en": "Cash on delivery & bank transfer",
-    "ar": "الدفع عند الاستلام والتحويل البنكي"
+    "en": "Bank transfer available",
+    "ar": "التحويل البنكي متاح"
   },
   "hub_why_h2": {
     "en": "Real Printers, Real Support, Real Warranty",
@@ -420,8 +420,8 @@
     "ar": "توصيل لجميع مناطق السعودية"
   },
   "trust_payment": {
-    "en": "Cash on delivery & bank transfer",
-    "ar": "الدفع عند الاستلام والتحويل البنكي"
+    "en": "Bank transfer available",
+    "ar": "التحويل البنكي متاح"
   },
   "trust_support": {
     "en": "Local support",

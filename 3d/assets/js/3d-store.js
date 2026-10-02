@@ -1030,11 +1030,11 @@
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
-    var purchasable = method === 'cod' || method === 'bank';
+    var purchasable = method === 'bank';
     checkout.hidden = !purchasable;
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
-      if (payField) payField.value = method === 'cod' ? 'Cash on Delivery' : 'Bank Transfer';
+      if (payField) payField.value = 'Bank Transfer';
     }
     updateOrderTotals();
   }
@@ -1303,6 +1303,7 @@
 
       var subtotal = 0;
       var summaryLines = [];
+      var hasPreorder = false;
       listEl.innerHTML = ids.map(function (id) {
         var parsed = parseLineId(id);
         var p = byId[parsed.productId];
@@ -1312,6 +1313,7 @@
         var unit = variant ? variant.price : ((p.onSale && p.salePrice != null) ? p.salePrice : p.price);
         var lineTotal = unit * qty;
         subtotal += lineTotal;
+        if (p.preorder) hasPreorder = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
         summaryLines.push(displayName + ' x' + qty + ' — ' + lineTotal.toLocaleString('en-US') + ' ' + (p.currency || 'SAR'));
         return '' +
@@ -1319,7 +1321,7 @@
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
             '<div>' +
               '<div class="b3d-cart-item__name">' + displayName + '</div>' +
-              '<div class="b3d-cart-item__cat">' + categoryLabel(p.category) + '</div>' +
+              '<div class="b3d-cart-item__cat">' + categoryLabel(p.category) + (p.preorder ? ' · <span class="b3d-cart-item__preorder">' + T('js_pre_order') + '</span>' : '') + '</div>' +
               '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">' + T('js_remove') + '</button>' +
             '</div>' +
             '<div class="b3d-qty">' +
@@ -1332,6 +1334,9 @@
       }).join('');
 
       summaryEl.querySelector('[data-cart-subtotal]').innerHTML = money(subtotal, 'SAR');
+
+      var preorderNotice = document.querySelector('[data-b3d-preorder-notice]');
+      if (preorderNotice) preorderNotice.hidden = !hasPreorder;
 
       lastSubtotal = subtotal;
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
@@ -1357,18 +1362,24 @@
 
   function initPaymentMethods(root) {
     if (!root) return;
-    root.querySelectorAll('[data-pm]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        if (el.hasAttribute('disabled')) return;
-        root.querySelectorAll('[data-pm]').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
-        el.setAttribute('aria-pressed', 'true');
-        var method = el.getAttribute('data-pm');
-        root.querySelectorAll('[data-pm-detail]').forEach(function (d) {
-          d.hidden = d.getAttribute('data-pm-detail') !== method;
-        });
-        updateCheckoutFields(method);
+    var methods = root.querySelectorAll('[data-pm]');
+    function select(el) {
+      if (el.hasAttribute('disabled')) return;
+      methods.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      el.setAttribute('aria-pressed', 'true');
+      var method = el.getAttribute('data-pm');
+      root.querySelectorAll('[data-pm-detail]').forEach(function (d) {
+        d.hidden = d.getAttribute('data-pm-detail') !== method;
       });
+      updateCheckoutFields(method);
+    }
+    methods.forEach(function (el) {
+      el.addEventListener('click', function () { select(el); });
     });
+    // Bank Transfer is the only method now, so there's no real "choice" to
+    // make — pre-select it instead of hiding the checkout form behind an
+    // extra click.
+    if (methods.length === 1) select(methods[0]);
   }
 
   /* ---------------- Product detail ---------------- */
