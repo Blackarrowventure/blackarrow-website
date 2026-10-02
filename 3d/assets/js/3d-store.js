@@ -2089,6 +2089,24 @@
     });
   }
 
+  // Below 1150px .navbar__right (AR/EN pill + Profile + Cart) is too wide
+  // for the viewport once the cart badge shows, so the language pill moves
+  // into the hamburger panel instead. It's relocated (not rebuilt) so its
+  // real href/click-handler comes with it — on generated Arabic pages the
+  // pill is a plain link to the English URL counterpart (no JS toggle), so
+  // reimplementing it here would silently break that link.
+  function initMobileLangItem() {
+    var right = document.querySelector('.navbar__right');
+    var links = document.getElementById('b3d-navbar-links');
+    if (!right || !links) return;
+    var langPill = right.querySelector('.navbar__pill:not([aria-label])');
+    if (!langPill || links.contains(langPill)) return;
+    langPill.classList.add('navbar__lang-mobile-item');
+    var li = document.createElement('li');
+    li.appendChild(langPill);
+    links.appendChild(li);
+  }
+
   function initBrandNavMenu() {
     var menu = document.querySelector('[data-b3d-brand-menu]');
     if (!menu) return;
@@ -2118,6 +2136,7 @@
     populateHeroSlider().then(initPromoSlider);
     initBrandNavMenu();
     initMobileNav();
+    initMobileLangItem();
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
     if (pickerGrid) renderPrinterPicker(pickerGrid);

@@ -704,12 +704,20 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
+  position: relative;
 }
 
 .navbar__pill:hover { background: #000; }
 .navbar__pill svg { width: 15px; height: 15px; }
 
+/* Absolutely positioned so the item-count badge overlays the pill instead
+   of adding to its flex width — on mobile the pill is already at its
+   tightest fit, and a badge that widens the pill on add-to-cart was
+   pushing the whole cart button off the right edge of the screen. */
 .navbar__pill-badge {
+  position: absolute;
+  top: -5px;
+  inset-inline-end: -5px;
   background: var(--clr-accent);
   color: #1a1a1a;
   min-width: 16px;
@@ -721,7 +729,10 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   align-items: center;
   justify-content: center;
   padding: 0 4px;
+  border: 2px solid #1a1a1a;
 }
+
+header .navbar__pill-badge { border-color: #000; }
 
 /* Same [hidden]-vs-class specificity tie as the old cart badge — an
    author class rule beats the UA [hidden] rule regardless of order,
@@ -796,6 +807,10 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
 
 .navbar__toggle svg { width: 24px; height: 24px; }
 
+/* Hidden on desktop (>1150px), where the AR/EN pill already lives in
+   .navbar__right); shown only inside the mobile hamburger panel. */
+.navbar__lang-mobile-item { display: none; }
+
 @media (max-width: 1150px) {
   .navbar__toggle { display: inline-flex; }
 
@@ -830,11 +845,29 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   }
 
   .navbar__links.is-open > li > a,
+  .navbar__links.is-open > li > button,
   .navbar__links.is-open .navbar__dropdown > summary {
     display: block;
+    width: 100%;
+    text-align: start;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
     padding: 13px 8px;
     font-size: 1rem;
     border-bottom: 1px solid rgba(255,255,255,.1);
+    cursor: pointer;
+  }
+
+  /* The AR/EN language pill is relocated here by initMobileLangItem() —
+     reset its pill look (black background, pill radius) back to a plain
+     list row matching the other panel links. */
+  .navbar__lang-mobile-item {
+    display: block;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
   }
 
   .navbar__links.is-open .navbar__dropdown-menu {
