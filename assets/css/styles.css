@@ -118,6 +118,13 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  /* body already has overflow-x:hidden, but html itself does not - so
+     html's own layout box can still grow past the viewport (e.g. to fit
+     an off-screen marquee track's full content width), and since html's
+     box is what position:fixed elements without a transformed ancestor
+     are positioned against, every fixed element (like .wa-float) ends up
+     offset by however much html overflowed, landing off-screen on mobile. */
+  overflow-x: hidden;
 }
 
 [lang="ar"], [dir="rtl"] { font-family: var(--ff-ar); }
