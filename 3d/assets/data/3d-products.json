@@ -477,11 +477,11 @@
       "brand": "Anycubic",
       "category": "3D Printers",
       "printerType": "FDM",
-      "price": 3090,
+      "price": 2999,
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "Anycubic Kobra 3 Max", "label_ar": "أنيكيوبك كوبرا 3 ماكس", "price": 3090, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-1", "image": "/3d/assets/images/products/anycubic-kobra3max-01.webp" },
+        { "label": "Anycubic Kobra 3 Max", "label_ar": "أنيكيوبك كوبرا 3 ماكس", "price": 2999, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-1", "image": "/3d/assets/images/products/anycubic-kobra3max-01.webp" },
         { "label": "Anycubic Kobra 3 Max Combo", "label_ar": "أنيكيوبك كوبرا 3 ماكس كومبو", "price": 3920, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-2", "image": "/3d/assets/images/products/anycubic-kobra3max-combo.webp" }
       ],
       "images": [
