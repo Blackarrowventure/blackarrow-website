@@ -76,6 +76,10 @@ module.exports = async (req, res) => {
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
   const priced = priceCart(body.items);
   if (!priced) return res.status(400).json({ error: 'invalid_cart' });
+  const shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
+  if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
+  priced.lines.push({ name: body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping', amount_cents: shippingCents, quantity: 1 });
+  priced.total_cents += shippingCents;
 
   const billing = cleanBilling(body.billing);
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });

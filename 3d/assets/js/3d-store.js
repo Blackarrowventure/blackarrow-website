@@ -1030,11 +1030,11 @@
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
-    var purchasable = method === 'bank';
+    var purchasable = method === 'bank' || method === 'card';
     checkout.hidden = !purchasable;
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
-      if (payField) payField.value = 'Bank Transfer';
+      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : 'Bank Transfer';
     }
     updateOrderTotals();
   }
@@ -1234,6 +1234,49 @@
     document.head.appendChild(script);
   }
 
+  function startCardPayment(form, btn, errorEl) {
+    var cm = document.querySelector('[data-b3d-coupon-msg]');
+    if (appliedCoupon) {
+      if (cm) { cm.textContent = 'Card payment does not support coupons yet. Remove the code or pay by bank transfer.'; cm.className = 'b3d-coupon__msg is-err'; }
+      return;
+    }
+    var cart = getCart();
+    var items = Object.keys(cart).map(function (id) {
+      var parsed = parseLineId(id);
+      return { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
+    });
+    var shipping = form.querySelector('input[name="shipping_choice"]:checked');
+    var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
+    var label = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = '...'; btn.disabled = true; }
+    if (errorEl) errorEl.hidden = true;
+    fetch('/api/paymob/create-intention', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: items,
+        shipping: shipping ? shipping.value : 'regular',
+        billing: {
+          firstName: get('customer_first_name'),
+          lastName: get('customer_last_name'),
+          email: get('email'),
+          phone: get('customer_phone'),
+          city: get('customer_city'),
+          street: get('customer_national_address'),
+          postalCode: get('customer_postal_code')
+        }
+      })
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        if (!res.ok || !data.checkoutUrl) throw new Error(data.error || 'failed');
+        window.location.href = data.checkoutUrl;
+      });
+    }).catch(function () {
+      if (errorEl) errorEl.hidden = false;
+      if (btn) { btn.textContent = label; btn.disabled = false; }
+    });
+  }
+
   function initCheckoutSubmit(form) {
     if (!form) return;
     var successEl = document.getElementById('b3d-checkout-success');
@@ -1243,6 +1286,8 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+      var payField = form.querySelector('[data-b3d-order-payment]');
+      if (payField && payField.value === 'Card (Paymob)') { startCardPayment(form, submitBtn, errorEl); return; }
 
       var label = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.textContent = '...'; submitBtn.disabled = true; }
