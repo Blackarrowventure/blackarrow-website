@@ -1271,6 +1271,44 @@
       ]
     },
     {
+      "id": "spiderman-mask-pen-holder",
+      "name": "Spider-Man Mask Pen Holder",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 50,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Gray", "label_ar": "رمادي", "price": 50, "swatch": "#8a8d91", "image": "/3d/assets/images/products/spiderman-mask-pen-holder-gray.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 50, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/spiderman-mask-pen-holder-black.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/spiderman-mask-pen-holder-gray.webp",
+        "/3d/assets/images/products/spiderman-mask-pen-holder-black.webp"
+      ],
+      "shortDesc": "In-house 3D printed Spider-Man mask pen and pencil holder — choose gray or black.",
+      "description": "A desk pen and pencil holder 3D printed in-house in the shape of a Spider-Man mask, with the full web pattern and eye cutouts sculpted into the surface. Printed as a single hollow piece in durable PLA with a textured matte finish, it stands upright on its own and holds a full handful of pens, pencils, markers or brushes. A distinctive desk piece for a gaming setup, a kid's desk, or an office shelf. Available in gray or black. Approximate size: 11 cm tall, 7.5 cm across the opening.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Finish", "Textured web pattern, matte"],
+        ["Colors", "Gray or Black — pick one"],
+        ["Size (approx.)", "11 cm tall, 7.5 cm diameter"],
+        ["Use", "Pen, pencil and marker holder"]
+      ],
+      "name_ar": "حامل أقلام قناع سبايدرمان",
+      "shortDesc_ar": "حامل أقلام مكتبي مطبوع ثلاثية الأبعاد داخليًا على شكل قناع سبايدرمان — اختر الرمادي أو الأسود.",
+      "description_ar": "حامل أقلام وأقلام رصاص مكتبي، مطبوع ثلاثية الأبعاد بالكامل داخل الشركة على شكل قناع سبايدرمان، مع نقش شبكة العنكبوت الكاملة وفتحات العينين منحوتة على السطح. يُطبع كقطعة واحدة مجوفة من مادة PLA المتينة بلمسة نهائية محببة غير لامعة، يقف منتصبًا بمفرده ويتسع لحفنة كاملة من الأقلام وأقلام الرصاص والفلوماستر أو الفرش. قطعة مكتبية مميزة لطاولة الألعاب، أو مكتب الأطفال، أو رف المكتب. متوفر باللون الرمادي أو الأسود. المقاس التقريبي: 11 سم ارتفاعًا، و7.5 سم قطر الفتحة.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["اللمسة النهائية", "نقش شبكة محبب، غير لامع"],
+        ["الألوان", "رمادي أو أسود — اختر واحدًا"],
+        ["المقاس (تقريبي)", "11 سم ارتفاعًا، 7.5 سم قطرًا"],
+        ["الاستخدام", "حامل أقلام وأقلام رصاص وفلوماستر"]
+      ]
+    },
+    {
       "id": "naruto-portrait-plaque",
       "name": "Naruto Portrait Plaque",
       "brand": "Black Arrow",
