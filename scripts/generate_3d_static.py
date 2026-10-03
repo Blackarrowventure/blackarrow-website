@@ -704,6 +704,56 @@ CATEGORY_H1 = {
     '3D Printers': {'en': '3D Printers in Saudi Arabia'},
 }
 
+ART_ICON_PATHS = {
+    'keychain': '<circle cx="12" cy="5" r="2.2"/><path d="M12 7.2v3"/><path d="M7 10.5h10v8H7z"/>',
+    'controller': '<path d="M7 8h10a4 4 0 0 1 3.8 5.2l-.9 3.2a2 2 0 0 1-3.6.6L14 15h-4l-2.3 2a2 2 0 0 1-3.6-.6l-.9-3.2A4 4 0 0 1 7 8z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.5" r=".8"/><circle cx="17.5" cy="13.5" r=".8"/>',
+    'figure': '<rect x="7" y="4" width="10" height="9" rx="2"/><circle cx="10" cy="8" r=".6"/><circle cx="14" cy="8" r=".6"/><path d="M9 20v-5h6v5"/>',
+    'model': '<path d="M3 15l2-5h11l3 3h2v4H3z"/><circle cx="7" cy="17" r="1.5"/><circle cx="17" cy="17" r="1.5"/>',
+    'desk': '<path d="M5 20h10"/><path d="M9 20v-6"/><path d="M9 14l7-7"/><path d="M14 7l4 3-3 3"/>',
+    'wall': '<rect x="4" y="5" width="16" height="12" rx="1"/><path d="M12 2v3"/><path d="M8 13l3-3 2 2 2-2 2 3"/>',
+    'fidget': '<circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="5" r="3"/><circle cx="6" cy="16" r="3"/><circle cx="18" cy="16" r="3"/>',
+    'custom': '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>',
+}
+
+ART_SUBCATEGORIES = [
+    ('keychains', {'en': 'Keychains', 'ar': 'ميداليات المفاتيح'}, '#fbe7ef', 'keychain', [
+        'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
+        'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain']),
+    ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
+        'oni-mask-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
+        'question-block-ps5-controller-stand', 'fc27-ps5-controller-stand']),
+    ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
+        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap']),
+    ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
+        'air-filter-style-lamp', 'spiderman-mask-pen-holder']),
+    ('wall-decor', {'en': 'Wall Decor & Key Holders', 'ar': 'ديكور الحائط وعلاقات المفاتيح'}, '#efe7f5', 'wall', [
+        'saudi-map-hanging-decor', 'naruto-portrait-plaque', 'national-day-key-holder']),
+    ('fidget-toys', {'en': 'Fidget Toys', 'ar': 'ألعاب التخفيف'}, '#e6f0f7', 'fidget', [
+        'gear-fidget-spinner', 'infinity-cube-fidget-toy']),
+    ('custom-orders', {'en': 'Custom Orders', 'ar': 'تصميم حسب الطلب'}, '#f5efe6', 'custom', [
+        'custom-3d-artwork']),
+]
+
+
+def art_subcategories_html(lang, by_id):
+    tiles, sections = [], []
+    for slug, names, bg, icon, ids in ART_SUBCATEGORIES:
+        label = names[lang]
+        items = [by_id[i] for i in ids if i in by_id]
+        if not items:
+            continue
+        tiles.append(
+            '<a class="b3d-art-cat" href="#' + slug + '" style="--tile-bg:' + bg + '">'
+            + '<span class="b3d-art-cat__art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ART_ICON_PATHS[icon] + '</svg></span>'
+            + '<span class="b3d-art-cat__row"><span>' + esc(label) + '</span>'
+            + '<svg class="b3d-art-cat__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l4 4-4 4"/></svg></span>'
+            + '</a>')
+        sections.append(
+            '<section class="b3d-art-sec" id="' + slug + '"><h2>' + esc(label) + '</h2>'
+            + '<div class="b3d-grid" data-b3d-ids="' + ','.join(p['id'] for p in items) + '">'
+            + ''.join(landing_card(p, lang) for p in items) + '</div></section>')
+    return '<div class="b3d-art-cats">' + ''.join(tiles) + '</div>' + ''.join(sections)
+
 CATEGORY_GUIDE = {
     '3D Printers': {
         'en': {
@@ -870,7 +920,8 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
-        + '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>'
+        + (art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
+           else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
     )

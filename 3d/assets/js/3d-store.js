@@ -2175,6 +2175,14 @@
         renderGrid(products.filter(function (p) { return p.category === cat; }), grid);
       });
     });
+    document.querySelectorAll('[data-b3d-ids]').forEach(function (grid) {
+      var ids = grid.getAttribute('data-b3d-ids').split(',');
+      fetchProducts().then(function (products) {
+        renderGrid(ids.map(function (id) {
+          return products.filter(function (p) { return p.id === id; })[0];
+        }).filter(Boolean), grid);
+      });
+    });
     document.querySelectorAll('[data-b3d-brand-grid]').forEach(function (grid) {
       var brand = grid.getAttribute('data-b3d-brand-grid');
       fetchProducts().then(function (products) {
