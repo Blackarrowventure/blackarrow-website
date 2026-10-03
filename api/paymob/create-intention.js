@@ -120,6 +120,7 @@ module.exports = async (req, res) => {
       billing: { first_name: billing.first_name, last_name: billing.last_name, email: billing.email, phone_number: billing.phone_number, city: billing.city, street: billing.street },
     });
   } catch (e) {
+    console.error('card_orders insert failed:', e.message);
     return res.status(502).json({ error: 'order_store_unavailable' });
   }
 
