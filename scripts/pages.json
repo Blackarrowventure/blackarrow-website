@@ -195,6 +195,21 @@
       "ar": true
     },
     {
+      "src": "resources/blog/gaca-obstruction-lighting-requirements/index.html",
+      "url": "/resources/blog/gaca-obstruction-lighting-requirements/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/isolated-power-vs-gfci-operating-theatres/index.html",
+      "url": "/resources/blog/isolated-power-vs-gfci-operating-theatres/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/commissioning-isolated-power-panel-checklist/index.html",
+      "url": "/resources/blog/commissioning-isolated-power-panel-checklist/",
+      "ar": true
+    },
+    {
       "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
       "src": "resources/case-studies/index.html",
       "url": "/resources/case-studies/",

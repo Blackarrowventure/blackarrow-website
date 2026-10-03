@@ -1,0 +1,130 @@
+{
+  "slug": "gaca-obstruction-lighting-requirements",
+  "date": "2026-10-03",
+  "image": "/assets/images/services/aviation-solutions.jpg",
+  "wa_topic": "obstruction lighting for a building or structure",
+  "related": [
+    {
+      "href": "/services/aviation/",
+      "i18n": "service_aviation",
+      "label": "Aviation Lighting Solutions"
+    },
+    {
+      "href": "/resources/case-studies/high-rise-obstruction-helipad-lighting/",
+      "i18n": "cs_light_h1",
+      "label": "Obstruction and Helipad Lighting for a High-Rise Development"
+    },
+    {
+      "href": "/resources/faqs/",
+      "i18n": "faq_page_title",
+      "label": "FAQs"
+    }
+  ],
+  "en": {
+    "title": "GACA Obstruction Lighting: What a Tall Building Needs",
+    "description": "When a structure needs aviation obstruction lighting under GACA and ICAO Annex 14, the three intensity classes, and why monitored alarms matter.",
+    "og_description": "When a structure needs aviation obstruction lighting under GACA and ICAO Annex 14, and the three intensity classes that apply.",
+    "excerpt": "A developer asks whether their tower needs obstruction lighting after the steel is already up. Here is where that requirement actually comes from, and what it specifies.",
+    "breadcrumb": "GACA Obstruction Lighting Requirements",
+    "subhead": "Where the requirement comes from, the three intensity classes, and why a failed fixture needs to raise an alarm on its own",
+    "lead": "Obstruction lighting tends to come up late in a project — usually when a height consultant or the civil defense review flags it, by which point the façade design and electrical risers are already fixed. It is worth understanding early instead, because the specification is not a design choice. It comes from a published international standard that Saudi Arabia enforces directly, and it determines fixture type, placement and monitoring, not just whether a red light goes on the roof.",
+    "sections": [
+      {
+        "h2": "Where the Requirement Comes From",
+        "p": [
+          "Obstruction lighting in Saudi Arabia is governed by GACAR Part 139, the General Authority of Civil Aviation's regulation for the certification, authorization and operation of aerodromes. Part 139 is aligned with ICAO Annex 14 Volumes I and II, and its Subpart I — Visual Aids for Denoting Obstacles, specifically sections 139.601 and 139.603 — sets out when an object has to be marked and lit, and to what specification.",
+          "In practice this means a structure is not assessed in isolation. Whether a building needs obstruction lighting, and at what intensity, depends on its height, its position relative to any nearby aerodrome's approach and take-off surfaces, and whether an aeronautical study has flagged it as significant. A 40-metre building a long way from any flight path may need nothing. A shorter building sitting inside an approach surface near an airport can need lighting a much taller building elsewhere would not."
+        ]
+      },
+      {
+        "h2": "The Three Intensity Classes",
+        "p": [
+          "ICAO Annex 14 Table 6-1 defines obstacle lights across three intensity bands, and the general guidance in the standard links them to height: low-intensity lighting for objects under roughly 45 metres above ground level, medium-intensity between about 45 and 150 metres, and high-intensity above 150 metres — though the exact requirement for a given structure is set by the aeronautical study for its location, not by height alone.",
+          "Low-intensity Type A is a fixed red light rated at 10 candela; Type B is a fixed red light at 32 candela. Both are steady-burning, not flashing, and are the most common choice for a standalone structure below the height threshold.",
+          "Medium-intensity comes in three types: Type A is a flashing white light at 20,000 candela by day and twilight, dropping to 2,000 candela at night; Type B is a flashing red light at 2,000 candela, for night use; Type C is a fixed red light, also 2,000 candela, for night use. A building using Type A by day still needs a night-time pairing, since Type A's daytime intensity would be far too bright after dark — the standard sets separate day, twilight and night output for exactly this reason.",
+          "High-intensity lighting is for the tallest structures: Type A reaches 200,000 candela by day, dropping to 20,000 at twilight and 2,000 at night; Type B peaks lower, at 100,000 candela by day. Both flash. At this intensity the light is genuinely bright enough to be a dazzle risk to pilots operating near it, which is why the standard also allows a dual system — switching to a lower-intensity red light at night within about 10 kilometres of an aerodrome, where a flashing white strobe after dark would do more harm than good."
+        ]
+      },
+      {
+        "h2": "Placement Isn't Just 'One Light on Top'",
+        "p": [
+          "For a structure over 45 metres, a single light at the apex does not satisfy the standard. ICAO Annex 14 requires intermediate levels of lighting spaced down the structure — no more than 105 metres apart for medium-intensity Type A or high-intensity Type A, and no more than 52 metres apart where Type B or Type C is used — so the outline of the building is marked at multiple heights, not just at the top.",
+          "The lights also have to be arranged so the object is visible from every direction in azimuth. If part of the structure's own geometry shields a light from one approach angle, an additional fixture has to go on the part doing the shielding, not just at the original planned position. This is where a lighting layout drawn from floor plans alone tends to miss something — the obstruction lighting design has to account for the building's actual silhouette from the air, which is a different exercise from architectural lighting."
+        ]
+      },
+      {
+        "h2": "Why Monitoring Matters More Than the Light Itself",
+        "p": [
+          "A failed obstruction light is not a cosmetic problem. It is the one thing the system exists to prevent — the structure going unmarked at night without anyone on the ground knowing. A lamp that silently fails and stays dark until the next scheduled inspection has effectively taken the building out of compliance for however long that gap is, and nobody involved in operating the building would know until an inspector asks, or worse.",
+          "That is why a properly specified obstruction lighting installation includes a monitored control panel that raises an alarm on fixture failure, rather than relying on periodic visual checks from the ground. It is also why circuits feeding obstruction lighting are normally backed so that a loss of the building's normal supply does not take the warning lights out along with it — the risk the lighting exists to manage does not go away just because the building lost power."
+        ]
+      },
+      {
+        "h2": "What This Means at the Design Stage",
+        "p": [
+          "The costly version of this is finding out after the structure is built that it needs obstruction lighting, or that what was installed does not meet the applicable intensity class. Getting an aeronautical assessment early — ideally during design, not after the façade is finished — determines the intensity class, the number of levels required, and whether a dual day/night system applies, while there is still room to route the supporting electrical circuits sensibly.",
+          "For a helipad on the same structure, the lighting requirement is separate again — perimeter lighting, touchdown and lift-off area marking, and an illuminated windsock, following the approved helipad geometry rather than the obstruction marking rules above. A high-rise with a rooftop helipad typically needs both systems specified together, on a shared monitored panel, so a facilities team is managing one alarm source instead of two."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Planning obstruction or helipad lighting for a building?",
+      "text": "We design, supply and install GACA and ICAO Annex 14-compliant obstruction and helipad lighting, with monitored control panels and backed circuits, for developments across Saudi Arabia.",
+      "href": "/services/aviation/",
+      "label": "Aviation Lighting Solutions",
+      "label_i18n": "service_aviation"
+    }
+  },
+  "ar": {
+    "title": "اشتراطات GACA لإنارة تحذير الملاحة الجوية",
+    "description": "متى يحتاج المبنى المرتفع إلى إنارة تحذير جوي حسب اشتراطات GACA وICAO Annex 14، وفئات الشدة الثلاث، ولماذا تهم المراقبة بالإنذار.",
+    "og_description": "متى يحتاج المبنى المرتفع إلى إنارة تحذير جوي حسب اشتراطات GACA وICAO Annex 14، وفئات الشدة الثلاث التي تنطبق.",
+    "excerpt": "يسأل أحد المطورين هل يحتاج برجه إلى إنارة تحذير جوي بعد أن اكتمل الهيكل الفولاذي بالفعل. إليك من أين يأتي هذا الاشتراط فعلياً وماذا يحدد.",
+    "breadcrumb": "اشتراطات GACA لإنارة تحذير الملاحة الجوية",
+    "subhead": "من أين يأتي الاشتراط، وفئات الشدة الثلاث، ولماذا يجب أن يُصدر الفانوس التالف إنذاراً من تلقاء نفسه",
+    "lead": "غالباً ما تُطرح إنارة تحذير الملاحة الجوية متأخرة في المشروع، عادة عندما يشير استشاري ارتفاعات أو مراجعة الدفاع المدني إليها، وبحلول ذلك الوقت يكون تصميم الواجهة والمسارات الكهربائية قد ثُبّتا بالفعل. من الأفضل فهمها مبكراً، لأن هذا الاشتراط ليس خياراً تصميمياً. إنه يأتي من معيار دولي منشور تطبقه المملكة العربية السعودية مباشرة، ويحدد نوع الفانوس وموضعه ومراقبته، وليس فقط ما إذا كان سيُركَّب ضوء أحمر على السطح أم لا.",
+    "sections": [
+      {
+        "h2": "من أين يأتي الاشتراط",
+        "p": [
+          "تخضع إنارة تحذير الملاحة الجوية في المملكة العربية السعودية لِلائحة GACAR الجزء 139 الصادرة عن الهيئة العامة للطيران المدني، الخاصة باعتماد وتشغيل المطارات. الجزء 139 متوافق مع المجلد الأول والثاني من ICAO Annex 14، ويحدد الفرع I منه — المعنون بالوسائل البصرية لتحديد العوائق، وتحديداً البندان 139.601 و139.603 — متى يجب تعليم العائق وإضاءته، وبأي مواصفة.",
+          "عملياً، هذا يعني أن المبنى لا يُقيَّم بمعزل عن محيطه. يعتمد احتياج المبنى لإنارة تحذير الملاحة، وشدة تلك الإنارة، على ارتفاعه وموقعه بالنسبة لأسطح الاقتراب والإقلاع لأي مطار قريب، وما إذا كانت دراسة ملاحية جوية قد صنّفته كعائق ذي أهمية. مبنى بارتفاع 40 متراً بعيد عن أي مسار طيران قد لا يحتاج أي إنارة، بينما مبنى أقصر يقع داخل سطح اقتراب قرب مطار قد يحتاج إنارة لا يحتاجها مبنى أطول بكثير في موقع آخر."
+        ]
+      },
+      {
+        "h2": "فئات الشدة الثلاث",
+        "p": [
+          "يحدد الجدول 6-1 من ICAO Annex 14 فوانيس العوائق ضمن ثلاث فئات شدة، وتربطها الإرشادات العامة بالارتفاع تقريبياً: إنارة منخفضة الشدة للأجسام التي يقل ارتفاعها عن نحو 45 متراً فوق سطح الأرض، ومتوسطة الشدة بين نحو 45 و150 متراً، وعالية الشدة لما يزيد على 150 متراً — إلا أن الاشتراط الدقيق لأي مبنى تحدده الدراسة الملاحية الجوية الخاصة بموقعه، وليس الارتفاع وحده.",
+          "النوع A منخفض الشدة هو ضوء أحمر ثابت بشدة 10 شمعة، والنوع B ضوء أحمر ثابت بشدة 32 شمعة. كلاهما ثابت الإضاءة وليس وامضاً، وهما الخيار الأكثر شيوعاً لمبنى منفرد دون عتبة الارتفاع.",
+          "متوسطة الشدة تأتي بثلاثة أنواع: النوع A ضوء أبيض وامض بشدة 20,000 شمعة نهاراً وعند الشفق، تنخفض إلى 2,000 شمعة ليلاً؛ النوع B ضوء أحمر وامض بشدة 2,000 شمعة للاستخدام الليلي؛ والنوع C ضوء أحمر ثابت بنفس الشدة 2,000 شمعة للاستخدام الليلي أيضاً. المبنى الذي يستخدم النوع A نهاراً لا يزال يحتاج اقتراناً ليلياً، إذ إن شدة النوع A النهارية ستكون مبهرة جداً بعد حلول الظلام — ولهذا يحدد المعيار شدة منفصلة للنهار والشفق والليل.",
+          "الإنارة عالية الشدة مخصصة لأطول المباني: النوع A يصل إلى 200,000 شمعة نهاراً، وينخفض إلى 20,000 عند الشفق و2,000 ليلاً؛ أما النوع B فذروته أقل، عند 100,000 شمعة نهاراً. وكلاهما وامض. عند هذه الشدة يصبح الضوء ساطعاً بما يكفي ليشكل خطر إبهار حقيقي للطيارين القريبين منه، ولهذا يسمح المعيار أيضاً بنظام مزدوج — التحول إلى ضوء أحمر أقل شدة ليلاً ضمن نحو 10 كيلومترات من أي مطار، حيث يكون الضوء الأبيض الوامض عالي الشدة بعد حلول الظلام ضرراً أكثر منه فائدة."
+        ]
+      },
+      {
+        "h2": "الموضع ليس مجرد \"ضوء واحد في الأعلى\"",
+        "p": [
+          "بالنسبة لمبنى يتجاوز ارتفاعه 45 متراً، لا يكفي ضوء واحد عند القمة لاستيفاء المعيار. يشترط ICAO Annex 14 مستويات متوسطة من الإنارة موزعة على ارتفاع المبنى — بمسافة لا تتجاوز 105 متر بين كل مستوى عند استخدام النوع A متوسط أو عالي الشدة، ولا تتجاوز 52 متراً عند استخدام النوع B أو C — بحيث يُعلَّم محيط المبنى عند عدة ارتفاعات، وليس عند القمة فقط.",
+          "كما يجب ترتيب الأضواء بحيث يكون الجسم مرئياً من كل اتجاه أفقي. فإذا حجب جزء من هيكل المبنى نفسه أحد الأضواء من زاوية اقتراب معينة، يجب إضافة فانوس آخر على الجزء الحاجب نفسه، وليس فقط في الموضع المخطط أصلاً. وهنا غالباً ما يفوّت مخطط إنارة مُعدّ من المساقط الأفقية وحدها أمراً مهماً — فتصميم إنارة تحذير الملاحة يجب أن يراعي الظل الحقيقي للمبنى من الجو، وهذا تمرين مختلف عن الإنارة المعمارية."
+        ]
+      },
+      {
+        "h2": "لماذا تهم المراقبة أكثر من الضوء نفسه",
+        "p": [
+          "فانوس تحذير جوي معطّل ليس مشكلة شكلية. إنه بالضبط ما يهدف النظام إلى منعه — أن يبقى المبنى دون علامة ليلاً دون أن يعلم أحد على الأرض بذلك. مصباح يتعطل بصمت ويبقى مظلماً حتى موعد الفحص الدوري التالي يُخرج المبنى فعلياً من حالة الامتثال طوال تلك الفترة، دون أن يدرك أحد من يشغّل المبنى ذلك حتى يسأل أحد المفتشين، أو أسوأ من ذلك.",
+          "لهذا السبب يتضمن تركيب إنارة تحذير جوي مصمم بشكل صحيح لوحة تحكم مراقَبة تُصدر إنذاراً عند تعطل أي فانوس، بدلاً من الاعتماد على فحوصات بصرية دورية من الأرض. ولهذا أيضاً تُدعَّم الدوائر المغذية لإنارة تحذير الملاحة عادة بحيث لا يؤدي انقطاع التغذية العادية للمبنى إلى إطفاء أضواء التحذير معها — فالخطر الذي توجد الإنارة لإدارته لا يزول لمجرد انقطاع الكهرباء عن المبنى."
+        ]
+      },
+      {
+        "h2": "ماذا يعني هذا في مرحلة التصميم",
+        "p": [
+          "السيناريو الأكثر كلفة هو اكتشاف الحاجة إلى إنارة تحذير جوي بعد اكتمال المبنى، أو أن ما جرى تركيبه لا يستوفي فئة الشدة المطلوبة. الحصول على تقييم ملاحي جوي مبكراً — في مرحلة التصميم، لا بعد اكتمال الواجهة — يحدد فئة الشدة وعدد المستويات المطلوبة وما إذا كان نظام نهاري وليلي مزدوج ينطبق، بينما لا يزال هناك مجال لتوجيه الدوائر الكهربائية الداعمة بشكل مدروس.",
+          "أما بالنسبة لمهبط طائرات عمودية فوق نفس المبنى، فاشتراط الإنارة منفصل تماماً — إنارة محيطية، وتحديد منطقة الهبوط والإقلاع، ودوّارة رياح مضاءة، وفق هندسة المهبط المعتمدة، وليس وفق قواعد تعليم العوائق أعلاه. المبنى المرتفع الذي يضم مهبطاً على سطحه يحتاج عادة إلى تحديد النظامين معاً، على لوحة مراقَبة مشتركة، بحيث يدير فريق التشغيل مصدر إنذار واحداً بدلاً من اثنين."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تخطط لإنارة تحذير جوي أو إنارة مهبط لمبنى؟",
+      "text": "نصمم ونورّد ونركّب إنارة تحذير الملاحة الجوية ومهابط الطائرات المتوافقة مع اشتراطات GACA وICAO Annex 14، مع لوحات تحكم مراقَبة ودوائر مدعّمة، لمشاريع في جميع أنحاء المملكة العربية السعودية."
+    }
+  }
+}

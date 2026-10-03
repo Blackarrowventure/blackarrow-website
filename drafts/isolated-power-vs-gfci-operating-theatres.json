@@ -1,0 +1,128 @@
+{
+  "slug": "isolated-power-vs-gfci-operating-theatres",
+  "date": "2026-10-03",
+  "image": "/assets/images/services/isolated-power-panels.jpg",
+  "wa_topic": "isolated power systems versus GFCI protection for an operating theatre",
+  "related": [
+    {
+      "href": "/services/isolated-power-panels/",
+      "i18n": "ipp_full_details",
+      "label": "Full IPP Details and Specifications"
+    },
+    {
+      "href": "/resources/blog/why-hospitals-need-isolated-power-panels/",
+      "i18n": "ipp_blog_post_title",
+      "label": "Why Your Hospital Needs Isolated Power Panels"
+    },
+    {
+      "href": "/resources/blog/nfpa-99-line-isolation-monitors/",
+      "i18n": "post_nfpa_99_line_isolation_monitors_h1",
+      "label": "What NFPA 99 Says About Line Isolation Monitors"
+    }
+  ],
+  "en": {
+    "title": "Isolated Power vs. GFCI in Operating Theatres",
+    "description": "Both protect against ground faults, but they respond in opposite ways — why NFPA 99 treats them as different tools for different rooms.",
+    "og_description": "Both protect against ground faults but respond in opposite ways — why NFPA 99 treats isolated power and GFCI as different tools for different rooms.",
+    "excerpt": "A GFCI trips the circuit. An isolated power system alarms and keeps running. In most rooms that difference doesn't matter. In an operating theatre, it is the entire point.",
+    "breadcrumb": "Isolated Power vs. GFCI",
+    "subhead": "Both protect against a ground fault — but one cuts the power and the other does not, and that difference decides which one belongs in an operating theatre",
+    "lead": "Ground-fault circuit interrupters and isolated power systems are both, at bottom, ways of dealing with the same hazard: current finding an unintended path to ground through someone's body. Outside healthcare, a GFCI is close to the universal answer — it is what protects a bathroom outlet or a site generator. Inside an operating theatre, the standard answer flips, and understanding why means understanding what each device actually does when a fault occurs, not just that both of them involve the word \"ground fault.\"",
+    "sections": [
+      {
+        "h2": "What a GFCI Actually Does",
+        "p": [
+          "A Class A ground-fault circuit interrupter continuously compares the current flowing out on the hot conductor against the current returning on the neutral. Under normal operation those two values are equal. The instant current starts leaking to ground through any other path — including through a person — the two values diverge, and the device acts.",
+          "By the UL 943 standard that governs these devices, a Class A GFCI must trip when that imbalance reaches 6 mA, and must not trip below 4 mA, with a response time fast enough to interrupt the current before it can trigger dangerous heart rhythms. That is an excellent design for its purpose: the fault current itself is small enough that the shock it could deliver before the breaker opens is survivable, and once it opens, the hazard is gone.",
+          "The part worth noticing: a GFCI's protection mechanism is interrupting power. That is not a side effect, it is the entire method. The circuit goes dead the moment a fault is detected, and stays dead until someone resets it."
+        ]
+      },
+      {
+        "h2": "Why That's a Problem Mid-Procedure",
+        "p": [
+          "In most rooms, a dead circuit for a few seconds is an inconvenience. In an operating theatre during a procedure, it can be the more dangerous of the two outcomes. Electrosurgical units, imaging equipment, ventilators and monitoring all depend on continuous power, and an abrupt interruption mid-procedure — even one correctly triggered by a real fault — creates its own hazard that has nothing to do with the original ground fault.",
+          "This is the scenario NFPA 99 built isolated power systems to prevent, and it is covered in more detail in our piece on why hospitals need isolated power panels. The short version: for a \"wet procedure location\" — a space where a patient is likely to be in contact with both electrical equipment and conductive fluid — the standard's preferred protection method does not cut power on a single fault at all."
+        ]
+      },
+      {
+        "h2": "What an Isolated Power System Does Instead",
+        "p": [
+          "An isolated power panel removes the problem at its root rather than reacting to it. An isolation transformer separates the operating room's circuit from the building's grounded system, so neither conductor is directly referenced to ground. A single fault — the exact event that would trip a GFCI — no longer creates the low-resistance path needed to drive dangerous current through anyone, because there is no completed circuit back to ground for it to use.",
+          "A line isolation monitor (LIM) continuously watches both isolated conductors and alarms when the total hazard current reaches 5.0 mA, with NFPA 99 also requiring the monitor not to alarm below 3.7 mA, so it does not cry wolf over normal system leakage. We cover the LIM's thresholds and what the alarm actually means in detail in a separate post. The point for this comparison: the alarm tells the surgical team a fault needs attention. It does not interrupt power to do it. The procedure continues, and the fault gets investigated between cases rather than during one."
+        ]
+      },
+      {
+        "h2": "Same Hazard, Opposite Response",
+        "p": [
+          "Put side by side, the contrast is the whole story. A GFCI detects a ground fault and removes power to stop the hazard — correct in a bathroom, a kitchen, or a construction site, where continuity of power is never worth more than removing a shock risk in under 25 milliseconds. An isolated power system detects the same class of event and keeps power running while alarming, because in an operating theatre an uncontrolled power loss mid-procedure is its own hazard, arguably a worse one than a single fault that the isolation itself has already rendered non-dangerous.",
+          "Neither device is a universal answer. GFCI protection is still required and appropriate throughout the rest of a hospital, including wet locations outside the operating suite. What changes in a wet procedure location is that the room's design intent shifts from \"remove power the instant something is wrong\" to \"keep power on and tell someone something is wrong,\" and that shift is why the two systems are not interchangeable, and why specifying the wrong one for a given room is not a minor compliance gap."
+        ]
+      },
+      {
+        "h2": "Getting the Specification Right",
+        "p": [
+          "The determination of which rooms need isolated power rather than standard GFCI-protected circuits sits with the facility's risk assessment and design consultant, following NFPA 99's wet procedure location criteria. What we see go wrong in practice is less often the wrong decision at the design stage and more often a gap between what was specified and what was actually commissioned — equipment that is not properly rated for the application, or a LIM that was never calibrated against the 5.0 mA and 3.7 mA thresholds the standard actually requires.",
+          "If you are planning a new operating suite, or inheriting a facility where you are not confident the existing protection in each room matches its actual use, that is worth resolving before the room goes back into service, not after."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Specifying or auditing protection for an operating suite?",
+      "text": "We supply, install, test and recertify NFPA 99-compliant isolated power systems for hospitals across Saudi Arabia, using Bender and PG LifeLink equipment.",
+      "href": "/services/isolated-power-panels/",
+      "label": "Full IPP Details and Specifications",
+      "label_i18n": "ipp_full_details"
+    }
+  },
+  "ar": {
+    "title": "الباقة المعزولة مقابل GFCI في غرف العمليات",
+    "description": "كلاهما يحمي من عطل الأرضي، لكن استجابتهما معاكسة تماماً. لماذا يعامل NFPA 99 الطاقة المعزولة وحماية GFCI كأداتين مختلفتين لغرفتين مختلفتين.",
+    "og_description": "كلاهما يحمي من عطل الأرضي لكن استجابتهما معاكسة — لماذا يعامل NFPA 99 الطاقة المعزولة وGFCI كأداتين مختلفتين لغرفتين مختلفتين.",
+    "excerpt": "قاطع GFCI يفصل الدائرة. نظام الطاقة المعزولة يُصدر إنذاراً ويستمر في العمل. في معظم الغرف لا يهم هذا الفرق. في غرفة العمليات، هو بيت القصيد كله.",
+    "breadcrumb": "الطاقة المعزولة مقابل GFCI",
+    "subhead": "كلاهما يحمي من عطل أرضي — لكن أحدهما يقطع الكهرباء والآخر لا يفعل، وهذا الفرق يحدد أيهما يناسب غرفة العمليات",
+    "lead": "قواطع عطل الأرضي (GFCI) وأنظمة الطاقة المعزولة كلاهما، في الأساس، طريقتان للتعامل مع نفس الخطر: تيار يجد مساراً غير مقصود إلى الأرض عبر جسم شخص ما. خارج القطاع الصحي، يكاد قاطع GFCI يكون الإجابة شبه الشاملة — فهو ما يحمي مقبس حمام أو مولداً في موقع إنشائي. داخل غرفة العمليات، تنقلب الإجابة المعيارية، وفهم السبب يعني فهم ما يفعله كل جهاز فعلياً عند حدوث عطل، وليس فقط أن كليهما يتعلق بـ\"عطل الأرضي\".",
+    "sections": [
+      {
+        "h2": "ماذا يفعل قاطع GFCI فعلياً",
+        "p": [
+          "يقارن قاطع عطل الأرضي من الفئة A باستمرار التيار الخارج عبر الموصل الحي بالتيار العائد عبر المحايد. في التشغيل الطبيعي تتساوى هاتان القيمتان. وفي اللحظة التي يبدأ فيها تسرب تيار إلى الأرض عبر أي مسار آخر — بما في ذلك عبر جسم إنسان — تتباعد القيمتان، ويتصرف الجهاز.",
+          "وفق معيار UL 943 الذي يحكم هذه الأجهزة، يجب أن يفصل قاطع GFCI من الفئة A عندما يصل الفرق إلى 6 ملي أمبير، ويجب ألا يفصل دون 4 ملي أمبير، بزمن استجابة سريع بما يكفي لقطع التيار قبل أن يتسبب في اضطراب خطير بنظم القلب. هذا تصميم ممتاز لغرضه: تيار العطل نفسه صغير بما يكفي ليكون الصدم الذي قد يحدث قبل فتح القاطع قابلاً للنجاة منه، وبمجرد فتح القاطع، يزول الخطر.",
+          "الجزء الجدير بالملاحظة: آلية حماية GFCI هي قطع الكهرباء. هذا ليس أثراً جانبياً، بل هو الأسلوب بأكمله. تنقطع الدائرة لحظة اكتشاف العطل، وتبقى منقطعة حتى يعيد أحدهم ضبط الجهاز."
+        ]
+      },
+      {
+        "h2": "لماذا تصبح مشكلة أثناء العملية",
+        "p": [
+          "في معظم الغرف، انقطاع الدائرة لبضع ثوانٍ مجرد إزعاج. أما في غرفة العمليات أثناء إجراء جراحي، فقد يكون النتيجة الأخطر بين الاحتمالين. وحدات الجراحة الكهربائية، وأجهزة التصوير، وأجهزة التنفس الاصطناعي، والمراقبة جميعها تعتمد على كهرباء متواصلة، والانقطاع المفاجئ أثناء الإجراء — حتى لو كان ناجماً بشكل صحيح عن عطل حقيقي — يخلق خطراً جديداً لا علاقة له بعطل الأرضي الأصلي.",
+          "هذا بالضبط السيناريو الذي صُممت أنظمة الطاقة المعزولة في NFPA 99 لمنعه، وقد تناولناه بتفصيل أكبر في مقالنا عن سبب احتياج المستشفيات لألواح الطاقة المعزولة. باختصار: بالنسبة لـ\"موقع إجراء رطب\" — وهو مساحة يُحتمل فيها تلامس المريض مع معدات كهربائية وسائل موصل في آن واحد — فإن طريقة الحماية المفضلة في المعيار لا تقطع الكهرباء عند عطل واحد أصلاً."
+        ]
+      },
+      {
+        "h2": "ماذا يفعل نظام الطاقة المعزولة بدلاً من ذلك",
+        "p": [
+          "لوحة الطاقة المعزولة تزيل المشكلة من جذرها بدلاً من الاستجابة لها. محول العزل يفصل دائرة غرفة العمليات عن نظام التأريض الخاص بالمبنى، بحيث لا يكون أي من الموصلين مرجعاً مباشراً للأرض. العطل الواحد — وهو بالضبط الحدث الذي كان سيُفعّل قاطع GFCI — لم يعد يخلق مسار المقاومة المنخفضة اللازم لدفع تيار خطير عبر أي شخص، لأنه لا توجد دائرة مكتملة عائدة إلى الأرض ليستخدمها.",
+          "مراقِب عزل الخط (LIM) يراقب الموصلين المعزولين باستمرار ويُصدر إنذاراً عندما يصل إجمالي تيار الخطر إلى 5.0 ملي أمبير، كما يشترط NFPA 99 ألا يُصدر المراقِب إنذاراً دون 3.7 ملي أمبير، حتى لا يُصدر إنذارات كاذبة بسبب التسرب الطبيعي للنظام. تناولنا حدود LIM وما يعنيه الإنذار فعلياً بتفصيل أكبر في مقال منفصل. والنقطة المهمة هنا للمقارنة: الإنذار يخبر الفريق الجراحي أن عطلاً يحتاج اهتماماً. لا يقطع الكهرباء ليفعل ذلك. يستمر الإجراء، ويُعالَج العطل بين الحالات بدلاً من أثناء إحداها."
+        ]
+      },
+      {
+        "h2": "نفس الخطر، استجابة معاكسة",
+        "p": [
+          "عند وضعهما جنباً إلى جنب، يتلخص الفرق كله هنا. قاطع GFCI يكتشف عطلاً أرضياً ويزيل الكهرباء لإيقاف الخطر — وهذا صحيح في حمام أو مطبخ أو موقع إنشائي، حيث لا تستحق استمرارية الكهرباء أبداً أكثر من إزالة خطر الصدمة في أقل من 25 ملي ثانية. نظام الطاقة المعزولة يكتشف نفس نوع الحدث ويُبقي الكهرباء مستمرة مع إصدار إنذار، لأن انقطاع الكهرباء غير المتحكم به أثناء إجراء جراحي في غرفة العمليات خطر بحد ذاته، بل يمكن القول إنه أخطر من عطل واحد جعله العزل نفسه غير خطير بالفعل.",
+          "لا يُعد أي من الجهازين إجابة شاملة. لا تزال حماية GFCI مطلوبة ومناسبة في بقية أقسام المستشفى، بما في ذلك المواقع الرطبة خارج جناح العمليات. ما يتغير في موقع الإجراء الرطب هو أن نية تصميم الغرفة تتحول من \"أزل الكهرباء فور وجود أي خلل\" إلى \"أبقِ الكهرباء مستمرة وأخبر أحداً أن هناك خللاً\"، وهذا التحول هو سبب عدم إمكانية تبادل النظامين، وسبب كون تحديد النظام الخاطئ لغرفة معينة ليس مجرد ثغرة امتثال بسيطة."
+        ]
+      },
+      {
+        "h2": "ضبط المواصفة بشكل صحيح",
+        "p": [
+          "تحديد الغرف التي تحتاج إلى طاقة معزولة بدلاً من دوائر محمية بـGFCI قياسية يعتمد على تقييم المخاطر الخاص بالمنشأة واستشاري التصميم، وفق معايير \"موقع الإجراء الرطب\" في NFPA 99. ما نراه يخطئ في الواقع العملي ليس غالباً القرار الخاطئ في مرحلة التصميم، بل فجوة بين ما حُدِّد وما جرى تشغيله فعلياً — معدات غير مصنفة بشكل صحيح للتطبيق، أو مراقِب LIM لم تتم معايرته أبداً وفق عتبتي 5.0 و3.7 ملي أمبير اللتين يشترطهما المعيار فعلياً.",
+          "إذا كنت تخطط لجناح عمليات جديد، أو ترث منشأة لست واثقاً أن الحماية الحالية في كل غرفة تطابق استخدامها الفعلي، فمن الأفضل حل ذلك قبل إعادة تشغيل الغرفة، لا بعده."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تحدد أو تراجع الحماية الكهربائية لجناح عمليات؟",
+      "text": "نورّد ونركّب ونختبر ونعيد اعتماد أنظمة الطاقة المعزولة المتوافقة مع NFPA 99 للمستشفيات في جميع أنحاء المملكة العربية السعودية، باستخدام معدات Bender وPG LifeLink."
+    }
+  }
+}

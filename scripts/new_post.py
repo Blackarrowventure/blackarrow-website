@@ -272,8 +272,7 @@ def render_page(spec):
 
     tmpl_title = 'NFPA 99 Compliance for Saudi Hospitals: A Practical Guide'
     tmpl_desc = ('A practical guide to NFPA 99 compliance for hospitals in Saudi Arabia '
-                 '— what the standard covers, why it matters for electrical systems, and '
-                 'what to check before your next inspection.')
+                 '— what the standard covers, why it matters for electrical systems.')
     tmpl_ogdesc = ('What NFPA 99 covers, why it matters for hospital electrical systems in '
                    'Saudi Arabia, and what to check before your next inspection.')
     tmpl_crumb = 'NFPA 99 Compliance for Saudi Hospitals'
