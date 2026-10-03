@@ -83,7 +83,12 @@ module.exports = async (req, res) => {
   const publicKey = process.env.PAYMOB_PUBLIC_KEY;
   const integrationId = Number(process.env.PAYMOB_INTEGRATION_ID);
   if (!secret || !publicKey || !integrationId) {
-    return res.status(500).json({ error: 'payment_not_configured' });
+    const missing = [
+      !secret && 'PAYMOB_SECRET_KEY',
+      !publicKey && 'PAYMOB_PUBLIC_KEY',
+      !integrationId && 'PAYMOB_INTEGRATION_ID',
+    ].filter(Boolean);
+    return res.status(500).json({ error: 'payment_not_configured', missing });
   }
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
