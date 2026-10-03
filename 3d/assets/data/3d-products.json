@@ -1309,6 +1309,38 @@
       ]
     },
     {
+      "id": "f1-car-3d-model",
+      "name": "F1 Race Car Display Model",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 50,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/f1-car-3d-model-01.webp",
+        "/3d/assets/images/products/f1-car-3d-model-02.webp"
+      ],
+      "shortDesc": "In-house 3D printed F1 race car display model in red, mounted on a black base plaque.",
+      "description": "A 3D printed Formula 1 race car display model, built in a faceted, low-poly style that gives the bodywork a distinct layered look rather than a smooth-surface finish. Printed in solid red PLA and mounted on a flat black display base, ready to stand on a desk, shelf, or showcase as-is. Printed by Black Arrow.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Low-poly faceted F1 car, red"],
+        ["Base", "Flat black display plaque, included"],
+        ["Size (approx.)", "20 x 8 x 5 cm, base included"]
+      ],
+      "name_ar": "مجسم عرض سيارة فورمولا 1",
+      "shortDesc_ar": "مجسم عرض سيارة فورمولا 1 مطبوع ثلاثية الأبعاد داخليًا باللون الأحمر، على قاعدة عرض سوداء.",
+      "description_ar": "مجسم عرض لسيارة فورمولا 1 مطبوع ثلاثية الأبعاد، بتصميم مُجسَّم متعدد الأوجه يمنح هيكل السيارة مظهرًا طبقيًا مميزًا بدلًا من السطح الأملس المعتاد. يُطبع من مادة PLA الصلبة باللون الأحمر، ومُثبَّت على قاعدة عرض سوداء مسطحة، جاهز للوضع على المكتب أو الرف أو واجهة العرض كما هو. مطبوع بواسطة Black Arrow.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "سيارة فورمولا 1 متعددة الأوجه، أحمر"],
+        ["القاعدة", "قاعدة عرض سوداء مسطحة، متضمنة"],
+        ["المقاس (تقريبي)", "20 × 8 × 5 سم، شاملة القاعدة"]
+      ]
+    },
+    {
       "id": "naruto-portrait-plaque",
       "name": "Naruto Portrait Plaque",
       "brand": "Black Arrow",
