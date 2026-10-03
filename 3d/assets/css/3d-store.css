@@ -355,7 +355,7 @@ html[dir="rtl"] .b3d-cat-tile__soon { right: auto; left: 12px; }
   z-index: 2;
 }
 
-.b3d-stock-badge--out { background: rgba(26,26,26,.88); color: #fff; border: 1px solid rgba(255,255,255,.35); }
+.b3d-stock-badge.b3d-stock-badge--out { background: #b91c1c; color: #fff; border: 1px solid #fff; }
 
 .b3d-card__body {
   padding: 20px 20px 8px;
@@ -2346,6 +2346,7 @@ main.b3d-light .b3d-star.is-on { color: #D97706; }
 
 /* ---- Product page: one clear buy action, trust facts and real savings next to the price ---- */
 .b3d-stock-badge--in { background: rgba(4,120,87,.92); color: #fff; }
+main.b3d-light .b3d-grid > * .b3d-stock-badge--out { color: #fff !important; }
 .b3d-pd__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .b3d-pd__save { background: rgba(4,120,87,.14); color: #059669; font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 main.b3d-light .b3d-pd__save { background: rgba(4,120,87,.12); color: #047857; }
