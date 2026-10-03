@@ -1230,6 +1230,47 @@
       ]
     },
     {
+      "id": "one-piece-sword-keychain",
+      "name": "One Piece Sword Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Zoro", "label_ar": "زورو", "price": 20, "image": "/3d/assets/images/products/one-piece-sword-keychain-zoro.webp" },
+        { "label": "Luffy", "label_ar": "لوفي", "price": 20, "image": "/3d/assets/images/products/one-piece-sword-keychain-luffy.webp" },
+        { "label": "Sanji", "label_ar": "سانجي", "price": 20, "image": "/3d/assets/images/products/one-piece-sword-keychain-sanji.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/one-piece-sword-keychain-zoro.webp",
+        "/3d/assets/images/products/one-piece-sword-keychain-luffy.webp",
+        "/3d/assets/images/products/one-piece-sword-keychain-sanji.webp",
+        "/3d/assets/images/products/one-piece-sword-keychain-group.webp"
+      ],
+      "shortDesc": "In-house 3D printed sword-shaped keychain with an engraved One Piece portrait — choose Zoro, Luffy or Sanji.",
+      "description": "A sword-shaped keychain 3D printed in-house, with a two-tone engraved portrait of a One Piece character set into the blade and a wrapped-hilt detail at the top. Printed as a single solid piece in durable PLA with a smooth matte finish, finished with a metal split ring through the handle loop so it attaches straight to a keyring, bag, or backpack zip. Choose Zoro, Luffy, or Sanji below — each sold separately as its own keychain. Approximate size: 11 cm long, 3.5 cm at its widest point, 4 mm thick — a compact size that stays proportional on a keyring without feeling bulky.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Finish", "Two-tone engraved portrait, matte"],
+        ["Characters", "Zoro, Luffy, or Sanji — pick one"],
+        ["Size (approx.)", "11 x 3.5 x 0.4 cm"],
+        ["Includes", "Metal split ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح سيف ون بيس",
+      "shortDesc_ar": "ميدالية مفاتيح على شكل سيف، مطبوعة ثلاثية الأبعاد داخليًا مع نقش لشخصية من ون بيس — اختر زورو أو لوفي أو سانجي.",
+      "description_ar": "ميدالية مفاتيح على شكل سيف، مطبوعة ثلاثية الأبعاد بالكامل داخل الشركة، مع نقش ثنائي اللون لوجه شخصية من أنمي ون بيس على النصل، وتفصيل لف المقبض من الأعلى. تُطبع كقطعة واحدة مصمتة من مادة PLA المتينة بلمسة نهائية غير لامعة، مع حلقة معدنية مفتوحة في فتحة المقبض لتثبيتها مباشرة على حلقة المفاتيح أو الحقيبة أو سحاب الشنطة. اختر زورو أو لوفي أو سانجي أدناه — كل تصميم يُباع منفردًا كميدالية مستقلة. المقاس التقريبي: 11 سم طولاً، 3.5 سم عند أعرض نقطة، وسماكة 4 مم — حجم مدمج يحافظ على تناسقه على حلقة المفاتيح دون أن يكون ثقيلاً.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["اللمسة النهائية", "نقش ثنائي اللون، غير لامع"],
+        ["الشخصيات", "زورو أو لوفي أو سانجي — اختر واحدة"],
+        ["المقاس (تقريبي)", "11 × 3.5 × 0.4 سم"],
+        ["يتضمن", "حلقة معدنية مفتوحة"]
+      ]
+    },
+    {
       "id": "naruto-portrait-plaque",
       "name": "Naruto Portrait Plaque",
       "brand": "Black Arrow",
