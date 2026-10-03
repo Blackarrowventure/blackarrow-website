@@ -2,7 +2,9 @@ const crypto = require('crypto');
 const catalog = require('../../3d/assets/data/3d-products.json');
 
 const PAYMOB_BASE = 'https://ksa.paymob.com';
-const SITE = 'https://www.blackarrowksa.com';
+const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
+  ? 'https://www.blackarrowksa.com'
+  : 'https://' + process.env.VERCEL_URL;
 const MAX_LINES = 20;
 const MAX_QTY = 10;
 
