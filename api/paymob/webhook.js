@@ -1,5 +1,16 @@
 const crypto = require('crypto');
 
+async function supabase(method, path, body, prefer) {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error('supabase_not_configured');
+  const headers = { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
+  if (prefer) headers.Prefer = prefer;
+  const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  if (!r.ok) throw new Error('supabase_' + r.status);
+  return r.json();
+}
+
 const HMAC_FIELDS = [
   'amount_cents', 'created_at', 'currency', 'error_occured', 'has_parent_transaction',
   'obj.id', 'integration_id', 'is_3d_secure', 'is_auth', 'is_capture', 'is_refunded',
@@ -41,7 +52,22 @@ module.exports = async (req, res) => {
   }
 
   if (tx.success === true && tx.pending === false && tx.error_occured === false) {
-    // Mark the order paid here once the order store is wired up (not yet built).
+    const orderRef = tx.order && tx.order.merchant_order_id;
+    if (!orderRef || !/^[a-f0-9]{24}$/.test(orderRef)) return res.status(200).end();
+    try {
+      const rows = await supabase('GET', 'card_orders?order_ref=eq.' + orderRef + '&select=order_ref,status,amount_cents');
+      const order = rows[0];
+      if (!order) return res.status(200).end();
+      if (order.status === 'pending' && Number(tx.amount_cents) === order.amount_cents) {
+        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=eq.pending', {
+          status: 'paid',
+          paymob_transaction_id: tx.id,
+          paid_at: new Date().toISOString(),
+        }, 'return=minimal');
+      }
+    } catch (e) {
+      return res.status(500).end();
+    }
   }
 
   return res.status(200).end();

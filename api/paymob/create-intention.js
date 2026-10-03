@@ -19,6 +19,17 @@ function unitPrice(product, variantIndex) {
   return product.onSale && product.salePrice != null ? product.salePrice : product.price;
 }
 
+async function supabase(method, path, body, prefer) {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error('supabase_not_configured');
+  const headers = { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
+  if (prefer) headers.Prefer = prefer;
+  const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  if (!r.ok) throw new Error('supabase_' + r.status);
+  return r;
+}
+
 function priceCart(items) {
   if (!Array.isArray(items) || items.length === 0 || items.length > MAX_LINES) return null;
   const byId = new Map(catalog.products.map((p) => [p.id, p]));
@@ -99,6 +110,19 @@ module.exports = async (req, res) => {
     redirection_url: SITE + '/3d/cart/?paid=' + orderRef,
   };
 
+  try {
+    await supabase('POST', 'card_orders', {
+      order_ref: orderRef,
+      status: 'pending',
+      amount_cents: priced.total_cents,
+      currency: 'SAR',
+      items: priced.lines,
+      billing: { first_name: billing.first_name, last_name: billing.last_name, email: billing.email, phone_number: billing.phone_number, city: billing.city, street: billing.street },
+    });
+  } catch (e) {
+    return res.status(502).json({ error: 'order_store_unavailable' });
+  }
+
   let intention;
   try {
     const r = await fetch(PAYMOB_BASE + '/v1/intention/', {
@@ -110,6 +134,7 @@ module.exports = async (req, res) => {
     if (!r.ok || !intention.client_secret) {
       return res.status(502).json({ error: 'gateway_rejected' });
     }
+    await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef, { paymob_intention_id: String(intention.id || '') });
   } catch (e) {
     return res.status(502).json({ error: 'gateway_unreachable' });
   }
