@@ -18,7 +18,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles.css?v=20260961">
-  <link rel="stylesheet" href="/3d/assets/css/3d-store.css?v=20261017">
+  <link rel="stylesheet" href="/3d/assets/css/3d-store.css?v=20261018">
 
   <style>
     :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:104px;}
@@ -27,6 +27,7 @@
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-accent);}
     .b3d-cart-layout{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:start;}
     @media (max-width:860px){.b3d-cart-layout{grid-template-columns:1fr;}}
+    .b3d-cart-layout > .b3d-payment{grid-column:1 / -1;max-width:820px;width:100%;}
   </style>
 </head>
 <body class="b3d-layer-bg">
@@ -159,6 +160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span data-i18n="cart_total_label">Total</span>
               <span data-cart-total>0</span>
             </div>
+          </aside>
             <div class="b3d-payment" data-b3d-payment style="margin-top:26px;">
               <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="cart_payment_h4">Payment Method</h3>
               <div class="b3d-payment-methods">
@@ -242,7 +244,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </form>
               </div>
             </div>
-          </aside>
         </div>
       </div>
     </section>

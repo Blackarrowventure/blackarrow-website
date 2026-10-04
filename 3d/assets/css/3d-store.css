@@ -1510,6 +1510,17 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 .b3d-account__form .b3d-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .b3d-account__form label small { display: block; margin-top: 5px; }
 @media (max-width: 500px) { .b3d-account__form .b3d-field-row { grid-template-columns: 1fr; } }
+/* Checkout form: two columns on desktop, one on phones. Full-width rows span both. */
+.b3d-checkout .b3d-account__form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.b3d-checkout .b3d-account__form > .b3d-field-row,
+.b3d-checkout .b3d-account__form > .b3d-checkout__save,
+.b3d-checkout .b3d-account__form > .b3d-shipping-methods,
+.b3d-checkout .b3d-account__form > h4,
+.b3d-checkout .b3d-account__form > button,
+.b3d-checkout .b3d-account__form > .b3d-checkout__success,
+.b3d-checkout .b3d-account__form > .b3d-checkout__error,
+.b3d-checkout .b3d-account__form > label:has(textarea) { grid-column: 1 / -1; }
+@media (max-width: 500px) { .b3d-checkout .b3d-account__form { grid-template-columns: 1fr; } }
 
 .b3d-checkout__login {
   display: flex;
