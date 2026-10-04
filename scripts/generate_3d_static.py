@@ -720,7 +720,7 @@ ART_SUBCATEGORIES = [
         'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
         'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain']),
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
-        'oni-mask-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
+        'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'fc27-ps5-controller-stand']),
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
         'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure']),

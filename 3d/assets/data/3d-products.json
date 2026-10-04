@@ -1690,6 +1690,87 @@
           "عرض على رف أو مكتب أو جهاز ألعاب"
         ]
       ]
+    },
+    {
+      "id": "oni-mask-v2-ps5-controller-stand",
+      "name": "Oni Mask V2 PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 45,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        {
+          "label": "Red",
+          "label_ar": "أحمر",
+          "price": 45,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp"
+        },
+        {
+          "label": "Yellow",
+          "label_ar": "أصفر",
+          "price": 45,
+          "swatch": "#f4c430",
+          "image": "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp"
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp",
+        "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-2.webp",
+        "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-3.webp"
+      ],
+      "shortDesc": "Oni mask stand for the PS5 DualSense controller, in red or yellow.",
+      "description": "An updated oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. The demon-face design cradles a PS5 DualSense controller by its handles and works as a striking desk piece. Printed in PLA with two screw-thread support legs, available in red or yellow.",
+      "specs": [
+        [
+          "Material",
+          "PLA"
+        ],
+        [
+          "Compatibility",
+          "PS5 DualSense controller"
+        ],
+        [
+          "Design",
+          "Oni mask V2 — designed and printed in-house"
+        ],
+        [
+          "Colours",
+          "Red or yellow — pick one"
+        ],
+        [
+          "Support Legs",
+          "2x screw-thread legs included"
+        ]
+      ],
+      "name_ar": "حامل يد تحكم PS5 قناع أوني V2",
+      "shortDesc_ar": "حامل يد تحكم PS5 بتصميم قناع أوني، باللون الأحمر أو الأصفر.",
+      "description_ar": "حامل يد تحكم بتصميم قناع أوني محدّث، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يحتضن تصميم الوجه الشيطاني يد تحكم PS5 DualSense من مقابضها، ويعمل كقطعة مكتبية مميزة. مطبوع من مادة PLA مع رجلين داعمتين بشكل برغي، ومتوفر باللون الأحمر أو الأصفر.",
+      "specs_ar": [
+        [
+          "الخامة",
+          "PLA"
+        ],
+        [
+          "التوافق",
+          "يد تحكم PS5 DualSense"
+        ],
+        [
+          "التصميم",
+          "قناع أوني V2 — تصميم وطباعة داخلية"
+        ],
+        [
+          "الألوان",
+          "أحمر أو أصفر — اختر واحدًا"
+        ],
+        [
+          "أرجل الدعم",
+          "رجلان بشكل برغي مرفقتان"
+        ]
+      ]
     }
   ]
 }
