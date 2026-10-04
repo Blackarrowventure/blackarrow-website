@@ -66,9 +66,9 @@ function cleanBilling(b) {
     country: 'SA',
     state: s(b.state, 60) || na,
     street: s(b.street, 120) || na,
-    building: na,
+    building: s(b.building, 20) || na,
     floor: na,
-    apartment: na,
+    apartment: s(b.apartment, 40) || na,
     postal_code: s(b.postalCode, 20) || na,
   };
 }

@@ -1158,6 +1158,28 @@
     });
   }
 
+  // Paymob sends the customer back here with ?paid=<order ref> on success and on
+  // failure, so the message stays neutral: the webhook is what marks the order paid.
+  function showCardReturn() {
+    var ref = new URLSearchParams(window.location.search).get('paid');
+    if (!ref || !/^[a-f0-9]{24}$/.test(ref)) return;
+    var view = document.querySelector('[data-b3d-thanks]');
+    if (!view) return;
+    view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+    view.querySelector('[data-b3d-thanks-payment]').textContent = 'Card (Paymob)';
+    var lead = view.querySelector('[data-b3d-thanks-lead]');
+    lead.removeAttribute('data-i18n');
+    lead.textContent = 'Thank you for your order. We are confirming your card payment. You will receive a confirmation email once it is complete.';
+    ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.hidden = true;
+    });
+    var layout = document.querySelector('.b3d-cart-layout');
+    if (layout) layout.style.display = 'none';
+    view.hidden = false;
+    window.scrollTo(0, 0);
+  }
+
   function showThankYou(form, mailOn) {
     var view = document.querySelector('[data-b3d-thanks]');
     if (!view) return;
@@ -1263,6 +1285,8 @@
           phone: get('customer_phone'),
           city: get('customer_city'),
           street: get('customer_national_address'),
+          building: get('customer_building'),
+          apartment: get('customer_apartment'),
           postalCode: get('customer_postal_code')
         }
       })
@@ -2285,6 +2309,7 @@
       initShippingMethods(document.querySelector('[data-b3d-checkout]'));
       initCheckoutAuth(document.querySelector('[data-b3d-checkout]'));
       initCheckoutSubmit(document.querySelector('#b3d-checkout-form'));
+      showCardReturn();
     }
   }
 
