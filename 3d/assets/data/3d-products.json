@@ -1634,6 +1634,62 @@
           "يحمل يد تحكم PS5 على المكتب أو الرف"
         ]
       ]
+    },
+    {
+      "id": "knitted-mario-cap-figure",
+      "name": "Knitted Super Mario Cap Figure",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 85,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/knitted-mario-cap-figure-1.webp",
+        "/3d/assets/images/products/knitted-mario-cap-figure-2.webp"
+      ],
+      "shortDesc": "A Super Mario cap figure with a textured, knitted-style finish — a compact piece for shelves, desks or a gaming setup.",
+      "description": "A Super Mario cap figure with a textured pixel-style surface that gives it a knitted look. Made of durable plastic in vivid red with a fade-resistant finish, it is compact enough for a shelf, desk or gaming console.",
+      "specs": [
+        [
+          "Material",
+          "High-quality plastic"
+        ],
+        [
+          "Finish",
+          "Textured pixel-style, vivid red"
+        ],
+        [
+          "Weight",
+          "153 g"
+        ],
+        [
+          "Use",
+          "Shelf, desk or gaming console display"
+        ]
+      ],
+      "name_ar": "مجسم قبعة ماريو المحبوكة",
+      "shortDesc_ar": "مجسم قبعة سوبر ماريو بملمس محبوك مميز — قطعة صغيرة للرفوف والمكاتب وإعداد الألعاب.",
+      "description_ar": "مجسم قبعة سوبر ماريو بسطح مميز بنقش يشبه البكسل ويعطي مظهر الحياكة. مصنوع من بلاستيك متين بلون أحمر زاهٍ ولمسة نهائية مقاومة للبهتان، وهو صغير بما يكفي ليوضع على رف أو مكتب أو جهاز ألعاب.",
+      "specs_ar": [
+        [
+          "الخامة",
+          "بلاستيك عالي الجودة"
+        ],
+        [
+          "اللمسة النهائية",
+          "ملمس بنقش بكسل، أحمر زاهٍ"
+        ],
+        [
+          "الوزن",
+          "153 غ"
+        ],
+        [
+          "الاستخدام",
+          "عرض على رف أو مكتب أو جهاز ألعاب"
+        ]
+      ]
     }
   ]
 }
