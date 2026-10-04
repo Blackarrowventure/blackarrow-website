@@ -1710,6 +1710,13 @@
           "image": "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp"
         },
         {
+          "label": "White",
+          "label_ar": "أبيض",
+          "price": 45,
+          "swatch": "#f5f5f5",
+          "image": "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp"
+        },
+        {
           "label": "Yellow",
           "label_ar": "أصفر",
           "price": 45,
