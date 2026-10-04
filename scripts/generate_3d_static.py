@@ -723,7 +723,7 @@ ART_SUBCATEGORIES = [
         'oni-mask-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'fc27-ps5-controller-stand']),
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
-        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap']),
+        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure']),
     ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
         'air-filter-style-lamp', 'spiderman-mask-pen-holder']),
     ('wall-decor', {'en': 'Wall Decor & Key Holders', 'ar': 'ديكور الحائط وعلاقات المفاتيح'}, '#efe7f5', 'wall', [
