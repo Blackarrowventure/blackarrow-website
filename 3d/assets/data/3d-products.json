@@ -1570,6 +1570,62 @@
       ]
     },
     {
+      "id": "button-symbols-controller-stand",
+      "name": "Button Symbols Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 60,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/ps-symbols-controller-stand-01.webp",
+        "/3d/assets/images/products/ps-symbols-controller-stand-02.webp"
+      ],
+      "shortDesc": "3D printed stand in four button symbols that holds a game controller upright on a desk or shelf.",
+      "description": "A 3D printed controller stand shaped as four button symbols: square, triangle, cross and circle. Rest your controller on top to keep it displayed and within reach on your desk or gaming shelf. Printed in purple by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Four button symbols: square, triangle, cross, circle"
+        ],
+        [
+          "Colour",
+          "Purple"
+        ],
+        [
+          "Use",
+          "Holds a game controller upright on a desk or shelf"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ]
+      ],
+      "name_ar": "ستاند يد تحكم بأشكال الأزرار",
+      "shortDesc_ar": "ستاند مطبوع ثلاثي الأبعاد على شكل أربعة رموز للأزرار، يحمل يد التحكم منتصبة على المكتب أو الرف.",
+      "description_ar": "ستاند ليد التحكم مطبوع ثلاثي الأبعاد على شكل أربعة رموز للأزرار: مربع ومثلث وإكس ودائرة. ضع يد التحكم فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. طباعة بلاك أرو باللون البنفسجي.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "أربعة رموز للأزرار: مربع ومثلث وإكس ودائرة"
+        ],
+        [
+          "اللون",
+          "بنفسجي"
+        ],
+        [
+          "الاستخدام",
+          "يحمل يد التحكم منتصبة على المكتب أو الرف"
+        ],
+        [
+          "الطباعة",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ]
+      ]
+    },
+    {
       "id": "overthing",
       "name": "Overthing",
       "brand": "Black Arrow",
