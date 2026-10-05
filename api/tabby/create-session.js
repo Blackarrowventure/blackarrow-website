@@ -139,7 +139,13 @@ module.exports = async (req, res) => {
       headers: { Authorization: 'Bearer ' + secret, 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-    data = await r.json();
+    const text = await r.text();
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.error('tabby non-json reply:', r.status, text.slice(0, 200));
+      return res.status(502).json({ error: 'gateway_rejected' });
+    }
     const webUrl = data && data.configuration && data.configuration.available_products
       && data.configuration.available_products.installments
       && data.configuration.available_products.installments[0]
