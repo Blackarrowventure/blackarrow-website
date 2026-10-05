@@ -1570,6 +1570,53 @@
       ]
     },
     {
+      "id": "overthing",
+      "name": "Overthing",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 100,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/overthing-01.webp"
+      ],
+      "shortDesc": "3D printed decorative sculpture of a large hand holding a suspended figure on fine strings.",
+      "description": "Overthing is a 3D printed decorative sculpture. A large hand hangs above a figure suspended by fine strings, on a stand that holds the piece upright on a desk or shelf. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Hand and suspended figure sculpture"
+        ],
+        [
+          "Use",
+          "Decorative display piece for a desk or shelf"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ]
+      ],
+      "name_ar": "أوفرثينغ",
+      "shortDesc_ar": "منحوتة زخرفية مطبوعة ثلاثي الأبعاد لكف كبيرة تحمل شخصًا معلقًا بخيوط دقيقة.",
+      "description_ar": "أوفرثينغ منحوتة زخرفية مطبوعة ثلاثي الأبعاد. كف كبيرة معلقة فوق شخص معلق بخيوط دقيقة، على قاعدة تحفظ القطعة منتصبة على المكتب أو الرف. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "منحوتة كف وشخص معلق"
+        ],
+        [
+          "الاستخدام",
+          "قطعة عرض زخرفية للمكتب أو الرف"
+        ],
+        [
+          "الطباعة",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ]
+      ]
+    },
+    {
       "id": "man-push-ps5-controller-stand",
       "name": "Man Pushing PS5 Controller Stand",
       "brand": "Black Arrow",
