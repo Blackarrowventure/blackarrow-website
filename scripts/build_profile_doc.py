@@ -368,8 +368,8 @@ add('Who we are', '<div class="pad">' +
     '</div>'
     '<div class="figures">' +
     ''.join('<div class="fig"><div class="n">%s</div><div class="l">%s</div></div>' % f for f in [
-        ('2022', 'Established'), ('58', 'Projects completed'), ('33+', 'B2B clients served'),
-        ('5', 'Ongoing projects'), ('10', 'Solution categories'), ('24/7', 'Technical support'),
+        ('2022', 'Established'), ('60', 'Projects completed'), ('40', 'B2B clients served'),
+        ('8', 'Ongoing projects'), ('10', 'Solution categories'), ('24/7', 'Technical support'),
     ]) + '</div>'
     '<h3 class="rule-head">How we work</h3>'
     '<div class="flow">'
