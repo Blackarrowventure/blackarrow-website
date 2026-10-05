@@ -1778,6 +1778,126 @@
           "رجلان بشكل برغي مرفقتان"
         ]
       ]
+    },
+    {
+      "id": "kingroon-petg-basic-filament",
+      "name": "KINGROON PETG Basic Filament 1.75 mm (1 kg)",
+      "brand": "KINGROON",
+      "category": "Filament",
+      "price": 75,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        {
+          "label": "Blue",
+          "label_ar": "أزرق",
+          "price": 75,
+          "swatch": "#1e4fb4",
+          "image": "/3d/assets/images/products/kingroon-petg-basic-blue.webp"
+        },
+        {
+          "label": "Orange",
+          "label_ar": "برتقالي",
+          "price": 75,
+          "swatch": "#f28c28",
+          "image": "/3d/assets/images/products/kingroon-petg-basic-orange.webp"
+        },
+        {
+          "label": "Yellow",
+          "label_ar": "أصفر",
+          "price": 75,
+          "swatch": "#f5c518",
+          "image": "/3d/assets/images/products/kingroon-petg-basic-yellow.webp"
+        },
+        {
+          "label": "Green",
+          "label_ar": "أخضر",
+          "price": 75,
+          "swatch": "#2e8b3e",
+          "image": "/3d/assets/images/products/kingroon-petg-basic-green.webp"
+        },
+        {
+          "label": "Red",
+          "label_ar": "أحمر",
+          "price": 75,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/kingroon-petg-basic-red.webp"
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kingroon-petg-basic-blue.webp",
+        "/3d/assets/images/products/kingroon-petg-basic-orange.webp",
+        "/3d/assets/images/products/kingroon-petg-basic-yellow.webp",
+        "/3d/assets/images/products/kingroon-petg-basic-green.webp",
+        "/3d/assets/images/products/kingroon-petg-basic-red.webp"
+      ],
+      "shortDesc": "KINGROON PETG Basic filament, 1.75 mm, 1 kg spool — low shrinkage and strong layer bonding for functional prints.",
+      "description": "KINGROON PETG Basic is a 1.75 mm PETG filament on a 1 kg spool. Its diameter is held to ±0.03 mm by quality control, which helps keep feeding smooth and prints consistent. PETG offers low shrinkage and strong layer bonding, making it suitable for functional parts. It prints at 190–220°C on a 50–65°C bed. If the filament has absorbed moisture, dry it at 55°C for 8 hours before use, and store it in a dry place after use.",
+      "specs": [
+        [
+          "Material",
+          "PETG"
+        ],
+        [
+          "Filament Diameter",
+          "1.75 mm (±0.03 mm)"
+        ],
+        [
+          "Weight",
+          "1 kg"
+        ],
+        [
+          "Nozzle Temperature",
+          "190–220°C"
+        ],
+        [
+          "Bed Temperature",
+          "50–65°C"
+        ],
+        [
+          "Drying",
+          "55°C for 8 hours if moisture is absorbed"
+        ],
+        [
+          "Colours",
+          "Blue, Orange, Yellow, Green or Red — pick one"
+        ]
+      ],
+      "name_ar": "فيلامنت KINGROON PETG Basic بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت KINGROON PETG Basic بقطر 1.75 مم، بكرة 1 كغ — انكماش منخفض وترابط قوي بين الطبقات للقطع الوظيفية.",
+      "description_ar": "فيلامنت KINGROON PETG Basic بقطر 1.75 مم على بكرة وزنها 1 كغ. يتم التحكم في قطره بدقة ±0.03 مم عبر ضبط الجودة، مما يساعد على تغذية سلسة ونتائج طباعة متسقة. يتميز PETG بانكماش منخفض وترابط قوي بين الطبقات، ما يجعله مناسبًا للقطع الوظيفية. يُطبع عند درجة حرارة 190–220°C على سرير بدرجة حرارة 50–65°C. إذا امتص الفيلامنت الرطوبة، جففه عند 55°C لمدة 8 ساعات قبل الاستخدام، واحفظه في مكان جاف بعد الاستخدام.",
+      "specs_ar": [
+        [
+          "الخامة",
+          "PETG"
+        ],
+        [
+          "قطر الفيلامنت",
+          "1.75 مم (±0.03 مم)"
+        ],
+        [
+          "الوزن",
+          "1 كغ"
+        ],
+        [
+          "درجة حرارة الفوهة",
+          "190–220°C"
+        ],
+        [
+          "درجة حرارة السرير",
+          "50–65°C"
+        ],
+        [
+          "التجفيف",
+          "55°C لمدة 8 ساعات عند امتصاص الرطوبة"
+        ],
+        [
+          "الألوان",
+          "أزرق أو برتقالي أو أصفر أو أخضر أو أحمر — اختر واحدًا"
+        ]
+      ]
     }
   ]
 }
