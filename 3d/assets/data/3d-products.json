@@ -1570,6 +1570,62 @@
       ]
     },
     {
+      "id": "man-push-ps5-controller-stand",
+      "name": "Man Pushing PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 60,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/man-push-ps5-controller-stand-01.webp",
+        "/3d/assets/images/products/man-push-ps5-controller-stand-02.webp"
+      ],
+      "shortDesc": "3D printed figure of a man pushing a PS5 DualSense controller, a display stand for your controller on a desk or shelf.",
+      "description": "A 3D printed figure of a man pushing a PS5 DualSense controller. The controller rests upright on the figure's hands, so it stays on display and within reach on your desk or gaming shelf. Printed in white by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Man pushing a PS5 DualSense controller"
+        ],
+        [
+          "Colour",
+          "White"
+        ],
+        [
+          "Compatibility",
+          "PS5 DualSense controllers"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ]
+      ],
+      "name_ar": "ستاند PS5 بتصميم رجل يدفع يد التحكم",
+      "shortDesc_ar": "تمثال مطبوع ثلاثي الأبعاد لرجل يدفع يد تحكم PS5 DualSense، ستاند لعرض يد التحكم على المكتب أو الرف.",
+      "description_ar": "تمثال مطبوع ثلاثي الأبعاد لرجل يدفع يد تحكم PS5 DualSense. تستقر يد التحكم منتصبة على يدي التمثال، لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. طباعة بلاك أرو باللون الأبيض.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "رجل يدفع يد تحكم PS5 DualSense"
+        ],
+        [
+          "اللون",
+          "أبيض"
+        ],
+        [
+          "التوافق",
+          "أيادي تحكم PS5 DualSense"
+        ],
+        [
+          "الطباعة",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ]
+      ]
+    },
+    {
       "id": "ps5-dual-football-stand",
       "name": "PS5 Dual Controller Stand (Football)",
       "brand": "Black Arrow",
