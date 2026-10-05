@@ -1570,6 +1570,53 @@
       ]
     },
     {
+      "id": "ps5-dual-football-stand",
+      "name": "PS5 Dual Controller Stand (Football)",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 80,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/ps5-dual-football-stand-01.webp"
+      ],
+      "shortDesc": "3D printed football-shaped stand that holds PS5 DualSense controllers on a desk or shelf.",
+      "description": "A 3D printed football-shaped controller stand. Rest your PS5 DualSense controllers in the cradle to keep them displayed and within reach on your desk or gaming shelf. Images show the stand with two PS5 controllers. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Football-shaped controller stand"
+        ],
+        [
+          "Compatibility",
+          "PS5 DualSense controllers"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ]
+      ],
+      "name_ar": "ستاند PS5 Dual بتصميم كرة القدم",
+      "shortDesc_ar": "ستاند مطبوع ثلاثي الأبعاد على شكل كرة قدم، يحمل أيادي تحكم PS5 DualSense على المكتب أو الرف.",
+      "description_ar": "ستاند لأيادي التحكم مطبوع ثلاثي الأبعاد على شكل كرة قدم. ضع أيادي تحكم PS5 DualSense في التجويف لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. الصور توضح الستاند مع يدي تحكم PS5. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "ستاند أيادي تحكم على شكل كرة قدم"
+        ],
+        [
+          "التوافق",
+          "أيادي تحكم PS5 DualSense"
+        ],
+        [
+          "الطباعة",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ]
+      ]
+    },
+    {
       "id": "fc27-ps5-controller-stand",
       "name": "FC27 PS5 Controller Stand",
       "brand": "Black Arrow",
