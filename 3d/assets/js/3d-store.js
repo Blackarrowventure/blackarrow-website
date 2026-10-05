@@ -1030,11 +1030,11 @@
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
-    var purchasable = method === 'bank' || method === 'card';
+    var purchasable = method === 'bank' || method === 'card' || method === 'tabby';
     checkout.hidden = !purchasable;
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
-      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : 'Bank Transfer';
+      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : 'Bank Transfer';
     }
     updateOrderTotals();
   }
@@ -1180,6 +1180,42 @@
     window.scrollTo(0, 0);
   }
 
+  // Tabby sends the customer back with ?tabby=<order ref>. The server checks the
+  // payment with Tabby before anything is shown as paid.
+  function showTabbyReturn() {
+    var ref = new URLSearchParams(window.location.search).get('tabby');
+    if (!ref || !/^[a-f0-9]{24}$/.test(ref)) return;
+    var view = document.querySelector('[data-b3d-thanks]');
+    if (!view) return;
+    var lead = view.querySelector('[data-b3d-thanks-lead]');
+    lead.removeAttribute('data-i18n');
+    fetch('/api/tabby/verify?ref=' + encodeURIComponent(ref)).then(function (res) {
+      return res.json().catch(function () { return {}; });
+    }).then(function (data) {
+      var status = data.status;
+      if (status === 'failed') {
+        lead.textContent = 'Your Tabby payment was not completed. Your order has not been placed. Please try again or choose another payment method.';
+        return;
+      }
+      view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+      view.querySelector('[data-b3d-thanks-payment]').textContent = 'Tabby (Pay in 4)';
+      lead.textContent = status === 'paid'
+        ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
+        : 'Thank you for your order. We are confirming your Tabby payment and will email you once it is complete.';
+      ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el) el.hidden = true;
+      });
+      var layout = document.querySelector('.b3d-cart-layout');
+      if (layout) layout.style.display = 'none';
+      view.hidden = false;
+      window.scrollTo(0, 0);
+    }).catch(function () {
+      lead.textContent = 'We could not confirm your Tabby payment just now. Please check your email or contact us on WhatsApp.';
+      view.hidden = false;
+    });
+  }
+
   function showThankYou(form, mailOn) {
     var view = document.querySelector('[data-b3d-thanks]');
     if (!view) return;
@@ -1256,10 +1292,11 @@
     document.head.appendChild(script);
   }
 
-  function startCardPayment(form, btn, errorEl) {
+  // Card (Paymob) and Tabby share this flow; only the endpoint differs.
+  function startCardPayment(form, btn, errorEl, endpoint) {
     var cm = document.querySelector('[data-b3d-coupon-msg]');
     if (appliedCoupon) {
-      if (cm) { cm.textContent = 'Card payment does not support coupons yet. Remove the code or pay by bank transfer.'; cm.className = 'b3d-coupon__msg is-err'; }
+      if (cm) { cm.textContent = 'Online payment does not support coupons yet. Remove the code or pay by bank transfer.'; cm.className = 'b3d-coupon__msg is-err'; }
       return;
     }
     var cart = getCart();
@@ -1272,12 +1309,13 @@
     var label = btn ? btn.textContent : '';
     if (btn) { btn.textContent = '...'; btn.disabled = true; }
     if (errorEl) errorEl.hidden = true;
-    fetch('/api/paymob/create-intention', {
+    fetch(endpoint || '/api/paymob/create-intention', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         items: items,
         shipping: shipping ? shipping.value : 'regular',
+        lang: document.documentElement.lang === 'ar' ? 'ar' : 'en',
         billing: {
           firstName: get('customer_first_name'),
           lastName: get('customer_last_name'),
@@ -1312,6 +1350,7 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var payField = form.querySelector('[data-b3d-order-payment]');
       if (payField && payField.value === 'Card (Paymob)') { startCardPayment(form, submitBtn, errorEl); return; }
+      if (payField && payField.value === 'Tabby (Pay in 4)') { startCardPayment(form, submitBtn, errorEl, '/api/tabby/create-session'); return; }
 
       var label = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.textContent = '...'; submitBtn.disabled = true; }
@@ -2310,6 +2349,7 @@
       initCheckoutAuth(document.querySelector('[data-b3d-checkout]'));
       initCheckoutSubmit(document.querySelector('#b3d-checkout-form'));
       showCardReturn();
+      showTabbyReturn();
     }
   }
 
