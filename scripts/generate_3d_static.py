@@ -718,7 +718,7 @@ ART_ICON_PATHS = {
 ART_SUBCATEGORIES = [
     ('keychains', {'en': 'Keychains', 'ar': 'ميداليات المفاتيح'}, '#fbe7ef', 'keychain', [
         'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
-        'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain']),
+        'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain', 'uchiha-clan-keychain']),
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'fc27-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand', 'button-symbols-controller-stand']),

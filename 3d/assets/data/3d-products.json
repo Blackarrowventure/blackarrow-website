@@ -1570,6 +1570,126 @@
       ]
     },
     {
+      "id": "uchiha-clan-keychain",
+      "name": "Uchiha Clan Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 30,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        {
+          "label": "Design 1",
+          "label_ar": "تصميم 1",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-01.webp"
+        },
+        {
+          "label": "Design 2",
+          "label_ar": "تصميم 2",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-02.webp"
+        },
+        {
+          "label": "Design 3",
+          "label_ar": "تصميم 3",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-03.webp"
+        },
+        {
+          "label": "Design 4",
+          "label_ar": "تصميم 4",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-04.webp"
+        },
+        {
+          "label": "Design 5",
+          "label_ar": "تصميم 5",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-05.webp"
+        },
+        {
+          "label": "Design 6",
+          "label_ar": "تصميم 6",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-06.webp"
+        },
+        {
+          "label": "Design 7",
+          "label_ar": "تصميم 7",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-07.webp"
+        },
+        {
+          "label": "Design 8",
+          "label_ar": "تصميم 8",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-08.webp"
+        },
+        {
+          "label": "Design 9",
+          "label_ar": "تصميم 9",
+          "price": 30,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-09.webp"
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/uchiha-keychain-01.webp",
+        "/3d/assets/images/products/uchiha-keychain-02.webp",
+        "/3d/assets/images/products/uchiha-keychain-03.webp",
+        "/3d/assets/images/products/uchiha-keychain-04.webp",
+        "/3d/assets/images/products/uchiha-keychain-05.webp",
+        "/3d/assets/images/products/uchiha-keychain-06.webp",
+        "/3d/assets/images/products/uchiha-keychain-07.webp",
+        "/3d/assets/images/products/uchiha-keychain-08.webp",
+        "/3d/assets/images/products/uchiha-keychain-09.webp"
+      ],
+      "shortDesc": "3D printed round keychain with a red and black Uchiha clan design. Nine designs to choose from.",
+      "description": "A 3D printed round keychain in red and black, with one of nine Uchiha clan designs. Choose the design you want from the options. Printed by Black Arrow.",
+      "specs": [
+        [
+          "Design",
+          "Uchiha clan, nine designs"
+        ],
+        [
+          "Colours",
+          "Red and black"
+        ],
+        [
+          "Made",
+          "3D printed by Black Arrow"
+        ]
+      ],
+      "name_ar": "ميدالية مفاتيح آل أوتشيها",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثي الأبعاد دائرية باللونين الأحمر والأسود بتصميم عشيرة أوتشيها، بتسعة تصاميم للاختيار.",
+      "description_ar": "ميدالية مفاتيح دائرية مطبوعة ثلاثي الأبعاد باللونين الأحمر والأسود، بأحد تسعة تصاميم لعشيرة أوتشيها. اختر التصميم الذي تريده من الخيارات. طباعة بلاك أرو.",
+      "specs_ar": [
+        [
+          "التصميم",
+          "عشيرة أوتشيها، تسعة تصاميم"
+        ],
+        [
+          "الألوان",
+          "أحمر وأسود"
+        ],
+        [
+          "الطباعة",
+          "طباعة ثلاثية الأبعاد من بلاك أرو"
+        ]
+      ]
+    },
+    {
       "id": "button-symbols-controller-stand",
       "name": "Button Symbols Controller Stand",
       "brand": "Black Arrow",
