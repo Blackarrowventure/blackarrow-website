@@ -45,7 +45,6 @@
       "price": 1699,
       "currency": "SAR",
       "available": true,
-      "preorder": true,
       "variants": [
         { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 1699, "available": false, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
         { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
