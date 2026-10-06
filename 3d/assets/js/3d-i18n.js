@@ -39,6 +39,8 @@
       footer_cr_vat: 'CR 7054542985 · VAT 314841084500003',
       footer_brand_desc: 'A Black Arrow Venture company line of business. 3D printing equipment & supplies.',
       footer_copyright: 'Black Arrow Venture company. All rights reserved.',
+      footer_we_accept: 'We accept',
+      footer_bank_transfer: 'Bank transfer',
       footer_privacy: 'Privacy Policy',
       footer_terms: 'Terms and Conditions',
       footer_returns: 'Return & Exchange Policy',
@@ -397,7 +399,7 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
-      announce_1: 'Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -427,6 +429,8 @@
       footer_cr_vat: 'سجل تجاري 7054542985 · الرقم الضريبي 314841084500003',
       footer_brand_desc: 'أحد قطاعات أعمال شركة بلاك أرو فنتشر. معدات وتوريدات الطباعة ثلاثية الأبعاد.',
       footer_copyright: 'شركة بلاك أرو فنتشر. جميع الحقوق محفوظة.',
+      footer_we_accept: 'نقبل',
+      footer_bank_transfer: 'تحويل بنكي',
       footer_privacy: 'سياسة الخصوصية',
       footer_terms: 'الشروط والأحكام',
       footer_returns: 'سياسة الاسترجاع والاستبدال',
@@ -785,7 +789,7 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
-      announce_1: 'توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 

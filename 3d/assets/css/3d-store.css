@@ -2570,3 +2570,12 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 @media (max-width: 640px) {
   main.b3d-light .b3d-filter-panel__actions .btn { flex: 1 1 0; min-width: 0; }
 }
+
+/* Tabby / payment logos: larger Tabby in the cart option and a "We accept" strip in the footer */
+.b3d-pm__brands img.b3d-pm__tabby { width: 56px; height: 56px; padding: 4px; }
+.b3d-footer-pay { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.b3d-footer-pay__label { font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-inline-end: 4px; }
+.b3d-footer-pay__chip { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 4px 8px; background: #fff; border-radius: 8px; }
+.b3d-footer-pay__chip img { display: block; width: auto; height: 36px; max-width: 100%; object-fit: contain; }
+.b3d-footer-pay__chip--tabby img { height: 44px; width: 44px; }
+.b3d-footer-pay__chip--text { padding: 8px 14px; font-size: .8rem; font-weight: 600; color: #111; }
