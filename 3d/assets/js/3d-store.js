@@ -387,7 +387,7 @@
         p.variants.map(function (v, i) {
           var out = v.available === false;
           return '<button type="button" class="b3d-quick-pill" data-card-pill="' + i + '" aria-pressed="' + (i === pillIdx) + '"' +
-            (out ? ' data-out="1" disabled' : '') + '>' + LVariant(v) + '</button>';
+            (out ? ' data-out="1" disabled' : '') + '>' + LVariant(v) + (out ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
         }).join('') + '</div>';
     }
     var pillOut = pillProduct && p.variants[pillIdx].available === false;
@@ -1634,14 +1634,17 @@
 
       var hasVariants = !!(p.variants && p.variants.length);
       var hasSwatches = hasVariants && p.variants.some(function (v) { return !!v.swatch; });
-      var selectedVariant = 0;
+      var firstOk = hasVariants ? p.variants.findIndex(function (v) { return v.available !== false; }) : 0;
+      if (firstOk < 0) firstOk = 0;
+      var selectedVariant = firstOk;
       var variantSelectorHtml = hasVariants
         ? '<div class="b3d-pd__variants' + (hasSwatches ? ' b3d-pd__swatches' : '') + '" data-pd-variants style="display:flex;gap:' + (hasSwatches ? '10px' : '8px') + ';flex-wrap:wrap;margin-bottom:20px;align-items:center;">' +
             p.variants.map(function (v, i) {
               if (v.swatch) {
                 return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '" title="' + LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
               }
-              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '">' + LVariant(v) + '</button>';
+              var pOut = v.available === false;
+              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '"' + (pOut ? ' disabled' : '') + '>' + LVariant(v) + (pOut ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
             }).join('') +
           '</div>' +
           (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(p.variants[0]) + '</div>' : '')

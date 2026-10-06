@@ -96,6 +96,8 @@
 
 .b3d-quick-pill[aria-pressed="true"] { background: var(--clr-accent); border-color: var(--clr-accent); color: #1a1a1a; }
 .b3d-quick-pill:hover { border-color: var(--clr-accent); }
+.b3d-quick-pill:disabled { opacity: .55; cursor: not-allowed; border-style: dashed; }
+.b3d-quick-pill:disabled:hover { border-color: inherit; }
 
 .b3d-swatch {
   width: 34px;
