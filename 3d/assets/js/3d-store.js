@@ -213,8 +213,20 @@
     return n.toLocaleString('en-US') + ' <small>' + currency + '</small>';
   }
 
+  /* The first option the buyer can actually pick (not out of stock) with a photo:
+     its photo leads the card and product page, so an unavailable option never sets the picture. */
+  function firstAvailableVariantImage(p) {
+    if (!p.variants || !p.variants.length) return null;
+    for (var i = 0; i < p.variants.length; i++) {
+      if (p.variants[i].available !== false && p.variants[i].image) return p.variants[i].image;
+    }
+    return null;
+  }
+
   function primaryImage(p) {
     if (p.cardImage) return p.cardImage;
+    var vImg = firstAvailableVariantImage(p);
+    if (vImg) return vImg;
     if (p.images && p.images.length) return p.images[0];
     if (p.image) return p.image;
     return null;
@@ -1622,7 +1634,7 @@
         ? '<div class="b3d-pd__compat"><h2>' + T('js_compatibility_heading') + '</h2><ul>' + compatList.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul></div>'
         : '';
       var images = (p.images && p.images.length) ? p.images : (p.image ? [p.image] : []);
-      var heroImg = p.cardImage || (images.length ? images[0] : null);
+      var heroImg = p.cardImage || firstAvailableVariantImage(p) || (images.length ? images[0] : null);
       var thumbsHtml = images.length > 1
         ? '<div class="b3d-pd__thumbs">' + images.map(function (src, i) {
             var thumbLabel = T('js_view_image') + ' ' + (i + 1) + ' — ' + L(p, 'name');
