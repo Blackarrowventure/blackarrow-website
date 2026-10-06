@@ -1199,6 +1199,16 @@
       }
       view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
       view.querySelector('[data-b3d-thanks-payment]').textContent = 'Tabby (Pay in 4)';
+      try {
+        var sum = JSON.parse(sessionStorage.getItem('b3d-tabby-summary') || 'null');
+        if (sum) {
+          var totEl = view.querySelector('[data-b3d-thanks-total]');
+          if (totEl && sum.total != null) totEl.textContent = sum.total;
+          var shipEl = view.querySelector('[data-b3d-thanks-shipping]');
+          if (shipEl && sum.shipping) shipEl.textContent = sum.shipping;
+          sessionStorage.removeItem('b3d-tabby-summary');
+        }
+      } catch (e) {}
       lead.textContent = status === 'paid'
         ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
         : 'Thank you for your order. We are confirming your Tabby payment and will email you once it is complete.';
@@ -1331,6 +1341,7 @@
     }).then(function (res) {
       return res.json().catch(function () { return {}; }).then(function (data) {
         if (!res.ok || !data.checkoutUrl) throw new Error(data.error || 'failed');
+        try { sessionStorage.setItem('b3d-tabby-summary', JSON.stringify({ total: data.amount_sar, shipping: (form.querySelector('[data-b3d-shipping-field]') || {}).value || '' })); } catch (e) {}
         window.location.href = data.checkoutUrl;
       });
     }).catch(function () {
