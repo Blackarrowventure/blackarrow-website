@@ -105,7 +105,7 @@
       "brand": "Bambu Lab",
       "category": "3D Printers",
       "printerType": "FDM",
-      "price": 2700,
+      "price": 2700, "available": false,
       "currency": "SAR",
       "available": true,
       "variants": [
