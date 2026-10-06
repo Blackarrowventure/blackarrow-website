@@ -693,14 +693,14 @@
       "name": "Bambu Hotend — A1 Series",
       "brand": "Bambu Lab",
       "category": "Accessories",
-      "price": 122,
+      "price": 110,
       "currency": "SAR",
       "available": true,
       "variants": [
-        { "label": "0.2mm", "label_ar": "0.2 مم", "price": 122, "sku": "BAMBU-A1-HOTEND-02" },
-        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 122, "sku": "BAMBU-A1-HOTEND-04" },
-        { "label": "0.6mm", "label_ar": "0.6 مم", "price": 122, "sku": "BAMBU-A1-HOTEND-06" },
-        { "label": "0.8mm", "label_ar": "0.8 مم", "price": 122, "sku": "BAMBU-A1-HOTEND-08" }
+        { "label": "0.2mm", "label_ar": "0.2 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-02" },
+        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-04" },
+        { "label": "0.6mm", "label_ar": "0.6 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-06" },
+        { "label": "0.8mm", "label_ar": "0.8 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-08" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-hotend-a1-01.webp",
