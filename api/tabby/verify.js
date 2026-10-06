@@ -8,7 +8,8 @@ async function supabase(method, path, body, prefer) {
   if (prefer) headers.Prefer = prefer;
   const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
   if (!r.ok) throw new Error('supabase_' + r.status);
-  return r.json();
+  const text = await r.text();
+  return text ? JSON.parse(text) : null;
 }
 
 // Called by the cart page after Tabby sends the customer back.
