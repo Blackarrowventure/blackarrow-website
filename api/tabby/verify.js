@@ -38,7 +38,12 @@ module.exports = async (req, res) => {
   const auth = { Authorization: 'Bearer ' + secret, 'Content-Type': 'application/json' };
   try {
     const pr = await fetch(TABBY_API + '/payments/' + order.tabby_payment_id, { headers: auth });
-    const payment = await pr.json();
+    const prText = await pr.text();
+    let payment;
+    try { payment = JSON.parse(prText); } catch (e) {
+      console.error('tabby payment status non-json:', pr.status, prText.slice(0, 200));
+      throw new Error('tabby_status_' + pr.status);
+    }
     const amount = (order.amount_cents / 100).toFixed(2);
 
     if (payment.status === 'AUTHORIZED') {
