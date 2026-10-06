@@ -95,9 +95,27 @@ def money(n, currency):
     return '{:,}'.format(n) + ' ' + currency
 
 
+def first_ok_index(p):
+    """Index of the first option the buyer can pick (same rule as firstOk in 3d-store.js)."""
+    for i, v in enumerate(p.get('variants') or []):
+        if v.get('available') is not False:
+            return i
+    return 0
+
+
+def first_available_variant_image(p):
+    for v in p.get('variants') or []:
+        if v.get('available') is not False and v.get('image'):
+            return v['image']
+    return None
+
+
 def primary_image(p):
     if p.get('cardImage'):
         return p['cardImage']
+    vimg = first_available_variant_image(p)
+    if vimg:
+        return vimg
     if p.get('images'):
         return p['images'][0]
     if p.get('image'):
@@ -160,7 +178,8 @@ def variant_price_html(v, p):
 def current_price(p):
     """The price a customer actually pays for the base listing."""
     if p.get('variants'):
-        return min(v['price'] for v in p['variants'])
+        ok = [v for v in p['variants'] if v.get('available') is not False] or p['variants']
+        return min(v['price'] for v in ok)
     if p.get('onSale') and p.get('salePrice') is not None:
         return p['salePrice']
     return p.get('price')
@@ -169,10 +188,11 @@ def current_price(p):
 def price_block(p, lang):
     variants = p.get('variants')
     if variants:
-        prices = [v['price'] for v in variants]
+        pool = [v for v in variants if v.get('available') is not False] or variants
+        prices = [v['price'] for v in pool]
         lo = min(prices)
         if all(pr == lo for pr in prices):
-            return variant_price_html(variants[0], p)
+            return variant_price_html(pool[0], p)
         return ('<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="'
                 + T('js_from_tooltip', lang) + '">' + T('js_from', lang) + '</span><span class="b3d-price">'
                 + money(lo, p.get('currency')) + '</span>')
@@ -186,7 +206,7 @@ def product_detail_html(p, lang):
     name = L(p, 'name', lang)
     desc = L(p, 'description', lang) or ''
     images = p.get('images') or ([p['image']] if p.get('image') else [])
-    hero_img = p.get('cardImage') or (images[0] if images else None)
+    hero_img = primary_image(p) or (images[0] if images else None)
     main_visual = ('<img src="' + hero_img + '" alt="' + esc(name) + '" data-pd-main-img>') if hero_img else \
         '<div class="b3d-card__visual-placeholder">' + T('js_product_image', lang) + '</div>'
 
@@ -213,20 +233,24 @@ def product_detail_html(p, lang):
     variant_selector_html = ''
     if variants:
         has_swatches = any(v.get('swatch') for v in variants)
+        ok_idx = first_ok_index(p)
         pills = []
         for i, v in enumerate(variants):
+            pressed = 'true' if i == ok_idx else 'false'
             if v.get('swatch'):
-                pills.append('<button type="button" class="b3d-swatch" data-variant-idx="' + str(i)
-                              + '" aria-pressed="' + ('true' if i == 0 else 'false') + '" title="'
+                pills.append('<button type="button" class="b3d-swatch' + (' is-unavailable' if v.get('available') is False else '')
+                              + '" data-variant-idx="' + str(i)
+                              + '" aria-pressed="' + pressed + '" title="'
                               + esc(L_variant(v, lang)) + '" style="background:' + v['swatch'] + ';"></button>')
             else:
+                out = v.get('available') is False
                 pills.append('<button type="button" class="b3d-quick-pill" data-variant-idx="' + str(i)
-                              + '" aria-pressed="' + ('true' if i == 0 else 'false') + '">'
-                              + esc(L_variant(v, lang)) + '</button>')
+                              + '" aria-pressed="' + pressed + '"' + (' disabled' if out else '') + '>'
+                              + esc(L_variant(v, lang)) + (' (' + T('js_out_of_stock', lang) + ')' if out else '') + '</button>')
         variant_selector_html = ('<div class="b3d-pd__variants' + (' b3d-pd__swatches' if has_swatches else '')
                                   + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
                                   + ''.join(pills) + '</div>')
-        initial_price_html = variant_price_html(variants[0], p)
+        initial_price_html = variant_price_html(variants[ok_idx], p)
     else:
         initial_price_html = price_block(p, lang)
 
@@ -386,7 +410,7 @@ def build_product_page(p, lang):
     desc = L(p, 'shortDesc', lang) or L(p, 'description', lang) or ''
     url = SITE + product_url(p, lang)
     img = abs_url(primary_image(p))
-    price_now = p['variants'][0]['price'] if p.get('variants') else current_price(p)
+    price_now = current_price(p)
     price_txt = ('{:g}'.format(price_now) if isinstance(price_now, (int, float)) else str(price_now))
     def _fit(*cands):
         for c in cands:
@@ -424,7 +448,7 @@ def build_product_page(p, lang):
                          + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + product_url(p, "en") + '">')
     html = html.replace('<title>Product — Black Arrow 3D</title>', '<title>' + esc(seo_title) + '</title>')
 
-    price_value = p['variants'][0]['price'] if p.get('variants') else current_price(p)
+    price_value = current_price(p)
     offer = {
         '@type': 'Offer',
         'price': price_value,

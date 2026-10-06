@@ -299,16 +299,22 @@
 
   // The price a customer actually pays for the product's base listing.
   function currentPrice(p) {
-    if (p.variants && p.variants.length) return Math.min.apply(null, p.variants.map(function (v) { return v.price; }));
+    if (p.variants && p.variants.length) {
+      var ok = p.variants.filter(function (v) { return v.available !== false; });
+      return Math.min.apply(null, (ok.length ? ok : p.variants).map(function (v) { return v.price; }));
+    }
     return (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
   }
 
   function priceBlock(p) {
     if (p.variants && p.variants.length) {
-      var prices = p.variants.map(function (v) { return v.price; });
+      // Price only from options the buyer can pick; an out-of-stock option never sets the price shown.
+      var pool = p.variants.filter(function (v) { return v.available !== false; });
+      if (!pool.length) pool = p.variants;
+      var prices = pool.map(function (v) { return v.price; });
       var min = Math.min.apply(null, prices);
       var allSame = prices.every(function (pr) { return pr === min; });
-      if (allSame) return variantPriceHtml(p.variants[0], p);
+      if (allSame) return variantPriceHtml(pool[0], p);
       return '<span class="b3d-price-was" style="text-decoration:none;display:block;cursor:help;" title="' + T('js_from_tooltip') + '">' + T('js_from') + '</span><span class="b3d-price">' + money(min, p.currency) + '</span>';
     }
     if (p.onSale && p.salePrice != null) {
@@ -721,11 +727,11 @@
       if (state.buildVolume !== 'All') list = list.filter(function (p) { return buildVolumeBucket(p) === state.buildVolume; });
       if (state.filamentMaterial !== 'All') list = list.filter(function (p) { return filamentMaterialOf(p) === state.filamentMaterial; });
       if (state.accessoryCompat !== 'All') list = list.filter(function (p) { return (p.compatibility || []).indexOf(state.accessoryCompat) !== -1; });
-      if (state.priceMin != null) list = list.filter(function (p) { return p.price >= state.priceMin; });
-      if (state.priceMax != null) list = list.filter(function (p) { return p.price <= state.priceMax; });
+      if (state.priceMin != null) list = list.filter(function (p) { return currentPrice(p) >= state.priceMin; });
+      if (state.priceMax != null) list = list.filter(function (p) { return currentPrice(p) <= state.priceMax; });
 
-      if (state.sort === 'price-asc') list.sort(function (a, b) { return a.price - b.price; });
-      if (state.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
+      if (state.sort === 'price-asc') list.sort(function (a, b) { return currentPrice(a) - currentPrice(b); });
+      if (state.sort === 'price-desc') list.sort(function (a, b) { return currentPrice(b) - currentPrice(a); });
       if (state.sort === 'name-asc') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
 
       var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
@@ -1543,7 +1549,7 @@
     var canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', pageUrl);
 
-    var priceValue = (p.variants && p.variants.length) ? p.variants[0].price : currentPrice(p);
+    var priceValue = currentPrice(p);
     // Unused printers and filament: 7 days; everything else: defects / wrong item / shipping damage within 3 days.
     var sevenDay = p.category === '3D Printers' || p.category === 'Filament';
     var returnPolicy = {
@@ -1699,23 +1705,24 @@
       var firstOk = hasVariants ? p.variants.findIndex(function (v) { return v.available !== false; }) : 0;
       if (firstOk < 0) firstOk = 0;
       var selectedVariant = firstOk;
+      var initV = hasVariants ? p.variants[firstOk] : null;
       var variantSelectorHtml = hasVariants
         ? '<div class="b3d-pd__variants' + (hasSwatches ? ' b3d-pd__swatches' : '') + '" data-pd-variants style="display:flex;gap:' + (hasSwatches ? '10px' : '8px') + ';flex-wrap:wrap;margin-bottom:20px;align-items:center;">' +
             p.variants.map(function (v, i) {
               if (v.swatch) {
-                return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === 0) + '" title="' + LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
+                return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '" title="' + LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
               }
               var pOut = v.available === false;
               return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '"' + (pOut ? ' disabled' : '') + '>' + LVariant(v) + (pOut ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
             }).join('') +
           '</div>' +
-          (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(p.variants[0]) + '</div>' : '')
+          (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(initV) + '</div>' : '')
         : '';
       var initialPriceHtml = hasVariants
-        ? variantPriceHtml(p.variants[0], p)
+        ? variantPriceHtml(initV, p)
         : priceBlock(p);
       var initialSaveHtml = hasVariants
-        ? (p.variants[0].oldPrice ? saveAmountHtml(p.variants[0].oldPrice, p.variants[0].price, p.currency) : '')
+        ? (initV.oldPrice ? saveAmountHtml(initV.oldPrice, initV.price, p.currency) : '')
         : ((p.onSale && p.salePrice != null) ? saveAmountHtml(p.price, p.salePrice, p.currency) : '');
 
       container.innerHTML = '' +
