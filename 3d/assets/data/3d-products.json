@@ -1745,6 +1745,37 @@
       ]
     },
     {
+      "id": "synapse-usb-lamp",
+      "name": "Synapse USB Lamp",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 60,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/synapse-usb-lamp-01.webp"
+      ],
+      "shortDesc": "3D printed cylindrical lamp with a circuit-style pleated shade and a built-in USB-powered LED light.",
+      "description": "Synapse is a 3D printed cylindrical lamp with a circuit-board-style pleated shade that glows warmly when lit. The built-in LED light runs off USB power, so it plugs into any USB port or charger. Printed by Black Arrow.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Cylindrical, circuit-style pleated shade"],
+        ["Light", "Built-in LED, USB powered"],
+        ["Use", "Desk or shelf lamp"]
+      ],
+      "name_ar": "لمبة سينابس USB",
+      "shortDesc_ar": "لمبة أسطوانية مطبوعة ثلاثية الأبعاد بتصميم مطوي يشبه الدوائر الإلكترونية، مع إضاءة LED مدمجة تعمل بالـ USB.",
+      "description_ar": "سينابس لمبة أسطوانية مطبوعة ثلاثية الأبعاد بتصميم مطوي يشبه الدوائر الإلكترونية، تضيء بدفء عند التشغيل. إضاءة LED المدمجة تعمل بالـ USB، فتوصل بأي منفذ أو شاحن USB. طباعة بلاك أرو.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "غطاء أسطواني مطوي بتصميم يشبه الدوائر الإلكترونية"],
+        ["الإضاءة", "LED مدمجة تعمل بالـ USB"],
+        ["الاستخدام", "لمبة مكتب أو رف"]
+      ]
+    },
+    {
       "id": "overthing",
       "name": "Overthing",
       "brand": "Black Arrow",
