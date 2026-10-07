@@ -98,20 +98,13 @@ module.exports = async (req, res) => {
   // 'card' (the default) is the card/mada checkout, with Apple Pay offered
   // alongside it when configured. 'tamara' is its own buy-now-pay-later
   // checkout, shown as a separate option in the cart next to Tabby.
-  const channel = body.channel === 'tamara' ? 'tamara' : body.channel === 'applepay' ? 'applepay' : 'card';
+  const channel = body.channel === 'tamara' ? 'tamara' : 'card';
   let paymentMethods;
   if (channel === 'tamara') {
     if (!tamaraIntegrationId) {
       return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_TAMARA'] });
     }
     paymentMethods = [tamaraIntegrationId];
-  } else if (channel === 'applepay') {
-    // Debug-only isolation path (never used by the cart UI): confirms whether the
-    // Apple Pay ID alone is recognized, separate from the card ID it normally rides with.
-    if (!body.debug || !applePayIntegrationId) {
-      return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_APPLEPAY'] });
-    }
-    paymentMethods = [applePayIntegrationId];
   } else {
     paymentMethods = [integrationId].concat(applePayIntegrationId ? [applePayIntegrationId] : []);
   }
