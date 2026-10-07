@@ -82,6 +82,8 @@ module.exports = async (req, res) => {
   const secret = process.env.PAYMOB_SECRET_KEY;
   const publicKey = process.env.PAYMOB_PUBLIC_KEY;
   const integrationId = Number(process.env.PAYMOB_INTEGRATION_ID);
+  const applePayIntegrationId = Number(process.env.PAYMOB_INTEGRATION_ID_APPLEPAY) || null;
+  const tamaraIntegrationId = Number(process.env.PAYMOB_INTEGRATION_ID_TAMARA) || null;
   if (!secret || !publicKey || !integrationId) {
     const missing = [
       !secret && 'PAYMOB_SECRET_KEY',
@@ -92,6 +94,21 @@ module.exports = async (req, res) => {
   }
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+
+  // 'card' (the default) is the card/mada checkout, with Apple Pay offered
+  // alongside it when configured. 'tamara' is its own buy-now-pay-later
+  // checkout, shown as a separate option in the cart next to Tabby.
+  const channel = body.channel === 'tamara' ? 'tamara' : 'card';
+  let paymentMethods;
+  if (channel === 'tamara') {
+    if (!tamaraIntegrationId) {
+      return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_TAMARA'] });
+    }
+    paymentMethods = [tamaraIntegrationId];
+  } else {
+    paymentMethods = [integrationId].concat(applePayIntegrationId ? [applePayIntegrationId] : []);
+  }
+
   const priced = priceCart(body.items);
   if (!priced) return res.status(400).json({ error: 'invalid_cart' });
   const shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
@@ -107,12 +124,12 @@ module.exports = async (req, res) => {
   const intentionBody = {
     amount: priced.total_cents,
     currency: 'SAR',
-    payment_methods: [integrationId],
+    payment_methods: paymentMethods,
     items: priced.lines.map((l) => ({ name: l.name, amount: l.amount_cents, quantity: l.quantity, description: l.name })),
     billing_data: billing,
     special_reference: orderRef,
     notification_url: SITE + '/api/paymob/webhook',
-    redirection_url: SITE + '/3d/cart/?paid=' + orderRef,
+    redirection_url: SITE + '/3d/cart/?paid=' + orderRef + (channel === 'tamara' ? '&pm=tamara' : ''),
   };
 
   try {

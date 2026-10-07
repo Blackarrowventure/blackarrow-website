@@ -165,18 +165,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="cart_payment_h4">Payment Method</h3>
               <div class="b3d-payment-methods">
                 <button type="button" class="b3d-pm" data-pm="bank" aria-pressed="false"><span data-i18n="pm_banktransfer">Bank Transfer</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-                <button type="button" class="b3d-pm" data-pm="card" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/visa.png" alt="Visa" width="36" height="24"><img src="/3d/assets/images/payment/mastercard.svg" alt="Mastercard" width="36" height="24"><img src="/3d/assets/images/payment/mada.png" alt="mada" width="36" height="24"></span><span class="b3d-pm__note b3d-pm__note--active">Available Now</span></button>
+                <button type="button" class="b3d-pm" data-pm="card" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/visa.png" alt="Visa" width="36" height="24"><img src="/3d/assets/images/payment/mastercard.svg" alt="Mastercard" width="36" height="24"><img src="/3d/assets/images/payment/mada.png" alt="mada" width="36" height="24"></span><span>Card &amp; Apple Pay</span><span class="b3d-pm__note b3d-pm__note--active">Available Now</span></button>
                 <button type="button" class="b3d-pm" data-pm="tabby" aria-pressed="false"><span class="b3d-pm__brands"><img class="b3d-pm__tabby" src="/3d/assets/images/payment/tabby.png" alt="Tabby" width="56" height="56"></span><span>Pay in 4 with Tabby</span><span class="b3d-pm__note b3d-pm__note--active">Available Now</span></button>
+                <button type="button" class="b3d-pm" data-pm="tamara" aria-pressed="false"><span>Pay Later with Tamara</span><span class="b3d-pm__note b3d-pm__note--active">Available Now</span></button>
               </div>
 
               <div class="b3d-pm-detail" data-pm-detail="card" hidden>
                 <h4>Card payment</h4>
-                <p>After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to enter your card, then returned here.</p>
+                <p>After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by card or Apple Pay, then returned here.</p>
               </div>
 
               <div class="b3d-pm-detail" data-pm-detail="tabby" hidden>
                 <h4>Pay in 4 with Tabby</h4>
                 <p>After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.</p>
+              </div>
+
+              <div class="b3d-pm-detail" data-pm-detail="tamara" hidden>
+                <h4>Pay Later with Tamara</h4>
+                <p>After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.</p>
               </div>
 
               <div class="b3d-pm-detail" data-pm-detail="bank" hidden>
@@ -336,7 +342,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/assets/js/app.js" defer></script>
   <script src="/3d/assets/js/3d-i18n.js?v=20261017" defer></script>
   <script src="/3d/assets/js/3d-brands.js" defer></script>
-  <script src="/3d/assets/js/3d-store.js?v=20261007" defer></script>
+  <script src="/3d/assets/js/3d-store.js?v=20261008" defer></script>
   <script src="/3d/assets/js/3d-auth.js" defer></script>
 
 </body>

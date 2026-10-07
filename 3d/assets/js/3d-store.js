@@ -1048,11 +1048,11 @@
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
-    var purchasable = method === 'bank' || method === 'card' || method === 'tabby';
+    var purchasable = method === 'bank' || method === 'card' || method === 'tabby' || method === 'tamara';
     checkout.hidden = !purchasable;
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
-      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : 'Bank Transfer';
+      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : 'Bank Transfer';
     }
     updateOrderTotals();
   }
@@ -1179,15 +1179,19 @@
   // Paymob sends the customer back here with ?paid=<order ref> on success and on
   // failure, so the message stays neutral: the webhook is what marks the order paid.
   function showCardReturn() {
-    var ref = new URLSearchParams(window.location.search).get('paid');
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get('paid');
     if (!ref || !/^[a-f0-9]{24}$/.test(ref)) return;
+    var isTamara = params.get('pm') === 'tamara';
     var view = document.querySelector('[data-b3d-thanks]');
     if (!view) return;
     view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
-    view.querySelector('[data-b3d-thanks-payment]').textContent = 'Card (Paymob)';
+    view.querySelector('[data-b3d-thanks-payment]').textContent = isTamara ? 'Tamara (Pay Later)' : 'Card (Paymob)';
     var lead = view.querySelector('[data-b3d-thanks-lead]');
     lead.removeAttribute('data-i18n');
-    lead.textContent = 'Thank you for your order. We are confirming your card payment. You will receive a confirmation email once it is complete.';
+    lead.textContent = isTamara
+      ? 'Thank you for your order. We are confirming your Tamara payment. You will receive a confirmation email once it is complete.'
+      : 'Thank you for your order. We are confirming your card payment. You will receive a confirmation email once it is complete.';
     ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
       var el = document.querySelector(sel);
       if (el) el.hidden = true;
@@ -1321,7 +1325,7 @@
   }
 
   // Card (Paymob) and Tabby share this flow; only the endpoint differs.
-  function startCardPayment(form, btn, errorEl, endpoint) {
+  function startCardPayment(form, btn, errorEl, endpoint, extraBody) {
     var cm = document.querySelector('[data-b3d-coupon-msg]');
     if (appliedCoupon) {
       if (cm) { cm.textContent = 'Online payment does not support coupons yet. Remove the code or pay by bank transfer.'; cm.className = 'b3d-coupon__msg is-err'; }
@@ -1337,25 +1341,27 @@
     var label = btn ? btn.textContent : '';
     if (btn) { btn.textContent = '...'; btn.disabled = true; }
     if (errorEl) errorEl.hidden = true;
+    var payload = {
+      items: items,
+      shipping: shipping ? shipping.value : 'regular',
+      lang: document.documentElement.lang === 'ar' ? 'ar' : 'en',
+      billing: {
+        firstName: get('customer_first_name'),
+        lastName: get('customer_last_name'),
+        email: get('email'),
+        phone: get('customer_phone'),
+        city: get('customer_city'),
+        street: get('customer_national_address'),
+        building: get('customer_building'),
+        apartment: get('customer_apartment'),
+        postalCode: get('customer_postal_code')
+      }
+    };
+    if (extraBody) { for (var k in extraBody) { payload[k] = extraBody[k]; } }
     fetch(endpoint || '/api/paymob/create-intention', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        items: items,
-        shipping: shipping ? shipping.value : 'regular',
-        lang: document.documentElement.lang === 'ar' ? 'ar' : 'en',
-        billing: {
-          firstName: get('customer_first_name'),
-          lastName: get('customer_last_name'),
-          email: get('email'),
-          phone: get('customer_phone'),
-          city: get('customer_city'),
-          street: get('customer_national_address'),
-          building: get('customer_building'),
-          apartment: get('customer_apartment'),
-          postalCode: get('customer_postal_code')
-        }
-      })
+      body: JSON.stringify(payload)
     }).then(function (res) {
       return res.json().catch(function () { return {}; }).then(function (data) {
         if (!res.ok || !data.checkoutUrl) throw new Error(data.error || 'failed');
@@ -1380,6 +1386,7 @@
       var payField = form.querySelector('[data-b3d-order-payment]');
       if (payField && payField.value === 'Card (Paymob)') { startCardPayment(form, submitBtn, errorEl); return; }
       if (payField && payField.value === 'Tabby (Pay in 4)') { startCardPayment(form, submitBtn, errorEl, '/api/tabby/create-session'); return; }
+      if (payField && payField.value === 'Tamara (Pay Later)') { startCardPayment(form, submitBtn, errorEl, '/api/paymob/create-intention', { channel: 'tamara' }); return; }
 
       var label = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.textContent = '...'; submitBtn.disabled = true; }
