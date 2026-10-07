@@ -155,7 +155,10 @@ module.exports = async (req, res) => {
     });
     intention = await r.json();
     if (!r.ok || !intention.client_secret) {
-      return res.status(502).json({ error: 'gateway_rejected' });
+      console.error('paymob intention rejected:', channel, r.status, JSON.stringify(intention).slice(0, 1000));
+      const out = { error: 'gateway_rejected' };
+      if (body.debug === true) out.detail = intention;
+      return res.status(502).json(out);
     }
     await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef, { paymob_intention_id: String(intention.id || '') });
   } catch (e) {
