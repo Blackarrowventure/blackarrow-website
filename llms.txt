@@ -1,0 +1,40 @@
+# Black Arrow Venture company
+
+> Critical infrastructure and healthcare solutions provider based in Dammam, Saudi Arabia. Supplies, installs and maintains isolated power panels, UPS and critical power systems, EV charging, firefighting systems, HVAC, electrical distribution, lighting, hospital modular operating rooms, and radiation (lead) shielding - plus paid technical consultancy across all of these. Serves Riyadh, Jeddah, Dammam, Al Khobar and the wider Eastern Province, with aviation-sector experience.
+
+Founded 2022. Commercial Registration 7054542985. VAT 314841084500003.
+Contact: +966 56 022 4715 - info@blackarrowksa.com
+Website: https://www.blackarrowksa.com
+
+## Services
+
+- [Isolated Power Panels](https://www.blackarrowksa.com/services/isolated-power-panels/): IPP for hospital operating rooms and critical areas.
+- [UPS & Power Backup](https://www.blackarrowksa.com/services/ups-power-backup/): UPS supply, sizing, installation and maintenance.
+- [Hospital UPS Systems](https://www.blackarrowksa.com/services/hospital-ups-systems/)
+- [Industrial UPS Systems](https://www.blackarrowksa.com/services/industrial-ups-systems/)
+- [Data Center UPS Systems](https://www.blackarrowksa.com/services/data-center-ups-systems/)
+- [Online UPS Systems](https://www.blackarrowksa.com/services/online-ups-systems/)
+- [Modular Three-Phase UPS](https://www.blackarrowksa.com/services/modular-three-phase-ups/)
+- [UPS Maintenance (AMC)](https://www.blackarrowksa.com/services/ups-maintenance-amc/)
+- [UPS Battery Replacement](https://www.blackarrowksa.com/services/ups-battery-replacement/)
+- [UPS Load Bank Testing](https://www.blackarrowksa.com/services/ups-load-bank-testing/)
+- [EV Charging Solutions](https://www.blackarrowksa.com/services/ev-charging-solutions/): AC Level 2 and DC fast chargers, OCPP network management, POS integration.
+- [Firefighting Systems](https://www.blackarrowksa.com/services/firefighting-systems/)
+- [HVAC Solutions](https://www.blackarrowksa.com/services/hvac-solutions/)
+- [Electrical Distribution](https://www.blackarrowksa.com/services/electrical-distribution/)
+- [Lighting Solutions](https://www.blackarrowksa.com/services/lighting-solutions/)
+- [Hospital Modular Operating Rooms](https://www.blackarrowksa.com/services/hospital-modular-or-rooms/)
+- [Lead Sheets / Radiation Shielding for Hospitals](https://www.blackarrowksa.com/services/lead-sheets-hospital/)
+- [Aviation](https://www.blackarrowksa.com/services/aviation/)
+- [Technical Consultancy](https://www.blackarrowksa.com/services/consultancy/): paid, independent consultancy covering UPS, firefighting, HVAC, isolated power, modular operating rooms, lead shielding, EV charging, facility management and airports. Not tied to buying equipment or installation from Black Arrow.
+
+## Other
+
+- [About](https://www.blackarrowksa.com/about.html)
+- [Company Profile](https://www.blackarrowksa.com/company-profile.html)
+- [Certifications](https://www.blackarrowksa.com/certifications/)
+- [Become a Partner](https://www.blackarrowksa.com/become-a-partner.html)
+- [Contact](https://www.blackarrowksa.com/contact.html)
+- [3D Printing (Black Arrow 3D)](https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia): separate shop for 3D-printed items, unrelated to the infrastructure services above.
+
+Content on this site is also available in Arabic under /ar/.
