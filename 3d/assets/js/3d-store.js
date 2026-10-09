@@ -175,7 +175,41 @@
           }]
         }
       });
+      pushSnapEvent('ADD_CART', {
+        price: price * qty,
+        currency: product.currency || 'SAR',
+        item_ids: [parsed.productId],
+        item_category: product.category,
+        number_items: qty
+      });
     } catch (e) {}
+  }
+
+  // Builds the Snap Pixel item list from whatever is still in the cart —
+  // called right before the cart is cleared, on every successful checkout path.
+  function snapCartPayload() {
+    var cart = getCart();
+    var ids = Object.keys(cart);
+    var price = 0, items = 0, itemIds = [], category = null;
+    ids.forEach(function (id) {
+      var parsed = parseLineId(id);
+      var product = __b3dProductsById[parsed.productId];
+      if (!product) return;
+      var variant = (parsed.variantIndex != null && product.variants) ? product.variants[parsed.variantIndex] : null;
+      var unit = variant ? variant.price : currentPrice(product);
+      var qty = cart[id];
+      price += unit * qty;
+      items += qty;
+      itemIds.push(parsed.productId);
+      if (!category) category = product.category;
+    });
+    return { price: price, currency: 'SAR', item_ids: itemIds, item_category: category, number_items: items };
+  }
+
+  // Snap Pixel — mirrors the GA4/GTM push above, best-effort (never blocks
+  // the cart/checkout flow if the pixel script failed to load or is blocked).
+  function pushSnapEvent(name, params) {
+    try { if (window.snaptr) window.snaptr('track', name, params || {}); } catch (e) {}
   }
 
   function pushLeadEvent(leadType) {
@@ -1045,6 +1079,7 @@
     }
   }
 
+  var __snapCheckoutFired = false;
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
@@ -1053,6 +1088,10 @@
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
       if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : 'Bank Transfer';
+      if (!__snapCheckoutFired) {
+        __snapCheckoutFired = true;
+        pushSnapEvent('START_CHECKOUT', snapCartPayload());
+      }
     }
     updateOrderTotals();
   }
@@ -1200,6 +1239,15 @@
     if (layout) layout.style.display = 'none';
     view.hidden = false;
     window.scrollTo(0, 0);
+
+    // Fired on return from Paymob, before the webhook has necessarily confirmed
+    // payment server-side — best-effort, same as the COD/bank path, not a
+    // guarantee the card/Apple Pay/Tamara charge actually succeeded.
+    var snapPayload = snapCartPayload();
+    snapPayload.transaction_id = ref;
+    snapPayload.success = 1;
+    pushSnapEvent('PURCHASE', snapPayload);
+    saveCart({});
   }
 
   // Tabby sends the customer back with ?tabby=<order ref>. The server checks the
@@ -1221,6 +1269,7 @@
       }
       view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
       view.querySelector('[data-b3d-thanks-payment]').textContent = 'Tabby (Pay in 4)';
+      var snapPayload = snapCartPayload();
       try {
         var sum = JSON.parse(sessionStorage.getItem('b3d-tabby-summary') || 'null');
         if (sum) {
@@ -1228,9 +1277,16 @@
           if (totEl && sum.total != null) totEl.textContent = sum.total;
           var shipEl = view.querySelector('[data-b3d-thanks-shipping]');
           if (shipEl && sum.shipping) shipEl.textContent = sum.shipping;
+          if (sum.total != null) snapPayload.price = sum.total;
           sessionStorage.removeItem('b3d-tabby-summary');
         }
       } catch (e) {}
+      if (status === 'paid') {
+        snapPayload.transaction_id = ref;
+        snapPayload.success = 1;
+        pushSnapEvent('PURCHASE', snapPayload);
+        saveCart({});
+      }
       lead.textContent = status === 'paid'
         ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
         : 'Thank you for your order. We are confirming your Tabby payment and will email you once it is complete.';
@@ -1252,6 +1308,10 @@
     var view = document.querySelector('[data-b3d-thanks]');
     if (!view) return;
     var val = function (sel) { var el = form.querySelector(sel); return el ? el.value : ''; };
+    var snapPayload = snapCartPayload();
+    snapPayload.transaction_id = val('[data-b3d-order-id]');
+    snapPayload.success = 1;
+    pushSnapEvent('PURCHASE', snapPayload);
     var summary = val('[data-b3d-order-summary]');
     var linesEl = view.querySelector('[data-b3d-thanks-lines]');
     linesEl.textContent = '';
