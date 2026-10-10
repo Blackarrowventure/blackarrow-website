@@ -153,10 +153,11 @@
     },
     {
       "id": "bambu-lab-a2l",
-      "name": "Bambu Lab A2L",
+      "name": "Bambu Lab A2L Combo",
       "brand": "Bambu Lab",
       "category": "3D Printers",
       "printerType": "FDM",
+      "sku": "BAMBU-A2L-COMBO",
       "price": 4200,
       "currency": "SAR",
       "available": true,
@@ -173,7 +174,7 @@
         "/3d/assets/images/products/bambu-a2l-08.jpg"
       ],
       "shortDesc": "Large-format Bambu Lab printer — over double the A1's build volume. Combo bundle with AMS.",
-      "description": "The Bambu Lab A2L is a large-format 3D printer from the A-series, built for projects that need more room — bigger models, prototypes, decor, cosplay pieces, and custom products. It keeps the easy A1-style workflow but with a much larger build volume, more than double the A1's, plus high speed and multi-color printing via its included AMS.",
+      "description": "The Bambu Lab A2L Combo is a large-format 3D printer from the A-series, built for projects that need more room — bigger models, prototypes, decor, cosplay pieces, and custom products. It keeps the easy A1-style workflow but with a much larger build volume, more than double the A1's, plus high speed and multi-color printing via its included AMS.",
       "specs": [
         ["Build Volume", "330 x 320 x 325 mm"],
         ["Build Volume (Liters)", "~34.3 L"],
@@ -184,9 +185,9 @@
         ["Weight", "12.8 kg"],
         ["Supported Filament", "PLA / PETG / TPU and similar, depending on settings"]
       ],
-      "name_ar": "بامبو لاب A2L",
+      "name_ar": "بامبو لاب A2L كومبو",
       "shortDesc_ar": "طابعة بامبو لاب كبيرة الحجم بمساحة طباعة أكبر من ضعف A1. باقة Combo مع AMS.",
-      "description_ar": "Bambu Lab A2L طابعة ثلاثية الأبعاد كبيرة الحجم من سلسلة A، مناسبة لمن يحتاج إلى مساحة طباعة أوسع للمجسمات الكبيرة والنماذج الأولية والديكور والكوسبلاي والمنتجات المخصصة. توفر تجربة سهلة قريبة من A1، لكن بحجم طباعة أكبر بكثير يصل إلى أكثر من ضعف حجم الطباعة في A1، مع سرعة عالية ودعم للطباعة متعددة الألوان عبر وحدة AMS المرفقة.",
+      "description_ar": "Bambu Lab A2L Combo طابعة ثلاثية الأبعاد كبيرة الحجم من سلسلة A، مناسبة لمن يحتاج إلى مساحة طباعة أوسع للمجسمات الكبيرة والنماذج الأولية والديكور والكوسبلاي والمنتجات المخصصة. توفر تجربة سهلة قريبة من A1، لكن بحجم طباعة أكبر بكثير يصل إلى أكثر من ضعف حجم الطباعة في A1، مع سرعة عالية ودعم للطباعة متعددة الألوان عبر وحدة AMS المرفقة.",
       "specs_ar": [
         ["حجم الطباعة", "330 × 320 × 325 مم"],
         ["حجم الطباعة بالفوليوم", "حوالي 34.3 لتر"],
@@ -422,7 +423,6 @@
       "price": 5550,
       "currency": "SAR",
       "available": true,
-      "preorder": true,
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/snapmaker-u1-01.webp",
