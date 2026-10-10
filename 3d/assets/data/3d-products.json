@@ -2071,51 +2071,51 @@
       "name": "KINGROON PETG Basic Filament 1.75 mm (1 kg)",
       "brand": "KINGROON",
       "category": "Filament",
-      "price": 75,
+      "price": 60,
       "currency": "SAR",
       "vatIncluded": true,
       "onSale": true,
-      "salePrice": 69,
+      "salePrice": 49,
       "available": true,
       "newArrival": true,
       "variants": [
         {
           "label": "Blue",
           "label_ar": "أزرق",
-          "price": 69,
-          "oldPrice": 75,
+          "price": 49,
+          "oldPrice": 60,
           "swatch": "#1e4fb4",
           "image": "/3d/assets/images/products/kingroon-petg-basic-blue.webp"
         },
         {
           "label": "Orange",
           "label_ar": "برتقالي",
-          "price": 69,
-          "oldPrice": 75,
+          "price": 49,
+          "oldPrice": 60,
           "swatch": "#f28c28",
           "image": "/3d/assets/images/products/kingroon-petg-basic-orange.webp"
         },
         {
           "label": "Yellow",
           "label_ar": "أصفر",
-          "price": 69,
-          "oldPrice": 75,
+          "price": 49,
+          "oldPrice": 60,
           "swatch": "#f5c518",
           "image": "/3d/assets/images/products/kingroon-petg-basic-yellow.webp"
         },
         {
           "label": "Green",
           "label_ar": "أخضر",
-          "price": 69,
-          "oldPrice": 75,
+          "price": 49,
+          "oldPrice": 60,
           "swatch": "#2e8b3e",
           "image": "/3d/assets/images/products/kingroon-petg-basic-green.webp"
         },
         {
           "label": "Red",
           "label_ar": "أحمر",
-          "price": 69,
-          "oldPrice": 75,
+          "price": 49,
+          "oldPrice": 60,
           "swatch": "#d62828",
           "image": "/3d/assets/images/products/kingroon-petg-basic-red.webp"
         }
