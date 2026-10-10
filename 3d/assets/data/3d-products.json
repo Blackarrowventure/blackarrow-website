@@ -114,10 +114,10 @@
       "images": [
         "/3d/assets/images/products/bambu-a1-01.webp",
         "/3d/assets/images/products/bambu-a1-02.webp",
-        "/3d/assets/images/products/bambu-a1-03.jpg",
-        "/3d/assets/images/products/bambu-a1-04.jpg",
-        "/3d/assets/images/products/bambu-a1-05.jpg",
-        "/3d/assets/images/products/bambu-a1-06.jpg"
+        "/3d/assets/images/products/bambu-a1-03.webp",
+        "/3d/assets/images/products/bambu-a1-04.webp",
+        "/3d/assets/images/products/bambu-a1-05.webp",
+        "/3d/assets/images/products/bambu-a1-06.webp"
       ],
       "shortDesc": "Fast, accurate FDM printing with easy multicolor AMS Lite support.",
       "description": "The Bambu Lab A1 is a strong choice for anyone starting out in 3D printing, offering an easy, professional experience from day one. It combines speed, precision, and multi-color printing, letting you produce gifts, models, logos, prototypes, and custom parts with high quality and no complexity. Whether for home, retail, or daily production, it delivers a smooth, ready-to-go experience thanks to automatic calibration, high speed, and the AMS Lite system for printing up to 4 colors.",
@@ -165,12 +165,12 @@
       "images": [
         "/3d/assets/images/products/bambu-a2l-04.webp",
         "/3d/assets/images/products/bambu-a2l-01.webp",
-        "/3d/assets/images/products/bambu-a2l-02.jpg",
+        "/3d/assets/images/products/bambu-a2l-02.webp",
         "/3d/assets/images/products/bambu-a2l-03.webp",
-        "/3d/assets/images/products/bambu-a2l-05.jpg",
-        "/3d/assets/images/products/bambu-a2l-06.jpg",
-        "/3d/assets/images/products/bambu-a2l-07.jpg",
-        "/3d/assets/images/products/bambu-a2l-08.jpg"
+        "/3d/assets/images/products/bambu-a2l-05.webp",
+        "/3d/assets/images/products/bambu-a2l-06.webp",
+        "/3d/assets/images/products/bambu-a2l-07.webp",
+        "/3d/assets/images/products/bambu-a2l-08.webp"
       ],
       "shortDesc": "Large-format Bambu Lab printer — over double the A1's build volume. Combo bundle with AMS.",
       "description": "The Bambu Lab A2L Combo is a large-format 3D printer from the A-series, built for projects that need more room — bigger models, prototypes, decor, cosplay pieces, and custom products. It keeps the easy A1-style workflow but with a much larger build volume, more than double the A1's, plus high speed and multi-color printing via its included AMS.",
@@ -212,9 +212,9 @@
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/bambu-h2c-01.webp",
-        "/3d/assets/images/products/bambu-h2c-02.jpg",
-        "/3d/assets/images/products/bambu-h2c-03.jpg",
-        "/3d/assets/images/products/bambu-h2c-04.jpg"
+        "/3d/assets/images/products/bambu-h2c-02.webp",
+        "/3d/assets/images/products/bambu-h2c-03.webp",
+        "/3d/assets/images/products/bambu-h2c-04.webp"
       ],
       "shortDesc": "Enclosed, professional-grade printer for engineering materials.",
       "description": "The Bambu Lab H2C Combo is a professional-tier printer for workshops, retailers, and larger projects that need higher output, more colors and materials, and a more advanced experience. It steps printing up from a hobby into real production, with a large build volume, high speed, higher hot-end temperatures for advanced materials, and a Combo system that unlocks more color/material options depending on configuration.",
@@ -255,10 +255,10 @@
       ],
       "images": [
         "/3d/assets/images/products/bambu-p2s-01.webp",
-        "/3d/assets/images/products/bambu-p2s-02.jpg",
-        "/3d/assets/images/products/bambu-p2s-03.jpg",
+        "/3d/assets/images/products/bambu-p2s-02.webp",
+        "/3d/assets/images/products/bambu-p2s-03.webp",
         "/3d/assets/images/products/bambu-p2s-04.webp",
-        "/3d/assets/images/products/bambu-p2s-05.jpg"
+        "/3d/assets/images/products/bambu-p2s-05.webp"
       ],
       "shortDesc": "Enclosed, fast printer for consistent daily production.",
       "description": "The Bambu Lab P2S is an enclosed, fast printer built for professional, everyday production. It combines stability, speed, and ease of use, suited to products, gifts, prototypes, and repeat orders at high quality. A great fit for workshops, retailers, and anyone who wants a newer P-series printer with a smarter, easier experience — with Combo options for multi-color printing depending on the bundle.",
@@ -309,11 +309,11 @@
       "images": [
         "/3d/assets/images/products/creality-sparkx-i7-01.webp",
         "/3d/assets/images/products/creality-sparkx-i7-combo.webp",
-        "/3d/assets/images/products/creality-sparkx-i7-02.jpg",
-        "/3d/assets/images/products/creality-sparkx-i7-03.jpg",
-        "/3d/assets/images/products/creality-sparkx-i7-04.jpg",
-        "/3d/assets/images/products/creality-sparkx-i7-05.jpg",
-        "/3d/assets/images/products/creality-sparkx-i7-06.jpg"
+        "/3d/assets/images/products/creality-sparkx-i7-02.webp",
+        "/3d/assets/images/products/creality-sparkx-i7-03.webp",
+        "/3d/assets/images/products/creality-sparkx-i7-04.webp",
+        "/3d/assets/images/products/creality-sparkx-i7-05.webp",
+        "/3d/assets/images/products/creality-sparkx-i7-06.webp"
       ],
       "shortDesc": "Affordable, easy-to-use printer — ideal for first-time makers.",
       "description": "The Creality SparkX i7 is a smart, easy way to get started in 3D printing. It's well suited to figurines, gifts, prototypes and custom parts without complicated setup — a good fit for the home, students, hobbyists, and testing custom product ideas before scaling up to higher-end printers. Why choose it: an affordable entry price into 3D printing, easy day-to-day use for simple projects, a good way to learn printing and settings without a big investment, practical for hobby models and small parts, and a solid starting point for testing product ideas before scaling up. Key specs: multi-color printing support via CFS Lite, Creality Cloud connectivity, and compatibility with PLA/PETG filament. An excellent printer if you want an easy, high-quality start suited to most projects.",
@@ -363,14 +363,14 @@
       "available": true,
       "images": [
         "/3d/assets/images/products/elegoo-cc2-01.webp",
-        "/3d/assets/images/products/elegoo-cc2-02.jpg",
-        "/3d/assets/images/products/elegoo-cc2-03.jpg",
-        "/3d/assets/images/products/elegoo-cc2-04.jpg",
-        "/3d/assets/images/products/elegoo-cc2-05.jpg",
-        "/3d/assets/images/products/elegoo-cc2-06.jpg",
-        "/3d/assets/images/products/elegoo-cc2-07.jpg",
-        "/3d/assets/images/products/elegoo-cc2-08.jpg",
-        "/3d/assets/images/products/elegoo-cc2-09.jpg"
+        "/3d/assets/images/products/elegoo-cc2-02.webp",
+        "/3d/assets/images/products/elegoo-cc2-03.webp",
+        "/3d/assets/images/products/elegoo-cc2-04.webp",
+        "/3d/assets/images/products/elegoo-cc2-05.webp",
+        "/3d/assets/images/products/elegoo-cc2-06.webp",
+        "/3d/assets/images/products/elegoo-cc2-07.webp",
+        "/3d/assets/images/products/elegoo-cc2-08.webp",
+        "/3d/assets/images/products/elegoo-cc2-09.webp"
       ],
       "shortDesc": "Enclosed CoreXY printer with fast, high-quality multicolor printing.",
       "description": "The Elegoo Centauri Carbon 2 is an enclosed CoreXY 3D printer suited to anyone who wants speed, quality, and multi-color printing at a competitive price. An excellent choice for projects, prototypes, custom products, figurines, and functional parts. It comes with the CANVAS system for multi-color printing with up to 4 filaments, a hardened-steel nozzle rated for high temperatures, a practical build volume, and strong speed suited to daily use and light-to-medium production. Why choose it: multi-color printing via the CANVAS system (up to 4 filaments), high nozzle temperature up to 350°C for a wider range of materials, strong speed up to 500 mm/s with acceleration up to 20,000 mm/s², a practical 256 mm cubed build volume suited to most projects, business-friendly for producing models, products, gifts, and custom parts, and an easy experience with a 5-inch touchscreen, Wi-Fi, and automatic bed leveling. A strong option for anyone who wants an enclosed, fast printer that supports color and practical materials, suited to projects and daily production.",
@@ -425,17 +425,17 @@
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/snapmaker-u1-01.webp",
-        "/3d/assets/images/products/snapmaker-u1-02.jpg",
-        "/3d/assets/images/products/snapmaker-u1-03.jpg",
-        "/3d/assets/images/products/snapmaker-u1-04.jpg",
-        "/3d/assets/images/products/snapmaker-u1-05.jpg",
-        "/3d/assets/images/products/snapmaker-u1-06.jpg",
-        "/3d/assets/images/products/snapmaker-u1-07.jpg",
-        "/3d/assets/images/products/snapmaker-u1-08.jpg",
-        "/3d/assets/images/products/snapmaker-u1-09.jpg",
-        "/3d/assets/images/products/snapmaker-u1-10.jpg",
-        "/3d/assets/images/products/snapmaker-u1-11.jpg",
-        "/3d/assets/images/products/snapmaker-u1-12.jpg"
+        "/3d/assets/images/products/snapmaker-u1-02.webp",
+        "/3d/assets/images/products/snapmaker-u1-03.webp",
+        "/3d/assets/images/products/snapmaker-u1-04.webp",
+        "/3d/assets/images/products/snapmaker-u1-05.webp",
+        "/3d/assets/images/products/snapmaker-u1-06.webp",
+        "/3d/assets/images/products/snapmaker-u1-07.webp",
+        "/3d/assets/images/products/snapmaker-u1-08.webp",
+        "/3d/assets/images/products/snapmaker-u1-09.webp",
+        "/3d/assets/images/products/snapmaker-u1-10.webp",
+        "/3d/assets/images/products/snapmaker-u1-11.webp",
+        "/3d/assets/images/products/snapmaker-u1-12.webp"
       ],
       "shortDesc": "Four-toolhead printer for faster, cleaner multicolor printing.",
       "description": "The Snapmaker U1 is a distinctive 3D printer for anyone who wants to get into multi-color printing in a way that's stronger than traditional filament-swap systems. It uses a multi-toolhead system, giving you a faster, cleaner color experience and opening the door to printing products, figurines, logos, gifts and creative pieces at high quality. Well suited to content creators, retailers, serious hobbyists, and anyone who wants an eye-catching printer that helps them produce colorful, sellable ideas. Why choose it: color without heavy waste — a multi-toolhead system that reduces filament waste compared to some color-swap systems; a different experience for anyone who wants new ideas and colorful products; excellent speed suited to daily production and colorful orders; a practical build volume suited to gifts, figurines and products; and a CoreXY design for better stability and speed for a professional printing experience.",
@@ -481,12 +481,12 @@
       "images": [
         "/3d/assets/images/products/anycubic-kobra3max-01.webp",
         "/3d/assets/images/products/anycubic-kobra3max-combo.webp",
-        "/3d/assets/images/products/anycubic-kobra3max-02.jpg",
-        "/3d/assets/images/products/anycubic-kobra3max-03.jpg",
-        "/3d/assets/images/products/anycubic-kobra3max-04.jpg",
-        "/3d/assets/images/products/anycubic-kobra3max-05.jpg",
-        "/3d/assets/images/products/anycubic-kobra3max-06.jpg",
-        "/3d/assets/images/products/anycubic-kobra3max-07.jpg"
+        "/3d/assets/images/products/anycubic-kobra3max-02.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-03.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-04.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-05.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-06.webp",
+        "/3d/assets/images/products/anycubic-kobra3max-07.webp"
       ],
       "shortDesc": "Large-format printer with a big build volume, competitively priced.",
       "description": "The Anycubic Kobra 3 Max is a strong choice for anyone who wants a large build volume and a color option at a competitive price. Well suited to printing large parts, oversized figurines, prototypes, and custom gifts. Why choose it: a large build volume suited to bigger projects and parts, a color printing experience depending on the bundle, and a competitive price for anyone who needs a large print area at a lower cost — an excellent choice for projects that need a big build volume at a competitive price.",
@@ -700,12 +700,12 @@
       ],
       "images": [
         "/3d/assets/images/products/bambu-hotend-a1-01.webp",
-        "/3d/assets/images/products/bambu-hotend-a1-02.jpg",
-        "/3d/assets/images/products/bambu-hotend-a1-03.jpg",
-        "/3d/assets/images/products/bambu-hotend-a1-04.jpg",
-        "/3d/assets/images/products/bambu-hotend-a1-05.jpg",
-        "/3d/assets/images/products/bambu-hotend-a1-06.jpg",
-        "/3d/assets/images/products/bambu-hotend-a1-07.jpg"
+        "/3d/assets/images/products/bambu-hotend-a1-02.webp",
+        "/3d/assets/images/products/bambu-hotend-a1-03.webp",
+        "/3d/assets/images/products/bambu-hotend-a1-04.webp",
+        "/3d/assets/images/products/bambu-hotend-a1-05.webp",
+        "/3d/assets/images/products/bambu-hotend-a1-06.webp",
+        "/3d/assets/images/products/bambu-hotend-a1-07.webp"
       ],
       "shortDesc": "Ready-to-swap replacement hot end for the A1 series.",
       "description": "A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.",
@@ -736,7 +736,7 @@
       "available": false,
       "images": [
         "/3d/assets/images/products/a1-extruder-unit-01.webp",
-        "/3d/assets/images/products/a1-extruder-unit-02.jpg"
+        "/3d/assets/images/products/a1-extruder-unit-02.webp"
       ],
       "shortDesc": "Hardened-steel dual gears for stronger filament feeding.",
       "description": "The extruder unit for the Bambu Lab A1 series is built to feed filament into the hot end with strength and stability. It uses hardened-steel dual gears to increase feed force, reduce slipping, and raise wear resistance during printing. This unit helps the printer handle tougher, more abrasive materials such as carbon-fiber-reinforced nylon or glass-fiber nylon, depending on printer settings and material. Why you need it: hardened-steel gears for higher feed force and better wear resistance, reduced filament slipping for stable material flow while printing, suited to tougher materials like Carbon Fiber Nylon and Glass Fiber Nylon depending on settings, a built-in filament cutter to help purge or swap filament, and a built-in extruder motor that provides the power needed for feeding. Box contents: 1x Extruder Unit (including filament cutter and extruder motor), 2x M2-2 Screws, 2x BT2-3 Screws, 2x M3-10 Screws.",
@@ -767,7 +767,7 @@
       "available": false,
       "images": [
         "/3d/assets/images/products/filament-cutter-lever-01.webp",
-        "/3d/assets/images/products/filament-cutter-lever-02.jpg"
+        "/3d/assets/images/products/filament-cutter-lever-02.webp"
       ],
       "shortDesc": "Keeps the filament cutter in place for a clean cut.",
       "description": "The filament cutter lever mounts on the extruder assembly and is used to hold the cutter and the cut-detection magnet in place. During the cutting action, the lever is pressed, and after the filament is cut, the lever returns to its original position. Why you need it: holds the cutter in place during operation, supports cut detection by carrying the detection magnet, automatically returns to its base position after cutting, and is an important maintenance part to replace if it breaks or cutting issues appear. Box contents: 1x Filament Cutter Lever. Note: it's best to inspect and replace the filament cutter lever when signs of breakage appear or when there are issues with the cutting process — follow Bambu Lab's official installation steps when replacing it.",
@@ -798,7 +798,7 @@
       "available": false,
       "images": [
         "/3d/assets/images/products/hotend-heating-a1-01.webp",
-        "/3d/assets/images/products/hotend-heating-a1-02.jpg"
+        "/3d/assets/images/products/hotend-heating-a1-02.webp"
       ],
       "shortDesc": "Quick-swap heating assembly, heats up to 300°C.",
       "description": "The heating assembly for the Bambu Lab A1 series is built to support the hot end's quick-swap system. It uses a quick-fit mechanism to secure the heating block and heating base, making it easy to separate the thermal part from the electronic components during maintenance or replacement. The assembly can heat the hot end up to 300°C and instantly measures hot end temperature through its included thermistor. Why you need it: supports quick swapping for easy hot end removal and installation, heats up to 300°C suited to the temperatures A1 series materials need, instant temperature reading via a built-in thermistor while printing, and easier maintenance by separating the thermal part from the electronics practically. Box contents: 1x Hotend Heating Assembly, 3x BT3-10 Screws.",

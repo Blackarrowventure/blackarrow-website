@@ -283,6 +283,22 @@ BLOG_INDEX_CARDS = [
 ]
 
 
+# Short <title>s (search results cut titles off around 60 characters);
+# the full headline still goes in og:title and the page H1.
+SEO_TITLES = {
+    '3d-printed-gifts-home-decor-saudi-arabia': 'هدايا وديكور مطبوع ثلاثي الأبعاد في السعودية | Black Arrow 3D',
+    '3d-printer-maintenance-guide': 'دليل صيانة الطابعة ثلاثية الأبعاد | Black Arrow 3D',
+    'bambu-lab-a1-vs-a1-mini-vs-a2l': 'بامبو لاب A1 أم A1 ميني أم A2L؟ | Black Arrow 3D',
+    'bambu-lab-vs-creality-vs-snapmaker': 'بامبو لاب أم كرياليتي أم سناب ميكر؟ أي طابعة تشتري',
+    'best-3d-printer-for-beginners-saudi-arabia': 'أفضل طابعة ثلاثية الأبعاد للمبتدئين في السعودية 2026',
+    'buy-3d-printer-saudi-arabia-price-guide': 'أسعار الطابعات ثلاثية الأبعاد في السعودية 2026',
+    'custom-3d-printing-cost-saudi-arabia': 'تكلفة الطباعة ثلاثية الأبعاد المخصصة في السعودية',
+    'multi-color-3d-printing-explained': 'الطباعة متعددة الألوان: AMS و CANVAS و SnapSwap',
+    'pla-vs-petg-vs-abs-filament-guide': 'PLA أم PETG أم ABS؟ أي فلمنت تستخدم | Black Arrow 3D',
+    'snapmaker-u1-multicolor-3d-printer-review': 'مراجعة Snapmaker U1 وسعرها في السعودية | Black Arrow 3D',
+}
+
+
 def build_post(slug, data):
     src = os.path.join(BLOG_ROOT, slug, 'index.html')
     with open(src, encoding='utf-8') as f:
@@ -309,7 +325,7 @@ def build_post(slug, data):
                   + '\n  <link rel="alternate" hreflang="ar" href="' + ar_url + '">'
                   + '\n  <link rel="alternate" hreflang="x-default" href="' + en_url + '">',
                   html, count=1)
-    html = re.sub(r'<title>[^<]*</title>', '<title>' + data['headline'] + ' | Black Arrow 3D</title>', html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + SEO_TITLES.get(slug, data['headline'] + ' | Black Arrow 3D') + '</title>', html, count=1)
 
     # BreadcrumbList + Article JSON-LD: translate name/headline/description, keep dates structural
     if en_headline:

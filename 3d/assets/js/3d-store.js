@@ -438,11 +438,11 @@
       pillsHtml = '<div class="b3d-card__pills" data-card-pills="' + p.id + '" role="group" aria-label="' + T('js_options') + '">' +
         p.variants.map(function (v, i) {
           var out = v.available === false;
-          return '<button type="button" class="b3d-quick-pill" data-card-pill="' + i + '" aria-pressed="' + (i === pillIdx) + '"' +
-            (out ? ' data-out="1" disabled' : '') + '>' + LVariant(v) + (out ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
+          return '<button type="button" class="b3d-quick-pill' + (out ? ' is-out' : '') + '" data-card-pill="' + i + '" aria-pressed="' + (i === pillIdx) + '"' +
+            (out ? ' data-out="1"' : '') + '>' + LVariant(v) + (out ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
         }).join('') + '</div>';
     }
-    var pillOut = pillProduct && p.variants[pillIdx].available === false;
+    var pillOut = pillProduct && (p.available === false || p.variants[pillIdx].available === false);
 
     var priceHtml = pillProduct ? variantPriceHtml(p.variants[pillIdx], p) : priceBlock(p);
     var simpleOut = !hasVariants && p.available === false;
@@ -518,7 +518,7 @@
         var pIdx = parseInt(pill.getAttribute('data-card-pill'), 10);
         var product = __b3dProductsById && __b3dProductsById[pid];
         pCard.querySelectorAll('[data-card-pill]').forEach(function (c) { c.setAttribute('aria-pressed', c === pill ? 'true' : 'false'); });
-        var pOut = pill.getAttribute('data-out') === '1';
+        var pOut = pill.getAttribute('data-out') === '1' || !!(product && product.available === false);
         var pBtn = pCard.querySelector('[data-card-add]');
         if (pBtn) {
           pBtn.setAttribute('data-variant-idx', pIdx);
@@ -1780,11 +1780,16 @@
                 return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '" title="' + LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
               }
               var pOut = v.available === false;
-              return '<button type="button" class="b3d-quick-pill" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '"' + (pOut ? ' disabled' : '') + '>' + LVariant(v) + (pOut ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
+              return '<button type="button" class="b3d-quick-pill' + (pOut ? ' is-out' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '">' + LVariant(v) + (pOut ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
             }).join('') +
           '</div>' +
           (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(initV) + '</div>' : '')
         : '';
+      function buyState(v) {
+        var out = !pdAvailable || !!(v && v.available === false);
+        return { disabled: out && !p.preorder, label: p.preorder ? T('js_pre_order') : (out ? T('js_out_of_stock') : T('js_add_to_cart')) };
+      }
+      var initBuy = buyState(initV);
       var initialPriceHtml = hasVariants
         ? variantPriceHtml(initV, p)
         : priceBlock(p);
@@ -1814,7 +1819,7 @@
               '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label') + '">' +
               '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((pdAvailable || p.preorder) ? '' : 'disabled') + '>' + (p.preorder ? T('js_pre_order') : (pdAvailable ? T('js_add_to_cart') : T('js_out_of_stock'))) + '</button>' +
+            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + (initBuy.disabled ? 'disabled' : '') + '>' + initBuy.label + '</button>' +
           '</div>' +
           '<div class="b3d-pd__contact-actions">' +
             '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
@@ -1877,7 +1882,9 @@
             var saveEl = container.querySelector('[data-pd-save]');
             if (saveEl) saveEl.innerHTML = v.oldPrice ? saveAmountHtml(v.oldPrice, v.price, p.currency) : '';
             var swatchLabel = container.querySelector('[data-pd-swatch-label]');
-            if (swatchLabel) swatchLabel.textContent = LVariant(v);
+            if (swatchLabel) swatchLabel.textContent = LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '');
+            var buyBtn = container.querySelector('[data-pd-add]');
+            if (buyBtn) { var bs = buyState(v); buyBtn.disabled = bs.disabled; buyBtn.textContent = bs.label; }
             if (v.image) {
               var mainImg = container.querySelector('[data-pd-main-img]');
               if (mainImg) mainImg.src = v.image;
@@ -1892,6 +1899,7 @@
       var addBtn = container.querySelector('[data-pd-add]');
       if (addBtn) {
         addBtn.addEventListener('click', function () {
+          if (addBtn.disabled) return;
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
           addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
           if (p.preorder) {
@@ -1900,7 +1908,7 @@
           }
           var original = addBtn.textContent;
           addBtn.textContent = T('js_added');
-          setTimeout(function () { addBtn.textContent = original; }, 1200);
+          setTimeout(function () { if (!addBtn.disabled) addBtn.textContent = original; }, 1200);
         });
       }
       var compareBtn = container.querySelector('[data-pd-compare]');
