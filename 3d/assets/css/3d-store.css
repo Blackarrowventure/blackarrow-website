@@ -2212,6 +2212,36 @@ html[dir="rtl"] .b3d-journey li::before { content: '\2190'; }
 .b3d-hub-reviews { margin-top: 0; border-top: 0; padding-top: 40px; }
 .b3d-page .b3d-reviews { margin-top: 24px; padding-top: 0; border-top: 0; }
 .b3d-hub-reviews .b3d-reviews__summary { justify-content: center; }
+/* Homepage review teaser: white cards that auto-scroll, same pattern as the delivery-partner marquee */
+.b3d-reviews__marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  margin: 0 -4px;
+}
+.b3d-reviews__track { display: flex; align-items: stretch; gap: 16px; width: max-content; animation: b3d-reviews-scroll 46s linear infinite; }
+.b3d-reviews__marquee:hover .b3d-reviews__track { animation-play-state: paused; }
+.b3d-hub-reviews .b3d-review {
+  flex: 0 0 auto;
+  width: 320px;
+  background: #fff;
+  border: 1px solid #e6e3dc;
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
+}
+.b3d-hub-reviews .b3d-review__name, .b3d-hub-reviews .b3d-reviews__top h2 { color: #111; }
+.b3d-hub-reviews .b3d-review__text { color: #333; }
+.b3d-hub-reviews .b3d-review__date, .b3d-hub-reviews .b3d-review__tag { color: #777; }
+.b3d-hub-reviews .b3d-review__tag { border-color: #d9d3c3; }
+.b3d-hub-reviews .b3d-star { color: #d8d5cc; }
+.b3d-hub-reviews .b3d-star.is-on { color: #D97706; }
+@keyframes b3d-reviews-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .b3d-reviews__track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+  .b3d-reviews__track .b3d-review[aria-hidden="true"] { display: none; }
+}
+html[data-b3d-motion="off"] .b3d-reviews__track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+html[data-b3d-motion="off"] .b3d-reviews__track .b3d-review[aria-hidden="true"] { display: none; }
+@media (max-width: 480px) { .b3d-hub-reviews .b3d-review { width: 260px; } }
 .b3d-ra-tr { margin-top: 12px; color: rgba(255,255,255,.75); font-size: .88rem; }
 .b3d-ra-tr label { display: grid; gap: 4px; margin-top: 10px; }
 .b3d-ra-tr textarea { width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(245,158,11,.3); color: #fff; padding: 8px 10px; border-radius: var(--radius-md); font-family: inherit; }

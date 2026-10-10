@@ -175,10 +175,10 @@
     } catch (e) { return ''; }
   }
 
-  function reviewHtml(r) {
+  function reviewHtml(r, hidden) {
     var t = textFor(r);
     var photos = (r.photos || []).filter(function (f) { return /^[0-9a-f-]{36}\.jpg$/.test(f); });
-    return '<article class="b3d-review">' +
+    return '<article class="b3d-review"' + (hidden ? ' aria-hidden="true"' : '') + '>' +
       '<div class="b3d-review__head">' + starsHtml(r.rating) +
       '<strong class="b3d-review__name">' + esc(r.name) + '</strong>' +
       '<span class="b3d-review__date">' + esc(dateText(r.created_at)) + '</span></div>' +
@@ -239,7 +239,7 @@
       '<button type="button" class="btn btn-outline" data-rv-open aria-expanded="false" aria-controls="b3d-rv-form-wrap">' + esc(S.write) + '</button></div>' +
       summaryHtml(list) +
       '<div id="b3d-rv-form-wrap">' + formHtml() + '</div>' +
-      '<div class="b3d-reviews__list">' + list.map(reviewHtml).join('') + '</div>';
+      '<div class="b3d-reviews__list">' + list.map(function (r) { return reviewHtml(r); }).join('') + '</div>';
 
     var form = host.querySelector('[data-rv-form]');
     var openBtn = host.querySelector('[data-rv-open]');
@@ -317,10 +317,12 @@
   function buildTeaser(host, list) {
     if (!list.length) return; // nothing to show yet: the section stays hidden
     var latest = list.slice(0, 3);
+    var cards = latest.map(function (r) { return reviewHtml(r, false); }).join('');
+    var dupCards = latest.map(function (r) { return reviewHtml(r, true); }).join('');
     host.innerHTML =
       '<div class="section-header"><h2>' + esc(S.teaserTitle) + '</h2></div>' +
       summaryHtml(list) +
-      '<div class="b3d-reviews__list b3d-reviews__list--three">' + latest.map(reviewHtml).join('') + '</div>' +
+      '<div class="b3d-reviews__marquee"><div class="b3d-reviews__track">' + cards + dupCards + '</div></div>' +
       '<div style="text-align:center;margin-top:24px;"><a class="btn btn-outline" href="' + REVIEWS_URL + '">' + esc(S.seeAll) + '</a></div>';
     host.classList.add('b3d-reviews');
     host.removeAttribute('hidden');
