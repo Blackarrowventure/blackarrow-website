@@ -96,7 +96,9 @@
 
 .b3d-quick-pill[aria-pressed="true"] { background: var(--clr-accent); border-color: var(--clr-accent); color: #1a1a1a; }
 .b3d-quick-pill:hover { border-color: var(--clr-accent); }
-.b3d-quick-pill:disabled { opacity: .55; cursor: not-allowed; border-style: dashed; }
+.b3d-quick-pill:disabled, .b3d-quick-pill.is-out { opacity: .55; cursor: not-allowed; border-style: dashed; }
+.b3d-quick-pill.is-out { cursor: pointer; }
+.b3d-quick-pill.is-out[aria-pressed="true"] { opacity: .8; }
 .b3d-quick-pill:disabled:hover { border-color: inherit; }
 
 .b3d-swatch {
@@ -110,7 +112,7 @@
 }
 .b3d-swatch:hover { border-color: rgba(255,255,255,.7); }
 .b3d-swatch[aria-pressed="true"] { border-color: var(--clr-accent); box-shadow: 0 0 0 2px var(--clr-accent); }
-.b3d-swatch.is-unavailable { opacity: .55; cursor: not-allowed; position: relative; overflow: hidden; }
+.b3d-swatch.is-unavailable { opacity: .55; cursor: pointer; position: relative; overflow: hidden; }
 .b3d-swatch.is-unavailable::after { content: ''; position: absolute; left: 50%; top: 50%; width: 140%; height: 2px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.55); transform: translate(-50%, -50%) rotate(-45deg); }
 
 .b3d-hero__eyebrow {
@@ -1675,6 +1677,7 @@ html[lang="ar"] [data-lang-block="ar"] { display: block; }
 .b3d-legal__updated { color: rgba(255,255,255,.5); font-size: .85rem; margin-bottom: 24px; }
 .b3d-article__meta { color: rgba(255,255,255,.45); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
 .b3d-article h1 { color: #fff; font-size: 2.1rem; line-height: 1.25; text-wrap: balance; margin-bottom: 18px; }
+.b3d-article .b3d-legal__h1 { color: #fff; font-size: 2.1rem; line-height: 1.25; text-wrap: balance; margin: 0 0 18px; }
 .b3d-article__lead { color: rgba(255,255,255,.75); font-size: 1.1rem; line-height: 1.7; margin-bottom: 28px; }
 .b3d-article h2 { color: #fff; font-size: 1.4rem; margin: 36px 0 14px; }
 .b3d-article h3 { color: #fff; font-size: 1.12rem; margin: 26px 0 10px; }
@@ -2399,6 +2402,7 @@ main.b3d-light .b3d-pd__save { background: rgba(4,120,87,.12); color: #047857; }
 .b3d-pd__trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 20px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); font-size: .82rem; color: rgba(255,255,255,.75); }
 main.b3d-light .b3d-pd__trust { border-color: #e6e3dc; color: #444; }
 .b3d-pd__buy { width: 100%; padding: 16px; font-size: 1.05rem; font-weight: 700; box-shadow: 0 8px 18px rgba(4,120,87,.28); }
+.b3d-pd__buy:disabled { background: #8a9096 !important; border-color: #8a9096 !important; color: #fff !important; box-shadow: none; cursor: not-allowed; }
 .b3d-pd__actions { flex-direction: column; align-items: stretch; }
 .b3d-pd__actions .b3d-qty { align-self: flex-start; }
 .b3d-pd__contact-actions { gap: 18px; align-items: center; }

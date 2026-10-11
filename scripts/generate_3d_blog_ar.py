@@ -138,7 +138,7 @@ POSTS = {
           <div class="b3d-article__related">
             <a href="/3d/ar/product/bambu-lab-a1-mini/">بامبو لاب A1 ميني</a>
             <a href="/3d/ar/product/creality-sparkx-i7/">كرياليتي سباركس آي 7</a>
-            <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA 1 كجم</a>
+            <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a>
           </div>
         ''',
     },
@@ -228,7 +228,7 @@ POSTS = {
         'lead': 'اختيار الفلمنت الخاطئ للمهمة هو أكثر خطأ شائع لدى المبتدئين بعد معايرة السرير. إليك ما تصلح له كل مادة فعلياً.',
         'body': '''
           <h2>PLA &mdash; الخيار الافتراضي، ولسبب وجيه</h2>
-          <p>يُطبع PLA بدرجات حرارة أقل، وبالكاد يتقوّس، ولا يحتاج غلافاً أو حجرة مدفأة ليخرج نظيفاً. إنه الخيار المناسب للتماثيل والنماذج الأولية والهدايا ومعظم الأشياء التي لن تكون في سيارة ساخنة أو تتعرض لصدمة قوية. <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA 1 كجم</a> لدينا متوفر بـ 8 ألوان ويعمل على كل طابعة FDM نبيعها.</p>
+          <p>يُطبع PLA بدرجات حرارة أقل، وبالكاد يتقوّس، ولا يحتاج غلافاً أو حجرة مدفأة ليخرج نظيفاً. إنه الخيار المناسب للتماثيل والنماذج الأولية والهدايا ومعظم الأشياء التي لن تكون في سيارة ساخنة أو تتعرض لصدمة قوية. <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> لدينا متوفر بـ 8 ألوان ويعمل على كل طابعة FDM نبيعها.</p>
 
           <h2>PETG &mdash; أكثر متانة، ويتعامل مع الرطوبة والأشعة فوق البنفسجية بشكل أفضل</h2>
           <p>PETG يمثل خطوة أعلى في المتانة ومقاومة الحرارة مقارنة بـ PLA، مع مقاومة أفضل للطقس والرطوبة، على حساب كونه أصعب قليلاً في الطباعة (تسييل خيوط أكثر إذا لم تكن الإعدادات مضبوطة). إنه خيار جيد للقطع الوظيفية &mdash; حوامل، تركيبات خارجية، حاويات.</p>
@@ -253,7 +253,7 @@ POSTS = {
 
           <h2>منتجات ذات صلة</h2>
           <div class="b3d-article__related">
-            <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA 1 كجم</a>
+            <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a>
             <a href="/3d/ar/product/elegoo-centauri-carbon-2/">إليجو سنتوري كاربون 2</a>
             <a href="/3d/ar/product/flashforge-creator-5-pro/">فلاش فورج كرييتر 5 برو</a>
           </div>
@@ -283,6 +283,22 @@ BLOG_INDEX_CARDS = [
 ]
 
 
+# Short <title>s (search results cut titles off around 60 characters);
+# the full headline still goes in og:title and the page H1.
+SEO_TITLES = {
+    '3d-printed-gifts-home-decor-saudi-arabia': 'هدايا وديكور مطبوع ثلاثي الأبعاد في السعودية | Black Arrow 3D',
+    '3d-printer-maintenance-guide': 'دليل صيانة الطابعة ثلاثية الأبعاد | Black Arrow 3D',
+    'bambu-lab-a1-vs-a1-mini-vs-a2l': 'بامبو لاب A1 أم A1 ميني أم A2L؟ | Black Arrow 3D',
+    'bambu-lab-vs-creality-vs-snapmaker': 'بامبو لاب أم كرياليتي أم سناب ميكر؟ أي طابعة تشتري',
+    'best-3d-printer-for-beginners-saudi-arabia': 'أفضل طابعة ثلاثية الأبعاد للمبتدئين في السعودية 2026',
+    'buy-3d-printer-saudi-arabia-price-guide': 'أسعار الطابعات ثلاثية الأبعاد في السعودية 2026',
+    'custom-3d-printing-cost-saudi-arabia': 'تكلفة الطباعة ثلاثية الأبعاد المخصصة في السعودية',
+    'multi-color-3d-printing-explained': 'الطباعة متعددة الألوان: AMS و CANVAS و SnapSwap',
+    'pla-vs-petg-vs-abs-filament-guide': 'PLA أم PETG أم ABS؟ أي فلمنت تستخدم | Black Arrow 3D',
+    'snapmaker-u1-multicolor-3d-printer-review': 'مراجعة Snapmaker U1 وسعرها في السعودية | Black Arrow 3D',
+}
+
+
 def build_post(slug, data):
     src = os.path.join(BLOG_ROOT, slug, 'index.html')
     with open(src, encoding='utf-8') as f:
@@ -309,7 +325,7 @@ def build_post(slug, data):
                   + '\n  <link rel="alternate" hreflang="ar" href="' + ar_url + '">'
                   + '\n  <link rel="alternate" hreflang="x-default" href="' + en_url + '">',
                   html, count=1)
-    html = re.sub(r'<title>[^<]*</title>', '<title>' + data['headline'] + ' | Black Arrow 3D</title>', html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + SEO_TITLES.get(slug, data['headline'] + ' | Black Arrow 3D') + '</title>', html, count=1)
 
     # BreadcrumbList + Article JSON-LD: translate name/headline/description, keep dates structural
     if en_headline:

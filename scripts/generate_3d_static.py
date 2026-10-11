@@ -244,8 +244,8 @@ def product_detail_html(p, lang):
                               + esc(L_variant(v, lang)) + '" style="background:' + v['swatch'] + ';"></button>')
             else:
                 out = v.get('available') is False
-                pills.append('<button type="button" class="b3d-quick-pill" data-variant-idx="' + str(i)
-                              + '" aria-pressed="' + pressed + '"' + (' disabled' if out else '') + '>'
+                pills.append('<button type="button" class="b3d-quick-pill' + (' is-out' if out else '') + '" data-variant-idx="' + str(i)
+                              + '" aria-pressed="' + pressed + '">'
                               + esc(L_variant(v, lang)) + (' (' + T('js_out_of_stock', lang) + ')' if out else '') + '</button>')
         variant_selector_html = ('<div class="b3d-pd__variants' + (' b3d-pd__swatches' if has_swatches else '')
                                   + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
@@ -255,6 +255,8 @@ def product_detail_html(p, lang):
         initial_price_html = price_block(p, lang)
 
     pd_available = p.get('available') is not False
+    if variants and variants[first_ok_index(p)].get('available') is False:
+        pd_available = False
     is_art = p.get('category') == '3D Artwork'
     compare_btn = '' if is_art else ('<button class="btn btn-outline" data-pd-compare="' + p['id'] + '">'
                                       + T('js_compare_btn', lang) + '</button>')
@@ -426,6 +428,20 @@ def build_product_page(p, lang):
         lead = (name + ' 3D Printer' if p.get('category') == '3D Printers' else name)
         seo_title = _fit(*([lead + ' in Saudi Arabia | Black Arrow 3D'] if 'Saudi' not in name else []), lead + ' | Black Arrow 3D', name + ' | Black Arrow 3D', name)
         seo_desc = (desc.rstrip('.') + '. Price: ' + price_txt + ' SAR. Delivery across Saudi Arabia.')
+    if p.get('category') == '3D Artwork':
+        # Art pieces: name alone says nothing about what they are — add the gift angle.
+        if lang == 'ar':
+            seo_title = _fit(name + ' | هدية مطبوعة ثلاثية الأبعاد | Black Arrow', name + ' | هدايا ثلاثية الأبعاد | Black Arrow', seo_title)
+            art_desc = desc.rstrip('.') + '. صُنع بالطباعة ثلاثية الأبعاد في السعودية — هدية مميزة. السعر ' + price_txt + ' ريال. توصيل لكل مناطق المملكة.'
+        else:
+            seo_title = _fit(name + ' | 3D Printed Gift | Black Arrow 3D', name + ' | 3D Printed | Black Arrow 3D', seo_title)
+            art_desc = desc.rstrip('.') + '. Made in Saudi Arabia by Black Arrow — a unique gift. Price: ' + price_txt + ' SAR. Delivery across the Kingdom.'
+        if len(art_desc) <= 165:
+            seo_desc = art_desc
+    # Hand-written overrides from the catalog win (seoTitle / seoDescription, + _ar).
+    sfx = '_ar' if lang == 'ar' else ''
+    seo_title = p.get('seoTitle' + sfx) or seo_title
+    seo_desc = p.get('seoDescription' + sfx) or seo_desc
 
     html = set_lang_attrs(html, lang)
     html = html.replace(
@@ -556,7 +572,7 @@ BRAND_SEO = {
         'en': ('Bambu Lab 3D Printers & Parts in Saudi Arabia | Black Arrow 3D',
                'Buy Bambu Lab 3D printers and spare parts in Saudi Arabia from Black Arrow 3D. Prices in SAR with delivery across the Kingdom.',
                'Bambu Lab 3D printers and spare parts, priced in Saudi riyals and delivered across Saudi Arabia. Compare models by price and build volume in the shop.'),
-        'ar': ('طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار في السعودية | Black Arrow 3D',
+        'ar': ('طابعات Bambu Lab وقطع الغيار في السعودية | Black Arrow 3D',
                'اشترِ طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار في السعودية من Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
                'طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار بالريال السعودي مع التوصيل لكل مناطق المملكة. قارن الموديلات بالسعر وحجم الطباعة في المتجر.'),
     },
@@ -576,6 +592,16 @@ def strip_hreflang(html):
     """Templates (home, shop) now carry their own English hreflang set; every page
     built from them writes its own, so drop the inherited lines first."""
     return HREFLANG_RX.sub('', html)
+
+
+TEMPLATE_BREADCRUMB_RX = re.compile(r'\n?[ \t]*<script type="application/ld\+json">\s*\{\s*"@context": "https://schema.org",\s*"@type": "BreadcrumbList".*?</script>', re.S)
+
+
+def strip_template_breadcrumb(html):
+    """The shop template carries its own Shop-level BreadcrumbList; category,
+    brand and content pages built from it write their own, so drop the
+    inherited one to avoid two conflicting trails on one page."""
+    return TEMPLATE_BREADCRUMB_RX.sub('', html, count=1)
 
 
 def ensure_english_hreflang(html, en_path, ar_path):
@@ -871,7 +897,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         return brand_url(brand, l) if brand else category_url(cat, l)
 
     with open(SHOP_TEMPLATE, encoding='utf-8') as f:
-        html = strip_hreflang(f.read())
+        html = strip_template_breadcrumb(strip_hreflang(f.read()))
 
     label = brand if brand else category_label(cat, lang)
     url = SITE + _url(lang)
@@ -1163,7 +1189,7 @@ def static_page_url(slug, lang):
 def build_static_page(slug, lang):
     cfg = STATIC_PAGES[slug][lang]
     with open(SHOP_TEMPLATE, encoding='utf-8') as f:
-        html = strip_hreflang(f.read())
+        html = strip_template_breadcrumb(strip_hreflang(f.read()))
     url = SITE + static_page_url(slug, lang)
     html = set_lang_attrs(html, lang)
     html = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="' + esc(cfg['desc']) + '">', html, count=1)

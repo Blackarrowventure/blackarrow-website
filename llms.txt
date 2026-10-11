@@ -35,6 +35,18 @@ Website: https://www.blackarrowksa.com
 - [Certifications](https://www.blackarrowksa.com/certifications/)
 - [Become a Partner](https://www.blackarrowksa.com/become-a-partner.html)
 - [Contact](https://www.blackarrowksa.com/contact.html)
-- [3D Printing (Black Arrow 3D)](https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia): separate shop for 3D-printed items, unrelated to the infrastructure services above.
+
+## Black Arrow 3D (3D printing store)
+
+A separate online store from Black Arrow, unrelated to the infrastructure services above: 3D printers, filament, spare parts and in-house 3D printed gifts, priced in SAR with delivery across Saudi Arabia. English and Arabic (/3d/ar/).
+
+- [Store home](https://www.blackarrowksa.com/3d/)
+- [3D Printers](https://www.blackarrowksa.com/3d/shop/3d-printers/): Bambu Lab, Snapmaker, Creality, Elegoo, Anycubic, Flashforge.
+- [Filament](https://www.blackarrowksa.com/3d/shop/filament/)
+- [Accessories & spare parts](https://www.blackarrowksa.com/3d/shop/accessories/)
+- [3D Printed Gifts & Artwork](https://www.blackarrowksa.com/3d/shop/3d-artwork/): keychains, PS5 controller stands, Saudi-themed decor.
+- [3D Printing Service in Saudi Arabia](https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/): custom prints from your file or idea.
+- [Guides & Blog](https://www.blackarrowksa.com/3d/blog/): buying guides, printer comparisons, filament guide.
+- [Shipping](https://www.blackarrowksa.com/3d/shipping/) · [Returns](https://www.blackarrowksa.com/3d/returns/) · [Terms](https://www.blackarrowksa.com/3d/terms/)
 
 Content on this site is also available in Arabic under /ar/.

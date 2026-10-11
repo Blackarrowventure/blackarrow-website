@@ -47,6 +47,11 @@
   ],
   "headers": [
     {
+      "source": "/3d/product/",
+      "missing": [{ "type": "query", "key": "slug" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+    },
+    {
       "source": "/3d/shop/",
       "has": [{ "type": "query", "key": "cat" }],
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]

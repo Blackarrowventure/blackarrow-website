@@ -37,6 +37,9 @@ BLOG_SLUGS = [
     'pla-vs-petg-vs-abs-filament-guide',
     '3d-printed-gifts-home-decor-saudi-arabia',
 ]
+# Pick up any newer article folder too, so a new post never misses the sitemap.
+BLOG_SLUGS += sorted(d for d in os.listdir(os.path.join(ROOT, '3d', 'blog'))
+                     if d not in BLOG_SLUGS and os.path.isfile(os.path.join(ROOT, '3d', 'blog', d, 'index.html')))
 
 BEGIN_MARK = '  <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->\n'
 END_MARK = '  <!-- END /3d/ store URLs -->\n'
@@ -82,20 +85,23 @@ def build_3d_urls():
             out.append(url_block(en, '0.8', 'weekly', en=en, ar=ar))
             out.append(url_block(ar, '0.8', 'weekly', en=en, ar=ar))
 
+    # Out-of-stock products keep their page (and their ranking) — list them too.
     for p in products:
-        if p.get('available') is False:
-            continue
         en = SITE + '/3d/product/' + p['id'] + '/'
         ar = SITE + '/3d/ar/product/' + p['id'] + '/'
         out.append(url_block(en, '0.85', 'weekly', en=en, ar=ar))
         out.append(url_block(ar, '0.85', 'weekly', en=en, ar=ar))
 
-    for slug in ('3d-printing-service-saudi-arabia', 'shipping'):
+    for slug in ('3d-printing-service-saudi-arabia', 'shipping', 'reviews'):
         en = SITE + '/3d/' + slug + '/'
         ar = SITE + '/3d/ar/' + slug + '/'
-        prio = '0.8' if slug != 'shipping' else '0.4'
+        prio = '0.8' if slug == '3d-printing-service-saudi-arabia' else '0.4'
         out.append(url_block(en, prio, 'monthly', en=en, ar=ar))
         out.append(url_block(ar, prio, 'monthly', en=en, ar=ar))
+
+    # English-only policy pages
+    for slug in ('returns', 'terms'):
+        out.append(url_block(SITE + '/3d/' + slug + '/', '0.3', 'yearly'))
 
     for slug in BLOG_SLUGS:
         en = SITE + '/3d/blog/' + slug + '/'
