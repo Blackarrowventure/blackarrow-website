@@ -155,7 +155,7 @@ def best_seller_label(rank, lang):
         return T('js_best_seller_badge', lang)
     if rank == 2:
         return T('js_best_seller_badge_2', lang)
-    return T('js_best_seller_badge_n', lang).replace('{n}', str(rank))
+    return T('js_best_seller_badge_n', lang)
 
 
 def corner_badges(p, lang):
@@ -167,6 +167,10 @@ def corner_badges(p, lang):
     if p.get('onSale'):
         out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>'
     return out
+
+
+def vat_note_html(p, lang):
+    return '<span class="b3d-vat-note">' + T('js_vat_included', lang) + '</span>' if p.get('vatIncluded') else ''
 
 
 def status_badge(p, lang):
@@ -284,6 +288,7 @@ def product_detail_html(p, lang):
         + '<div class="b3d-pd__cat">' + (esc(p['brand']) + ' &middot; ' if p.get('brand') else '') + category_label(p.get('category'), lang) + '</div>'
         + '<h1 class="b3d-pd__title">' + esc(name) + '</h1>'
         + '<div class="b3d-pd__price" data-pd-price>' + initial_price_html + '</div>'
+        + vat_note_html(p, lang)
         + variant_selector_html
         + ('<div style="margin-bottom:16px;">' + status + '</div>' if status else '')
         + '<p class="b3d-pd__desc">' + esc(desc) + '</p>'
@@ -631,6 +636,7 @@ def landing_card(p, lang):
             + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
             + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
             + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
+            + vat_note_html(p, lang)
             + '</a>')
 
 

@@ -1390,7 +1390,11 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 .b3d-price--sale { color: var(--clr-accent); }
 .b3d-price-was { color: rgba(255,255,255,.6); font-size: .82rem; text-decoration: line-through; margin-left: 8px; }
 .b3d-price-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.b3d-price-col { display: flex; flex-direction: column; gap: 2px; }
 .b3d-price-block { display: flex; flex-direction: column; }
+.b3d-vat-note { font-size: .68rem; color: rgba(255,255,255,.5); }
+main.b3d-light .b3d-vat-note { color: rgba(0,0,0,.5); }
+.b3d-pd__price-row + .b3d-vat-note { display: block; margin: -8px 0 16px; }
 
 .b3d-card__whatsapp {
   display: inline-flex;

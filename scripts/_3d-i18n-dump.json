@@ -936,12 +936,12 @@
     "ar": "الأكثر مبيعاً"
   },
   "js_best_seller_badge_2": {
-    "en": "2nd Best Seller",
-    "ar": "ثاني الأكثر مبيعاً"
+    "en": "Fan Favorite",
+    "ar": "الأكثر تفضيلاً"
   },
   "js_best_seller_badge_n": {
-    "en": "Best Seller #{n}",
-    "ar": "الأكثر مبيعاً #{n}"
+    "en": "Top Pick",
+    "ar": "مُختار مميز"
   },
   "js_card_delivery": {
     "en": "Delivery: KSA-wide",
@@ -1078,6 +1078,10 @@
   "js_shipping_heading": {
     "en": "Shipping",
     "ar": "الشحن"
+  },
+  "js_vat_included": {
+    "en": "VAT included",
+    "ar": "شامل ضريبة القيمة المضافة"
   },
   "js_view_cart": {
     "en": "View Cart",

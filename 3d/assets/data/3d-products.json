@@ -44,6 +44,7 @@
       "printerType": "FDM",
       "price": 1699,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "bestSeller": 1,
       "variants": [
@@ -111,6 +112,7 @@
       "printerType": "FDM",
       "price": 2700,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "variants": [
         { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 2700, "available": false, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
@@ -165,6 +167,7 @@
       "sku": "BAMBU-A2L-COMBO",
       "price": 4200,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "newArrival": true,
       "images": [
@@ -224,6 +227,7 @@
       "sku": "BAMBU-H2C-COMBO",
       "price": 15990,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "preorder": true,
       "newArrival": true,
@@ -265,6 +269,7 @@
       "printerType": "FDM",
       "price": 4399,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "variants": [
         { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 4399, "available": false, "image": "/3d/assets/images/products/bambu-p2s-01.webp" },
@@ -316,6 +321,7 @@
       "sku": "CREALITY-SPARKX-I7",
       "price": 2090,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "preorder": true,
       "newArrival": true,
@@ -377,6 +383,7 @@
       "sku": "ELEGOO-CC2",
       "price": 3050,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "images": [
         "/3d/assets/images/products/elegoo-cc2-01.webp",
@@ -438,6 +445,7 @@
       "sku": "SNAPMAKER-U1",
       "price": 5550,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "newArrival": true,
       "bestSeller": 2,
@@ -491,6 +499,7 @@
       "printerType": "FDM",
       "price": 2999,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "variants": [
         { "label": "Anycubic Kobra 3 Max", "label_ar": "أنيكيوبك كوبرا 3 ماكس", "price": 2999, "sku": "ANYCUBIC-KOBRA-3-MAX-COMBO-1", "image": "/3d/assets/images/products/anycubic-kobra3max-01.webp" },
@@ -551,6 +560,7 @@
       "sku": "FLASHFORGE-AD5M",
       "price": 1559,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "images": [
         "/3d/assets/images/products/flashforge-adv5m-01.webp"
@@ -604,6 +614,7 @@
       "sku": "FLASHFORGE-CREATOR5PRO",
       "price": 5630,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "images": [
         "/3d/assets/images/products/flashforge-c5pro-01.webp"
@@ -663,6 +674,7 @@
       "category": "Filament",
       "price": 75,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "variants": [
         { "label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/flmnt-pla-black.webp", "sku": "PLA-BLACK-1" },
@@ -709,6 +721,7 @@
       "category": "Accessories",
       "price": 110,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": true,
       "variants": [
         { "label": "0.2mm", "label_ar": "0.2 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-02" },
@@ -751,6 +764,7 @@
       "sku": "A1-EXTRUDER-UNIT",
       "price": 268,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "images": [
         "/3d/assets/images/products/a1-extruder-unit-01.webp",
@@ -782,6 +796,7 @@
       "sku": "A1-FILAMENT-CUTTER-LEVER",
       "price": 56,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "images": [
         "/3d/assets/images/products/filament-cutter-lever-01.webp",
@@ -813,6 +828,7 @@
       "sku": "A1-HOTEND-HEATING-ASSEMBLY",
       "price": 179,
       "currency": "SAR",
+      "vatIncluded": true,
       "available": false,
       "images": [
         "/3d/assets/images/products/hotend-heating-a1-01.webp",

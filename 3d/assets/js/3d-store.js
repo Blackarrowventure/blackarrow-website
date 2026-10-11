@@ -393,6 +393,10 @@
     return T('js_best_seller_badge_n').replace('{n}', rank);
   }
 
+  function vatNoteHtml(p) {
+    return p.vatIncluded ? '<span class="b3d-vat-note">' + T('js_vat_included') + '</span>' : '';
+  }
+
   function cornerBadges(p) {
     var out = '';
     if (p.bestSeller) out += '<span class="b3d-corner-badge b3d-corner-badge--bestseller">' + bestSellerLabel(p.bestSeller) + '</span>';
@@ -485,7 +489,9 @@
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' +
-            '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' +
+            '<div class="b3d-price-col">' +
+              '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' + vatNoteHtml(p) +
+            '</div>' +
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
           '<div class="b3d-card__actions">' +
@@ -1817,7 +1823,7 @@
         '<div>' +
           '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
-          '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' +
+          '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
           variantSelectorHtml +
           trustRowHtml(p) +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
