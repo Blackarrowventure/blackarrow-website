@@ -2192,6 +2192,46 @@
           "أزرق أو برتقالي أو أصفر أو أخضر أو أحمر — اختر واحدًا"
         ]
       ]
+    },
+    {
+      "id": "pillow-controller-stand",
+      "name": "Pillow Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 50,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Orange", "label_ar": "برتقالي", "price": 50, "swatch": "#f5a623", "image": "/3d/assets/images/products/pillow-controller-stand-orange.webp" },
+        { "label": "Grey", "label_ar": "رمادي", "price": 50, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/pillow-controller-stand-grey.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/pillow-controller-stand-both.webp",
+        "/3d/assets/images/products/pillow-controller-stand-orange.webp",
+        "/3d/assets/images/products/pillow-controller-stand-grey.webp"
+      ],
+      "shortDesc": "Soft, cushion-style controller stand, 3D printed in-house, in orange or grey.",
+      "description": "A soft, pillow-shaped controller stand designed and 3D printed in-house at Black Arrow 3D. Its cushioned cradle rests a game controller at a display angle, keeping it off the desk and within easy reach. Works with PS5 DualSense, Xbox controllers and most similarly shaped gamepads. Available in orange or grey.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Cushion-style controller cradle — designed and printed in-house"],
+        ["Compatibility", "PS5 DualSense, Xbox controllers and similarly shaped gamepads"],
+        ["Colours", "Orange, Grey"],
+        ["Use", "Desk stand and display cradle for a game controller"]
+      ],
+      "compatibility": ["PS5 DualSense", "Xbox Controller"],
+      "name_ar": "حامل وسادة ليد التحكم",
+      "shortDesc_ar": "حامل وسادة ناعم ليد التحكم، مطبوع ثلاثي الأبعاد داخليًا، بلونين برتقالي ورمادي.",
+      "description_ar": "حامل ليد تحكم على شكل وسادة ناعمة، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يُسند التجويف المبطّن يد التحكم بزاوية عرض مريحة، بعيدًا عن سطح المكتب وفي متناول اليد. يناسب يد تحكم PS5 DualSense وأيادي تحكم Xbox وما شابهها من الأشكال. متوفر باللونين البرتقالي والرمادي.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "حامل وسادة — تصميم وطباعة داخلية"],
+        ["التوافق", "يد تحكم PS5 DualSense وأيادي تحكم Xbox وما شابهها"],
+        ["الألوان", "برتقالي، رمادي"],
+        ["الاستخدام", "حامل مكتبي وقاعدة عرض ليد التحكم"]
+      ]
     }
   ]
 }
