@@ -652,7 +652,7 @@
     },
     {
       "id": "filament-pla-1kg",
-      "name": "PLA Filament 1kg",
+      "name": "PLA+ Filament 1kg",
       "brand": "Generic",
       "category": "Filament",
       "price": 75,
@@ -678,19 +678,19 @@
         "/3d/assets/images/products/flmnt-pla-green.webp",
         "/3d/assets/images/products/flmnt-pla-red.webp"
       ],
-      "shortDesc": "Everyday PLA filament — easy to use with clean results.",
-      "description": "A 1 kg spool of 1.75 mm PLA filament for everyday 3D printing, available in eight colors: black, gray, yellow, orange, white, sky blue, turquoise green and red. PLA is the easiest material to print: it needs no enclosure, has very low warping and gives clean, detailed results on almost any FDM printer, including Bambu Lab, Creality, Elegoo, Anycubic and Flashforge machines. It is ideal for figurines, decor, gifts, keychains, prototypes and multi-color prints with an AMS or similar system. The spool comes on a cardboard reel. For best results, keep the filament dry: store it sealed with desiccant after use, and dry it before printing if it has absorbed moisture.",
+      "shortDesc": "Everyday PLA+ filament — tougher than standard PLA, easy to print with clean results.",
+      "description": "A 1 kg spool of 1.75 mm PLA+ filament for everyday 3D printing, available in eight colors: black, gray, yellow, orange, white, sky blue, turquoise green and red. PLA+ is an enhanced PLA: it keeps everything that makes PLA easy to print, with no enclosure needed, very low warping and clean, detailed results, while being tougher and less brittle than standard PLA, so parts hold up better in daily use. It works with almost any FDM printer, including Bambu Lab, Creality, Elegoo, Anycubic and Flashforge machines, and suits figurines, decor, gifts, keychains, functional parts, prototypes and multi-color prints with an AMS or similar system. The filament comes on a cardboard reel. For best results, keep it dry: store it sealed with desiccant after use, and dry it before printing if it has absorbed moisture.",
       "specs": [
-        ["Material", "PLA"],
+        ["Material", "PLA+"],
         ["Weight", "1 kg"],
         ["Filament Diameter", "1.75 mm"],
         ["Use", "FDM 3D Printing"]
       ],
-      "name_ar": "فلمنت PLA 1 كجم",
-      "shortDesc_ar": "فلمنت PLA يومي — سهل الاستخدام ونتائج نظيفة.",
-      "description_ar": "بكرة فلمنت PLA بوزن 1 كجم وقطر 1.75 مم للطباعة اليومية، متوفرة بثمانية ألوان: أسود، رمادي، أصفر، برتقالي، أبيض، سماوي، أخضر فيروزي وأحمر. يُعد PLA أسهل خامة للطباعة: لا يحتاج إلى طابعة مغلقة، والتواؤه منخفض جدًا، ويعطي نتائج نظيفة ومفصلة على أغلب طابعات FDM، ومنها Bambu Lab وCreality وElegoo وAnycubic وFlashforge. مثالي للمجسمات والديكور والهدايا والميداليات والنماذج الأولية والطباعة متعددة الألوان مع نظام AMS أو ما يشبهه. تأتي البكرة على بكرة كرتونية. للحصول على أفضل نتيجة احفظ الفلمنت جافًا: خزّنه في كيس محكم مع مادة مجففة بعد الاستخدام، وجففه قبل الطباعة إذا امتص الرطوبة.",
+      "name_ar": "فلمنت PLA+ 1 كجم",
+      "shortDesc_ar": "فلمنت PLA+ للاستخدام اليومي — أقوى من PLA العادي وسهل الطباعة بنتائج نظيفة.",
+      "description_ar": "بكرة فلمنت PLA+ بوزن 1 كجم وقطر 1.75 مم للطباعة اليومية، متوفرة بثمانية ألوان: أسود، رمادي، أصفر، برتقالي، أبيض، سماوي، أخضر فيروزي وأحمر. فلمنت PLA+ نسخة مطوّرة من PLA: يحتفظ بكل ما يجعل PLA سهل الطباعة، فلا يحتاج إلى طابعة مغلقة، والتواؤه منخفض جدًا، ويعطي نتائج نظيفة ومفصلة، مع متانة أعلى وهشاشة أقل من PLA العادي، فتتحمل القطع الاستخدام اليومي بشكل أفضل. يعمل مع أغلب طابعات FDM، ومنها Bambu Lab وCreality وElegoo وAnycubic وFlashforge، ومناسب للمجسمات والديكور والهدايا والميداليات والقطع الوظيفية والنماذج الأولية والطباعة متعددة الألوان مع نظام AMS أو ما يشبهه. يأتي الفلمنت على بكرة كرتونية. للحصول على أفضل نتيجة احفظه جافًا: خزّنه في كيس محكم مع مادة مجففة بعد الاستخدام، وجففه قبل الطباعة إذا امتص الرطوبة.",
       "specs_ar": [
-        ["الخامة", "PLA"],
+        ["الخامة", "PLA+"],
         ["الوزن", "1 كيلو"],
         ["قطر الفلمنت", "1.75 مم"],
         ["الاستخدام", "طباعة ثلاثية الأبعاد FDM"]
@@ -1115,14 +1115,14 @@
         "/3d/assets/images/products/saudi-map-hanging-decor-red.webp"
       ],
       "shortDesc": "Small 3D printed Saudi Arabia map decor with articulated hanging legs — pick your color.",
-      "description": "A fun, small 3D printed decor piece shaped like the map of Saudi Arabia, with little articulated arms and legs that hang over the edge of a shelf, desk or monitor. The jointed limbs move, so you can pose it however you like. Designed and printed in-house at Black Arrow 3D, it adds a playful touch of Saudi pride to any home or office. A great Saudi National Day gift, and a nice desk gift for colleagues. Available in green, white, black, yellow and red.",
+      "description": "A fun, small 3D printed decor piece shaped like the map of Saudi Arabia, with little arms and articulated legs. The jointed legs move and dangle over the edge of a shelf, desk or monitor, so the map looks like it is sitting there watching the room. Designed and printed in-house at Black Arrow 3D, it adds a playful touch of Saudi pride to any home or office. A great Saudi National Day gift, and a nice desk gift for colleagues. Available in green, white, black, yellow and red.",
       "specs": [
         ["Design", "Saudi Arabia map with articulated hanging legs"],
         ["Size", "Small"]
       ],
       "name_ar": "ديكور خريطة السعودية بأرجل متدلية",
       "shortDesc_ar": "ديكور صغير مطبوع ثلاثي الأبعاد على شكل خريطة السعودية بأرجل متحركة متدلية — اختر لونك.",
-      "description_ar": "قطعة ديكور صغيرة وممتعة مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بذراعين وساقين متحركة تتدلى من حافة الرف أو المكتب أو الشاشة. المفاصل تتحرك، فتضعها بالوضعية التي تعجبك. مصممة ومطبوعة داخليًا لدى Black Arrow 3D، وتضيف لمسة مرحة من الفخر الوطني لأي منزل أو مكتب. هدية رائعة لليوم الوطني السعودي، وهدية مكتبية لطيفة للزملاء. متوفرة بالأخضر والأبيض والأسود والأصفر والأحمر.",
+      "description_ar": "قطعة ديكور صغيرة وممتعة مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بذراعين صغيرين وساقين متحركتين. الساقان بمفاصل تتحرك وتتدلى من حافة الرف أو المكتب أو الشاشة، فتبدو الخريطة كأنها جالسة تراقب المكان. مصممة ومطبوعة داخليًا لدى Black Arrow 3D، وتضيف لمسة مرحة من الفخر الوطني لأي منزل أو مكتب. هدية رائعة لليوم الوطني السعودي، وهدية مكتبية لطيفة للزملاء. متوفرة بالأخضر والأبيض والأسود والأصفر والأحمر.",
       "specs_ar": [
         ["التصميم", "خريطة السعودية بأرجل متحركة متدلية"],
         ["الحجم", "صغير"]
