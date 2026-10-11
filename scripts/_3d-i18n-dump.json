@@ -1,7 +1,175 @@
 {
+  "account_addresses": {
+    "en": "Addresses",
+    "ar": "العناوين"
+  },
+  "account_addresses_empty": {
+    "en": "No saved addresses yet.",
+    "ar": "لا توجد عناوين محفوظة بعد."
+  },
+  "account_agree_1": {
+    "en": "By continuing you agree to our",
+    "ar": "بالمتابعة، فإنك توافق على"
+  },
+  "account_agree_and": {
+    "en": "and",
+    "ar": "و"
+  },
+  "account_back_to_signin": {
+    "en": "Back to Sign In",
+    "ar": "العودة لتسجيل الدخول"
+  },
+  "account_comm_prefs": {
+    "en": "Communication Preferences",
+    "ar": "تفضيلات التواصل"
+  },
+  "account_comm_prefs_desc": {
+    "en": "Default: order updates only. Marketing emails are off unless you opt in later.",
+    "ar": "الافتراضي: تحديثات الطلبات فقط. رسائل التسويق مُعطّلة ما لم تُفعّلها لاحقاً."
+  },
+  "account_details_save": {
+    "en": "Save Details",
+    "ar": "حفظ البيانات"
+  },
+  "account_details_saved": {
+    "en": "Saved.",
+    "ar": "تم الحفظ."
+  },
+  "account_email": {
+    "en": "Email",
+    "ar": "البريد الإلكتروني"
+  },
+  "account_forgot_password": {
+    "en": "Forgot password?",
+    "ar": "نسيت كلمة المرور؟"
+  },
+  "account_google_apple_note": {
+    "en": "Google and Apple sign-in are not enabled yet — email sign-in only, for now.",
+    "ar": "تسجيل الدخول عبر Google وApple غير مُفعّل بعد — التسجيل بالبريد الإلكتروني فقط حالياً."
+  },
+  "account_h2_sr": {
+    "en": "Account Access",
+    "ar": "الوصول إلى الحساب"
+  },
+  "account_name": {
+    "en": "Full name",
+    "ar": "الاسم الكامل"
+  },
+  "account_newpass": {
+    "en": "New Password (min. 6 characters)",
+    "ar": "كلمة المرور الجديدة (6 أحرف على الأقل)"
+  },
+  "account_newpass_hint": {
+    "en": "Choose a new password for your account.",
+    "ar": "اختر كلمة مرور جديدة لحسابك."
+  },
+  "account_newpass_submit": {
+    "en": "Set New Password",
+    "ar": "تعيين كلمة المرور الجديدة"
+  },
+  "account_notconfigured": {
+    "en": "Sign-in isn't connected yet — we're setting up a free Black Arrow 3D account system. This page will let you sign in with email once that's ready.",
+    "ar": "تسجيل الدخول غير مُفعّل بعد — نعمل على إعداد نظام حسابات مجاني لبلاك أرو 3D. ستتمكن من تسجيل الدخول بالبريد الإلكتروني بمجرد جاهزيته."
+  },
+  "account_order_history": {
+    "en": "Order History",
+    "ar": "سجل الطلبات"
+  },
+  "account_order_history_empty": {
+    "en": "No orders yet.",
+    "ar": "لا توجد طلبات بعد."
+  },
+  "account_order_tracking": {
+    "en": "Order Tracking",
+    "ar": "تتبّع الطلب"
+  },
+  "account_order_tracking_empty": {
+    "en": "Nothing to track yet.",
+    "ar": "لا يوجد ما يمكن تتبعه بعد."
+  },
+  "account_overline": {
+    "en": "Customer Account",
+    "ar": "حساب العميل"
+  },
+  "account_password": {
+    "en": "Password",
+    "ar": "كلمة المرور"
+  },
+  "account_password_min": {
+    "en": "Password (min. 6 characters)",
+    "ar": "كلمة المرور (٦ أحرف على الأقل)"
+  },
+  "account_phone": {
+    "en": "Phone",
+    "ar": "رقم الجوال"
+  },
+  "account_reset_hint": {
+    "en": "Enter your email and we'll send you a password reset link. It may take a minute to arrive — check your spam folder too.",
+    "ar": "أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور. قد يستغرق وصوله دقيقة — تحقق من مجلد الرسائل غير المرغوب فيها أيضاً."
+  },
+  "account_reset_sent": {
+    "en": "Reset link sent — check your inbox.",
+    "ar": "تم إرسال رابط إعادة التعيين — تحقق من بريدك الوارد."
+  },
+  "account_reset_submit": {
+    "en": "Send Reset Link",
+    "ar": "إرسال رابط إعادة التعيين"
+  },
+  "account_saved_products": {
+    "en": "Saved Products",
+    "ar": "المنتجات المحفوظة"
+  },
+  "account_saved_products_empty": {
+    "en": "Nothing saved yet — use the ♡ icon on a product to save it here.",
+    "ar": "لا توجد منتجات محفوظة بعد — استخدم أيقونة ♡ على أي منتج لحفظه هنا."
+  },
+  "account_signed_in_as": {
+    "en": "Signed in as",
+    "ar": "تم تسجيل الدخول باسم"
+  },
+  "account_signin_tab": {
+    "en": "Sign In",
+    "ar": "تسجيل الدخول"
+  },
+  "account_signout": {
+    "en": "Sign Out",
+    "ar": "تسجيل الخروج"
+  },
+  "account_signup_confirm_email": {
+    "en": "Account created — check your email to confirm it before signing in.",
+    "ar": "تم إنشاء الحساب — تحقق من بريدك الإلكتروني لتفعيله قبل تسجيل الدخول."
+  },
+  "account_signup_tab": {
+    "en": "Create Account",
+    "ar": "إنشاء حساب"
+  },
+  "account_verify_notice": {
+    "en": "Please verify your email — check your inbox for a confirmation link.",
+    "ar": "يرجى تأكيد بريدك الإلكتروني — تحقق من صندوق الوارد للحصول على رابط التأكيد."
+  },
+  "account_your_details": {
+    "en": "Your Details",
+    "ar": "بياناتك"
+  },
   "announce_1": {
-    "en": "Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed",
-    "ar": "توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+    "en": "Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+  },
+  "b3d_compare_printers": {
+    "en": "Compare printers",
+    "ar": "قارن بين الطابعات"
+  },
+  "b3d_shop_eyebrow": {
+    "en": "Black Arrow 3D Catalog",
+    "ar": "كتالوج بلاك أرو 3D"
+  },
+  "b3d_shop_h1_a": {
+    "en": "Build smarter.",
+    "ar": "اطبع بذكاء."
+  },
+  "b3d_shop_h1_b": {
+    "en": "Print without limits.",
+    "ar": "بلا حدود."
   },
   "b3d_shop_h1_page": {
     "en": "Shop",
@@ -11,13 +179,277 @@
     "en": "Genuine 3D printers backed by real after-sales support across Saudi Arabia — priced in SAR with nationwide delivery.",
     "ar": "طابعات ثلاثية الأبعاد أصلية مع دعم حقيقي لما بعد البيع في جميع أنحاء المملكة العربية السعودية — أسعار بالريال السعودي مع توصيل لكل المناطق."
   },
+  "b3d_shop_products": {
+    "en": "Shop products",
+    "ar": "تسوّق المنتجات"
+  },
+  "cart_checkout_note": {
+    "en": "Bank Transfer is available now.",
+    "ar": "التحويل البنكي متاح الآن."
+  },
+  "cart_empty_h2": {
+    "en": "Your cart is empty",
+    "ar": "عربة التسوق فارغة"
+  },
+  "cart_empty_p": {
+    "en": "Browse the catalog and add a product to get started.",
+    "ar": "تصفّح الكتالوج وأضف منتجاً للبدء."
+  },
+  "cart_go_shop": {
+    "en": "Go to Shop",
+    "ar": "الذهاب إلى المتجر"
+  },
+  "cart_h1": {
+    "en": "Shopping Cart",
+    "ar": "عربة التسوق"
+  },
+  "cart_overline": {
+    "en": "Your Selection",
+    "ar": "اختيارك"
+  },
+  "cart_payment_h4": {
+    "en": "Payment Method",
+    "ar": "طريقة الدفع"
+  },
+  "cart_preorder_notice": {
+    "en": "This order includes a pre-order item. Pre-order items are confirmed with you about one week before delivery.",
+    "ar": "يتضمن هذا الطلب منتجًا بالحجز المسبق. يتم تأكيد منتجات الحجز المسبق معك قبل أسبوع تقريبًا من موعد التوصيل."
+  },
+  "cart_shipping_label": {
+    "en": "Shipping",
+    "ar": "الشحن"
+  },
+  "cart_shipping_value": {
+    "en": "Calculated at checkout",
+    "ar": "يُحتسب عند إتمام الطلب"
+  },
+  "cart_subtotal": {
+    "en": "Subtotal",
+    "ar": "المجموع الفرعي"
+  },
+  "cart_summary_h2": {
+    "en": "Order Summary",
+    "ar": "ملخص الطلب"
+  },
+  "cart_total_label": {
+    "en": "Total",
+    "ar": "الإجمالي"
+  },
   "cat_coming_soon": {
     "en": "Coming Soon",
     "ar": "قريباً"
   },
+  "checkout_apartment": {
+    "en": "Apartment, suite, etc. (optional)",
+    "ar": "شقة، وحدة، إلخ (اختياري)"
+  },
+  "checkout_building": {
+    "en": "Building Number",
+    "ar": "رقم المبنى"
+  },
+  "checkout_city": {
+    "en": "City",
+    "ar": "المدينة"
+  },
+  "checkout_email": {
+    "en": "Email Address",
+    "ar": "البريد الإلكتروني"
+  },
+  "checkout_email_note": {
+    "en": "We'll send your order confirmation to this address.",
+    "ar": "سنرسل تأكيد الطلب إلى هذا البريد الإلكتروني."
+  },
+  "checkout_error": {
+    "en": "Sorry, the order could not be sent. Please WhatsApp us instead.",
+    "ar": "عذراً، تعذّر إرسال الطلب. يرجى التواصل معنا عبر واتساب."
+  },
+  "checkout_first_name": {
+    "en": "First Name",
+    "ar": "الاسم الأول"
+  },
+  "checkout_h4": {
+    "en": "Delivery Details",
+    "ar": "تفاصيل التوصيل"
+  },
+  "checkout_last_name": {
+    "en": "Last Name",
+    "ar": "اسم العائلة"
+  },
+  "checkout_login_prompt": {
+    "en": "Log in for faster checkout",
+    "ar": "سجّل الدخول لإتمام أسرع"
+  },
+  "checkout_national_address": {
+    "en": "National Address",
+    "ar": "العنوان الوطني"
+  },
+  "checkout_notes": {
+    "en": "Notes (optional)",
+    "ar": "ملاحظات (اختياري)"
+  },
+  "checkout_phone": {
+    "en": "Phone",
+    "ar": "رقم الجوال"
+  },
+  "checkout_postal_code": {
+    "en": "Postal Code (optional)",
+    "ar": "الرمز البريدي (اختياري)"
+  },
+  "checkout_save_info": {
+    "en": "Save this information for next time",
+    "ar": "احفظ هذه المعلومات للمرة القادمة"
+  },
+  "checkout_shipping_fast": {
+    "en": "Fast shipping",
+    "ar": "شحن سريع"
+  },
+  "checkout_shipping_fast_eta": {
+    "en": "2–3 business days",
+    "ar": "من 2 إلى 3 أيام عمل"
+  },
+  "checkout_shipping_h4": {
+    "en": "Shipping Method",
+    "ar": "طريقة الشحن"
+  },
+  "checkout_shipping_regular": {
+    "en": "Regular shipping",
+    "ar": "شحن عادي"
+  },
+  "checkout_shipping_regular_eta": {
+    "en": "4–5 business days",
+    "ar": "من 4 إلى 5 أيام عمل"
+  },
+  "checkout_signed_in_as": {
+    "en": "Signed in as",
+    "ar": "مسجّل الدخول باسم"
+  },
+  "checkout_submit": {
+    "en": "Place Order",
+    "ar": "تأكيد الطلب"
+  },
+  "checkout_success": {
+    "en": "Order received — we'll contact you shortly to confirm.",
+    "ar": "تم استلام طلبك — سنتواصل معك قريباً للتأكيد."
+  },
+  "checkout_success_email": {
+    "en": "Order received — check your email for confirmation, and we'll contact you shortly to arrange delivery.",
+    "ar": "تم استلام طلبك — تحقق من بريدك الإلكتروني للتأكيد، وسنتواصل معك قريباً لترتيب التوصيل."
+  },
+  "cmp_help_1": {
+    "en": "Build volume: the largest part you can print in one piece.",
+    "ar": "حجم الطباعة: أكبر قطعة يمكنك طباعتها دفعة واحدة."
+  },
+  "cmp_help_2": {
+    "en": "Enclosure: enclosed printers keep the print chamber stable and suit more materials.",
+    "ar": "الغرفة المغلقة: الطابعات المغلقة تحافظ على استقرار غرفة الطباعة وتناسب خامات أكثر."
+  },
+  "cmp_help_3": {
+    "en": "Maximum hot end temperature: sets which materials the printer can handle.",
+    "ar": "أقصى حرارة للهوت إند: تحدد الخامات التي تتعامل معها الطابعة."
+  },
+  "cmp_help_4": {
+    "en": "Multicolor system: filament changers such as AMS Lite, CFS Lite or CANVAS, or independent toolheads.",
+    "ar": "نظام الألوان المتعددة: مبدّلات الفلمنت مثل AMS Lite أو CFS Lite أو CANVAS، أو رؤوس طباعة مستقلة."
+  },
+  "cmp_help_5": {
+    "en": "Print speed and acceleration.",
+    "ar": "سرعة الطباعة والتسارع."
+  },
+  "cmp_help_6": {
+    "en": "Supported filament and material compatibility.",
+    "ar": "الخامات المدعومة وتوافق المواد."
+  },
+  "cmp_help_7": {
+    "en": "Price in Saudi riyals (SAR).",
+    "ar": "السعر بالريال السعودي."
+  },
+  "cmp_help_h2": {
+    "en": "What to compare when choosing a 3D printer",
+    "ar": "ما الذي تقارنه عند اختيار طابعة ثلاثية الأبعاد"
+  },
+  "cmp_help_link1": {
+    "en": "Browse 3D printers",
+    "ar": "تصفح الطابعات ثلاثية الأبعاد"
+  },
+  "cmp_help_link2": {
+    "en": "Read: Bambu Lab A1 vs A1 mini vs A2L",
+    "ar": "اقرأ: مقارنة Bambu Lab A1 وA1 mini وA2L"
+  },
+  "cmp_help_p": {
+    "en": "Use the compare button on any printer in the shop to see printers side by side. These are the specifications that matter most:",
+    "ar": "استخدم زر المقارنة في أي طابعة داخل المتجر لعرض الطابعات جنبًا إلى جنب. هذه أهم المواصفات:"
+  },
+  "compare_h1": {
+    "en": "Compare Products",
+    "ar": "مقارنة المنتجات"
+  },
+  "compare_overline": {
+    "en": "Side by Side",
+    "ar": "جنباً إلى جنب"
+  },
+  "coupon_apply": {
+    "en": "Apply",
+    "ar": "تطبيق"
+  },
+  "coupon_discount_label": {
+    "en": "Discount",
+    "ar": "الخصم"
+  },
+  "coupon_expired": {
+    "en": "This code has expired.",
+    "ar": "انتهت صلاحية هذا الرمز."
+  },
+  "coupon_gone": {
+    "en": "This code is no longer available. Your total has been updated.",
+    "ar": "هذا الرمز لم يعد متاحًا. تم تحديث الإجمالي."
+  },
+  "coupon_invalid": {
+    "en": "This code is not valid.",
+    "ar": "هذا الرمز غير صالح."
+  },
+  "coupon_label": {
+    "en": "Coupon or redeem code",
+    "ar": "كوبون أو رمز الخصم"
+  },
+  "coupon_min": {
+    "en": "This code needs a minimum order of {n} SAR.",
+    "ar": "يتطلب هذا الرمز حدًا أدنى للطلب قدره {n} ريال."
+  },
+  "coupon_placeholder": {
+    "en": "Enter code",
+    "ar": "أدخل الرمز"
+  },
+  "coupon_unavailable": {
+    "en": "Could not check the code right now. Please try again.",
+    "ar": "تعذّر التحقق من الرمز حاليًا. يرجى المحاولة مرة أخرى."
+  },
+  "coupon_used": {
+    "en": "This code has already been used.",
+    "ar": "تم استخدام هذا الرمز مسبقًا."
+  },
+  "faq_a10": {
+    "en": "Yes. Send us your design file or a MakerWorld link, or tell us what you have in mind. All details are confirmed before production.",
+    "ar": "نعم. أرسل لنا ملف التصميم أو رابط MakerWorld، أو أخبرنا بما تفكر فيه. تُؤكَّد جميع التفاصيل قبل بدء الإنتاج."
+  },
+  "faq_a11": {
+    "en": "Yes. Our 3D printed items are a great choice for gifts, especially for gaming enthusiasts and those who appreciate unique designs.",
+    "ar": "نعم. منتجاتنا المطبوعة ثلاثية الأبعاد خيار رائع للهدايا، خاصة لمحبي الألعاب ولمن يقدّر التصاميم الفريدة."
+  },
+  "faq_a12": {
+    "en": "By phone, WhatsApp or email — see the footer for our contact details.",
+    "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
+  },
   "faq_a2": {
     "en": "Bank Transfer is available.",
     "ar": "التحويل البنكي متاح."
+  },
+  "faq_a3": {
+    "en": "Printers, filament and accessories are the manufacturer's products, as shown and described on each product page. Our 3D printed items (artwork, keychains, gifts) are made by 3D printing, so you may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the printing process, not a defect.",
+    "ar": "الطابعات والفلامنت والإكسسوارات هي منتجات الشركة المصنّعة كما تظهر وتُوصف في صفحة كل منتج. أما منتجاتنا المطبوعة ثلاثية الأبعاد (الأعمال الفنية وميدالِيات المفاتيح والهدايا) فتُصنع بالطباعة ثلاثية الأبعاد، لذا قد تلاحظ خطوط طبقات خفيفة أو اختلافات بسيطة في اللون أو الملمس. هذا أمر طبيعي يعكس عملية الطباعة وليس عيبًا."
+  },
+  "faq_a4": {
+    "en": "Printers, filament and accessories are standard manufacturer products, priced in SAR, and you can compare models in the shop. Our 3D printed items are unique designs produced in-house, often made to order, and each piece goes through several stages of design and production.",
+    "ar": "الطابعات والفلامنت والإكسسوارات منتجات قياسية من الشركات المصنّعة وأسعارها بالريال، ويمكنك مقارنة الموديلات في المتجر. أما منتجاتنا المطبوعة ثلاثية الأبعاد فهي تصاميم فريدة تُنتج لدينا، وغالبًا حسب الطلب، وتمر كل قطعة بعدة مراحل من التصميم والإنتاج."
   },
   "faq_a5": {
     "en": "3D printed items are typically prepared within 3 to 5 business days, as most are made to order. For printers, filament and accessories, availability (including pre-order status) is shown on each product page.",
@@ -27,13 +459,45 @@
     "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
     "ar": "الشحن القياسي 30 ريالًا (4 إلى 5 أيام عمل) أو الشحن السريع 50 ريالًا (2 إلى 3 أيام عمل)، إلى جميع مناطق المملكة العربية السعودية."
   },
+  "faq_a7": {
+    "en": "Yes, a tracking number will be provided once your order has shipped, so you can easily monitor its status.",
+    "ar": "نعم، سيتم تزويدك برقم تتبع بمجرد شحن طلبك لمتابعة حالته بسهولة."
+  },
+  "faq_a8": {
+    "en": "Unused printers and unused filament can be returned within 7 days of receiving the order. For any product, a return or exchange can be requested within 3 days if there is a manufacturing defect, you received the wrong product, or it was damaged during shipping. Accessories, 3D printed items and custom orders are not returnable for change of mind. See our Return & Exchange Policy for details.",
+    "ar": "يمكن إرجاع الطابعات غير المستخدمة وخيوط الطباعة غير المستخدمة خلال 7 أيام من استلام الطلب. ولأي منتج، يمكن طلب الاسترجاع أو الاستبدال خلال 3 أيام في حال وجود عيب تصنيع أو استلام منتج خاطئ أو تلفه أثناء الشحن. ولا تُقبل إعادة الإكسسوارات والمنتجات المطبوعة ثلاثية الأبعاد والطلبات المخصصة لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
+  },
+  "faq_a9": {
+    "en": "For 3D printed items, cancellation is possible only before production begins; once production has started, it is not available. For other orders, contact us as soon as possible.",
+    "ar": "بالنسبة للمنتجات المطبوعة ثلاثية الأبعاد، يمكن الإلغاء فقط قبل بدء الإنتاج، وبعد بدئه لا يتوفر الإلغاء. وبالنسبة للطلبات الأخرى، تواصل معنا في أقرب وقت."
+  },
   "faq_h2": {
     "en": "Frequently Asked Questions",
     "ar": "الأسئلة الشائعة"
   },
+  "faq_q10": {
+    "en": "Do you offer custom orders?",
+    "ar": "هل تقدمون طلبات مخصصة؟"
+  },
+  "faq_q11": {
+    "en": "Are your products suitable as gifts?",
+    "ar": "هل منتجاتكم مناسبة كهدايا؟"
+  },
+  "faq_q12": {
+    "en": "How can I contact you?",
+    "ar": "كيف يمكنني التواصل معكم؟"
+  },
   "faq_q2": {
     "en": "What payment methods are available?",
     "ar": "ما هي طرق الدفع المتاحة؟"
+  },
+  "faq_q3": {
+    "en": "Are the products the same as shown in the images?",
+    "ar": "هل المنتجات مطابقة للصور المعروضة؟"
+  },
+  "faq_q4": {
+    "en": "Are the products worth the price?",
+    "ar": "هل المنتجات تستحق سعرها؟"
   },
   "faq_q5": {
     "en": "How long does it take to prepare an order?",
@@ -42,6 +506,18 @@
   "faq_q6": {
     "en": "How long does shipping take?",
     "ar": "كم تستغرق مدة الشحن؟"
+  },
+  "faq_q7": {
+    "en": "Can I track my order?",
+    "ar": "هل يمكنني تتبع طلبي؟"
+  },
+  "faq_q8": {
+    "en": "Can I return or exchange a product?",
+    "ar": "هل يمكنني إرجاع أو استبدال منتج؟"
+  },
+  "faq_q9": {
+    "en": "Can I cancel my order?",
+    "ar": "هل يمكنني إلغاء طلبي؟"
   },
   "filter_accessorycompat_legend": {
     "en": "Accessory compatibility",
@@ -66,6 +542,18 @@
   "filter_buildvolume_legend": {
     "en": "Build volume",
     "ar": "حجم الطباعة"
+  },
+  "filter_bv_compact": {
+    "en": "Compact (under 220 mm)",
+    "ar": "صغير (أقل من 220 مم)"
+  },
+  "filter_bv_large": {
+    "en": "Large (300 mm+)",
+    "ar": "كبير (300 مم فأكثر)"
+  },
+  "filter_bv_standard": {
+    "en": "Standard (220–300 mm)",
+    "ar": "متوسط (220–300 مم)"
   },
   "filter_clear": {
     "en": "Clear all",
@@ -110,6 +598,10 @@
   "footer_address": {
     "en": "Dammam, Eastern Province, Saudi Arabia",
     "ar": "الدمام، المنطقة الشرقية، المملكة العربية السعودية"
+  },
+  "footer_bank_transfer": {
+    "en": "Bank transfer",
+    "ar": "تحويل بنكي"
   },
   "footer_brand_desc": {
     "en": "A Black Arrow Venture company line of business. 3D printing equipment & supplies.",
@@ -163,17 +655,37 @@
     "en": "Customer Reviews",
     "ar": "آراء العملاء"
   },
+  "footer_service": {
+    "en": "3D Printing Service",
+    "ar": "خدمة الطباعة ثلاثية الأبعاد"
+  },
   "footer_services": {
     "en": "Services",
     "ar": "الخدمات"
+  },
+  "footer_shipping": {
+    "en": "Shipping Policy",
+    "ar": "سياسة الشحن"
   },
   "footer_terms": {
     "en": "Terms and Conditions",
     "ar": "الشروط والأحكام"
   },
+  "footer_we_accept": {
+    "en": "We accept",
+    "ar": "نقبل"
+  },
   "footer_whatsapp": {
     "en": "WhatsApp",
     "ar": "واتساب"
+  },
+  "header_search_btn": {
+    "en": "Search",
+    "ar": "بحث"
+  },
+  "header_search_placeholder": {
+    "en": "Search the store",
+    "ar": "ابحث في المتجر"
   },
   "hub_ask_question": {
     "en": "Get Your Design Printed",
@@ -199,6 +711,10 @@
     "en": "Desktop to industrial scale",
     "ar": "من الحجم المكتبي إلى الصناعي"
   },
+  "hub_cat1_title": {
+    "en": "FDM Printers",
+    "ar": "طابعات FDM"
+  },
   "hub_cat2_desc": {
     "en": "High-detail printing",
     "ar": "طباعة عالية الدقة"
@@ -214,6 +730,10 @@
   "hub_cat4_desc": {
     "en": "Everything to keep printing",
     "ar": "كل ما يلزم لمواصلة الطباعة"
+  },
+  "hub_cat4_title": {
+    "en": "Resins & Accessories",
+    "ar": "الراتنج والملحقات"
   },
   "hub_cat5_desc": {
     "en": "Designed & printed in-house",
@@ -247,18 +767,6 @@
     "en": "A snapshot of what is available right now",
     "ar": "لمحة عمّا هو متاح الآن"
   },
-  "hub_printers_h2": {
-    "en": "3D Printers",
-    "ar": "طابعات ثلاثية الأبعاد"
-  },
-  "hub_printers_sub": {
-    "en": "Choose your next 3D printer",
-    "ar": "اختر طابعتك القادمة"
-  },
-  "hub_printers_all": {
-    "en": "View all 3D printers",
-    "ar": "عرض كل الطابعات"
-  },
   "hub_hero_eyebrow": {
     "en": "3D Printing, Made Easy",
     "ar": "الطباعة ثلاثية الأبعاد، ببساطة"
@@ -282,6 +790,22 @@
   "hub_picker_sub": {
     "en": "Not sure where to start? Here's how our printers compare by real use case.",
     "ar": "لست متأكدًا من أين تبدأ؟ إليك كيف تقارن طابعاتنا حسب الاستخدام الفعلي."
+  },
+  "hub_preview_banner": {
+    "en": "Now Live — Shop 3D Printers, Filament & Accessories",
+    "ar": "متاح الآن — تسوّق الطابعات ثلاثية الأبعاد والفلمنت والملحقات"
+  },
+  "hub_printers_all": {
+    "en": "View all 3D printers",
+    "ar": "عرض كل الطابعات"
+  },
+  "hub_printers_h2": {
+    "en": "3D Printers",
+    "ar": "طابعات ثلاثية الأبعاد"
+  },
+  "hub_printers_sub": {
+    "en": "Choose your next 3D printer",
+    "ar": "اختر طابعتك القادمة"
   },
   "hub_trust_1": {
     "en": "Genuine, authorized products",
@@ -315,149 +839,81 @@
     "en": "Why Buy From Black Arrow 3D",
     "ar": "لماذا تشتري من بلاك أرو 3D"
   },
-  "nav_3d_printers": {
-    "en": "3D Printers",
+  "journey_a_1": {
+    "en": "3D printers",
     "ar": "طابعات ثلاثية الأبعاد"
   },
-  "nav_accessories": {
+  "journey_a_2": {
+    "en": "Filament",
+    "ar": "فلامنت"
+  },
+  "journey_a_3": {
     "en": "Accessories",
-    "ar": "الملحقات"
+    "ar": "إكسسوارات"
   },
-  "nav_all_brands": {
-    "en": "All Brands",
-    "ar": "جميع العلامات التجارية"
+  "journey_a_5": {
+    "en": "After-sales support",
+    "ar": "دعم ما بعد البيع"
   },
-  "nav_bag": {
-    "en": "Bag",
-    "ar": "السلة"
+  "journey_a_cta2": {
+    "en": "Browse all products",
+    "ar": "تصفح كل المنتجات"
   },
-  "nav_black_arrow_3d_full": {
-    "en": "Black Arrow 3D",
-    "ar": "بلاك أرو 3D"
+  "journey_a_h3": {
+    "en": "Buy 3D Printing Equipment",
+    "ar": "اشترِ معدات الطباعة ثلاثية الأبعاد"
   },
-  "nav_blog": {
-    "en": "Blog",
-    "ar": "المدونة"
+  "journey_a_p": {
+    "en": "Printers, filament and accessories from Bambu Lab, Creality, Elegoo, Anycubic and Snapmaker.",
+    "ar": "طابعات وفلامنت وإكسسوارات من Bambu Lab وCreality وElegoo وAnycubic وSnapmaker."
   },
-  "nav_brands": {
-    "en": "Brands",
-    "ar": "العلامات التجارية"
+  "journey_b_1": {
+    "en": "Send your design file",
+    "ar": "أرسل ملف التصميم"
   },
-  "nav_filaments": {
-    "en": "Filaments",
-    "ar": "خيوط الطباعة"
+  "journey_b_2": {
+    "en": "Send a MakerWorld link",
+    "ar": "أرسل رابط MakerWorld"
   },
-  "nav_gaming_accessories": {
-    "en": "3D Artwork",
-    "ar": "أعمال فنية ثلاثية الأبعاد"
+  "journey_b_3": {
+    "en": "Custom gifts",
+    "ar": "هدايا مخصصة"
   },
-  "nav_home": {
-    "en": "Home",
-    "ar": "الرئيسية"
+  "journey_b_4": {
+    "en": "Prototypes",
+    "ar": "نماذج أولية"
   },
-  "nav_profile": {
-    "en": "Profile",
-    "ar": "الحساب"
+  "journey_b_5": {
+    "en": "Decor and artwork",
+    "ar": "ديكور وأعمال فنية"
   },
-  "nav_shop": {
-    "en": "Shop",
-    "ar": "المتجر"
+  "journey_b_6": {
+    "en": "Ask for a price on WhatsApp",
+    "ar": "اسأل عن السعر عبر واتساب"
   },
-  "nav_tagline": {
-    "en": "Printing Equipment & Supplies",
-    "ar": "معدات وتوريدات الطباعة ثلاثية الأبعاد"
+  "journey_b_cta2": {
+    "en": "Browse 3D Artwork",
+    "ar": "تصفح الأعمال الفنية"
   },
-  "pd_crumb_default": {
-    "en": "Product",
-    "ar": "المنتج"
+  "journey_b_h3": {
+    "en": "Get Something 3D Printed",
+    "ar": "اطبع شيئًا بتصميمك"
   },
-  "pd_loading": {
-    "en": "Loading product…",
-    "ar": "جارٍ تحميل المنتج…"
+  "journey_b_link": {
+    "en": "How our printing service works",
+    "ar": "كيف تعمل خدمة الطباعة لدينا"
   },
-  "shop_all": {
-    "en": "All",
-    "ar": "الكل"
+  "journey_b_p": {
+    "en": "Tell us what you need on WhatsApp. All details are confirmed with you before production.",
+    "ar": "أخبرنا بما تحتاجه عبر واتساب. نؤكد معك جميع التفاصيل قبل بدء الإنتاج."
   },
-  "shop_all_brands": {
-    "en": "All brands",
-    "ar": "جميع العلامات التجارية"
-  },
-  "shop_featured": {
-    "en": "Featured",
-    "ar": "مميز"
-  },
-  "shop_filters_btn": {
-    "en": "Filters",
-    "ar": "التصفية"
-  },
-  "shop_products_published": {
-    "en": "products published",
-    "ar": "منتج منشور"
-  },
-  "shop_results_h2": {
-    "en": "Products",
-    "ar": "المنتجات"
-  },
-  "shop_sort_featured": {
-    "en": "Sort: Featured",
-    "ar": "الترتيب: المميز"
-  },
-  "shop_sort_name_asc": {
-    "en": "Name: A–Z",
-    "ar": "الاسم: أ-ي"
-  },
-  "shop_sort_price_asc": {
-    "en": "Price: Low to High",
-    "ar": "السعر: من الأقل إلى الأعلى"
-  },
-  "shop_sort_price_desc": {
-    "en": "Price: High to Low",
-    "ar": "السعر: من الأعلى إلى الأقل"
-  },
-  "trust_delivery": {
-    "en": "Delivery across Saudi Arabia",
-    "ar": "توصيل لجميع مناطق السعودية"
-  },
-  "trust_payment": {
-    "en": "Bank transfer available",
-    "ar": "التحويل البنكي متاح"
-  },
-  "trust_support": {
-    "en": "Local support",
-    "ar": "دعم محلي"
-  },
-  "trust_vat": {
-    "en": "VAT invoice",
-    "ar": "فاتورة ضريبية"
-  },
-  "trust_warranty": {
-    "en": "Manufacturer warranty",
-    "ar": "ضمان الشركة المصنّعة"
-  },
-  "trust_damaged_replace": {
-    "en": "Replaced if it arrives damaged",
-    "ar": "يُستبدل إذا وصل تالفًا"
-  },
-  "cart_go_shop": {
-    "en": "Go to Shop",
-    "ar": "الذهاب إلى المتجر"
+  "journeys_h2": {
+    "en": "How can we help you?",
+    "ar": "كيف نساعدك؟"
   },
   "js_add_to_cart": {
     "en": "Add to Cart",
     "ar": "أضف إلى السلة"
-  },
-  "js_in_stock": {
-    "en": "In Stock",
-    "ar": "متوفر"
-  },
-  "js_options": {
-    "en": "Options",
-    "ar": "الخيارات"
-  },
-  "js_you_save": {
-    "en": "You save",
-    "ar": "توفّر"
   },
   "js_added": {
     "en": "Added ✓",
@@ -474,6 +930,18 @@
   "js_back_to_shop": {
     "en": "Back to shop",
     "ar": "العودة إلى المتجر"
+  },
+  "js_best_seller_badge": {
+    "en": "Best Seller",
+    "ar": "الأكثر مبيعاً"
+  },
+  "js_best_seller_badge_2": {
+    "en": "2nd Best Seller",
+    "ar": "ثاني الأكثر مبيعاً"
+  },
+  "js_best_seller_badge_n": {
+    "en": "Best Seller #{n}",
+    "ar": "الأكثر مبيعاً #{n}"
   },
   "js_card_delivery": {
     "en": "Delivery: KSA-wide",
@@ -499,6 +967,10 @@
     "en": "Price",
     "ar": "السعر"
   },
+  "js_colour": {
+    "en": "Colour",
+    "ar": "اللون"
+  },
   "js_compare_btn": {
     "en": "Compare",
     "ar": "قارن"
@@ -515,6 +987,18 @@
     "en": "Starting price — final price depends on the option you choose (e.g. Standalone vs Combo).",
     "ar": "السعر الابتدائي — السعر النهائي يعتمد على الخيار الذي تختاره (مثلاً منفردة أو باقة)."
   },
+  "js_in_stock": {
+    "en": "In Stock",
+    "ar": "متوفر"
+  },
+  "js_motion_off": {
+    "en": "Motion: Off",
+    "ar": "الحركة: إيقاف"
+  },
+  "js_motion_on": {
+    "en": "Motion: On",
+    "ar": "الحركة: تشغيل"
+  },
   "js_no_products_published": {
     "en": "No products published yet",
     "ar": "لا توجد منتجات منشورة بعد"
@@ -526,6 +1010,10 @@
   "js_nothing_to_compare_p": {
     "en": "Select at least two products from the shop to compare specifications, features and prices.",
     "ar": "اختر منتجين على الأقل من المتجر لمقارنة المواصفات والميزات والأسعار."
+  },
+  "js_options": {
+    "en": "Options",
+    "ar": "الخيارات"
   },
   "js_out_of_stock": {
     "en": "Out of Stock",
@@ -599,6 +1087,10 @@
     "en": "View image",
     "ar": "عرض الصورة"
   },
+  "js_view_options": {
+    "en": "View Options",
+    "ar": "عرض الخيارات"
+  },
   "js_view_product": {
     "en": "View Product",
     "ar": "عرض المنتج"
@@ -607,216 +1099,392 @@
     "en": "Warranty",
     "ar": "الضمان"
   },
+  "js_you_save": {
+    "en": "You save",
+    "ar": "توفّر"
+  },
   "js_zoom_image": {
     "en": "Click to zoom image",
     "ar": "اضغط لتكبير الصورة"
   },
-  "promo_instock_badge": {
-    "en": "In Stock",
-    "ar": "متوفرة الآن"
-  },
-  "promo_preorder_badge": {
-    "en": "Pre-Order",
-    "ar": "حجز مسبق"
-  },
-  "faq_q3": {
-    "en": "Are the products the same as shown in the images?",
-    "ar": "هل المنتجات مطابقة للصور المعروضة؟"
-  },
-  "faq_a3": {
-    "en": "Printers, filament and accessories are the manufacturer's products, as shown and described on each product page. Our 3D printed items (artwork, keychains, gifts) are made by 3D printing, so you may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the printing process, not a defect.",
-    "ar": "الطابعات والفلامنت والإكسسوارات هي منتجات الشركة المصنّعة كما تظهر وتُوصف في صفحة كل منتج. أما منتجاتنا المطبوعة ثلاثية الأبعاد (الأعمال الفنية وميدالِيات المفاتيح والهدايا) فتُصنع بالطباعة ثلاثية الأبعاد، لذا قد تلاحظ خطوط طبقات خفيفة أو اختلافات بسيطة في اللون أو الملمس. هذا أمر طبيعي يعكس عملية الطباعة وليس عيبًا."
-  },
-  "faq_q4": {
-    "en": "Are the products worth the price?",
-    "ar": "هل المنتجات تستحق سعرها؟"
-  },
-  "faq_a4": {
-    "en": "Printers, filament and accessories are standard manufacturer products, priced in SAR, and you can compare models in the shop. Our 3D printed items are unique designs produced in-house, often made to order, and each piece goes through several stages of design and production.",
-    "ar": "الطابعات والفلامنت والإكسسوارات منتجات قياسية من الشركات المصنّعة وأسعارها بالريال، ويمكنك مقارنة الموديلات في المتجر. أما منتجاتنا المطبوعة ثلاثية الأبعاد فهي تصاميم فريدة تُنتج لدينا، وغالبًا حسب الطلب، وتمر كل قطعة بعدة مراحل من التصميم والإنتاج."
-  },
-  "faq_q7": {
-    "en": "Can I track my order?",
-    "ar": "هل يمكنني تتبع طلبي؟"
-  },
-  "faq_a7": {
-    "en": "Yes, a tracking number will be provided once your order has shipped, so you can easily monitor its status.",
-    "ar": "نعم، سيتم تزويدك برقم تتبع بمجرد شحن طلبك لمتابعة حالته بسهولة."
-  },
-  "faq_q8": {
-    "en": "Can I return or exchange a product?",
-    "ar": "هل يمكنني إرجاع أو استبدال منتج؟"
-  },
-  "faq_a8": {
-    "en": "Unused printers and unused filament can be returned within 7 days of receiving the order. For any product, a return or exchange can be requested within 3 days if there is a manufacturing defect, you received the wrong product, or it was damaged during shipping. Accessories, 3D printed items and custom orders are not returnable for change of mind. See our Return & Exchange Policy for details.",
-    "ar": "يمكن إرجاع الطابعات غير المستخدمة وخيوط الطباعة غير المستخدمة خلال 7 أيام من استلام الطلب. ولأي منتج، يمكن طلب الاسترجاع أو الاستبدال خلال 3 أيام في حال وجود عيب تصنيع أو استلام منتج خاطئ أو تلفه أثناء الشحن. ولا تُقبل إعادة الإكسسوارات والمنتجات المطبوعة ثلاثية الأبعاد والطلبات المخصصة لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
-  },
-  "faq_q9": {
-    "en": "Can I cancel my order?",
-    "ar": "هل يمكنني إلغاء طلبي؟"
-  },
-  "faq_a9": {
-    "en": "For 3D printed items, cancellation is possible only before production begins; once production has started, it is not available. For other orders, contact us as soon as possible.",
-    "ar": "بالنسبة للمنتجات المطبوعة ثلاثية الأبعاد، يمكن الإلغاء فقط قبل بدء الإنتاج، وبعد بدئه لا يتوفر الإلغاء. وبالنسبة للطلبات الأخرى، تواصل معنا في أقرب وقت."
-  },
-  "faq_q10": {
-    "en": "Do you offer custom orders?",
-    "ar": "هل تقدمون طلبات مخصصة؟"
-  },
-  "faq_a10": {
-    "en": "Yes. Send us your design file or a MakerWorld link, or tell us what you have in mind. All details are confirmed before production.",
-    "ar": "نعم. أرسل لنا ملف التصميم أو رابط MakerWorld، أو أخبرنا بما تفكر فيه. تُؤكَّد جميع التفاصيل قبل بدء الإنتاج."
-  },
-  "faq_q11": {
-    "en": "Are your products suitable as gifts?",
-    "ar": "هل منتجاتكم مناسبة كهدايا؟"
-  },
-  "faq_a11": {
-    "en": "Yes. Our 3D printed items are a great choice for gifts, especially for gaming enthusiasts and those who appreciate unique designs.",
-    "ar": "نعم. منتجاتنا المطبوعة ثلاثية الأبعاد خيار رائع للهدايا، خاصة لمحبي الألعاب ولمن يقدّر التصاميم الفريدة."
-  },
-  "faq_q12": {
-    "en": "How can I contact you?",
-    "ar": "كيف يمكنني التواصل معكم؟"
-  },
-  "faq_a12": {
-    "en": "By phone, WhatsApp or email — see the footer for our contact details.",
-    "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
-  },
-  "journeys_h2": {
-    "en": "How can we help you?",
-    "ar": "كيف نساعدك؟"
-  },
-  "journey_a_h3": {
-    "en": "Buy 3D Printing Equipment",
-    "ar": "اشترِ معدات الطباعة ثلاثية الأبعاد"
-  },
-  "journey_a_p": {
-    "en": "Printers, filament and accessories from Bambu Lab, Creality, Elegoo, Anycubic and Snapmaker.",
-    "ar": "طابعات وفلامنت وإكسسوارات من Bambu Lab وCreality وElegoo وAnycubic وSnapmaker."
-  },
-  "journey_a_1": {
-    "en": "3D printers",
+  "nav_3d_printers": {
+    "en": "3D Printers",
     "ar": "طابعات ثلاثية الأبعاد"
   },
-  "journey_a_2": {
-    "en": "Filament",
-    "ar": "فلامنت"
-  },
-  "journey_a_3": {
+  "nav_accessories": {
     "en": "Accessories",
-    "ar": "إكسسوارات"
+    "ar": "الملحقات"
   },
-  "journey_a_5": {
-    "en": "After-sales support",
-    "ar": "دعم ما بعد البيع"
+  "nav_all_brands": {
+    "en": "All Brands",
+    "ar": "جميع العلامات التجارية"
   },
-  "journey_a_cta2": {
-    "en": "Browse all products",
-    "ar": "تصفح كل المنتجات"
+  "nav_bag": {
+    "en": "Bag",
+    "ar": "السلة"
   },
-  "journey_b_h3": {
-    "en": "Get Something 3D Printed",
-    "ar": "اطبع شيئًا بتصميمك"
+  "nav_black_arrow_3d_full": {
+    "en": "Black Arrow 3D",
+    "ar": "بلاك أرو 3D"
   },
-  "journey_b_p": {
-    "en": "Tell us what you need on WhatsApp. All details are confirmed with you before production.",
-    "ar": "أخبرنا بما تحتاجه عبر واتساب. نؤكد معك جميع التفاصيل قبل بدء الإنتاج."
+  "nav_blog": {
+    "en": "Blog",
+    "ar": "المدونة"
   },
-  "journey_b_1": {
-    "en": "Send your design file",
-    "ar": "أرسل ملف التصميم"
+  "nav_brands": {
+    "en": "Brands",
+    "ar": "العلامات التجارية"
   },
-  "journey_b_2": {
-    "en": "Send a MakerWorld link",
-    "ar": "أرسل رابط MakerWorld"
+  "nav_filaments": {
+    "en": "Filaments",
+    "ar": "خيوط الطباعة"
   },
-  "journey_b_3": {
-    "en": "Custom gifts",
-    "ar": "هدايا مخصصة"
+  "nav_gaming_accessories": {
+    "en": "3D Artwork",
+    "ar": "أعمال فنية ثلاثية الأبعاد"
   },
-  "journey_b_4": {
-    "en": "Prototypes",
-    "ar": "نماذج أولية"
+  "nav_home": {
+    "en": "Home",
+    "ar": "الرئيسية"
   },
-  "journey_b_5": {
-    "en": "Decor and artwork",
-    "ar": "ديكور وأعمال فنية"
+  "nav_profile": {
+    "en": "Profile",
+    "ar": "الحساب"
   },
-  "journey_b_6": {
-    "en": "Ask for a price on WhatsApp",
-    "ar": "اسأل عن السعر عبر واتساب"
+  "nav_shop": {
+    "en": "Shop",
+    "ar": "المتجر"
   },
-  "journey_b_cta2": {
-    "en": "Browse 3D Artwork",
-    "ar": "تصفح الأعمال الفنية"
+  "nav_tagline": {
+    "en": "Printing Equipment & Supplies",
+    "ar": "معدات وتوريدات الطباعة ثلاثية الأبعاد"
   },
-  "cart_checkout_note": {
-    "en": "Cash on Delivery and Bank Transfer are available now.",
-    "ar": "الدفع عند الاستلام والتحويل البنكي متاحان الآن."
+  "nd_h2": {
+    "en": "Celebrate the 23rd of September in green",
+    "ar": "احتفل بالثالث والعشرين من سبتمبر بالأخضر"
   },
-  "cmp_help_h2": {
-    "en": "What to compare when choosing a 3D printer",
-    "ar": "ما الذي تقارنه عند اختيار طابعة ثلاثية الأبعاد"
-  },
-  "cmp_help_p": {
-    "en": "Use the compare button on any printer in the shop to see printers side by side. These are the specifications that matter most:",
-    "ar": "استخدم زر المقارنة في أي طابعة داخل المتجر لعرض الطابعات جنبًا إلى جنب. هذه أهم المواصفات:"
-  },
-  "cmp_help_1": {
-    "en": "Build volume: the largest part you can print in one piece.",
-    "ar": "حجم الطباعة: أكبر قطعة يمكنك طباعتها دفعة واحدة."
-  },
-  "cmp_help_2": {
-    "en": "Enclosure: enclosed printers keep the print chamber stable and suit more materials.",
-    "ar": "الغرفة المغلقة: الطابعات المغلقة تحافظ على استقرار غرفة الطباعة وتناسب خامات أكثر."
-  },
-  "cmp_help_3": {
-    "en": "Maximum hot end temperature: sets which materials the printer can handle.",
-    "ar": "أقصى حرارة للهوت إند: تحدد الخامات التي تتعامل معها الطابعة."
-  },
-  "cmp_help_4": {
-    "en": "Multicolor system: filament changers such as AMS Lite, CFS Lite or CANVAS, or independent toolheads.",
-    "ar": "نظام الألوان المتعددة: مبدّلات الفلمنت مثل AMS Lite أو CFS Lite أو CANVAS، أو رؤوس طباعة مستقلة."
-  },
-  "cmp_help_5": {
-    "en": "Print speed and acceleration.",
-    "ar": "سرعة الطباعة والتسارع."
-  },
-  "cmp_help_6": {
-    "en": "Supported filament and material compatibility.",
-    "ar": "الخامات المدعومة وتوافق المواد."
-  },
-  "cmp_help_7": {
-    "en": "Price in Saudi riyals (SAR).",
-    "ar": "السعر بالريال السعودي."
-  },
-  "cmp_help_link1": {
-    "en": "Browse 3D printers",
-    "ar": "تصفح الطابعات ثلاثية الأبعاد"
-  },
-  "cmp_help_link2": {
-    "en": "Read: Bambu Lab A1 vs A1 mini vs A2L",
-    "ar": "اقرأ: مقارنة Bambu Lab A1 وA1 mini وA2L"
-  },
-  "footer_shipping": {
-    "en": "Shipping Policy",
-    "ar": "سياسة الشحن"
-  },
-  "footer_service": {
-    "en": "3D Printing Service",
-    "ar": "خدمة الطباعة ثلاثية الأبعاد"
-  },
-  "journey_b_link": {
-    "en": "How our printing service works",
-    "ar": "كيف تعمل خدمة الطباعة لدينا"
+  "partners_desc": {
+    "en": "We ship every order through OTO, a Saudi logistics platform, giving us access to a network of the Kingdom’s leading courier companies.",
+    "ar": "نشحن جميع الطلبات عبر OTO، منصة الخدمات اللوجستية السعودية، مما يمنحنا الوصول إلى شبكة من أبرز شركات الشحن في المملكة."
   },
   "partners_h2": {
     "en": "Nationwide Delivery, Powered by OTO",
     "ar": "توصيل لكل مناطق المملكة عبر OTO"
   },
-  "partners_desc": {
-    "en": "We ship every order through OTO, a Saudi logistics platform, giving us access to a network of the Kingdom’s leading courier companies.",
-    "ar": "نشحن جميع الطلبات عبر OTO، منصة الخدمات اللوجستية السعودية، مما يمنحنا الوصول إلى شبكة من أبرز شركات الشحن في المملكة."
+  "pd_crumb_default": {
+    "en": "Product",
+    "ar": "المنتج"
+  },
+  "pd_loading": {
+    "en": "Loading product…",
+    "ar": "جارٍ تحميل المنتج…"
+  },
+  "picker_tag_1": {
+    "en": "New to 3D Printing",
+    "ar": "جديد في عالم الطباعة ثلاثية الأبعاد"
+  },
+  "picker_tag_2": {
+    "en": "Budget-Friendly Alternative",
+    "ar": "بديل اقتصادي"
+  },
+  "picker_tag_3": {
+    "en": "Stepping Up From a Mini Printer",
+    "ar": "الانتقال من طابعة الميني"
+  },
+  "picker_tag_4": {
+    "en": "Large or Oversized Projects",
+    "ar": "مشاريع كبيرة أو ضخمة"
+  },
+  "picker_tag_5": {
+    "en": "Multi-Color Without an AMS Unit",
+    "ar": "طباعة متعددة الألوان بدون وحدة AMS"
+  },
+  "picker_tag_6": {
+    "en": "Enclosed & Consistent Results",
+    "ar": "نتائج ثابتة بتصميم مغلق"
+  },
+  "picker_tag_7": {
+    "en": "Professional / Engineering Materials",
+    "ar": "احترافية / مواد هندسية"
+  },
+  "picker_why_1": {
+    "en": "Our smallest and most affordable printer, with the same AMS-ready platform as Bambu Lab's larger models — a low-risk way to start.",
+    "ar": "أصغر طابعاتنا وأكثرها اقتصادية، مبنية على نفس منصة AMS الموثوقة التي تعتمدها طابعات بامبو لاب الأكبر — طريقة منخفضة المخاطر للبدء."
+  },
+  "picker_why_2": {
+    "en": "An accessible entry point from Creality, with Creality Cloud connectivity and multi-color support via CFS Lite.",
+    "ar": "نقطة دخول ميسورة من Creality، مع اتصال Creality Cloud ودعم الألوان المتعددة عبر نظام CFS Lite."
+  },
+  "picker_why_3": {
+    "en": "A bigger 256 x 256 x 256 mm build volume than the A1 mini, with AMS Lite support for up to 4-color prints.",
+    "ar": "مساحة طباعة أكبر (256 × 256 × 256 مم) من A1 mini، مع دعم AMS Lite للطباعة بأربعة ألوان."
+  },
+  "picker_why_4": {
+    "en": "The biggest build volume in our A-series lineup (about 34 litres), for parts and props that outgrow a standard-size bed. The Anycubic Kobra 3 Max is another large-format option worth comparing.",
+    "ar": "أكبر مساحة طباعة في تشكيلة A-series لدينا (حوالي 34 لترًا)، للقطع والمجسمات التي تتجاوز سرير الطباعة القياسي. طابعة Anycubic Kobra 3 Max خيار آخر كبير الحجم يستحق المقارنة."
+  },
+  "picker_why_5": {
+    "en": "Four independent toolheads switch colors instantly via Snapmaker's SnapSwap system — no separate AMS unit needed. Elegoo's Centauri Carbon 2 is a lower-cost alternative with its own CANVAS multi-filament system.",
+    "ar": "أربعة رؤوس طباعة مستقلة تبدّل الألوان فورًا عبر نظام SnapSwap من Snapmaker — دون الحاجة لوحدة AMS منفصلة. طابعة Elegoo Centauri Carbon 2 بديل أقل تكلفة بنظامها الخاص CANVAS متعدد الفلمنت."
+  },
+  "picker_why_6": {
+    "en": "An enclosed Bambu Lab printer with higher acceleration (20,000 mm/s²) than the A-series, for more consistent results at production pace.",
+    "ar": "طابعة بامبو لاب مغلقة بتسارع أعلى (20,000 مم/ث²) من فئة A-series، لنتائج أكثر ثباتًا بوتيرة إنتاج أسرع."
+  },
+  "picker_why_7": {
+    "en": "Our highest-spec printer — a heated chamber and 350°C hot end for ABS, ASA and other engineering-grade materials.",
+    "ar": "أعلى طابعاتنا مواصفات — غرفة تسخين ورأس طباعة يصل إلى 350°C لمواد ABS وASA والمواد الهندسية الأخرى."
+  },
+  "pm_active_now": {
+    "en": "Available Now",
+    "ar": "متاح الآن"
+  },
+  "pm_bank_bankname": {
+    "en": "Bank Name",
+    "ar": "اسم البنك"
+  },
+  "pm_bank_beneficiary": {
+    "en": "Beneficiary Name",
+    "ar": "اسم المستفيد"
+  },
+  "pm_bank_h4": {
+    "en": "Direct Bank Transfer",
+    "ar": "التحويل البنكي المباشر"
+  },
+  "pm_bank_iban": {
+    "en": "IBAN",
+    "ar": "رقم الآيبان (IBAN)"
+  },
+  "pm_bank_iban_note": {
+    "en": "IBAN is all you need for a domestic transfer within Saudi Arabia.",
+    "ar": "رقم الآيبان وحده كافٍ لإتمام التحويل داخل المملكة العربية السعودية."
+  },
+  "pm_bank_p": {
+    "en": "Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.",
+    "ar": "حوّل إجمالي الطلب إلى الحساب أدناه، ثم أكمل النموذج وأضف رقم مرجع التحويل في الملاحظات — سنؤكد الطلب فور استلامه."
+  },
+  "pm_banktransfer": {
+    "en": "Bank Transfer",
+    "ar": "تحويل بنكي"
+  },
+  "pm_soon": {
+    "en": "Coming Soon",
+    "ar": "قريباً"
+  },
+  "promo_a1_desc": {
+    "en": "The full-size Bambu Lab A1 — bigger build volume than the mini, with optional AMS Lite for 4-color printing.",
+    "ar": "الحجم الكامل من بامبو لاب A1 — مساحة طباعة أكبر من نسخة الميني، مع دعم اختياري لوحدة AMS Lite للطباعة الرباعية الألوان."
+  },
+  "promo_a1mini_desc": {
+    "en": "Compact, fast FDM printer with an all-metal hot end — available standalone or as an AMS multi-color combo.",
+    "ar": "طابعة FDM مدمجة وسريعة برأس طباعة معدني بالكامل — متوفرة منفردة أو كباقة مع وحدة AMS متعددة الألوان."
+  },
+  "promo_a2l_desc": {
+    "en": "Large-format Bambu Lab printer with more than double the A1's build volume — same easy workflow, room for bigger projects.",
+    "ar": "طابعة بامبو لاب كبيرة الحجم بمساحة طباعة أكبر من ضعف A1 — بنفس سهولة الاستخدام ومساحة أكبر للمشاريع الكبيرة."
+  },
+  "promo_centauri_desc": {
+    "en": "Elegoo's enclosed CoreXY printer with the CANVAS multi-filament system — up to 4 colors, hardened-steel nozzle for abrasive materials.",
+    "ar": "طابعة إليجو المغلقة بتقنية CoreXY مع نظام CANVAS متعدد الفلمنت — حتى 4 ألوان، ونوزل من الفولاذ المقسّى للمواد الكاشطة."
+  },
+  "promo_from": {
+    "en": "From",
+    "ar": "تبدأ من"
+  },
+  "promo_h2c_desc": {
+    "en": "Professional-grade enclosed Bambu Lab printer built for high-temperature engineering materials and serious production.",
+    "ar": "طابعة بامبو لاب احترافية مغلقة، مصممة للمواد الهندسية عالية الحرارة والإنتاج الجاد."
+  },
+  "promo_instock_badge": {
+    "en": "In Stock",
+    "ar": "متوفرة الآن"
+  },
+  "promo_kobra3max_desc": {
+    "en": "Anycubic's large-format printer — built for oversized prints and figurines that outgrow a standard bed.",
+    "ar": "طابعة أنيكيوبيك كبيرة الحجم — مصممة للمطبوعات والمجسمات كبيرة الحجم التي تتجاوز سرير الطباعة العادي."
+  },
+  "promo_p2s_desc": {
+    "en": "Enclosed, high-speed Bambu Lab printer built for engineering filaments — standalone or with the AMS 2 Pro combo.",
+    "ar": "طابعة بامبو لاب مغلقة وعالية السرعة، مصممة للفلمنت الهندسي — تُباع منفردة أو ضمن حزمة AMS 2 Pro."
+  },
+  "promo_preorder_badge": {
+    "en": "Pre-Order",
+    "ar": "حجز مسبق"
+  },
+  "promo_preorder_cta": {
+    "en": "Pre-Order Now",
+    "ar": "اطلب الآن مسبقاً"
+  },
+  "promo_shop_cta": {
+    "en": "Shop Now",
+    "ar": "تسوّق الآن"
+  },
+  "promo_sparkx_desc": {
+    "en": "An affordable, easy-to-use entry point into 3D printing — ideal for first-time makers, students and simple everyday projects.",
+    "ar": "بداية ذكية وسهلة لعالم الطباعة ثلاثية الأبعاد بسعر مناسب — مثالية للمبتدئين والطلاب والمشاريع اليومية البسيطة."
+  },
+  "promo_u1_desc": {
+    "en": "A four-toolhead color monster — faster, cleaner multi-color printing than traditional filament-swap systems.",
+    "ar": "وحش الألوان بأربع رؤوس طباعة — تجربة ألوان أسرع وأنظف من أنظمة تبديل الفلمنت التقليدية."
+  },
+  "promo_view_details": {
+    "en": "View details",
+    "ar": "عرض التفاصيل"
+  },
+  "shop_all": {
+    "en": "All",
+    "ar": "الكل"
+  },
+  "shop_all_brands": {
+    "en": "All brands",
+    "ar": "جميع العلامات التجارية"
+  },
+  "shop_brand_label": {
+    "en": "Brand",
+    "ar": "العلامة التجارية"
+  },
+  "shop_by_brand_overline": {
+    "en": "Shop by Brand",
+    "ar": "تسوّق حسب العلامة التجارية"
+  },
+  "shop_catalog_banner": {
+    "en": "We're setting up the catalog now — products are being added.",
+    "ar": "جارٍ إعداد الكتالوج الآن — يتم إضافة المنتجات."
+  },
+  "shop_choose_manufacturer": {
+    "en": "Choose a manufacturer",
+    "ar": "اختر الشركة المصنّعة"
+  },
+  "shop_choose_manufacturer_desc": {
+    "en": "Select one brand to view its available printers, filaments and compatible accessories.",
+    "ar": "اختر علامة تجارية واحدة لعرض طابعاتها وخيوطها وملحقاتها المتوافقة."
+  },
+  "shop_featured": {
+    "en": "Featured",
+    "ar": "مميز"
+  },
+  "shop_filters_btn": {
+    "en": "Filters",
+    "ar": "التصفية"
+  },
+  "shop_instock": {
+    "en": "In stock",
+    "ar": "متوفر"
+  },
+  "shop_new_badge": {
+    "en": "New Arrival",
+    "ar": "وصل حديثاً"
+  },
+  "shop_pricerange": {
+    "en": "Price range",
+    "ar": "نطاق السعر"
+  },
+  "shop_products_published": {
+    "en": "products published",
+    "ar": "منتج منشور"
+  },
+  "shop_results_h2": {
+    "en": "Products",
+    "ar": "المنتجات"
+  },
+  "shop_search_placeholder": {
+    "en": "Search products",
+    "ar": "ابحث عن المنتجات"
+  },
+  "shop_sort_best_seller": {
+    "en": "Best Sellers",
+    "ar": "الأكثر مبيعاً"
+  },
+  "shop_sort_featured": {
+    "en": "Sort: Featured",
+    "ar": "الترتيب: المميز"
+  },
+  "shop_sort_name_asc": {
+    "en": "Name: A–Z",
+    "ar": "الاسم: أ-ي"
+  },
+  "shop_sort_price_asc": {
+    "en": "Price: Low to High",
+    "ar": "السعر: من الأقل إلى الأعلى"
+  },
+  "shop_sort_price_desc": {
+    "en": "Price: High to Low",
+    "ar": "السعر: من الأعلى إلى الأقل"
+  },
+  "shop_topquality": {
+    "en": "Top quality",
+    "ar": "الأعلى جودة"
+  },
+  "thanks_details_h": {
+    "en": "Your order",
+    "ar": "طلبك"
+  },
+  "thanks_h1": {
+    "en": "Thank you for your order!",
+    "ar": "شكراً لطلبك!"
+  },
+  "thanks_next_1": {
+    "en": "We will contact you to confirm your order and delivery details.",
+    "ar": "سنتواصل معك لتأكيد طلبك وتفاصيل التوصيل."
+  },
+  "thanks_next_2": {
+    "en": "Your order is then prepared and shipped to your address.",
+    "ar": "ثم يتم تجهيز طلبك وشحنه إلى عنوانك."
+  },
+  "thanks_next_h": {
+    "en": "What happens next",
+    "ar": "ماذا بعد؟"
+  },
+  "thanks_order_id": {
+    "en": "Order ID",
+    "ar": "رقم الطلب"
+  },
+  "thanks_p_email": {
+    "en": "We have received your order. A confirmation email is on its way to",
+    "ar": "لقد استلمنا طلبك. تم إرسال رسالة تأكيد إلى"
+  },
+  "thanks_p_plain": {
+    "en": "We have received your order and will contact you shortly to confirm and arrange delivery.",
+    "ar": "لقد استلمنا طلبك وسنتواصل معك قريباً للتأكيد وترتيب التوصيل."
+  },
+  "thanks_payment": {
+    "en": "Payment",
+    "ar": "الدفع"
+  },
+  "thanks_shipping": {
+    "en": "Shipping",
+    "ar": "الشحن"
+  },
+  "thanks_shop": {
+    "en": "Continue Shopping",
+    "ar": "متابعة التسوق"
+  },
+  "thanks_wa": {
+    "en": "Message us on WhatsApp",
+    "ar": "راسلنا عبر واتساب"
+  },
+  "trust_damaged_replace": {
+    "en": "Replaced if it arrives damaged",
+    "ar": "يُستبدل إذا وصل تالفًا"
+  },
+  "trust_delivery": {
+    "en": "Delivery across Saudi Arabia",
+    "ar": "توصيل لجميع مناطق السعودية"
+  },
+  "trust_payment": {
+    "en": "Bank transfer available",
+    "ar": "التحويل البنكي متاح"
+  },
+  "trust_support": {
+    "en": "Local support",
+    "ar": "دعم محلي"
+  },
+  "trust_vat": {
+    "en": "VAT invoice",
+    "ar": "فاتورة ضريبية"
+  },
+  "trust_warranty": {
+    "en": "Manufacturer warranty",
+    "ar": "ضمان الشركة المصنّعة"
   }
 }

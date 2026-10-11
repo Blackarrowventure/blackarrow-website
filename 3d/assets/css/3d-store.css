@@ -1373,9 +1373,10 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
   z-index: 2;
 }
 
+.b3d-corner-badge--bestseller { top: 10px; left: 10px; background: rgba(4,120,87,.95); color: #fff; }
 .b3d-corner-badge--featured { top: 38px; background: rgba(245,158,11,.92); color: #1a1a1a; }
-.b3d-corner-badge--sale { top: 10px; left: 10px; padding: 2px 8px; background: rgba(220,38,38,.92); color: #fff; }
-.b3d-corner-badge--new { top: 68px; background: rgba(4,120,87,.92); color: #fff; }
+.b3d-corner-badge--sale { top: 66px; left: 10px; padding: 2px 8px; background: rgba(220,38,38,.92); color: #fff; }
+.b3d-corner-badge--new { top: 94px; background: rgba(4,120,87,.92); color: #fff; }
 
 .b3d-stock-badge--pre { background: rgba(245,158,11,.92); color: #1a1a1a; border: 1px solid var(--clr-accent); }
 

@@ -387,8 +387,15 @@
     return { productId: parts[0], variantIndex: parts.length > 1 ? parseInt(parts[1], 10) : null };
   }
 
+  function bestSellerLabel(rank) {
+    if (rank === 1) return T('js_best_seller_badge');
+    if (rank === 2) return T('js_best_seller_badge_2');
+    return T('js_best_seller_badge_n').replace('{n}', rank);
+  }
+
   function cornerBadges(p) {
     var out = '';
+    if (p.bestSeller) out += '<span class="b3d-corner-badge b3d-corner-badge--bestseller">' + bestSellerLabel(p.bestSeller) + '</span>';
     if (p.featured) out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured') + '</span>';
     if (p.onSale) out += '<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge') + '</span>';
     return out;
@@ -767,6 +774,7 @@
       if (state.sort === 'price-asc') list.sort(function (a, b) { return currentPrice(a) - currentPrice(b); });
       if (state.sort === 'price-desc') list.sort(function (a, b) { return currentPrice(b) - currentPrice(a); });
       if (state.sort === 'name-asc') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+      if (state.sort === 'best-seller') list.sort(function (a, b) { return (a.bestSeller || Infinity) - (b.bestSeller || Infinity); });
 
       var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
       if (state.page > totalPages) state.page = totalPages;

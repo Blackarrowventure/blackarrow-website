@@ -208,6 +208,7 @@
       shop_topquality: 'Top quality',
       shop_products_published: 'products published',
       shop_sort_featured: 'Sort: Featured',
+      shop_sort_best_seller: 'Best Sellers',
       shop_sort_price_asc: 'Price: Low to High',
       shop_sort_price_desc: 'Price: High to Low',
       shop_sort_name_asc: 'Name: A–Z',
@@ -399,6 +400,9 @@
       js_motion_off: 'Motion: Off',
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
+      js_best_seller_badge: 'Best Seller',
+      js_best_seller_badge_2: '2nd Best Seller',
+      js_best_seller_badge_n: 'Best Seller #{n}',
       announce_1: 'Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
@@ -598,6 +602,7 @@
       shop_topquality: 'الأعلى جودة',
       shop_products_published: 'منتج منشور',
       shop_sort_featured: 'الترتيب: المميز',
+      shop_sort_best_seller: 'الأكثر مبيعاً',
       shop_sort_price_asc: 'السعر: من الأقل إلى الأعلى',
       shop_sort_price_desc: 'السعر: من الأعلى إلى الأقل',
       shop_sort_name_asc: 'الاسم: أ-ي',
@@ -789,6 +794,9 @@
       js_motion_off: 'الحركة: إيقاف',
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
+      js_best_seller_badge: 'الأكثر مبيعاً',
+      js_best_seller_badge_2: 'ثاني الأكثر مبيعاً',
+      js_best_seller_badge_n: 'الأكثر مبيعاً #{n}',
       announce_1: 'منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };

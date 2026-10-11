@@ -150,8 +150,18 @@ def esc(s):
     return (s or '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
 
+def best_seller_label(rank, lang):
+    if rank == 1:
+        return T('js_best_seller_badge', lang)
+    if rank == 2:
+        return T('js_best_seller_badge_2', lang)
+    return T('js_best_seller_badge_n', lang).replace('{n}', str(rank))
+
+
 def corner_badges(p, lang):
     out = ''
+    if p.get('bestSeller'):
+        out += '<span class="b3d-corner-badge b3d-corner-badge--bestseller">' + best_seller_label(p['bestSeller'], lang) + '</span>'
     if p.get('featured'):
         out += '<span class="b3d-corner-badge b3d-corner-badge--featured">' + T('shop_featured', lang) + '</span>'
     if p.get('onSale'):
