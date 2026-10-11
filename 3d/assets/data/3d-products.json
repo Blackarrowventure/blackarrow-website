@@ -173,29 +173,41 @@
         "/3d/assets/images/products/bambu-a2l-08.webp"
       ],
       "shortDesc": "Large-format Bambu Lab printer — over double the A1's build volume. Combo bundle with AMS.",
-      "description": "The Bambu Lab A2L Combo is a large-format 3D printer from the A-series, built for projects that need more room — bigger models, prototypes, decor, cosplay pieces, and custom products. It keeps the easy A1-style workflow but with a much larger build volume, more than double the A1's, plus high speed and multi-color printing via its included AMS.",
+      "description": "The Bambu Lab A2L Combo is the large-format member of Bambu Lab's A-series, built for projects that need more room: bigger models, prototypes, home decor, cosplay pieces and custom products. Its 330 x 320 x 325 mm build volume is more than double the A1's, while keeping the same easy A-series experience: fully automatic calibration, including flow-dynamics calibration before each print, a quick-swap 0.4 mm nozzle (0.2 to 0.8 mm available), a built-in filament cutter and a touchscreen. The Combo includes the AMS lite, so you can print in up to four colors or materials straight out of the box, with automatic spool switching. It reaches speeds of up to 500 mm/s with 10,000 mm/s² acceleration, a 300 °C hot end and an 80 °C heated bed. Best suited to PLA, PETG and TPU.",
       "specs": [
         ["Build Volume", "330 x 320 x 325 mm"],
         ["Build Volume (Liters)", "~34.3 L"],
         ["Max Speed", "500 mm/s"],
-        ["Multi-Color Printing", "AMS included"],
+        ["Max Acceleration", "10,000 mm/s²"],
+        ["Max Hot End Temperature", "300 °C"],
+        ["Max Bed Temperature", "80 °C"],
+        ["Nozzle", "0.4 mm standard (0.2 / 0.6 / 0.8 mm available)"],
+        ["Multi-Color Printing", "AMS lite included (up to 4 colors)"],
+        ["Calibration", "Fully automatic, incl. flow dynamics calibration"],
+        ["Filament Cutter", "Built-in"],
         ["Connectivity", "Wi-Fi"],
         ["Dimensions", "544 x 529 x 505 mm"],
         ["Weight", "12.8 kg"],
-        ["Supported Filament", "PLA / PETG / TPU and similar, depending on settings"]
+        ["Supported Filament", "PLA / PETG / TPU (ABS / ASA not recommended)"]
       ],
       "name_ar": "بامبو لاب A2L كومبو",
       "shortDesc_ar": "طابعة بامبو لاب كبيرة الحجم بمساحة طباعة أكبر من ضعف A1. باقة Combo مع AMS.",
-      "description_ar": "Bambu Lab A2L Combo طابعة ثلاثية الأبعاد كبيرة الحجم من سلسلة A، مناسبة لمن يحتاج إلى مساحة طباعة أوسع للمجسمات الكبيرة والنماذج الأولية والديكور والكوسبلاي والمنتجات المخصصة. توفر تجربة سهلة قريبة من A1، لكن بحجم طباعة أكبر بكثير يصل إلى أكثر من ضعف حجم الطباعة في A1، مع سرعة عالية ودعم للطباعة متعددة الألوان عبر وحدة AMS المرفقة.",
+      "description_ar": "بامبو لاب A2L كومبو هي الطابعة كبيرة الحجم في سلسلة A من Bambu Lab، مصممة للمشاريع التي تحتاج مساحة أكبر: المجسمات الكبيرة والنماذج الأولية وديكور المنزل وقطع الكوسبلاي والمنتجات المخصصة. حجم الطباعة 330 × 320 × 325 مم، أي أكثر من ضعف حجم A1، مع الحفاظ على سهولة سلسلة A: معايرة تلقائية بالكامل تشمل معايرة تدفق الخيط قبل كل طباعة، ونوزل 0.4 مم سريع التبديل (تتوفر مقاسات من 0.2 إلى 0.8 مم)، وقاطع خيط مدمج وشاشة لمس. تأتي باقة الكومبو مع وحدة AMS lite، فتطبع حتى أربعة ألوان أو خامات مباشرة من أول يوم مع تبديل تلقائي للبكرات. تصل سرعتها إلى 500 مم/ث بتسارع 10,000 مم/ث²، مع هوت إند حتى 300 °م وسرير ساخن حتى 80 °م. الأنسب لخامات PLA وPETG وTPU.",
       "specs_ar": [
         ["حجم الطباعة", "330 × 320 × 325 مم"],
         ["حجم الطباعة بالفوليوم", "حوالي 34.3 لتر"],
         ["السرعة القصوى", "حتى 500 مم/ث"],
-        ["الطباعة متعددة الألوان", "تشمل وحدة AMS"],
+        ["التسارع", "حتى 10,000 مم/ث²"],
+        ["حرارة الهوت إند", "حتى 300 °م"],
+        ["حرارة السرير", "حتى 80 °م"],
+        ["النوزل", "0.4 مم أساسي (تتوفر 0.2 / 0.6 / 0.8 مم)"],
+        ["الطباعة متعددة الألوان", "تشمل وحدة AMS lite (حتى 4 ألوان)"],
+        ["المعايرة", "تلقائية بالكامل، تشمل معايرة تدفق الخيط"],
+        ["قاطع الخيط", "مدمج"],
         ["الاتصال", "Wi-Fi"],
         ["أبعاد الطابعة", "544 × 529 × 505 مم"],
         ["الوزن", "12.8 كجم"],
-        ["الخامات المناسبة", "PLA / PETG / TPU وخامات مشابهة حسب الإعدادات"]
+        ["الخامات المناسبة", "PLA / PETG / TPU (لا يُنصح بـ ABS / ASA)"]
       ]
     },
     {
@@ -667,7 +679,7 @@
         "/3d/assets/images/products/flmnt-pla-red.webp"
       ],
       "shortDesc": "Everyday PLA filament — easy to use with clean results.",
-      "description": "PLA Filament, 1kg, for everyday printing. Well suited to figurines, products, prototypes and custom gifts. Easy to use and gives clean results with most FDM printers.",
+      "description": "A 1 kg spool of 1.75 mm PLA filament for everyday 3D printing, available in eight colors: black, gray, yellow, orange, white, sky blue, turquoise green and red. PLA is the easiest material to print: it needs no enclosure, has very low warping and gives clean, detailed results on almost any FDM printer, including Bambu Lab, Creality, Elegoo, Anycubic and Flashforge machines. It is ideal for figurines, decor, gifts, keychains, prototypes and multi-color prints with an AMS or similar system. The spool comes on a cardboard reel. For best results, keep the filament dry: store it sealed with desiccant after use, and dry it before printing if it has absorbed moisture.",
       "specs": [
         ["Material", "PLA"],
         ["Weight", "1 kg"],
@@ -676,7 +688,7 @@
       ],
       "name_ar": "فلمنت PLA 1 كجم",
       "shortDesc_ar": "فلمنت PLA يومي — سهل الاستخدام ونتائج نظيفة.",
-      "description_ar": "فلمنت PLA 1kg للطباعة اليومية. فلمنت PLA مناسب للمجسمات، المنتجات، النماذج الأولية، والهدايا المخصصة. سهل الاستخدام ويعطي نتائج نظيفة مع أغلب طابعات FDM.",
+      "description_ar": "بكرة فلمنت PLA بوزن 1 كجم وقطر 1.75 مم للطباعة اليومية، متوفرة بثمانية ألوان: أسود، رمادي، أصفر، برتقالي، أبيض، سماوي، أخضر فيروزي وأحمر. يُعد PLA أسهل خامة للطباعة: لا يحتاج إلى طابعة مغلقة، والتواؤه منخفض جدًا، ويعطي نتائج نظيفة ومفصلة على أغلب طابعات FDM، ومنها Bambu Lab وCreality وElegoo وAnycubic وFlashforge. مثالي للمجسمات والديكور والهدايا والميداليات والنماذج الأولية والطباعة متعددة الألوان مع نظام AMS أو ما يشبهه. تأتي البكرة على بكرة كرتونية. للحصول على أفضل نتيجة احفظ الفلمنت جافًا: خزّنه في كيس محكم مع مادة مجففة بعد الاستخدام، وجففه قبل الطباعة إذا امتص الرطوبة.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["الوزن", "1 كيلو"],
@@ -843,7 +855,7 @@
         "/3d/assets/images/products/oni-controller-stand-06.webp"
       ],
       "shortDesc": "3D printed oni-mask stand for the PS5 DualSense controller.",
-      "description": "An original oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. The demon-face design cradles a PS5 DualSense controller by its handles while doubling as a striking desk piece. Printed in PLA with two screw-thread support legs, finished in a raw, unpainted grey.",
+      "description": "An original oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. The fierce Japanese demon face, with bared fangs and a snarling expression, is sculpted to cradle a PS5 DualSense controller by its handles, so the controller sits upright like a crown on the mask. Two screw-thread support legs at the back keep it stable on your desk. It is printed in PLA and finished in a raw, unpainted grey, which shows off the sculpted detail and leaves it ready to paint in your own colors if you like. A striking piece for a gaming setup, streaming desk or shelf, and a great gift for gamers.",
       "specs": [
         ["Material", "PLA"],
         ["Compatibility", "PS5 DualSense controller"],
@@ -854,7 +866,7 @@
       "compatibility": ["PS5 DualSense"],
       "name_ar": "حامل يد تحكم PS5 بتصميم قناع أوني",
       "shortDesc_ar": "حامل يد تحكم PS5 مطبوع ثلاثي الأبعاد بتصميم قناع أوني.",
-      "description_ar": "حامل يد تحكم أصلي بتصميم قناع أوني، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يحتضن تصميم الوجه الشيطاني يد تحكم PS5 DualSense من مقابضها، ليكون قطعة مكتبية مميزة إلى جانب وظيفته. مطبوع من مادة PLA مع رجلين داعمتين بشكل برغي، بتشطيب خام غير مطلي باللون الرمادي.",
+      "description_ar": "حامل يد تحكم بتصميم قناع أوني أصلي، مصمم ومطبوع داخليًا لدى Black Arrow 3D. وجه الشيطان الياباني بأنيابه البارزة وتعابيره الحادة منحوت ليحمل يد تحكم PS5 DualSense من مقبضيها، فتقف يد التحكم فوق القناع بشكل لافت. ساقا دعم بأسنان لولبية في الخلف تمنحانه ثباتًا على المكتب. مطبوع من خامة PLA بلون رمادي خام غير مطلي، يُظهر تفاصيل النحت ويتيح لك طلاءه بألوانك إن رغبت. قطعة مميزة لركن الألعاب أو مكتب البث أو الرف، وهدية رائعة لمحبي الألعاب.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التوافق", "يد تحكم PS5 DualSense"],
@@ -879,7 +891,7 @@
         "/3d/assets/images/products/straw-hat-controller-stand-02.webp"
       ],
       "shortDesc": "3D printed straw hat controller stand for the PS5 DualSense controller.",
-      "description": "A detailed straw-hat controller stand, designed and 3D printed in-house at Black Arrow 3D. The woven-texture straw hat with a red band cradles a PS5 DualSense controller resting on top, making a fun display piece for any anime or gaming setup. Printed in PLA with a sturdy circular base.",
+      "description": "A detailed straw-hat controller stand, designed and 3D printed in-house at Black Arrow 3D. Inspired by the famous anime pirate's hat, it has a woven straw texture printed in bright yellow, a bold red band and a clean white circular base. Your PS5 DualSense controller rests on top of the crown, keeping it displayed and within reach. Printed in PLA in yellow, red and white, it is sturdy enough for daily use and makes a fun centerpiece for any anime or gaming setup, and a great gift for One Piece fans.",
       "specs": [
         ["Material", "PLA"],
         ["Compatibility", "PS5 DualSense controller"],
@@ -890,7 +902,7 @@
       "compatibility": ["PS5 DualSense"],
       "name_ar": "حامل يد تحكم PS5 بتصميم قبعة القش",
       "shortDesc_ar": "حامل يد تحكم PS5 مطبوع ثلاثي الأبعاد بتصميم قبعة القش.",
-      "description_ar": "حامل يد تحكم مفصّل بتصميم قبعة القش، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تحمل قبعة القش المنسوجة بحزام أحمر يد تحكم PS5 DualSense فوقها، لتكون قطعة عرض ممتعة لأي إعداد ألعاب أو أنمي. مطبوعة من مادة PLA مع قاعدة دائرية متينة.",
+      "description_ar": "حامل يد تحكم بتصميم قبعة القش بتفاصيل دقيقة، مصمم ومطبوع داخليًا لدى Black Arrow 3D. مستوحى من قبعة القرصان الشهيرة في الأنمي، بملمس قش منسوج باللون الأصفر الزاهي وشريط أحمر وقاعدة دائرية بيضاء. تستقر يد تحكم PS5 DualSense فوق القبعة لتبقى معروضة وفي متناول يدك. مطبوع من خامة PLA بالألوان الأصفر والأحمر والأبيض، متين للاستخدام اليومي، وقطعة مميزة لأي ركن أنمي أو ألعاب، وهدية رائعة لمحبي ون بيس.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التوافق", "يد تحكم PS5 DualSense"],
@@ -955,7 +967,7 @@
         "/3d/assets/images/products/custom-3d-artwork-promo.webp"
       ],
       "shortDesc": "Turn your sketch, character or logo into a custom 3D printed piece.",
-      "description": "Send us a character, logo, drawing or original idea and we'll design and 3D print it into a unique display piece, layer by layer. Ships in a raw, unpainted PLA finish — a DIY paint job lets you finish it in your own colors. Order and share your reference image via WhatsApp.",
+      "description": "Turn your idea into a real object. Send us a character, logo, drawing, photo or original concept and the Black Arrow 3D team will design and 3D print it as a unique display piece, layer by layer. It works well for wall plaques, desk figures, logo signs, name pieces and personalized gifts. Pieces ship in a raw, unpainted PLA finish, ready for a DIY paint job in your own colors. To order, share your reference image with us on WhatsApp, and we will confirm the details with you before printing.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Custom — based on your reference image"],
@@ -963,7 +975,7 @@
       ],
       "name_ar": "أعمال فنية ثلاثية الأبعاد مخصصة",
       "shortDesc_ar": "حوّل رسمتك أو شخصيتك أو شعارك إلى قطعة مطبوعة ثلاثية الأبعاد مخصصة.",
-      "description_ar": "أرسل لنا شخصية أو شعارًا أو رسمة أو فكرة أصلية وسنصممها ونطبعها ثلاثي الأبعاد لتكون قطعة عرض مميزة. تُشحن بتشطيب خام غير مطلي من PLA — لتقوم أنت بطلائها بألوانك الخاصة. اطلب وشارك صورتك المرجعية عبر واتساب.",
+      "description_ar": "حوّل فكرتك إلى قطعة حقيقية. أرسل لنا شخصية أو شعارًا أو رسمة أو صورة أو فكرة خاصة بك، وسيصممها فريق Black Arrow 3D ويطبعها بالطباعة ثلاثية الأبعاد كقطعة عرض فريدة طبقة بعد طبقة. مناسبة للوحات الجدارية ومجسمات المكتب ولوحات الشعارات والأسماء والهدايا المخصصة. تُسلَّم القطع بلون PLA خام غير مطلي، جاهزة لتلوينها بنفسك بالألوان التي تحبها. للطلب شارك صورتك المرجعية معنا عبر واتساب، وسنؤكد معك التفاصيل قبل الطباعة.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "مخصص — بناءً على صورتك المرجعية"],
@@ -990,7 +1002,7 @@
         "/3d/assets/images/products/gear-fidget-spinner-02.webp"
       ],
       "shortDesc": "3D printed interlocking gear fidget spinner, designed and printed in-house. Choose black, red or white.",
-      "description": "A fidget spinner made of interlocking gears, designed and 3D printed in-house at Black Arrow 3D. The gears mesh and spin together for a satisfying fidget toy and desk piece. Printed in PLA. Available in black, red or white.",
+      "description": "A satisfying fidget toy made of interlocking gears, designed and 3D printed in-house at Black Arrow 3D. Each ring is a working gear set: the inner gears mesh with each other and with the outer ring, so they all spin together when you turn it. It keeps restless hands busy at your desk, in class or while gaming, and also looks great as a small mechanical desk ornament. Printed in PLA and available in black, red or white.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Interlocking gears — designed and printed in-house"],
@@ -998,7 +1010,7 @@
       ],
       "name_ar": "دبوس دوران (فيدجت سبينر) بتصميم تروس متشابكة",
       "shortDesc_ar": "دبوس دوران مطبوع ثلاثي الأبعاد بتصميم تروس متشابكة، تصميم وطباعة داخلية. اختر الأسود أو الأحمر أو الأبيض.",
-      "description_ar": "دبوس دوران (فيدجت سبينر) مكوّن من تروس متشابكة، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تتشابك التروس وتدور معًا لتمنح تجربة دوران ممتعة وقطعة عرض على المكتب. مطبوع من مادة PLA. متوفر باللون الأسود أو الأحمر أو الأبيض.",
+      "description_ar": "لعبة تحريك ممتعة مصنوعة من تروس متشابكة، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. كل حلقة هي مجموعة تروس تعمل فعليًا: تتعشق التروس الداخلية مع بعضها ومع الحلقة الخارجية، فتدور كلها معًا عند تحريكها. تشغل اليدين أثناء العمل على المكتب أو الدراسة أو اللعب، وتبدو رائعة كقطعة ديكور ميكانيكية صغيرة على المكتب. مطبوعة من خامة PLA ومتوفرة بالأسود أو الأحمر أو الأبيض.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "تروس متشابكة — تصميم وطباعة داخلية"],
@@ -1024,7 +1036,7 @@
         "/3d/assets/images/products/luffy-keychain-promo.webp"
       ],
       "shortDesc": "In-house 3D printed anime character keychain — choose green or white.",
-      "description": "A detailed, in-house 3D printed keychain of a grinning straw-hat anime character, printed in solid PLA with a keyring attached. Available in green or white — let us know your choice when ordering via WhatsApp.",
+      "description": "A detailed 3D printed keychain of the famous grinning straw-hat anime pirate, designed and printed in-house at Black Arrow 3D. The character's face and hat are raised in clean lines against the keychain body, so the design stands out from every angle. It is printed in solid PLA, which keeps it light but sturdy for everyday use, and comes with a metal keyring attached. Choose green or white. A fun gift for One Piece fans, and a great add-on to any order.",
       "specs": [
         ["Material", "PLA"],
         ["Color", "Green or White"],
@@ -1032,7 +1044,7 @@
       ],
       "name_ar": "ميدالية مفاتيح أنمي بقبعة القش",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد داخليًا لشخصية أنمي — اختر الأخضر أو الأبيض.",
-      "description_ar": "ميدالية مفاتيح مفصّلة مطبوعة ثلاثية الأبعاد داخليًا لشخصية أنمي مبتسمة بقبعة القش، مطبوعة من مادة PLA الصلبة مع حلقة مفاتيح معدنية. متوفرة باللونين الأخضر أو الأبيض — أخبرنا باختيارك عند الطلب عبر واتساب.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد بتفاصيل دقيقة لقرصان الأنمي الشهير صاحب قبعة القش وابتسامته المعروفة، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. ملامح الشخصية والقبعة بارزة بخطوط واضحة على جسم الميدالية، فيظهر التصميم من كل زاوية. مطبوعة من خامة PLA صلبة خفيفة ومتينة للاستخدام اليومي، وتأتي مع حلقة مفاتيح معدنية. اختر الأخضر أو الأبيض. هدية ممتعة لمحبي ون بيس وإضافة رائعة لأي طلب.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["اللون", "أخضر أو أبيض"],
@@ -1064,7 +1076,7 @@
         "/3d/assets/images/products/mustang-gt-red.webp"
       ],
       "shortDesc": "In-house 3D printed Mustang GT display model, rear-view design — pick your color.",
-      "description": "A detailed, in-house 3D printed Mustang GT model built around its rear-view styling — diffuser, quad exhaust tips and spoiler all printed in. Available in the five body colors shown.",
+      "description": "A detailed 3D printed display model of the Ford Mustang GT, designed around its iconic rear view and made in-house at Black Arrow 3D. It features racing stripes over the bodywork, a raised rear spoiler, red tail lights, a GT badge, a rear diffuser and quad exhaust tips, all printed as part of the model. The car sits on black stand legs, so it works on a desk or shelf. Available in five body colors: white, green, black, yellow and red. A great gift for car lovers and Mustang fans, or a statement piece for your office or garage.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Rear-view Mustang GT"],
@@ -1072,7 +1084,7 @@
       ],
       "name_ar": "نموذج فورد موستنج GT مطبوع ثلاثي الأبعاد",
       "shortDesc_ar": "نموذج عرض فورد موستنج GT مطبوع ثلاثي الأبعاد داخليًا، بتصميم من الخلف — اختر لونك.",
-      "description_ar": "نموذج فورد موستنج GT مفصّل مطبوع ثلاثي الأبعاد داخليًا، مصمم على شكل مؤخرة السيارة — بما في ذلك الدفيوزر وفتحات العادم الرباعية والسبويلر. متوفر بألوان الهيكل الخمسة الموضحة.",
+      "description_ar": "مجسم عرض مطبوع ثلاثي الأبعاد لسيارة فورد موستنج GT بتفاصيل دقيقة، مصمم حول شكلها الخلفي الشهير ومصنوع داخليًا لدى Black Arrow 3D. يتضمن خطوط السباق على الهيكل، والجناح الخلفي المرتفع، والأضواء الخلفية الحمراء، وشعار GT، والناشر الخلفي، وأربع فتحات عادم، وكلها مطبوعة ضمن المجسم. تقف السيارة على أرجل سوداء لتناسب المكتب أو الرف. متوفر بخمسة ألوان للهيكل: أبيض وأخضر وأسود وأصفر وأحمر. هدية رائعة لمحبي السيارات وعشاق موستنج، أو قطعة لافتة للمكتب أو الكراج.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "فورد موستنج GT من الخلف"],
@@ -1103,14 +1115,14 @@
         "/3d/assets/images/products/saudi-map-hanging-decor-red.webp"
       ],
       "shortDesc": "Small 3D printed Saudi Arabia map decor with articulated hanging legs — pick your color.",
-      "description": "A fun, small-size 3D printed decor piece shaped like the map of Saudi Arabia, with articulated legs that dangle over the edge of a shelf or desk. Perfect for home and office, and a great Saudi National Day gift. Available in the five colors shown.",
+      "description": "A fun, small 3D printed decor piece shaped like the map of Saudi Arabia, with little articulated arms and legs that hang over the edge of a shelf, desk or monitor. The jointed limbs move, so you can pose it however you like. Designed and printed in-house at Black Arrow 3D, it adds a playful touch of Saudi pride to any home or office. A great Saudi National Day gift, and a nice desk gift for colleagues. Available in green, white, black, yellow and red.",
       "specs": [
         ["Design", "Saudi Arabia map with articulated hanging legs"],
         ["Size", "Small"]
       ],
       "name_ar": "ديكور خريطة السعودية بأرجل متدلية",
       "shortDesc_ar": "ديكور صغير مطبوع ثلاثي الأبعاد على شكل خريطة السعودية بأرجل متحركة متدلية — اختر لونك.",
-      "description_ar": "قطعة ديكور ممتعة وصغيرة الحجم مطبوعة ثلاثي الأبعاد على شكل خريطة المملكة العربية السعودية، مع أرجل متحركة تتدلى من حافة الرف أو المكتب. مثالية للمنزل والمكتب، وهدية رائعة لليوم الوطني السعودي. متوفرة بالألوان الخمسة الموضحة.",
+      "description_ar": "قطعة ديكور صغيرة وممتعة مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بذراعين وساقين متحركة تتدلى من حافة الرف أو المكتب أو الشاشة. المفاصل تتحرك، فتضعها بالوضعية التي تعجبك. مصممة ومطبوعة داخليًا لدى Black Arrow 3D، وتضيف لمسة مرحة من الفخر الوطني لأي منزل أو مكتب. هدية رائعة لليوم الوطني السعودي، وهدية مكتبية لطيفة للزملاء. متوفرة بالأخضر والأبيض والأسود والأصفر والأحمر.",
       "specs_ar": [
         ["التصميم", "خريطة السعودية بأرجل متحركة متدلية"],
         ["الحجم", "صغير"]
@@ -1142,14 +1154,14 @@
         "/3d/assets/images/products/saudi-map-keychain-red.webp"
       ],
       "shortDesc": "3D printed keychain shaped like the map of Saudi Arabia — pick your color.",
-      "description": "A 3D printed keychain shaped like the map of Saudi Arabia, with raised round studs across its surface and a metal key ring. A simple, proud gift for Saudi National Day. Available in the five colors shown.",
+      "description": "A 3D printed keychain shaped like the map of Saudi Arabia, designed and printed in-house at Black Arrow 3D. Raised round studs across the surface give it a playful building-block look and a nice feel in the hand. It is printed in PLA, light and sturdy enough for daily use on your keys or bag, and comes with a metal key ring. A simple, proud gift for Saudi National Day, for friends and family, or as a giveaway for events and teams. Available in green, white, black, yellow and red.",
       "specs": [
         ["Design", "Saudi Arabia map with raised studs"],
         ["Includes", "Metal key ring"]
       ],
       "name_ar": "ميدالية مفاتيح خريطة السعودية",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية — اختر لونك.",
-      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، بنقاط دائرية بارزة على سطحها وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي. متوفرة بالألوان الخمسة الموضحة.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل خريطة المملكة العربية السعودية، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. نتوءات دائرية بارزة على سطحها تعطيها شكل مكعبات البناء المرح وملمسًا لطيفًا في اليد. مطبوعة من خامة PLA خفيفة ومتينة للاستخدام اليومي على المفاتيح أو الحقيبة، وتأتي مع حلقة مفاتيح معدنية. هدية بسيطة تعبّر عن الفخر لليوم الوطني السعودي، للأهل والأصدقاء، أو كتوزيعات للفعاليات وفرق العمل. متوفرة بالأخضر والأبيض والأسود والأصفر والأحمر.",
       "specs_ar": [
         ["التصميم", "خريطة السعودية بنقاط بارزة"],
         ["المحتويات", "حلقة مفاتيح معدنية"]
@@ -1177,14 +1189,14 @@
         "/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp"
       ],
       "shortDesc": "3D printed keychain of the palm tree and crossed swords — pick your color.",
-      "description": "A 3D printed keychain shaped like the palm tree and crossed swords, with a metal chain and key ring. A proud, simple gift for Saudi National Day. Available in the three colors shown.",
+      "description": "A 3D printed keychain in the shape of the palm tree and crossed swords, the emblem of Saudi Arabia, designed and printed in-house at Black Arrow 3D. The palm fronds have a fine textured finish and the curved swords are cleanly cut, so the emblem reads clearly even at keychain size. It is printed in PLA and comes with a metal chain and key ring. A proud, simple gift for Saudi National Day, for family and friends, or as a giveaway for events and teams. Available in green, red and yellow.",
       "specs": [
         ["Design", "Palm tree and crossed swords"],
         ["Includes", "Metal chain and key ring"]
       ],
       "name_ar": "ميدالية مفاتيح النخلة والسيفين",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين — اختر لونك.",
-      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين المتقاطعين، مع سلسلة وحلقة مفاتيح معدنية. هدية بسيطة ومميزة لليوم الوطني السعودي. متوفرة بالألوان الثلاثة الموضحة.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل النخلة والسيفين، شعار المملكة العربية السعودية، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. سعف النخلة بملمس دقيق والسيفان المنحنيان بقصّ واضح، فيظهر الشعار بوضوح حتى بحجم الميدالية. مطبوعة من خامة PLA وتأتي مع سلسلة وحلقة مفاتيح معدنية. هدية بسيطة تعبّر عن الفخر لليوم الوطني السعودي، للأهل والأصدقاء، أو كتوزيعات للفعاليات وفرق العمل. متوفرة بالأخضر والأحمر والأصفر.",
       "specs_ar": [
         ["التصميم", "النخلة والسيفان المتقاطعان"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
@@ -1212,14 +1224,14 @@
         "/3d/assets/images/products/saudi-riyal-keychain-yellow.webp"
       ],
       "shortDesc": "3D printed keychain shaped like the Saudi Riyal symbol — pick your color.",
-      "description": "A 3D printed keychain shaped like the Saudi Riyal symbol, with a metal chain and key ring. A neat, proud gift, ideal for Saudi National Day. Available in the three colors shown.",
+      "description": "A 3D printed keychain shaped like the new Saudi Riyal symbol, designed and printed in-house at Black Arrow 3D. The bold, clean lines of the symbol make a modern and recognizable design that stands out on your keys or bag. It is printed in PLA, light and sturdy for everyday use, and comes with a metal chain and key ring. A neat, proud gift for Saudi National Day, for anyone in finance or business, or as a giveaway for events and teams. Available in green, red and yellow.",
       "specs": [
         ["Design", "Saudi Riyal symbol"],
         ["Includes", "Metal chain and key ring"]
       ],
       "name_ar": "ميدالية مفاتيح الريال السعودي",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي — اختر لونك.",
-      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي، مع سلسلة وحلقة مفاتيح معدنية. هدية أنيقة ومميزة، مثالية لليوم الوطني السعودي. متوفرة بالألوان الثلاثة الموضحة.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد على شكل رمز الريال السعودي الجديد، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. خطوط الرمز الواضحة والجريئة تعطي تصميمًا عصريًا ومميزًا يلفت الانتباه على المفاتيح أو الحقيبة. مطبوعة من خامة PLA خفيفة ومتينة للاستخدام اليومي، وتأتي مع سلسلة وحلقة مفاتيح معدنية. هدية أنيقة تعبّر عن الفخر لليوم الوطني السعودي، أو لمن يعمل في المال والأعمال، أو كتوزيعات للفعاليات وفرق العمل. متوفرة بالأخضر والأحمر والأصفر.",
       "specs_ar": [
         ["التصميم", "رمز الريال السعودي"],
         ["المحتويات", "سلسلة وحلقة مفاتيح معدنية"]
@@ -1319,7 +1331,7 @@
         "/3d/assets/images/products/f1-car-3d-model-02.webp"
       ],
       "shortDesc": "In-house 3D printed F1 race car display model in red, mounted on a black base plaque.",
-      "description": "A 3D printed Formula 1 race car display model, built in a faceted, low-poly style that gives the bodywork a distinct layered look rather than a smooth-surface finish. Printed in solid red PLA and mounted on a flat black display base, ready to stand on a desk, shelf, or showcase as-is. Printed by Black Arrow.",
+      "description": "A 3D printed Formula 1 race car display model, built in a faceted, low-poly style that gives the bodywork a distinct layered, sculpted look instead of a smooth finish. The front wing, cockpit, sidepods and rear wing are all clearly defined, so the car is instantly recognizable from any angle. It is printed in solid red PLA and mounted on a flat black display base, ready to stand on a desk, shelf or showcase as it is. Size is about 20 x 8 x 5 cm including the base. A great gift for F1 fans and motorsport lovers. Printed by Black Arrow.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Low-poly faceted F1 car, red"],
@@ -1328,7 +1340,7 @@
       ],
       "name_ar": "مجسم عرض سيارة فورمولا 1",
       "shortDesc_ar": "مجسم عرض سيارة فورمولا 1 مطبوع ثلاثية الأبعاد داخليًا باللون الأحمر، على قاعدة عرض سوداء.",
-      "description_ar": "مجسم عرض لسيارة فورمولا 1 مطبوع ثلاثية الأبعاد، بتصميم مُجسَّم متعدد الأوجه يمنح هيكل السيارة مظهرًا طبقيًا مميزًا بدلًا من السطح الأملس المعتاد. يُطبع من مادة PLA الصلبة باللون الأحمر، ومُثبَّت على قاعدة عرض سوداء مسطحة، جاهز للوضع على المكتب أو الرف أو واجهة العرض كما هو. مطبوع بواسطة Black Arrow.",
+      "description_ar": "مجسم عرض لسيارة سباق فورمولا 1 مطبوع ثلاثي الأبعاد بأسلوب مضلّع (Low-Poly) يعطي الهيكل شكلًا منحوتًا متعدد الأوجه بدلًا من السطح الأملس. الجناح الأمامي وقمرة القيادة والجوانب والجناح الخلفي واضحة المعالم، فتُعرف السيارة فورًا من أي زاوية. مطبوع من خامة PLA حمراء صلبة ومثبت على قاعدة عرض سوداء مسطحة، جاهز للعرض على المكتب أو الرف أو في خزانة العرض. المقاس حوالي 20 × 8 × 5 سم مع القاعدة. هدية رائعة لمحبي الفورمولا 1 ورياضة السيارات. من طباعة Black Arrow.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "سيارة فورمولا 1 متعددة الأوجه، أحمر"],
@@ -1359,14 +1371,14 @@
         "/3d/assets/images/products/naruto-portrait-plaque-red.webp"
       ],
       "shortDesc": "3D printed square plaque with an engraved anime character portrait — pick your color.",
-      "description": "A square 3D printed wall/shelf plaque with an engraved anime character portrait design, raised in a contrasting color against the plaque's base color. Available in the four colors shown.",
+      "description": "A square 3D printed plaque with a bold anime ninja portrait, designed and printed in-house at Black Arrow 3D. The character's face, headband, spiky hair and high collar are raised in a contrasting color against the plaque's base, giving a clean, graphic look that reads clearly from across the room. It works on a wall, shelf or desk stand, and fits nicely in a bedroom, gaming room or office. A great gift for Naruto fans. Available in green, black, yellow and red.",
       "specs": [
         ["Design", "Engraved anime portrait, square plaque"],
         ["Use", "Wall or shelf display"]
       ],
       "name_ar": "لوحة ناروتو الجدارية",
       "shortDesc_ar": "لوحة مربعة مطبوعة ثلاثية الأبعاد بنقش لشخصية أنمي — اختر لونك.",
-      "description_ar": "لوحة جدارية أو للرف مربعة الشكل، مطبوعة ثلاثية الأبعاد، بنقش لشخصية أنمي بارز بلون متباين عن لون خلفية اللوحة. متوفرة بالألوان الأربعة الموضحة.",
+      "description_ar": "لوحة مربعة مطبوعة ثلاثية الأبعاد ببورتريه جريء لنينجا الأنمي الشهير، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. ملامح الوجه وعصابة الرأس والشعر المدبب والياقة العالية بارزة بلون مختلف عن لون اللوحة، فتعطي شكلًا جرافيكيًا واضحًا يُرى من بعيد. مناسبة للحائط أو الرف أو المكتب، وتليق بغرفة النوم أو غرفة الألعاب أو المكتب. هدية رائعة لمحبي ناروتو. متوفرة بالأخضر والأسود والأصفر والأحمر.",
       "specs_ar": [
         ["التصميم", "نقش أنمي بارز على لوحة مربعة"],
         ["الاستخدام", "عرض على الحائط أو الرف"]
@@ -1388,14 +1400,14 @@
         "/3d/assets/images/products/naruto-leaf-keychain-promo.webp"
       ],
       "shortDesc": "3D printed keychain with the embossed Hidden Leaf village symbol, with clip and key ring.",
-      "description": "A 3D printed rectangular keychain with the Hidden Leaf village symbol embossed on the front, finished with a metal clip and key ring. Shown in green.",
+      "description": "A 3D printed keychain inspired by the ninja headband from Naruto, with the Hidden Leaf village symbol embossed on the front of a rounded rectangular plate. Designed and printed in-house at Black Arrow 3D in bright green PLA, it is light and sturdy for everyday use. It comes with a metal lobster clip and key ring, so you can attach it to keys, a bag, a backpack or a belt loop. A simple, fun gift for anime fans.",
       "specs": [
         ["Design", "Embossed Hidden Leaf village symbol"],
         ["Includes", "Metal clip and key ring"]
       ],
       "name_ar": "ميدالية مفاتيح شعار قرية الورقة (ناروتو)",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد بشعار قرية الورقة المجسّم، مع مشبك وحلقة مفاتيح.",
-      "description_ar": "ميدالية مفاتيح مستطيلة مطبوعة ثلاثية الأبعاد بشعار قرية الورقة مجسّمًا على الواجهة، مع مشبك وحلقة مفاتيح معدنية. موضحة باللون الأخضر.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد مستوحاة من عصابة رأس النينجا في ناروتو، يبرز عليها شعار قرية الورقة الخفية على لوح مستطيل بحواف دائرية. مصممة ومطبوعة داخليًا لدى Black Arrow 3D من خامة PLA بلون أخضر زاهٍ، خفيفة ومتينة للاستخدام اليومي. تأتي مع مشبك معدني وحلقة مفاتيح لتعليقها على المفاتيح أو الحقيبة أو حقيبة الظهر أو الحزام. هدية بسيطة وممتعة لمحبي الأنمي.",
       "specs_ar": [
         ["التصميم", "شعار قرية الورقة مجسّم"],
         ["المحتويات", "مشبك وحلقة مفاتيح معدنية"]
@@ -1415,14 +1427,14 @@
         "/3d/assets/images/products/infinity-cube-fidget-toy-promo.webp"
       ],
       "shortDesc": "3D printed infinity cube fidget toy with a honeycomb texture.",
-      "description": "A 3D printed infinity cube fidget toy with a honeycomb texture on every block. Fold and flip it in your hands. Shown in green.",
+      "description": "A 3D printed infinity cube fidget toy made of eight connected blocks that fold and flip in your hands endlessly, with no start or end. Every block has a raised honeycomb texture that gives extra grip and a satisfying feel. Great for keeping hands busy while studying, working or gaming, and a fun desk toy for kids and adults. Designed and printed by Black Arrow 3D. Shown in green.",
       "specs": [
         ["Design", "Infinity cube with honeycomb texture"],
         ["Use", "Desk or hand fidget toy"]
       ],
       "name_ar": "مكعب اللانهاية للتحريك بالأيدي",
       "shortDesc_ar": "مكعب لانهاية مطبوع ثلاثي الأبعاد بملمس خلية النحل.",
-      "description_ar": "مكعب لانهاية مطبوع ثلاثي الأبعاد بملمس خلية النحل على كل قطعة. اطوِه وقلّبه بين يديك. موضّح باللون الأخضر.",
+      "description_ar": "مكعب اللانهاية للتحريك بالأيدي، مطبوع ثلاثي الأبعاد ومكوّن من ثمانية مكعبات متصلة تنطوي وتنقلب بين يديك بلا بداية ولا نهاية. كل مكعب بملمس خلية نحل بارز يمنح قبضة أفضل وإحساسًا ممتعًا. رائع لإشغال اليدين أثناء المذاكرة أو العمل أو اللعب، ولعبة مكتب ممتعة للصغار والكبار. من تصميم وطباعة Black Arrow 3D. اللون المعروض أخضر.",
       "specs_ar": [
         ["التصميم", "مكعب لانهاية بملمس خلية النحل"],
         ["الاستخدام", "لعبة تحريك للمكتب أو اليد"]
@@ -1439,14 +1451,14 @@
       "available": true,
       "images": ["/3d/assets/images/products/national-day-key-holder-promo.webp"],
       "shortDesc": "3D printed key holder for Saudi National Day, with a keychain included.",
-      "description": "A 3D printed key holder made for Saudi National Day, with a keychain included. A useful, proud gift for home or office.",
+      "description": "A 3D printed keychain tag made for Saudi National Day 96, designed and printed in-house at Black Arrow 3D. The green tag carries a bold \"96\" next to \"اليوم الوطني\" and \"NATIONAL DAY\" in raised lettering, in the colors of the national celebration, with a keychain included. A useful, proud gift for family, friends and colleagues, and a great giveaway for National Day events, schools, offices and teams. Bulk orders for events are welcome: contact us on WhatsApp.",
       "specs": [
         ["Includes", "Keychain"],
         ["Made", "3D printed in-house"]
       ],
       "name_ar": "حامل مفاتيح اليوم الوطني السعودي",
       "shortDesc_ar": "حامل مفاتيح مطبوع ثلاثي الأبعاد لليوم الوطني السعودي، مع ميدالية مفاتيح.",
-      "description_ar": "حامل مفاتيح مطبوع ثلاثي الأبعاد لليوم الوطني السعودي، مع ميدالية مفاتيح مرفقة. هدية عملية ومميزة للمنزل أو المكتب.",
+      "description_ar": "ميدالية مفاتيح مطبوعة ثلاثية الأبعاد خاصة باليوم الوطني السعودي 96، مصممة ومطبوعة داخليًا لدى Black Arrow 3D. تحمل الميدالية الخضراء الرقم \"96\" بخط عريض بجانب عبارة \"اليوم الوطني\" و\"NATIONAL DAY\" بحروف بارزة بألوان الاحتفال الوطني، وتأتي مع حلقة مفاتيح. هدية مفيدة تعبّر عن الفخر للأهل والأصدقاء والزملاء، وتوزيعات مميزة لفعاليات اليوم الوطني والمدارس والمكاتب وفرق العمل. نرحّب بالطلبات بالجملة للفعاليات، تواصل معنا عبر واتساب.",
       "specs_ar": [
         ["المحتويات", "ميدالية مفاتيح"],
         ["الصنع", "مطبوع ثلاثي الأبعاد داخلياً"]
@@ -1468,7 +1480,7 @@
         "/3d/assets/images/products/green-knit-cap-03.webp"
       ],
       "shortDesc": "3D printed knitted-texture green cap figure with a white \"L\" badge, for gamers' shelves and desks.",
-      "description": "A 3D printed green cap figure with a detailed knitted texture and a white round \"L\" badge on the front, in a Luigi-inspired style. Displays nicely on a shelf, desk or next to your gaming setup, and makes a fun gift for gaming fans. Printed by Black Arrow.",
+      "description": "A 3D printed green cap figure with a detailed knitted texture that looks like real crochet stitching, and a white round badge with a raised \"L\" on the front, in a Luigi-inspired style. The fine stitch pattern covers the whole cap and the peak, showing what 3D printing can do. It displays nicely on a shelf, desk or next to your console, and pairs well with our red knitted Mario cap figure. A fun gift for Nintendo and gaming fans. Printed by Black Arrow.",
       "specs": [
         [
           "Design",
@@ -1489,7 +1501,7 @@
       ],
       "name_ar": "مجسّم قبعة خضراء منسوجة بطراز لويجي",
       "shortDesc_ar": "مجسّم قبعة خضراء مطبوع ثلاثي الأبعاد بملمس منسوج وشارة بيضاء عليها حرف L، للرفوف والمكاتب.",
-      "description_ar": "مجسّم قبعة خضراء مطبوع ثلاثي الأبعاد بملمس منسوج مفصّل وشارة بيضاء دائرية عليها حرف L في المقدمة، بطراز مستوحى من لويجي. مناسب للعرض على الرف أو المكتب أو بجانب ركن الألعاب، وهدية لطيفة لمحبي الألعاب. طباعة بلاك أرو.",
+      "description_ar": "مجسّم قبعة خضراء مطبوع ثلاثي الأبعاد بملمس محبوك بتفاصيل دقيقة يشبه غرز الكروشيه الحقيقية، مع شعار دائري أبيض عليه حرف \"L\" بارز في الأمام، بطراز مستوحى من لويجي. نقشة الغرز الدقيقة تغطي القبعة والحافة بالكامل، وتُظهر ما يمكن أن تصنعه الطباعة ثلاثية الأبعاد. يبدو رائعًا على الرف أو المكتب أو بجانب جهاز الألعاب، ويتناسق مع مجسم قبعة ماريو الحمراء المحبوكة. هدية ممتعة لمحبي نينتندو والألعاب. من طباعة Black Arrow.",
       "specs_ar": [
         [
           "التصميم",
@@ -1524,7 +1536,7 @@
         "/3d/assets/images/products/question-block-stand-02.webp"
       ],
       "shortDesc": "3D printed yellow question block stand that holds a PS5 controller, for gaming desks and shelves.",
-      "description": "A 3D printed controller stand in bright yellow, with raised white question marks on the sides and rounded corner studs. Rest your PS5 controller on top to keep it displayed and within reach on your desk or gaming shelf. Shown here with a PS5 controller. Printed by Black Arrow.",
+      "description": "A 3D printed controller stand inspired by the classic question block from retro platform games. The bright yellow cube has raised white question marks on its sides and rounded studs in each corner, just like the original. Your PS5 controller rests on top, so it stays displayed and within reach on your desk or gaming shelf. Its compact cube shape takes up little space and adds a nostalgic touch to any setup. A fun gift for Mario and retro-gaming fans. Shown here with a PS5 controller (not included). Printed by Black Arrow.",
       "specs": [
         [
           "Design",
@@ -1545,7 +1557,7 @@
       ],
       "name_ar": "ستاند يد تحكم PS5 بتصميم مكعب الاستفهام",
       "shortDesc_ar": "ستاند بتصميم مكعب الاستفهام الأصفر مطبوع ثلاثي الأبعاد لحمل يد تحكم PS5، لمكاتب وأرفف الألعاب.",
-      "description_ar": "ستاند لأيادي التحكم مطبوع ثلاثي الأبعاد باللون الأصفر الزاهي، بعلامات استفهام بيضاء بارزة على الجوانب ومسامير مستديرة عند الزوايا. ضع يد تحكم PS5 فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. موضّح في الصورة مع يد تحكم PS5. طباعة بلاك أرو.",
+      "description_ar": "ستاند يد تحكم مطبوع ثلاثي الأبعاد مستوحى من مكعب علامة الاستفهام الشهير في ألعاب المنصات الكلاسيكية. المكعب أصفر زاهٍ بعلامات استفهام بيضاء بارزة على جوانبه ونتوءات دائرية في كل زاوية تمامًا مثل الأصل. تستقر يد تحكم PS5 فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. شكله المكعب الصغير لا يأخذ مساحة ويضيف لمسة حنين لأي ركن ألعاب. هدية ممتعة لمحبي ماريو والألعاب الكلاسيكية. يظهر في الصور مع يد تحكم PS5 (غير مشمولة). من طباعة Black Arrow.",
       "specs_ar": [
         [
           "التصميم",
@@ -1652,7 +1664,7 @@
         "/3d/assets/images/products/uchiha-keychain-09.webp"
       ],
       "shortDesc": "3D printed round keychain with a red and black Uchiha clan design. Nine designs to choose from.",
-      "description": "A 3D printed round keychain in red and black, with one of nine Uchiha clan designs. Choose the design you want from the options. Printed by Black Arrow.",
+      "description": "A 3D printed round keychain in red and black, inspired by the Uchiha clan from Naruto. Each keychain carries one of nine sharingan-style eye designs, raised in black over a red disc with a clean black outline, so the pattern stands out sharply. Choose your favorite design from the options. Printed in PLA by Black Arrow, it is light and sturdy for daily use and comes with a metal chain and key ring. A great gift for anime fans, and fun to collect as a set.",
       "specs": [
         [
           "Design",
@@ -1669,7 +1681,7 @@
       ],
       "name_ar": "ميدالية مفاتيح آل أوتشيها",
       "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثي الأبعاد دائرية باللونين الأحمر والأسود بتصميم عشيرة أوتشيها، بتسعة تصاميم للاختيار.",
-      "description_ar": "ميدالية مفاتيح دائرية مطبوعة ثلاثي الأبعاد باللونين الأحمر والأسود، بأحد تسعة تصاميم لعشيرة أوتشيها. اختر التصميم الذي تريده من الخيارات. طباعة بلاك أرو.",
+      "description_ar": "ميدالية مفاتيح دائرية مطبوعة ثلاثية الأبعاد باللونين الأحمر والأسود، مستوحاة من عشيرة أوتشيها في ناروتو. تحمل كل ميدالية واحدًا من تسعة تصاميم لعين الشارينغان، بارزة بالأسود على قرص أحمر بإطار أسود واضح ليظهر النقش بحدة. اختر تصميمك المفضل من الخيارات. مطبوعة من خامة PLA لدى Black Arrow، خفيفة ومتينة للاستخدام اليومي، وتأتي مع سلسلة وحلقة مفاتيح معدنية. هدية رائعة لمحبي الأنمي وممتعة للجمع كمجموعة كاملة.",
       "specs_ar": [
         [
           "التصميم",
@@ -1700,7 +1712,7 @@
         "/3d/assets/images/products/ps-symbols-controller-stand-02.webp"
       ],
       "shortDesc": "3D printed stand in four button symbols that holds a game controller upright on a desk or shelf.",
-      "description": "A 3D printed controller stand shaped as four button symbols: square, triangle, cross and circle. Rest your controller on top to keep it displayed and within reach on your desk or gaming shelf. Printed in purple by Black Arrow.",
+      "description": "A 3D printed controller stand shaped as the four iconic PlayStation button symbols: square, triangle, cross and circle, stacked into one solid piece. Rest your controller on top to keep it displayed and within reach on your desk, gaming shelf or next to your console. Printed in a deep purple by Black Arrow, it adds a bold gamer touch to any setup and makes a great gift for PlayStation fans. Shown with a PS4 controller (not included).",
       "specs": [
         [
           "Design",
@@ -1721,7 +1733,7 @@
       ],
       "name_ar": "ستاند يد تحكم بأشكال الأزرار",
       "shortDesc_ar": "ستاند مطبوع ثلاثي الأبعاد على شكل أربعة رموز للأزرار، يحمل يد التحكم منتصبة على المكتب أو الرف.",
-      "description_ar": "ستاند ليد التحكم مطبوع ثلاثي الأبعاد على شكل أربعة رموز للأزرار: مربع ومثلث وإكس ودائرة. ضع يد التحكم فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. طباعة بلاك أرو باللون البنفسجي.",
+      "description_ar": "ستاند يد تحكم مطبوع ثلاثي الأبعاد على شكل رموز أزرار بلايستيشن الأربعة الشهيرة: المربع والمثلث والإكس والدائرة، مجمّعة في قطعة واحدة متينة. ضع يد التحكم فوقه لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب أو بجانب الجهاز. مطبوع باللون البنفسجي الداكن لدى Black Arrow، يضيف لمسة جريئة لأي ركن ألعاب، وهدية رائعة لمحبي بلايستيشن. يظهر في الصور مع يد تحكم PS4 (غير مشمولة).",
       "specs_ar": [
         [
           "التصميم",
@@ -1755,7 +1767,7 @@
         "/3d/assets/images/products/synapse-usb-lamp-01.webp"
       ],
       "shortDesc": "3D printed cylindrical lamp with a circuit-style pleated shade and a built-in USB-powered LED light.",
-      "description": "Synapse is a 3D printed cylindrical lamp with a circuit-board-style pleated shade that glows warmly when lit. The built-in LED light runs off USB power, so it plugs into any USB port or charger. Printed by Black Arrow.",
+      "description": "Synapse is a 3D printed cylindrical lamp with a pleated, circuit-board-style shade. When the light is on, the raised lines and channels of the pattern glow in warm tones, casting a soft, textured light across your desk or shelf. The built-in LED light runs on USB power, so it plugs into any USB port, computer or phone charger, with no batteries or wall wiring needed. It makes a calm night light for a bedroom, a mood light for a gaming or work setup, and a thoughtful gift for tech lovers. Printed in PLA by Black Arrow.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Cylindrical, circuit-style pleated shade"],
@@ -1764,7 +1776,7 @@
       ],
       "name_ar": "لمبة سينابس USB",
       "shortDesc_ar": "لمبة أسطوانية مطبوعة ثلاثية الأبعاد بتصميم مطوي يشبه الدوائر الإلكترونية، مع إضاءة LED مدمجة تعمل بالـ USB.",
-      "description_ar": "سينابس لمبة أسطوانية مطبوعة ثلاثية الأبعاد بتصميم مطوي يشبه الدوائر الإلكترونية، تضيء بدفء عند التشغيل. إضاءة LED المدمجة تعمل بالـ USB، فتوصل بأي منفذ أو شاحن USB. طباعة بلاك أرو.",
+      "description_ar": "سينابس لمبة أسطوانية مطبوعة ثلاثية الأبعاد بغطاء مطوي بنقش يشبه اللوحات الإلكترونية. عند تشغيلها تتوهج الخطوط والقنوات البارزة بدرجات دافئة، فتنشر ضوءًا ناعمًا بملمس مميز على المكتب أو الرف. إضاءة LED مدمجة تعمل بطاقة USB، فتوصلها بأي منفذ USB أو كمبيوتر أو شاحن جوال دون بطاريات أو تمديدات كهربائية. مناسبة كإضاءة ليلية هادئة لغرفة النوم، وإضاءة أجواء لركن الألعاب أو العمل، وهدية مميزة لمحبي التقنية. مطبوعة من خامة PLA لدى Black Arrow.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "غطاء أسطواني مطوي بتصميم يشبه الدوائر الإلكترونية"],
@@ -1786,7 +1798,7 @@
         "/3d/assets/images/products/overthing-01.webp"
       ],
       "shortDesc": "3D printed decorative sculpture of a large hand holding a suspended figure on fine strings.",
-      "description": "Overthing is a 3D printed decorative sculpture. A large hand hangs above a figure suspended by fine strings, on a stand that holds the piece upright on a desk or shelf. Printed by Black Arrow.",
+      "description": "Overthing is a 3D printed decorative sculpture about overthinking. A large hand reaches out from the top of the stand, and a human figure floats beneath it, suspended by fine strings like a marionette, as if pulled by its own thoughts. The tall stand holds the piece upright, so it works as a striking conversation piece on a desk, shelf or bookcase. The clean, single-color finish keeps the focus on the shapes and the fine string detail. A thoughtful gift for art lovers, students and anyone who overthinks. Printed by Black Arrow.",
       "specs": [
         [
           "Design",
@@ -1803,7 +1815,7 @@
       ],
       "name_ar": "أوفرثينغ",
       "shortDesc_ar": "منحوتة زخرفية مطبوعة ثلاثي الأبعاد لكف كبيرة تحمل شخصًا معلقًا بخيوط دقيقة.",
-      "description_ar": "أوفرثينغ منحوتة زخرفية مطبوعة ثلاثي الأبعاد. كف كبيرة معلقة فوق شخص معلق بخيوط دقيقة، على قاعدة تحفظ القطعة منتصبة على المكتب أو الرف. طباعة بلاك أرو.",
+      "description_ar": "أوفرثينغ منحوتة ديكور مطبوعة ثلاثية الأبعاد تعبّر عن التفكير الزائد. يد كبيرة تمتد من أعلى الحامل، وتحتها مجسم إنسان معلّق بخيوط رفيعة مثل الدمية المتحركة، كأن أفكاره هي التي تحركه. يحمل الحامل الطويل القطعة بشكل قائم، فتصبح قطعة لافتة تفتح الحديث على المكتب أو الرف أو المكتبة. اللون الواحد الأنيق يُبرز الأشكال وتفاصيل الخيوط الدقيقة. هدية معبّرة لمحبي الفن والطلاب وكل من يفكر كثيرًا. من طباعة Black Arrow.",
       "specs_ar": [
         [
           "التصميم",
@@ -1834,7 +1846,7 @@
         "/3d/assets/images/products/man-push-ps5-controller-stand-02.webp"
       ],
       "shortDesc": "3D printed figure of a man pushing a PS5 DualSense controller, a display stand for your controller on a desk or shelf.",
-      "description": "A 3D printed figure of a man pushing a PS5 DualSense controller. The controller rests upright on the figure's hands, so it stays on display and within reach on your desk or gaming shelf. Printed in white by Black Arrow.",
+      "description": "A 3D printed sculpture of a muscular man straining to push a PS5 DualSense controller up a rocky slope, in the spirit of the classic Sisyphus myth. The controller rests upright against the figure's hands and the sloped base, so it stays on display and within reach on your desk or gaming shelf. The detailed anatomy and the dramatic pose make it as much an art piece as a stand. Printed in white by Black Arrow. A great gift for gamers who like their setup with a story. Controller not included.",
       "specs": [
         [
           "Design",
@@ -1855,7 +1867,7 @@
       ],
       "name_ar": "ستاند PS5 بتصميم رجل يدفع يد التحكم",
       "shortDesc_ar": "تمثال مطبوع ثلاثي الأبعاد لرجل يدفع يد تحكم PS5 DualSense، ستاند لعرض يد التحكم على المكتب أو الرف.",
-      "description_ar": "تمثال مطبوع ثلاثي الأبعاد لرجل يدفع يد تحكم PS5 DualSense. تستقر يد التحكم منتصبة على يدي التمثال، لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. طباعة بلاك أرو باللون الأبيض.",
+      "description_ar": "منحوتة مطبوعة ثلاثية الأبعاد لرجل مفتول العضلات يدفع يد تحكم PS5 DualSense بكل قوته على منحدر صخري، على طريقة أسطورة سيزيف الشهيرة. تستند يد التحكم بشكل قائم على يدي المجسم والقاعدة المائلة، فتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. التفاصيل الدقيقة للجسم والوضعية الدرامية تجعله قطعة فنية بقدر ما هو ستاند. مطبوع باللون الأبيض لدى Black Arrow. هدية رائعة لمحبي الألعاب الذين يحبون ركنًا يحكي قصة. يد التحكم غير مشمولة.",
       "specs_ar": [
         [
           "التصميم",
@@ -1889,7 +1901,7 @@
         "/3d/assets/images/products/ps5-dual-football-stand-01.webp"
       ],
       "shortDesc": "3D printed football-shaped stand that holds PS5 DualSense controllers on a desk or shelf.",
-      "description": "A 3D printed football-shaped controller stand. Rest your PS5 DualSense controllers in the cradle to keep them displayed and within reach on your desk or gaming shelf. Images show the stand with two PS5 controllers. Printed by Black Arrow.",
+      "description": "A 3D printed football-shaped stand that holds two PS5 DualSense controllers at once. The ball has a detailed panel pattern and grey finish, and the cradle on top holds both controllers upright, one in front of the other, so they stay displayed and within reach on your desk or gaming shelf. Perfect for football game fans who play with a friend, and a great gift for any football lover's gaming corner. Images show the stand with two PS5 controllers (not included). Printed by Black Arrow.",
       "specs": [
         [
           "Design",
@@ -1906,7 +1918,7 @@
       ],
       "name_ar": "ستاند PS5 Dual بتصميم كرة القدم",
       "shortDesc_ar": "ستاند مطبوع ثلاثي الأبعاد على شكل كرة قدم، يحمل أيادي تحكم PS5 DualSense على المكتب أو الرف.",
-      "description_ar": "ستاند لأيادي التحكم مطبوع ثلاثي الأبعاد على شكل كرة قدم. ضع أيادي تحكم PS5 DualSense في التجويف لتبقى معروضة وفي متناول يدك على المكتب أو رف الألعاب. الصور توضح الستاند مع يدي تحكم PS5. طباعة بلاك أرو.",
+      "description_ar": "ستاند مطبوع ثلاثي الأبعاد على شكل كرة قدم يحمل يدي تحكم PS5 DualSense معًا. الكرة بنقش ألواح مفصّل ولون رمادي، والحامل في أعلاها يثبّت يدي التحكم بشكل قائم واحدة أمام الأخرى، فتبقيان معروضتين وفي متناول يدك على المكتب أو رف الألعاب. مثالي لمحبي ألعاب كرة القدم الذين يلعبون مع صديق، وهدية رائعة لركن الألعاب لأي عاشق لكرة القدم. تظهر الصور الستاند مع يدي تحكم PS5 (غير مشمولة). من طباعة Black Arrow.",
       "specs_ar": [
         [
           "التصميم",
@@ -1937,7 +1949,7 @@
         "/3d/assets/images/products/knitted-mario-cap-figure-2.webp"
       ],
       "shortDesc": "A Super Mario cap figure with a textured, knitted-style finish — a compact piece for shelves, desks or a gaming setup.",
-      "description": "A Super Mario cap figure with a textured pixel-style surface that gives it a knitted look. Made of durable plastic in vivid red with a fade-resistant finish, it is compact enough for a shelf, desk or gaming console.",
+      "description": "A Super Mario cap figure with a textured, pixel-style surface that gives it the look of real knitting. The vivid red cap carries a white round badge with a raised red \"M\" on the front, just like the famous plumber's cap. It is made of durable plastic with a fade-resistant finish, weighs about 153 g and is compact enough to sit on a shelf, desk or on top of your gaming console. It pairs well with our green knitted Luigi-style cap figure. A fun gift for Nintendo fans of all ages.",
       "specs": [
         [
           "Material",
@@ -1958,7 +1970,7 @@
       ],
       "name_ar": "مجسم قبعة ماريو المحبوكة",
       "shortDesc_ar": "مجسم قبعة سوبر ماريو بملمس محبوك مميز — قطعة صغيرة للرفوف والمكاتب وإعداد الألعاب.",
-      "description_ar": "مجسم قبعة سوبر ماريو بسطح مميز بنقش يشبه البكسل ويعطي مظهر الحياكة. مصنوع من بلاستيك متين بلون أحمر زاهٍ ولمسة نهائية مقاومة للبهتان، وهو صغير بما يكفي ليوضع على رف أو مكتب أو جهاز ألعاب.",
+      "description_ar": "مجسم قبعة سوبر ماريو بسطح بملمس بكسلي يعطيها مظهر الحياكة الحقيقية. القبعة حمراء زاهية وعليها شعار دائري أبيض بحرف \"M\" أحمر بارز في الأمام تمامًا مثل قبعة السبّاك الشهير. مصنوع من بلاستيك متين بلون مقاوم للبهتان، وزنه حوالي 153 جرامًا، وحجمه مناسب للرف أو المكتب أو فوق جهاز الألعاب. يتناسق مع مجسم القبعة الخضراء المحبوكة بطراز لويجي. هدية ممتعة لمحبي نينتندو من كل الأعمار.",
       "specs_ar": [
         [
           "الخامة",
@@ -2016,8 +2028,8 @@
         "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-2.webp",
         "/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-3.webp"
       ],
-      "shortDesc": "Oni mask stand for the PS5 DualSense controller, in red or yellow.",
-      "description": "An updated oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. The demon-face design cradles a PS5 DualSense controller by its handles and works as a striking desk piece. Printed in PLA with two screw-thread support legs, available in red or yellow.",
+      "shortDesc": "Oni mask stand for the PS5 DualSense controller, in red, white or yellow.",
+      "description": "An updated oni-mask controller stand, designed and 3D printed in-house at Black Arrow 3D. Version 2 has a refined demon face with sharper fangs, horns and deeper sculpted detail, shaped to cradle a PS5 DualSense controller by its handles so the controller sits proudly on top. Two screw-thread support legs at the back keep it steady on your desk. Printed in PLA and available in red, white or yellow. A bold centerpiece for a gaming or streaming setup, and a great gift for gamers. Controller not included.",
       "specs": [
         [
           "Material",
@@ -2033,7 +2045,7 @@
         ],
         [
           "Colours",
-          "Red or yellow — pick one"
+          "Red, white or yellow — pick one"
         ],
         [
           "Support Legs",
@@ -2041,8 +2053,8 @@
         ]
       ],
       "name_ar": "حامل يد تحكم PS5 قناع أوني V2",
-      "shortDesc_ar": "حامل يد تحكم PS5 بتصميم قناع أوني، باللون الأحمر أو الأصفر.",
-      "description_ar": "حامل يد تحكم بتصميم قناع أوني محدّث، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يحتضن تصميم الوجه الشيطاني يد تحكم PS5 DualSense من مقابضها، ويعمل كقطعة مكتبية مميزة. مطبوع من مادة PLA مع رجلين داعمتين بشكل برغي، ومتوفر باللون الأحمر أو الأصفر.",
+      "shortDesc_ar": "حامل يد تحكم PS5 بتصميم قناع أوني، باللون الأحمر أو الأبيض أو الأصفر.",
+      "description_ar": "نسخة محدّثة من حامل يد التحكم بتصميم قناع أوني، مصمم ومطبوع داخليًا لدى Black Arrow 3D. تتميز النسخة الثانية بوجه شيطان أكثر دقة بأنياب وقرون أوضح وتفاصيل منحوتة أعمق، ومصمم ليحمل يد تحكم PS5 DualSense من مقبضيها فتستقر فوقه بشكل لافت. ساقا دعم بأسنان لولبية في الخلف تمنحانه ثباتًا على المكتب. مطبوع من خامة PLA ومتوفر بالأحمر أو الأبيض أو الأصفر. قطعة جريئة لركن الألعاب أو البث، وهدية رائعة لمحبي الألعاب. يد التحكم غير مشمولة.",
       "specs_ar": [
         [
           "الخامة",
@@ -2058,7 +2070,7 @@
         ],
         [
           "الألوان",
-          "أحمر أو أصفر — اختر واحدًا"
+          "أحمر أو أبيض أو أصفر — اختر واحدًا"
         ],
         [
           "أرجل الدعم",
