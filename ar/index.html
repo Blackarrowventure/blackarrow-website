@@ -41,13 +41,6 @@
     .navbar__logo{display:flex;align-items:center;gap:12px;}
     .navbar__logo img{height:70px;width:auto;}
     .hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);}
-    /* Service-card "Consultancy" button: kept inline so it always arrives together with its markup, even if a browser still holds an older styles.css */
-    .svc-card__footer{flex-wrap:wrap;gap:8px;}
-    .svc-card__footer:has(.svc-card__actions){padding-inline:16px;}
-    .svc-card__footer .svc-card__actions{display:contents;}
-    .svc-card__footer .svc-card__actions .btn-outline{order:-1;background:#F59E0B;color:#1a1400 !important;border:2px solid #F59E0B;position:relative;z-index:2;}
-    .svc-card__footer .svc-card__actions .btn-outline:hover{background:#d97706;border-color:#d97706;}
-    .svc-card__footer .svc-card__actions .btn-primary{color:#fff !important;}
     .b3d-promo-banner__text .b3d-promo-banner__links{margin:18px 0 0;font-size:.92rem;color:rgba(255,255,255,.55);}
     .b3d-promo-banner__links a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px;}
     .b3d-promo-banner__links a:hover{color:var(--clr-accent);}
@@ -533,6 +526,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/aviation-solutions.jpg" alt="مهبط مروحيات على سطح مبنى مع إضاءة محيطية عند الغروب" class="svc-card__img" loading="lazy" width="1536" height="1152" decoding="async" data-i18n-alt="avi_alt">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_aviation">الطيران</span>
+              <a href="/ar/services/consultancy/airports/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="svc_cat_aviation">الطيران والمناطق الجانبية</div>
@@ -552,10 +546,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/aviation/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/airports/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=aviation" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=aviation" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -566,6 +557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/isolated-power-panels.jpg" alt="لوحة طاقة معزولة (IPP) لغرف العمليات في المستشفيات - أنظمة طاقة معزولة متوافقة مع Bender وPG LifeLink وSchneider" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_ipp">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ipp">لوحات الطاقة المعزولة</span>
+              <a href="/ar/services/consultancy/isolated-power/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="healthcare_sector">الرعاية الصحية والحالات الحرجة</div>
@@ -584,10 +576,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/isolated-power-panels/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/isolated-power/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=ipp" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=ipp" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -598,6 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/ev-solutions.jpg" alt="حلول شحن السيارات الكهربائية" class="svc-card__img" loading="lazy" width="1536" height="905" decoding="async" data-i18n-alt="alt_ev">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ev">حلول السيارات الكهربائية</span>
+              <a href="/ar/services/consultancy/ev-charging/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="commercial_industrial">تجاري وصناعي</div>
@@ -616,10 +606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/ev-charging-solutions/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/ev-charging/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=ev" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=ev" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -630,6 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/ups-solutions.jpg" alt="أنظمة الطاقة الاحتياطية UPS" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_ups">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_ups">حلول أنظمة UPS</span>
+              <a href="/ar/services/consultancy/ups/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="industrial_government">صناعي وحكومي</div>
@@ -648,10 +636,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/ups-power-backup/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/ups/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=ups" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=ups" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -691,6 +676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/firefighting-solutions.jpg" alt="أنظمة مكافحة الحريق" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_firefighting">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_fire">أنظمة الحريق</span>
+              <a href="/ar/services/consultancy/firefighting/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="industrial_government">صناعي وحكومي</div>
@@ -709,10 +695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/firefighting-systems/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/firefighting/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=firefighting" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=firefighting" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -752,6 +735,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/hospital-modular-or-rooms.jpg" alt="نظام ألواح غرفة عمليات جاهزة لمسارح الجراحة في المستشفيات" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_or_rooms">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_or_rooms">غرف العمليات الجاهزة للمستشفيات</span>
+              <a href="/ar/services/consultancy/modular-or/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="healthcare_sector">الرعاية الصحية والحالات الحرجة</div>
@@ -770,10 +754,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/hospital-modular-or-rooms/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/modular-or/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=or_rooms" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=or_rooms" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -784,6 +765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/lead-sheets-hospital.jpg" alt="درع رصاصي للحماية الإشعاعية مُركّب في جدار غرفة أشعة بمستشفى" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_lead_shielding">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_lead_shielding">صفائح الرصاص للمستشفيات</span>
+              <a href="/ar/services/consultancy/lead-shielding/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="healthcare_sector">الرعاية الصحية والحالات الحرجة</div>
@@ -803,10 +785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/lead-sheets-hospital/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/lead-shielding/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=lead_shielding" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=lead_shielding" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
@@ -817,6 +796,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="/assets/images/services/hvac-solutions.jpg" alt="أنظمة التكييف والتحكم المناخي" class="svc-card__img" loading="lazy" width="1536" height="1021" decoding="async" data-i18n-alt="alt_hvac">
               </picture>
               <span class="svc-card__img-label" data-i18n="service_hvac">حلول التكييف والتهوية</span>
+              <a href="/ar/services/consultancy/hvac/" class="svc-card__consultancy-tag" data-i18n="consultancy_btn">📋 استشارات</a>
             </div>
             <div class="svc-card__body">
               <div class="svc-card__category" data-i18n="commercial_industrial">تجاري وصناعي</div>
@@ -835,10 +815,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="svc-card__footer">
               <a href="/ar/services/hvac-solutions/" class="svc-card__stretched-link"><span data-i18n="service_learn">اعرف المزيد</span> <span aria-hidden="true">→</span></a>
-              <div class="svc-card__actions">
-                <a href="/ar/services/consultancy/hvac/" class="btn btn-outline btn-sm" data-i18n="consultancy_btn">استشارات</a>
-                <a href="/ar/contact.html?service=hvac" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
-              </div>
+              <a href="/ar/contact.html?service=hvac" class="btn btn-primary btn-sm" data-i18n="get_quote">احصل على عرض سعر</a>
             </div>
           </article>
 
