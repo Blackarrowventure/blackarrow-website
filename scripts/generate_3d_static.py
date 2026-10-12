@@ -265,6 +265,8 @@ def product_detail_html(p, lang):
                                   + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
                                   + ''.join(pills) + '</div>')
         initial_price_html = variant_price_html(variants[ok_idx], p)
+        if p.get('bundlePick'):
+            variant_selector_html = ''
     else:
         initial_price_html = price_block(p, lang)
 

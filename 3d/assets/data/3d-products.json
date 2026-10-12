@@ -2286,35 +2286,45 @@
     },
     {
       "id": "keychain-pick-3-bundle",
-      "name": "Pick-3 Keychain Bundle",
+      "name": "Build Your Own Keychain Combo",
       "brand": "Black Arrow",
       "category": "3D Artwork",
-      "price": 25,
+      "price": 30,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
       "bundlePick": {
-        "count": 3,
+        "min": 2,
         "fromIds": ["saudi-map-keychain", "saudi-palm-swords-keychain", "saudi-riyal-keychain", "one-piece-sword-keychain", "naruto-leaf-keychain", "anime-straw-hat-keychain", "uchiha-clan-keychain"]
       },
+      "variants": [
+        { "label": "Any 2 Keychains", "label_ar": "أي ميداليتين", "price": 30 },
+        { "label": "Any 3 Keychains", "label_ar": "أي 3 ميداليات", "price": 40 },
+        { "label": "Any 4 Keychains", "label_ar": "أي 4 ميداليات", "price": 50 },
+        { "label": "Any 5 Keychains", "label_ar": "أي 5 ميداليات", "price": 60 },
+        { "label": "Any 6 Keychains", "label_ar": "أي 6 ميداليات", "price": 70 },
+        { "label": "Any 7 Keychains", "label_ar": "أي 7 ميداليات", "price": 80 }
+      ],
       "images": [
         "/3d/assets/images/products/saudi-map-keychain-promo.webp"
       ],
-      "shortDesc": "Any 3 keychains from our collection for 25 SAR, instead of paying full price for each.",
-      "description": "Pick any 3 keychains from the Black Arrow 3D keychain collection — Saudi Map, Palm & Swords, Saudi Riyal, Naruto Leaf Village, One Piece Sword, Anime Straw Hat, or an Uchiha Clan design — for 25 SAR total. Select your 3 below on this page; your picks are included with your order automatically.",
+      "shortDesc": "Build your own combo: the more keychains you add, the more you save.",
+      "description": "Pick any 2 to 7 keychains from the Black Arrow 3D keychain collection — Saudi Map, Palm & Swords, Saudi Riyal, Naruto Leaf Village, One Piece Sword, Anime Straw Hat, or an Uchiha Clan design — and the price per keychain drops the more you add. Select your keychains below on this page; the combo price updates live and your picks are included with your order automatically.",
       "specs": [
         ["Material", "PLA"],
-        ["Includes", "Any 3 keychains from the current collection"],
-        ["How to choose", "Select your 3 keychains on this page before adding to cart"]
+        ["Includes", "Any 2 to 7 keychains from the current collection, your choice"],
+        ["Pricing", "Any 2 for 30 SAR, up to any 7 for 80 SAR — more keychains, bigger discount"],
+        ["How to choose", "Select your keychains on this page; the combo price updates as you add more"]
       ],
-      "name_ar": "باقة اختر 3 ميداليات مفاتيح",
-      "shortDesc_ar": "اختر أي 3 ميداليات مفاتيح من مجموعتنا مقابل 25 ريال، بدلاً من السعر الكامل لكل قطعة.",
-      "description_ar": "اختر أي 3 ميداليات مفاتيح من مجموعة Black Arrow 3D — خريطة السعودية، النخلة والسيوف، الريال السعودي، قرية الورق من ناروتو، سيف ون بيس، قبعة القش من الأنمي، أو أحد تصاميم عشيرة أوتشيها — مقابل 25 ريال إجمالاً. اختر الثلاثة في هذه الصفحة، وستُضاف اختياراتك تلقائيًا مع طلبك.",
+      "name_ar": "اصنع كومبو الميداليات الخاص بك",
+      "shortDesc_ar": "اصنع الكومبو الخاص بك: كل ما أضفت ميداليات أكثر، وفّرت أكثر.",
+      "description_ar": "اختر من 2 إلى 7 ميداليات مفاتيح من مجموعة Black Arrow 3D — خريطة السعودية، النخلة والسيوف، الريال السعودي، قرية الورق من ناروتو، سيف ون بيس، قبعة القش من الأنمي، أو أحد تصاميم عشيرة أوتشيها — وكلما زدت العدد انخفض سعر القطعة الواحدة. اختر ميدالياتك أدناه في هذه الصفحة؛ سعر الكومبو يتحدث مباشرة، وتُضاف اختياراتك تلقائيًا مع طلبك.",
       "specs_ar": [
         ["الخامة", "PLA"],
-        ["يشمل", "أي 3 ميداليات مفاتيح من المجموعة الحالية"],
-        ["طريقة الاختيار", "اختر ميدالياتك الثلاث في هذه الصفحة قبل الإضافة للسلة"]
+        ["يشمل", "من 2 إلى 7 ميداليات مفاتيح من المجموعة الحالية، باختيارك"],
+        ["التسعير", "أي ميداليتين مقابل 30 ريال، وحتى أي 7 مقابل 80 ريال — كل ما زاد العدد زاد التوفير"],
+        ["طريقة الاختيار", "اختر ميدالياتك في هذه الصفحة؛ سعر الكومبو يتحدث مع كل إضافة"]
       ]
     },
     {

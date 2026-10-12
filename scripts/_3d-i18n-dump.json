@@ -964,28 +964,40 @@
     "ar": "مُختار مميز"
   },
   "js_bundle_pick_cta": {
-    "en": "Choose Your 3",
-    "ar": "اختر الثلاثة"
+    "en": "Build Your Combo",
+    "ar": "اصنع الكومبو"
   },
   "js_bundle_pick_disabled_hint": {
-    "en": "Select exactly 3 keychains above to add this bundle",
-    "ar": "اختر 3 ميداليات بالضبط أعلاه لإضافة هذه الباقة"
+    "en": "Add at least 2 keychains above to build your combo",
+    "ar": "أضف ميداليتين على الأقل أعلاه لصنع الكومبو"
   },
   "js_bundle_pick_full": {
     "en": "Full",
     "ar": "مكتمل"
   },
   "js_bundle_pick_hint": {
-    "en": "Tap to select. Your picks are added with your order automatically.",
-    "ar": "اضغط للاختيار. تُضاف اختياراتك مع طلبك تلقائيًا."
+    "en": "Tap to add keychains — the price per keychain drops the more you add. Your picks are included with your order automatically.",
+    "ar": "اضغط لإضافة الميداليات — كلما زدت العدد انخفض سعر القطعة. تُضاف اختياراتك مع طلبك تلقائيًا."
+  },
+  "js_bundle_pick_save": {
+    "en": "You save",
+    "ar": "توفّر"
   },
   "js_bundle_pick_selected": {
-    "en": "selected",
-    "ar": "مُختار"
+    "en": "added",
+    "ar": "مُضافة"
+  },
+  "js_bundle_pick_separate": {
+    "en": "Buying separately",
+    "ar": "الشراء منفردة"
   },
   "js_bundle_pick_title": {
-    "en": "Choose your 3 keychains",
-    "ar": "اختر 3 ميداليات مفاتيح"
+    "en": "Build your combo",
+    "ar": "اصنع الكومبو الخاص بك"
+  },
+  "js_bundle_pick_you_pay": {
+    "en": "Combo price",
+    "ar": "سعر الكومبو"
   },
   "js_card_delivery": {
     "en": "Delivery: KSA-wide",
@@ -1030,6 +1042,22 @@
   "js_compatibility_heading": {
     "en": "Compatibility",
     "ar": "التوافق"
+  },
+  "js_free_ship_label": {
+    "en": "Free",
+    "ar": "مجاني"
+  },
+  "js_free_ship_progress_artwork": {
+    "en": "Add {n} SAR more in 3D Artwork items for free delivery",
+    "ar": "أضف {n} ريال أخرى من منتجات الفن ثلاثي الأبعاد للحصول على توصيل مجاني"
+  },
+  "js_free_ship_progress_printer": {
+    "en": "Add {n} SAR more in 3D Printers items for free delivery",
+    "ar": "أضف {n} ريال أخرى من منتجات الطابعات للحصول على توصيل مجاني"
+  },
+  "js_free_ship_unlocked": {
+    "en": "Free delivery unlocked for this order!",
+    "ar": "لقد حصلت على توصيل مجاني لهذا الطلب!"
   },
   "js_from": {
     "en": "From",

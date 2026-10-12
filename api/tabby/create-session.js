@@ -10,6 +10,11 @@ const MAX_QTY = 10;
 // Limits to confirm with Tabby for your account before going live.
 const MIN_SAR = 75;
 const MAX_SAR = 10000;
+// Free delivery thresholds (SAR): either qualifies the whole order. Mirrors
+// the same thresholds applied client-side in 3d-store.js — recomputed here
+// from trusted catalog data so a client can never fake free shipping.
+const FREE_SHIP_ARTWORK_MIN = 100;
+const FREE_SHIP_PRINTER_MIN = 3000;
 
 function unitPrice(product, variantIndex) {
   if (product.variants && product.variants.length) {
@@ -26,6 +31,8 @@ function priceCart(items) {
   const byId = new Map(catalog.products.map((p) => [p.id, p]));
   const lines = [];
   let total = 0;
+  let artworkCents = 0;
+  let printerCents = 0;
   for (const item of items) {
     const product = byId.get(item && item.productId);
     const qty = Number(item && item.qty);
@@ -35,10 +42,14 @@ function priceCart(items) {
     const unit = unitPrice(product, variantIndex == null ? 0 : variantIndex);
     if (unit == null) return null;
     const cents = Math.round(unit * 100);
+    const lineCents = cents * qty;
     lines.push({ title: product.name, unit_price: (cents / 100).toFixed(2), quantity: qty, reference_id: product.id });
-    total += cents * qty;
+    total += lineCents;
+    if (product.category === '3D Artwork') artworkCents += lineCents;
+    if (product.category === '3D Printers') printerCents += lineCents;
   }
-  return { lines, total_cents: total };
+  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || printerCents >= FREE_SHIP_PRINTER_MIN * 100;
+  return { lines, total_cents: total, freeShipping };
 }
 
 function cleanBilling(b) {
@@ -82,9 +93,10 @@ module.exports = async (req, res) => {
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
   const priced = priceCart(body.items);
   if (!priced) return res.status(400).json({ error: 'invalid_cart' });
-  const shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
+  let shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
   if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
-  priced.lines.push({ title: body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping', unit_price: (shippingCents / 100).toFixed(2), quantity: 1, reference_id: 'shipping-' + body.shipping });
+  if (priced.freeShipping) shippingCents = 0;
+  priced.lines.push({ title: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (priced.freeShipping ? ' (Free)' : ''), unit_price: (shippingCents / 100).toFixed(2), quantity: 1, reference_id: 'shipping-' + body.shipping });
   priced.total_cents += shippingCents;
 
   const totalSar = priced.total_cents / 100;

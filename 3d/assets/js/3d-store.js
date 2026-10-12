@@ -444,7 +444,10 @@
          never a guessed default, then Add to Cart for the picked one.
        - no variants at all: Add to Cart straight away. */
     var href = productUrl(p);
-    var hasVariants = !!(p.variants && p.variants.length);
+    // Combo-builder products (p.bundlePick) model their tier pricing as real
+    // variants for trusted checkout pricing, but the tier is picked via the
+    // product-page combo builder, not card pills — suppress the pill/colour UI here.
+    var hasVariants = !!(p.variants && p.variants.length) && !p.bundlePick;
     var colorProduct = hasVariants && p.variants.every(function (v) { return v.swatch; });
     var pillProduct = hasVariants && !colorProduct;
 
@@ -957,6 +960,10 @@
   var lastOrderSummaryText = '';
   var lastSubtotal = 0;
   var shippingPlaceholderText = null;
+  // Free delivery thresholds: either qualifies the whole order.
+  var FREE_SHIP_ARTWORK_MIN = 100;
+  var FREE_SHIP_PRINTER_MIN = 3000;
+  var lastFreeShipping = false;
 
   var COUPON_KEY = 'b3d_coupon';
   var appliedCoupon = null; // { code, amount }
@@ -1073,6 +1080,35 @@
     };
   }
 
+  function updateFreeShippingUi(artworkSubtotal, printerSubtotal) {
+    var priceEls = document.querySelectorAll('[data-ship-price-display]');
+    priceEls.forEach(function (el) {
+      if (el.dataset.originalHtml === undefined) el.dataset.originalHtml = el.innerHTML;
+      el.innerHTML = lastFreeShipping ? T('js_free_ship_label') : el.dataset.originalHtml;
+    });
+    var noteEl = document.querySelector('[data-b3d-shipping-note]');
+    if (!noteEl) return;
+    if (lastFreeShipping) {
+      noteEl.textContent = T('js_free_ship_unlocked');
+      noteEl.className = 'b3d-shipping-note is-unlocked';
+      noteEl.hidden = false;
+      return;
+    }
+    var remainArt = FREE_SHIP_ARTWORK_MIN - artworkSubtotal;
+    var remainPrinter = FREE_SHIP_PRINTER_MIN - printerSubtotal;
+    if (artworkSubtotal > 0 && remainArt > 0) {
+      noteEl.textContent = T('js_free_ship_progress_artwork').replace('{n}', remainArt);
+      noteEl.className = 'b3d-shipping-note';
+      noteEl.hidden = false;
+    } else if (printerSubtotal > 0 && remainPrinter > 0) {
+      noteEl.textContent = T('js_free_ship_progress_printer').replace('{n}', remainPrinter);
+      noteEl.className = 'b3d-shipping-note';
+      noteEl.hidden = false;
+    } else {
+      noteEl.hidden = true;
+    }
+  }
+
   function updateOrderTotals() {
     var summaryEl = document.querySelector('[data-b3d-cart-summary]');
     var checkout = document.querySelector('[data-b3d-checkout]');
@@ -1105,17 +1141,17 @@
     }
 
     var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
-    var price = checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0;
+    var price = lastFreeShipping ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
-    if (shippingEl) shippingEl.innerHTML = money(price, 'SAR');
+    if (shippingEl) shippingEl.innerHTML = lastFreeShipping ? T('js_free_ship_label') : money(price, 'SAR');
     if (totalEl) totalEl.innerHTML = money(after + price, 'SAR');
 
     var shipField = checkout.querySelector('[data-b3d-shipping-field]');
-    if (shipField) shipField.value = label + ' — ' + price + ' SAR';
+    if (shipField) shipField.value = label + ' — ' + (lastFreeShipping ? T('js_free_ship_label') : price + ' SAR');
     var summaryField = checkout.querySelector('[data-b3d-order-summary]');
     if (summaryField) {
       summaryField.value = lastOrderSummaryText + discountLine +
-        '\nShipping: ' + label + ' — ' + price + ' SAR' +
+        '\nShipping: ' + label + ' — ' + (lastFreeShipping ? T('js_free_ship_label') : price + ' SAR') +
         '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
   }
@@ -1439,7 +1475,8 @@
       var item = { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
       if (product && product.bundlePick) {
         var picks = getBundlePicks(product.id);
-        if (picks.length === product.bundlePick.count) {
+        var expectedPickCount = product.bundlePick.min + (parsed.variantIndex || 0);
+        if (picks.length === expectedPickCount) {
           item.bundlePicks = picks.map(function (pid) { var bp = __b3dProductsById[pid]; return bp ? L(bp, 'name') : pid; });
         }
       }
@@ -1555,6 +1592,8 @@
       products.forEach(function (p) { byId[p.id] = p; });
 
       var subtotal = 0;
+      var artworkSubtotal = 0;
+      var printerSubtotal = 0;
       var summaryLines = [];
       var hasPreorder = false;
       listEl.innerHTML = ids.map(function (id) {
@@ -1566,13 +1605,16 @@
         var unit = variant ? variant.price : ((p.onSale && p.salePrice != null) ? p.salePrice : p.price);
         var lineTotal = unit * qty;
         subtotal += lineTotal;
+        if (p.category === '3D Artwork') artworkSubtotal += lineTotal;
+        if (p.category === '3D Printers') printerSubtotal += lineTotal;
         if (p.preorder) hasPreorder = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
         var bundleLineHtml = '';
         var pickNames = null;
         if (p.bundlePick) {
           var picks = getBundlePicks(p.id);
-          if (picks.length === p.bundlePick.count) {
+          var expectedCount = p.bundlePick.min + (parsed.variantIndex || 0);
+          if (picks.length === expectedCount) {
             pickNames = picks.map(function (pid) { var bp = byId[pid]; return bp ? L(bp, 'name') : pid; });
             bundleLineHtml = '<div class="b3d-cart-item__bundle">' + pickNames.join(', ') + '</div>';
           } else {
@@ -1636,6 +1678,8 @@
       }
 
       lastSubtotal = subtotal;
+      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || printerSubtotal >= FREE_SHIP_PRINTER_MIN;
+      updateFreeShippingUi(artworkSubtotal, printerSubtotal);
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();
 
@@ -1878,6 +1922,10 @@
           '</div>' +
           (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(initV) + '</div>' : '')
         : '';
+      // Combo-builder products pick their tier by how many items are added
+      // below, not from the raw variant pills — the tiers are still real
+      // variants underneath (for trusted, correct checkout pricing).
+      if (p.bundlePick) variantSelectorHtml = '';
       function buyState(v) {
         var out = !pdAvailable || !!(v && v.available === false);
         return { disabled: out && !p.preorder, label: p.preorder ? T('js_pre_order') : (out ? T('js_out_of_stock') : T('js_add_to_cart')) };
@@ -1887,12 +1935,37 @@
       var bundleItems = p.bundlePick ? p.bundlePick.fromIds.map(function (id) {
         return products.filter(function (x) { return x.id === id; })[0];
       }).filter(Boolean) : [];
+      var bundleMin = p.bundlePick ? p.bundlePick.min : 0;
+      var bundleMax = p.bundlePick ? (bundleMin + p.variants.length - 1) : 0;
       var bundleSelected = p.bundlePick ? getBundlePicks(p.id).filter(function (id) {
         return bundleItems.some(function (b) { return b.id === id; });
-      }) : [];
+      }).slice(0, bundleMax) : [];
+      function bundleTierPrice(count) {
+        return p.variants[Math.max(0, Math.min(count, bundleMax) - bundleMin)].price;
+      }
+      function bundleSeparateTotal(ids) {
+        return ids.reduce(function (sum, id) {
+          var it = bundleItems.filter(function (b) { return b.id === id; })[0];
+          return sum + (it ? currentPrice(it) : 0);
+        }, 0);
+      }
+      function bundlePriceRowHtml(selectedIds) {
+        if (selectedIds.length < bundleMin) return '';
+        var comboPrice = bundleTierPrice(selectedIds.length);
+        var separate = bundleSeparateTotal(selectedIds);
+        var save = separate - comboPrice;
+        return '<div class="b3d-bundle-pick__price-row" data-bundle-price-row>' +
+          '<span>' + T('js_bundle_pick_you_pay') + ' <b>' + money(comboPrice, p.currency) + '</b></span>' +
+          (save > 0 ? '<span class="b3d-bundle-pick__save">' + T('js_bundle_pick_save') + ' ' + money(save, p.currency) + '</span>' : '') +
+          '</div>';
+      }
+      if (p.bundlePick && bundleSelected.length >= bundleMin) {
+        selectedVariant = bundleSelected.length - bundleMin;
+        initV = p.variants[selectedVariant];
+      }
       var bundlePickHtml = p.bundlePick
         ? '<div class="b3d-bundle-pick" data-bundle-pick>' +
-            '<h2>' + T('js_bundle_pick_title') + ' <span class="b3d-bundle-pick__count" data-bundle-count>' + bundleSelected.length + ' / ' + p.bundlePick.count + ' ' + T('js_bundle_pick_selected') + '</span></h2>' +
+            '<h2>' + T('js_bundle_pick_title') + ' <span class="b3d-bundle-pick__count" data-bundle-count>' + bundleSelected.length + ' ' + T('js_bundle_pick_selected') + '</span></h2>' +
             '<p class="b3d-bundle-pick__hint">' + T('js_bundle_pick_hint') + '</p>' +
             '<div class="b3d-bundle-pick__grid">' +
               bundleItems.map(function (b) {
@@ -1905,6 +1978,7 @@
                 '</button>';
               }).join('') +
             '</div>' +
+            '<div data-bundle-price-row-wrap>' + bundlePriceRowHtml(bundleSelected) + '</div>' +
           '</div>'
         : '';
       var initialPriceHtml = hasVariants
@@ -1937,9 +2011,9 @@
               '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label') + '">' +
               '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((p.bundlePick ? bundleSelected.length !== p.bundlePick.count : initBuy.disabled) ? 'disabled' : '') + '>' + (p.bundlePick ? T('js_add_to_cart') : initBuy.label) + '</button>' +
+            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((p.bundlePick ? bundleSelected.length < bundleMin : initBuy.disabled) ? 'disabled' : '') + '>' + (p.bundlePick ? T('js_add_to_cart') : initBuy.label) + '</button>' +
           '</div>' +
-          (p.bundlePick ? '<p class="b3d-bundle-pick__disabled-hint" data-bundle-hint' + (bundleSelected.length === p.bundlePick.count ? ' hidden' : '') + '>' + T('js_bundle_pick_disabled_hint') + '</p>' : '') +
+          (p.bundlePick ? '<p class="b3d-bundle-pick__disabled-hint" data-bundle-hint' + (bundleSelected.length >= bundleMin ? ' hidden' : '') + '>' + T('js_bundle_pick_disabled_hint') + '</p>' : '') +
           '<div class="b3d-pd__contact-actions">' +
             '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
             '<a href="/3d/cart/">' + T('js_view_cart') + '</a>' +
@@ -2019,12 +2093,19 @@
         var picked = bundleSelected.slice();
         var countEl = container.querySelector('[data-bundle-count]');
         var hintEl = container.querySelector('[data-bundle-hint]');
+        var priceRowWrap = container.querySelector('[data-bundle-price-row-wrap]');
         var addBtnEl = container.querySelector('[data-pd-add]');
+        var pdPriceEl = container.querySelector('[data-pd-price]');
         function refreshBundleUi() {
-          if (countEl) countEl.textContent = picked.length + ' / ' + p.bundlePick.count + ' ' + T('js_bundle_pick_selected');
-          var full = picked.length === p.bundlePick.count;
-          if (addBtnEl) addBtnEl.disabled = !full;
-          if (hintEl) hintEl.hidden = full;
+          if (countEl) countEl.textContent = picked.length + ' ' + T('js_bundle_pick_selected');
+          var ok = picked.length >= bundleMin;
+          if (addBtnEl) addBtnEl.disabled = !ok;
+          if (hintEl) hintEl.hidden = ok;
+          if (priceRowWrap) priceRowWrap.innerHTML = bundlePriceRowHtml(picked);
+          if (ok) {
+            selectedVariant = picked.length - bundleMin;
+            if (pdPriceEl) pdPriceEl.innerHTML = variantPriceHtml(p.variants[selectedVariant], p);
+          }
         }
         container.querySelectorAll('[data-bundle-item]').forEach(function (btn) {
           btn.addEventListener('click', function () {
@@ -2035,7 +2116,7 @@
               btn.classList.remove('is-selected');
               btn.setAttribute('aria-pressed', 'false');
             } else {
-              if (picked.length >= p.bundlePick.count) return;
+              if (picked.length >= bundleMax) return;
               picked.push(id);
               btn.classList.add('is-selected');
               btn.setAttribute('aria-pressed', 'true');
@@ -2050,7 +2131,7 @@
         addBtn.addEventListener('click', function () {
           if (addBtn.disabled) return;
           if (p.bundlePick) {
-            if (picked.length !== p.bundlePick.count) return;
+            if (picked.length < bundleMin) return;
             setBundlePicks(p.id, picked);
           }
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;

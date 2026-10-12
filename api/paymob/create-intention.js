@@ -7,6 +7,11 @@ const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
   : 'https://' + process.env.VERCEL_URL;
 const MAX_LINES = 20;
 const MAX_QTY = 10;
+// Free delivery thresholds (SAR): either qualifies the whole order. Mirrors
+// the same thresholds applied client-side in 3d-store.js — recomputed here
+// from trusted catalog data so a client can never fake free shipping.
+const FREE_SHIP_ARTWORK_MIN = 100;
+const FREE_SHIP_PRINTER_MIN = 3000;
 
 function unitPrice(product, variantIndex) {
   if (product.variants && product.variants.length) {
@@ -35,6 +40,8 @@ function priceCart(items) {
   const byId = new Map(catalog.products.map((p) => [p.id, p]));
   const lines = [];
   let total = 0;
+  let artworkCents = 0;
+  let printerCents = 0;
   for (const item of items) {
     const product = byId.get(item && item.productId);
     const qty = Number(item && item.qty);
@@ -43,10 +50,14 @@ function priceCart(items) {
     if (product.variants && product.variants.length && variantIndex == null) return null;
     const unit = unitPrice(product, variantIndex == null ? 0 : variantIndex);
     if (unit == null) return null;
+    const lineCents = Math.round(unit * 100) * qty;
     lines.push({ name: product.name, amount_cents: Math.round(unit * 100), quantity: qty });
-    total += Math.round(unit * 100) * qty;
+    total += lineCents;
+    if (product.category === '3D Artwork') artworkCents += lineCents;
+    if (product.category === '3D Printers') printerCents += lineCents;
   }
-  return { lines, total_cents: total };
+  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || printerCents >= FREE_SHIP_PRINTER_MIN * 100;
+  return { lines, total_cents: total, freeShipping };
 }
 
 function cleanBilling(b) {
@@ -111,9 +122,10 @@ module.exports = async (req, res) => {
 
   const priced = priceCart(body.items);
   if (!priced) return res.status(400).json({ error: 'invalid_cart' });
-  const shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
+  let shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
   if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
-  priced.lines.push({ name: body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping', amount_cents: shippingCents, quantity: 1 });
+  if (priced.freeShipping) shippingCents = 0;
+  priced.lines.push({ name: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (priced.freeShipping ? ' (Free)' : ''), amount_cents: shippingCents, quantity: 1 });
   priced.total_cents += shippingCents;
 
   const billing = cleanBilling(body.billing);
