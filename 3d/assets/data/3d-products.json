@@ -2125,104 +2125,90 @@
       "price": 59,
       "currency": "SAR",
       "vatIncluded": true,
-      "onSale": true,
-      "salePrice": 49,
       "available": true,
       "newArrival": true,
       "variants": [
         {
           "label": "Blue",
           "label_ar": "أزرق",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#1e4fb4",
           "image": "/3d/assets/images/products/kingroon-petg-basic-blue.webp"
         },
         {
           "label": "Orange",
           "label_ar": "برتقالي",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#f28c28",
           "image": "/3d/assets/images/products/kingroon-petg-basic-orange.webp"
         },
         {
           "label": "Yellow",
           "label_ar": "أصفر",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#f5c518",
           "image": "/3d/assets/images/products/kingroon-petg-basic-yellow.webp"
         },
         {
           "label": "Green",
           "label_ar": "أخضر",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#2e8b3e",
           "image": "/3d/assets/images/products/kingroon-petg-basic-green.webp"
         },
         {
           "label": "Red",
           "label_ar": "أحمر",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#d62828",
           "image": "/3d/assets/images/products/kingroon-petg-basic-red.webp"
         },
         {
           "label": "Gray",
           "label_ar": "رمادي",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#9a9a9a",
           "image": "/3d/assets/images/products/kingroon-petg-gray.webp"
         },
         {
           "label": "Silver",
           "label_ar": "فضي",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#c0c0c0",
           "image": "/3d/assets/images/products/kingroon-petg-silver.webp"
         },
         {
           "label": "Dark Blue",
           "label_ar": "أزرق غامق",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#16296b",
           "image": "/3d/assets/images/products/kingroon-petg-dark-blue.webp"
         },
         {
           "label": "Fluorescent Blue",
           "label_ar": "أزرق فسفوري",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#2979ff",
           "image": "/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp"
         },
         {
           "label": "Fluorescent Yellow",
           "label_ar": "أصفر فسفوري",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#d4ff00",
           "image": "/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp"
         },
         {
           "label": "Pink",
           "label_ar": "وردي",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#f48fb1",
           "image": "/3d/assets/images/products/kingroon-petg-pink.webp"
         },
         {
           "label": "Transparent",
           "label_ar": "شفاف",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#eef5f5",
           "image": "/3d/assets/images/products/kingroon-petg-transparent.webp",
           "available": false
@@ -2230,32 +2216,28 @@
         {
           "label": "Transparent Red",
           "label_ar": "أحمر شفاف",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#e05a5a",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-red.webp"
         },
         {
           "label": "Transparent Pink",
           "label_ar": "وردي شفاف",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#f7bcd0",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-pink.webp"
         },
         {
           "label": "Transparent Green",
           "label_ar": "أخضر شفاف",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#6fcf7a",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-green.webp"
         },
         {
           "label": "Sky Blue",
           "label_ar": "سماوي",
-          "price": 49,
-          "oldPrice": 59,
+          "price": 59,
           "swatch": "#6ec6e8",
           "image": "/3d/assets/images/products/kingroon-petg-sky-blue.webp",
           "available": false
@@ -2529,26 +2511,24 @@
       "price": 59,
       "currency": "SAR",
       "vatIncluded": true,
-      "onSale": true,
-      "salePrice": 49,
       "available": true,
       "newArrival": true,
       "variants": [
-        { "label": "Black", "label_ar": "أسود", "price": 49, "oldPrice": 59, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/kingroon-pla-black.webp" },
-        { "label": "White", "label_ar": "أبيض", "price": 49, "oldPrice": 59, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/kingroon-pla-white.webp" },
-        { "label": "Gray", "label_ar": "رمادي", "price": 49, "oldPrice": 59, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/kingroon-pla-gray.webp" },
-        { "label": "Silver", "label_ar": "فضي", "price": 49, "oldPrice": 59, "swatch": "#c0c0c0", "image": "/3d/assets/images/products/kingroon-pla-silver.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 49, "oldPrice": 59, "swatch": "#d62828", "image": "/3d/assets/images/products/kingroon-pla-red.webp" },
-        { "label": "Orange", "label_ar": "برتقالي", "price": 49, "oldPrice": 59, "swatch": "#f28c28", "image": "/3d/assets/images/products/kingroon-pla-orange.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 49, "oldPrice": 59, "swatch": "#f5c518", "image": "/3d/assets/images/products/kingroon-pla-yellow.webp" },
-        { "label": "Green", "label_ar": "أخضر", "price": 49, "oldPrice": 59, "swatch": "#2e8b3e", "image": "/3d/assets/images/products/kingroon-pla-green.webp" },
-        { "label": "Blue", "label_ar": "أزرق", "price": 49, "oldPrice": 59, "swatch": "#1e4fb4", "image": "/3d/assets/images/products/kingroon-pla-blue.webp" },
-        { "label": "Sky Blue", "label_ar": "أزرق فاتح", "price": 49, "oldPrice": 59, "swatch": "#4fc3f7", "image": "/3d/assets/images/products/kingroon-pla-sky-blue.webp" },
-        { "label": "Purple", "label_ar": "بنفسجي", "price": 49, "oldPrice": 59, "swatch": "#7e57c2", "image": "/3d/assets/images/products/kingroon-pla-purple.webp" },
-        { "label": "Pink", "label_ar": "وردي", "price": 49, "oldPrice": 59, "swatch": "#f48fb1", "image": "/3d/assets/images/products/kingroon-pla-pink.webp" },
-        { "label": "Brown", "label_ar": "نحاسي", "price": 49, "oldPrice": 59, "swatch": "#c17a4e", "image": "/3d/assets/images/products/kingroon-pla-brown.webp" },
-        { "label": "Transparent", "label_ar": "شفاف", "price": 49, "oldPrice": 59, "swatch": "#eef5f5", "image": "/3d/assets/images/products/kingroon-pla-transparent.webp" },
-        { "label": "Skin", "label_ar": "بيج", "price": 49, "oldPrice": 59, "swatch": "#e8c39e", "image": "/3d/assets/images/products/kingroon-pla-skin.webp", "available": false }
+        { "label": "Black", "label_ar": "أسود", "price": 59, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/kingroon-pla-black.webp" },
+        { "label": "White", "label_ar": "أبيض", "price": 59, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/kingroon-pla-white.webp" },
+        { "label": "Gray", "label_ar": "رمادي", "price": 59, "swatch": "#9a9a9a", "image": "/3d/assets/images/products/kingroon-pla-gray.webp" },
+        { "label": "Silver", "label_ar": "فضي", "price": 59, "swatch": "#c0c0c0", "image": "/3d/assets/images/products/kingroon-pla-silver.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 59, "swatch": "#d62828", "image": "/3d/assets/images/products/kingroon-pla-red.webp" },
+        { "label": "Orange", "label_ar": "برتقالي", "price": 59, "swatch": "#f28c28", "image": "/3d/assets/images/products/kingroon-pla-orange.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 59, "swatch": "#f5c518", "image": "/3d/assets/images/products/kingroon-pla-yellow.webp" },
+        { "label": "Green", "label_ar": "أخضر", "price": 59, "swatch": "#2e8b3e", "image": "/3d/assets/images/products/kingroon-pla-green.webp" },
+        { "label": "Blue", "label_ar": "أزرق", "price": 59, "swatch": "#1e4fb4", "image": "/3d/assets/images/products/kingroon-pla-blue.webp" },
+        { "label": "Sky Blue", "label_ar": "أزرق فاتح", "price": 59, "swatch": "#4fc3f7", "image": "/3d/assets/images/products/kingroon-pla-sky-blue.webp" },
+        { "label": "Purple", "label_ar": "بنفسجي", "price": 59, "swatch": "#7e57c2", "image": "/3d/assets/images/products/kingroon-pla-purple.webp" },
+        { "label": "Pink", "label_ar": "وردي", "price": 59, "swatch": "#f48fb1", "image": "/3d/assets/images/products/kingroon-pla-pink.webp" },
+        { "label": "Brown", "label_ar": "نحاسي", "price": 59, "swatch": "#c17a4e", "image": "/3d/assets/images/products/kingroon-pla-brown.webp" },
+        { "label": "Transparent", "label_ar": "شفاف", "price": 59, "swatch": "#eef5f5", "image": "/3d/assets/images/products/kingroon-pla-transparent.webp" },
+        { "label": "Skin", "label_ar": "بيج", "price": 59, "swatch": "#e8c39e", "image": "/3d/assets/images/products/kingroon-pla-skin.webp", "available": false }
       ],
       "images": [
         "/3d/assets/images/products/kingroon-pla-black.webp",
