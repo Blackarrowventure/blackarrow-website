@@ -2504,6 +2504,99 @@
       ]
     },
     {
+      "id": "one-piece-luffy-silhouette-lamp",
+      "name": "One Piece Luffy Silhouette Lamp",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 69.99,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/one-piece-luffy-silhouette-lamp.webp"
+      ],
+      "shortDesc": "One Piece Luffy-inspired silhouette lamp, 3D printed in-house, warm LED glow through a cut-out scene.",
+      "description": "A One Piece Luffy-inspired silhouette lamp, designed and 3D printed in-house at Black Arrow 3D. A detailed cut-out scene glows warmly when lit, making it a striking night light or display piece for a desk, shelf, or bedside table. USB powered.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "One Piece Luffy-inspired silhouette scene — printed in-house"],
+        ["Power", "USB powered LED"],
+        ["Use", "Desk, shelf or bedside display lamp"]
+      ],
+      "name_ar": "مصباح ظلي مستوحى من لوفي ون بيس",
+      "shortDesc_ar": "مصباح ظلي مستوحى من شخصية لوفي من ون بيس، مطبوع ثلاثي الأبعاد داخليًا، بإضاءة LED دافئة تنبعث من مشهد منحوت.",
+      "description_ar": "مصباح ظلي مستوحى من شخصية لوفي من ون بيس، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. مشهد منحوت بتفاصيل دقيقة يضيء بدفء عند التشغيل، مما يجعله إضاءة ليلية مميزة أو قطعة عرض للمكتب أو الرف أو بجانب السرير. يعمل بمنفذ USB.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "مشهد ظلي مستوحى من لوفي من ون بيس — طباعة داخلية"],
+        ["الطاقة", "إضاءة LED تعمل عبر USB"],
+        ["الاستخدام", "مصباح عرض للمكتب أو الرف أو بجانب السرير"]
+      ]
+    },
+    {
+      "id": "one-piece-zoro-silhouette-lamp",
+      "name": "One Piece Zoro Silhouette Lamp",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 69.99,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/one-piece-zoro-silhouette-lamp.webp"
+      ],
+      "shortDesc": "One Piece Zoro-inspired silhouette lamp, 3D printed in-house, warm LED glow through a cut-out scene.",
+      "description": "A One Piece Zoro-inspired silhouette lamp, designed and 3D printed in-house at Black Arrow 3D. A detailed cut-out scene glows warmly when lit, making it a striking night light or display piece for a desk, shelf, or bedside table. USB powered.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "One Piece Zoro-inspired silhouette scene — printed in-house"],
+        ["Power", "USB powered LED"],
+        ["Use", "Desk, shelf or bedside display lamp"]
+      ],
+      "name_ar": "مصباح ظلي مستوحى من زورو ون بيس",
+      "shortDesc_ar": "مصباح ظلي مستوحى من شخصية زورو من ون بيس، مطبوع ثلاثي الأبعاد داخليًا، بإضاءة LED دافئة تنبعث من مشهد منحوت.",
+      "description_ar": "مصباح ظلي مستوحى من شخصية زورو من ون بيس، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. مشهد منحوت بتفاصيل دقيقة يضيء بدفء عند التشغيل، مما يجعله إضاءة ليلية مميزة أو قطعة عرض للمكتب أو الرف أو بجانب السرير. يعمل بمنفذ USB.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "مشهد ظلي مستوحى من زورو من ون بيس — طباعة داخلية"],
+        ["الطاقة", "إضاءة LED تعمل عبر USB"],
+        ["الاستخدام", "مصباح عرض للمكتب أو الرف أو بجانب السرير"]
+      ]
+    },
+    {
+      "id": "one-piece-sanji-silhouette-lamp",
+      "name": "One Piece Sanji Silhouette Lamp",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 69.99,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/one-piece-sanji-silhouette-lamp.webp"
+      ],
+      "shortDesc": "One Piece Sanji-inspired silhouette lamp, 3D printed in-house, warm LED glow through a cut-out scene.",
+      "description": "A One Piece Sanji-inspired silhouette lamp, designed and 3D printed in-house at Black Arrow 3D. A detailed cut-out scene glows warmly when lit, making it a striking night light or display piece for a desk, shelf, or bedside table. USB powered.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "One Piece Sanji-inspired silhouette scene — printed in-house"],
+        ["Power", "USB powered LED"],
+        ["Use", "Desk, shelf or bedside display lamp"]
+      ],
+      "name_ar": "مصباح ظلي مستوحى من سانجي ون بيس",
+      "shortDesc_ar": "مصباح ظلي مستوحى من شخصية سانجي من ون بيس، مطبوع ثلاثي الأبعاد داخليًا، بإضاءة LED دافئة تنبعث من مشهد منحوت.",
+      "description_ar": "مصباح ظلي مستوحى من شخصية سانجي من ون بيس، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. مشهد منحوت بتفاصيل دقيقة يضيء بدفء عند التشغيل، مما يجعله إضاءة ليلية مميزة أو قطعة عرض للمكتب أو الرف أو بجانب السرير. يعمل بمنفذ USB.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "مشهد ظلي مستوحى من سانجي من ون بيس — طباعة داخلية"],
+        ["الطاقة", "إضاءة LED تعمل عبر USB"],
+        ["الاستخدام", "مصباح عرض للمكتب أو الرف أو بجانب السرير"]
+      ]
+    },
+    {
       "id": "kingroon-pla-basic-filament",
       "name": "KINGROON PLA Basic Filament 1.75 mm (1 kg)",
       "brand": "KINGROON",
