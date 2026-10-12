@@ -279,6 +279,15 @@ def product_detail_html(p, lang):
     status = status_badge(p, lang)
     wa_msg = 'Hello! I have a question about ' + name + '.'
 
+    bundle_pick_html = ''
+    if p.get('bundlePick'):
+        by_id = {q['id']: q for q in PRODUCTS}
+        bundle_items = [by_id[i] for i in p['bundlePick']['fromIds'] if i in by_id]
+        bundle_pick_html = (
+            '<div class="b3d-bundle-pick"><h2>' + T('js_bundle_pick_title', lang) + '</h2>'
+            + '<ul>' + ''.join('<li>' + esc(L(b, 'name', lang)) + '</li>' for b in bundle_items) + '</ul></div>'
+        )
+
     html = (
         '<div>'
         + '<div class="b3d-pd__visual' + (' b3d-pd__visual--art' if is_art else '') + '">'
@@ -292,6 +301,7 @@ def product_detail_html(p, lang):
         + variant_selector_html
         + ('<div style="margin-bottom:16px;">' + status + '</div>' if status else '')
         + '<p class="b3d-pd__desc">' + esc(desc) + '</p>'
+        + bundle_pick_html
         + '<div class="b3d-pd__actions">'
         + '<div class="b3d-qty">'
         + '<button type="button" data-pd-qty="minus" aria-label="' + T('js_qty_decrease', lang) + '">−</button>'

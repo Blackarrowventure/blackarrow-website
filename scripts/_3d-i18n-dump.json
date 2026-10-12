@@ -963,6 +963,30 @@
     "en": "Top Pick",
     "ar": "مُختار مميز"
   },
+  "js_bundle_pick_cta": {
+    "en": "Choose Your 3",
+    "ar": "اختر الثلاثة"
+  },
+  "js_bundle_pick_disabled_hint": {
+    "en": "Select exactly 3 keychains above to add this bundle",
+    "ar": "اختر 3 ميداليات بالضبط أعلاه لإضافة هذه الباقة"
+  },
+  "js_bundle_pick_full": {
+    "en": "Full",
+    "ar": "مكتمل"
+  },
+  "js_bundle_pick_hint": {
+    "en": "Tap to select. Your picks are added with your order automatically.",
+    "ar": "اضغط للاختيار. تُضاف اختياراتك مع طلبك تلقائيًا."
+  },
+  "js_bundle_pick_selected": {
+    "en": "selected",
+    "ar": "مُختار"
+  },
+  "js_bundle_pick_title": {
+    "en": "Choose your 3 keychains",
+    "ar": "اختر 3 ميداليات مفاتيح"
+  },
   "js_card_delivery": {
     "en": "Delivery: KSA-wide",
     "ar": "توصيل لكل المملكة"
@@ -970,6 +994,14 @@
   "js_card_warranty": {
     "en": "Manufacturer warranty, defective products only",
     "ar": "الضمان حسب الشركة المصنّعة، للمنتجات المعيبة فقط"
+  },
+  "js_cart_bundle_edit": {
+    "en": "Edit selection",
+    "ar": "تعديل الاختيار"
+  },
+  "js_cart_bundle_missing": {
+    "en": "Keychains not selected yet",
+    "ar": "لم يتم اختيار الميداليات بعد"
   },
   "js_check_back_soon": {
     "en": "Check back soon, or contact us for current availability.",

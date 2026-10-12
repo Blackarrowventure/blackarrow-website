@@ -229,6 +229,31 @@
     saveCart(cart);
   }
 
+  /* ---------------- Pick-your-own bundles ----------------
+     A bundle product (p.bundlePick = { count, fromIds }) has no real
+     variants — the buyer picks N other catalog products on its product
+     page instead. Picks are kept separately from the cart (which only
+     stores lineId -> qty) in their own localStorage key, keyed by the
+     bundle's product id. */
+  var BUNDLE_PICKS_KEY = 'b3d_bundle_picks_v1';
+
+  function getAllBundlePicks() {
+    try {
+      var raw = localStorage.getItem(BUNDLE_PICKS_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+
+  function getBundlePicks(productId) {
+    return getAllBundlePicks()[productId] || [];
+  }
+
+  function setBundlePicks(productId, ids) {
+    var all = getAllBundlePicks();
+    all[productId] = ids;
+    try { localStorage.setItem(BUNDLE_PICKS_KEY, JSON.stringify(all)); } catch (e) {}
+  }
+
   /* ---------------- Data ---------------- */
 
   var __b3dProductsById = {};
@@ -459,7 +484,9 @@
     var simpleOut = !hasVariants && p.available === false;
 
     var actionBtn;
-    if (colorProduct) {
+    if (p.bundlePick) {
+      actionBtn = '<a href="' + href + '" class="b3d-btn-add">' + T('js_bundle_pick_cta') + '</a>';
+    } else if (colorProduct) {
       actionBtn = '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + colorIdx + '"' + (colorOut ? ' disabled' : '') + '>' + (colorOut ? T('js_out_of_stock') : T('js_add_to_cart')) + '</button>';
     } else if (pillProduct) {
       actionBtn = '<button type="button" class="b3d-btn-add" data-card-add="' + p.id + '" data-variant-idx="' + pillIdx + '"' + ((pillOut && !p.preorder) ? ' disabled' : '') + '>' + cardActionLabel(p, pillOut) + '</button>';
@@ -1408,7 +1435,15 @@
     var cart = getCart();
     var items = Object.keys(cart).map(function (id) {
       var parsed = parseLineId(id);
-      return { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
+      var product = __b3dProductsById[parsed.productId];
+      var item = { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
+      if (product && product.bundlePick) {
+        var picks = getBundlePicks(product.id);
+        if (picks.length === product.bundlePick.count) {
+          item.bundlePicks = picks.map(function (pid) { var bp = __b3dProductsById[pid]; return bp ? L(bp, 'name') : pid; });
+        }
+      }
+      return item;
     });
     var shipping = form.querySelector('input[name="shipping_choice"]:checked');
     var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
@@ -1533,13 +1568,28 @@
         subtotal += lineTotal;
         if (p.preorder) hasPreorder = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
-        summaryLines.push(displayName + ' x' + qty + ' — ' + lineTotal.toLocaleString('en-US') + ' ' + (p.currency || 'SAR'));
+        var bundleLineHtml = '';
+        var pickNames = null;
+        if (p.bundlePick) {
+          var picks = getBundlePicks(p.id);
+          if (picks.length === p.bundlePick.count) {
+            pickNames = picks.map(function (pid) { var bp = byId[pid]; return bp ? L(bp, 'name') : pid; });
+            bundleLineHtml = '<div class="b3d-cart-item__bundle">' + pickNames.join(', ') + '</div>';
+          } else {
+            bundleLineHtml = '<div class="b3d-cart-item__bundle b3d-cart-item__bundle--warn">' + T('js_cart_bundle_missing') + '</div>';
+          }
+          bundleLineHtml += '<a class="b3d-cart-item__bundle-edit" href="' + productUrl(p) + '">' + T('js_cart_bundle_edit') + '</a>';
+        }
+        var summaryLine = displayName + ' x' + qty + ' — ' + lineTotal.toLocaleString('en-US') + ' ' + (p.currency || 'SAR');
+        if (pickNames) summaryLine += ' (' + pickNames.join(', ') + ')';
+        summaryLines.push(summaryLine);
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
             '<div>' +
               '<div class="b3d-cart-item__name">' + displayName + '</div>' +
               '<div class="b3d-cart-item__cat">' + categoryLabel(p.category) + (p.preorder ? ' · <span class="b3d-cart-item__preorder">' + T('js_pre_order') + '</span>' : '') + '</div>' +
+              bundleLineHtml +
               '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">' + T('js_remove') + '</button>' +
             '</div>' +
             '<div class="b3d-qty">' +
@@ -1833,6 +1883,30 @@
         return { disabled: out && !p.preorder, label: p.preorder ? T('js_pre_order') : (out ? T('js_out_of_stock') : T('js_add_to_cart')) };
       }
       var initBuy = buyState(initV);
+
+      var bundleItems = p.bundlePick ? p.bundlePick.fromIds.map(function (id) {
+        return products.filter(function (x) { return x.id === id; })[0];
+      }).filter(Boolean) : [];
+      var bundleSelected = p.bundlePick ? getBundlePicks(p.id).filter(function (id) {
+        return bundleItems.some(function (b) { return b.id === id; });
+      }) : [];
+      var bundlePickHtml = p.bundlePick
+        ? '<div class="b3d-bundle-pick" data-bundle-pick>' +
+            '<h2>' + T('js_bundle_pick_title') + ' <span class="b3d-bundle-pick__count" data-bundle-count>' + bundleSelected.length + ' / ' + p.bundlePick.count + ' ' + T('js_bundle_pick_selected') + '</span></h2>' +
+            '<p class="b3d-bundle-pick__hint">' + T('js_bundle_pick_hint') + '</p>' +
+            '<div class="b3d-bundle-pick__grid">' +
+              bundleItems.map(function (b) {
+                var isSel = bundleSelected.indexOf(b.id) !== -1;
+                var img = primaryImage(b);
+                return '<button type="button" class="b3d-bundle-pick__item' + (isSel ? ' is-selected' : '') + '" data-bundle-item="' + b.id + '" aria-pressed="' + isSel + '">' +
+                  (img ? '<img src="' + img + '" alt="" loading="lazy">' : '') +
+                  '<span class="b3d-bundle-pick__name">' + L(b, 'name') + '</span>' +
+                  '<span class="b3d-bundle-pick__check" aria-hidden="true">&#10003;</span>' +
+                '</button>';
+              }).join('') +
+            '</div>' +
+          '</div>'
+        : '';
       var initialPriceHtml = hasVariants
         ? variantPriceHtml(initV, p)
         : priceBlock(p);
@@ -1856,14 +1930,16 @@
           variantSelectorHtml +
           trustRowHtml(p) +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
+          bundlePickHtml +
           '<div class="b3d-pd__actions">' +
             '<div class="b3d-qty">' +
               '<button type="button" data-pd-qty="minus" aria-label="' + T('js_qty_decrease') + '">−</button>' +
               '<input type="text" readonly value="1" data-pd-qty-val aria-label="' + T('js_qty_label') + '">' +
               '<button type="button" data-pd-qty="plus" aria-label="' + T('js_qty_increase') + '">+</button>' +
             '</div>' +
-            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + (initBuy.disabled ? 'disabled' : '') + '>' + initBuy.label + '</button>' +
+            '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((p.bundlePick ? bundleSelected.length !== p.bundlePick.count : initBuy.disabled) ? 'disabled' : '') + '>' + (p.bundlePick ? T('js_add_to_cart') : initBuy.label) + '</button>' +
           '</div>' +
+          (p.bundlePick ? '<p class="b3d-bundle-pick__disabled-hint" data-bundle-hint' + (bundleSelected.length === p.bundlePick.count ? ' hidden' : '') + '>' + T('js_bundle_pick_disabled_hint') + '</p>' : '') +
           '<div class="b3d-pd__contact-actions">' +
             '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
             '<a href="/3d/cart/">' + T('js_view_cart') + '</a>' +
@@ -1939,10 +2015,44 @@
         });
       }
 
+      if (p.bundlePick) {
+        var picked = bundleSelected.slice();
+        var countEl = container.querySelector('[data-bundle-count]');
+        var hintEl = container.querySelector('[data-bundle-hint]');
+        var addBtnEl = container.querySelector('[data-pd-add]');
+        function refreshBundleUi() {
+          if (countEl) countEl.textContent = picked.length + ' / ' + p.bundlePick.count + ' ' + T('js_bundle_pick_selected');
+          var full = picked.length === p.bundlePick.count;
+          if (addBtnEl) addBtnEl.disabled = !full;
+          if (hintEl) hintEl.hidden = full;
+        }
+        container.querySelectorAll('[data-bundle-item]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var id = btn.getAttribute('data-bundle-item');
+            var idx = picked.indexOf(id);
+            if (idx !== -1) {
+              picked.splice(idx, 1);
+              btn.classList.remove('is-selected');
+              btn.setAttribute('aria-pressed', 'false');
+            } else {
+              if (picked.length >= p.bundlePick.count) return;
+              picked.push(id);
+              btn.classList.add('is-selected');
+              btn.setAttribute('aria-pressed', 'true');
+            }
+            refreshBundleUi();
+          });
+        });
+      }
+
       var addBtn = container.querySelector('[data-pd-add]');
       if (addBtn) {
         addBtn.addEventListener('click', function () {
           if (addBtn.disabled) return;
+          if (p.bundlePick) {
+            if (picked.length !== p.bundlePick.count) return;
+            setBundlePicks(p.id, picked);
+          }
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
           addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
           if (p.preorder) {

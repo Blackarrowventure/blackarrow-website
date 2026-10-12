@@ -2294,23 +2294,27 @@
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
+      "bundlePick": {
+        "count": 3,
+        "fromIds": ["saudi-map-keychain", "saudi-palm-swords-keychain", "saudi-riyal-keychain", "one-piece-sword-keychain", "naruto-leaf-keychain", "anime-straw-hat-keychain", "uchiha-clan-keychain"]
+      },
       "images": [
         "/3d/assets/images/products/saudi-map-keychain-promo.webp"
       ],
       "shortDesc": "Any 3 keychains from our collection for 25 SAR, instead of paying full price for each.",
-      "description": "Pick any 3 keychains from the Black Arrow 3D keychain collection (Saudi Map, Palm & Swords, Saudi Riyal, Naruto Leaf Village, One Piece Sword, Anime Straw Hat, or an Uchiha Clan design) for 25 SAR total. After ordering, message us on WhatsApp with your 3 picks (and colors, where relevant) and we will prepare them for you.",
+      "description": "Pick any 3 keychains from the Black Arrow 3D keychain collection — Saudi Map, Palm & Swords, Saudi Riyal, Naruto Leaf Village, One Piece Sword, Anime Straw Hat, or an Uchiha Clan design — for 25 SAR total. Select your 3 below on this page; your picks are included with your order automatically.",
       "specs": [
         ["Material", "PLA"],
         ["Includes", "Any 3 keychains from the current collection"],
-        ["How to choose", "Message us your 3 picks on WhatsApp after ordering"]
+        ["How to choose", "Select your 3 keychains on this page before adding to cart"]
       ],
       "name_ar": "باقة اختر 3 ميداليات مفاتيح",
       "shortDesc_ar": "اختر أي 3 ميداليات مفاتيح من مجموعتنا مقابل 25 ريال، بدلاً من السعر الكامل لكل قطعة.",
-      "description_ar": "اختر أي 3 ميداليات مفاتيح من مجموعة Black Arrow 3D (خريطة السعودية، النخلة والسيوف، الريال السعودي، قرية الورق من ناروتو، سيف ون بيس، قبعة القش من الأنمي، أو أحد تصاميم عشيرة أوتشيها) مقابل 25 ريال إجمالاً. بعد الطلب، أرسل لنا اختياراتك الثلاثة عبر واتساب (والألوان إن وُجدت) وسنجهزها لك.",
+      "description_ar": "اختر أي 3 ميداليات مفاتيح من مجموعة Black Arrow 3D — خريطة السعودية، النخلة والسيوف، الريال السعودي، قرية الورق من ناروتو، سيف ون بيس، قبعة القش من الأنمي، أو أحد تصاميم عشيرة أوتشيها — مقابل 25 ريال إجمالاً. اختر الثلاثة في هذه الصفحة، وستُضاف اختياراتك تلقائيًا مع طلبك.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["يشمل", "أي 3 ميداليات مفاتيح من المجموعة الحالية"],
-        ["طريقة الاختيار", "أرسل لنا اختياراتك الثلاثة عبر واتساب بعد الطلب"]
+        ["طريقة الاختيار", "اختر ميدالياتك الثلاث في هذه الصفحة قبل الإضافة للسلة"]
       ]
     },
     {
