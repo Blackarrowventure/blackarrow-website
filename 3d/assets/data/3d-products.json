@@ -2122,7 +2122,7 @@
       "name": "KINGROON PETG Basic Filament 1.75 mm (1 kg)",
       "brand": "KINGROON",
       "category": "Filament",
-      "price": 60,
+      "price": 59,
       "currency": "SAR",
       "vatIncluded": true,
       "onSale": true,
@@ -2134,7 +2134,7 @@
           "label": "Blue",
           "label_ar": "أزرق",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#1e4fb4",
           "image": "/3d/assets/images/products/kingroon-petg-basic-blue.webp"
         },
@@ -2142,7 +2142,7 @@
           "label": "Orange",
           "label_ar": "برتقالي",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#f28c28",
           "image": "/3d/assets/images/products/kingroon-petg-basic-orange.webp"
         },
@@ -2150,7 +2150,7 @@
           "label": "Yellow",
           "label_ar": "أصفر",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#f5c518",
           "image": "/3d/assets/images/products/kingroon-petg-basic-yellow.webp"
         },
@@ -2158,7 +2158,7 @@
           "label": "Green",
           "label_ar": "أخضر",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#2e8b3e",
           "image": "/3d/assets/images/products/kingroon-petg-basic-green.webp"
         },
@@ -2166,7 +2166,7 @@
           "label": "Red",
           "label_ar": "أحمر",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#d62828",
           "image": "/3d/assets/images/products/kingroon-petg-basic-red.webp"
         },
@@ -2174,7 +2174,7 @@
           "label": "Gray",
           "label_ar": "رمادي",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#9a9a9a",
           "image": "/3d/assets/images/products/kingroon-petg-gray.webp"
         },
@@ -2182,7 +2182,7 @@
           "label": "Silver",
           "label_ar": "فضي",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#c0c0c0",
           "image": "/3d/assets/images/products/kingroon-petg-silver.webp"
         },
@@ -2190,7 +2190,7 @@
           "label": "Dark Blue",
           "label_ar": "أزرق غامق",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#16296b",
           "image": "/3d/assets/images/products/kingroon-petg-dark-blue.webp"
         },
@@ -2198,7 +2198,7 @@
           "label": "Fluorescent Blue",
           "label_ar": "أزرق فسفوري",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#2979ff",
           "image": "/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp"
         },
@@ -2206,7 +2206,7 @@
           "label": "Fluorescent Yellow",
           "label_ar": "أصفر فسفوري",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#d4ff00",
           "image": "/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp"
         },
@@ -2214,7 +2214,7 @@
           "label": "Pink",
           "label_ar": "وردي",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#f48fb1",
           "image": "/3d/assets/images/products/kingroon-petg-pink.webp"
         },
@@ -2222,7 +2222,7 @@
           "label": "Transparent",
           "label_ar": "شفاف",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#eef5f5",
           "image": "/3d/assets/images/products/kingroon-petg-transparent.webp",
           "available": false
@@ -2231,7 +2231,7 @@
           "label": "Transparent Red",
           "label_ar": "أحمر شفاف",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#e05a5a",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-red.webp"
         },
@@ -2239,7 +2239,7 @@
           "label": "Transparent Pink",
           "label_ar": "وردي شفاف",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#f7bcd0",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-pink.webp"
         },
@@ -2247,7 +2247,7 @@
           "label": "Transparent Green",
           "label_ar": "أخضر شفاف",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#6fcf7a",
           "image": "/3d/assets/images/products/kingroon-petg-transparent-green.webp"
         },
@@ -2255,7 +2255,7 @@
           "label": "Sky Blue",
           "label_ar": "سماوي",
           "price": 49,
-          "oldPrice": 60,
+          "oldPrice": 59,
           "swatch": "#6ec6e8",
           "image": "/3d/assets/images/products/kingroon-petg-sky-blue.webp",
           "available": false
