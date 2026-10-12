@@ -43,6 +43,16 @@
       "has": [{ "type": "query", "key": "slug", "value": "(?<slug>.*)" }],
       "destination": "/3d/product/:slug/",
       "permanent": true
+    },
+    {
+      "source": "/3d/product/gta-vi-game-case-rack/",
+      "destination": "/3d/product/gta-vi-ps5-controller-stand/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/product/gta-vi-game-case-rack/",
+      "destination": "/3d/ar/product/gta-vi-ps5-controller-stand/",
+      "permanent": true
     }
   ],
   "headers": [

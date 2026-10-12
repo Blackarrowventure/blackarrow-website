@@ -2357,8 +2357,8 @@
       ]
     },
     {
-      "id": "gta-vi-game-case-rack",
-      "name": "GTA VI Game Case Rack",
+      "id": "gta-vi-ps5-controller-stand",
+      "name": "GTA VI PS5 Controller Stand",
       "brand": "Black Arrow",
       "category": "3D Artwork",
       "price": 50,
@@ -2367,25 +2367,26 @@
       "available": true,
       "newArrival": true,
       "images": [
-        "/3d/assets/images/products/gta-vi-game-rack-01.webp",
-        "/3d/assets/images/products/gta-vi-game-rack-02.webp"
+        "/3d/assets/images/products/gta-vi-ps5-controller-stand-01.webp",
+        "/3d/assets/images/products/gta-vi-ps5-controller-stand-02.webp"
       ],
-      "shortDesc": "GTA VI-badged game case rack, 3D printed in-house, holds up to 8 PS5/PS4 discs upright.",
-      "description": "A game case storage rack with a raised Grand Theft Auto VI logo badge on the front, designed and 3D printed in-house at Black Arrow 3D. The angled slot holds up to 8 PS5 or PS4 game cases upright on display, keeping your collection tidy and visible on a shelf or desk.",
+      "shortDesc": "GTA VI-badged PS5 DualSense controller stand, 3D printed in-house.",
+      "description": "A PS5 DualSense controller stand with a raised Grand Theft Auto VI logo badge on the front, designed and 3D printed in-house at Black Arrow 3D. Its cradle rests a controller at a display angle, keeping it off the desk and within easy reach.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "GTA VI logo badge — designed and printed in-house"],
-        ["Capacity", "Holds up to 8 PS5/PS4 game cases upright"],
-        ["Use", "Desk or shelf display rack for physical game cases"]
+        ["Compatibility", "PS5 DualSense controller"],
+        ["Use", "Desk stand and display cradle for a game controller"]
       ],
-      "name_ar": "رف حافظات ألعاب GTA VI",
-      "shortDesc_ar": "رف لحافظات الألعاب بشعار GTA VI، مطبوع ثلاثي الأبعاد داخليًا، يتسع لحتى 8 أقراص PS5/PS4 بشكل عمودي.",
-      "description_ar": "رف لتخزين حافظات الألعاب يحمل شعار Grand Theft Auto VI بارزًا من الأمام، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تحمل الفتحة المائلة حتى 8 حافظات ألعاب PS5 أو PS4 بشكل عمودي للعرض، مما يحافظ على ترتيب مجموعتك وظهورها على الرف أو المكتب.",
+      "compatibility": ["PS5 DualSense"],
+      "name_ar": "حامل يد تحكم PS5 بشعار GTA VI",
+      "shortDesc_ar": "حامل ليد تحكم PS5 DualSense بشعار GTA VI، مطبوع ثلاثي الأبعاد داخليًا.",
+      "description_ar": "حامل ليد تحكم PS5 DualSense يحمل شعار Grand Theft Auto VI بارزًا من الأمام، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. يُسند التجويف يد التحكم بزاوية عرض مريحة، بعيدًا عن سطح المكتب وفي متناول اليد.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "شعار GTA VI بارز — تصميم وطباعة داخلية"],
-        ["السعة", "يتسع لحتى 8 حافظات ألعاب PS5/PS4 بشكل عمودي"],
-        ["الاستخدام", "رف عرض مكتبي أو على الرف لحافظات الألعاب الفعلية"]
+        ["التوافق", "يد تحكم PS5 DualSense"],
+        ["الاستخدام", "حامل مكتبي وقاعدة عرض ليد التحكم"]
       ]
     },
     {
