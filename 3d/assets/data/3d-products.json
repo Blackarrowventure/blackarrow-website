@@ -2355,6 +2355,38 @@
         ["يشمل", "ميدالية خريطة السعودية + ميدالية النخلة والسيوف + حامل مفاتيح اليوم الوطني"],
         ["سعر الطقم", "35 ريال (45 ريال عند الشراء منفردة)"]
       ]
+    },
+    {
+      "id": "gta-vi-game-case-rack",
+      "name": "GTA VI Game Case Rack",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 50,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gta-vi-game-rack-01.webp",
+        "/3d/assets/images/products/gta-vi-game-rack-02.webp"
+      ],
+      "shortDesc": "GTA VI-badged game case rack, 3D printed in-house, holds up to 8 PS5/PS4 discs upright.",
+      "description": "A game case storage rack with a raised Grand Theft Auto VI logo badge on the front, designed and 3D printed in-house at Black Arrow 3D. The angled slot holds up to 8 PS5 or PS4 game cases upright on display, keeping your collection tidy and visible on a shelf or desk.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "GTA VI logo badge — designed and printed in-house"],
+        ["Capacity", "Holds up to 8 PS5/PS4 game cases upright"],
+        ["Use", "Desk or shelf display rack for physical game cases"]
+      ],
+      "name_ar": "رف حافظات ألعاب GTA VI",
+      "shortDesc_ar": "رف لحافظات الألعاب بشعار GTA VI، مطبوع ثلاثي الأبعاد داخليًا، يتسع لحتى 8 أقراص PS5/PS4 بشكل عمودي.",
+      "description_ar": "رف لتخزين حافظات الألعاب يحمل شعار Grand Theft Auto VI بارزًا من الأمام، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. تحمل الفتحة المائلة حتى 8 حافظات ألعاب PS5 أو PS4 بشكل عمودي للعرض، مما يحافظ على ترتيب مجموعتك وظهورها على الرف أو المكتب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "شعار GTA VI بارز — تصميم وطباعة داخلية"],
+        ["السعة", "يتسع لحتى 8 حافظات ألعاب PS5/PS4 بشكل عمودي"],
+        ["الاستخدام", "رف عرض مكتبي أو على الرف لحافظات الألعاب الفعلية"]
+      ]
     }
   ]
 }
