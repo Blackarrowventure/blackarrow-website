@@ -2169,6 +2169,96 @@
           "oldPrice": 60,
           "swatch": "#d62828",
           "image": "/3d/assets/images/products/kingroon-petg-basic-red.webp"
+        },
+        {
+          "label": "Gray",
+          "label_ar": "رمادي",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#9a9a9a",
+          "image": "/3d/assets/images/products/kingroon-petg-gray.webp"
+        },
+        {
+          "label": "Silver",
+          "label_ar": "فضي",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#c0c0c0",
+          "image": "/3d/assets/images/products/kingroon-petg-silver.webp"
+        },
+        {
+          "label": "Dark Blue",
+          "label_ar": "أزرق غامق",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#16296b",
+          "image": "/3d/assets/images/products/kingroon-petg-dark-blue.webp"
+        },
+        {
+          "label": "Fluorescent Blue",
+          "label_ar": "أزرق فسفوري",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#2979ff",
+          "image": "/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp"
+        },
+        {
+          "label": "Fluorescent Yellow",
+          "label_ar": "أصفر فسفوري",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#d4ff00",
+          "image": "/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp"
+        },
+        {
+          "label": "Pink",
+          "label_ar": "وردي",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#f48fb1",
+          "image": "/3d/assets/images/products/kingroon-petg-pink.webp"
+        },
+        {
+          "label": "Transparent",
+          "label_ar": "شفاف",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#eef5f5",
+          "image": "/3d/assets/images/products/kingroon-petg-transparent.webp",
+          "available": false
+        },
+        {
+          "label": "Transparent Red",
+          "label_ar": "أحمر شفاف",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#e05a5a",
+          "image": "/3d/assets/images/products/kingroon-petg-transparent-red.webp"
+        },
+        {
+          "label": "Transparent Pink",
+          "label_ar": "وردي شفاف",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#f7bcd0",
+          "image": "/3d/assets/images/products/kingroon-petg-transparent-pink.webp"
+        },
+        {
+          "label": "Transparent Green",
+          "label_ar": "أخضر شفاف",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#6fcf7a",
+          "image": "/3d/assets/images/products/kingroon-petg-transparent-green.webp"
+        },
+        {
+          "label": "Sky Blue",
+          "label_ar": "سماوي",
+          "price": 49,
+          "oldPrice": 60,
+          "swatch": "#6ec6e8",
+          "image": "/3d/assets/images/products/kingroon-petg-sky-blue.webp",
+          "available": false
         }
       ],
       "images": [
@@ -2176,7 +2266,18 @@
         "/3d/assets/images/products/kingroon-petg-basic-orange.webp",
         "/3d/assets/images/products/kingroon-petg-basic-yellow.webp",
         "/3d/assets/images/products/kingroon-petg-basic-green.webp",
-        "/3d/assets/images/products/kingroon-petg-basic-red.webp"
+        "/3d/assets/images/products/kingroon-petg-basic-red.webp",
+        "/3d/assets/images/products/kingroon-petg-gray.webp",
+        "/3d/assets/images/products/kingroon-petg-silver.webp",
+        "/3d/assets/images/products/kingroon-petg-dark-blue.webp",
+        "/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp",
+        "/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp",
+        "/3d/assets/images/products/kingroon-petg-pink.webp",
+        "/3d/assets/images/products/kingroon-petg-transparent.webp",
+        "/3d/assets/images/products/kingroon-petg-transparent-red.webp",
+        "/3d/assets/images/products/kingroon-petg-transparent-pink.webp",
+        "/3d/assets/images/products/kingroon-petg-transparent-green.webp",
+        "/3d/assets/images/products/kingroon-petg-sky-blue.webp"
       ],
       "shortDesc": "KINGROON PETG Basic filament, 1.75 mm, 1 kg spool — low shrinkage and strong layer bonding for functional prints.",
       "description": "KINGROON PETG Basic is a 1.75 mm PETG filament on a 1 kg spool. Its diameter is held to ±0.03 mm by quality control, which helps keep feeding smooth and prints consistent. PETG offers low shrinkage and strong layer bonding, making it suitable for functional parts. It prints at 190–220°C on a 50–65°C bed. If the filament has absorbed moisture, dry it at 55°C for 8 hours before use, and store it in a dry place after use.",
@@ -2207,7 +2308,7 @@
         ],
         [
           "Colours",
-          "Blue, Orange, Yellow, Green or Red — pick one"
+          "Blue, Orange, Yellow, Green, Red, Gray, Silver, Dark Blue, Fluorescent Blue, Fluorescent Yellow, Pink, Transparent, Transparent Red, Transparent Pink, Transparent Green, Sky Blue — pick one"
         ]
       ],
       "name_ar": "فيلامنت KINGROON PETG Basic بقطر 1.75 مم (1 كغ)",
@@ -2240,7 +2341,7 @@
         ],
         [
           "الألوان",
-          "أزرق أو برتقالي أو أصفر أو أخضر أو أحمر — اختر واحدًا"
+          "أزرق، برتقالي، أصفر، أخضر، أحمر، رمادي، فضي، أزرق غامق، أزرق فسفوري، أصفر فسفوري، وردي، شفاف، أحمر شفاف، وردي شفاف، أخضر شفاف، سماوي — اختر واحدًا"
         ]
       ]
     },
