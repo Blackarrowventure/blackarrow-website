@@ -2387,6 +2387,37 @@
         ["السعة", "يتسع لحتى 8 حافظات ألعاب PS5/PS4 بشكل عمودي"],
         ["الاستخدام", "رف عرض مكتبي أو على الرف لحافظات الألعاب الفعلية"]
       ]
+    },
+    {
+      "id": "gta-vi-duo-statue",
+      "name": "GTA VI Duo Display Statue",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 89,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gta-vi-duo-statue-01.webp"
+      ],
+      "shortDesc": "GTA VI-inspired duo display statue, 3D printed in-house, unpainted display finish.",
+      "description": "A detailed display statue of the GTA VI duo, designed and 3D printed in-house at Black Arrow 3D in a clean unpainted display finish. A detailed collectible piece for a desk or display shelf.",
+      "specs": [
+        ["Material", "Resin"],
+        ["Design", "GTA VI-inspired duo statue — printed in-house"],
+        ["Finish", "Unpainted display finish"],
+        ["Use", "Desk or shelf display collectible"]
+      ],
+      "name_ar": "تمثال عرض ثنائي GTA VI",
+      "shortDesc_ar": "تمثال عرض ثنائي مستوحى من GTA VI، مطبوع ثلاثي الأبعاد داخليًا، بلمسة عرض غير مطلية.",
+      "description_ar": "تمثال عرض ثنائي مفصّل مستوحى من ثنائي GTA VI، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D بلمسة عرض غير مطلية نظيفة. قطعة تجميع مفصَّلة مثالية للمكتب أو رف العرض.",
+      "specs_ar": [
+        ["الخامة", "ريزن"],
+        ["التصميم", "تمثال عرض ثنائي مستوحى من GTA VI — طباعة داخلية"],
+        ["اللمسة", "عرض غير مطلية"],
+        ["الاستخدام", "قطعة تجميع مكتبية أو عرض على الرف"]
+      ]
     }
   ]
 }
