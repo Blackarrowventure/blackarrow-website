@@ -1299,28 +1299,25 @@ article.svc-card:hover {
 
 /* Moved off the crowded footer (two buttons + the "Learn More" stretched-link
    were fighting for width there, which is what caused the hover jitter on
-   EV/Isolated Power) onto the card image itself, as its own corner tag —
-   same real link, no layout pressure on the footer anymore. */
-.svc-card__consultancy-tag {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 3;
+   EV/Isolated Power) into the breadth tag row alongside Design/Installation/
+   Support — same real link, styled as one more pill in that row but with an
+   accent border + hover fill so it still reads as the one clickable one. */
+.svc-card__breadth-consultancy {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(26,26,26,.82);
-  color: #fff !important;
-  padding: 6px 14px;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  padding: 4px 10px;
+  background: var(--clr-light);
   border-radius: var(--radius-full);
   border: 1.5px solid var(--clr-accent);
-  font-size: var(--fs-xs);
+  color: #1a1a1a !important;
   font-weight: var(--fw-bold);
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.svc-card__consultancy-tag:hover {
+.svc-card__breadth-consultancy:hover {
   background: var(--clr-accent);
   color: #1a1400 !important;
 }
