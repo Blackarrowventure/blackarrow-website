@@ -187,6 +187,14 @@
     "en": "Bank Transfer is available now.",
     "ar": "التحويل البنكي متاح الآن."
   },
+  "cart_crosssell_h3": {
+    "en": "Complete your setup",
+    "ar": "أكمل إعدادك"
+  },
+  "cart_crosssell_sub": {
+    "en": "Popular desk pieces people add alongside a new printer",
+    "ar": "قطع مكتبية شائعة يضيفها الناس عند شراء طابعة جديدة"
+  },
   "cart_empty_h2": {
     "en": "Your cart is empty",
     "ar": "عربة التسوق فارغة"
@@ -766,6 +774,18 @@
   "hub_featured_sub": {
     "en": "A snapshot of what is available right now",
     "ar": "لمحة عمّا هو متاح الآن"
+  },
+  "hub_gifts_all": {
+    "en": "View all 3D Artwork",
+    "ar": "عرض كل الفن ثلاثي الأبعاد"
+  },
+  "hub_gifts_h2": {
+    "en": "Gifts Under 50 SAR",
+    "ar": "هدايا بأقل من 50 ريال"
+  },
+  "hub_gifts_sub": {
+    "en": "3D printed gifts, keychains and desk pieces — all 50 SAR or less",
+    "ar": "هدايا ومفاتيح وقطع مكتبية مطبوعة ثلاثية الأبعاد — كلها بسعر 50 ريال أو أقل"
   },
   "hub_hero_eyebrow": {
     "en": "3D Printing, Made Easy",

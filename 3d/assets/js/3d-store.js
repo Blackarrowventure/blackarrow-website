@@ -1556,6 +1556,35 @@
       var preorderNotice = document.querySelector('[data-b3d-preorder-notice]');
       if (preorderNotice) preorderNotice.hidden = !hasPreorder;
 
+      var crosssell = document.querySelector('[data-b3d-cart-crosssell]');
+      if (crosssell) {
+        var inCartIds = ids.map(function (id) { return parseLineId(id).productId; });
+        var hasPrinter = inCartIds.some(function (pid) { var p = byId[pid]; return p && p.category === '3D Printers'; });
+        if (hasPrinter) {
+          var picks = products.filter(function (p) {
+            return p.category === '3D Artwork' && p.available !== false && currentPrice(p) <= 60 &&
+              inCartIds.indexOf(p.id) === -1;
+          }).slice(0, 4);
+          if (picks.length) {
+            var crosssellGrid = crosssell.querySelector('[data-b3d-cart-crosssell-grid]');
+            renderGrid(picks, crosssellGrid);
+            if (!crosssellGrid._b3dBound) {
+              crosssellGrid._b3dBound = true;
+              crosssellGrid.addEventListener('click', function (e) {
+                if (e.target.closest && e.target.closest('[data-card-add]')) {
+                  setTimeout(function () { renderCartPage(listEl, summaryEl, emptyEl); }, 50);
+                }
+              });
+            }
+            crosssell.hidden = false;
+          } else {
+            crosssell.hidden = true;
+          }
+        } else {
+          crosssell.hidden = true;
+        }
+      }
+
       lastSubtotal = subtotal;
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();
@@ -2393,6 +2422,16 @@
       fetchProducts().then(function (products) {
         var printers = products.filter(function (p) { return p.category === '3D Printers' && p.available !== false; }).slice(0, 8);
         renderGrid(printers, printersGrid);
+      });
+    }
+
+    var giftsGrid = document.querySelector('[data-b3d-gifts-grid]');
+    if (giftsGrid) {
+      fetchProducts().then(function (products) {
+        var gifts = products.filter(function (p) {
+          return p.category === '3D Artwork' && p.available !== false && currentPrice(p) <= 50;
+        }).slice(0, 8);
+        renderGrid(gifts, giftsGrid);
       });
     }
 

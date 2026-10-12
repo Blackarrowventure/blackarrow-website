@@ -867,6 +867,7 @@
       "available": true,
       "featured": true,
       "newArrival": true,
+      "bestSeller": 3,
       "cardImage": "/3d/assets/images/products/oni-controller-stand-07-promo.webp",
       "images": [
         "/3d/assets/images/products/oni-controller-stand-01.webp",
@@ -980,28 +981,36 @@
       "name": "Custom 3D Artwork",
       "brand": "Black Arrow",
       "category": "3D Artwork",
-      "price": 15,
+      "price": 25,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
+      "featured": true,
+      "variants": [
+        { "label": "Small — keychain / badge", "label_ar": "صغير — ميدالية مفاتيح / شارة", "price": 25, "image": "/3d/assets/images/products/custom-3d-artwork-promo.webp" },
+        { "label": "Medium — desk piece", "label_ar": "متوسط — قطعة مكتبية", "price": 65, "image": "/3d/assets/images/products/custom-3d-artwork-promo.webp" },
+        { "label": "Large — display sculpture", "label_ar": "كبير — تمثال عرض", "price": 150, "image": "/3d/assets/images/products/custom-3d-artwork-promo.webp" }
+      ],
       "images": [
         "/3d/assets/images/products/custom-3d-artwork-promo.webp"
       ],
-      "shortDesc": "Turn your sketch, character or logo into a custom 3D printed piece.",
-      "description": "Turn your idea into a real object. Send us a character, logo, drawing, photo or original concept and the Black Arrow 3D team will design and 3D print it as a unique display piece, layer by layer. It works well for wall plaques, desk figures, logo signs, name pieces and personalized gifts. Pieces ship in a raw, unpainted PLA finish, ready for a DIY paint job in your own colors. To order, share your reference image with us on WhatsApp, and we will confirm the details with you before printing.",
+      "shortDesc": "Turn your sketch, character or logo into a custom 3D printed piece — priced by size.",
+      "description": "Turn your idea into a real object. Send us a character, logo, drawing, photo or original concept and the Black Arrow 3D team will design and 3D print it as a unique display piece, layer by layer. Priced by size: Small covers keychains and badges, Medium covers desk-sized pieces, and Large covers full display sculptures. It works well for wall plaques, desk figures, logo signs, name pieces and personalized gifts. Pieces ship in a raw, unpainted PLA finish, ready for a DIY paint job in your own colors. To order, choose a size and share your reference image with us on WhatsApp, and we will confirm the details with you before printing.",
       "specs": [
         ["Material", "PLA"],
         ["Design", "Custom — based on your reference image"],
-        ["Finish", "Raw, unpainted PLA (DIY paint job)"]
+        ["Finish", "Raw, unpainted PLA (DIY paint job)"],
+        ["Pricing", "By size: Small, Medium, Large"]
       ],
       "name_ar": "أعمال فنية ثلاثية الأبعاد مخصصة",
-      "shortDesc_ar": "حوّل رسمتك أو شخصيتك أو شعارك إلى قطعة مطبوعة ثلاثية الأبعاد مخصصة.",
-      "description_ar": "حوّل فكرتك إلى قطعة حقيقية. أرسل لنا شخصية أو شعارًا أو رسمة أو صورة أو فكرة خاصة بك، وسيصممها فريق Black Arrow 3D ويطبعها بالطباعة ثلاثية الأبعاد كقطعة عرض فريدة طبقة بعد طبقة. مناسبة للوحات الجدارية ومجسمات المكتب ولوحات الشعارات والأسماء والهدايا المخصصة. تُسلَّم القطع بلون PLA خام غير مطلي، جاهزة لتلوينها بنفسك بالألوان التي تحبها. للطلب شارك صورتك المرجعية معنا عبر واتساب، وسنؤكد معك التفاصيل قبل الطباعة.",
+      "shortDesc_ar": "حوّل رسمتك أو شخصيتك أو شعارك إلى قطعة مطبوعة ثلاثية الأبعاد مخصصة — السعر حسب الحجم.",
+      "description_ar": "حوّل فكرتك إلى قطعة حقيقية. أرسل لنا شخصية أو شعارًا أو رسمة أو صورة أو فكرة خاصة بك، وسيصممها فريق Black Arrow 3D ويطبعها بالطباعة ثلاثية الأبعاد كقطعة عرض فريدة طبقة بعد طبقة. السعر حسب الحجم: صغير لميداليات المفاتيح والشارات، متوسط للقطع المكتبية، وكبير لتماثيل العرض الكاملة. مناسبة للوحات الجدارية ومجسمات المكتب ولوحات الشعارات والأسماء والهدايا المخصصة. تُسلَّم القطع بلون PLA خام غير مطلي، جاهزة لتلوينها بنفسك بالألوان التي تحبها. للطلب اختر الحجم وشارك صورتك المرجعية معنا عبر واتساب، وسنؤكد معك التفاصيل قبل الطباعة.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["التصميم", "مخصص — بناءً على صورتك المرجعية"],
-        ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"]
+        ["التشطيب", "خام غير مطلي من PLA (تلوين ذاتي)"],
+        ["التسعير", "حسب الحجم: صغير، متوسط، كبير"]
       ]
     },
     {
@@ -1078,17 +1087,17 @@
       "name": "3D Printed Mustang GT",
       "brand": "Black Arrow",
       "category": "3D Artwork",
-      "price": 29.99,
+      "price": 30,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
       "newArrival": true,
       "variants": [
-        { "label": "White", "label_ar": "أبيض", "price": 29.99, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/mustang-gt-promo.webp" },
-        { "label": "Green", "label_ar": "أخضر", "price": 29.99, "swatch": "#006c35", "image": "/3d/assets/images/products/mustang-gt-green.webp" },
-        { "label": "Black", "label_ar": "أسود", "price": 29.99, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/mustang-gt-black.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 29.99, "swatch": "#f5d020", "image": "/3d/assets/images/products/mustang-gt-yellow.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 29.99, "swatch": "#d92b2b", "image": "/3d/assets/images/products/mustang-gt-red.webp" }
+        { "label": "White", "label_ar": "أبيض", "price": 30, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/mustang-gt-promo.webp" },
+        { "label": "Green", "label_ar": "أخضر", "price": 30, "swatch": "#006c35", "image": "/3d/assets/images/products/mustang-gt-green.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 30, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/mustang-gt-black.webp" },
+        { "label": "Yellow", "label_ar": "أصفر", "price": 30, "swatch": "#f5d020", "image": "/3d/assets/images/products/mustang-gt-yellow.webp" },
+        { "label": "Red", "label_ar": "أحمر", "price": 30, "swatch": "#d92b2b", "image": "/3d/assets/images/products/mustang-gt-red.webp" }
       ],
       "images": [
         "/3d/assets/images/products/mustang-gt-promo.webp",
@@ -1161,6 +1170,7 @@
       "salePrice": 10,
       "vatIncluded": true,
       "available": true,
+      "bestSeller": 4,
       "variants": [
         { "label": "Green", "label_ar": "أخضر", "price": 10, "oldPrice": 20, "swatch": "#006c35", "image": "/3d/assets/images/products/saudi-map-keychain-promo.webp" },
         { "label": "White", "label_ar": "أبيض", "price": 10, "oldPrice": 20, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/saudi-map-keychain-white.webp" },
@@ -1672,6 +1682,13 @@
           "price": 30,
           "swatch": "#d62828",
           "image": "/3d/assets/images/products/uchiha-keychain-09.webp"
+        },
+        {
+          "label": "Full Set — All 9 Designs",
+          "label_ar": "طقم كامل — كل التصاميم التسعة",
+          "price": 220,
+          "swatch": "#d62828",
+          "image": "/3d/assets/images/products/uchiha-keychain-01.webp"
         }
       ],
       "images": [
@@ -1685,8 +1702,8 @@
         "/3d/assets/images/products/uchiha-keychain-08.webp",
         "/3d/assets/images/products/uchiha-keychain-09.webp"
       ],
-      "shortDesc": "3D printed round keychain with a red and black Uchiha clan design. Nine designs to choose from.",
-      "description": "A 3D printed round keychain in red and black, inspired by the Uchiha clan from Naruto. Each keychain carries one of nine sharingan-style eye designs, raised in black over a red disc with a clean black outline, so the pattern stands out sharply. Choose your favorite design from the options. Printed in PLA by Black Arrow, it is light and sturdy for daily use and comes with a metal chain and key ring. A great gift for anime fans, and fun to collect as a set.",
+      "shortDesc": "3D printed round keychain with a red and black Uchiha clan design. Nine designs to choose from, or get the full set.",
+      "description": "A 3D printed round keychain in red and black, inspired by the Uchiha clan from Naruto. Each keychain carries one of nine sharingan-style eye designs, raised in black over a red disc with a clean black outline, so the pattern stands out sharply. Choose your favorite design, or pick the Full Set option to collect all nine at once for less than buying them one at a time. Printed in PLA by Black Arrow, it is light and sturdy for daily use and comes with a metal chain and key ring. A great gift for anime fans, and fun to collect as a set.",
       "specs": [
         [
           "Design",
@@ -1702,8 +1719,8 @@
         ]
       ],
       "name_ar": "ميدالية مفاتيح آل أوتشيها",
-      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثي الأبعاد دائرية باللونين الأحمر والأسود بتصميم عشيرة أوتشيها، بتسعة تصاميم للاختيار.",
-      "description_ar": "ميدالية مفاتيح دائرية مطبوعة ثلاثية الأبعاد باللونين الأحمر والأسود، مستوحاة من عشيرة أوتشيها في ناروتو. تحمل كل ميدالية واحدًا من تسعة تصاميم لعين الشارينغان، بارزة بالأسود على قرص أحمر بإطار أسود واضح ليظهر النقش بحدة. اختر تصميمك المفضل من الخيارات. مطبوعة من خامة PLA لدى Black Arrow، خفيفة ومتينة للاستخدام اليومي، وتأتي مع سلسلة وحلقة مفاتيح معدنية. هدية رائعة لمحبي الأنمي وممتعة للجمع كمجموعة كاملة.",
+      "shortDesc_ar": "ميدالية مفاتيح مطبوعة ثلاثي الأبعاد دائرية باللونين الأحمر والأسود بتصميم عشيرة أوتشيها، بتسعة تصاميم للاختيار أو الطقم الكامل.",
+      "description_ar": "ميدالية مفاتيح دائرية مطبوعة ثلاثية الأبعاد باللونين الأحمر والأسود، مستوحاة من عشيرة أوتشيها في ناروتو. تحمل كل ميدالية واحدًا من تسعة تصاميم لعين الشارينغان، بارزة بالأسود على قرص أحمر بإطار أسود واضح ليظهر النقش بحدة. اختر تصميمك المفضل، أو اختر خيار الطقم الكامل لتحصل على التصاميم التسعة معًا بسعر أقل من شرائها منفردة. مطبوعة من خامة PLA لدى Black Arrow، خفيفة ومتينة للاستخدام اليومي، وتأتي مع سلسلة وحلقة مفاتيح معدنية. هدية رائعة لمحبي الأنمي وممتعة للجمع كمجموعة كاملة.",
       "specs_ar": [
         [
           "التصميم",
@@ -2265,6 +2282,64 @@
         ["التوافق", "يد تحكم PS5 DualSense وأيادي تحكم Xbox وما شابهها"],
         ["الألوان", "برتقالي، رمادي"],
         ["الاستخدام", "حامل مكتبي وقاعدة عرض ليد التحكم"]
+      ]
+    },
+    {
+      "id": "keychain-pick-3-bundle",
+      "name": "Pick-3 Keychain Bundle",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 25,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/saudi-map-keychain-promo.webp"
+      ],
+      "shortDesc": "Any 3 keychains from our collection for 25 SAR, instead of paying full price for each.",
+      "description": "Pick any 3 keychains from the Black Arrow 3D keychain collection (Saudi Map, Palm & Swords, Saudi Riyal, Naruto Leaf Village, One Piece Sword, Anime Straw Hat, or an Uchiha Clan design) for 25 SAR total. After ordering, message us on WhatsApp with your 3 picks (and colors, where relevant) and we will prepare them for you.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Includes", "Any 3 keychains from the current collection"],
+        ["How to choose", "Message us your 3 picks on WhatsApp after ordering"]
+      ],
+      "name_ar": "باقة اختر 3 ميداليات مفاتيح",
+      "shortDesc_ar": "اختر أي 3 ميداليات مفاتيح من مجموعتنا مقابل 25 ريال، بدلاً من السعر الكامل لكل قطعة.",
+      "description_ar": "اختر أي 3 ميداليات مفاتيح من مجموعة Black Arrow 3D (خريطة السعودية، النخلة والسيوف، الريال السعودي، قرية الورق من ناروتو، سيف ون بيس، قبعة القش من الأنمي، أو أحد تصاميم عشيرة أوتشيها) مقابل 25 ريال إجمالاً. بعد الطلب، أرسل لنا اختياراتك الثلاثة عبر واتساب (والألوان إن وُجدت) وسنجهزها لك.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["يشمل", "أي 3 ميداليات مفاتيح من المجموعة الحالية"],
+        ["طريقة الاختيار", "أرسل لنا اختياراتك الثلاثة عبر واتساب بعد الطلب"]
+      ]
+    },
+    {
+      "id": "saudi-pride-gift-set",
+      "name": "Saudi Pride Gift Set",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 35,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/national-day-key-holder-promo.webp"
+      ],
+      "shortDesc": "Saudi Map Keychain, Palm & Swords Keychain and National Day Key Holder — 35 SAR as a set (45 SAR separately).",
+      "description": "A 3-piece patriotic gift set: the Saudi Map Keychain, the Palm & Swords Keychain and the Saudi National Day Key Holder, all 3D printed in-house. Bought separately these three pieces total 45 SAR — as a set they're 35 SAR. A ready-made gift for Founding Day, National Day, or anyone who wants a piece of Saudi pride on their keys.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Includes", "Saudi Map Keychain + Palm & Swords Keychain + National Day Key Holder"],
+        ["Set price", "35 SAR (45 SAR if bought separately)"]
+      ],
+      "name_ar": "طقم الفخر السعودي",
+      "shortDesc_ar": "ميدالية خريطة السعودية، ميدالية النخلة والسيوف، وحامل مفاتيح اليوم الوطني — 35 ريال كطقم (45 ريال منفردة).",
+      "description_ar": "طقم هدايا وطنية من 3 قطع: ميدالية خريطة السعودية، وميدالية النخلة والسيوف، وحامل مفاتيح اليوم الوطني السعودي، جميعها مطبوعة ثلاثية الأبعاد داخليًا. سعرها منفردة 45 ريال — وكطقم 35 ريال فقط. هدية جاهزة ليوم التأسيس أو اليوم الوطني، أو لمن يريد لمسة من الفخر السعودي على مفاتيحه.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["يشمل", "ميدالية خريطة السعودية + ميدالية النخلة والسيوف + حامل مفاتيح اليوم الوطني"],
+        ["سعر الطقم", "35 ريال (45 ريال عند الشراء منفردة)"]
       ]
     }
   ]

@@ -739,6 +739,9 @@ def prerender_grids(html, lang, kind):
         printers = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Printers' and q.get('available') is not False][:8])
         html = re.sub(r'(<div class="b3d-grid" data-b3d-printers-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)',
                       lambda m: m.group(1) + '<!--b3d-prerender-->' + printers + '<!--/b3d-prerender-->' + m.group(2), html, count=1, flags=re.S)
+        gifts = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Artwork' and q.get('available') is not False and current_price(q) <= 50][:8])
+        html = re.sub(r'(<div class="b3d-grid" data-b3d-gifts-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)',
+                      lambda m: m.group(1) + '<!--b3d-prerender-->' + gifts + '<!--/b3d-prerender-->' + m.group(2), html, count=1, flags=re.S)
     if kind == 'home':
         html = refresh_home_blog(html, lang)
         html = PICKER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + picker_cards_html(lang) + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
@@ -799,6 +802,8 @@ ART_SUBCATEGORIES = [
         'gear-fidget-spinner', 'infinity-cube-fidget-toy']),
     ('custom-orders', {'en': 'Custom Orders', 'ar': 'تصميم حسب الطلب'}, '#f5efe6', 'custom', [
         'custom-3d-artwork']),
+    ('gift-sets', {'en': 'Gift Sets & Bundles', 'ar': 'أطقم وباقات الهدايا'}, '#fdf0e0', 'custom', [
+        'keychain-pick-3-bundle', 'saudi-pride-gift-set']),
 ]
 
 

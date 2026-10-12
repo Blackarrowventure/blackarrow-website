@@ -134,6 +134,11 @@
       hub_printers_h2: '3D Printers',
       hub_printers_sub: 'Choose your next 3D printer',
       hub_printers_all: 'View all 3D printers',
+      hub_gifts_h2: 'Gifts Under 50 SAR',
+      hub_gifts_sub: '3D printed gifts, keychains and desk pieces — all 50 SAR or less',
+      hub_gifts_all: 'View all 3D Artwork',
+      cart_crosssell_h3: 'Complete your setup',
+      cart_crosssell_sub: 'Popular desk pieces people add alongside a new printer',
 
       hub_blog_h2: 'Guides & Tutorials',
       hub_blog_cta: 'View All Guides',
@@ -529,6 +534,11 @@
       hub_printers_h2: 'طابعات ثلاثية الأبعاد',
       hub_printers_sub: 'اختر طابعتك القادمة',
       hub_printers_all: 'عرض كل الطابعات',
+      hub_gifts_h2: 'هدايا بأقل من 50 ريال',
+      hub_gifts_sub: 'هدايا ومفاتيح وقطع مكتبية مطبوعة ثلاثية الأبعاد — كلها بسعر 50 ريال أو أقل',
+      hub_gifts_all: 'عرض كل الفن ثلاثي الأبعاد',
+      cart_crosssell_h3: 'أكمل إعدادك',
+      cart_crosssell_sub: 'قطع مكتبية شائعة يضيفها الناس عند شراء طابعة جديدة',
 
       hub_blog_h2: 'أدلة ومقالات',
       hub_blog_cta: 'عرض جميع الأدلة',
