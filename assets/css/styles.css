@@ -1303,6 +1303,8 @@ article.svc-card:hover {
    Support — same real link, styled as one more pill in that row but with an
    accent border + hover fill so it still reads as the one clickable one. */
 .svc-card__breadth-consultancy {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 4px;
