@@ -401,7 +401,7 @@
       js_product_image: 'Product image',
       js_sale_badge: 'Sale',
       js_best_seller_badge: 'Best Seller',
-      js_best_seller_badge_2: 'Fan Favorite',
+      js_best_seller_badge_2: 'Customer Favorite',
       js_best_seller_badge_n: 'Top Pick',
       js_vat_included: 'VAT included',
       announce_1: 'Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
@@ -796,7 +796,7 @@
       js_product_image: 'صورة المنتج',
       js_sale_badge: 'خصم',
       js_best_seller_badge: 'الأكثر مبيعاً',
-      js_best_seller_badge_2: 'الأكثر تفضيلاً',
+      js_best_seller_badge_2: 'المفضل لدى العملاء',
       js_best_seller_badge_n: 'مُختار مميز',
       js_vat_included: 'شامل ضريبة القيمة المضافة',
       announce_1: 'منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
