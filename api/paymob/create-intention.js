@@ -124,8 +124,10 @@ module.exports = async (req, res) => {
   if (!priced) return res.status(400).json({ error: 'invalid_cart' });
   let shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
   if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
-  if (priced.freeShipping) shippingCents = 0;
-  priced.lines.push({ name: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (priced.freeShipping ? ' (Free)' : ''), amount_cents: shippingCents, quantity: 1 });
+  // Free delivery only ever waives Regular shipping — Fast stays paid even once the order qualifies.
+  const freeShippingApplies = priced.freeShipping && body.shipping === 'regular';
+  if (freeShippingApplies) shippingCents = 0;
+  priced.lines.push({ name: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (freeShippingApplies ? ' (Free)' : ''), amount_cents: shippingCents, quantity: 1 });
   priced.total_cents += shippingCents;
 
   const billing = cleanBilling(body.billing);

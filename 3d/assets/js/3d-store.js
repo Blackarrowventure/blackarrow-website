@@ -1081,7 +1081,9 @@
   }
 
   function updateFreeShippingUi(artworkSubtotal, printerSubtotal) {
-    var priceEls = document.querySelectorAll('[data-ship-price-display]');
+    // The free-delivery threshold only ever waives Regular shipping — Fast
+    // shipping always keeps its fee, so only that option's price gets overridden.
+    var priceEls = document.querySelectorAll('[data-ship-price-display="regular"]');
     priceEls.forEach(function (el) {
       if (el.dataset.originalHtml === undefined) el.dataset.originalHtml = el.innerHTML;
       el.innerHTML = lastFreeShipping ? T('js_free_ship_label') : el.dataset.originalHtml;
@@ -1141,17 +1143,20 @@
     }
 
     var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
-    var price = lastFreeShipping ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
+    // Free delivery only ever waives Regular shipping — Fast shipping keeps its fee
+    // even once the order qualifies, so the override is gated on the chosen method too.
+    var shipFree = lastFreeShipping && checkedRadio && checkedRadio.value === 'regular';
+    var price = shipFree ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
-    if (shippingEl) shippingEl.innerHTML = lastFreeShipping ? T('js_free_ship_label') : money(price, 'SAR');
+    if (shippingEl) shippingEl.innerHTML = shipFree ? T('js_free_ship_label') : money(price, 'SAR');
     if (totalEl) totalEl.innerHTML = money(after + price, 'SAR');
 
     var shipField = checkout.querySelector('[data-b3d-shipping-field]');
-    if (shipField) shipField.value = label + ' — ' + (lastFreeShipping ? T('js_free_ship_label') : price + ' SAR');
+    if (shipField) shipField.value = label + ' — ' + (shipFree ? T('js_free_ship_label') : price + ' SAR');
     var summaryField = checkout.querySelector('[data-b3d-order-summary]');
     if (summaryField) {
       summaryField.value = lastOrderSummaryText + discountLine +
-        '\nShipping: ' + label + ' — ' + (lastFreeShipping ? T('js_free_ship_label') : price + ' SAR') +
+        '\nShipping: ' + label + ' — ' + (shipFree ? T('js_free_ship_label') : price + ' SAR') +
         '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
   }

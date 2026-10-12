@@ -1056,8 +1056,8 @@
     "ar": "أضف {n} ريال أخرى من منتجات الطابعات للحصول على توصيل مجاني"
   },
   "js_free_ship_unlocked": {
-    "en": "Free delivery unlocked for this order!",
-    "ar": "لقد حصلت على توصيل مجاني لهذا الطلب!"
+    "en": "Free Regular delivery unlocked for this order! (Fast shipping still has a fee.)",
+    "ar": "لقد حصلت على توصيل عادي مجاني لهذا الطلب! (الشحن السريع لا يزال برسوم)."
   },
   "js_from": {
     "en": "From",
