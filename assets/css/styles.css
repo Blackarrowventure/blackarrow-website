@@ -1166,7 +1166,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   box-shadow: var(--shadow-md);
   border: 1px solid var(--clr-border);
   border-top: 4px solid var(--clr-accent);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Bounce (overshoot easing) only on the lift itself. "all" previously
+     carried that same bounce onto box-shadow and border-color too, which
+     on a --featured card (already sitting on its own static glow shadow)
+     reads as a visible flash/vibration rather than a smooth hover, since
+     an overshoot curve briefly animates past the target shadow/border
+     value before settling back. */
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -1189,7 +1195,12 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   z-index: 2;
 }
 
-.svc-card:hover {
+/* Specificity note: plain .svc-card:hover (0,2,0) ties with .reveal.visible
+   (0,2,0) elsewhere in this file, which sets its own transform: translateY(0)
+   — on a tie the later rule in source order wins, silently cancelling this
+   lift once a card has scrolled into view. The element-type prefix bumps
+   this to (0,2,1) so the hover lift reliably wins instead. */
+article.svc-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-xl), var(--shadow-hover-gold);
   border-color: var(--clr-accent);
