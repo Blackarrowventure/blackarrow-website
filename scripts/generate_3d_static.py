@@ -794,6 +794,7 @@ ART_ICON_PATHS = {
     'wall': '<rect x="4" y="5" width="16" height="12" rx="1"/><path d="M12 2v3"/><path d="M8 13l3-3 2 2 2-2 2 3"/>',
     'fidget': '<circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="5" r="3"/><circle cx="6" cy="16" r="3"/><circle cx="18" cy="16" r="3"/>',
     'custom': '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>',
+    'gift': '<rect x="4" y="9" width="16" height="11" rx="1"/><path d="M4 9h16v4H4z"/><path d="M12 9v11"/><path d="M12 9c-1.5-3.5-5.5-4-5.5-1.2C6.5 9.5 9 9 12 9z"/><path d="M12 9c1.5-3.5 5.5-4 5.5-1.2C17.5 9.5 15 9 12 9z"/>',
 }
 
 ART_SUBCATEGORIES = [
@@ -815,7 +816,7 @@ ART_SUBCATEGORIES = [
         'gear-fidget-spinner', 'infinity-cube-fidget-toy']),
     ('custom-orders', {'en': 'Custom Orders', 'ar': 'تصميم حسب الطلب'}, '#f5efe6', 'custom', [
         'custom-3d-artwork']),
-    ('gift-sets', {'en': 'Gift Sets & Bundles', 'ar': 'أطقم وباقات الهدايا'}, '#fdf0e0', 'custom', [
+    ('gift-sets', {'en': 'Gift Sets & Bundles', 'ar': 'أطقم وباقات الهدايا'}, '#fdf0e0', 'gift', [
         'keychain-pick-3-bundle', 'saudi-pride-gift-set']),
 ]
 
