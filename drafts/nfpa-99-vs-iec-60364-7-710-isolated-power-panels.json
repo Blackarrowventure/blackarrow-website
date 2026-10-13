@@ -1,0 +1,102 @@
+{
+  "slug": "nfpa-99-vs-iec-60364-7-710-isolated-power-panels",
+  "date": "2026-10-13",
+  "image": "/assets/images/services/isolated-power-panels.jpg",
+  "wa_topic": "NFPA 99 vs IEC 60364-7-710 isolated power panels",
+  "related": [
+    {
+      "href": "/services/isolated-power-panels/",
+      "i18n": "link_ipp",
+      "label": "Isolated Power Panels"
+    }
+  ],
+  "en": {
+    "title": "NFPA 99 vs. IEC 60364-7-710: Isolated Power Panels",
+    "description": "How NFPA 99/NEC 517 and IEC 60364-7-710 classify medical spaces and isolated power panels differently, and what that means for a project in Saudi Arabia.",
+    "og_description": "Same problem, two different codes. How NFPA 99 and IEC 60364-7-710 actually differ on isolated power — classification, transformer rules, and monitoring.",
+    "excerpt": "Both standards require isolated power in an operating room — they just get there differently. How NFPA 99 and IEC 60364-7-710 actually diverge, without guessing at numbers neither standard states.",
+    "breadcrumb": "NFPA 99 vs. IEC 60364-7-710",
+    "subhead": "Two codes, the same underlying problem — how classification, transformer rules, and monitoring actually differ",
+    "lead": "NFPA 99 and IEC 60364-7-710 solve the same problem — keeping power live in an operating room when a single fault occurs — but they get there by different routes. For a project in Saudi Arabia, where NFPA 99 is the de facto reference but IEC-specified equipment does appear on some designs, knowing where the two standards actually diverge matters more than knowing which one is “better.”",
+    "sections": [
+      {
+        "h2": "Two Different Ways of Classifying the Same Risk",
+        "p": [
+          "NFPA 99 assigns a risk category to each facility system and patient care space based on the consequence of an electrical failure — the highest category covers spaces where a failure could affect a patient undergoing an invasive or life-supporting procedure, and isolated power is one of the protection measures tied to that category in wet procedure locations. IEC 60364-7-710 takes a related but differently structured approach: it sorts medical locations into Group 0, Group 1, or Group 2 based on the type of applied part used on the patient and whether a supply interruption could endanger life, with Group 2 — intracardiac procedures, operating theatres, and similar vital treatment areas — carrying the requirement for a medical IT system.",
+          "The two frameworks land in roughly the same place for an operating room — both require isolated power there — but they don't map onto each other room by room. A space that's Group 1 under IEC because of how its applied parts are used isn't automatically the same risk category NFPA 99 would assign it, and a facility working to both standards, which does happen where a Saudi project uses an international design consultant, needs its classification done against whichever standard actually governs the contract, not assumed equivalent from the other."
+        ]
+      },
+      {
+        "h2": "How Many Rooms One Transformer Can Serve",
+        "p": [
+          "NFPA 99 and NEC 517.160 generally tie one isolation transformer to one operating room, with limited exceptions mainly for high-voltage equipment such as portable X-ray — the rule is written around a single room's load and a single room's fault risk. IEC 60364-7-710 is explicit that at least one transformer must be provided per room, or per functional group of rooms, with each transformer rated between 0.5 kVA and 10 kVA. That's a real structural difference, not just wording: IEC's own text allows a transformer to serve more than one room under the right conditions, where NFPA 99's room-by-room rule generally doesn't.",
+          "This is the difference that actually matters for a floor plan, more than any specific distance figure — and it's worth being precise about, because the two rules genuinely differ in what they allow, not just in how they're phrased. A design built around NFPA 99 should expect a transformer per operating room; a design built around IEC 60364-7-710 has more latitude to serve a cluster of related rooms from one isolated supply, depending on how the project groups them."
+        ]
+      },
+      {
+        "h2": "Monitoring the Fault: Line Isolation Monitor vs. Insulation Monitoring Device",
+        "p": [
+          "NFPA 99 and NEC 517.160 require a line isolation monitor (LIM) built to UL 1022, alarming when total hazard current reaches 5.0 mA and prohibited from alarming below 3.7 mA — a current-based threshold, visible and audible in the room. IEC 60364-7-710 requires an insulation monitoring device built to IEC 61557-8, working against a touch-voltage limit rather than a fixed current threshold — commonly cited at 25 V AC (or 60 V DC) for the fault conditions Group 1 and Group 2 locations are built to tolerate.",
+          "Functionally, both devices do the same job: they watch an ungrounded circuit for a developing fault and alert staff without cutting power. The certification path and the number each is measuring against are what differ, which is exactly why a monitor built and listed for one standard isn't a drop-in substitute for the other. A UL 1022-listed LIM satisfies an NFPA 99 specification, and an IEC 61557-8 insulation monitoring device satisfies an IEC 60364-7-710 specification — but neither certification covers the other standard on its own."
+        ]
+      },
+      {
+        "h2": "Which Standard Applies on a Project in Saudi Arabia",
+        "p": [
+          "NFPA 99 is the standard this market defaults to — referenced by CBAHI-accredited facilities, written into the brief by most design consultants, and the basis most UL-listed isolated power equipment sold here, including Bender and PG LifeLink panels, is built to. But it isn't the only standard in circulation: some projects, particularly where a European design consultant or European-manufactured equipment is specified, call out IEC 60364-7-710 instead, and manufacturers such as Bender maintain product lines built specifically to each standard — UL 1047/1022-listed panels for NFPA 99 projects, and IEC 61558-2-15/61557-8-compliant isolating transformers and monitors for IEC-specified ones.",
+          "The practical point for anyone specifying or tendering: check which standard the project documents actually call for before ordering equipment, rather than assuming NFPA 99 by default or treating the two standards as interchangeable. A panel that's correctly listed and installed to one standard doesn't automatically satisfy the other, and the gap usually only shows up at inspection or commissioning — exactly the stage where it's most expensive to fix."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Specifying isolated power to NFPA 99 or IEC 60364-7-710?",
+      "text": "We supply, install, test, and maintain isolated power panels built to both standards for healthcare facilities across Saudi Arabia — matched to what your project's design documents actually call for.",
+      "href": "/services/isolated-power-panels/",
+      "label": "Full IPP Details & Specifications",
+      "label_i18n": "ipp_full_details"
+    }
+  },
+  "ar": {
+    "title": "NFPA 99 مقابل IEC 60364-7-710: لوحات الطاقة المعزولة",
+    "description": "كيف يختلف NFPA 99 وNEC 517 عن IEC 60364-7-710 في تصنيف المواقع الطبية ولوحات الطاقة المعزولة، وما يعنيه ذلك لمشروع في السعودية.",
+    "og_description": "نفس المشكلة، قانونان مختلفان. كيف يختلف NFPA 99 عن IEC 60364-7-710 فعليًا في الطاقة المعزولة — التصنيف وقواعد المحوّل والمراقبة.",
+    "excerpt": "كلا المعيارين يشترطان طاقة معزولة في غرفة العمليات — لكنهما يصلان إلى ذلك بطرق مختلفة. كيف يختلف NFPA 99 عن IEC 60364-7-710 فعليًا، دون التخمين بأرقام لا ينص عليها أي من المعيارين.",
+    "breadcrumb": "NFPA 99 مقابل IEC 60364-7-710",
+    "subhead": "معياران لنفس المشكلة الجوهرية — كيف يختلف التصنيف وقواعد المحوّل والمراقبة فعليًا",
+    "lead": "يحل كل من NFPA 99 وIEC 60364-7-710 المشكلة نفسها — إبقاء التيار متصلاً في غرفة العمليات عند حدوث عطل واحد — لكنهما يصلان إلى ذلك بطريقين مختلفين. وبالنسبة لمشروع في المملكة العربية السعودية، حيث يُعدّ NFPA 99 المرجع الواقعي المعتمد بينما تظهر معدات مصمّمة وفق IEC في بعض التصاميم، فإن معرفة أين يختلف المعياران فعليًا أهم من معرفة أيهما “أفضل”.",
+    "sections": [
+      {
+        "h2": "طريقتان مختلفتان لتصنيف المخاطر نفسها",
+        "p": [
+          "يُسند معيار NFPA 99 فئة مخاطر لكل نظام في المنشأة ومساحة رعاية مرضى بناءً على العواقب المترتبة على تعطل النظام الكهربائي — فأعلى فئة تغطي المساحات التي قد يؤثر فيها العطل على مريض يخضع لإجراء جراحي أو داعم للحياة، والطاقة المعزولة هي أحد إجراءات الحماية المرتبطة بهذه الفئة في مواقع الإجراءات الرطبة. أما معيار IEC 60364-7-710 فيتبع نهجًا مرتبطًا لكنه مختلف البنية: إذ يُصنّف المواقع الطبية إلى المجموعة صفر، أو الأولى، أو الثانية، بناءً على نوع الجزء المطبق على المريض وما إذا كان انقطاع التغذية قد يُعرّض الحياة للخطر، وتحمل المجموعة الثانية — كإجراءات القسطرة داخل القلب وغرف العمليات ومناطق العلاج الحيوي المماثلة — شرط توفير نظام تقنية معلومات طبي (medical IT system).",
+          "ويلتقي الإطاران تقريبًا عند النقطة نفسها بالنسبة لغرفة العمليات — فكلاهما يشترط طاقة معزولة فيها — لكنهما لا يتطابقان غرفة بغرفة. فالمساحة المصنّفة كمجموعة أولى وفق IEC بسبب طريقة استخدام أجزائها المطبقة ليست بالضرورة نفس فئة المخاطر التي يُسندها إليها NFPA 99، والمنشأة التي تعمل وفق المعيارين معًا — وهو ما يحدث فعلاً حين يستخدم مشروع سعودي مستشار تصميم دوليًا — يجب أن يتم تصنيفها وفق المعيار الذي يحكم العقد فعليًا، لا افتراض تكافؤ تلقائي مع المعيار الآخر."
+        ]
+      },
+      {
+        "h2": "كم غرفة يمكن أن يغذّيها محوّل واحد",
+        "p": [
+          "يربط NFPA 99 وNEC 517.160 عادةً محوّل عزل واحد بغرفة عمليات واحدة، مع استثناءات محدودة غالبًا للمعدات عالية الجهد مثل أجهزة الأشعة السينية المتنقلة — والقاعدة مكتوبة حول حمل غرفة واحدة وخطر عطل غرفة واحدة. أما IEC 60364-7-710 فينص صراحة على توفير محوّل واحد على الأقل لكل غرفة، أو لكل مجموعة وظيفية من الغرف، بحيث يكون كل محوّل بسعة تتراوح بين 0.5 و10 كيلوفولت أمبير. وهذا اختلاف بنيوي حقيقي وليس مجرد اختلاف في الصياغة: فنص IEC نفسه يسمح لمحوّل واحد بتغذية أكثر من غرفة في الظروف المناسبة، في حين أن قاعدة NFPA 99 القائمة على كل غرفة على حدة لا تسمح بذلك عمومًا.",
+          "وهذا هو الاختلاف الذي يهم فعليًا بالنسبة للمخطط المعماري، أكثر من أي رقم مسافة محدد — ويستحق الدقة فيه، لأن القاعدتين تختلفان فعليًا فيما تسمحان به، لا فقط في طريقة صياغتهما. فالتصميم المبني على NFPA 99 يجب أن يتوقع محوّلاً لكل غرفة عمليات؛ أما التصميم المبني على IEC 60364-7-710 فلديه مرونة أكبر لتغذية مجموعة من الغرف المترابطة من مصدر معزول واحد، حسب طريقة تجميع المشروع لها."
+        ]
+      },
+      {
+        "h2": "مراقبة العطل: جهاز مراقبة عزل الخط مقابل جهاز مراقبة العزل",
+        "p": [
+          "يشترط NFPA 99 وNEC 517.160 جهاز مراقبة عزل الخط (LIM) مصنّعًا وفق UL 1022، يُصدر إنذارًا عند بلوغ إجمالي تيار الخطر 5.0 مللي أمبير، ويُحظر عليه الإنذار عند أقل من 3.7 مللي أمبير — وهو عتبة قائمة على التيار، مرئية ومسموعة داخل الغرفة. أما IEC 60364-7-710 فيشترط جهاز مراقبة عزل مصنّعًا وفق IEC 61557-8، يعمل وفق حد لجهد اللمس لا عتبة تيار ثابتة — ويُذكر غالبًا عند 25 فولت تيار متردد (أو 60 فولت تيار مستمر) لظروف العطل التي صُممت مواقع المجموعتين الأولى والثانية لتحمّلها.",
+          "ومن الناحية الوظيفية، يؤدي الجهازان المهمة نفسها: مراقبة دائرة غير مؤرضة لرصد عطل ناشئ وتنبيه الطاقم دون قطع التيار. والفرق يكمن في مسار الاعتماد والقيمة التي يقيسها كل جهاز، وهذا بالضبط سبب أن الجهاز المصنّع والمعتمد وفق معيار واحد ليس بديلاً مباشرًا للآخر. فجهاز LIM المعتمد وفق UL 1022 يستوفي مواصفة NFPA 99، وجهاز مراقبة العزل وفق IEC 61557-8 يستوفي مواصفة IEC 60364-7-710 — لكن أيًّا من الاعتمادين لا يغطي المعيار الآخر من تلقاء نفسه."
+        ]
+      },
+      {
+        "h2": "أي معيار ينطبق على مشروع في المملكة العربية السعودية",
+        "p": [
+          "يُعدّ NFPA 99 المعيار الذي تستند إليه هذه السوق افتراضيًا — تستند إليه المنشآت المعتمدة من CBAHI، ويُدرجه معظم مستشاري التصميم في كراسة المواصفات، وهو الأساس الذي تُصنَّع وفقه معظم معدات الطاقة المعزولة المدرجة لدى UL والمباعة هنا، بما فيها لوحات Bender وPG LifeLink. لكنه ليس المعيار الوحيد المتداول: فبعض المشاريع، خصوصًا حين يُحدَّد مستشار تصميم أوروبي أو معدات مُصنَّعة أوروبيًا، تشترط IEC 60364-7-710 بدلاً من ذلك، وتحتفظ شركات تصنيع مثل Bender بخطوط منتجات مصمّمة خصيصًا لكل معيار — لوحات مدرجة وفق UL 1047/1022 لمشاريع NFPA 99، ومحوّلات عزل وأجهزة مراقبة متوافقة مع IEC 61558-2-15/61557-8 للمشاريع المحدَّدة وفق IEC.",
+          "والنقطة العملية لأي جهة تُحدِّد المواصفات أو تطرح مناقصة: تحقق من المعيار الذي تشترطه وثائق المشروع فعليًا قبل طلب المعدات، بدلاً من افتراض NFPA 99 كخيار افتراضي أو معاملة المعيارين كأنهما قابلان للتبادل. فاللوحة المُدرجة والمركَّبة بشكل صحيح وفق معيار واحد لا تستوفي المعيار الآخر تلقائيًا، وهذه الفجوة عادةً لا تظهر إلا عند التفتيش أو التشغيل — وهي بالضبط المرحلة الأكثر تكلفة لإصلاحها."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "هل تحدد مواصفات طاقة معزولة وفق NFPA 99 أو IEC 60364-7-710؟",
+      "text": "نقوم بتوريد وتركيب واختبار وصيانة لوحات طاقة معزولة مصنّعة وفق كلا المعيارين للمنشآت الصحية في جميع أنحاء المملكة العربية السعودية — بما يطابق ما تشترطه وثائق تصميم مشروعك فعليًا."
+    }
+  }
+}

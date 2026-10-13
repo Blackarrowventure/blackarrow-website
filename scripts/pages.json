@@ -220,6 +220,11 @@
       "ar": true
     },
     {
+      "src": "resources/blog/nfpa-99-vs-iec-60364-7-710-isolated-power-panels/index.html",
+      "url": "/resources/blog/nfpa-99-vs-iec-60364-7-710-isolated-power-panels/",
+      "ar": true
+    },
+    {
       "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
       "src": "resources/case-studies/index.html",
       "url": "/resources/case-studies/",
