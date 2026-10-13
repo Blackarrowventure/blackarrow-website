@@ -418,6 +418,28 @@
     return T('js_best_seller_badge_n').replace('{n}', rank);
   }
 
+  /* Tabby "pay in 4": only shown where checkout really allows it (75–10,000 SAR,
+     the limits in api/tabby/create-session.js). */
+  var TABBY_MIN = 75, TABBY_MAX = 10000;
+  function bnplOk(price) { return price >= TABBY_MIN && price <= TABBY_MAX; }
+  function bnplQuarter(price) { return Math.round(price / 4 * 100) / 100; }
+  // Instalments always show two decimals when they have any (674.75, 1,387.50).
+  function bnplMoney(price, currency) {
+    var q = bnplQuarter(price);
+    var whole = q.toLocaleString('en-US');
+    return q % 1 ? money(q, currency).replace(whole, q.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })) : money(q, currency);
+  }
+  var TABBY_MARK = '<span class="b3d-bnpl__tabby"><img src="/3d/assets/images/payment/tabby.png" alt="" width="16" height="16">tabby</span>';
+  function bnplHtml(price, currency) {
+    if (!bnplOk(price)) return '';
+    return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price, currency) + '</b> ' + T('js_bnpl_with') + ' ' + TABBY_MARK +
+      '<span class="b3d-bnpl__alt">' + T('js_bnpl_tamara') + '</span></p>';
+  }
+  function bnplCardHtml(price, currency) {
+    if (!bnplOk(price)) return '';
+    return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' ' + TABBY_MARK + '</span>';
+  }
+
   function vatNoteHtml(p) {
     return p.vatIncluded ? '<span class="b3d-vat-note">' + T('js_vat_included') + '</span>' : '';
   }
@@ -521,6 +543,7 @@
           '<div class="b3d-price-wrap">' +
             '<div class="b3d-price-col">' +
               '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' + vatNoteHtml(p) +
+              (p.category === '3D Printers' && !pillOut && !simpleOut ? '<div data-card-bnpl>' + bnplCardHtml(pillProduct ? p.variants[pillIdx].price : currentPrice(p), p.currency) + '</div>' : '') +
             '</div>' +
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
@@ -570,6 +593,8 @@
         }
         var priceEl = pCard.querySelector('[data-card-price]');
         if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
+        var bnplEl = pCard.querySelector('[data-card-bnpl]');
+        if (bnplEl && product) bnplEl.innerHTML = bnplCardHtml(product.variants[pIdx].price, product.currency);
         var pv = product && product.variants[pIdx];
         var pImg = pCard.querySelector('.b3d-card__visual img');
         if (pv && pv.image && pImg) { pImg.removeAttribute('srcset'); pImg.removeAttribute('sizes'); pImg.src = pv.image; }
@@ -2062,6 +2087,7 @@
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
+          '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency)) + '</div>' +
           variantSelectorHtml +
           trustRowHtml(p) +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
@@ -2169,6 +2195,8 @@
           if (ok) {
             selectedVariant = picked.length - bundleMin;
             if (pdPriceEl) pdPriceEl.innerHTML = variantPriceHtml(p.variants[selectedVariant], p);
+            var bnplWrapB = container.querySelector('[data-pd-bnpl]');
+            if (bnplWrapB) bnplWrapB.innerHTML = bnplHtml(p.variants[selectedVariant].price, p.currency);
           }
         }
         container.querySelectorAll('[data-bundle-item]').forEach(function (btn) {
@@ -2210,6 +2238,8 @@
       }
       function refreshStockUi() {
         if (restockEl) restockEl.hidden = !selectionOut();
+        var bnplWrap = container.querySelector('[data-pd-bnpl]');
+        if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency);
         refreshFbt();
       }
       if (fbtEl) {

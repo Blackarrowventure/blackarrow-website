@@ -2757,3 +2757,14 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-quote__send { display: block; width: 100%; text-align: center; margin-top: 8px; }
 .b3d-quote__attach { color: rgba(255,255,255,.6); font-size: .8rem; text-align: center; margin: 6px 0 0; }
 .b3d-quote__again { background: none; border: 0; color: var(--clr-accent); font: inherit; font-size: .85rem; cursor: pointer; padding: 8px 0; text-decoration: underline; }
+
+/* ---- Tabby "pay in 4" line (product page + printer cards) ---- */
+.b3d-bnpl { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 6px 0 14px; font-size: .9rem; color: #333; }
+.b3d-bnpl b { color: #111; }
+.b3d-bnpl__tabby { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px 2px 3px; border-radius: 999px; background: #3effa8; color: #111; font-weight: 800; font-size: .8rem; letter-spacing: -.01em; line-height: 1.4; }
+.b3d-bnpl__tabby img { width: 16px; height: 16px; border-radius: 50%; }
+.b3d-bnpl__alt { flex-basis: 100%; font-size: .78rem; color: #6b6b6b; }
+.b3d-bnpl-card { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 4px; font-size: .74rem; color: #555; }
+.b3d-bnpl-card .b3d-bnpl__tabby { font-size: .7rem; padding: 1px 6px 1px 2px; }
+.b3d-bnpl-card .b3d-bnpl__tabby img { width: 13px; height: 13px; }
+.b3d-bnpl-card .b3d-riyal svg, .b3d-bnpl .b3d-riyal svg { vertical-align: -1px; }
