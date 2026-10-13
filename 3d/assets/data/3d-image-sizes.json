@@ -1,0 +1,830 @@
+{
+"/3d/assets/images/products/a1-extruder-unit-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/a1-extruder-unit-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/air-filter-lamp-01.webp": [
+1100,
+1466
+],
+"/3d/assets/images/products/air-filter-lamp-02.webp": [
+1100,
+1466
+],
+"/3d/assets/images/products/air-filter-lamp-03.webp": [
+1100,
+1466
+],
+"/3d/assets/images/products/air-filter-lamp-04.webp": [
+1100,
+1466
+],
+"/3d/assets/images/products/anycubic-kobra3max-01.webp": [
+600,
+600
+],
+"/3d/assets/images/products/anycubic-kobra3max-02.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/anycubic-kobra3max-03.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/anycubic-kobra3max-04.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/anycubic-kobra3max-05.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/anycubic-kobra3max-06.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/anycubic-kobra3max-combo.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/bambu-a1-01.webp": [
+900,
+900
+],
+"/3d/assets/images/products/bambu-a1-02.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/bambu-a1-03.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a1-04.webp": [
+1063,
+1063
+],
+"/3d/assets/images/products/bambu-a1-05.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a1-06.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a1-mini-ams-combo.webp": [
+1144,
+926
+],
+"/3d/assets/images/products/bambu-a1-mini-lifestyle.webp": [
+700,
+700
+],
+"/3d/assets/images/products/bambu-a1-mini-main.webp": [
+599,
+800
+],
+"/3d/assets/images/products/bambu-a1-mini-nozzle-light.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a1-mini-screen.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/bambu-a2l-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a2l-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a2l-03.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a2l-04.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a2l-05.webp": [
+1040,
+1040
+],
+"/3d/assets/images/products/bambu-a2l-06.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-a2l-07.webp": [
+1200,
+1122
+],
+"/3d/assets/images/products/bambu-a2l-08.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-h2c-01.webp": [
+763,
+759
+],
+"/3d/assets/images/products/bambu-h2c-02.webp": [
+810,
+881
+],
+"/3d/assets/images/products/bambu-h2c-03.webp": [
+890,
+897
+],
+"/3d/assets/images/products/bambu-h2c-04.webp": [
+744,
+851
+],
+"/3d/assets/images/products/bambu-hotend-a1-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-hotend-a1-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-hotend-a1-03.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-hotend-a1-04.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-hotend-a1-05.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-hotend-a1-06.webp": [
+1200,
+446
+],
+"/3d/assets/images/products/bambu-hotend-a1-07.webp": [
+1200,
+520
+],
+"/3d/assets/images/products/bambu-p2s-01.webp": [
+892,
+864
+],
+"/3d/assets/images/products/bambu-p2s-02.webp": [
+832,
+905
+],
+"/3d/assets/images/products/bambu-p2s-03.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-p2s-04.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/bambu-p2s-05.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-03.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-04.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-05.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-06.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/creality-sparkx-i7-combo.webp": [
+1100,
+445
+],
+"/3d/assets/images/products/custom-3d-artwork-promo.webp": [
+1062,
+965
+],
+"/3d/assets/images/products/elegoo-cc2-01.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/elegoo-cc2-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/elegoo-cc2-03.webp": [
+1024,
+1126
+],
+"/3d/assets/images/products/elegoo-cc2-04.webp": [
+1050,
+1050
+],
+"/3d/assets/images/products/elegoo-cc2-05.webp": [
+933,
+933
+],
+"/3d/assets/images/products/elegoo-cc2-06.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/elegoo-cc2-07.webp": [
+1128,
+1200
+],
+"/3d/assets/images/products/elegoo-cc2-08.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/elegoo-cc2-09.webp": [
+1200,
+1150
+],
+"/3d/assets/images/products/f1-car-3d-model-01.webp": [
+900,
+900
+],
+"/3d/assets/images/products/f1-car-3d-model-02.webp": [
+900,
+900
+],
+"/3d/assets/images/products/filament-cutter-lever-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/filament-cutter-lever-02.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flashforge-adv5m-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flashforge-c5pro-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flmnt-pla-black.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flmnt-pla-blue.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/flmnt-pla-gray.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/flmnt-pla-green.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/flmnt-pla-orange.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flmnt-pla-red.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/flmnt-pla-white.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/flmnt-pla-yellow.webp": [
+1024,
+1024
+],
+"/3d/assets/images/products/green-knit-cap-01.webp": [
+543,
+724
+],
+"/3d/assets/images/products/green-knit-cap-02.webp": [
+543,
+724
+],
+"/3d/assets/images/products/gta-vi-duo-statue-01.webp": [
+1198,
+896
+],
+"/3d/assets/images/products/gta-vi-ps5-controller-stand-02.webp": [
+880,
+1187
+],
+"/3d/assets/images/products/gta-vi-ps5-controller-stand-studio.webp": [
+1196,
+896
+],
+"/3d/assets/images/products/hotend-heating-a1-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/hotend-heating-a1-02.webp": [
+800,
+800
+],
+"/3d/assets/images/products/infinity-cube-fidget-toy-promo.webp": [
+1200,
+1500
+],
+"/3d/assets/images/products/kingroon-petg-basic-blue.webp": [
+713,
+713
+],
+"/3d/assets/images/products/kingroon-petg-basic-green.webp": [
+713,
+713
+],
+"/3d/assets/images/products/kingroon-petg-basic-orange.webp": [
+713,
+713
+],
+"/3d/assets/images/products/kingroon-petg-basic-red.webp": [
+713,
+713
+],
+"/3d/assets/images/products/kingroon-petg-basic-yellow.webp": [
+713,
+713
+],
+"/3d/assets/images/products/kingroon-petg-dark-blue.webp": [
+969,
+899
+],
+"/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp": [
+933,
+900
+],
+"/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp": [
+968,
+899
+],
+"/3d/assets/images/products/kingroon-petg-gray.webp": [
+1028,
+899
+],
+"/3d/assets/images/products/kingroon-petg-pink.webp": [
+901,
+900
+],
+"/3d/assets/images/products/kingroon-petg-silver.webp": [
+1010,
+900
+],
+"/3d/assets/images/products/kingroon-petg-sky-blue.webp": [
+848,
+899
+],
+"/3d/assets/images/products/kingroon-petg-transparent-green.webp": [
+900,
+900
+],
+"/3d/assets/images/products/kingroon-petg-transparent-pink.webp": [
+900,
+900
+],
+"/3d/assets/images/products/kingroon-petg-transparent-red.webp": [
+949,
+899
+],
+"/3d/assets/images/products/kingroon-petg-transparent.webp": [
+888,
+899
+],
+"/3d/assets/images/products/kingroon-pla-black.webp": [
+1083,
+899
+],
+"/3d/assets/images/products/kingroon-pla-blue.webp": [
+978,
+900
+],
+"/3d/assets/images/products/kingroon-pla-brown.webp": [
+900,
+900
+],
+"/3d/assets/images/products/kingroon-pla-gray.webp": [
+949,
+896
+],
+"/3d/assets/images/products/kingroon-pla-green.webp": [
+900,
+900
+],
+"/3d/assets/images/products/kingroon-pla-orange.webp": [
+1051,
+899
+],
+"/3d/assets/images/products/kingroon-pla-pink.webp": [
+980,
+900
+],
+"/3d/assets/images/products/kingroon-pla-purple.webp": [
+1079,
+900
+],
+"/3d/assets/images/products/kingroon-pla-red.webp": [
+1120,
+900
+],
+"/3d/assets/images/products/kingroon-pla-silver.webp": [
+974,
+899
+],
+"/3d/assets/images/products/kingroon-pla-skin.webp": [
+880,
+899
+],
+"/3d/assets/images/products/kingroon-pla-sky-blue.webp": [
+1007,
+899
+],
+"/3d/assets/images/products/kingroon-pla-transparent.webp": [
+1132,
+900
+],
+"/3d/assets/images/products/kingroon-pla-white.webp": [
+884,
+899
+],
+"/3d/assets/images/products/kingroon-pla-yellow.webp": [
+1057,
+899
+],
+"/3d/assets/images/products/kit-a1-mini-starter.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/kit-a2l-big-print.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/kit-kingroon-mix-4-pack.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/kit-pla-plus-4-pack.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/kit-snapmaker-u1-multicolor.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/luffy-keychain-promo.webp": [
+1120,
+960
+],
+"/3d/assets/images/products/man-push-ps5-controller-stand-01.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/man-push-ps5-controller-stand-02.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/mustang-gt-black.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/mustang-gt-green.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/mustang-gt-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/mustang-gt-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/mustang-gt-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/naruto-leaf-keychain-promo.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/naruto-portrait-plaque-black.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/naruto-portrait-plaque-green.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/naruto-portrait-plaque-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/naruto-portrait-plaque-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/national-day-key-holder-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/one-piece-luffy-silhouette-lamp.webp": [
+896,
+1174
+],
+"/3d/assets/images/products/one-piece-sanji-silhouette-lamp.webp": [
+896,
+1198
+],
+"/3d/assets/images/products/one-piece-sword-keychain-group.webp": [
+1043,
+1400
+],
+"/3d/assets/images/products/one-piece-sword-keychain-luffy.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/one-piece-sword-keychain-sanji.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/one-piece-sword-keychain-zoro.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/one-piece-zoro-silhouette-lamp.webp": [
+896,
+1196
+],
+"/3d/assets/images/products/oni-controller-stand-01.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-02.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-03.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-04.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-05.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-06.webp": [
+1280,
+960
+],
+"/3d/assets/images/products/oni-controller-stand-07-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-1.webp": [
+1007,
+847
+],
+"/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-2.webp": [
+946,
+840
+],
+"/3d/assets/images/products/oni-mask-v2-ps5-controller-stand-3.webp": [
+975,
+802
+],
+"/3d/assets/images/products/overthing-01.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/pillow-controller-stand-both.webp": [
+1447,
+1087
+],
+"/3d/assets/images/products/pillow-controller-stand-grey.webp": [
+727,
+1027
+],
+"/3d/assets/images/products/pillow-controller-stand-orange.webp": [
+610,
+950
+],
+"/3d/assets/images/products/ps-symbols-controller-stand-01.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/ps-symbols-controller-stand-02.webp": [
+1000,
+1000
+],
+"/3d/assets/images/products/ps5-dual-football-stand-01.webp": [
+1200,
+1200
+],
+"/3d/assets/images/products/question-block-stand-01.webp": [
+1050,
+1400
+],
+"/3d/assets/images/products/question-block-stand-02.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-decor-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-hanging-decor-black.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-hanging-decor-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-hanging-decor-white.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-hanging-decor-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-keychain-black.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-keychain-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-keychain-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-keychain-white.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-map-keychain-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-palm-swords-keychain-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-palm-swords-keychain-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-palm-swords-keychain-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-riyal-keychain-promo.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-riyal-keychain-red.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/saudi-riyal-keychain-yellow.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/snapmaker-u1-01.webp": [
+1037,
+1037
+],
+"/3d/assets/images/products/snapmaker-u1-02.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-03.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-04.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-05.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-06.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-07.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-08.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-09.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-10.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-11.webp": [
+900,
+900
+],
+"/3d/assets/images/products/snapmaker-u1-12.webp": [
+1200,
+728
+],
+"/3d/assets/images/products/spiderman-mask-pen-holder-black.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/spiderman-mask-pen-holder-gray.webp": [
+1254,
+1254
+],
+"/3d/assets/images/products/straw-hat-controller-stand-01.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/straw-hat-controller-stand-02.webp": [
+1100,
+1100
+],
+"/3d/assets/images/products/synapse-usb-lamp-01.webp": [
+1000,
+1249
+],
+"/3d/assets/images/products/toji-edge-sitter-figure-01.webp": [
+659,
+1133
+],
+"/3d/assets/images/products/toji-edge-sitter-figure-02.webp": [
+1070,
+795
+],
+"/3d/assets/images/products/uchiha-keychain-01.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-02.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-03.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-04.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-05.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-06.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-07.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-08.webp": [
+600,
+600
+],
+"/3d/assets/images/products/uchiha-keychain-09.webp": [
+600,
+600
+]
+}

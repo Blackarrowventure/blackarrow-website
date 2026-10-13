@@ -101,6 +101,10 @@ def build_3d_urls():
             out.append(url_block(en, '0.7', 'weekly', en=en, ar=ar))
             out.append(url_block(ar, '0.7', 'weekly', en=en, ar=ar))
 
+    if os.path.isfile(os.path.join(ROOT, '3d', 'deals', 'index.html')):
+        out.append(url_block(SITE + '/3d/deals/', '0.8', 'weekly', en=SITE + '/3d/deals/', ar=SITE + '/3d/ar/deals/'))
+        out.append(url_block(SITE + '/3d/ar/deals/', '0.8', 'weekly', en=SITE + '/3d/deals/', ar=SITE + '/3d/ar/deals/'))
+
     for slug in ('3d-printing-service-saudi-arabia', 'quote', 'business', 'shipping', 'reviews'):
         en = SITE + '/3d/' + slug + '/'
         ar = SITE + '/3d/ar/' + slug + '/'

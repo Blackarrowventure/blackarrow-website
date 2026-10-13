@@ -24,6 +24,7 @@
     "shortDesc": "string",
     "description": "string",
     "specs": "array of [label, value] pairs",
+    "kit": "array of {id, variant (optional index), qty}, optional — makes the product a fixed kit/deal: the product page lists the contents and the saving, and the kit shows out of stock whenever any part is. Set price to the parts total and salePrice to the kit price.",
     "boughtTogether": "array of product ids, optional — 'Frequently bought together' on the product page (out-of-stock items are skipped; use \"id::2\" to suggest a specific option)",
     "compatibility": "array of strings, optional",
     "warranty": "string, optional",
@@ -680,6 +681,351 @@
       ]
     },
     {
+      "id": "bambu-lab-a1-mini-starter-kit",
+      "name": "Bambu Lab A1 mini Starter Kit",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "printerType": "FDM",
+      "sku": "KIT-A1MINI-START",
+      "price": 3034,
+      "onSale": true,
+      "salePrice": 2849,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "kit": [
+        {
+          "id": "bambu-lab-a1-mini",
+          "variant": 1,
+          "qty": 1
+        },
+        {
+          "id": "filament-pla-1kg",
+          "qty": 3
+        },
+        {
+          "id": "bambu-hotend-a1-series",
+          "variant": 1,
+          "qty": 1
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kit-a1-mini-starter.webp",
+        "/3d/assets/images/products/bambu-a1-mini-main.webp",
+        "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp",
+        "/3d/assets/images/products/bambu-a1-mini-lifestyle.webp",
+        "/3d/assets/images/products/bambu-a1-mini-nozzle-light.webp"
+      ],
+      "shortDesc": "Everything to start printing in color: A1 mini Combo with AMS lite, 3 spools of PLA+ and a spare 0.4 mm hotend.",
+      "description": "The easiest way to start 3D printing. This kit puts together the Bambu Lab A1 mini Combo, with its AMS lite for printing in up to four colors, three 1 kg spools of PLA+ filament so you can start printing on day one, and a spare 0.4 mm A1-series hotend so a clog or worn nozzle never stops you. You pay less than buying each item on its own. Choose your three PLA+ colors in the order notes at checkout; if you don't, we send black, white and red.",
+      "specs": [
+        [
+          "In the kit",
+          "Bambu Lab A1 mini — Combo (printer + AMS lite), 3 × PLA+ Filament 1kg, Bambu Hotend — A1 Series — 0.4mm"
+        ],
+        [
+          "Price if bought separately",
+          "3,034 SAR"
+        ],
+        [
+          "You save",
+          "185 SAR"
+        ],
+        [
+          "Build Volume",
+          "180 x 180 x 180 mm"
+        ],
+        [
+          "Chassis",
+          "Steel + Extruded Aluminum"
+        ],
+        [
+          "Hot End",
+          "All-Metal"
+        ],
+        [
+          "Nozzle",
+          "Stainless Steel, 0.4 mm (0.2 / 0.6 / 0.8 mm optional)"
+        ],
+        [
+          "Max Hot End Temperature",
+          "300 °C"
+        ],
+        [
+          "Max Bed Temperature",
+          "80 °C"
+        ]
+      ],
+      "name_ar": "طقم البداية بامبو لاب A1 mini",
+      "shortDesc_ar": "كل ما تحتاجه لتبدأ الطباعة بالألوان: A1 mini كومبو مع AMS lite و3 بكرات PLA+ وهوت إند احتياطي 0.4 مم.",
+      "description_ar": "أسهل طريقة لتبدأ الطباعة ثلاثية الأبعاد. يجمع هذا الطقم طابعة Bambu Lab A1 mini كومبو مع وحدة AMS lite للطباعة بما يصل إلى أربعة ألوان، وثلاث بكرات فلمنت PLA+ بوزن 1 كجم لتبدأ الطباعة من أول يوم، وهوت إند احتياطي 0.4 مم لسلسلة A1 حتى لا يوقفك انسداد أو تآكل الفوهة. تدفع أقل من شراء كل قطعة وحدها. اختر ألوان PLA+ الثلاثة في ملاحظات الطلب عند الدفع، وإن لم تختر نرسل الأسود والأبيض والأحمر.",
+      "specs_ar": [
+        [
+          "محتويات الطقم",
+          "بامبو لاب A1 ميني — باقة (الطابعة + AMS lite)، 3 × فلمنت PLA+ 1 كجم، هوت إند بامبو — سلسلة A1 — 0.4 مم"
+        ],
+        [
+          "السعر عند الشراء منفصلًا",
+          "3,034 ريال"
+        ],
+        [
+          "توفّر",
+          "185 ريال"
+        ],
+        [
+          "حجم الطباعة",
+          "180 × 180 × 180 مم"
+        ],
+        [
+          "الهيكل",
+          "فولاذ + ألمنيوم مبثوق"
+        ],
+        [
+          "رأس الطباعة",
+          "معدني بالكامل"
+        ],
+        [
+          "الفوهة",
+          "فولاذ مقاوم للصدأ، 0.4 مم (اختياري 0.2 / 0.6 / 0.8 مم)"
+        ],
+        [
+          "حرارة الهوت إند",
+          "300 °م"
+        ],
+        [
+          "حرارة السرير",
+          "80 °م"
+        ]
+      ]
+    },
+    {
+      "id": "snapmaker-u1-multicolor-kit",
+      "name": "Snapmaker U1 Multicolor Kit",
+      "brand": "Snapmaker",
+      "category": "3D Printers",
+      "printerType": "FDM",
+      "sku": "KIT-U1-MULTI",
+      "price": 5850,
+      "onSale": true,
+      "salePrice": 5599,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "kit": [
+        {
+          "id": "snapmaker-u1",
+          "qty": 1
+        },
+        {
+          "id": "filament-pla-1kg",
+          "qty": 4
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kit-snapmaker-u1-multicolor.webp",
+        "/3d/assets/images/products/snapmaker-u1-01.webp",
+        "/3d/assets/images/products/snapmaker-u1-02.webp",
+        "/3d/assets/images/products/snapmaker-u1-03.webp",
+        "/3d/assets/images/products/snapmaker-u1-04.webp"
+      ],
+      "shortDesc": "Snapmaker U1 with four spools of PLA+, one for each of its four toolheads.",
+      "description": "The Snapmaker U1 prints in up to four colors with four independent toolheads, so it needs four spools from the start. This kit includes the U1 and four 1 kg spools of PLA+ in the colors you pick, ready for your first multicolor prints: figures, logos, signs and gifts. It costs less than buying the printer and filament separately, and regular delivery is free. Write your four colors in the order notes at checkout; if you don't, we send black, white, yellow and red.",
+      "specs": [
+        [
+          "In the kit",
+          "Snapmaker U1, 4 × PLA+ Filament 1kg"
+        ],
+        [
+          "Price if bought separately",
+          "5,850 SAR"
+        ],
+        [
+          "You save",
+          "251 SAR"
+        ],
+        [
+          "Build Volume",
+          "270 x 270 x 270 mm"
+        ],
+        [
+          "Max Hot End Temperature",
+          "300 °C"
+        ],
+        [
+          "Max Bed Temperature",
+          "100 °C"
+        ],
+        [
+          "Nozzle",
+          "0.4 mm standard"
+        ],
+        [
+          "Multi-Color Printing",
+          "4 independent toolheads via SnapSwap system"
+        ],
+        [
+          "Supported Filament",
+          "PLA / PETG / TPU and similar, depending on settings"
+        ]
+      ],
+      "name_ar": "طقم الألوان سنابميكر U1",
+      "shortDesc_ar": "سنابميكر U1 مع أربع بكرات PLA+، بكرة لكل رأس من رؤوس الطباعة الأربعة.",
+      "description_ar": "تطبع سنابميكر U1 بما يصل إلى أربعة ألوان عبر أربعة رؤوس طباعة مستقلة، لذلك تحتاج أربع بكرات من البداية. يضم هذا الطقم طابعة U1 وأربع بكرات PLA+ بوزن 1 كجم بالألوان التي تختارها، جاهزة لأول مطبوعاتك الملونة: مجسمات وشعارات ولوحات وهدايا. سعره أقل من شراء الطابعة والفلمنت منفصلين، والتوصيل العادي مجاني. اكتب ألوانك الأربعة في ملاحظات الطلب عند الدفع، وإن لم تكتبها نرسل الأسود والأبيض والأصفر والأحمر.",
+      "specs_ar": [
+        [
+          "محتويات الطقم",
+          "سنابميكر U1، 4 × فلمنت PLA+ 1 كجم"
+        ],
+        [
+          "السعر عند الشراء منفصلًا",
+          "5,850 ريال"
+        ],
+        [
+          "توفّر",
+          "251 ريال"
+        ],
+        [
+          "حجم الطباعة",
+          "270 × 270 × 270 مم"
+        ],
+        [
+          "حرارة الهوت إند",
+          "حتى 300°C"
+        ],
+        [
+          "حرارة السرير",
+          "حتى 100°C"
+        ],
+        [
+          "قطر النوزل",
+          "0.4 مم أساسي"
+        ],
+        [
+          "الطباعة متعددة الألوان",
+          "4 رؤوس طباعة مستقلة عبر نظام SnapSwap"
+        ],
+        [
+          "الخامات المناسبة",
+          "PLA / PETG / TPU وخامات مشابهة حسب الإعدادات"
+        ]
+      ]
+    },
+    {
+      "id": "bambu-lab-a2l-big-print-kit",
+      "name": "Bambu Lab A2L Big Print Kit",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "printerType": "FDM",
+      "sku": "KIT-A2L-BIG",
+      "price": 4500,
+      "onSale": true,
+      "salePrice": 4299,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "kit": [
+        {
+          "id": "bambu-lab-a2l",
+          "qty": 1
+        },
+        {
+          "id": "filament-pla-1kg",
+          "qty": 4
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kit-a2l-big-print.webp",
+        "/3d/assets/images/products/bambu-a2l-04.webp",
+        "/3d/assets/images/products/bambu-a2l-01.webp",
+        "/3d/assets/images/products/bambu-a2l-02.webp",
+        "/3d/assets/images/products/bambu-a2l-03.webp"
+      ],
+      "shortDesc": "A2L Combo for large prints, with four spools of PLA+ to fill its AMS lite.",
+      "description": "Large prints use a lot of filament. This kit pairs the Bambu Lab A2L Combo, with its 330 x 320 x 325 mm build volume and AMS lite, with four 1 kg spools of PLA+, one for each AMS lite slot, so you can start big multicolor projects right away: cosplay pieces, decor, signs and prototypes. You pay less than buying each item separately, and regular delivery is free. Choose your four colors in the order notes at checkout; if you don't, we send black, white, gray and green.",
+      "specs": [
+        [
+          "In the kit",
+          "Bambu Lab A2L Combo, 4 × PLA+ Filament 1kg"
+        ],
+        [
+          "Price if bought separately",
+          "4,500 SAR"
+        ],
+        [
+          "You save",
+          "201 SAR"
+        ],
+        [
+          "Build Volume",
+          "330 x 320 x 325 mm"
+        ],
+        [
+          "Build Volume (Liters)",
+          "~34.3 L"
+        ],
+        [
+          "Max Speed",
+          "500 mm/s"
+        ],
+        [
+          "Max Acceleration",
+          "10,000 mm/s²"
+        ],
+        [
+          "Max Hot End Temperature",
+          "300 °C"
+        ],
+        [
+          "Max Bed Temperature",
+          "80 °C"
+        ]
+      ],
+      "name_ar": "طقم الطباعة الكبيرة بامبو لاب A2L",
+      "shortDesc_ar": "A2L كومبو للطباعة الكبيرة مع أربع بكرات PLA+ تملأ وحدة AMS lite.",
+      "description_ar": "الطباعات الكبيرة تستهلك فلمنت كثيرًا. يجمع هذا الطقم طابعة Bambu Lab A2L كومبو بحجم طباعة 330 × 320 × 325 مم ووحدة AMS lite، مع أربع بكرات PLA+ بوزن 1 كجم، بكرة لكل فتحة في AMS lite، لتبدأ مشاريعك الكبيرة الملونة مباشرة: قطع الكوسبلاي والديكور واللوحات والنماذج الأولية. تدفع أقل من شراء كل قطعة وحدها، والتوصيل العادي مجاني. اختر ألوانك الأربعة في ملاحظات الطلب عند الدفع، وإن لم تختر نرسل الأسود والأبيض والرمادي والأخضر.",
+      "specs_ar": [
+        [
+          "محتويات الطقم",
+          "بامبو لاب A2L كومبو، 4 × فلمنت PLA+ 1 كجم"
+        ],
+        [
+          "السعر عند الشراء منفصلًا",
+          "4,500 ريال"
+        ],
+        [
+          "توفّر",
+          "201 ريال"
+        ],
+        [
+          "حجم الطباعة",
+          "330 × 320 × 325 مم"
+        ],
+        [
+          "حجم الطباعة بالفوليوم",
+          "حوالي 34.3 لتر"
+        ],
+        [
+          "السرعة القصوى",
+          "حتى 500 مم/ث"
+        ],
+        [
+          "التسارع",
+          "حتى 10,000 مم/ث²"
+        ],
+        [
+          "حرارة الهوت إند",
+          "حتى 300 °م"
+        ],
+        [
+          "حرارة السرير",
+          "حتى 80 °م"
+        ]
+      ]
+    },
+    {
       "id": "filament-pla-1kg",
       "name": "PLA+ Filament 1kg",
       "brand": "Generic",
@@ -725,6 +1071,130 @@
         ["الوزن", "1 كيلو"],
         ["قطر الفلمنت", "1.75 مم"],
         ["الاستخدام", "طباعة ثلاثية الأبعاد FDM"]
+      ]
+    },
+    {
+      "id": "pla-plus-4-pack",
+      "name": "PLA+ Filament 4-Pack (1kg x 4)",
+      "brand": "Generic",
+      "category": "Filament",
+      "sku": "KIT-PLA-PLUS-4",
+      "price": 300,
+      "onSale": true,
+      "salePrice": 269,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "kit": [
+        {
+          "id": "filament-pla-1kg",
+          "qty": 4
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kit-pla-plus-4-pack.webp",
+        "/3d/assets/images/products/flmnt-pla-black.webp",
+        "/3d/assets/images/products/flmnt-pla-gray.webp",
+        "/3d/assets/images/products/flmnt-pla-yellow.webp",
+        "/3d/assets/images/products/flmnt-pla-orange.webp"
+      ],
+      "shortDesc": "Four 1 kg spools of PLA+ in the colors you choose, ready for a 4-slot AMS.",
+      "description": "Four 1 kg spools of 1.75 mm PLA+ for less than buying them one by one. Four spools fill a Bambu Lab AMS or AMS lite, or the four toolheads of a Snapmaker U1, so you can print in color straight away. PLA+ is tougher and less brittle than standard PLA while staying just as easy to print, and it works on almost any FDM printer. Choose your four colors in the order notes at checkout from the PLA+ colors currently in stock; if you don't, we send black, white, red and yellow.",
+      "specs": [
+        [
+          "In the kit",
+          "4 × PLA+ Filament 1kg"
+        ],
+        [
+          "Price if bought separately",
+          "300 SAR"
+        ],
+        [
+          "You save",
+          "31 SAR"
+        ]
+      ],
+      "name_ar": "باقة فلمنت PLA+ أربع بكرات (4 × 1 كجم)",
+      "shortDesc_ar": "أربع بكرات PLA+ بوزن 1 كجم بالألوان التي تختارها، جاهزة لوحدة AMS بأربع فتحات.",
+      "description_ar": "أربع بكرات PLA+ بوزن 1 كجم وقطر 1.75 مم بسعر أقل من شرائها واحدة واحدة. أربع بكرات تملأ وحدة AMS أو AMS lite من Bambu Lab، أو رؤوس الطباعة الأربعة في سنابميكر U1، فتبدأ الطباعة بالألوان مباشرة. فلمنت PLA+ أقوى وأقل هشاشة من PLA العادي مع بقاء سهولة الطباعة، ويعمل على أغلب طابعات FDM. اختر ألوانك الأربعة في ملاحظات الطلب عند الدفع من ألوان PLA+ المتوفرة حاليًا، وإن لم تختر نرسل الأسود والأبيض والأحمر والأصفر.",
+      "specs_ar": [
+        [
+          "محتويات الطقم",
+          "4 × فلمنت PLA+ 1 كجم"
+        ],
+        [
+          "السعر عند الشراء منفصلًا",
+          "300 ريال"
+        ],
+        [
+          "توفّر",
+          "31 ريال"
+        ]
+      ]
+    },
+    {
+      "id": "kingroon-pla-petg-mix-4-pack",
+      "name": "KINGROON PLA + PETG Mix 4-Pack",
+      "brand": "KINGROON",
+      "category": "Filament",
+      "sku": "KIT-KINGROON-MIX-4",
+      "price": 236,
+      "onSale": true,
+      "salePrice": 209,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "kit": [
+        {
+          "id": "kingroon-pla-basic-filament",
+          "qty": 2
+        },
+        {
+          "id": "kingroon-petg-basic-filament",
+          "qty": 2
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kit-kingroon-mix-4-pack.webp",
+        "/3d/assets/images/products/kingroon-pla-black.webp",
+        "/3d/assets/images/products/kingroon-pla-white.webp",
+        "/3d/assets/images/products/kingroon-pla-gray.webp",
+        "/3d/assets/images/products/kingroon-pla-silver.webp"
+      ],
+      "shortDesc": "Two spools of KINGROON PLA and two of PETG: easy prints and tough parts in one pack.",
+      "description": "A starter mix for every kind of print: two 1 kg spools of KINGROON PLA Basic for decor, figures and gifts, and two 1 kg spools of KINGROON PETG Basic for stronger, heat-resistant functional parts. All are 1.75 mm and work with almost any FDM printer. You pay less than buying the four spools separately. Choose your colors in the order notes at checkout; if you don't, we send black and white PLA with blue and orange PETG.",
+      "specs": [
+        [
+          "In the kit",
+          "2 × KINGROON PLA Basic Filament 1.75 mm (1 kg), 2 × KINGROON PETG Basic Filament 1.75 mm (1 kg)"
+        ],
+        [
+          "Price if bought separately",
+          "236 SAR"
+        ],
+        [
+          "You save",
+          "27 SAR"
+        ]
+      ],
+      "name_ar": "باقة KINGROON المختلطة PLA وPETG (4 بكرات)",
+      "shortDesc_ar": "بكرتان KINGROON PLA وبكرتان PETG: طباعة سهلة وقطع قوية في باقة واحدة.",
+      "description_ar": "باقة متنوعة لكل أنواع الطباعة: بكرتان KINGROON PLA Basic بوزن 1 كجم للديكور والمجسمات والهدايا، وبكرتان KINGROON PETG Basic بوزن 1 كجم للقطع الوظيفية الأقوى المقاومة للحرارة. كلها بقطر 1.75 مم وتعمل مع أغلب طابعات FDM. تدفع أقل من شراء البكرات الأربع منفصلة. اختر ألوانك في ملاحظات الطلب عند الدفع، وإن لم تختر نرسل PLA بالأسود والأبيض وPETG بالأزرق والبرتقالي.",
+      "specs_ar": [
+        [
+          "محتويات الطقم",
+          "2 × فيلامنت KINGROON PLA Basic بقطر 1.75 مم (1 كغ)، 2 × فيلامنت KINGROON PETG Basic بقطر 1.75 مم (1 كغ)"
+        ],
+        [
+          "السعر عند الشراء منفصلًا",
+          "236 ريال"
+        ],
+        [
+          "توفّر",
+          "27 ريال"
+        ]
       ]
     },
     {

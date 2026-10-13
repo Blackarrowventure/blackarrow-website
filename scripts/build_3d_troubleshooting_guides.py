@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the 3D printing troubleshooting guides (EN + AR) for the Black Arrow 3D
+"""Builds the 3D printing troubleshooting and how-to guides (EN + AR) for the Black Arrow 3D
 blog and lists them on both blog index pages.
 
 The English pages reuse the layout of an existing article
@@ -375,6 +375,228 @@ GUIDES = [
             <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة للمبتدئين</a>
             <a href="/3d/ar/blog/3d-print-stringing-fix/">حل مشكلة الخيوط الرفيعة</a>
             <a href="/3d/ar/blog/clogged-3d-printer-nozzle-fix/">حل انسداد الفوهة</a>
+          </div>
+''',
+        },
+    },
+    {
+        'slug': 'bambu-lab-a1-mini-setup-guide',
+        'en': {
+            'headline': 'Bambu Lab A1 and A1 mini Setup Guide: Your First Day',
+            'title': 'Bambu Lab A1 / A1 mini Setup Guide | Black Arrow 3D',
+            'desc': 'Set up a Bambu Lab A1 or A1 mini step by step: unboxing, calibration, Wi-Fi and the Bambu Handy app, loading filament and your first print.',
+            'meta_line': 'Getting Started &middot; October 13, 2026 &middot; 6 min read',
+            'lead': 'Just got your A1 or A1 mini? Follow these steps in order and you will have your first print running in under an hour.',
+            'card': ('Getting Started', '6 min read', 'From unboxing to your first print: calibration, Wi-Fi, the Bambu Handy app and loading filament.'),
+            'body': '''
+          <h2>1. Pick a good spot</h2>
+          <p>Put the printer on a sturdy, level table with space around it, because the bed moves back and forth while printing. Keep it away from AC vents, direct sun and dust. You need a normal wall socket and a Wi-Fi signal.</p>
+
+          <h2>2. Unbox and remove the packaging</h2>
+          <p>Take out all the foam, cable ties and tape, and remove any transport fixings shown in the Quick Start Guide that comes in the box. Do not skip this: a locked axis will make the calibration fail. Keep the box for a few weeks in case you need to move or return the printer.</p>
+
+          <h2>3. Assemble and connect</h2>
+          <ul>
+            <li>Fit the spool holder, or the AMS lite if you have the Combo, as shown in the Quick Start Guide.</li>
+            <li>Make sure the build plate sits flat and lined up on the bed.</li>
+            <li>Connect the power cable and switch the printer on.</li>
+          </ul>
+
+          <h2>4. Run the first calibration</h2>
+          <p>On first start the screen walks you through setup. Let the printer run its full automatic calibration (bed leveling, vibration compensation and motor checks). It is noisy and takes a while; this is normal. Do not touch the bed while it runs.</p>
+
+          <h2>5. Connect Wi-Fi and the app</h2>
+          <ul>
+            <li>Install the <b>Bambu Handy</b> app on your phone and create a Bambu Lab account.</li>
+            <li>Connect the printer to your Wi-Fi from the screen, then bind it to your account in the app.</li>
+            <li>Install a firmware update if the printer offers one.</li>
+            <li>On a computer, install <b>Bambu Studio</b> to slice your own models.</li>
+          </ul>
+
+          <h2>6. Load filament</h2>
+          <p>Start with PLA or PLA+: it is the easiest material to print. Cut the filament end at an angle, feed it in, and use the load option on the screen. With an AMS lite, place up to four spools and load each one. Set the correct material type and color so the printer uses the right temperatures.</p>
+
+          <h2>7. Your first print</h2>
+          <p>Print one of the models stored on the printer, or pick a popular model on MakerWorld from the Bambu Handy app and send it to the printer. Watch the first layer: it should be flat, even and well stuck to the plate.</p>
+
+          <h2>Tips for the first week</h2>
+          <ul>
+            <li>Keep the build plate clean: wash it with dish soap and water and hold it by the edges.</li>
+            <li>Store filament sealed with desiccant, especially in humid cities.</li>
+            <li>If something goes wrong, see our guides on stringing, clogged nozzles and first-layer adhesion.</li>
+          </ul>
+
+          <div class="b3d-article__cta">
+            <p>Need filament or a spare hotend?</p>
+            <a href="/3d/deals/" class="btn btn-primary">See Kits &amp; Deals</a>
+          </div>
+
+          <h2>Related</h2>
+          <div class="b3d-article__related">
+            <a href="/3d/product/bambu-lab-a1-mini-starter-kit/">Bambu Lab A1 mini Starter Kit</a>
+            <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">First layer not sticking?</a>
+            <a href="/3d/blog/which-filament-for-which-print/">Which filament for which print</a>
+          </div>
+''',
+        },
+        'ar': {
+            'headline': 'دليل تشغيل بامبو لاب A1 وA1 mini: يومك الأول',
+            'title': 'دليل تشغيل بامبو لاب A1 وA1 mini | Black Arrow 3D',
+            'desc': 'شغّل طابعة بامبو لاب A1 أو A1 mini خطوة بخطوة: الفتح والمعايرة والواي فاي وتطبيق Bambu Handy وتحميل الفلمنت وأول طباعة.',
+            'meta_line': 'البداية &middot; 13 أكتوبر 2026 &middot; 6 دقائق قراءة',
+            'lead': 'وصلتك A1 أو A1 mini؟ اتبع هذه الخطوات بالترتيب وستبدأ أول طباعة لك في أقل من ساعة.',
+            'card': ('البداية', '6 دقائق قراءة', 'من فتح الصندوق إلى أول طباعة: المعايرة والواي فاي وتطبيق Bambu Handy وتحميل الفلمنت.'),
+            'body': '''
+          <h2>1. اختر مكانًا مناسبًا</h2>
+          <p>ضع الطابعة على طاولة ثابتة ومستوية مع مساحة حولها، لأن السرير يتحرك للأمام والخلف أثناء الطباعة. أبعدها عن فتحات المكيف وأشعة الشمس المباشرة والغبار. تحتاج مقبس كهرباء عاديًا وإشارة واي فاي.</p>
+
+          <h2>2. افتح الصندوق وأزل التغليف</h2>
+          <p>أخرج كل الفلين وروابط الأسلاك والأشرطة، وأزل أي مثبتات للنقل موضحة في دليل البدء السريع داخل الصندوق. لا تتجاوز هذه الخطوة، فالمحور المثبت سيُفشل المعايرة. احتفظ بالصندوق لبضعة أسابيع في حال احتجت لنقل الطابعة أو إرجاعها.</p>
+
+          <h2>3. التركيب والتوصيل</h2>
+          <ul>
+            <li>ركّب حامل البكرة، أو وحدة AMS lite إن كانت لديك نسخة الكومبو، كما في دليل البدء السريع.</li>
+            <li>تأكد أن سطح الطباعة مستوٍ ومثبت في مكانه على السرير.</li>
+            <li>وصّل كابل الكهرباء وشغّل الطابعة.</li>
+          </ul>
+
+          <h2>4. شغّل المعايرة الأولى</h2>
+          <p>عند التشغيل الأول ترشدك الشاشة خطوة بخطوة. اترك الطابعة تكمل المعايرة التلقائية كاملة (تسوية السرير وتعويض الاهتزاز وفحص المحركات). تصدر صوتًا وتستغرق وقتًا، وهذا طبيعي. لا تلمس السرير أثناءها.</p>
+
+          <h2>5. اربط الواي فاي والتطبيق</h2>
+          <ul>
+            <li>ثبّت تطبيق <b>Bambu Handy</b> على جوالك وأنشئ حساب Bambu Lab.</li>
+            <li>اربط الطابعة بالواي فاي من الشاشة، ثم اربطها بحسابك من التطبيق.</li>
+            <li>ثبّت تحديث البرنامج الثابت إن ظهر لك.</li>
+            <li>على الكمبيوتر ثبّت برنامج <b>Bambu Studio</b> لتجهيز مجسماتك الخاصة.</li>
+          </ul>
+
+          <h2>6. حمّل الفلمنت</h2>
+          <p>ابدأ بـ PLA أو PLA+ لأنه أسهل خامة للطباعة. اقطع طرف الفلمنت بشكل مائل وأدخله ثم استخدم خيار التحميل من الشاشة. مع AMS lite ضع حتى أربع بكرات وحمّل كل واحدة. اختر نوع الخامة واللون الصحيحين لتستخدم الطابعة الحرارة المناسبة.</p>
+
+          <h2>7. أول طباعة</h2>
+          <p>اطبع أحد المجسمات المحفوظة في الطابعة، أو اختر مجسمًا مشهورًا من MakerWorld عبر تطبيق Bambu Handy وأرسله للطابعة. راقب الطبقة الأولى: يجب أن تكون مستوية ومتساوية وملتصقة جيدًا بالسطح.</p>
+
+          <h2>نصائح للأسبوع الأول</h2>
+          <ul>
+            <li>حافظ على نظافة سطح الطباعة: اغسله بالماء وسائل الصحون وأمسكه من الأطراف.</li>
+            <li>احفظ الفلمنت في كيس محكم مع مادة مجففة، خصوصًا في المدن الرطبة.</li>
+            <li>إذا واجهت مشكلة، راجع أدلتنا عن الخيوط الرفيعة وانسداد الفوهة والتصاق الطبقة الأولى.</li>
+          </ul>
+
+          <div class="b3d-article__cta">
+            <p>تحتاج فلمنت أو هوت إند احتياطي؟</p>
+            <a href="/3d/ar/deals/" class="btn btn-primary">شاهد الأطقم والعروض</a>
+          </div>
+
+          <h2>ذات صلة</h2>
+          <div class="b3d-article__related">
+            <a href="/3d/ar/product/bambu-lab-a1-mini-starter-kit/">طقم البداية بامبو لاب A1 mini</a>
+            <a href="/3d/ar/blog/3d-print-bed-adhesion-first-layer/">الطبقة الأولى لا تلتصق؟</a>
+            <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>
+          </div>
+''',
+        },
+    },
+    {
+        'slug': 'which-filament-for-which-print',
+        'en': {
+            'headline': 'Which Filament for Which Print? A Guide for Saudi Arabia',
+            'title': 'Which 3D Printer Filament for Which Print? | Black Arrow 3D',
+            'desc': 'PLA+, PETG, TPU or ABS/ASA? Which filament to use for gifts, phone stands, car parts, outdoor items and flexible parts, with tips for Saudi heat.',
+            'meta_line': 'Materials &middot; October 13, 2026 &middot; 5 min read',
+            'lead': 'The right filament depends on where the part will live. A gift on a desk, a holder in a hot car and a flexible case each need something different. Here is a quick way to choose.',
+            'card': ('Materials', '5 min read', 'Gifts, car parts, outdoor items or flexible cases: which filament to use, with tips for Saudi heat.'),
+            'body': '''
+          <h2>Quick answer</h2>
+          <ul>
+            <li><b>Decor, figures, gifts, keychains, prototypes:</b> PLA or PLA+.</li>
+            <li><b>Functional parts, holders, brackets, things that get warm:</b> PETG.</li>
+            <li><b>Flexible parts (phone cases, bumpers, grips, seals):</b> TPU.</li>
+            <li><b>Car interiors, outdoor parts in full sun:</b> ASA (or ABS), on an enclosed printer.</li>
+          </ul>
+
+          <h2>PLA and PLA+: the everyday choice</h2>
+          <p>PLA is the easiest material to print, with the sharpest detail and the widest range of colors. PLA+ is a tougher, less brittle version that prints just as easily. Use it for anything that stays indoors at room temperature: figures, desk items, signs, toys and gifts.</p>
+          <p><b>Watch out in Saudi summer:</b> PLA starts to soften at around 55–60&nbsp;°C. The inside of a parked car in summer gets much hotter than that, so a PLA phone holder or dashboard part can bend. Use PETG or ASA for anything that lives in a car.</p>
+
+          <h2>PETG: tougher and more heat resistant</h2>
+          <p>PETG is stronger and more flexible than PLA and handles more heat (it softens at around 75–80&nbsp;°C). It is a good choice for functional parts: hooks, brackets, organizers, plant pots and parts that get warm. It strings a little more than PLA, so dry it well (see our stringing guide).</p>
+
+          <h2>TPU: flexible like rubber</h2>
+          <p>TPU bends and springs back. Use it for phone cases, bumpers, grips, feet for furniture and seals. Print it slowly, and keep it very dry. On printers with an AMS, check whether your TPU is suitable for the AMS before loading it there.</p>
+
+          <h2>ABS and ASA: for heat and sun</h2>
+          <p>ABS and ASA handle higher temperatures than PETG, and ASA also resists UV light, so it is the best choice for outdoor parts that sit in direct sun. Both shrink as they cool, so they need an enclosed printer and good ventilation. They are best on enclosed printers such as the Bambu Lab P2S and H2C or the Elegoo Centauri Carbon 2.</p>
+
+          <h2>Simple rules</h2>
+          <ul>
+            <li>Indoors at room temperature: PLA+.</li>
+            <li>Gets warm, takes force, or lives in a car: PETG at least, ASA for full sun.</li>
+            <li>Needs to bend: TPU.</li>
+            <li>Not sure? Ask us on WhatsApp what you want to print and where it will be used.</li>
+          </ul>
+
+          <div class="b3d-article__cta">
+            <p>Stock up with a multi-pack</p>
+            <a href="/3d/deals/" class="btn btn-primary">See Filament Deals</a>
+          </div>
+
+          <h2>Related</h2>
+          <div class="b3d-article__related">
+            <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a>
+            <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a>
+            <a href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">PLA vs PETG vs ABS in detail</a>
+          </div>
+''',
+        },
+        'ar': {
+            'headline': 'أي فلمنت لأي طباعة؟ دليل مناسب لأجواء السعودية',
+            'title': 'أي فلمنت تختار لكل طباعة؟ | Black Arrow 3D',
+            'desc': 'PLA+ أم PETG أم TPU أم ABS/ASA؟ أي فلمنت تستخدم للهدايا وحوامل الجوال وقطع السيارة والقطع الخارجية والمرنة، مع نصائح لحرارة السعودية.',
+            'meta_line': 'الخامات &middot; 13 أكتوبر 2026 &middot; 5 دقائق قراءة',
+            'lead': 'الفلمنت المناسب يعتمد على المكان الذي ستعيش فيه القطعة. هدية على مكتب، وحامل في سيارة حارة، وغطاء مرن، كل منها يحتاج خامة مختلفة. إليك طريقة سريعة للاختيار.',
+            'card': ('الخامات', '5 دقائق قراءة', 'هدايا أو قطع سيارة أو قطع خارجية أو أغطية مرنة: أي فلمنت تستخدم، مع نصائح لحرارة السعودية.'),
+            'body': '''
+          <h2>الإجابة السريعة</h2>
+          <ul>
+            <li><b>الديكور والمجسمات والهدايا والميداليات والنماذج الأولية:</b> PLA أو PLA+.</li>
+            <li><b>القطع الوظيفية والحوامل والمثبتات والأشياء التي تسخن:</b> PETG.</li>
+            <li><b>القطع المرنة (أغطية الجوال والمصدات والمقابض والحشوات):</b> TPU.</li>
+            <li><b>داخل السيارة والقطع الخارجية تحت الشمس:</b> ASA (أو ABS) على طابعة مغلقة.</li>
+          </ul>
+
+          <h2>PLA وPLA+: الخيار اليومي</h2>
+          <p>‏PLA أسهل خامة للطباعة، وأدقها تفاصيل، وألوانه الأكثر تنوعًا. أما PLA+ فنسخة أقوى وأقل هشاشة وبنفس سهولة الطباعة. استخدمه لكل ما يبقى داخل المنزل بحرارة الغرفة: المجسمات وقطع المكتب واللوحات والألعاب والهدايا.</p>
+          <p><b>انتبه في صيف السعودية:</b> يبدأ PLA باللين عند حوالي 55–60 °م، وداخل السيارة المتوقفة صيفًا أحر من ذلك بكثير، فقد ينحني حامل الجوال أو قطعة لوحة القيادة المطبوعة بـ PLA. استخدم PETG أو ASA لأي قطعة تبقى في السيارة.</p>
+
+          <h2>PETG: أقوى ويتحمل حرارة أعلى</h2>
+          <p>‏PETG أقوى وأكثر مرونة من PLA ويتحمل حرارة أعلى (يلين عند حوالي 75–80 °م). خيار جيد للقطع الوظيفية: العلاقات والمثبتات والمنظمات وأحواض النباتات والقطع التي تسخن. يصنع خيوطًا رفيعة أكثر قليلًا من PLA، فجففه جيدًا (راجع دليل الخيوط الرفيعة).</p>
+
+          <h2>TPU: مرن مثل المطاط</h2>
+          <p>‏TPU ينثني ويعود لشكله. استخدمه لأغطية الجوال والمصدات والمقابض وأرجل الأثاث والحشوات. اطبعه ببطء واحفظه جافًا جدًا. في الطابعات المزودة بوحدة AMS، تأكد أن نوع TPU لديك مناسب للتحميل فيها قبل استخدامها.</p>
+
+          <h2>ABS وASA: للحرارة والشمس</h2>
+          <p>يتحمل ABS وASA حرارة أعلى من PETG، ويقاوم ASA الأشعة فوق البنفسجية أيضًا، فهو الأفضل للقطع الخارجية تحت الشمس المباشرة. كلاهما ينكمش عند التبريد، لذلك يحتاجان طابعة مغلقة وتهوية جيدة، والأنسب لهما الطابعات المغلقة مثل Bambu Lab P2S وH2C أو Elegoo Centauri Carbon 2.</p>
+
+          <h2>قواعد بسيطة</h2>
+          <ul>
+            <li>داخل المنزل بحرارة الغرفة: PLA+.</li>
+            <li>تسخن أو تتحمل قوة أو تبقى في السيارة: PETG على الأقل، وASA للشمس المباشرة.</li>
+            <li>تحتاج أن تنثني: TPU.</li>
+            <li>لست متأكدًا؟ أخبرنا عبر واتساب ماذا تريد أن تطبع وأين ستستخدمه.</li>
+          </ul>
+
+          <div class="b3d-article__cta">
+            <p>وفّر مع باقات الفلمنت</p>
+            <a href="/3d/ar/deals/" class="btn btn-primary">شاهد عروض الفلمنت</a>
+          </div>
+
+          <h2>ذات صلة</h2>
+          <div class="b3d-article__related">
+            <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a>
+            <a href="/3d/ar/product/kingroon-petg-basic-filament/">فلمنت KINGROON PETG Basic</a>
+            <a href="/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/">مقارنة PLA وPETG وABS بالتفصيل</a>
           </div>
 ''',
         },

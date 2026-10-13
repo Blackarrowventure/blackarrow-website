@@ -2798,3 +2798,27 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-pd .b3d-pd__wa, main.b3d-light .b3d-pd .b3d-pd__wa { color: #0f6b3a !important; text-decoration: none !important; }
 .b3d-pd .b3d-pd__wa svg { color: #25d366 !important; fill: currentColor; width: 22px; height: 22px; }
 .b3d-pd .b3d-pd__wa span { color: inherit !important; }
+
+/* ---- Kits & deals ---- */
+.b3d-kit { margin: 4px 0 20px; padding: 16px; border-radius: 14px; border: 1px solid #cfe6da; background: #f3faf6; }
+.b3d-kit h2 { font-size: 1.05rem; margin: 0 0 10px; color: #111; }
+.b3d-kit__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.b3d-kit__list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.b3d-kit__list a { display: flex; align-items: center; gap: 10px; min-width: 0; color: #222; text-decoration: none; }
+.b3d-kit__list a:hover b { text-decoration: underline; }
+.b3d-kit__list img { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; background: #fff; flex: none; }
+.b3d-kit__list b { display: block; font-size: .88rem; line-height: 1.3; }
+.b3d-kit__list small { color: #666; font-size: .75rem; }
+.b3d-kit__unit { color: #555; font-size: .85rem; white-space: nowrap; }
+.b3d-kit__sum { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #cfe6da; display: grid; gap: 4px; }
+.b3d-kit__sum div { display: flex; justify-content: space-between; gap: 12px; font-size: .9rem; }
+.b3d-kit__sum dt { color: #444; }
+.b3d-kit__sum dd { margin: 0; font-weight: 700; color: #111; }
+.b3d-kit__sum s { color: #888; font-weight: 500; }
+.b3d-kit__sum .is-save dt, .b3d-kit__sum .is-save dd { color: #047857; }
+.b3d-kit__note { margin: 10px 0 0; font-size: .8rem; color: #555; }
+.b3d-kit-upsell { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 12px 14px; border-radius: 12px; border: 1px dashed #047857; background: #f3faf6; color: #12372a !important; text-decoration: none !important; font-size: .9rem; }
+.b3d-kit-upsell:hover { background: #e4f4ec; }
+.b3d-kit-upsell span:nth-child(2) { flex: 1; }
+.b3d-deals-link { display: inline-block; padding: 10px 16px; border-radius: 999px; background: #fff4e0; color: #7a4a00 !important; font-weight: 700; text-decoration: none !important; border: 1px solid #f3d19c; }
+.b3d-deals-link:hover { background: #ffe9c2; }

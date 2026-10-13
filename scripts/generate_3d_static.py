@@ -47,6 +47,29 @@ with open(I18N_JSON, encoding='utf-8') as f:
 
 with open(PRODUCTS_JSON, encoding='utf-8') as f:
     PRODUCTS = json.load(f)['products']
+# Photo sizes + small copies (scripts/build_3d_image_sizes.py).
+_SIZES_JSON = os.path.join(ROOT, '3d', 'assets', 'data', '3d-image-sizes.json')
+IMG_SIZES = json.load(open(_SIZES_JSON, encoding='utf-8')) if os.path.isfile(_SIZES_JSON) else {}
+
+
+def small_img(src, w):
+    return re.sub(r'\.(webp|jpe?g|png)$', '-%dw.webp' % w, src, flags=re.I)
+
+
+def img_srcset(src):
+    d = IMG_SIZES.get(src)
+    return (small_img(src, 500) + ' 500w, ' + src + ' ' + str(d[0]) + 'w') if d else ''
+
+
+# A kit is only in stock while every part of it is (same rule as 3d-store.js).
+_BY_ID = {p['id']: p for p in PRODUCTS}
+for _k in PRODUCTS:
+    for _it in _k.get('kit') or []:
+        _c = _BY_ID.get(_it['id'])
+        _v = (_c or {}).get('variants') or []
+        if (not _c or _c.get('available') is False
+                or (_it.get('variant') is not None and (_it['variant'] >= len(_v) or _v[_it['variant']].get('available') is False))):
+            _k['available'] = False
 
 
 def T(key, lang):
@@ -222,7 +245,10 @@ def product_detail_html(p, lang):
     desc = L(p, 'description', lang) or ''
     images = p.get('images') or ([p['image']] if p.get('image') else [])
     hero_img = primary_image(p) or (images[0] if images else None)
-    main_visual = ('<img src="' + hero_img + '" alt="' + esc(name) + '" data-pd-main-img>') if hero_img else \
+    _set, _dim = img_srcset(hero_img) if hero_img else '', IMG_SIZES.get(hero_img)
+    main_visual = ('<img src="' + hero_img + '"' + (' srcset="' + _set + '" sizes="(max-width: 860px) 92vw, 560px"' if _set else '')
+                   + (' width="%d" height="%d"' % tuple(_dim) if _dim else '')
+                   + ' fetchpriority="high" decoding="async" alt="' + esc(name) + '" data-pd-main-img>') if hero_img else \
         '<div class="b3d-card__visual-placeholder">' + T('js_product_image', lang) + '</div>'
 
     thumbs_html = ''
@@ -232,7 +258,8 @@ def product_detail_html(p, lang):
             label = T('js_view_image', lang) + ' ' + str(i + 1) + ' — ' + name
             active = ' is-active' if src == hero_img else ''
             thumbs.append('<button class="b3d-pd__thumb' + active + '" data-thumb-src="' + src
-                           + '" aria-label="' + esc(label) + '"><img src="' + src + '" alt="' + esc(label) + '"></button>')
+                           + '" aria-label="' + esc(label) + '"><img src="' + (small_img(src, 160) if src in IMG_SIZES else src)
+                           + '" alt="' + esc(label) + '" loading="lazy" decoding="async" width="80" height="80"></button>')
         thumbs_html = '<div class="b3d-pd__thumbs">' + ''.join(thumbs) + '</div>'
 
     specs_html = ''.join(
@@ -526,8 +553,16 @@ def build_product_page(p, lang):
             {'@type': 'ListItem', 'position': 4, 'name': name, 'item': url},
         ],
     }
+    _hero = primary_image(p)
+    _pre = ''
+    if _hero:
+        _set = img_srcset(_hero)
+        _pre = ('  <link rel="preload" as="image" href="' + _hero + '"'
+                + (' imagesrcset="' + _set + '" imagesizes="(max-width: 860px) 92vw, 560px"' if _set else '')
+                + ' fetchpriority="high">\n')
     html = html.replace('</head>',
-                         '  <script type="application/ld+json">' + json.dumps(json_ld, ensure_ascii=False) + '</script>\n'
+                         _pre
+                         + '  <script type="application/ld+json">' + json.dumps(json_ld, ensure_ascii=False) + '</script>\n'
                          + '  <script type="application/ld+json">' + json.dumps(breadcrumb_ld, ensure_ascii=False) + '</script>\n'
                          + '</head>')
 
@@ -646,7 +681,8 @@ def landing_card(p, lang):
     img = primary_image(p)
     return ('<a class="b3d-cat-landing__card" href="' + product_url(p, lang) + '">'
             + (('<span class="b3d-corner-badge b3d-corner-badge--sale">' + T('js_sale_badge', lang) + '</span>') if p.get('onSale') else '')
-            + ('<img src="' + img + '" alt="' + esc(name) + '" loading="lazy" width="300" height="300">' if img else '')
+            + ('<img src="' + img + '"' + (' srcset="' + img_srcset(img) + '" sizes="(max-width: 480px) 45vw, 300px"' if img_srcset(img) else '')
+               + ' alt="' + esc(name) + '" loading="lazy" decoding="async" width="300" height="300">' if img else '')
             + '<span class="b3d-cat-landing__name">' + esc(name) + '</span>'
             + '<span class="b3d-cat-landing__price">' + price_block(p, lang) + '</span>'
             + vat_note_html(p, lang)
@@ -826,6 +862,16 @@ ART_SUBCATEGORIES = [
 # collection with "collections": ["<slug>"] in the catalog. 'max_price' picks
 # every available 3D printed item at or under that price.
 COLLECTIONS = [
+    ('deals', {'deals': True}, {
+        'en': ('3D Printer Kits & Deals in Saudi Arabia', 'Kits & Deals',
+               'Save on 3D printer starter kits, filament multi-packs and items on offer at Black Arrow 3D. Prices in SAR with delivery across Saudi Arabia.',
+               ["Kits put a printer together with the filament and spare parts you need, for less than buying each item on its own. Each kit page shows exactly what is inside and how much you save.",
+                "Below the kits you'll find everything else currently on offer. Printer orders over 3,000 SAR get free regular delivery."]),
+        'ar': ('أطقم وعروض الطابعات ثلاثية الأبعاد في السعودية', 'الأطقم والعروض',
+               'وفّر مع أطقم البداية للطابعات ثلاثية الأبعاد وباقات الفلمنت والمنتجات المخفضة في Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
+               ["تجمع الأطقم الطابعة مع الفلمنت وقطع الغيار التي تحتاجها بسعر أقل من شراء كل قطعة وحدها. تعرض صفحة كل طقم محتوياته بالتفصيل وكم توفّر.",
+                "تحت الأطقم تجد كل المنتجات المخفضة حاليًا. طلبات الطابعات فوق 3,000 ريال توصيلها العادي مجاني."]),
+    }),
     ('under-50', {'max_price': 50}, {
         'en': ('3D Printed Gifts Under 50 SAR', 'Gifts Under 50 SAR',
                'Affordable 3D printed gifts under 50 SAR in Saudi Arabia: keychains, desk pieces, fidget toys and small decor, made in-house by Black Arrow 3D.',
@@ -878,8 +924,11 @@ COLLECTIONS = [
 ]
 
 
+COLLECTION_PATHS = {'deals': 'deals/'}   # slugs that live outside /3d/gifts/
+
+
 def collection_url(slug, lang):
-    return ('/3d/ar' if lang == 'ar' else '/3d') + '/gifts/' + slug + '/'
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/' + COLLECTION_PATHS.get(slug, 'gifts/' + slug + '/')
 
 
 def collection_products(slug, rule):
@@ -891,9 +940,13 @@ def collection_products(slug, rule):
             out.append(p)
         elif 'ids' in rule and p['id'] in rule['ids']:
             out.append(p)
+        elif rule.get('deals') and (p.get('kit') or (p.get('onSale') and p.get('salePrice') is not None)):
+            out.append(p)
         elif 'max_price' in rule and p.get('category') == '3D Artwork' and isinstance(current_price(p), (int, float)) and current_price(p) <= rule['max_price']:
             out.append(p)
-    if 'ids' in rule:
+    if rule.get('deals'):
+        out.sort(key=lambda p: (0 if p.get('kit') else 1, -(p['price'] - (p.get('salePrice') or p['price']))))
+    elif 'ids' in rule:
         order = {pid: i for i, pid in enumerate(rule['ids'])}
         out.sort(key=lambda p: order.get(p['id'], 999))
     else:
@@ -904,6 +957,8 @@ def collection_products(slug, rule):
 def collections_strip_html(lang, current=None):
     links = []
     for slug, _rule, copy in COLLECTIONS:
+        if slug in COLLECTION_PATHS:
+            continue
         name = copy[lang][1]
         if slug == current:
             links.append('<span class="b3d-gift-links__item is-current">' + esc(name) + '</span>')
@@ -932,13 +987,15 @@ def build_collection_page(slug, rule, copy, lang):
                   + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + collection_url(slug, 'en') + '">',
                   html, count=1)
     html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(full_title if len(full_title) <= 62 else title) + '</title>', html, count=1)
-    art_label = category_label('3D Artwork', lang)
+    deals = slug in COLLECTION_PATHS
+    art_label = T('nav_shop', lang) if deals else category_label('3D Artwork', lang)
+    parent_url = shop_url(lang) if deals else category_url('3D Artwork', lang)
     ld = [{
         '@context': 'https://schema.org', '@type': 'BreadcrumbList',
         'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': SITE + '/'},
             {'@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': SITE + home_url(lang)},
-            {'@type': 'ListItem', 'position': 3, 'name': art_label, 'item': SITE + category_url('3D Artwork', lang)},
+            {'@type': 'ListItem', 'position': 3, 'name': art_label, 'item': SITE + parent_url},
             {'@type': 'ListItem', 'position': 4, 'name': name, 'item': url},
         ],
     }, {
@@ -955,16 +1012,17 @@ def build_collection_page(slug, rule, copy, lang):
         '<section class="section" style="padding-top:20px;"><div class="container">'
         + '<nav class="breadcrumb" aria-label="Breadcrumb">'
         + '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span>'
-        + '<a href="' + category_url('3D Artwork', lang) + '">' + esc(art_label) + '</a><span>›</span>'
+        + '<a href="' + parent_url + '">' + esc(art_label) + '</a><span>›</span>'
         + '<span>' + esc(name) + '</span></nav>'
         + '<h1>' + esc(title) + '</h1>'
         + ''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in intro)
-        + collections_strip_html(lang, slug)
+        + ('' if deals else collections_strip_html(lang, slug))
         + '<div class="b3d-grid" data-b3d-ids="' + ','.join(p['id'] for p in items) + '">' + ''.join(landing_card(p, lang) for p in items) + '</div>'
         + '</div></section>'
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main" class="b3d-light">' + block + '</main>', html, count=1, flags=re.DOTALL)
-    write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'gifts', slug, 'index.html'), html)
+    rel = COLLECTION_PATHS.get(slug, 'gifts/' + slug + '/')
+    write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', *[x for x in rel.split('/') if x], 'index.html'), html)
     return len(items)
 
 
@@ -1154,6 +1212,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
+        + ('<p><a class="b3d-deals-link" href="' + collection_url('deals', lang) + '">' + ('&#127873; وفّر مع أطقم الطابعات وباقات الفلمنت ←' if lang == 'ar' else '&#127873; Save with printer kits and filament multi-packs →') + '</a></p>' if cat in ('3D Printers', 'Filament') and not brand else '')
         + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
            else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
