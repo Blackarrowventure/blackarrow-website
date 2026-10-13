@@ -15,6 +15,7 @@ running JavaScript.
 Usage: python scripts/generate_3d_static.py
 """
 import json
+import urllib.parse
 import sys
 import os
 import re
@@ -820,6 +821,153 @@ ART_SUBCATEGORIES = [
         'keychain-pick-3-bundle', 'saudi-pride-gift-set']),
 ]
 
+# ---- Gift collections (/3d/gifts/<slug>/): occasion / audience pages built from
+# products that already exist. 'ids' lists members; a product can also join a
+# collection with "collections": ["<slug>"] in the catalog. 'max_price' picks
+# every available 3D printed item at or under that price.
+COLLECTIONS = [
+    ('under-50', {'max_price': 50}, {
+        'en': ('3D Printed Gifts Under 50 SAR', 'Gifts Under 50 SAR',
+               'Affordable 3D printed gifts under 50 SAR in Saudi Arabia: keychains, desk pieces, fidget toys and small decor, made in-house by Black Arrow 3D.',
+               ["Small gifts that still feel personal. Every item here costs 50 SAR or less and is designed and 3D printed in-house in Saudi Arabia.",
+                "Good for classmates, colleagues, party favors and add-ons to a bigger gift. Add a few to one order: 3D printed items over 100 SAR ship free."]),
+        'ar': ('هدايا مطبوعة ثلاثية الأبعاد بأقل من 50 ريال', 'هدايا بأقل من 50 ريال',
+               'هدايا مطبوعة ثلاثية الأبعاد بأقل من 50 ريال في السعودية: ميداليات وقطع مكتبية وألعاب تحريك وديكور صغير، من صنع Black Arrow 3D.',
+               ["هدايا صغيرة لكنها شخصية. كل المنتجات هنا بسعر 50 ريال أو أقل، ومصممة ومطبوعة داخليًا في السعودية.",
+                "مناسبة للزملاء والأصدقاء وتوزيعات الحفلات وكإضافة لهدية أكبر. اجمع أكثر من قطعة في طلب واحد: المنتجات المطبوعة فوق 100 ريال توصيلها مجاني."]),
+    }),
+    ('gamers', {'ids': [
+        'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
+        'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand',
+        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue',
+        'knitted-mario-cap-figure', 'green-knit-cap', 'synapse-usb-lamp']}, {
+        'en': ('3D Printed Gifts for Gamers', 'Gifts for Gamers',
+               'Gifts for gamers in Saudi Arabia: PS5 controller stands, Mario and Luigi cap figures, GTA VI pieces and desk lamps, 3D printed by Black Arrow 3D.',
+               ["Upgrade any gaming setup with a piece nobody else has: PS5 controller stands, retro game figures and desk lighting, all designed and 3D printed in-house.",
+                "Most stands hold a PS5 DualSense controller. Not sure which one fits? Ask us on WhatsApp."]),
+        'ar': ('هدايا مطبوعة ثلاثية الأبعاد لمحبي الألعاب', 'هدايا لمحبي الألعاب',
+               'هدايا لمحبي الألعاب في السعودية: حوامل يد PS5 ومجسمات قبعات ماريو ولويجي وقطع GTA VI وإضاءات مكتب، من طباعة Black Arrow 3D.',
+               ["طوّر ركن الألعاب بقطعة لا يملكها غيرك: حوامل يد تحكم PS5 ومجسمات الألعاب الكلاسيكية وإضاءات المكتب، وكلها مصممة ومطبوعة داخليًا.",
+                "معظم الحوامل تناسب يد تحكم PS5 DualSense. لست متأكدًا أيها يناسبك؟ اسألنا عبر واتساب."]),
+    }),
+    ('anime-fans', {'ids': [
+        'anime-straw-hat-keychain', 'straw-hat-ps5-controller-stand', 'one-piece-sword-keychain',
+        'one-piece-luffy-silhouette-lamp', 'one-piece-zoro-silhouette-lamp', 'one-piece-sanji-silhouette-lamp',
+        'naruto-portrait-plaque', 'naruto-leaf-keychain', 'uchiha-clan-keychain', 'toji-edge-sitter-figure']}, {
+        'en': ('3D Printed Anime Gifts', 'Anime Fans',
+               'Anime gifts in Saudi Arabia: One Piece lamps and keychains, Naruto plaques, Uchiha keychains and figures, 3D printed by Black Arrow 3D.',
+               ["One Piece, Naruto, Jujutsu Kaisen and more: keychains, lamps, wall plaques and figures for anime fans, designed and 3D printed in-house in Saudi Arabia.",
+                "Want a character that isn't here? Send us a picture and we can make it as a custom piece."]),
+        'ar': ('هدايا أنمي مطبوعة ثلاثية الأبعاد', 'لمحبي الأنمي',
+               'هدايا أنمي في السعودية: إضاءات وميداليات ون بيس ولوحات ناروتو وميداليات أوتشيها ومجسمات، من طباعة Black Arrow 3D.',
+               ["ون بيس وناروتو وجوجوتسو كايسن وغيرها: ميداليات وإضاءات ولوحات جدارية ومجسمات لمحبي الأنمي، مصممة ومطبوعة داخليًا في السعودية.",
+                "تريد شخصية غير موجودة هنا؟ أرسل لنا صورتها ونصنعها لك كقطعة مخصصة."]),
+    }),
+    ('national-day', {'ids': [
+        'saudi-pride-gift-set', 'saudi-map-hanging-decor', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
+        'saudi-riyal-keychain', 'national-day-key-holder']}, {
+        'en': ('Saudi National Day & Founding Day Gifts', 'National Day Gifts',
+               'Saudi National Day and Founding Day gifts: Saudi map decor and keychains, palm and swords, riyal symbol keychains and gift sets, 3D printed in Saudi Arabia.',
+               ["Celebrate with gifts made in Saudi Arabia: the map of the Kingdom, the palm and crossed swords, the riyal symbol and National Day keepsakes, 3D printed in-house in green, white and more.",
+                "Ordering for a school, office or event? See our business and bulk orders page for quantity prices and your logo on every piece."]),
+        'ar': ('هدايا اليوم الوطني ويوم التأسيس', 'هدايا اليوم الوطني',
+               'هدايا اليوم الوطني ويوم التأسيس السعودي: ديكور وميداليات خريطة المملكة والنخلة والسيفين ورمز الريال وأطقم هدايا، مطبوعة في السعودية.',
+               ["احتفل بهدايا صُنعت في السعودية: خريطة المملكة والنخلة والسيفين ورمز الريال وتذكارات اليوم الوطني، مطبوعة داخليًا بالأخضر والأبيض وألوان أخرى.",
+                "تطلب لمدرسة أو جهة عمل أو فعالية؟ زر صفحة طلبات الشركات والجملة لأسعار الكميات ووضع شعارك على كل قطعة."]),
+    }),
+]
+
+
+def collection_url(slug, lang):
+    return ('/3d/ar' if lang == 'ar' else '/3d') + '/gifts/' + slug + '/'
+
+
+def collection_products(slug, rule):
+    out = []
+    for p in PRODUCTS:
+        if p.get('available') is False:
+            continue
+        if slug in (p.get('collections') or []):
+            out.append(p)
+        elif 'ids' in rule and p['id'] in rule['ids']:
+            out.append(p)
+        elif 'max_price' in rule and p.get('category') == '3D Artwork' and isinstance(current_price(p), (int, float)) and current_price(p) <= rule['max_price']:
+            out.append(p)
+    if 'ids' in rule:
+        order = {pid: i for i, pid in enumerate(rule['ids'])}
+        out.sort(key=lambda p: order.get(p['id'], 999))
+    else:
+        out.sort(key=lambda p: current_price(p))
+    return out
+
+
+def collections_strip_html(lang, current=None):
+    links = []
+    for slug, _rule, copy in COLLECTIONS:
+        name = copy[lang][1]
+        if slug == current:
+            links.append('<span class="b3d-gift-links__item is-current">' + esc(name) + '</span>')
+        else:
+            links.append('<a class="b3d-gift-links__item" href="' + collection_url(slug, lang) + '">' + esc(name) + '</a>')
+    label = 'تسوّق الهدايا حسب المناسبة' if lang == 'ar' else 'Shop gifts by occasion'
+    return '<nav class="b3d-gift-links" aria-label="' + esc(label) + '"><span class="b3d-gift-links__label">' + esc(label) + '</span>' + ''.join(links) + '</nav>'
+
+
+def build_collection_page(slug, rule, copy, lang):
+    title, name, desc, intro = copy[lang]
+    items = collection_products(slug, rule)
+    url = SITE + collection_url(slug, lang)
+    with open(SHOP_TEMPLATE, encoding='utf-8') as f:
+        html = strip_template_breadcrumb(strip_hreflang(f.read()))
+    html = set_lang_attrs(html, lang)
+    full_title = title + ' | Black Arrow 3D'
+    html = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="' + esc(desc) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">', '<meta property="og:title" content="' + esc(full_title) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + esc(desc) + '">', html, count=1)
+    html = re.sub(r'<meta property="og:url" content="[^"]*">', '<meta property="og:url" content="' + url + '">', html, count=1)
+    html = re.sub(r'<link rel="canonical" href="[^"]*">',
+                  '<link rel="canonical" href="' + url + '">'
+                  + '\n  <link rel="alternate" hreflang="en" href="' + SITE + collection_url(slug, 'en') + '">'
+                  + '\n  <link rel="alternate" hreflang="ar" href="' + SITE + collection_url(slug, 'ar') + '">'
+                  + '\n  <link rel="alternate" hreflang="x-default" href="' + SITE + collection_url(slug, 'en') + '">',
+                  html, count=1)
+    html = re.sub(r'<title>[^<]*</title>', '<title>' + esc(full_title if len(full_title) <= 62 else title) + '</title>', html, count=1)
+    art_label = category_label('3D Artwork', lang)
+    ld = [{
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Black Arrow Venture', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Black Arrow 3D', 'item': SITE + home_url(lang)},
+            {'@type': 'ListItem', 'position': 3, 'name': art_label, 'item': SITE + category_url('3D Artwork', lang)},
+            {'@type': 'ListItem', 'position': 4, 'name': name, 'item': url},
+        ],
+    }, {
+        '@context': 'https://schema.org', '@type': 'ItemList',
+        'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': L(p, 'name', lang), 'url': SITE + product_url(p, lang)} for i, p in enumerate(items)],
+    }]
+    html = html.replace('</head>', ''.join('  <script type="application/ld+json">' + json.dumps(x, ensure_ascii=False) + '</script>\n' for x in ld) + '</head>')
+    html = translate_static_chrome(html, lang)
+    html = localize_ar_hrefs(html, lang)
+    _a, _b, _c = html.partition('<footer')
+    html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
+    html = lang_toggle_link(html, lang, collection_url(slug, 'ar' if lang == 'en' else 'en'))
+    block = (
+        '<section class="section" style="padding-top:20px;"><div class="container">'
+        + '<nav class="breadcrumb" aria-label="Breadcrumb">'
+        + '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span>'
+        + '<a href="' + category_url('3D Artwork', lang) + '">' + esc(art_label) + '</a><span>›</span>'
+        + '<span>' + esc(name) + '</span></nav>'
+        + '<h1>' + esc(title) + '</h1>'
+        + ''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in intro)
+        + collections_strip_html(lang, slug)
+        + '<div class="b3d-grid" data-b3d-ids="' + ','.join(p['id'] for p in items) + '">' + ''.join(landing_card(p, lang) for p in items) + '</div>'
+        + '</div></section>'
+    )
+    html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main" class="b3d-light">' + block + '</main>', html, count=1, flags=re.DOTALL)
+    write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', 'gifts', slug, 'index.html'), html)
+    return len(items)
+
+
 
 def art_subcategories_html(lang, by_id):
     tiles, sections = [], []
@@ -1006,7 +1154,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
-        + (art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
+        + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
            else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
@@ -1089,7 +1237,7 @@ STATIC_PAGES = {
                 ]),
                 ('h2', 'Ready-made 3D printed items'),
                 ('p', "Prefer something ready to order? Browse our in-house designs in 3D Artwork: keychains, decor and gifts."),
-                ('links', [('/3d/shop/3d-artwork/', 'Browse 3D Artwork'), ('/3d/product/custom-3d-artwork/', 'Custom 3D Artwork'), ('/3d/returns/', 'Return & Exchange Policy'), ('/3d/shipping/', 'Shipping Policy')]),
+                ('links', [('/3d/shop/3d-artwork/', 'Browse 3D Artwork'), ('/3d/product/custom-3d-artwork/', 'Custom 3D Artwork'), ('/3d/business/', 'Business & Bulk Orders'), ('/3d/returns/', 'Return & Exchange Policy'), ('/3d/shipping/', 'Shipping Policy')]),
             ],
             'faq': [
                 ("How do I get a price for a custom print?", "Send your design, MakerWorld link or idea on WhatsApp and ask for a 3D printing quote. We confirm the details with you before production."),
@@ -1127,7 +1275,7 @@ STATIC_PAGES = {
                 ]),
                 ('h2', 'منتجات مطبوعة جاهزة'),
                 ('p', "تفضّل شيئًا جاهزًا للطلب؟ تصفح تصاميمنا الخاصة في قسم الأعمال الفنية: ميدالِيات المفاتيح والديكور والهدايا."),
-                ('links', [('/3d/shop/3d-artwork/', 'تصفح الأعمال الفنية'), ('/3d/product/custom-3d-artwork/', 'أعمال فنية مخصصة'), ('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/shipping/', 'سياسة الشحن')]),
+                ('links', [('/3d/shop/3d-artwork/', 'تصفح الأعمال الفنية'), ('/3d/product/custom-3d-artwork/', 'أعمال فنية مخصصة'), ('/3d/business/', 'طلبات الشركات والجملة'), ('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/shipping/', 'سياسة الشحن')]),
             ],
             'faq': [
                 ("كيف أحصل على سعر للطباعة المخصصة؟", "أرسل تصميمك أو رابط MakerWorld أو فكرتك عبر واتساب واطلب عرض سعر للطباعة ثلاثية الأبعاد. نؤكد معك التفاصيل قبل بدء الإنتاج."),
@@ -1192,6 +1340,94 @@ STATIC_PAGES = {
             ],
             'faq': [],
             'service_name': None,
+        },
+    },
+    'business': {
+        'en': {
+            'title': 'Corporate Gifts & Bulk 3D Printing in Saudi Arabia | Black Arrow 3D',
+            'desc': 'Bulk 3D printing for companies, events and schools in Saudi Arabia: logo keychains, corporate gifts, National Day giveaways, trophies and custom parts. Quote on WhatsApp.',
+            'h1': 'Corporate Gifts & Bulk Orders',
+            'crumb': 'Business & Bulk Orders',
+            'body': [
+                ('p', "Black Arrow 3D prints in quantity for companies, government entities, event organizers, schools and universities across Saudi Arabia. Every piece is designed and printed in-house in Dammam, so we can put your logo, name or message on it and deliver it anywhere in the Kingdom."),
+                ('wa_cta', ('Get a bulk quote on WhatsApp', "Hello! I'd like a quote for a bulk / corporate order:\n• Item:\n• Quantity:\n• Logo or text:\n• Needed by:")),
+                ('h2', 'What we make for businesses'),
+                ('ul', [
+                    "Logo keychains and tags for staff, customers and events",
+                    "Corporate and VIP gifts: desk pieces, lamps, display models and gift sets",
+                    "Saudi National Day and Founding Day giveaways (Saudi map, palm and swords, riyal symbol and more)",
+                    "Trophies, awards and plaques with your name or logo",
+                    "Event and exhibition items: name stands, table signs, props and branded decor",
+                    "School and university projects, prototypes and models",
+                    "Custom and replacement parts in small batches",
+                ]),
+                ('h2', 'How it works'),
+                ('ol', [
+                    "Send us the item, quantity, your logo or text, and the date you need it by.",
+                    "We send a quote and a digital mock-up. Larger orders get a lower price per piece.",
+                    "For bigger runs we print one sample first for your approval.",
+                    "We print, pack and deliver across Saudi Arabia, with a tax invoice for your company.",
+                ]),
+                ('h2', 'Why order from us'),
+                ('ul', [
+                    "Designed and printed in-house in Saudi Arabia, with no import wait",
+                    "Your logo, colors and text on every piece",
+                    "Arabic and English support on WhatsApp",
+                    "Bank transfer and company invoices available",
+                ]),
+                ('wa_cta', ('Talk to us about your order', "Hello! I'd like to discuss a business order with Black Arrow 3D.")),
+                ('links', [('/3d/shop/3d-artwork/', 'Browse 3D Artwork'), ('/3d/quote/', 'Instant 3D printing quote'), ('/3d/3d-printing-service-saudi-arabia/', '3D Printing Service')]),
+            ],
+            'faq': [
+                ("Is there a minimum order?", "No fixed minimum. The price per piece drops as the quantity goes up, so tell us the quantity and we will quote it."),
+                ("Can you put our logo on the items?", "Yes. Send your logo (a PDF, SVG or high-resolution PNG works best) and we will show you a mock-up before printing."),
+                ("How long does a bulk order take?", "It depends on the item and quantity. We confirm the production time with your quote, and we can plan around event dates."),
+                ("Do you provide a tax invoice?", "Yes, we provide a VAT invoice in your company's name."),
+            ],
+            'service_name': 'Corporate gifts and bulk 3D printing',
+        },
+        'ar': {
+            'title': 'هدايا الشركات والطباعة ثلاثية الأبعاد بالجملة | Black Arrow 3D',
+            'desc': 'طباعة ثلاثية الأبعاد بالجملة للشركات والفعاليات والمدارس في السعودية: ميداليات بالشعار، هدايا الشركات، توزيعات اليوم الوطني، دروع وقطع مخصصة. عرض سعر عبر واتساب.',
+            'h1': 'هدايا الشركات والطلبات بالجملة',
+            'crumb': 'طلبات الشركات والجملة',
+            'body': [
+                ('p', "تطبع Black Arrow 3D بالكميات للشركات والجهات الحكومية ومنظمي الفعاليات والمدارس والجامعات في جميع أنحاء المملكة. كل قطعة نصممها ونطبعها داخليًا في الدمام، لذلك نضع عليها شعارك أو اسمك أو رسالتك ونوصلها لأي مكان في المملكة."),
+                ('wa_cta', ('اطلب عرض سعر للجملة عبر واتساب', "مرحبًا! أريد عرض سعر لطلب شركة / جملة:\n• المنتج:\n• الكمية:\n• الشعار أو النص:\n• موعد الاستلام:")),
+                ('h2', 'ما نصنعه للشركات'),
+                ('ul', [
+                    "ميداليات وبطاقات بشعار شركتك للموظفين والعملاء والفعاليات",
+                    "هدايا الشركات وكبار الضيوف: قطع مكتبية وإضاءات ومجسمات عرض وأطقم هدايا",
+                    "توزيعات اليوم الوطني ويوم التأسيس (خريطة المملكة، النخلة والسيفين، رمز الريال وغيرها)",
+                    "دروع وجوائز ولوحات تكريم باسمك أو شعارك",
+                    "منتجات الفعاليات والمعارض: حوامل أسماء ولوحات طاولات وديكور يحمل هويتك",
+                    "مشاريع المدارس والجامعات والنماذج الأولية والمجسمات",
+                    "قطع مخصصة وقطع غيار بدفعات صغيرة",
+                ]),
+                ('h2', 'كيف نعمل'),
+                ('ol', [
+                    "أرسل لنا المنتج والكمية والشعار أو النص والموعد المطلوب.",
+                    "نرسل لك عرض السعر وتصميمًا رقميًا مبدئيًا. كلما زادت الكمية قلّ سعر القطعة.",
+                    "في الطلبات الكبيرة نطبع عينة أولًا لموافقتك.",
+                    "نطبع ونغلّف ونوصّل لجميع مناطق المملكة مع فاتورة ضريبية باسم شركتك.",
+                ]),
+                ('h2', 'لماذا تطلب منا'),
+                ('ul', [
+                    "تصميم وطباعة داخلية في السعودية دون انتظار الاستيراد",
+                    "شعارك وألوانك ونصك على كل قطعة",
+                    "دعم بالعربية والإنجليزية عبر واتساب",
+                    "التحويل البنكي وفواتير الشركات متاحة",
+                ]),
+                ('wa_cta', ('تحدث معنا عن طلبك', "مرحبًا! أريد مناقشة طلب لشركتنا مع Black Arrow 3D.")),
+                ('links', [('/3d/shop/3d-artwork/', 'تصفح الأعمال الفنية'), ('/3d/quote/', 'عرض سعر فوري للطباعة'), ('/3d/3d-printing-service-saudi-arabia/', 'خدمة الطباعة ثلاثية الأبعاد')]),
+            ],
+            'faq': [
+                ("هل يوجد حد أدنى للطلب؟", "لا يوجد حد أدنى ثابت. ينخفض سعر القطعة كلما زادت الكمية، فأخبرنا بالكمية ونرسل لك عرض السعر."),
+                ("هل يمكنكم وضع شعارنا على المنتجات؟", "نعم. أرسل شعارك (يفضل PDF أو SVG أو PNG بدقة عالية) وسنعرض عليك تصميمًا مبدئيًا قبل الطباعة."),
+                ("كم يستغرق طلب الجملة؟", "يعتمد على المنتج والكمية. نؤكد مدة الإنتاج مع عرض السعر، ويمكننا التخطيط حسب موعد فعاليتك."),
+                ("هل تقدمون فاتورة ضريبية؟", "نعم، نقدم فاتورة ضريبية باسم شركتك."),
+            ],
+            'service_name': 'هدايا الشركات والطباعة ثلاثية الأبعاد بالجملة',
         },
     },
     'quote': {
@@ -1340,6 +1576,9 @@ def build_static_page(slug, lang):
                 out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
         elif kind == 'reviews':
             out.append('<div data-b3d-reviews="page"></div>')
+        elif kind == 'wa_cta':
+            label, msg = val
+            out.append('<p><a class="btn btn-primary" href="https://wa.me/966560224715?text=' + urllib.parse.quote(msg) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + '</a></p>')
         elif kind == 'quote_cta':
             out.append('<p><a class="btn btn-outline" href="' + static_page_url('quote', lang) + '">' + esc(val) + '</a></p>')
         elif kind == 'quote':
@@ -1437,6 +1676,10 @@ def main():
             build_category_page(None, 'ar', prods, brand=brand)
             n_brands += 2
     print('generated', n_brands, 'brand pages')
+
+    for _slug, _rule, _copy in COLLECTIONS:
+        n = [build_collection_page(_slug, _rule, _copy, _lang) for _lang in ('en', 'ar')][0]
+        print('collection', _slug, n, 'products')
 
     for _slug in STATIC_PAGES:
         for _lang in ('en', 'ar'):

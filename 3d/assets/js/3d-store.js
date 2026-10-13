@@ -440,6 +440,51 @@
     return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' ' + TABBY_MARK + '</span>';
   }
 
+  /* Delivery estimate, counted in Saudi business days (Sun–Thu) from today in Riyadh.
+     Stock items: dispatched the next business day, then standard shipping 4–5 days.
+     3D printed items: made to order in 3–5 days, then 4–5 days (Shipping Policy). */
+  var ETA_DISPATCH_DAYS = 1;
+  function riyadhToday() {
+    var parts = {};
+    try {
+      new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Riyadh', year: 'numeric', month: 'numeric', day: 'numeric' })
+        .formatToParts(new Date()).forEach(function (x) { parts[x.type] = x.value; });
+      return new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day));
+    } catch (e) { var d = new Date(); return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); }
+  }
+  function addBusinessDays(date, n) {
+    var d = new Date(date.getTime());
+    while (n > 0) {
+      d.setUTCDate(d.getUTCDate() + 1);
+      var wd = d.getUTCDay();
+      if (wd !== 5 && wd !== 6) n--;   // Friday and Saturday are the weekend
+    }
+    return d;
+  }
+  function etaDate(d) {
+    var loc = isAr() ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB';
+    try { return d.toLocaleDateString(loc, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }); }
+    catch (e) { return d.toISOString().slice(0, 10); }
+  }
+  function etaHtml(p) {
+    var art = p.category === '3D Artwork';
+    var lo = (art ? 3 : ETA_DISPATCH_DAYS) + 4, hi = (art ? 5 : ETA_DISPATCH_DAYS) + 5;
+    var today = riyadhToday();
+    return '<p class="b3d-eta"><span aria-hidden="true">&#128230;</span> <span>' + T('js_eta_by') + ' ' + T('js_eta_between') +
+      ' <b>' + etaDate(addBusinessDays(today, lo)) + '</b> ' + T('js_eta_and') + ' <b>' + etaDate(addBusinessDays(today, hi)) + '</b> ' +
+      T('js_eta_std') + (art ? ' ' + T('js_eta_made') : '') + '</span></p>';
+  }
+
+  var WA_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>';
+  function waHref(p, variant) {
+    var url = 'https://www.blackarrowksa.com' + productUrl(p);
+    var text = T('js_wa_msg') + ' ' + L(p, 'name') + (variant ? ' (' + LVariant(variant) + ')' : '') + '\n' + url;
+    return 'https://wa.me/966560224715?text=' + encodeURIComponent(text);
+  }
+  function waLabel(p) {
+    return p.category === '3D Printers' ? T('js_wa_printer') : p.category === 'Filament' ? T('js_wa_filament') : T('js_wa_item');
+  }
+
   function vatNoteHtml(p) {
     return p.vatIncluded ? '<span class="b3d-vat-note">' + T('js_vat_included') + '</span>' : '';
   }
@@ -1105,6 +1150,26 @@
     };
   }
 
+  /* Same progress shown at the top of the cart summary, where people decide
+     what to add (the note above lives inside the checkout form). */
+  function renderCartShipProgress(text, pct, unlocked) {
+    var summary = document.querySelector('[data-b3d-cart-summary]');
+    if (!summary) return;
+    var box = summary.querySelector('[data-b3d-ship-progress]');
+    if (text == null) { if (box) box.hidden = true; return; }
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'b3d-ship-progress';
+      box.setAttribute('data-b3d-ship-progress', '');
+      summary.insertBefore(box, summary.firstChild);
+    }
+    pct = Math.max(0, Math.min(100, Math.round(pct)));
+    box.className = 'b3d-ship-progress' + (unlocked ? ' is-unlocked' : '');
+    box.innerHTML = '<p>' + (unlocked ? '&#10003; ' : '&#128666; ') + text + '</p>' +
+      '<div class="b3d-ship-bar' + (pct >= 100 ? ' is-full' : '') + '" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '"><span class="b3d-ship-bar__fill" style="width:' + pct + '%"></span></div>';
+    box.hidden = false;
+  }
+
   function updateFreeShippingUi(artworkSubtotal, printerSubtotal) {
     // The free-delivery threshold only ever waives Regular shipping — Fast
     // shipping always keeps its fee, so only that option's price gets overridden.
@@ -1114,25 +1179,53 @@
       el.innerHTML = lastFreeShipping ? T('js_free_ship_label') : el.dataset.originalHtml;
     });
     var noteEl = document.querySelector('[data-b3d-shipping-note]');
-    if (!noteEl) return;
+    if (!noteEl) noteEl = document.createElement('p');
+    if (!noteEl.parentNode) { noteEl.hidden = true; document.createDocumentFragment().appendChild(noteEl); }
+    // Progress bar right under the note: how close this cart is to free delivery.
+    var bar = document.querySelector('[data-b3d-ship-bar]');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.className = 'b3d-ship-bar';
+      bar.setAttribute('data-b3d-ship-bar', '');
+      bar.setAttribute('role', 'progressbar');
+      bar.setAttribute('aria-valuemin', '0');
+      bar.setAttribute('aria-valuemax', '100');
+      bar.innerHTML = '<span class="b3d-ship-bar__fill"></span>';
+      noteEl.parentNode.insertBefore(bar, noteEl.nextSibling);
+    }
+    function setBar(pct) {
+      pct = Math.max(0, Math.min(100, Math.round(pct)));
+      bar.querySelector('.b3d-ship-bar__fill').style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', String(pct));
+      bar.classList.toggle('is-full', pct >= 100);
+      bar.hidden = false;
+    }
     if (lastFreeShipping) {
       noteEl.textContent = T('js_free_ship_unlocked');
       noteEl.className = 'b3d-shipping-note is-unlocked';
       noteEl.hidden = false;
+      setBar(100);
+      renderCartShipProgress(T('js_free_ship_unlocked'), 100, true);
       return;
     }
     var remainArt = FREE_SHIP_ARTWORK_MIN - artworkSubtotal;
     var remainPrinter = FREE_SHIP_PRINTER_MIN - printerSubtotal;
     if (artworkSubtotal > 0 && remainArt > 0) {
-      noteEl.textContent = T('js_free_ship_progress_artwork').replace('{n}', remainArt);
+      noteEl.textContent = T('js_free_ship_progress_artwork').replace('{n}', Math.ceil(remainArt * 100) / 100);
       noteEl.className = 'b3d-shipping-note';
       noteEl.hidden = false;
+      setBar(artworkSubtotal / FREE_SHIP_ARTWORK_MIN * 100);
+      renderCartShipProgress(noteEl.textContent, artworkSubtotal / FREE_SHIP_ARTWORK_MIN * 100, false);
     } else if (printerSubtotal > 0 && remainPrinter > 0) {
-      noteEl.textContent = T('js_free_ship_progress_printer').replace('{n}', remainPrinter);
+      noteEl.textContent = T('js_free_ship_progress_printer').replace('{n}', Math.ceil(remainPrinter * 100) / 100);
       noteEl.className = 'b3d-shipping-note';
       noteEl.hidden = false;
+      setBar(printerSubtotal / FREE_SHIP_PRINTER_MIN * 100);
+      renderCartShipProgress(noteEl.textContent, printerSubtotal / FREE_SHIP_PRINTER_MIN * 100, false);
     } else {
       noteEl.hidden = true;
+      bar.hidden = true;
+      renderCartShipProgress(null);
     }
   }
 
@@ -2090,6 +2183,7 @@
           '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency)) + '</div>' +
           variantSelectorHtml +
           trustRowHtml(p) +
+          '<div data-pd-eta>' + (selectionOut() || p.preorder ? '' : etaHtml(p)) + '</div>' +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
           bundlePickHtml +
           '<div class="b3d-pd__actions">' +
@@ -2102,8 +2196,8 @@
           '</div>' +
           (p.bundlePick ? '<p class="b3d-bundle-pick__disabled-hint" data-bundle-hint' + (bundleSelected.length >= bundleMin ? ' hidden' : '') + '>' + T('js_bundle_pick_disabled_hint') + '</p>' : '') +
           restockHtml +
+          '<a class="b3d-pd__wa" data-pd-wa href="' + waHref(p, hasVariants ? initV : null) + '" target="_blank" rel="noopener noreferrer">' + WA_ICON + '<span>' + waLabel(p) + '</span></a>' +
           '<div class="b3d-pd__contact-actions">' +
-            '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
             '<a href="/3d/cart/">' + T('js_view_cart') + '</a>' +
             (p.category === '3D Artwork' ? '' : '<button type="button" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
           '</div>' +
@@ -2238,6 +2332,10 @@
       }
       function refreshStockUi() {
         if (restockEl) restockEl.hidden = !selectionOut();
+        var etaWrap = container.querySelector('[data-pd-eta]');
+        if (etaWrap) etaWrap.innerHTML = (selectionOut() || p.preorder) ? '' : etaHtml(p);
+        var waBtn = container.querySelector('[data-pd-wa]');
+        if (waBtn && hasVariants) waBtn.href = waHref(p, p.variants[selectedVariant]);
         var bnplWrap = container.querySelector('[data-pd-bnpl]');
         if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency);
         refreshFbt();

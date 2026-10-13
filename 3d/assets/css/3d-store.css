@@ -2768,3 +2768,33 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-bnpl-card .b3d-bnpl__tabby { font-size: .7rem; padding: 1px 6px 1px 2px; }
 .b3d-bnpl-card .b3d-bnpl__tabby img { width: 13px; height: 13px; }
 .b3d-bnpl-card .b3d-riyal svg, .b3d-bnpl .b3d-riyal svg { vertical-align: -1px; }
+
+/* ---- Cart: free-delivery progress bar ---- */
+.b3d-ship-bar { height: 8px; border-radius: 999px; background: #e7e4dc; overflow: hidden; margin: 6px 0 14px; }
+.b3d-ship-bar__fill { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #f59e0b, #10b981); transition: width .4s ease; }
+.b3d-ship-bar.is-full .b3d-ship-bar__fill { background: #047857; }
+@media (prefers-reduced-motion: reduce) { .b3d-ship-bar__fill { transition: none; } }
+
+/* ---- Product page: delivery estimate ---- */
+.b3d-eta { display: flex; gap: 8px; align-items: flex-start; margin: 0 0 16px; padding: 10px 12px; border-radius: 10px; background: #eef7f2; color: #1f3d31; font-size: .88rem; line-height: 1.5; }
+.b3d-eta b { color: #0b5a40; white-space: nowrap; }
+
+/* ---- Product page: WhatsApp question button ---- */
+.b3d-pd__wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin: 12px 0 4px; padding: 13px 16px; border-radius: 10px; border: 2px solid #25d366; color: #0f6b3a; background: #f1fcf5; font-weight: 700; text-decoration: none; transition: background .15s; }
+.b3d-pd__wa:hover { background: #dcf8e7; }
+.b3d-pd__wa:focus-visible { outline: 3px solid #25d366; outline-offset: 2px; }
+.b3d-pd__wa svg { color: #25d366; flex: none; }
+
+/* ---- Gift collections: "Shop gifts by occasion" links ---- */
+.b3d-gift-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 22px; }
+.b3d-gift-links__label { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #6b6458; margin-inline-end: 4px; }
+.b3d-gift-links__item { padding: 8px 14px; border-radius: 999px; border: 1px solid #d9d4c8; background: #fff; color: #1a1a1a; font-size: .88rem; font-weight: 600; text-decoration: none; transition: border-color .15s, background .15s; }
+.b3d-gift-links__item:hover { border-color: #047857; background: #eef7f2; }
+.b3d-gift-links__item.is-current { background: #1a1a1a; border-color: #1a1a1a; color: #fff; }
+.b3d-ship-progress { margin: 0 0 14px; padding: 12px 14px; border-radius: 12px; background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.35); }
+.b3d-ship-progress p { margin: 0 0 8px; font-size: .88rem; font-weight: 600; }
+.b3d-ship-progress .b3d-ship-bar { margin: 0; background: rgba(127,127,127,.25); }
+.b3d-ship-progress.is-unlocked { background: rgba(4,120,87,.12); border-color: rgba(4,120,87,.4); }
+.b3d-pd .b3d-pd__wa, main.b3d-light .b3d-pd .b3d-pd__wa { color: #0f6b3a !important; text-decoration: none !important; }
+.b3d-pd .b3d-pd__wa svg { color: #25d366 !important; fill: currentColor; width: 22px; height: 22px; }
+.b3d-pd .b3d-pd__wa span { color: inherit !important; }

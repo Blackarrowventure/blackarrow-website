@@ -92,10 +92,19 @@ def build_3d_urls():
         out.append(url_block(en, '0.85', 'weekly', en=en, ar=ar))
         out.append(url_block(ar, '0.85', 'weekly', en=en, ar=ar))
 
-    for slug in ('3d-printing-service-saudi-arabia', 'quote', 'shipping', 'reviews'):
+    # Gift collections (/3d/gifts/<slug>/), whatever generate_3d_static.py built.
+    gifts_dir = os.path.join(ROOT, '3d', 'gifts')
+    for slug in sorted(os.listdir(gifts_dir)) if os.path.isdir(gifts_dir) else []:
+        if os.path.isfile(os.path.join(gifts_dir, slug, 'index.html')):
+            en = SITE + '/3d/gifts/' + slug + '/'
+            ar = SITE + '/3d/ar/gifts/' + slug + '/'
+            out.append(url_block(en, '0.7', 'weekly', en=en, ar=ar))
+            out.append(url_block(ar, '0.7', 'weekly', en=en, ar=ar))
+
+    for slug in ('3d-printing-service-saudi-arabia', 'quote', 'business', 'shipping', 'reviews'):
         en = SITE + '/3d/' + slug + '/'
         ar = SITE + '/3d/ar/' + slug + '/'
-        prio = '0.8' if slug in ('3d-printing-service-saudi-arabia', 'quote') else '0.4'
+        prio = '0.8' if slug in ('3d-printing-service-saudi-arabia', 'quote', 'business') else '0.4'
         out.append(url_block(en, prio, 'monthly', en=en, ar=ar))
         out.append(url_block(ar, prio, 'monthly', en=en, ar=ar))
 
