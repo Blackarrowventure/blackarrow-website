@@ -428,12 +428,12 @@ GUIDES = [
 
           <div class="b3d-article__cta">
             <p>Need filament or a spare hotend?</p>
-            <a href="/3d/deals/" class="btn btn-primary">See Kits &amp; Deals</a>
+            <a href="/3d/shop/filament/" class="btn btn-primary">Shop Filament</a>
           </div>
 
           <h2>Related</h2>
           <div class="b3d-article__related">
-            <a href="/3d/product/bambu-lab-a1-mini-starter-kit/">Bambu Lab A1 mini Starter Kit</a>
+            <a href="/3d/product/bambu-hotend-a1-series/">Bambu Hotend &mdash; A1 Series</a>
             <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">First layer not sticking?</a>
             <a href="/3d/blog/which-filament-for-which-print/">Which filament for which print</a>
           </div>
@@ -486,12 +486,12 @@ GUIDES = [
 
           <div class="b3d-article__cta">
             <p>تحتاج فلمنت أو هوت إند احتياطي؟</p>
-            <a href="/3d/ar/deals/" class="btn btn-primary">شاهد الأطقم والعروض</a>
+            <a href="/3d/ar/shop/filament/" class="btn btn-primary">تسوّق الفلمنت</a>
           </div>
 
           <h2>ذات صلة</h2>
           <div class="b3d-article__related">
-            <a href="/3d/ar/product/bambu-lab-a1-mini-starter-kit/">طقم البداية بامبو لاب A1 mini</a>
+            <a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند بامبو &mdash; سلسلة A1</a>
             <a href="/3d/ar/blog/3d-print-bed-adhesion-first-layer/">الطبقة الأولى لا تلتصق؟</a>
             <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>
           </div>
@@ -538,8 +538,8 @@ GUIDES = [
           </ul>
 
           <div class="b3d-article__cta">
-            <p>Stock up with a multi-pack</p>
-            <a href="/3d/deals/" class="btn btn-primary">See Filament Deals</a>
+            <p>Stock up on filament</p>
+            <a href="/3d/shop/filament/" class="btn btn-primary">Shop Filament</a>
           </div>
 
           <h2>Related</h2>
@@ -588,8 +588,8 @@ GUIDES = [
           </ul>
 
           <div class="b3d-article__cta">
-            <p>وفّر مع باقات الفلمنت</p>
-            <a href="/3d/ar/deals/" class="btn btn-primary">شاهد عروض الفلمنت</a>
+            <p>جهّز مخزونك من الفلمنت</p>
+            <a href="/3d/ar/shop/filament/" class="btn btn-primary">تسوّق الفلمنت</a>
           </div>
 
           <h2>ذات صلة</h2>

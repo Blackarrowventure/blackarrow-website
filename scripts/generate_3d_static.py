@@ -862,16 +862,6 @@ ART_SUBCATEGORIES = [
 # collection with "collections": ["<slug>"] in the catalog. 'max_price' picks
 # every available 3D printed item at or under that price.
 COLLECTIONS = [
-    ('deals', {'deals': True}, {
-        'en': ('3D Printer Kits & Deals in Saudi Arabia', 'Kits & Deals',
-               'Save on 3D printer starter kits, filament multi-packs and items on offer at Black Arrow 3D. Prices in SAR with delivery across Saudi Arabia.',
-               ["Kits put a printer together with the filament and spare parts you need, for less than buying each item on its own. Each kit page shows exactly what is inside and how much you save.",
-                "Below the kits you'll find everything else currently on offer. Printer orders over 3,000 SAR get free regular delivery."]),
-        'ar': ('أطقم وعروض الطابعات ثلاثية الأبعاد في السعودية', 'الأطقم والعروض',
-               'وفّر مع أطقم البداية للطابعات ثلاثية الأبعاد وباقات الفلمنت والمنتجات المخفضة في Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
-               ["تجمع الأطقم الطابعة مع الفلمنت وقطع الغيار التي تحتاجها بسعر أقل من شراء كل قطعة وحدها. تعرض صفحة كل طقم محتوياته بالتفصيل وكم توفّر.",
-                "تحت الأطقم تجد كل المنتجات المخفضة حاليًا. طلبات الطابعات فوق 3,000 ريال توصيلها العادي مجاني."]),
-    }),
     ('under-50', {'max_price': 50}, {
         'en': ('3D Printed Gifts Under 50 SAR', 'Gifts Under 50 SAR',
                'Affordable 3D printed gifts under 50 SAR in Saudi Arabia: keychains, desk pieces, fidget toys and small decor, made in-house by Black Arrow 3D.',
@@ -1212,7 +1202,6 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
-        + ('<p><a class="b3d-deals-link" href="' + collection_url('deals', lang) + '">' + ('&#127873; وفّر مع أطقم الطابعات وباقات الفلمنت ←' if lang == 'ar' else '&#127873; Save with printer kits and filament multi-packs →') + '</a></p>' if cat in ('3D Printers', 'Filament') and not brand else '')
         + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
            else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
