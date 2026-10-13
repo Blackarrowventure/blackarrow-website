@@ -2597,6 +2597,38 @@
       ]
     },
     {
+      "id": "toji-edge-sitter-figure",
+      "name": "Toji Fushiguro Edge-Sitter Figure",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 30,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/toji-edge-sitter-figure-01.webp",
+        "/3d/assets/images/products/toji-edge-sitter-figure-02.webp"
+      ],
+      "shortDesc": "Toji Fushiguro-inspired edge-sitter figure, 3D printed in-house, unpainted display finish.",
+      "description": "Bring the infamous \"Sorcerer Killer\" to your desk with this highly detailed Toji Fushiguro-inspired edge-sitter figure, designed and 3D printed in-house at Black Arrow 3D. Designed to sit on the edge of a monitor, bookshelf, desk, or even your 3D printer, the figure is posed in a relaxed, confident sit with fine sculpted detail — his wrapped torso, signature baggy pants, and an Inverted-Spear-style blade held in hand. Perfect functional decor for any anime fan or workspace.",
+      "specs": [
+        ["Material", "Resin"],
+        ["Design", "Toji Fushiguro-inspired edge-sitter figure — printed in-house"],
+        ["Finish", "Unpainted display finish"],
+        ["Use", "Edge-sitting display piece for a monitor, shelf, desk, or printer"]
+      ],
+      "name_ar": "مجسم توجي فوشيغورو الجالس على الحافة",
+      "shortDesc_ar": "مجسم جالس على الحافة مستوحى من توجي فوشيغورو، مطبوع ثلاثي الأبعاد داخليًا، بلمسة عرض غير مطلية.",
+      "description_ar": "أحضر \"قاتل السحرة\" الشهير إلى مكتبك مع هذا المجسم المفصّل الجالس على الحافة، المستوحى من شخصية توجي فوشيغورو، صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D. صُمم ليجلس على حافة الشاشة أو الرف أو المكتب أو حتى طابعتك ثلاثية الأبعاد، بوضعية هادئة وواثقة وتفاصيل منحوتة بعناية — جذعه الملفوف، وسرواله الفضفاض المميز، ونصل بتصميم الرمح المقلوب في يده. قطعة ديكور وظيفية مثالية لأي محب للأنمي أو مساحة عمل.",
+      "specs_ar": [
+        ["الخامة", "ريزن"],
+        ["التصميم", "مجسم جالس على الحافة مستوحى من توجي فوشيغورو — طباعة داخلية"],
+        ["اللمسة", "عرض غير مطلية"],
+        ["الاستخدام", "قطعة عرض جالسة على حافة الشاشة أو الرف أو المكتب أو الطابعة"]
+      ]
+    },
+    {
       "id": "kingroon-pla-basic-filament",
       "name": "KINGROON PLA Basic Filament 1.75 mm (1 kg)",
       "brand": "KINGROON",

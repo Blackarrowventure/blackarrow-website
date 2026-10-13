@@ -806,7 +806,7 @@ ART_SUBCATEGORIES = [
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand', 'button-symbols-controller-stand',
         'pillow-controller-stand', 'gta-vi-ps5-controller-stand']),
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
-        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue']),
+        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue', 'toji-edge-sitter-figure']),
     ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
         'air-filter-style-lamp', 'synapse-usb-lamp', 'spiderman-mask-pen-holder',
         'one-piece-luffy-silhouette-lamp', 'one-piece-zoro-silhouette-lamp', 'one-piece-sanji-silhouette-lamp']),
