@@ -2686,3 +2686,74 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-footer-pay__chip img { display: block; width: auto; height: auto; max-width: 64px; max-height: 32px; object-fit: contain; }
 .b3d-footer-pay__chip--tabby img { max-width: 32px; max-height: 32px; width: 32px; height: 32px; }
 .footer .b3d-footer-pay .b3d-footer-pay__chip.b3d-footer-pay__chip--text { height: 48px; padding: 0 14px; font-size: .8rem; font-weight: 800; line-height: 1; white-space: nowrap; color: #F59E0B !important; background: #000; border: 1px solid #F59E0B; }
+
+/* ---- Product page: store rating next to the title ---- */
+.b3d-pd__rating { display: inline-flex; align-items: center; gap: 6px; margin: -4px 0 12px; font-size: .88rem; color: #555; text-decoration: none; }
+.b3d-pd__rating:hover { color: #111; text-decoration: underline; }
+.b3d-pd__stars { color: #f5a623; letter-spacing: 1px; font-size: 1rem; }
+.b3d-pd__stars span { color: #d6d3cc; }
+.b3d-pd__rating b { color: #111; }
+
+/* ---- Product page: back-in-stock alert ---- */
+.b3d-restock { margin: 14px 0 6px; padding: 14px 16px; border: 1px dashed #c9c5bb; border-radius: 12px; background: #faf8f3; }
+.b3d-restock__open { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: #047857; cursor: pointer; }
+.b3d-restock__open:hover { text-decoration: underline; }
+.b3d-restock__form label { display: block; font-weight: 600; color: #222; margin-bottom: 8px; font-size: .92rem; }
+.b3d-restock__row { display: flex; gap: 8px; flex-wrap: wrap; }
+.b3d-restock__row input { flex: 1 1 200px; min-width: 0; padding: 11px 12px; border: 1px solid #c9c5bb; border-radius: 8px; font: inherit; background: #fff; color: #111; }
+.b3d-restock__row .btn { padding: 11px 18px; }
+.b3d-restock__msg { margin: 8px 0 0; font-size: .86rem; color: #b42318; }
+.b3d-restock__msg:empty { display: none; }
+.b3d-restock__msg.is-done { color: #047857; font-weight: 600; margin: 0; }
+
+/* ---- Product page: frequently bought together ---- */
+.b3d-fbt { margin: 22px 0; padding: 16px; border: 1px solid #e2dfd6; border-radius: 14px; background: #fff; }
+.b3d-fbt h2 { font-size: 1.05rem; margin: 0 0 10px; color: #111; }
+.b3d-fbt__list { list-style: none; margin: 0; padding: 0; }
+.b3d-fbt__item { display: grid; grid-template-columns: auto 56px 1fr auto; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid #f0ede6; cursor: pointer; }
+.b3d-fbt__list li:first-child .b3d-fbt__item { border-top: 0; }
+.b3d-fbt__item input { width: 18px; height: 18px; accent-color: #047857; }
+.b3d-fbt__item img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; background: #f4f3f0; }
+.b3d-fbt__name { font-size: .88rem; color: #222; line-height: 1.3; min-width: 0; }
+.b3d-fbt__name a { color: inherit; text-decoration: none; }
+.b3d-fbt__name a:hover { text-decoration: underline; }
+.b3d-fbt__name small { display: block; color: #777; font-size: .75rem; }
+.b3d-fbt__price { font-weight: 700; color: #111; white-space: nowrap; font-size: .9rem; }
+.b3d-fbt__item:has(input:disabled) { opacity: .5; cursor: not-allowed; }
+.b3d-fbt__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid #e2dfd6; color: #333; }
+.b3d-fbt__foot b { color: #111; font-size: 1.1rem; }
+.b3d-fbt__foot .btn:disabled { background: #8a9096 !important; border-color: #8a9096 !important; cursor: not-allowed; }
+
+/* ---- Instant quote page ---- */
+.b3d-quote { margin: 18px 0 8px; }
+.b3d-quote__drop { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 36px 20px; border: 2px dashed rgba(255,255,255,.3); border-radius: 16px; text-align: center; cursor: pointer; background: rgba(255,255,255,.03); transition: border-color .15s, background .15s; }
+.b3d-quote__drop:hover, .b3d-quote__drop.is-over { border-color: var(--clr-accent); background: rgba(255,255,255,.06); }
+.b3d-quote__drop[hidden] { display: none; }
+.b3d-quote__drop-icon { font-size: 2rem; color: var(--clr-accent); line-height: 1; }
+.b3d-quote__drop strong { color: #fff; font-size: 1.05rem; }
+.b3d-quote__drop small { color: rgba(255,255,255,.6); }
+.b3d-quote__status { color: rgba(255,255,255,.75); min-height: 1em; }
+.b3d-quote__result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.b3d-quote__result[hidden] { display: none; }
+@media (max-width: 720px) { .b3d-quote__result { grid-template-columns: 1fr; } }
+.b3d-quote__preview { background: radial-gradient(circle at 50% 40%, #2b2f33, #15181b); border-radius: 16px; padding: 10px; }
+.b3d-quote__preview canvas { display: block; width: 100%; height: 280px; }
+.b3d-quote__file { color: rgba(255,255,255,.6); font-size: .8rem; text-align: center; padding-top: 6px; overflow-wrap: anywhere; }
+.b3d-quote__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 14px; }
+.b3d-quote__stats div { background: rgba(255,255,255,.06); border-radius: 10px; padding: 8px 10px; }
+.b3d-quote__stats dt { color: rgba(255,255,255,.55); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+.b3d-quote__stats dd { margin: 2px 0 0; color: #fff; font-weight: 600; font-size: .88rem; }
+.b3d-quote__form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.b3d-quote__form label { display: flex; flex-direction: column; gap: 4px; color: rgba(255,255,255,.75); font-size: .8rem; }
+.b3d-quote__form label:first-child { grid-column: 1 / -1; }
+.b3d-quote__form select, .b3d-quote__form input { padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: #1d2023; color: #fff; font: inherit; font-size: .9rem; }
+.b3d-quote__price { margin: 16px 0 6px; padding: 14px; border-radius: 12px; background: rgba(4,120,87,.18); border: 1px solid rgba(4,120,87,.5); }
+.b3d-quote__price span { display: block; color: rgba(255,255,255,.7); font-size: .8rem; }
+.b3d-quote__price strong { color: #fff; font-size: 1.5rem; }
+.b3d-quote__price small { color: rgba(255,255,255,.7); }
+.b3d-quote__price em { display: block; font-style: normal; color: rgba(255,255,255,.85); margin-top: 4px; font-size: .9rem; }
+.b3d-quote__warn { color: #fbbf24; font-size: .88rem; }
+.b3d-quote__note { color: rgba(255,255,255,.6); font-size: .82rem; }
+.b3d-quote__send { display: block; width: 100%; text-align: center; margin-top: 8px; }
+.b3d-quote__attach { color: rgba(255,255,255,.6); font-size: .8rem; text-align: center; margin: 6px 0 0; }
+.b3d-quote__again { background: none; border: 0; color: var(--clr-accent); font: inherit; font-size: .85rem; cursor: pointer; padding: 8px 0; text-decoration: underline; }

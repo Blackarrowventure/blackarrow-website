@@ -1986,6 +1986,61 @@
             '<div data-bundle-price-row-wrap>' + bundlePriceRowHtml(bundleSelected) + '</div>' +
           '</div>'
         : '';
+      /* Out of stock right now? (whole product, or the option currently picked) */
+      function selectionOut() {
+        if (p.preorder || p.bundlePick) return false;
+        return !pdAvailable || !!(hasVariants && p.variants[selectedVariant] && p.variants[selectedVariant].available === false);
+      }
+
+      /* Back-in-stock alert: shown only while the current selection is out of stock. */
+      var restockHtml = p.bundlePick ? '' :
+        '<div class="b3d-restock" data-restock' + (selectionOut() ? '' : ' hidden') + '>' +
+          '<button type="button" class="b3d-restock__open" data-restock-open><span aria-hidden="true">&#128276;</span> ' + T('js_restock_btn') + '</button>' +
+          '<form class="b3d-restock__form" data-restock-form hidden novalidate>' +
+            '<label for="b3d-restock-contact">' + T('js_restock_title') + '</label>' +
+            '<div class="b3d-restock__row">' +
+              '<input id="b3d-restock-contact" type="text" inputmode="email" autocomplete="email" maxlength="80" placeholder="' + T('js_restock_placeholder') + '">' +
+              '<button type="submit" class="btn btn-primary">' + T('js_restock_submit') + '</button>' +
+            '</div>' +
+            '<p class="b3d-restock__msg" data-restock-msg role="status"></p>' +
+          '</form>' +
+        '</div>';
+
+      /* Frequently bought together: ids (or "id::variantIndex") listed in p.boughtTogether.
+         Anything out of stock is left out automatically. */
+      var fbtItems = p.bundlePick ? [] : (p.boughtTogether || []).map(function (ref) {
+        var parts = String(ref).split('::');
+        var bp = products.filter(function (x) { return x.id === parts[0]; })[0];
+        if (!bp || bp.available === false || bp.bundlePick) return null;
+        var vi = null;
+        if (bp.variants && bp.variants.length) {
+          vi = parts.length > 1 ? parseInt(parts[1], 10) : bp.variants.findIndex(function (v) { return v.available !== false; });
+          if (vi < 0 || !bp.variants[vi] || bp.variants[vi].available === false) return null;
+        }
+        return { p: bp, vi: vi, price: vi == null ? currentPrice(bp) : bp.variants[vi].price };
+      }).filter(Boolean).slice(0, 3);
+      function mainPrice() { return hasVariants ? p.variants[selectedVariant].price : currentPrice(p); }
+      var fbtHtml = fbtItems.length ?
+        '<div class="b3d-fbt" data-fbt>' +
+          '<h2>' + T('js_fbt_title') + '</h2>' +
+          '<ul class="b3d-fbt__list">' +
+            '<li><label class="b3d-fbt__item"><input type="checkbox" data-fbt-main' + (selectionOut() ? ' disabled' : ' checked') + '>' +
+              (primaryImage(p) ? '<img src="' + primaryImage(p) + '" alt="" loading="lazy" width="56" height="56">' : '') +
+              '<span class="b3d-fbt__name"><small>' + T('js_fbt_this') + '</small>' + L(p, 'name') + '</span>' +
+              '<span class="b3d-fbt__price" data-fbt-main-price>' + money(mainPrice(), p.currency) + '</span></label></li>' +
+            fbtItems.map(function (it, i) {
+              var img = (it.vi != null && it.p.variants[it.vi].image) || primaryImage(it.p);
+              return '<li><label class="b3d-fbt__item"><input type="checkbox" data-fbt-idx="' + i + '" checked>' +
+                (img ? '<img src="' + img + '" alt="" loading="lazy" width="56" height="56">' : '') +
+                '<span class="b3d-fbt__name"><a href="' + productUrl(it.p) + '">' + L(it.p, 'name') + '</a>' +
+                (it.vi != null ? '<small>' + LVariant(it.p.variants[it.vi]) + '</small>' : '') + '</span>' +
+                '<span class="b3d-fbt__price">' + money(it.price, it.p.currency) + '</span></label></li>';
+            }).join('') +
+          '</ul>' +
+          '<div class="b3d-fbt__foot"><span>' + T('js_fbt_total') + ': <b data-fbt-total></b></span>' +
+            '<button type="button" class="btn btn-primary" data-fbt-add>' + T('js_fbt_add') + '</button></div>' +
+        '</div>' : '';
+
       var initialPriceHtml = hasVariants
         ? variantPriceHtml(initV, p)
         : priceBlock(p);
@@ -2005,6 +2060,7 @@
         '<div>' +
           '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
+          '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
           variantSelectorHtml +
           trustRowHtml(p) +
@@ -2019,11 +2075,13 @@
             '<button class="btn btn-primary b3d-pd__buy" data-pd-add ' + ((p.bundlePick ? bundleSelected.length < bundleMin : initBuy.disabled) ? 'disabled' : '') + '>' + (p.bundlePick ? T('js_add_to_cart') : initBuy.label) + '</button>' +
           '</div>' +
           (p.bundlePick ? '<p class="b3d-bundle-pick__disabled-hint" data-bundle-hint' + (bundleSelected.length >= bundleMin ? ' hidden' : '') + '>' + T('js_bundle_pick_disabled_hint') + '</p>' : '') +
+          restockHtml +
           '<div class="b3d-pd__contact-actions">' +
             '<a href="https://wa.me/966560224715?text=' + encodeURIComponent('Hello! I have a question about ' + L(p, 'name') + '.') + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>' +
             '<a href="/3d/cart/">' + T('js_view_cart') + '</a>' +
             (p.category === '3D Artwork' ? '' : '<button type="button" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
           '</div>' +
+          fbtHtml +
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
@@ -2083,6 +2141,7 @@
             if (swatchLabel) swatchLabel.textContent = LVariant(v) + (v.available === false ? ' (' + T('js_out_of_stock') + ')' : '');
             var buyBtn = container.querySelector('[data-pd-add]');
             if (buyBtn) { var bs = buyState(v); buyBtn.disabled = bs.disabled; buyBtn.textContent = bs.label; }
+            refreshStockUi();
             if (v.image) {
               var mainImg = container.querySelector('[data-pd-main-img]');
               if (mainImg) mainImg.src = v.image;
@@ -2131,6 +2190,75 @@
         });
       }
 
+      /* --- restock alert + bought-together: keep in step with the selected option --- */
+      var restockEl = container.querySelector('[data-restock]');
+      var fbtEl = container.querySelector('[data-fbt]');
+      function refreshFbt() {
+        if (!fbtEl) return;
+        var mainBox = fbtEl.querySelector('[data-fbt-main]');
+        var out = selectionOut();
+        if (out) mainBox.checked = false;
+        else if (mainBox.disabled) mainBox.checked = true;   // back in stock option picked: include it again
+        mainBox.disabled = out;
+        fbtEl.querySelector('[data-fbt-main-price]').innerHTML = money(mainPrice(), p.currency);
+        var total = mainBox.checked ? mainPrice() : 0, any = mainBox.checked;
+        fbtEl.querySelectorAll('[data-fbt-idx]').forEach(function (box) {
+          if (box.checked) { total += fbtItems[+box.getAttribute('data-fbt-idx')].price; any = true; }
+        });
+        fbtEl.querySelector('[data-fbt-total]').innerHTML = money(Math.round(total * 100) / 100, p.currency);
+        fbtEl.querySelector('[data-fbt-add]').disabled = !any;
+      }
+      function refreshStockUi() {
+        if (restockEl) restockEl.hidden = !selectionOut();
+        refreshFbt();
+      }
+      if (fbtEl) {
+        fbtEl.addEventListener('change', refreshFbt);
+        var fbtAdd = fbtEl.querySelector('[data-fbt-add]');
+        fbtAdd.addEventListener('click', function () {
+          if (fbtEl.querySelector('[data-fbt-main]').checked) addToCart(hasVariants ? lineId(p.id, selectedVariant) : p.id, 1);
+          fbtEl.querySelectorAll('[data-fbt-idx]').forEach(function (box) {
+            if (!box.checked) return;
+            var it = fbtItems[+box.getAttribute('data-fbt-idx')];
+            addToCart(lineId(it.p.id, it.vi), 1);
+          });
+          fbtAdd.textContent = T('js_fbt_added');
+          setTimeout(function () { fbtAdd.textContent = T('js_fbt_add'); }, 1500);
+        });
+        refreshFbt();
+      }
+      if (restockEl) {
+        var rsForm = restockEl.querySelector('[data-restock-form]');
+        var rsMsg = restockEl.querySelector('[data-restock-msg]');
+        restockEl.querySelector('[data-restock-open]').addEventListener('click', function () {
+          rsForm.hidden = false;
+          this.hidden = true;
+          rsForm.querySelector('input').focus();
+        });
+        rsForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var contact = normalizeContact(rsForm.querySelector('input').value);
+          if (!contact) { rsMsg.textContent = T('js_restock_invalid'); return; }
+          var variantLabel = hasVariants ? (p.variants[selectedVariant].label || '') : '';
+          var btn = rsForm.querySelector('button');
+          btn.disabled = true;
+          submitRestockAlert(p.id, variantLabel, contact).then(function (ok) {
+            if (ok) {
+              rsForm.innerHTML = '<p class="b3d-restock__msg is-done">' + T('js_restock_done') + '</p>';
+              if (window.dataLayer) window.dataLayer.push({ event: 'restock_alert', item_id: p.id });
+              return;
+            }
+            // Service not set up / offline: hand the request over on WhatsApp instead.
+            var text = 'Hello! Please notify me when ' + p.name + (variantLabel ? ' (' + variantLabel + ')' : '') + ' is back in stock. My contact: ' + contact;
+            rsMsg.innerHTML = '<a class="btn btn-outline" href="https://wa.me/966560224715?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener noreferrer">' + T('js_ask_whatsapp') + '</a>';
+            btn.disabled = false;
+          });
+        });
+      }
+
+      paintRatingBadge(container);
+      document.addEventListener('b3d:reviews', function () { paintRatingBadge(container); });
+
       var addBtn = container.querySelector('[data-pd-add]');
       if (addBtn) {
         addBtn.addEventListener('click', function () {
@@ -2160,6 +2288,42 @@
 
       renderRelated(container, products, p);
     });
+  }
+
+  /* Restock alerts: a Saudi mobile (05…, 5…, 9665…, +9665…) becomes 9665XXXXXXXX; emails are kept as typed. */
+  function normalizeContact(raw) {
+    var v = String(raw || '').trim();
+    if (v.indexOf('@') !== -1) return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? v.toLowerCase() : null;
+    var d = v.replace(/[^0-9٠-٩]/g, '').replace(/[٠-٩]/g, function (c) { return String(c.charCodeAt(0) - 0x0660); });
+    if (/^009665\d{8}$/.test(d)) d = d.slice(2);
+    if (/^05\d{8}$/.test(d)) d = '966' + d.slice(1);
+    if (/^5\d{8}$/.test(d)) d = '966' + d;
+    return /^9665\d{8}$/.test(d) ? d : null;
+  }
+
+  function submitRestockAlert(productId, variant, contact) {
+    var cfg = window.BLACK_ARROW_SUPABASE_CONFIG;
+    if (!cfg || !cfg.url || !cfg.anonKey) return Promise.resolve(false);
+    return fetch(cfg.url + '/rest/v1/rpc/submit_restock_alert', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: cfg.anonKey, Authorization: 'Bearer ' + cfg.anonKey },
+      body: JSON.stringify({ p_product_id: productId, p_variant: variant, p_contact: contact, p_lang: isAr() ? 'ar' : 'en' })
+    }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { return !!(j && j.ok); })
+      .catch(function () { return false; });
+  }
+
+  /* Store rating next to the product title, from the approved customer
+     reviews that 3d-reviews.js loads (it fires "b3d:reviews" when ready). */
+  function paintRatingBadge(container) {
+    var el = container.querySelector('[data-pd-rating]');
+    var st = window.__b3dReviewStats;
+    if (!el || !st || !st.count) return;
+    var full = Math.round(st.avg);
+    el.innerHTML = '<span class="b3d-pd__stars" aria-hidden="true">' + '★★★★★'.slice(0, full) + '<span>' + '★★★★★'.slice(full) + '</span></span>' +
+      '<b>' + st.avg.toFixed(1) + '</b> · ' + st.count + ' ' + T('js_rating_reviews');
+    el.setAttribute('aria-label', st.avg.toFixed(1) + ' / 5 — ' + st.count + ' ' + T('js_rating_reviews'));
+    el.hidden = false;
   }
 
   function renderRelated(container, products, current) {

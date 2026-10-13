@@ -335,6 +335,13 @@
     rpc('get_reviews', {})
       .then(function (list) {
         list = Array.isArray(list) ? list : [];
+        // Share the overall rating with the product page (stars next to the title).
+        if (list.length) {
+          var sum = 0;
+          list.forEach(function (r) { sum += r.rating; });
+          window.__b3dReviewStats = { avg: sum / list.length, count: list.length };
+          try { document.dispatchEvent(new CustomEvent('b3d:reviews')); } catch (e) {}
+        }
         if (mode === 'teaser') buildTeaser(host, list); else buildPage(host, list);
       })
       .catch(function () {}); // service not available: show nothing

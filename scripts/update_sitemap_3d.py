@@ -92,10 +92,10 @@ def build_3d_urls():
         out.append(url_block(en, '0.85', 'weekly', en=en, ar=ar))
         out.append(url_block(ar, '0.85', 'weekly', en=en, ar=ar))
 
-    for slug in ('3d-printing-service-saudi-arabia', 'shipping', 'reviews'):
+    for slug in ('3d-printing-service-saudi-arabia', 'quote', 'shipping', 'reviews'):
         en = SITE + '/3d/' + slug + '/'
         ar = SITE + '/3d/ar/' + slug + '/'
-        prio = '0.8' if slug == '3d-printing-service-saudi-arabia' else '0.4'
+        prio = '0.8' if slug in ('3d-printing-service-saudi-arabia', 'quote') else '0.4'
         out.append(url_block(en, prio, 'monthly', en=en, ar=ar))
         out.append(url_block(ar, prio, 'monthly', en=en, ar=ar))
 

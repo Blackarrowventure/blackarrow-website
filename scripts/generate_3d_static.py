@@ -1069,6 +1069,7 @@ STATIC_PAGES = {
             'body': [
                 ('p', "Have a design you want printed? Send it to Black Arrow 3D and we will print it for you. We handle custom gifts, prototypes, decor and artwork, personalized products, customized parts and small batches, and we deliver across Saudi Arabia."),
                 ('cta', 'Get Your Design Printed'),
+                ('quote_cta', 'Have an STL file? Get an instant price'),
                 ('h2', 'What you can send us'),
                 ('ul', ["Your own design file", "A MakerWorld link", "A sketch or an idea, and we will discuss it with you", "A photo or reference of what you want"]),
                 ('h2', 'What we print'),
@@ -1106,6 +1107,7 @@ STATIC_PAGES = {
             'body': [
                 ('p', "لديك تصميم تريد طباعته؟ أرسله إلى Black Arrow 3D ونطبعه لك. نتولى الهدايا المخصصة والنماذج الأولية والديكور والأعمال الفنية والمنتجات الشخصية والقطع المخصصة والدفعات الصغيرة، ونوصّل لجميع مناطق المملكة."),
                 ('cta', 'اطبع تصميمك'),
+                ('quote_cta', 'لديك ملف STL؟ احصل على سعر فوري'),
                 ('h2', 'ما الذي يمكنك إرساله'),
                 ('ul', ["ملف تصميمك الخاص", "رابط من MakerWorld", "رسمة أو فكرة، ونناقشها معك", "صورة أو مرجع لما تريده"]),
                 ('h2', 'ما الذي نطبعه'),
@@ -1189,6 +1191,56 @@ STATIC_PAGES = {
                 ('links', [('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/terms/', 'الشروط والأحكام')]),
             ],
             'faq': [],
+            'service_name': None,
+        },
+    },
+    'quote': {
+        'en': {
+            'title': 'Instant 3D Printing Quote in Saudi Arabia | Black Arrow 3D',
+            'desc': 'Upload your STL file and get an instant 3D printing price estimate in SAR. Choose PLA+, PETG or TPU, color and quantity, then confirm on WhatsApp.',
+            'h1': 'Instant 3D Printing Quote',
+            'crumb': 'Instant Quote',
+            'body': [
+                ('p', "Upload your STL file to see its size, an estimate of the filament it needs and an instant price in SAR. Your file is read on your own device and is not uploaded. When you are happy, send the details to us on WhatsApp, attach the file, and we will confirm the final price and delivery time."),
+                ('quote', ''),
+                ('h2', 'How the estimate works'),
+                ('ul', [
+                    "The price is based on the filament your model needs (its volume, walls and infill) plus a small setup fee per order.",
+                    "PLA+ is best for detailed decor, figures and gifts; PETG for tougher, heat-resistant parts; TPU for flexible parts.",
+                    "Models larger than our build plate (about 32 cm) can be scaled down or printed in parts.",
+                    "No STL file? Send us a photo, drawing or idea on WhatsApp and we will design it for you.",
+                ]),
+                ('links', [('/3d/3d-printing-service-saudi-arabia/', '3D Printing Service'), ('/3d/product/custom-3d-artwork/', 'Custom 3D Artwork'), ('/3d/shipping/', 'Shipping Policy')]),
+            ],
+            'faq': [
+                ("Is my file uploaded when I get a quote?", "No. The file is read in your browser to measure it and draw the preview. Nothing is sent until you choose to send it to us on WhatsApp."),
+                ("Is the estimate the final price?", "It is an estimate. We check every file before printing and confirm the final price on WhatsApp, usually within the hour during working hours."),
+                ("Which file types do you accept?", "The instant quote reads STL files. For other formats (OBJ, 3MF, STEP) or no file at all, send it to us on WhatsApp and we will quote it by hand."),
+            ],
+            'service_name': None,
+        },
+        'ar': {
+            'title': 'عرض سعر فوري للطباعة ثلاثية الأبعاد | Black Arrow 3D',
+            'desc': 'ارفع ملف STL واحصل على سعر تقديري فوري للطباعة ثلاثية الأبعاد بالريال. اختر PLA+ أو PETG أو TPU واللون والكمية، ثم أكّد عبر واتساب.',
+            'h1': 'عرض سعر فوري للطباعة ثلاثية الأبعاد',
+            'crumb': 'عرض سعر فوري',
+            'body': [
+                ('p', "ارفع ملف STL لترى مقاسه وكمية الفلمنت التقديرية وسعرًا فوريًا بالريال. يُقرأ الملف على جهازك ولا يتم رفعه. عندما تكون جاهزًا أرسل التفاصيل لنا عبر واتساب وأرفق الملف، وسنؤكد السعر النهائي وموعد التسليم."),
+                ('quote', ''),
+                ('h2', 'كيف نحسب السعر التقديري'),
+                ('ul', [
+                    "يعتمد السعر على كمية الفلمنت التي يحتاجها المجسم (الحجم والجدران ونسبة الحشو) مع رسوم تجهيز بسيطة لكل طلب.",
+                    "‏PLA+ الأفضل للديكور والمجسمات والهدايا الدقيقة، وPETG للقطع الأقوى المقاومة للحرارة، وTPU للقطع المرنة.",
+                    "المجسمات الأكبر من سطح الطباعة (حوالي 32 سم) يمكن تصغيرها أو طباعتها على أجزاء.",
+                    "ليس لديك ملف STL؟ أرسل لنا صورة أو رسمة أو فكرة عبر واتساب وسنصممها لك.",
+                ]),
+                ('links', [('/3d/3d-printing-service-saudi-arabia/', 'خدمة الطباعة ثلاثية الأبعاد'), ('/3d/product/custom-3d-artwork/', 'أعمال فنية مخصصة'), ('/3d/shipping/', 'سياسة الشحن')]),
+            ],
+            'faq': [
+                ("هل يتم رفع ملفي عند طلب السعر؟", "لا. يُقرأ الملف داخل متصفحك لقياسه ورسم المعاينة، ولا يُرسل أي شيء حتى تختار إرساله لنا عبر واتساب."),
+                ("هل السعر التقديري هو السعر النهائي؟", "هو سعر تقديري. نراجع كل ملف قبل الطباعة ونؤكد السعر النهائي عبر واتساب، غالبًا خلال ساعة في أوقات العمل."),
+                ("ما أنواع الملفات المقبولة؟", "عرض السعر الفوري يقرأ ملفات STL. للصيغ الأخرى (OBJ و3MF وSTEP) أو إن لم يكن لديك ملف، أرسله لنا عبر واتساب وسنسعّره يدويًا."),
+            ],
             'service_name': None,
         },
     },
@@ -1288,6 +1340,10 @@ def build_static_page(slug, lang):
                 out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
         elif kind == 'reviews':
             out.append('<div data-b3d-reviews="page"></div>')
+        elif kind == 'quote_cta':
+            out.append('<p><a class="btn btn-outline" href="' + static_page_url('quote', lang) + '">' + esc(val) + '</a></p>')
+        elif kind == 'quote':
+            out.append('<div class="b3d-quote" data-b3d-quote></div>')
         elif kind == 'links':
             base = '/3d/ar' if lang == 'ar' else '/3d'
             out.append('<p class="b3d-page__links">' + ' &middot; '.join(
@@ -1306,7 +1362,9 @@ def build_static_page(slug, lang):
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
     if any(k == 'reviews' for k, _v in cfg['body']):
-        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20260963" defer></script>' + chr(10) + '</body>', 1)
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20261022" defer></script>' + chr(10) + '</body>', 1)
+    if any(k == 'quote' for k, _v in cfg['body']):
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-quote.js?v=20261021" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
 
 
