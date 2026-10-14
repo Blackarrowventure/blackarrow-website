@@ -8,7 +8,8 @@ async function supabase(method, path, body, prefer) {
   if (prefer) headers.Prefer = prefer;
   const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
   if (!r.ok) throw new Error('supabase_' + r.status);
-  return r.json();
+  const text = await r.text();
+  return text ? JSON.parse(text) : null;
 }
 
 const HMAC_FIELDS = [
@@ -67,6 +68,16 @@ module.exports = async (req, res) => {
       }
     } catch (e) {
       return res.status(500).end();
+    }
+  } else if (tx.success === false && tx.pending === false) {
+    // Declined or cancelled: lets the cart page tell the customer straight away.
+    const orderRef = tx.order && tx.order.merchant_order_id;
+    if (orderRef && /^[a-f0-9]{24}$/.test(orderRef)) {
+      try {
+        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=eq.pending', { status: 'failed' }, 'return=minimal');
+      } catch (e) {
+        return res.status(500).end();
+      }
     }
   }
 

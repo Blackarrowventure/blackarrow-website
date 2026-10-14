@@ -1446,7 +1446,13 @@
       payment_method: payField ? payField.value : '',
       order_total: document.querySelector('[data-cart-total]') ? document.querySelector('[data-cart-total]').textContent : ''
     };
+    sendEmailJs(params);
+  }
 
+  function sendEmailJs(params) {
+    var cfg = window.BLACK_ARROW_EMAILJS_CONFIG;
+    if (!cfg || !cfg.publicKey || !cfg.serviceId || !cfg.templateId) return;
+    if (!params.to_email || isPlaceholderEmail(params.to_email)) return;
     loadEmailJsSdk(function (ok) {
       if (!ok) { console.warn('Black Arrow 3D: EmailJS SDK failed to load, customer confirmation not sent'); return; }
       try {
@@ -1460,22 +1466,41 @@
     });
   }
 
-  // Paymob sends the customer back here with ?paid=<order ref> on success and on
-  // failure, so the message stays neutral: the webhook is what marks the order paid.
-  function showCardReturn() {
-    var params = new URLSearchParams(window.location.search);
-    var ref = params.get('paid');
-    if (!ref || !/^[a-f0-9]{24}$/.test(ref)) return;
-    var isTamara = params.get('pm') === 'tamara';
-    var view = document.querySelector('[data-b3d-thanks]');
-    if (!view) return;
-    view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
-    view.querySelector('[data-b3d-thanks-payment]').textContent = isTamara ? 'Tamara (Pay Later)' : 'Card (Paymob)';
-    var lead = view.querySelector('[data-b3d-thanks-lead]');
-    lead.removeAttribute('data-i18n');
-    lead.textContent = isTamara
-      ? 'Thank you for your order. We are confirming your Tamara payment. You will receive a confirmation email once it is complete.'
-      : 'Thank you for your order. We are confirming your card payment. You will receive a confirmation email once it is complete.';
+  // Online payments (card, Apple Pay, Tamara, Tabby): before leaving for the
+  // gateway the checkout saves the order details in sessionStorage. Once the
+  // server confirms the payment, the shop and the customer each get an
+  // "order confirmed" email with every item, colour and quantity.
+  var PENDING_ORDER_KEY = 'b3d-pending-order';
+
+  function confirmOnlineOrder(ref, method) {
+    var sentKey = 'b3d-confirmed-' + ref;
+    try { if (localStorage.getItem(sentKey)) return; } catch (e) {}
+    var o = null;
+    try { o = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {}
+    if (!o || o.ref !== ref || !o.fields) return;
+    var f = o.fields;
+    try { localStorage.setItem(sentKey, '1'); } catch (e) {}
+    try { sessionStorage.removeItem(PENDING_ORDER_KEY); } catch (e) {}
+
+    var fd = new FormData();
+    Object.keys(f).forEach(function (k) { fd.append(k, f[k]); });
+    fd.set('subject', 'Order CONFIRMED - paid by ' + method + ' - ' + ref);
+    fd.set('order_id', ref);
+    fd.set('payment_status', 'PAID - payment confirmed by ' + method + '. Amount: ' + o.total + ' SAR. Ready to prepare and ship.');
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true }).catch(function () {});
+
+    sendEmailJs({
+      to_email: f.email || '',
+      to_name: ((f.customer_first_name || '') + ' ' + (f.customer_last_name || '')).trim(),
+      order_id: ref,
+      order_summary: f.order_summary || '',
+      shipping_method: f.shipping_method || '',
+      payment_method: method + ' (paid)',
+      order_total: o.total != null ? o.total + ' SAR' : ''
+    });
+  }
+
+  function showOnlineThanks(view) {
     ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
       var el = document.querySelector(sel);
       if (el) el.hidden = true;
@@ -1484,15 +1509,83 @@
     if (layout) layout.style.display = 'none';
     view.hidden = false;
     window.scrollTo(0, 0);
+  }
 
-    // Fired on return from Paymob, before the webhook has necessarily confirmed
-    // payment server-side — best-effort, same as the COD/bank path, not a
-    // guarantee the card/Apple Pay/Tamara charge actually succeeded.
-    var snapPayload = snapCartPayload();
-    snapPayload.transaction_id = ref;
-    snapPayload.success = 1;
-    pushSnapEvent('PURCHASE', snapPayload);
-    saveCart({});
+  function fillOnlineThanks(view, ref) {
+    var o = null;
+    try { o = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {}
+    if (!o || o.ref !== ref || !o.fields) return;
+    var linesEl = view.querySelector('[data-b3d-thanks-lines]');
+    if (linesEl) {
+      linesEl.textContent = '';
+      String(o.fields.order_summary || '').split('\n').forEach(function (line) {
+        if (!line || /^(Grand Total|Total|Shipping):/.test(line)) return;
+        var row = document.createElement('div');
+        row.textContent = line;
+        linesEl.appendChild(row);
+      });
+    }
+    var shipEl = view.querySelector('[data-b3d-thanks-shipping]');
+    if (shipEl) shipEl.textContent = o.fields.shipping_method || '';
+    var totEl = view.querySelector('[data-b3d-thanks-total]');
+    if (totEl && o.total != null) totEl.textContent = o.total + ' SAR';
+    var emailEl = view.querySelector('[data-b3d-thanks-email]');
+    if (emailEl) emailEl.textContent = o.fields.email || '';
+  }
+
+  // Paymob (card, Apple Pay, Tamara) sends the customer back with ?paid=<ref>
+  // on success and on failure alike, so the page asks the server, which only
+  // trusts the signed webhook, before calling the order confirmed.
+  function showCardReturn() {
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get('paid');
+    if (!ref || !/^[a-f0-9]{24}$/.test(ref)) return;
+    var isTamara = params.get('pm') === 'tamara';
+    var method = isTamara ? 'Tamara (Pay Later)' : 'Card (Paymob)';
+    var view = document.querySelector('[data-b3d-thanks]');
+    if (!view) return;
+    view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+    view.querySelector('[data-b3d-thanks-payment]').textContent = method;
+    fillOnlineThanks(view, ref);
+    var lead = view.querySelector('[data-b3d-thanks-lead]');
+    lead.removeAttribute('data-i18n');
+    var ar = document.documentElement.lang === 'ar';
+    lead.textContent = ar ? 'جارٍ تأكيد الدفع…' : 'Confirming your payment…';
+    showOnlineThanks(view);
+
+    var tries = 0;
+    var check = function () {
+      tries++;
+      fetch('/api/paymob/status?ref=' + ref).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+        if (d.status === 'paid') {
+          lead.textContent = ar
+            ? 'تم تأكيد طلبك ودفعتك. أرسلنا تأكيد الطلب إلى بريدك الإلكتروني.'
+            : 'Your order is confirmed and your payment is received. We have emailed you the order confirmation.';
+          var snapPayload = snapCartPayload();
+          snapPayload.transaction_id = ref;
+          snapPayload.success = 1;
+          pushSnapEvent('PURCHASE', snapPayload);
+          saveCart({});
+          confirmOnlineOrder(ref, method);
+        } else if (d.status === 'failed') {
+          lead.textContent = ar
+            ? 'لم تكتمل عملية الدفع ولم يتم تقديم الطلب. ما زالت سلتك محفوظة، يرجى المحاولة مرة أخرى أو اختيار طريقة دفع أخرى.'
+            : 'Your payment was not completed, so the order has not been placed. Your cart is still saved. Please try again or choose another payment method.';
+          var layout = document.querySelector('.b3d-cart-layout');
+          if (layout) layout.style.display = '';
+          var hdr = document.querySelector('[data-b3d-cart-header]');
+          if (hdr) hdr.hidden = false;
+        } else if (tries < 8) {
+          setTimeout(check, 2500);
+        } else {
+          lead.textContent = ar
+            ? 'شكرًا لطلبك. ما زلنا نؤكد الدفع، وسنرسل لك بريدًا إلكترونيًا فور اكتماله.'
+            : 'Thank you for your order. We are still confirming your payment and will email you as soon as it is complete.';
+          saveCart({});
+        }
+      });
+    };
+    check();
   }
 
   // Tabby sends the customer back with ?tabby=<order ref>. The server checks the
@@ -1531,6 +1624,8 @@
         snapPayload.success = 1;
         pushSnapEvent('PURCHASE', snapPayload);
         saveCart({});
+        fillOnlineThanks(view, ref);
+        confirmOnlineOrder(ref, 'Tabby (Pay in 4)');
       }
       lead.textContent = status === 'paid'
         ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
@@ -1690,6 +1785,10 @@
           var method = (form.querySelector('[data-b3d-order-payment]') || {}).value || 'Online payment';
           fd.set('subject', 'New Black Arrow 3D order - ' + method + ' (awaiting payment confirmation) - ' + data.orderRef);
           fd.set('order_id', data.orderRef);
+          var keep = {};
+          fd.forEach(function (v, k) { if (k !== 'access_key' && k !== 'botcheck' && typeof v === 'string') keep[k] = v; });
+          keep.order_id = data.orderRef;
+          try { sessionStorage.setItem(PENDING_ORDER_KEY, JSON.stringify({ ref: data.orderRef, total: data.amount_sar, fields: keep })); } catch (e) {}
           fd.set('payment_status', 'Customer sent to ' + method + ' to pay ' + data.amount_sar + ' SAR. Check the payment email / dashboard with this reference before shipping.');
           var timer = setTimeout(go, 3000);
           fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true })
