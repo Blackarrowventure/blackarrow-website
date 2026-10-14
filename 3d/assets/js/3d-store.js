@@ -1274,6 +1274,54 @@
     }
   }
 
+  // Pay-later (Tabby / Tamara) service fee, per order: 100 SAR with a printer,
+  // 50 SAR for filament with no printed items, otherwise none. The server
+  // (api/paymob/create-intention.js, api/tabby/create-session.js) charges the same.
+  var currentPayMethod = '';
+  function bnplFee() {
+    var cart = getCart();
+    var cats = {};
+    Object.keys(cart).forEach(function (id) {
+      var p = __b3dProductsById[parseLineId(id).productId];
+      if (p) cats[p.category] = true;
+    });
+    if (cats['3D Printers']) return 100;
+    if (cats['Filament'] && !cats['3D Artwork']) return 50;
+    return 0;
+  }
+
+  function updateBnplUi(fee) {
+    var ar = isAr();
+    ['tabby', 'tamara'].forEach(function (m) {
+      var detail = document.querySelector('[data-pm-detail="' + m + '"]');
+      if (!detail) return;
+      var note = detail.querySelector('[data-b3d-bnpl-note]');
+      if (!note) {
+        note = document.createElement('p');
+        note.className = 'b3d-bnpl-note';
+        note.setAttribute('data-b3d-bnpl-note', '');
+        detail.appendChild(note);
+      }
+      note.hidden = !fee;
+      note.textContent = ar
+        ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + fee + ' ريال على هذا الطلب. 💡 ادفع عبر Apple Pay أو البطاقة أو التحويل البنكي ووفّر ' + fee + ' ريال.'
+        : 'A pay-later service fee of ' + fee + ' SAR applies to this order. 💡 Pay with Apple Pay, card or bank transfer and save ' + fee + ' SAR.';
+    });
+    ['card', 'bank'].forEach(function (m) {
+      var btn = document.querySelector('[data-pm="' + m + '"]');
+      if (!btn) return;
+      var chip = btn.querySelector('[data-b3d-save-chip]');
+      if (!chip) {
+        chip = document.createElement('span');
+        chip.className = 'b3d-save-chip';
+        chip.setAttribute('data-b3d-save-chip', '');
+        btn.appendChild(chip);
+      }
+      chip.hidden = !fee;
+      chip.textContent = ar ? 'وفّر ' + fee + ' ريال' : 'Save ' + fee + ' SAR';
+    });
+  }
+
   function updateOrderTotals() {
     var summaryEl = document.querySelector('[data-b3d-cart-summary]');
     var checkout = document.querySelector('[data-b3d-checkout]');
@@ -1296,7 +1344,23 @@
     var couponField = document.querySelector('[data-b3d-coupon-field]');
     if (couponField) couponField.value = discount ? appliedCoupon.code + (appliedCoupon.redemption ? ' / ' + appliedCoupon.redemption : '') : '';
     var discountLine = discount ? '\nDiscount (' + appliedCoupon.code + (appliedCoupon.redemption ? ', redemption ' + appliedCoupon.redemption : '') + '): -' + discount + ' SAR' : '';
-    var after = lastSubtotal - discount;
+    var feeAmount = bnplFee();
+    updateBnplUi(feeAmount);
+    var fee = (currentPayMethod === 'tabby' || currentPayMethod === 'tamara') ? feeAmount : 0;
+    var feeRow = summaryEl.querySelector('[data-b3d-bnpl-row]');
+    if (!feeRow) {
+      feeRow = document.createElement('div');
+      feeRow.className = 'b3d-cart-summary__row';
+      feeRow.setAttribute('data-b3d-bnpl-row', '');
+      feeRow.innerHTML = '<span></span><span></span>';
+      var totalRow = summaryEl.querySelector('.b3d-cart-summary__total');
+      summaryEl.insertBefore(feeRow, totalRow);
+    }
+    feeRow.hidden = !fee;
+    feeRow.firstChild.textContent = isAr() ? 'رسوم خدمة الدفع لاحقًا' : 'Pay-later service fee';
+    feeRow.lastChild.innerHTML = money(fee, 'SAR');
+    var feeLine = fee ? '\nPay-later service fee: ' + fee + ' SAR' : '';
+    var after = lastSubtotal - discount + fee;
 
     var showShipping = checkout && !checkout.hidden;
     if (!showShipping) {
@@ -1318,7 +1382,7 @@
     if (shipField) shipField.value = label + ' — ' + (shipFree ? T('js_free_ship_label') : price + ' SAR');
     var summaryField = checkout.querySelector('[data-b3d-order-summary]');
     if (summaryField) {
-      summaryField.value = lastOrderSummaryText + discountLine +
+      summaryField.value = lastOrderSummaryText + discountLine + feeLine +
         '\nShipping: ' + label + ' — ' + (shipFree ? T('js_free_ship_label') : price + ' SAR') +
         '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
@@ -1330,6 +1394,7 @@
     if (!checkout) return;
     var purchasable = method === 'bank' || method === 'card' || method === 'tabby' || method === 'tamara';
     checkout.hidden = !purchasable;
+    currentPayMethod = method;
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
       if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : 'Bank Transfer';

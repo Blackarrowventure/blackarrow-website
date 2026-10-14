@@ -2822,3 +2822,8 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-kit-upsell span:nth-child(2) { flex: 1; }
 .b3d-deals-link { display: inline-block; padding: 10px 16px; border-radius: 999px; background: #fff4e0; color: #7a4a00 !important; font-weight: 700; text-decoration: none !important; border: 1px solid #f3d19c; }
 .b3d-deals-link:hover { background: #ffe9c2; }
+
+/* Pay-later service fee: note under Tabby/Tamara, "Save" chip on card/bank */
+.b3d-bnpl-note { margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: rgba(245,158,11,.12); border: 1px solid rgba(245,158,11,.35); font-size: .85rem; line-height: 1.5; }
+.b3d-save-chip { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 999px; background: #15803d; color: #fff; font-size: .7rem; font-weight: 700; }
+.b3d-save-chip[hidden], .b3d-bnpl-note[hidden] { display: none; }

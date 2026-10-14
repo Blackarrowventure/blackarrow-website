@@ -33,6 +33,7 @@ function priceCart(items) {
   let total = 0;
   let artworkCents = 0;
   let printerCents = 0;
+  const categories = new Set();
   for (const item of items) {
     const product = byId.get(item && item.productId);
     const qty = Number(item && item.qty);
@@ -49,9 +50,19 @@ function priceCart(items) {
     total += lineCents;
     if (product.category === '3D Artwork') artworkCents += lineCents;
     if (product.category === '3D Printers') printerCents += lineCents;
+    categories.add(product.category);
   }
   const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || printerCents >= FREE_SHIP_PRINTER_MIN * 100;
-  return { lines, total_cents: total, freeShipping };
+  return { lines, total_cents: total, freeShipping, categories };
+}
+
+// Pay-later (Tabby / Tamara) service fee, per order: 100 SAR if the order has
+// a printer, 50 SAR for filament with no printed items, otherwise none.
+// Mirrors bnplFee() in 3d/assets/js/3d-store.js.
+function bnplFeeCents(cats) {
+  if (cats.has('3D Printers')) return 10000;
+  if (cats.has('Filament') && !cats.has('3D Artwork')) return 5000;
+  return 0;
 }
 
 function cleanBilling(b) {
@@ -102,6 +113,11 @@ module.exports = async (req, res) => {
   if (freeShippingApplies) shippingCents = 0;
   priced.lines.push({ title: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (freeShippingApplies ? ' (Free)' : ''), unit_price: (shippingCents / 100).toFixed(2), quantity: 1, reference_id: 'shipping-' + body.shipping });
   priced.total_cents += shippingCents;
+  const feeCents = bnplFeeCents(priced.categories);
+  if (feeCents) {
+    priced.lines.push({ title: 'Pay-later service fee', unit_price: (feeCents / 100).toFixed(2), quantity: 1, reference_id: 'pay-later-fee' });
+    priced.total_cents += feeCents;
+  }
 
   const totalSar = priced.total_cents / 100;
   if (totalSar < MIN_SAR || totalSar > MAX_SAR) return res.status(400).json({ error: 'amount_out_of_range' });
