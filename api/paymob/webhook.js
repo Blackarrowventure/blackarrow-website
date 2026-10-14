@@ -58,9 +58,10 @@ module.exports = async (req, res) => {
     try {
       const rows = await supabase('GET', 'card_orders?order_ref=eq.' + orderRef + '&select=order_ref,status,amount_cents');
       const order = rows[0];
-      if (!order) return res.status(200).end();
-      if (order.status === 'pending' && Number(tx.amount_cents) === order.amount_cents) {
-        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=eq.pending', {
+      if (!order) { console.error('paymob webhook: no order for ref', orderRef); return res.status(200).end(); }
+      // 'failed' too: a declined card retried successfully in the same checkout.
+      if ((order.status === 'pending' || order.status === 'failed') && Number(tx.amount_cents) === order.amount_cents) {
+        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=in.(pending,failed)', {
           status: 'paid',
           paymob_transaction_id: tx.id,
           paid_at: new Date().toISOString(),

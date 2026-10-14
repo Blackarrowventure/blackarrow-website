@@ -1543,22 +1543,51 @@
   // "order confirmed" email with every item, colour and quantity.
   var PENDING_ORDER_KEY = 'b3d-pending-order';
 
+  // Kept in both sessionStorage and localStorage, so a return in another tab
+  // (or a later visit, see resumePendingOrder) can still send the emails.
+  function readPendingOrder() {
+    var o = null;
+    try { o = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {}
+    if (!o) { try { o = JSON.parse(localStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {} }
+    return o;
+  }
+  function savePendingOrder(o) {
+    var json = JSON.stringify(o);
+    try { sessionStorage.setItem(PENDING_ORDER_KEY, json); } catch (e) {}
+    try { localStorage.setItem(PENDING_ORDER_KEY, json); } catch (e) {}
+  }
+  function clearPendingOrder() {
+    try { sessionStorage.removeItem(PENDING_ORDER_KEY); } catch (e) {}
+    try { localStorage.removeItem(PENDING_ORDER_KEY); } catch (e) {}
+  }
+  var W3F_ACCESS_KEY = '217e03f8-59ef-45c3-9cf8-048f27ba0586';
+
   function confirmOnlineOrder(ref, method) {
     var sentKey = 'b3d-confirmed-' + ref;
     try { if (localStorage.getItem(sentKey)) return; } catch (e) {}
-    var o = null;
-    try { o = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {}
+    var o = readPendingOrder();
     if (!o || o.ref !== ref || !o.fields) return;
     var f = o.fields;
-    try { localStorage.setItem(sentKey, '1'); } catch (e) {}
-    try { sessionStorage.removeItem(PENDING_ORDER_KEY); } catch (e) {}
+    if (confirmOnlineOrder._busy) return;
+    confirmOnlineOrder._busy = true;
 
     var fd = new FormData();
     Object.keys(f).forEach(function (k) { fd.append(k, f[k]); });
+    fd.set('access_key', W3F_ACCESS_KEY);
     fd.set('subject', 'Order CONFIRMED - paid by ' + method + ' - ' + ref);
     fd.set('order_id', ref);
     fd.set('payment_status', 'PAID - payment confirmed by ' + method + '. Amount: ' + o.total + ' SAR. Ready to prepare and ship.');
-    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true }).catch(function () {});
+    // Only marked as sent once Web3Forms accepts it, so a failed send is retried
+    // on the next visit (resumePendingOrder).
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return r.ok && d.success !== false; }); })
+      .catch(function () { return false; })
+      .then(function (ok) {
+        confirmOnlineOrder._busy = false;
+        if (!ok) return;
+        try { localStorage.setItem(sentKey, '1'); } catch (e) {}
+        clearPendingOrder();
+      });
 
     sendEmailJs({
       to_email: f.email || '',
@@ -1583,8 +1612,7 @@
   }
 
   function fillOnlineThanks(view, ref) {
-    var o = null;
-    try { o = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || 'null'); } catch (e) {}
+    var o = readPendingOrder();
     if (!o || o.ref !== ref || !o.fields) return;
     var linesEl = view.querySelector('[data-b3d-thanks-lines]');
     if (linesEl) {
@@ -1602,6 +1630,21 @@
     if (totEl && o.total != null) totEl.textContent = o.total + ' SAR';
     var emailEl = view.querySelector('[data-b3d-thanks-email]');
     if (emailEl) emailEl.textContent = o.fields.email || '';
+  }
+
+  // A paid order whose confirmation emails were not sent yet (tab closed on the
+  // gateway, slow webhook, failed send): check once on the next cart visit.
+  function resumePendingOrder() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('paid') || params.get('tabby')) return;
+    var o = readPendingOrder();
+    if (!o || !o.ref || !/^[a-f0-9]{24}$/.test(o.ref)) return;
+    if (o.at && Date.now() - o.at > 14 * 864e5) { clearPendingOrder(); return; }
+    var url = o.gateway === 'tabby' ? '/api/tabby/verify?ref=' : '/api/paymob/status?ref=';
+    fetch(url + o.ref).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+      if (d.status === 'paid') { confirmOnlineOrder(o.ref, o.method || 'Online payment'); }
+      else if (d.status === 'failed') { clearPendingOrder(); }
+    });
   }
 
   // Paymob (card, Apple Pay, Tamara) sends the customer back with ?paid=<ref>
@@ -1646,13 +1689,13 @@
           if (layout) layout.style.display = '';
           var hdr = document.querySelector('[data-b3d-cart-header]');
           if (hdr) hdr.hidden = false;
-        } else if (tries < 8) {
-          setTimeout(check, 2500);
-        } else {
-          lead.textContent = ar
-            ? 'شكرًا لطلبك. ما زلنا نؤكد الدفع، وسنرسل لك بريدًا إلكترونيًا فور اكتماله.'
-            : 'Thank you for your order. We are still confirming your payment and will email you as soon as it is complete.';
-          saveCart({});
+        } else if (tries < 40) {
+          if (tries === 8) {
+            lead.textContent = ar
+              ? 'شكرًا لطلبك. ما زلنا نؤكد الدفع، وسنرسل لك بريدًا إلكترونيًا فور اكتماله.'
+              : 'Thank you for your order. We are still confirming your payment and will email you as soon as it is complete.';
+          }
+          setTimeout(check, tries < 8 ? 2500 : 10000);
         }
       });
     };
@@ -1673,7 +1716,12 @@
     }).then(function (data) {
       var status = data.status;
       if (status === 'failed') {
-        lead.textContent = 'Your Tabby payment was not completed. Your order has not been placed. Please try again or choose another payment method.';
+        lead.textContent = isAr()
+          ? 'لم تكتمل عملية الدفع عبر تابي ولم يتم تقديم الطلب. ما زالت سلتك محفوظة، يرجى المحاولة مرة أخرى أو اختيار طريقة دفع أخرى.'
+          : 'Your Tabby payment was not completed. Your order has not been placed. Your cart is still saved. Please try again or choose another payment method.';
+        view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+        view.hidden = false;
+        window.scrollTo(0, 0);
         return;
       }
       view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
@@ -1859,7 +1907,7 @@
           var keep = {};
           fd.forEach(function (v, k) { if (k !== 'access_key' && k !== 'botcheck' && typeof v === 'string') keep[k] = v; });
           keep.order_id = data.orderRef;
-          try { sessionStorage.setItem(PENDING_ORDER_KEY, JSON.stringify({ ref: data.orderRef, total: data.amount_sar, fields: keep })); } catch (e) {}
+          savePendingOrder({ ref: data.orderRef, total: data.amount_sar, method: method, gateway: endpoint && endpoint.indexOf('tabby') !== -1 ? 'tabby' : 'paymob', at: Date.now(), fields: keep });
           fd.set('payment_status', 'Customer sent to ' + method + ' to pay ' + data.amount_sar + ' SAR. Check the payment email / dashboard with this reference before shipping.');
           var timer = setTimeout(go, 3000);
           fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true })
@@ -3233,6 +3281,7 @@
       initCheckoutSubmit(document.querySelector('#b3d-checkout-form'));
       showCardReturn();
       showTabbyReturn();
+      resumePendingOrder();
     }
   }
 
