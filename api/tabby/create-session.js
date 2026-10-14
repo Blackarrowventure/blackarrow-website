@@ -43,7 +43,9 @@ function priceCart(items) {
     if (unit == null) return null;
     const cents = Math.round(unit * 100);
     const lineCents = cents * qty;
-    lines.push({ title: product.name, unit_price: (cents / 100).toFixed(2), quantity: qty, reference_id: product.id });
+    const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
+    const title = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
+    lines.push({ title, unit_price: (cents / 100).toFixed(2), quantity: qty, reference_id: product.id });
     total += lineCents;
     if (product.category === '3D Artwork') artworkCents += lineCents;
     if (product.category === '3D Printers') printerCents += lineCents;

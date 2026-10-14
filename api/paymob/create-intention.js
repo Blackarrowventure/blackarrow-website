@@ -51,7 +51,9 @@ function priceCart(items) {
     const unit = unitPrice(product, variantIndex == null ? 0 : variantIndex);
     if (unit == null) return null;
     const lineCents = Math.round(unit * 100) * qty;
-    lines.push({ name: product.name, amount_cents: Math.round(unit * 100), quantity: qty });
+    const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
+    const name = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
+    lines.push({ name, amount_cents: Math.round(unit * 100), quantity: qty });
     total += lineCents;
     if (product.category === '3D Artwork') artworkCents += lineCents;
     if (product.category === '3D Printers') printerCents += lineCents;
