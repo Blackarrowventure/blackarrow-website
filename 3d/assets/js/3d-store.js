@@ -446,17 +446,23 @@
     return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' ' + TABBY_MARK + '</span>';
   }
 
-  /* Delivery estimate, counted in Saudi business days (Sun–Thu) from today in Riyadh.
-     Stock items: dispatched the next business day, then standard shipping 4–5 days.
+  /* Delivery estimate, counted in Saudi business days (Sun–Thu) in Riyadh time.
+     Stock items: dispatched the same day if ordered before 4 pm on a business day,
+     otherwise the next business day; then standard shipping 4–5 business days.
      3D printed items: made to order in 3–5 days, then 4–5 days (Shipping Policy). */
-  var ETA_DISPATCH_DAYS = 1;
-  function riyadhToday() {
+  var ETA_CUTOFF_HOUR = 16;
+  function riyadhNow() {
     var parts = {};
     try {
-      new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Riyadh', year: 'numeric', month: 'numeric', day: 'numeric' })
+      new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Riyadh', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', hourCycle: 'h23' })
         .formatToParts(new Date()).forEach(function (x) { parts[x.type] = x.value; });
-      return new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day));
-    } catch (e) { var d = new Date(); return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); }
+      return { date: new Date(Date.UTC(+parts.year, +parts.month - 1, +parts.day)), hour: +parts.hour };
+    } catch (e) { var d = new Date(); return { date: new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())), hour: d.getHours() }; }
+  }
+  function isBusinessDay(d) { var wd = d.getUTCDay(); return wd !== 5 && wd !== 6; }
+  function dispatchDate() {
+    var now = riyadhNow();
+    return isBusinessDay(now.date) && now.hour < ETA_CUTOFF_HOUR ? now.date : addBusinessDays(now.date, 1);
   }
   function addBusinessDays(date, n) {
     var d = new Date(date.getTime());
@@ -474,8 +480,8 @@
   }
   function etaHtml(p) {
     var art = p.category === '3D Artwork';
-    var lo = (art ? 3 : ETA_DISPATCH_DAYS) + 4, hi = (art ? 5 : ETA_DISPATCH_DAYS) + 5;
-    var today = riyadhToday();
+    var lo = (art ? 3 : 0) + 4, hi = (art ? 5 : 0) + 5;
+    var today = dispatchDate();
     return '<p class="b3d-eta"><span aria-hidden="true">&#128230;</span> <span>' + T('js_eta_by') + ' ' + T('js_eta_between') +
       ' <b>' + etaDate(addBusinessDays(today, lo)) + '</b> ' + T('js_eta_and') + ' <b>' + etaDate(addBusinessDays(today, hi)) + '</b> ' +
       T('js_eta_std') + (art ? ' ' + T('js_eta_made') : '') + '</span></p>';
