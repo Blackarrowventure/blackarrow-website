@@ -8,7 +8,6 @@ Disallow: /PREVIEW_*.html
 Disallow: /COLOR_*.html
 Disallow: /business-card-*.html
 Disallow: /contacts/
-Disallow: /tools/
 
 # Specific rules for search engines
 User-agent: Googlebot
