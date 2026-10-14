@@ -414,6 +414,9 @@ function initWeb3Forms() {
         if (btn) btn.style.background = '#2e7d32';
         if (form.id === 'partner-form') {
           pushLead('partner_inquiry');
+        } else if (form.dataset.lead) {
+          const svc = form.querySelector('[name="service"]');
+          pushLead(form.dataset.lead, { service: svc ? svc.value : '' });
         } else {
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'newsletter_signup', page_path: location.pathname });

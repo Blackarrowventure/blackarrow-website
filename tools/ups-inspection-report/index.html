@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>UPS Inspection Report | Black Arrow Venture</title>
+  <link rel="icon" type="image/png" href="/assets/images/black-arrow-favicon.png">
+  <!--
+    Internal tool for Black Arrow engineers: fill in on site (phone, tablet or
+    laptop), then "Save as PDF / Print". Nothing is sent anywhere; the draft is
+    kept only in this browser so a dropped connection or a closed tab does not
+    lose the readings. Not linked from the site, not in the sitemap, noindex.
+  -->
+  <style>
+    :root { --ink: #16191c; --muted: #5d656b; --line: #d5d9dc; --soft: #f3f4f2; --brand: #1a1a1a; --accent: #c9961a;
+            --ok: #1e7b45; --ok-bg: #e5f4ea; --warn: #a05a00; --warn-bg: #fdf0db; --bad: #b42318; --bad-bg: #fde8e6; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9ebe8; color: var(--ink); font: 14px/1.45 "Segoe UI", "Noto Sans", "Noto Kufi Arabic", system-ui, sans-serif; }
+    .toolbar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;
+               padding: 10px 16px; background: var(--brand); color: #fff; }
+    .toolbar b { font-size: .95rem; }
+    .toolbar .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .toolbar button { font: inherit; font-weight: 600; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; background: #fff; color: var(--brand); }
+    .toolbar button.primary { background: var(--accent); color: #1a1a1a; }
+    .toolbar .saved { font-size: .8rem; color: rgba(255,255,255,.7); }
+    .sheet { max-width: 900px; margin: 18px auto 60px; background: #fff; padding: 28px 30px; box-shadow: 0 2px 14px rgba(0,0,0,.08); }
+    header.doc { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; border-bottom: 3px solid var(--brand); padding-bottom: 14px; }
+    header.doc img { height: 34px; width: auto; }
+    header.doc h1 { margin: 0; font-size: 1.25rem; line-height: 1.2; }
+    header.doc h1 span { display: block; font-size: .95rem; color: var(--muted); font-weight: 600; }
+    header.doc .meta { text-align: end; font-size: .78rem; color: var(--muted); }
+    h2 { font-size: .95rem; margin: 22px 0 8px; padding: 6px 10px; background: var(--soft); border-inline-start: 4px solid var(--accent); display: flex; justify-content: space-between; gap: 10px; }
+    h2 .ar { font-weight: 600; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 14px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    label { display: flex; flex-direction: column; gap: 3px; font-size: .74rem; font-weight: 600; color: var(--muted); }
+    label .ar { font-weight: 500; }
+    input, select, textarea { font: inherit; font-size: .9rem; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; background: #fff; width: 100%; min-width: 0; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 64px; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: .85rem; }
+    .tbl th, .tbl td { border: 1px solid var(--line); padding: 4px 6px; text-align: start; vertical-align: middle; }
+    .tbl th { background: var(--soft); font-size: .72rem; color: var(--muted); }
+    .tbl input, .tbl select { border: 0; padding: 4px; border-radius: 4px; }
+    .tbl td.num input { text-align: center; }
+    .tablebox { overflow-x: auto; }
+    .status { display: flex; gap: 4px; }
+    .status label { flex-direction: row; align-items: center; gap: 3px; font-size: .72rem; padding: 3px 6px; border: 1px solid var(--line); border-radius: 5px; cursor: pointer; white-space: nowrap; }
+    .status input { width: auto; margin: 0; }
+    .status label:has(input[value="ok"]:checked) { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+    .status label:has(input[value="attn"]:checked) { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
+    .status label:has(input[value="fail"]:checked) { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+    .flag-low, .flag-high { background: var(--bad-bg) !important; color: var(--bad); font-weight: 700; }
+    .flag-warn { background: var(--warn-bg) !important; color: var(--warn); font-weight: 700; }
+    .note { font-size: .74rem; color: var(--muted); margin: 6px 0 0; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+    .summary div { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+    .summary b { display: block; font-size: 1.2rem; }
+    .summary span { font-size: .72rem; color: var(--muted); }
+    .overall { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .overall label { flex-direction: row; align-items: center; gap: 6px; border: 2px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: .88rem; color: var(--ink); cursor: pointer; }
+    .overall input { width: auto; }
+    .overall label:has(input[value="normal"]:checked) { border-color: var(--ok); background: var(--ok-bg); }
+    .overall label:has(input[value="attention"]:checked) { border-color: var(--warn); background: var(--warn-bg); }
+    .overall label:has(input[value="critical"]:checked) { border-color: var(--bad); background: var(--bad-bg); }
+    .sigs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+    .sig { border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .sig canvas { width: 100%; height: 110px; border: 1px dashed var(--line); border-radius: 6px; touch-action: none; background: #fff; }
+    .sig .sig-print { display: none; width: 100%; height: 110px; object-fit: contain; object-position: left center; }
+    .sig button { align-self: flex-end; font: inherit; font-size: .75rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; }
+    footer.doc { margin-top: 22px; padding-top: 10px; border-top: 1px solid var(--line); font-size: .72rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; }
+    .row-actions { display: flex; gap: 8px; margin-top: 6px; }
+    .row-actions button { font: inherit; font-size: .78rem; border: 1px solid var(--line); background: #fff; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+    @media (max-width: 720px) {
+      .sheet { padding: 18px 14px; margin: 0; }
+      .grid, .grid.two, .summary, .sigs { grid-template-columns: 1fr 1fr; }
+      header.doc { grid-template-columns: 1fr; }
+      header.doc .meta { text-align: start; }
+    }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: #fff; font-size: 11px; }
+      .toolbar, .row-actions, .sig button, .no-print { display: none !important; }
+      .sheet { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+      input, select, textarea { border-color: transparent; padding: 1px 2px; }
+      select { appearance: none; }
+      textarea { min-height: 0; }
+      h2 { break-after: avoid; }
+      .tbl, .sigs { break-inside: avoid; }
+      .status label:not(:has(input:checked)) { display: none; }
+      .sig canvas { display: none; }
+      .sig .sig-print[src] { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <b>UPS Inspection Report · تقرير فحص UPS</b>
+    <span class="saved" id="saved">Draft saved on this device</span>
+    <div class="btns">
+      <button type="button" class="primary" id="print">Save as PDF / Print</button>
+      <button type="button" id="new">New report</button>
+    </div>
+  </div>
+
+  <form class="sheet" id="report" autocomplete="off">
+    <header class="doc">
+      <img src="/assets/images/black-arrow-wordmark-onlight.png" alt="Black Arrow Venture" width="272" height="34">
+      <h1>UPS Preventive Maintenance &amp; Inspection Report<span>تقرير الصيانة الوقائية وفحص نظام UPS</span></h1>
+      <div class="meta">Report No. / رقم التقرير<br><input name="report_no" id="report_no" style="width:170px;text-align:end"></div>
+    </header>
+
+    <h2>1. Visit details <span class="ar">بيانات الزيارة</span></h2>
+    <div class="grid">
+      <label>Date <span class="ar">التاريخ</span><input type="date" name="date" id="date"></label>
+      <label>Visit type <span class="ar">نوع الزيارة</span>
+        <select name="visit_type"><option>Preventive maintenance / صيانة وقائية</option><option>Corrective / إصلاحية</option><option>Emergency / طوارئ</option><option>Commissioning / تشغيل</option><option>Inspection only / فحص فقط</option></select></label>
+      <label>Contract <span class="ar">العقد</span>
+        <select name="contract"><option>AMC 1 year / سنة</option><option>AMC 2 years / سنتان</option><option>AMC 3 years / ثلاث سنوات</option><option>One-time visit / زيارة واحدة</option><option>Warranty / ضمان</option></select></label>
+      <label>Time in <span class="ar">وقت الوصول</span><input type="time" name="time_in"></label>
+      <label>Time out <span class="ar">وقت المغادرة</span><input type="time" name="time_out"></label>
+      <label>Visit no. in contract <span class="ar">رقم الزيارة</span><input name="visit_no" placeholder="e.g. 2 of 4"></label>
+    </div>
+
+    <h2>2. Client and site <span class="ar">العميل والموقع</span></h2>
+    <div class="grid">
+      <label>Client <span class="ar">العميل</span><input name="client"></label>
+      <label>Site / building <span class="ar">الموقع / المبنى</span><input name="site"></label>
+      <label>City <span class="ar">المدينة</span><input name="city" list="cities"></label>
+      <label>UPS room / location <span class="ar">غرفة UPS</span><input name="room"></label>
+      <label>Client contact <span class="ar">مسؤول العميل</span><input name="contact"></label>
+      <label>Phone <span class="ar">الجوال</span><input name="contact_phone" type="tel"></label>
+    </div>
+    <datalist id="cities"><option>Dammam</option><option>Al Khobar</option><option>Dhahran</option><option>Jubail</option><option>Al Ahsa</option><option>Riyadh</option><option>Jeddah</option><option>Makkah</option><option>Madinah</option></datalist>
+
+    <h2>3. Equipment <span class="ar">بيانات الجهاز</span></h2>
+    <div class="grid">
+      <label>Brand <span class="ar">العلامة</span><input name="brand" list="brands"></label>
+      <label>Model <span class="ar">الموديل</span><input name="model"></label>
+      <label>Serial no. <span class="ar">الرقم التسلسلي</span><input name="serial"></label>
+      <label>Rating (kVA / kW) <span class="ar">القدرة</span><input name="rating" placeholder="e.g. 60 kVA / 60 kW"></label>
+      <label>Topology <span class="ar">النوع</span>
+        <select name="topology"><option>Online double conversion</option><option>Modular online</option><option>Line interactive</option><option>Offline / standby</option></select></label>
+      <label>Configuration <span class="ar">التهيئة</span>
+        <select name="config"><option>Single unit</option><option>Parallel redundant (N+1)</option><option>Parallel capacity</option><option>2N</option></select></label>
+      <label>Input / output phases <span class="ar">الأطوار</span>
+        <select name="phases"><option>3 in / 3 out</option><option>3 in / 1 out</option><option>1 in / 1 out</option></select></label>
+      <label>Installation date <span class="ar">تاريخ التركيب</span><input type="date" name="install_date"></label>
+      <label>Firmware <span class="ar">إصدار البرنامج</span><input name="firmware"></label>
+    </div>
+    <datalist id="brands"><option>Schneider Electric (APC)</option><option>Eaton</option><option>Vertiv (Liebert)</option><option>Riello UPS</option><option>Socomec</option><option>Legrand</option><option>ABB</option><option>Huawei</option><option>Delta Electronics</option><option>Kehua</option><option>Borri</option><option>Gamatronic</option><option>AEG Power Solutions</option><option>Mitsubishi Electric</option><option>Toshiba</option><option>Fuji Electric</option><option>Salicru</option><option>INFORM</option><option>KSTAR</option><option>CyberPower</option></datalist>
+
+    <h2>4. Room environment <span class="ar">بيئة الغرفة</span></h2>
+    <div class="grid">
+      <label>Room temperature (°C) <span class="ar">الحرارة</span><input name="room_temp" id="room_temp" type="number" step="0.1" inputmode="decimal"></label>
+      <label>Humidity (%) <span class="ar">الرطوبة</span><input name="humidity" type="number" step="1" inputmode="decimal"></label>
+      <label>Cooling / AC <span class="ar">التبريد</span><select name="cooling"><option>Working</option><option>Not working</option><option>No dedicated cooling</option></select></label>
+    </div>
+    <p class="note" id="temp_note">VRLA battery life is rated at 20–25 °C; every 8–10 °C above that roughly halves battery life.</p>
+
+    <h2>5. Visual and mechanical inspection <span class="ar">الفحص البصري والميكانيكي</span></h2>
+    <div class="tablebox"><table class="tbl" id="checks"><thead><tr><th style="width:42%">Item / البند</th><th>Status / الحالة</th><th>Remarks / ملاحظات</th></tr></thead><tbody></tbody></table></div>
+
+    <h2>6. Electrical measurements <span class="ar">القياسات الكهربائية</span></h2>
+    <div class="tablebox"><table class="tbl" id="meas"><thead><tr><th>Parameter / القياس</th><th>L1</th><th>L2</th><th>L3</th><th>Unit</th></tr></thead><tbody></tbody></table></div>
+    <div class="grid" style="margin-top:8px">
+      <label>Input frequency (Hz) <span class="ar">تردد الدخل</span><input name="in_freq" type="number" step="0.01" inputmode="decimal"></label>
+      <label>Output frequency (Hz) <span class="ar">تردد الخرج</span><input name="out_freq" type="number" step="0.01" inputmode="decimal"></label>
+      <label>Load (%) <span class="ar">نسبة الحمل</span><input name="load_pct" id="load_pct" type="number" step="1" inputmode="decimal"></label>
+      <label>Output power factor <span class="ar">معامل القدرة</span><input name="pf" type="number" step="0.01" inputmode="decimal"></label>
+      <label>DC bus voltage (V) <span class="ar">جهد DC</span><input name="dc_bus" type="number" step="0.1" inputmode="decimal"></label>
+      <label>Neutral–earth (V) <span class="ar">جهد التعادل-الأرضي</span><input name="n_e" id="n_e" type="number" step="0.1" inputmode="decimal"></label>
+    </div>
+
+    <h2>7. Batteries <span class="ar">البطاريات</span></h2>
+    <div class="grid">
+      <label>Battery type <span class="ar">نوع البطارية</span><select name="bat_type" id="bat_type"><option>VRLA (sealed lead-acid)</option><option>Lithium-ion</option><option>Flooded lead-acid</option></select></label>
+      <label>Battery brand / model <span class="ar">العلامة/الموديل</span><input name="bat_model"></label>
+      <label>Battery date <span class="ar">تاريخ البطاريات</span><input type="month" name="bat_date"></label>
+      <label>Strings <span class="ar">عدد السلاسل</span><input name="strings" id="strings" type="number" min="1" max="8" value="1" inputmode="numeric"></label>
+      <label>Blocks per string <span class="ar">بطاريات لكل سلسلة</span><input name="blocks" id="blocks" type="number" min="1" max="80" value="20" inputmode="numeric"></label>
+      <label>Block nominal (V) <span class="ar">جهد البطارية</span><select name="block_v" id="block_v"><option value="12">12 V</option><option value="6">6 V</option><option value="2">2 V</option></select></label>
+      <label>Float voltage, total (V) <span class="ar">جهد الشحن الكلي</span><input name="float_total" type="number" step="0.1" inputmode="decimal"></label>
+      <label>Charging current (A) <span class="ar">تيار الشحن</span><input name="charge_a" type="number" step="0.1" inputmode="decimal"></label>
+      <label>IR alarm level (mΩ) <span class="ar">حد المقاومة</span><input name="ir_limit" id="ir_limit" type="number" step="0.1" inputmode="decimal" placeholder="from battery datasheet"></label>
+    </div>
+    <p class="note">Each block voltage is flagged in red when outside <b id="vrange">13.2–14.0 V</b> (float, per 12 V block). Internal resistance is flagged when above the IR alarm level. Adjust the range for the battery datasheet if needed: <input id="vmin" type="number" step="0.01" style="width:70px;display:inline-block"> – <input id="vmax" type="number" step="0.01" style="width:70px;display:inline-block"> V</p>
+    <div class="tablebox"><table class="tbl" id="bat"><thead><tr><th>String</th><th>Block</th><th>Voltage (V)</th><th>IR (mΩ)</th><th>Temp (°C)</th><th>Condition / الحالة</th></tr></thead><tbody></tbody></table></div>
+    <div class="summary" id="batsum">
+      <div><b id="s_avg">–</b><span>Average block voltage</span></div>
+      <div><b id="s_minmax">–</b><span>Lowest / highest</span></div>
+      <div><b id="s_out">0</b><span>Blocks out of range</span></div>
+      <div><b id="s_ir">0</b><span>Blocks above IR level</span></div>
+    </div>
+
+    <h2>8. Functional tests <span class="ar">الاختبارات الوظيفية</span></h2>
+    <div class="tablebox"><table class="tbl" id="tests"><thead><tr><th style="width:42%">Test / الاختبار</th><th>Result / النتيجة</th><th>Remarks / ملاحظات</th></tr></thead><tbody></tbody></table></div>
+    <div class="grid" style="margin-top:8px">
+      <label>Battery test duration (min) <span class="ar">مدة اختبار البطارية</span><input name="disch_min" type="number" step="1" inputmode="numeric"></label>
+      <label>Load during test (%) <span class="ar">الحمل أثناء الاختبار</span><input name="disch_load" type="number" step="1" inputmode="numeric"></label>
+      <label>End voltage (V) <span class="ar">الجهد في النهاية</span><input name="disch_endv" type="number" step="0.1" inputmode="decimal"></label>
+    </div>
+
+    <h2>9. Findings and recommendations <span class="ar">الملاحظات والتوصيات</span></h2>
+    <div class="grid two">
+      <label>Findings <span class="ar">الملاحظات</span><textarea name="findings" rows="4"></textarea></label>
+      <label>Recommendations <span class="ar">التوصيات</span><textarea name="recommendations" rows="4"></textarea></label>
+      <label>Parts replaced <span class="ar">القطع المستبدلة</span><textarea name="parts_replaced" rows="2"></textarea></label>
+      <label>Parts / work recommended <span class="ar">قطع وأعمال مقترحة</span><textarea name="parts_needed" rows="2"></textarea></label>
+    </div>
+    <p class="note no-print">Suggested from the readings (tap to add to recommendations):</p>
+    <div class="row-actions" id="suggest"></div>
+
+    <h2>10. Overall condition <span class="ar">الحالة العامة</span></h2>
+    <div class="overall">
+      <label><input type="radio" name="overall" value="normal"> Normal / سليم</label>
+      <label><input type="radio" name="overall" value="attention"> Needs attention / يحتاج متابعة</label>
+      <label><input type="radio" name="overall" value="critical"> Critical / حرج</label>
+      <label style="border:0;padding:0;flex:1 1 200px">Next visit <span class="ar">الزيارة القادمة</span><input type="date" name="next_visit"></label>
+    </div>
+
+    <h2>11. Sign-off <span class="ar">الاعتماد</span></h2>
+    <div class="sigs">
+      <div class="sig">
+        <label>Engineer name <span class="ar">اسم المهندس</span><input name="eng_name"></label>
+        <canvas id="sig_eng" aria-label="Engineer signature"></canvas><img class="sig-print" id="sig_eng_img" alt=""><button type="button" data-clear="sig_eng">Clear signature</button>
+      </div>
+      <div class="sig">
+        <label>Client representative <span class="ar">ممثل العميل</span><input name="client_name"></label>
+        <canvas id="sig_client" aria-label="Client signature"></canvas><img class="sig-print" id="sig_client_img" alt=""><button type="button" data-clear="sig_client">Clear signature</button>
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Black Arrow Venture · Dammam, Saudi Arabia · CR 7054542985 · VAT 314841084500003</span>
+      <span>+966 56 022 4715 · info@blackarrowksa.com · www.blackarrowksa.com</span>
+    </footer>
+  </form>
+
+  <script>
+  (function () {
+    'use strict';
+    var KEY = 'bav_ups_report_draft_v1';
+    var form = document.getElementById('report');
+
+    var CHECKS = [
+      ['UPS cabinet clean, no dust build-up', 'نظافة الكابينة'],
+      ['Cooling fans running, no noise', 'مراوح التبريد'],
+      ['Air filters clean', 'فلاتر الهواء'],
+      ['Power and control terminals tight (torque checked)', 'إحكام الأطراف'],
+      ['Cables and busbars: no heat discoloration', 'الكابلات وقضبان التوصيل'],
+      ['DC and AC capacitors: no bulging or leaks', 'المكثفات'],
+      ['Display, LEDs and alarms reviewed', 'الشاشة والإنذارات'],
+      ['Event / alarm log reviewed and cleared', 'سجل الأحداث'],
+      ['Input / output / bypass breakers condition', 'القواطع'],
+      ['Maintenance bypass switch operation', 'مفتاح التجاوز للصيانة'],
+      ['Emergency power off (EPO) circuit intact', 'دائرة الإيقاف الطارئ'],
+      ['Earthing / grounding connections', 'التأريض'],
+      ['Battery cabinet / rack clean and ventilated', 'كابينة البطاريات'],
+      ['Battery terminals: no corrosion, covers fitted', 'أطراف البطاريات'],
+      ['Batteries: no swelling, cracks or leaks', 'سلامة البطاريات'],
+      ['Labels and single-line diagram present', 'الملصقات والمخطط'],
+      ['Remote monitoring / SNMP / BMS communication', 'المراقبة عن بعد']
+    ];
+    var TESTS = [
+      ['Transfer to static bypass and back to inverter', 'التحويل إلى التجاوز والعودة'],
+      ['Mains failure simulation (transfer to battery)', 'محاكاة انقطاع الكهرباء'],
+      ['Battery discharge / autonomy test', 'اختبار تفريغ البطارية'],
+      ['Alarm and buzzer test', 'اختبار الإنذار'],
+      ['Clock / date and firmware checked', 'الساعة وإصدار البرنامج']
+    ];
+    var MEAS = [
+      ['Input voltage (L-N)', 'V'], ['Input current', 'A'], ['Bypass voltage (L-N)', 'V'],
+      ['Output voltage (L-N)', 'V'], ['Output current', 'A'], ['Output load per phase', '%']
+    ];
+
+    function statusCell(name, opts) {
+      return '<div class="status">' + opts.map(function (o) {
+        return '<label><input type="radio" name="' + name + '" value="' + o[0] + '"> ' + o[1] + '</label>';
+      }).join('') + '</div>';
+    }
+    var S4 = [['ok', 'OK'], ['attn', 'Attention'], ['fail', 'Fail'], ['na', 'N/A']];
+    var S3 = [['ok', 'Pass'], ['fail', 'Fail'], ['na', 'Not done']];
+    document.querySelector('#checks tbody').innerHTML = CHECKS.map(function (c, i) {
+      return '<tr><td>' + c[0] + '<br><small style="color:#5d656b">' + c[1] + '</small></td><td>' + statusCell('chk' + i, S4) + '</td><td><input name="chk' + i + '_note"></td></tr>';
+    }).join('');
+    document.querySelector('#tests tbody').innerHTML = TESTS.map(function (c, i) {
+      return '<tr><td>' + c[0] + '<br><small style="color:#5d656b">' + c[1] + '</small></td><td>' + statusCell('tst' + i, S3) + '</td><td><input name="tst' + i + '_note"></td></tr>';
+    }).join('');
+    document.querySelector('#meas tbody').innerHTML = MEAS.map(function (m, i) {
+      return '<tr><td>' + m[0] + '</td>' + [1, 2, 3].map(function (l) {
+        return '<td class="num"><input name="m' + i + '_l' + l + '" type="number" step="0.1" inputmode="decimal"></td>';
+      }).join('') + '<td>' + m[1] + '</td></tr>';
+    }).join('');
+
+    /* ---- battery table: one row per block, built from strings x blocks ---- */
+    var batBody = document.querySelector('#bat tbody');
+    function defaultRange() {
+      var bv = +document.getElementById('block_v').value;
+      return { min: +(bv * 1.1).toFixed(2), max: +(bv * 1.1667).toFixed(2) };   // 12 V block: 13.2 - 14.0 V
+    }
+    function buildBatRows(values) {
+      var strings = Math.max(1, Math.min(8, +document.getElementById('strings').value || 1));
+      var blocks = Math.max(1, Math.min(80, +document.getElementById('blocks').value || 1));
+      var rows = '';
+      for (var s = 1; s <= strings; s++) {
+        for (var b = 1; b <= blocks; b++) {
+          var k = 'b' + s + '_' + b;
+          rows += '<tr><td>' + s + '</td><td>' + b + '</td>' +
+            '<td class="num"><input name="' + k + '_v" data-bv type="number" step="0.01" inputmode="decimal"></td>' +
+            '<td class="num"><input name="' + k + '_ir" data-bir type="number" step="0.01" inputmode="decimal"></td>' +
+            '<td class="num"><input name="' + k + '_t" type="number" step="0.1" inputmode="decimal"></td>' +
+            '<td><select name="' + k + '_c"><option></option><option>OK</option><option>Swollen</option><option>Leaking</option><option>Corroded terminal</option><option>Replace</option></select></td></tr>';
+        }
+      }
+      batBody.innerHTML = rows;
+      if (values) restore(values);
+      evaluate();
+    }
+
+    function num(v) { return v === '' || v == null ? null : +v; }
+    function evaluate() {
+      var r = defaultRange();
+      var vmin = num(document.getElementById('vmin').value), vmax = num(document.getElementById('vmax').value);
+      if (vmin == null) vmin = r.min;
+      if (vmax == null) vmax = r.max;
+      document.getElementById('vrange').textContent = vmin + '–' + vmax + ' V';
+      document.getElementById('vmin').placeholder = r.min; document.getElementById('vmax').placeholder = r.max;
+      var irLimit = num(document.getElementById('ir_limit').value);
+      var vs = [], out = 0, irOut = 0;
+      batBody.querySelectorAll('[data-bv]').forEach(function (el) {
+        el.classList.remove('flag-low', 'flag-high');
+        var v = num(el.value);
+        if (v == null) return;
+        vs.push(v);
+        if (v < vmin) { el.classList.add('flag-low'); out++; }
+        else if (v > vmax) { el.classList.add('flag-high'); out++; }
+      });
+      batBody.querySelectorAll('[data-bir]').forEach(function (el) {
+        el.classList.remove('flag-warn');
+        var v = num(el.value);
+        if (v != null && irLimit != null && v > irLimit) { el.classList.add('flag-warn'); irOut++; }
+      });
+      var avg = vs.length ? vs.reduce(function (a, b) { return a + b; }, 0) / vs.length : null;
+      document.getElementById('s_avg').textContent = avg == null ? '–' : avg.toFixed(2) + ' V';
+      document.getElementById('s_minmax').textContent = vs.length ? Math.min.apply(null, vs).toFixed(2) + ' / ' + Math.max.apply(null, vs).toFixed(2) : '–';
+      document.getElementById('s_out').textContent = out;
+      document.getElementById('s_ir').textContent = irOut;
+      ['room_temp', 'load_pct', 'n_e'].forEach(function (id) { document.getElementById(id).classList.remove('flag-warn'); });
+      var t = num(document.getElementById('room_temp').value), load = num(document.getElementById('load_pct').value), ne = num(document.getElementById('n_e').value);
+      if (t != null && t > 25) document.getElementById('room_temp').classList.add('flag-warn');
+      if (load != null && load > 80) document.getElementById('load_pct').classList.add('flag-warn');
+      if (ne != null && ne > 2) document.getElementById('n_e').classList.add('flag-warn');
+      suggest({ out: out, irOut: irOut, t: t, load: load, ne: ne });
+    }
+
+    /* ---- suggestions the engineer can tap to add ---- */
+    function suggest(s) {
+      var list = [];
+      if (s.out) list.push(s.out + ' battery block(s) outside the float voltage range: re-test after a full charge and plan replacement if confirmed.');
+      if (s.irOut) list.push(s.irOut + ' battery block(s) above the internal resistance level: plan replacement of the affected blocks.');
+      if (s.t != null && s.t > 25) list.push('Room temperature ' + s.t + ' °C is above 25 °C: improve cooling to protect battery life.');
+      if (s.load != null && s.load > 80) list.push('UPS load ' + s.load + ' % is above 80 %: review load growth and redundancy.');
+      if (s.ne != null && s.ne > 2) list.push('Neutral–earth voltage ' + s.ne + ' V is high: check the neutral and earthing system.');
+      var box = document.getElementById('suggest');
+      box.innerHTML = list.length ? list.map(function (x, i) { return '<button type="button" data-s="' + i + '">+ ' + x + '</button>'; }).join('') : '<span class="note">No issues detected from the readings so far.</span>';
+      box.querySelectorAll('[data-s]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var ta = form.elements.recommendations;
+          var line = '• ' + list[+btn.getAttribute('data-s')];
+          if (ta.value.indexOf(line) === -1) ta.value = (ta.value ? ta.value + '\n' : '') + line;
+          saveNow();
+        });
+      });
+    }
+
+    /* ---- signatures (finger or mouse) ---- */
+    var pads = {};
+    function setupPad(id) {
+      var c = document.getElementById(id), ctx = c.getContext('2d'), drawing = false;
+      function size() {
+        var data = c.width ? c.toDataURL() : null, r = c.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+        c.width = r.width * dpr; c.height = r.height * dpr; ctx.scale(dpr, dpr);
+        ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.strokeStyle = '#16191c';
+        if (data && pads[id] && pads[id].has) { var im = new Image(); im.onload = function () { ctx.drawImage(im, 0, 0, r.width, r.height); }; im.src = data; }
+      }
+      function pos(e) { var r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+      c.addEventListener('pointerdown', function (e) { drawing = true; c.setPointerCapture(e.pointerId); var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+      c.addEventListener('pointermove', function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); pads[id].has = true; });
+      function mirror() { var img = document.getElementById(id + '_img'); if (pads[id].has) img.src = c.toDataURL('image/png'); else img.removeAttribute('src'); }
+      ['pointerup', 'pointercancel'].forEach(function (ev) { c.addEventListener(ev, function () { if (drawing) { drawing = false; mirror(); save(); } }); });
+      pads[id] = { canvas: c, has: false, load: function (url) { var im = new Image(); im.onload = function () { var r = c.getBoundingClientRect(); ctx.drawImage(im, 0, 0, r.width, r.height); pads[id].has = true; }; im.src = url; document.getElementById(id + '_img').src = url; },
+                   clear: function () { ctx.clearRect(0, 0, c.width, c.height); pads[id].has = false; document.getElementById(id + '_img').removeAttribute('src'); } };
+      size(); window.addEventListener('resize', size);
+    }
+    setupPad('sig_eng'); setupPad('sig_client');
+    document.querySelectorAll('[data-clear]').forEach(function (b) { b.addEventListener('click', function () { pads[b.getAttribute('data-clear')].clear(); save(); }); });
+
+    /* ---- draft: kept in this browser only ---- */
+    function collect() {
+      var data = {};
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (!el.name) return;
+        if ((el.type === 'radio' || el.type === 'checkbox')) { if (el.checked) data[el.name] = el.value; }
+        else data[el.name] = el.value;
+      });
+      data._vmin = document.getElementById('vmin').value; data._vmax = document.getElementById('vmax').value;
+      Object.keys(pads).forEach(function (id) { if (pads[id].has) data['_' + id] = pads[id].canvas.toDataURL('image/png'); });
+      return data;
+    }
+    function restore(data) {
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (!el.name || !(el.name in data)) return;
+        if (el.type === 'radio' || el.type === 'checkbox') el.checked = (data[el.name] === el.value);
+        else el.value = data[el.name];
+      });
+    }
+    var savedEl = document.getElementById('saved'), timer = null;
+    function saveNow() {
+      clearTimeout(timer);
+      try { localStorage.setItem(KEY, JSON.stringify(collect())); } catch (e) {}
+    }
+    window.addEventListener('pagehide', saveNow);
+    document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') saveNow(); });
+    function save() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        try { localStorage.setItem(KEY, JSON.stringify(collect())); savedEl.textContent = 'Draft saved on this device ' + new Date().toLocaleTimeString(); }
+        catch (e) { savedEl.textContent = 'Draft could not be saved on this device'; }
+      }, 300);
+    }
+    function newReportNo() {
+      var d = new Date(), p = function (n) { return String(n).padStart(2, '0'); };
+      return 'BAV-UPS-' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' + p(d.getHours()) + p(d.getMinutes());
+    }
+    function fresh() {
+      form.reset();
+      Object.keys(pads).forEach(function (id) { pads[id].clear(); });
+      document.getElementById('report_no').value = newReportNo();
+      document.getElementById('date').valueAsDate = new Date();
+      document.getElementById('vmin').value = ''; document.getElementById('vmax').value = '';
+      buildBatRows(null);
+    }
+
+    var draft = null;
+    try { draft = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { draft = null; }
+    if (draft) {
+      restore(draft);
+      document.getElementById('vmin').value = draft._vmin || ''; document.getElementById('vmax').value = draft._vmax || '';
+      buildBatRows(draft);
+      Object.keys(pads).forEach(function (id) { if (draft['_' + id]) pads[id].load(draft['_' + id]); });
+    } else {
+      fresh();
+    }
+
+    form.addEventListener('input', function (e) {
+      if (e.target.id === 'strings' || e.target.id === 'blocks' || e.target.id === 'block_v') buildBatRows(collect());
+      else evaluate();
+      save();
+    });
+    form.addEventListener('change', save);
+    document.getElementById('vmin').addEventListener('input', function () { evaluate(); save(); });
+    document.getElementById('vmax').addEventListener('input', function () { evaluate(); save(); });
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    document.getElementById('print').addEventListener('click', function () {
+      var no = document.getElementById('report_no').value || 'UPS-report';
+      var prev = document.title; document.title = no + ' ' + (form.elements.client.value || '');
+      window.print(); setTimeout(function () { document.title = prev; }, 500);
+    });
+    document.getElementById('new').addEventListener('click', function () {
+      var btn = this;
+      if (btn.dataset.confirm !== '1') { btn.dataset.confirm = '1'; btn.textContent = 'Tap again to clear'; setTimeout(function () { btn.dataset.confirm = ''; btn.textContent = 'New report'; }, 3000); return; }
+      btn.dataset.confirm = ''; btn.textContent = 'New report';
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      fresh(); save();
+    });
+  })();
+  </script>
+</body>
+</html>

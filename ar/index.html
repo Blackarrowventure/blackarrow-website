@@ -41,9 +41,12 @@
     .navbar__logo{display:flex;align-items:center;gap:12px;}
     .navbar__logo img{height:70px;width:auto;}
     .hero{min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;background:linear-gradient(135deg,var(--clr-navy-dark) 0%,var(--clr-navy) 60%,#2d5a7b 100%);}
-    .b3d-promo-banner__text .b3d-promo-banner__links{margin:18px 0 0;font-size:.92rem;color:rgba(255,255,255,.55);}
-    .b3d-promo-banner__links a{color:rgba(255,255,255,.85);text-decoration:underline;text-underline-offset:3px;}
-    .b3d-promo-banner__links a:hover{color:var(--clr-accent);}
+    .b3d-strip{background:#111;border-top:1px solid rgba(255,255,255,.08);padding:14px 0;}
+    .b3d-strip__inner{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;}
+    .b3d-strip__label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clr-accent);}
+    .b3d-strip__text{margin:0;color:rgba(255,255,255,.7);font-size:.9rem;flex:1 1 280px;}
+    .b3d-strip__link{color:#fff;font-weight:600;font-size:.9rem;text-decoration:underline;text-underline-offset:3px;}
+    .b3d-strip__link:hover{color:var(--clr-accent);}
   </style>
 
   <link rel="stylesheet" href="/assets/css/styles.css?v=20260961">
@@ -827,27 +830,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         BLACK ARROW 3D STORE BANNER
-    ═══════════════════════════════════════ -->
-    <section class="section b3d-promo-banner" aria-labelledby="b3d-promo-heading">
-      <div class="container">
-        <div class="b3d-promo-banner__inner">
-          <div class="b3d-promo-banner__text reveal">
-            <span class="overline" data-i18n="b3d_promo_overline">أيضاً من بلاك أرو</span>
-            <h2 id="b3d-promo-heading" data-i18n="b3d_promo_h2">بلاك أرو 3D — متجرنا للطباعة ثلاثية الأبعاد</h2>
-            <p data-i18n="b3d_promo_p">طابعات ثلاثية الأبعاد أصلية وخيوط طباعة وإكسسوارات وأعمال فنية مطبوعة داخلياً — تسوق أونلاين بالريال السعودي مع التوصيل لكل مناطق المملكة.</p>
-            <a href="/3d/ar/" class="btn btn-primary" data-i18n="b3d_promo_cta">زيارة بلاك أرو 3D ←</a>
-            <p class="b3d-promo-banner__links"><a href="/3d/ar/shop/3d-printers/">طابعات ثلاثية الأبعاد</a> · <a href="/3d/ar/shop/filament/">خيوط الطباعة</a> · <a href="/3d/ar/shop/3d-artwork/">هدايا مطبوعة</a> · <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a></p>
-          </div>
-          <img class="b3d-promo-banner__img reveal" src="/3d/assets/images/products/bambu-a1-mini-lifestyle.webp" srcset="/3d/assets/images/products/bambu-a1-mini-lifestyle-400w.webp 400w, /3d/assets/images/products/bambu-a1-mini-lifestyle.webp 700w" sizes="(max-width: 860px) 90vw, 45vw" alt="3D printer workshop setup with filament spools, tools and printed models" loading="lazy" width="700" height="700">
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-         INDUSTRIES WE SERVE
-    ═══════════════════════════════════════ -->
     <section class="section section--dark" aria-labelledby="industries-heading">
       <div class="container">
         <div class="section-header reveal">
@@ -1311,6 +1293,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- Black Arrow 3D: a separate line of business, kept as a slim link at the end of the page -->
+    <aside class="b3d-strip" aria-label="بلاك أرو 3D" data-i18n-aria-label="b3d_strip_aria">
+      <div class="container b3d-strip__inner">
+        <span class="b3d-strip__label" data-i18n="b3d_strip_label">أيضاً من بلاك أرو</span>
+        <p class="b3d-strip__text" data-i18n="b3d_strip_text">بلاك أرو 3D: طابعات ثلاثية الأبعاد وخيوط طباعة وخدمة طباعة ثلاثية الأبعاد في السعودية.</p>
+        <a href="/3d/ar/" class="b3d-strip__link" data-i18n="b3d_strip_cta">زيارة متجر 3D ←</a>
+      </div>
+    </aside>
   </main>
 
   <!-- ═══════════════════════════════════════

@@ -77,6 +77,12 @@ def rewrite_link(value, page_src):
     """Rewrite one same-origin URL for the Arabic tree, or return it unchanged."""
     if not value or value.startswith(EXTERNAL):
         return value
+    # The 3D store now has its own Arabic tree (/3d/ar/...): send Arabic
+    # readers there, except for shared files under /3d/assets/.
+    if value.startswith('/3d/') and not value.startswith(('/3d/ar/', '/3d/assets/')):
+        page = value[len('/3d/'):]
+        if not page.startswith(('cart', 'account', 'compare', 'returns', 'terms', 'review-admin')):
+            return '/3d/ar/' + page
     if value.startswith(SHARED_PREFIXES):
         return value
     if not value.startswith('/'):
