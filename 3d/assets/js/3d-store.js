@@ -1680,7 +1680,22 @@
       return res.json().catch(function () { return {}; }).then(function (data) {
         if (!res.ok || !data.checkoutUrl) throw new Error(data.error || 'failed');
         try { sessionStorage.setItem('b3d-tabby-summary', JSON.stringify({ total: data.amount_sar, shipping: (form.querySelector('[data-b3d-shipping-field]') || {}).value || '' })); } catch (e) {}
-        window.location.href = data.checkoutUrl;
+        // Online payments skip the Web3Forms submit that bank/COD orders use, so
+        // email the shop the full order (items, colours, address) before leaving
+        // for the gateway. The gateway's own email then confirms the payment; both
+        // carry the same order reference.
+        var go = function () { window.location.href = data.checkoutUrl; };
+        try {
+          var fd = new FormData(form);
+          var method = (form.querySelector('[data-b3d-order-payment]') || {}).value || 'Online payment';
+          fd.set('subject', 'New Black Arrow 3D order - ' + method + ' (awaiting payment confirmation) - ' + data.orderRef);
+          fd.set('order_id', data.orderRef);
+          fd.set('payment_status', 'Customer sent to ' + method + ' to pay ' + data.amount_sar + ' SAR. Check the payment email / dashboard with this reference before shipping.');
+          var timer = setTimeout(go, 3000);
+          fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true })
+            .catch(function () {})
+            .then(function () { clearTimeout(timer); go(); });
+        } catch (e) { go(); }
       });
     }).catch(function () {
       if (errorEl) errorEl.hidden = false;
