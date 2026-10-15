@@ -56,17 +56,70 @@
       });
     }
 
+    var isAr = document.documentElement.lang === 'ar';
+    var TIER_AR = { Silver: 'فضي', Gold: 'ذهبي', Platinum: 'بلاتيني' };
+    // Lifetime spend (SAR) that unlocks each next tier; tiers never drop.
+    var NEXT = { Silver: { at: 5000, from: 0, name: 'Gold' }, Gold: { at: 8000, from: 5000, name: 'Platinum' } };
+
+    function sar(n) { return Math.round(n).toLocaleString('en-US'); }
+
+    function renderProgress(member) {
+      var box = liveSection.querySelector('[data-rwd-progress]');
+      if (!box) return;
+      var tier = member.tier || 'Silver';
+      var spend = Number(member.lifetimeSpend || 0);
+      var next = NEXT[tier];
+      var text = box.querySelector('[data-rwd-progress-text]');
+      var pct = 100;
+      box.className = 'b3d-rwd-progress b3d-rwd-progress--' + tier.toLowerCase();
+      if (next) {
+        var left = Math.max(0, next.at - spend);
+        pct = Math.max(0, Math.min(100, (spend - next.from) / (next.at - next.from) * 100));
+        var nextName = isAr ? TIER_AR[next.name] : next.name;
+        text.innerHTML = isAr
+          ? 'أنفقت <strong>' + sar(spend) + ' ريال</strong> · تبقى <strong>' + sar(left) + ' ريال</strong> للوصول إلى ' + nextName
+          : '<strong>' + sar(spend) + ' SAR</strong> spent · <strong>' + sar(left) + ' SAR</strong> more to reach ' + nextName;
+      } else {
+        text.textContent = isAr ? 'وصلت إلى أعلى مستوى لدينا. شكرًا لك!' : 'You have reached our top tier. Thank you!';
+      }
+      box.hidden = false;
+      var bar = box.querySelector('[data-rwd-progress-bar]');
+      requestAnimationFrame(function () { bar.style.width = pct.toFixed(1) + '%'; });
+    }
+
     function renderCard(member) {
       var card = liveSection.querySelector('.b3d-rwd-card');
-      card.className = 'b3d-rwd-card b3d-rwd-card--' + String(member.tier || 'Silver').toLowerCase();
+      var tier = member.tier || 'Silver';
+      card.className = 'b3d-rwd-card b3d-rwd-card--' + String(tier).toLowerCase();
       liveSection.querySelector('[data-rwd-name]').textContent = member.name;
-      liveSection.querySelector('[data-rwd-tier]').textContent = member.tier;
+      liveSection.querySelector('[data-rwd-tier]').textContent = isAr ? (TIER_AR[tier] || tier) : tier;
       var since = member.memberSince ? new Date(member.memberSince) : null;
       liveSection.querySelector('[data-rwd-since]').textContent = since
-        ? since.toLocaleDateString(document.documentElement.lang === 'ar' ? 'ar-SA' : 'en-GB', { year: 'numeric', month: 'short' })
+        ? since.toLocaleDateString(isAr ? 'ar-SA' : 'en-GB', { year: 'numeric', month: 'short' })
         : '';
       liveSection.querySelector('[data-rwd-balance]').textContent = Number(member.balance || 0).toFixed(2);
       show(liveSection);
+      renderProgress(member);
+    }
+
+    // Cards tilt toward the pointer with a moving highlight (mouse only, motion allowed).
+    if (window.matchMedia && matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-rwd-tilt]'), function (card) {
+        card.addEventListener('pointermove', function (e) {
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          card.classList.add('is-tilting');
+          card.style.setProperty('--ry', ((x - 0.5) * 14).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - y) * 10).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+        });
+        card.addEventListener('pointerleave', function () {
+          card.classList.remove('is-tilting');
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--ry', '0deg');
+        });
+      });
     }
 
     function load() {

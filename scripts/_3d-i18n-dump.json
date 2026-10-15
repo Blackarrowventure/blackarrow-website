@@ -1631,6 +1631,10 @@
     "en": "Enhanced Rewards",
     "ar": "مكافآت معززة"
   },
+  "rwd_badge_top": {
+    "en": "Top tier",
+    "ar": "أعلى مستوى"
+  },
   "rwd_unlock_silver": {
     "en": "Free when you sign up",
     "ar": "مجانًا عند التسجيل"

@@ -2843,53 +2843,87 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-rwd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0 0 40px; }
 @media (max-width: 860px) { .b3d-rwd-cards { grid-template-columns: 1fr; } }
 
-/* Each tier sets --rw-ink (headline metal), --rw-soft (labels), --rw-edge (border) and --rw-glow. */
-.b3d-rwd-card {
-  --rw-ink: #eef1f4; --rw-soft: #aab2bd; --rw-edge: rgba(203,210,219,.35); --rw-glow: rgba(203,210,219,.16);
-  --rw-base-1: #34373c; --rw-base-2: #141517;
+/* Each tier is a panel: a real card face (metal, chip, contactless) on top, benefits below.
+   Tier tokens: --rw-ink (text on the face), --rw-soft (small labels), --rw-edge (panel border), --rw-tick. */
+.b3d-rwd-tier {
+  --rw-edge: rgba(203,210,219,.22); --rw-tick: #cbd2db; --rw-panel: rgba(203,210,219,.05);
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 20px;
-  padding: 22px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
+  display: flex; flex-direction: column; gap: 20px;
+  padding: 16px 16px 22px;
+  border-radius: 22px;
   border: 1px solid var(--rw-edge);
+  background: linear-gradient(180deg, var(--rw-panel), rgba(255,255,255,.015));
+}
+.b3d-rwd-tier--gold { --rw-edge: rgba(245,158,11,.45); --rw-tick: #f5b942; --rw-panel: rgba(245,158,11,.08); box-shadow: 0 20px 50px -28px rgba(245,158,11,.45); }
+.b3d-rwd-tier--platinum {
+  --rw-edge: transparent; --rw-tick: #c9d8ff; --rw-panel: rgba(150,170,255,.07);
+  border: 1px solid transparent;
   background:
-    radial-gradient(120% 80% at 0% 0%, var(--rw-glow), transparent 55%),
-    radial-gradient(90% 70% at 110% 120%, rgba(0,0,0,.55), transparent 60%),
-    linear-gradient(155deg, var(--rw-base-1), var(--rw-base-2) 70%);
-  box-shadow: 0 18px 40px -18px rgba(0,0,0,.75), inset 0 1px 0 rgba(255,255,255,.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+    linear-gradient(180deg, #1b1c22, #141417) padding-box,
+    conic-gradient(from 200deg, rgba(233,238,247,.7), rgba(169,196,255,.8), rgba(217,184,255,.8), rgba(255,226,184,.7), rgba(184,240,224,.7), rgba(169,196,255,.8), rgba(233,238,247,.7)) border-box;
+  box-shadow: 0 24px 60px -28px rgba(140,160,255,.5);
 }
-/* Soft metallic sheen across the top-left, like light on a real card. */
-.b3d-rwd-card::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: -1;
-  background: linear-gradient(120deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,0) 68%, rgba(255,255,255,.04) 100%);
+.b3d-rwd-tier__badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%); z-index: 3;
+  padding: 4px 14px; border-radius: 999px; white-space: nowrap;
+  font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #121318;
+  background: linear-gradient(100deg, #ffffff, #c9d8ff 35%, #e6d2ff 60%, #ffe9cc 90%);
+  box-shadow: 0 6px 18px -6px rgba(169,196,255,.7);
 }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .b3d-rwd-cards .b3d-rwd-card:hover { transform: translateY(-4px); box-shadow: 0 26px 48px -20px rgba(0,0,0,.85), 0 0 0 1px var(--rw-edge), inset 0 1px 0 rgba(255,255,255,.1); }
+
+/* --- Card face --- */
+.b3d-rwd-card {
+  --rw-ink: #ffffff; --rw-soft: rgba(255,255,255,.75);
+  --rx: 0deg; --ry: 0deg; --gx: 30%; --gy: 20%;
+  position: relative; isolation: isolate; overflow: hidden;
+  aspect-ratio: 1.586; max-width: 100%;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: grid; grid-template-rows: auto 1fr auto;
+  color: var(--rw-ink);
+  box-shadow: 0 18px 34px -16px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.25), inset 0 -1px 0 rgba(0,0,0,.35);
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
 }
-.b3d-rwd-card--silver { --rw-ink: #eef1f4; --rw-soft: #aab2bd; --rw-edge: rgba(203,210,219,.35); --rw-glow: rgba(203,210,219,.16); --rw-base-1: #34373c; --rw-base-2: #141517; }
+.b3d-rwd-card.is-tilting { transition: transform .08s linear; }
+/* Light that follows the pointer while the card tilts. */
+.b3d-rwd-card__glare {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2; opacity: 0; transition: opacity .3s ease;
+  background: radial-gradient(circle at var(--gx) var(--gy), rgba(255,255,255,.28), rgba(255,255,255,0) 45%);
+  mix-blend-mode: soft-light;
+}
+.b3d-rwd-card.is-tilting .b3d-rwd-card__glare { opacity: 1; }
+
+/* Silver: brushed steel. */
+.b3d-rwd-card--silver {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, rgba(0,0,0,.03) 1px 2px, transparent 2px 4px),
+    linear-gradient(125deg, #4c5158 0%, #8b9199 26%, #555a61 48%, #7b8189 70%, #3a3e44 100%);
+  --rw-soft: rgba(240,244,248,.82);
+}
+/* Gold: polished gold foil with dark engraved lettering. */
 .b3d-rwd-card--gold {
-  --rw-ink: #fde7a3; --rw-soft: #f3bb3b; --rw-edge: rgba(245,158,11,.6); --rw-glow: rgba(245,158,11,.28); --rw-base-1: #3f2c12; --rw-base-2: #140f08;
-  box-shadow: 0 18px 44px -16px rgba(245,158,11,.3), inset 0 1px 0 rgba(255,236,170,.12);
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, rgba(0,0,0,.03) 1px 2px, transparent 2px 4px),
+    radial-gradient(120% 90% at 15% 0%, rgba(255,240,190,.55), transparent 50%),
+    linear-gradient(125deg, #7a5410 0%, #d6a23e 28%, #9a6c1c 52%, #e3b552 74%, #6a480d 100%);
+  --rw-ink: #2a1a04; --rw-soft: rgba(42,26,4,.78);
 }
-/* Platinum is the "black card": obsidian body, iridescent pearl edge, holographic sheen. */
+.b3d-rwd-card--gold .b3d-rwd-card__tier { text-shadow: 0 1px 0 rgba(255,236,180,.55); }
+/* Platinum: black card with an iridescent edge and a slow holographic sweep. */
 .b3d-rwd-card--platinum {
-  --rw-ink: #f4f7ff; --rw-soft: #c5d3f0; --rw-edge: rgba(197,211,240,.45); --rw-glow: rgba(150,170,255,.16);
   border: 1.5px solid transparent;
   background:
-    radial-gradient(120% 80% at 0% 0%, rgba(150,170,255,.14), transparent 55%) padding-box,
-    radial-gradient(90% 70% at 100% 100%, rgba(255,214,170,.08), transparent 60%) padding-box,
-    linear-gradient(155deg, #17181d, #050506 70%) padding-box,
+    radial-gradient(120% 80% at 0% 0%, rgba(150,170,255,.16), transparent 55%) padding-box,
+    radial-gradient(90% 70% at 100% 100%, rgba(255,214,170,.1), transparent 60%) padding-box,
+    linear-gradient(155deg, #18191f, #050506 70%) padding-box,
     conic-gradient(from 210deg, #e9eef7, #a9c4ff, #d9b8ff, #ffe2b8, #b8f0e0, #a9c4ff, #e9eef7) border-box;
-  box-shadow: 0 20px 48px -18px rgba(140,160,255,.35), 0 0 0 1px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.1);
+  --rw-soft: #c5d3f0;
+  box-shadow: 0 20px 44px -16px rgba(140,160,255,.45), inset 0 1px 0 rgba(255,255,255,.1);
 }
 .b3d-rwd-card--platinum::before {
   content: ''; position: absolute; inset: 0; pointer-events: none; z-index: -1;
-  background: linear-gradient(105deg, transparent 30%, rgba(169,196,255,.13) 42%, rgba(217,184,255,.11) 50%, rgba(255,226,184,.09) 58%, transparent 70%);
+  background: linear-gradient(105deg, transparent 30%, rgba(169,196,255,.16) 42%, rgba(217,184,255,.13) 50%, rgba(255,226,184,.1) 58%, transparent 70%);
   background-size: 260% 100%; background-position: 100% 0;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -2900,61 +2934,75 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
   background: linear-gradient(100deg, #ffffff 0%, #c9d8ff 35%, #e6d2ff 60%, #ffe9cc 85%, #ffffff 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.b3d-rwd-card--platinum .b3d-rwd-card__unlock { background: rgba(169,196,255,.08); }
-.b3d-rwd-card--platinum .b3d-rwd-card__perks li::before { border-color: #c9d8ff; }
-.b3d-rwd-card--platinum .b3d-rwd-card__mark svg { fill: #c9d8ff; }
 
-/* Watermark arrow: small and quiet in the top corner, clear of the perks text. */
-.b3d-rwd-card__mark {
-  position: absolute; top: 14px; right: 16px; width: 64px; height: 64px;
-  opacity: .1; pointer-events: none; z-index: -1;
+/* Face rows */
+.b3d-rwd-face__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.b3d-rwd-card__logo { width: 112px; height: auto; mix-blend-mode: screen; }
+.b3d-rwd-card--gold .b3d-rwd-card__logo { filter: invert(1) grayscale(1) contrast(1.3); mix-blend-mode: multiply; opacity: .85; }
+.b3d-rwd-card__nfc { width: 22px; height: 22px; color: var(--rw-soft); flex: none; }
+[dir="rtl"] .b3d-rwd-card__nfc { transform: scaleX(-1); }
+.b3d-rwd-card__chip {
+  align-self: center; width: 44px; height: 33px; border-radius: 7px;
+  background:
+    linear-gradient(90deg, transparent 32%, rgba(80,52,8,.45) 32% 34%, transparent 34% 66%, rgba(80,52,8,.45) 66% 68%, transparent 68%),
+    linear-gradient(0deg, transparent 30%, rgba(80,52,8,.45) 30% 33%, transparent 33% 67%, rgba(80,52,8,.45) 67% 70%, transparent 70%),
+    linear-gradient(135deg, #f7dd98, #c99a3e 45%, #f0cf7d 70%, #a8781f);
+  box-shadow: inset 0 0 0 1px rgba(80,52,8,.35), 0 1px 2px rgba(0,0,0,.35);
 }
-.b3d-rwd-card__mark svg { width: 100%; height: 100%; display: block; fill: var(--rw-ink); }
-[dir="rtl"] .b3d-rwd-card__mark { right: auto; left: 16px; transform: scaleX(-1); }
+.b3d-rwd-card--platinum .b3d-rwd-card__chip { background:
+    linear-gradient(90deg, transparent 32%, rgba(40,48,70,.45) 32% 34%, transparent 34% 66%, rgba(40,48,70,.45) 66% 68%, transparent 68%),
+    linear-gradient(0deg, transparent 30%, rgba(40,48,70,.45) 30% 33%, transparent 33% 67%, rgba(40,48,70,.45) 67% 70%, transparent 70%),
+    linear-gradient(135deg, #f4f7ff, #aeb9d4 45%, #e6ecfa 70%, #8d98b4); }
+.b3d-rwd-face__bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.b3d-rwd-card__tier { font-family: var(--font-display, inherit); font-size: 1.55rem; font-weight: 800; line-height: 1.05; letter-spacing: .01em; color: var(--rw-ink); }
+.b3d-rwd-card__status { margin-top: 4px; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--rw-soft); }
+.b3d-rwd-face__arrow { width: 34px; height: 34px; flex: none; fill: var(--rw-ink); opacity: .55; }
+[dir="rtl"] .b3d-rwd-face__arrow { transform: scaleX(-1); }
 
-/* The logo file has a black ground; screen blending drops it onto the card. */
-.b3d-rwd-card__logo { width: 140px; height: auto; mix-blend-mode: screen; margin-bottom: 26px; }
-.b3d-rwd-card__tier {
-  font-family: var(--font-display, inherit); font-size: 1.65rem; font-weight: 800; line-height: 1.1; letter-spacing: .01em;
-  color: var(--rw-ink);
-}
-.b3d-rwd-card__status { margin-top: 6px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--rw-soft); }
+/* --- Benefits under the face --- */
+.b3d-rwd-tier__body { display: flex; flex-direction: column; gap: 16px; padding: 0 6px; }
 .b3d-rwd-card__unlock {
-  align-self: flex-start; margin-top: 14px; padding: 4px 10px; border-radius: 999px;
-  font-size: .76rem; font-weight: 600; color: var(--rw-ink);
-  background: rgba(255,255,255,.06); border: 1px solid var(--rw-edge);
+  align-self: flex-start; padding: 4px 11px; border-radius: 999px;
+  font-size: .76rem; font-weight: 600; color: #fff;
+  background: rgba(255,255,255,.05); border: 1px solid var(--rw-edge);
 }
-.b3d-rwd-card__perks {
-  list-style: none; margin: auto 0 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);
-  display: flex; flex-direction: column; gap: 9px;
-}
-.b3d-rwd-card__unlock + .b3d-rwd-card__perks { margin-top: 22px; }
-.b3d-rwd-card__perks li { font-size: .86rem; line-height: 1.45; color: rgba(255,255,255,.86); padding-inline-start: 22px; position: relative; }
+.b3d-rwd-tier--platinum .b3d-rwd-card__unlock { border-color: rgba(197,211,240,.45); }
+.b3d-rwd-card__perks { list-style: none; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.b3d-rwd-card__perks li { font-size: .88rem; line-height: 1.45; color: rgba(255,255,255,.86); padding-inline-start: 24px; position: relative; }
 .b3d-rwd-card__perks li::before {
-  content: ''; position: absolute; left: 2px; top: .38em; width: 10px; height: 6px;
-  border-left: 2px solid var(--clr-accent); border-bottom: 2px solid var(--clr-accent); transform: rotate(-45deg);
+  content: ''; position: absolute; left: 3px; top: .38em; width: 10px; height: 6px;
+  border-left: 2px solid var(--rw-tick); border-bottom: 2px solid var(--rw-tick); transform: rotate(-45deg);
 }
-[dir="rtl"] .b3d-rwd-card__perks li::before { left: auto; right: 2px; }
+[dir="rtl"] .b3d-rwd-card__perks li::before { left: auto; right: 3px; }
 
-/* Live member card: shaped like a real payment card, filled with the signed-in customer's data. */
+/* --- Live member card --- */
 .b3d-rwd-live { max-width: 440px; margin: 0 auto 40px; }
-.b3d-rwd-live .b3d-rwd-card { min-height: 0; aspect-ratio: 1.586; padding: 22px 24px; }
-.b3d-rwd-live .b3d-rwd-card__logo { margin-bottom: 0; }
-.b3d-rwd-live .b3d-rwd-card__tier { position: absolute; top: 20px; right: 24px; font-size: 1rem; letter-spacing: .14em; text-transform: uppercase; }
-[dir="rtl"] .b3d-rwd-live .b3d-rwd-card__tier { right: auto; left: 24px; }
-.b3d-rwd-live .b3d-rwd-card__mark { display: none; }
-.b3d-rwd-live__balance { margin-top: auto; display: flex; flex-direction: column; gap: 2px; font-variant-numeric: tabular-nums; }
-.b3d-rwd-live__balance > span:first-child { font-size: 2.3rem; font-weight: 800; line-height: 1; color: #fff; letter-spacing: .01em; }
-.b3d-rwd-live__balance > span + span { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--rw-soft); }
-.b3d-rwd-live__meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 18px; }
+.b3d-rwd-live .b3d-rwd-card { padding: 20px 22px; grid-template-rows: auto auto 1fr auto; }
+.b3d-rwd-live .b3d-rwd-card__tier { font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; }
+.b3d-rwd-live .b3d-rwd-card__chip { align-self: start; margin-top: 12px; }
+.b3d-rwd-live__balance { align-self: end; display: flex; flex-direction: column; gap: 2px; font-variant-numeric: tabular-nums; }
+.b3d-rwd-live__balance > span:first-child { font-size: 2.2rem; font-weight: 800; line-height: 1; color: var(--rw-ink); letter-spacing: .01em; }
+.b3d-rwd-live__balance > span + span { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--rw-soft); }
+.b3d-rwd-live__meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; }
 .b3d-rwd-live__row { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .b3d-rwd-live__row:last-child { text-align: end; }
-.b3d-rwd-live__row span { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--rw-soft); }
-.b3d-rwd-live__row strong { font-size: .98rem; font-weight: 700; color: #fff; letter-spacing: .03em; overflow-wrap: anywhere; }
+.b3d-rwd-live__row span { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; color: var(--rw-soft); }
+.b3d-rwd-live__row strong { font-size: .95rem; font-weight: 700; color: var(--rw-ink); letter-spacing: .03em; overflow-wrap: anywhere; }
+.b3d-rwd-progress { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.b3d-rwd-progress__text { font-size: .86rem; color: rgba(255,255,255,.8); text-align: center; }
+.b3d-rwd-progress__text strong { color: #fff; }
+.b3d-rwd-progress__bar { height: 8px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
+.b3d-rwd-progress__bar span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #b45309, #F59E0B, #fde68a); transition: width .8s ease; }
+[dir="rtl"] .b3d-rwd-progress__bar span { margin-inline-start: auto; background: linear-gradient(270deg, #b45309, #F59E0B, #fde68a); }
+.b3d-rwd-progress--gold .b3d-rwd-progress__bar span,
+.b3d-rwd-progress--platinum .b3d-rwd-progress__bar span { background: linear-gradient(90deg, #a9c4ff, #d9b8ff, #ffe2b8); }
 @media (max-width: 420px) {
-  .b3d-rwd-live .b3d-rwd-card { aspect-ratio: auto; min-height: 210px; padding: 18px; }
-  .b3d-rwd-live__balance > span:first-child { font-size: 1.9rem; }
+  .b3d-rwd-live .b3d-rwd-card { padding: 16px 18px; }
+  .b3d-rwd-live__balance > span:first-child { font-size: 1.8rem; }
+  .b3d-rwd-live .b3d-rwd-card__chip { margin-top: 8px; width: 38px; height: 28px; }
 }
+@media (prefers-reduced-motion: reduce) { .b3d-rwd-card { transition: none; } }
+.b3d-rwd-cards { padding-top: 12px; }
 
 .b3d-rwd-panel { max-width: 480px; margin: 0 auto 40px; background: rgba(255,255,255,.03); border: 1px solid rgba(245,158,11,.18); border-radius: var(--radius-md); padding: 24px; text-align: center; }
 .b3d-rwd-panel p { color: rgba(255,255,255,.72); font-size: .92rem; margin-bottom: 14px; line-height: 1.6; }
