@@ -1219,7 +1219,7 @@ html[data-b3d-motion="off"] [data-slider-track] {
   margin-bottom: 16px;
 }
 
-.b3d-cat-tabs button {
+.b3d-cat-tabs button, .b3d-cat-tabs a {
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.14);
   color: rgba(255,255,255,.8);
@@ -1228,9 +1228,12 @@ html[data-b3d-motion="off"] [data-slider-track] {
   font-size: .85rem;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.b3d-cat-tabs button[aria-pressed="true"] {
+.b3d-cat-tabs button[aria-pressed="true"],
+.b3d-cat-tabs a[aria-current], .b3d-cat-tabs a.is-active {
   background: var(--clr-accent);
   border-color: var(--clr-accent);
   color: #1a1a1a;

@@ -690,6 +690,25 @@ def landing_card(p, lang):
 
 
 
+def filament_material_pills_html(lang, filament_products):
+    """Material filter pills (PLA+, PETG, PLA, ...) on the Filament category
+    landing page — link straight into the main shop grid's existing
+    filamentMaterial facet via ?cat=Filament&material=..., so no separate
+    filtering logic is needed here. Auto-adjusts if filament materials change."""
+    materials = []
+    for p in filament_products:
+        for label, value in p.get('specs', []):
+            if label.strip().lower() == 'material' and value and value not in materials:
+                materials.append(value)
+    if not materials:
+        return ''
+    base = ('/3d/ar/shop/' if lang == 'ar' else '/3d/shop/') + '?cat=Filament'
+    pills = ['<a href="' + base + '">' + esc(T('shop_all', lang)) + '</a>']
+    for m in materials:
+        pills.append('<a href="' + base + '&material=' + urllib.parse.quote(m) + '">' + esc(m) + '</a>')
+    return '<nav class="b3d-cat-tabs" aria-label="' + esc(T('filter_filamentmaterial_legend', lang)) + '">' + ''.join(pills) + '</nav>'
+
+
 def related_products_html(current, lang):
     """Same picks as the product-page script (same category or brand, first four),
     as plain links; the script replaces this on load."""
@@ -1202,6 +1221,7 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
+        + (filament_material_pills_html(lang, products_in_cat) if cat == 'Filament' and not brand else '')
         + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
            else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
         + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})

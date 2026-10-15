@@ -861,6 +861,7 @@
     if (params.get('cat')) state.cat = params.get('cat');
     if (params.get('brand')) state.brand = params.get('brand');
     if (params.get('q')) state.q = params.get('q');
+    if (params.get('material')) state.filamentMaterial = params.get('material');
 
     // Filtered views are for visitors, not the search index (the server also
     // sends X-Robots-Tag: noindex for these); the clean /shop/<category>/ and
@@ -900,6 +901,7 @@
         function (v) { return T(v === 'Compact' ? 'filter_bv_compact' : v === 'Standard' ? 'filter_bv_standard' : 'filter_bv_large'); });
       fillSelect(els.filamentMaterialSelect, '[data-filter-group="filamentMaterial"]',
         products.filter(function (p) { return p.category === 'Filament'; }).map(filamentMaterialOf));
+      if (els.filamentMaterialSelect && state.filamentMaterial !== 'All') els.filamentMaterialSelect.value = state.filamentMaterial;
       fillSelect(els.accessoryCompatSelect, '[data-filter-group="accessoryCompat"]',
         products.filter(function (p) { return p.category === 'Accessories'; }).reduce(function (acc, p) { return acc.concat(p.compatibility || []); }, []));
     }
