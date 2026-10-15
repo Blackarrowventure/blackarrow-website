@@ -1243,7 +1243,7 @@
     box.hidden = false;
   }
 
-  function updateFreeShippingUi(artworkSubtotal, printerSubtotal) {
+  function updateFreeShippingUi(artworkSubtotal, orderSubtotal) {
     // The free-delivery threshold only ever waives Regular shipping — Fast
     // shipping always keeps its fee, so only that option's price gets overridden.
     var priceEls = document.querySelectorAll('[data-ship-price-display="regular"]');
@@ -1282,19 +1282,19 @@
       return;
     }
     var remainArt = FREE_SHIP_ARTWORK_MIN - artworkSubtotal;
-    var remainPrinter = FREE_SHIP_PRINTER_MIN - printerSubtotal;
-    if (artworkSubtotal > 0 && remainArt > 0) {
+    var remainOrder = FREE_SHIP_PRINTER_MIN - orderSubtotal;
+    if (artworkSubtotal > 0 && remainArt > 0 && orderSubtotal < FREE_SHIP_PRINTER_MIN) {
       noteEl.textContent = T('js_free_ship_progress_artwork').replace('{n}', Math.ceil(remainArt * 100) / 100);
       noteEl.className = 'b3d-shipping-note';
       noteEl.hidden = false;
       setBar(artworkSubtotal / FREE_SHIP_ARTWORK_MIN * 100);
       renderCartShipProgress(noteEl.textContent, artworkSubtotal / FREE_SHIP_ARTWORK_MIN * 100, false);
-    } else if (printerSubtotal > 0 && remainPrinter > 0) {
-      noteEl.textContent = T('js_free_ship_progress_printer').replace('{n}', Math.ceil(remainPrinter * 100) / 100);
+    } else if (orderSubtotal > 0 && remainOrder > 0) {
+      noteEl.textContent = T('js_free_ship_progress_printer').replace('{n}', Math.ceil(remainOrder * 100) / 100);
       noteEl.className = 'b3d-shipping-note';
       noteEl.hidden = false;
-      setBar(printerSubtotal / FREE_SHIP_PRINTER_MIN * 100);
-      renderCartShipProgress(noteEl.textContent, printerSubtotal / FREE_SHIP_PRINTER_MIN * 100, false);
+      setBar(orderSubtotal / FREE_SHIP_PRINTER_MIN * 100);
+      renderCartShipProgress(noteEl.textContent, orderSubtotal / FREE_SHIP_PRINTER_MIN * 100, false);
     } else {
       noteEl.hidden = true;
       bar.hidden = true;
@@ -2016,7 +2016,6 @@
 
       var subtotal = 0;
       var artworkSubtotal = 0;
-      var printerSubtotal = 0;
       var summaryLines = [];
       var hasPreorder = false;
       listEl.innerHTML = ids.map(function (id) {
@@ -2029,7 +2028,6 @@
         var lineTotal = unit * qty;
         subtotal += lineTotal;
         if (p.category === '3D Artwork') artworkSubtotal += lineTotal;
-        if (p.category === '3D Printers') printerSubtotal += lineTotal;
         if (p.preorder) hasPreorder = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
         var bundleLineHtml = '';
@@ -2101,8 +2099,8 @@
       }
 
       lastSubtotal = subtotal;
-      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || printerSubtotal >= FREE_SHIP_PRINTER_MIN;
-      updateFreeShippingUi(artworkSubtotal, printerSubtotal);
+      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN;
+      updateFreeShippingUi(artworkSubtotal, subtotal);
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();
 

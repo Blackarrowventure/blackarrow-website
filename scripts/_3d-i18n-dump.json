@@ -1052,8 +1052,8 @@
     "ar": "أضف {n} ريال أخرى من منتجات الفن ثلاثي الأبعاد للحصول على توصيل مجاني"
   },
   "js_free_ship_progress_printer": {
-    "en": "Add {n} SAR more in 3D Printers items for free delivery",
-    "ar": "أضف {n} ريال أخرى من منتجات الطابعات للحصول على توصيل مجاني"
+    "en": "Add {n} SAR more to your order for free delivery",
+    "ar": "أضف {n} ريال أخرى إلى طلبك للحصول على توصيل مجاني"
   },
   "js_free_ship_unlocked": {
     "en": "Free Regular delivery unlocked for this order! (Fast shipping still has a fee.)",
