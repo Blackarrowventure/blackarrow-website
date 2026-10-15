@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const { afterPaid } = require('../_lib/order-emails');
 
 async function supabase(method, path, body, prefer) {
   const url = process.env.SUPABASE_URL;
@@ -70,6 +71,9 @@ module.exports = async (req, res) => {
     } catch (e) {
       return res.status(500).end();
     }
+    // Rewards spent + "Order CONFIRMED" emails, from the server, whether or not
+    // the customer ever returns to the site. Safe if Paymob retries the webhook.
+    await afterPaid('card_orders', orderRef);
   } else if (tx.success === false && tx.pending === false) {
     // Declined or cancelled: lets the cart page tell the customer straight away.
     const orderRef = tx.order && tx.order.merchant_order_id;

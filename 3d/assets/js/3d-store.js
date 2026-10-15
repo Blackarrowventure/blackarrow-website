@@ -1151,6 +1151,93 @@
     return appliedCoupon ? Math.min(appliedCoupon.amount, lastSubtotal) : 0;
   }
 
+  /* Arrowhead Rewards in the cart: signed-in members can use their balance
+     (4 SAR minimum) and Gold/Platinum get free Regular delivery. The server
+     re-checks all of it (api/_lib/rewards.js); this is only the display. */
+  var REWARDS_MIN = 4;
+  var rewardsState = null; // { member, freeDelivery, use, redeemed: { orderId, used } }
+  var lastArtworkSubtotal = 0;
+
+  function rewardsUsable() {
+    return !!(rewardsState && rewardsState.member && rewardsState.member.balance >= REWARDS_MIN);
+  }
+  function rewardsDiscount() {
+    if (!rewardsState) return 0;
+    if (rewardsState.redeemed) return rewardsState.redeemed.used;
+    if (!rewardsState.use || !rewardsUsable()) return 0;
+    var room = Math.max(0, lastSubtotal - couponDiscount());
+    return Math.min(Math.floor(rewardsState.member.balance * 100) / 100, room);
+  }
+  function memberFreeDelivery() {
+    return !!(rewardsState && rewardsState.freeDelivery);
+  }
+
+  function renderRewardsRow(summaryEl) {
+    var row = summaryEl.querySelector('[data-b3d-rewards-row]');
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'b3d-cart-summary__row b3d-rewards-row';
+      row.setAttribute('data-b3d-rewards-row', '');
+      row.innerHTML = '<label class="b3d-rewards-row__label"><input type="checkbox" data-b3d-rewards-use> <span data-b3d-rewards-text></span></label><span data-b3d-rewards-amount></span>';
+      var totalRow = summaryEl.querySelector('.b3d-cart-summary__total');
+      summaryEl.insertBefore(row, totalRow);
+      row.querySelector('[data-b3d-rewards-use]').addEventListener('change', function (e) {
+        if (!rewardsState || rewardsState.redeemed) return;
+        rewardsState.use = e.target.checked;
+        updateOrderTotals();
+      });
+    }
+    var ar = isAr();
+    var box = row.querySelector('[data-b3d-rewards-use]');
+    var text = row.querySelector('[data-b3d-rewards-text]');
+    var amount = row.querySelector('[data-b3d-rewards-amount]');
+    if (!rewardsState || !rewardsState.member) {
+      var signedOutHint = !rewardsState && window.BlackArrow3DAuth && window.BlackArrow3DAuth.isConfigured();
+      row.hidden = !signedOutHint;
+      box.hidden = true;
+      amount.textContent = '';
+      text.innerHTML = ar
+        ? '<a href="/3d/ar/rewards/">سجّل الدخول لتكسب وتستخدم مكافآت أروهيد</a>'
+        : '<a href="/3d/rewards/">Sign in to earn and use Arrowhead Rewards</a>';
+      return;
+    }
+    var m = rewardsState.member;
+    var bal = m.balance.toFixed(2);
+    row.hidden = false;
+    if (!rewardsUsable()) {
+      box.hidden = true;
+      amount.textContent = '';
+      text.textContent = ar
+        ? 'رصيد مكافآت أروهيد: ' + bal + ' ريال (يُستخدم من 4 ريال)'
+        : 'Arrowhead Rewards: ' + bal + ' SAR (usable from 4 SAR)';
+      return;
+    }
+    box.hidden = false;
+    box.checked = !!rewardsState.use || !!rewardsState.redeemed;
+    box.disabled = !!rewardsState.redeemed;
+    text.textContent = ar
+      ? 'استخدم رصيد مكافآت أروهيد (' + bal + ' ريال)'
+      : 'Use my Arrowhead Rewards balance (' + bal + ' SAR)';
+    var d = rewardsDiscount();
+    amount.innerHTML = d ? '−' + money(d, 'SAR') : '';
+  }
+
+  function loadCartRewards() {
+    if (!window.BlackArrow3DRewards) return;
+    window.BlackArrow3DRewards.fetchMe().then(function (me) {
+      if (!me || !me.signedIn || !me.member) {
+        rewardsState = me && me.signedIn ? { member: null } : null;
+      } else {
+        rewardsState = { member: me.member, freeDelivery: !!me.freeDelivery, use: rewardsState ? rewardsState.use !== false : true, redeemed: rewardsState && rewardsState.redeemed };
+      }
+      if (memberFreeDelivery() && !lastFreeShipping) {
+        lastFreeShipping = true;
+        updateFreeShippingUi(lastArtworkSubtotal, lastSubtotal);
+      }
+      updateOrderTotals();
+    });
+  }
+
   // Sequential order numbers (BAV-3D-5001, ...) come from a Supabase sequence
   // so two checkouts can't collide. If Supabase is unreachable, falls back to
   // a timestamp-based id so checkout never blocks on this.
@@ -1388,7 +1475,11 @@
     feeRow.firstChild.textContent = isAr() ? 'رسوم خدمة الدفع لاحقًا' : 'Pay-later service fee';
     feeRow.lastChild.innerHTML = money(fee, 'SAR');
     var feeLine = fee ? '\nPay-later service fee: ' + fee + ' SAR' : '';
-    var after = lastSubtotal - discount + fee;
+    renderRewardsRow(summaryEl);
+    var rewardsUsed = rewardsDiscount();
+    var rewardsLine = rewardsUsed ? '\nArrowhead Rewards balance used: -' + rewardsUsed + ' SAR' : '';
+    discountLine += rewardsLine;
+    var after = lastSubtotal - discount - rewardsUsed + fee;
 
     var showShipping = checkout && !checkout.hidden;
     if (!showShipping) {
@@ -1454,6 +1545,8 @@
       if (!ok) return;
       window.BlackArrow3DAuth.onAuthChange(function (user) {
         currentUser = user;
+        if (user) loadCartRewards();
+        else { rewardsState = null; updateOrderTotals(); }
         if (loginRow) loginRow.hidden = !!user;
         if (signedInRow) signedInRow.hidden = !user;
         if (user && emailEl) emailEl.textContent = user.email;
@@ -1584,9 +1677,33 @@
   }
   var W3F_ACCESS_KEY = '217e03f8-59ef-45c3-9cf8-048f27ba0586';
 
-  function confirmOnlineOrder(ref, method) {
+  // The server sends the "Order CONFIRMED" emails itself once the gateway
+  // confirms the payment (api/_lib/order-emails.js). This waits a few seconds
+  // for it, and only if the server did not send them does the browser send
+  // them instead (e.g. server emails not set up yet).
+  function confirmWhenServerDone(ref, method, emailsSent, statusUrl) {
+    if (emailsSent) { confirmOnlineOrder(ref, method, true); return; }
+    var n = 0;
+    (function again() {
+      n++;
+      setTimeout(function () {
+        fetch(statusUrl).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+          if (d.emailsSent) confirmOnlineOrder(ref, method, true);
+          else if (n < 3) again();
+          else confirmOnlineOrder(ref, method, false);
+        });
+      }, 2500);
+    })();
+  }
+
+  function confirmOnlineOrder(ref, method, serverHandled) {
     var sentKey = 'b3d-confirmed-' + ref;
     try { if (localStorage.getItem(sentKey)) return; } catch (e) {}
+    if (serverHandled) {
+      try { localStorage.setItem(sentKey, '1'); } catch (e) {}
+      clearPendingOrder();
+      return;
+    }
     var o = readPendingOrder();
     if (!o || o.ref !== ref || !o.fields) return;
     var f = o.fields;
@@ -1664,7 +1781,7 @@
     if (o.at && Date.now() - o.at > 14 * 864e5) { clearPendingOrder(); return; }
     var url = o.gateway === 'tabby' ? '/api/tabby/verify?ref=' : '/api/paymob/status?ref=';
     fetch(url + o.ref).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
-      if (d.status === 'paid') { confirmOnlineOrder(o.ref, o.method || 'Online payment'); }
+      if (d.status === 'paid') { confirmWhenServerDone(o.ref, o.method || 'Online payment', d.emailsSent, url + o.ref); }
       else if (d.status === 'failed') { clearPendingOrder(); }
     });
   }
@@ -1702,7 +1819,7 @@
           snapPayload.success = 1;
           pushSnapEvent('PURCHASE', snapPayload);
           saveCart({});
-          confirmOnlineOrder(ref, method);
+          confirmWhenServerDone(ref, method, d.emailsSent, '/api/paymob/status?ref=' + ref);
         } else if (d.status === 'failed') {
           lead.textContent = ar
             ? 'لم تكتمل عملية الدفع ولم يتم تقديم الطلب. ما زالت سلتك محفوظة، يرجى المحاولة مرة أخرى أو اختيار طريقة دفع أخرى.'
@@ -1766,7 +1883,7 @@
         pushSnapEvent('PURCHASE', snapPayload);
         saveCart({});
         fillOnlineThanks(view, ref);
-        confirmOnlineOrder(ref, 'Tabby (Pay in 4)');
+        confirmWhenServerDone(ref, 'Tabby (Pay in 4)', data.emailsSent, '/api/tabby/verify?ref=' + encodeURIComponent(ref));
       }
       lead.textContent = status === 'paid'
         ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
@@ -1908,10 +2025,18 @@
       }
     };
     if (extraBody) { for (var k in extraBody) { payload[k] = extraBody[k]; } }
-    fetch(endpoint || '/api/paymob/create-intention', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+    // Members: the server checks the account itself and applies their balance
+    // (if ticked) and Gold/Platinum free delivery to the real charge.
+    payload.useRewards = rewardsDiscount() > 0;
+    var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth
+      ? window.BlackArrow3DAuth.getAccessToken() : Promise.resolve(null);
+    tokenP.then(function (token) {
+      if (token) payload.authToken = token;
+      return fetch(endpoint || '/api/paymob/create-intention', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
     }).then(function (res) {
       return res.json().catch(function () { return {}; }).then(function (data) {
         if (!res.ok || !data.checkoutUrl) throw new Error(data.error || 'failed');
@@ -1957,7 +2082,13 @@
       if (errorEl) errorEl.hidden = true;
       if (successEl) successEl.hidden = true;
 
-      nextOrderId().then(function (orderId) {
+      // A retry after a failed send keeps the same order id, so rewards
+      // balance already spent on it is reused instead of spent twice.
+      var orderIdP = rewardsState && rewardsState.redeemed
+        ? Promise.resolve(rewardsState.redeemed.orderId) : nextOrderId();
+      var orderId = null;
+      orderIdP.then(function (id) {
+        orderId = id;
         var orderIdField = form.querySelector('[data-b3d-order-id]');
         if (orderIdField) orderIdField.value = orderId;
         return redeemAppliedCoupon();
@@ -1970,6 +2101,24 @@
           if (cm) { cm.textContent = T('coupon_gone'); cm.className = 'b3d-coupon__msg is-err'; }
           throw new Error('coupon');
         }
+        var wanted = rewardsDiscount();
+        if (!wanted || rewardsState.redeemed) return null;
+        return window.BlackArrow3DRewards.redeemForOrder(orderId, wanted).then(function (used) {
+          rewardsState.redeemed = { orderId: orderId, used: used };
+          updateOrderTotals();
+        }, function () {
+          rewardsState.use = false;
+          updateOrderTotals();
+          var cm = document.querySelector('[data-b3d-coupon-msg]');
+          if (cm) {
+            cm.textContent = isAr()
+              ? 'تعذّر استخدام رصيد المكافآت الآن، فأزلناه من الطلب. راجع المجموع ثم أرسل الطلب مرة أخرى.'
+              : 'Your rewards balance could not be used just now, so it was removed from this order. Check the total and place the order again.';
+            cm.className = 'b3d-coupon__msg is-err';
+          }
+          throw new Error('coupon');
+        });
+      }).then(function () {
         return fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
@@ -1983,6 +2132,10 @@
           showThankYou(form, mailOn);
           sendCustomerConfirmation(form);
           saveCart({});
+          if (rewardsState && rewardsState.redeemed) {
+            rewardsState.member.balance = Math.max(0, rewardsState.member.balance - rewardsState.redeemed.used);
+            rewardsState.redeemed = null;
+          }
         });
       }).catch(function (err) {
         if (errorEl && !(err && err.message === 'coupon')) errorEl.hidden = false;
@@ -2094,7 +2247,8 @@
       }
 
       lastSubtotal = subtotal;
-      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN;
+      lastArtworkSubtotal = artworkSubtotal;
+      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN || memberFreeDelivery();
       updateFreeShippingUi(artworkSubtotal, subtotal);
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();

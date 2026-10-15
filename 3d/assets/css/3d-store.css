@@ -2942,3 +2942,11 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-glance dt { font-weight: 700; color: #555; }
 .b3d-glance dd { margin: 0; }
 @media (max-width: 520px) { .b3d-glance dl > div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Arrowhead Rewards row in the cart summary */
+.b3d-rewards-row { align-items: center; gap: 10px; color: #fde68a; }
+.b3d-rewards-row__label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.b3d-rewards-row__label input { width: 16px; height: 16px; accent-color: var(--clr-accent); flex: none; }
+.b3d-rewards-row__label input[hidden] { display: none; }
+.b3d-rewards-row__label a { color: var(--clr-accent); text-decoration: underline; }
+.b3d-rewards-row [data-b3d-rewards-amount] { color: #6ee7a8; white-space: nowrap; }

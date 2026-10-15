@@ -102,6 +102,15 @@
     });
   }
 
+  // Short-lived token the site's own server uses to check who is signed in
+  // (Arrowhead Rewards); never sent anywhere else.
+  function getAccessToken() {
+    if (!ready || !client) return Promise.resolve(null);
+    return client.auth.getSession().then(function (res) {
+      return res.data && res.data.session ? res.data.session.access_token : null;
+    }).catch(function () { return null; });
+  }
+
   function getProfile(userId) {
     if (!ready || !client) return Promise.resolve(null);
     return client.from('customers').select('name, phone, last_address').eq('id', userId).single().then(function (res) {
@@ -142,6 +151,7 @@
     signOut: signOut,
     resetPassword: resetPassword,
     updatePassword: updatePassword,
+    getAccessToken: getAccessToken,
     getProfile: getProfile,
     saveProfile: saveProfile,
     reviewAdminInfo: reviewAdminInfo

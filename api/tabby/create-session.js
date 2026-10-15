@@ -1,69 +1,15 @@
 const crypto = require('crypto');
-const catalog = require('../../3d/assets/data/3d-products.json');
+const { buildOrder } = require('../_lib/pricing');
+const { insertOrder, db } = require('../_lib/db');
+const rewards = require('../_lib/rewards');
 
 const TABBY_API = 'https://api.tabby.ai/api/v2';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
   ? 'https://www.blackarrowksa.com'
   : 'https://' + process.env.VERCEL_URL;
-const MAX_LINES = 20;
-const MAX_QTY = 10;
 // Limits to confirm with Tabby for your account before going live.
 const MIN_SAR = 75;
 const MAX_SAR = 10000;
-// Free delivery thresholds (SAR): either qualifies the whole order. Mirrors
-// the same thresholds applied client-side in 3d-store.js — recomputed here
-// from trusted catalog data so a client can never fake free shipping.
-const FREE_SHIP_ARTWORK_MIN = 100;
-const FREE_SHIP_PRINTER_MIN = 3000;
-
-function unitPrice(product, variantIndex) {
-  if (product.variants && product.variants.length) {
-    const v = product.variants[variantIndex];
-    if (!v || v.available === false) return null;
-    return v.price;
-  }
-  if (product.available === false) return null;
-  return product.onSale && product.salePrice != null ? product.salePrice : product.price;
-}
-
-function priceCart(items) {
-  if (!Array.isArray(items) || items.length === 0 || items.length > MAX_LINES) return null;
-  const byId = new Map(catalog.products.map((p) => [p.id, p]));
-  const lines = [];
-  let total = 0;
-  let artworkCents = 0;
-  let printerCents = 0;
-  const categories = new Set();
-  for (const item of items) {
-    const product = byId.get(item && item.productId);
-    const qty = Number(item && item.qty);
-    if (!product || !Number.isInteger(qty) || qty < 1 || qty > MAX_QTY) return null;
-    const variantIndex = item.variantIndex == null ? null : Number(item.variantIndex);
-    if (product.variants && product.variants.length && variantIndex == null) return null;
-    const unit = unitPrice(product, variantIndex == null ? 0 : variantIndex);
-    if (unit == null) return null;
-    const cents = Math.round(unit * 100);
-    const lineCents = cents * qty;
-    const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
-    const title = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
-    lines.push({ title, unit_price: (cents / 100).toFixed(2), quantity: qty, reference_id: product.id });
-    total += lineCents;
-    if (product.category === '3D Artwork') artworkCents += lineCents;
-    if (product.category === '3D Printers') printerCents += lineCents;
-    categories.add(product.category);
-  }
-  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || printerCents >= FREE_SHIP_PRINTER_MIN * 100;
-  return { lines, total_cents: total, freeShipping, categories };
-}
-
-// Pay-later (Tabby / Tamara) service fee, per order: 100 SAR if the order has
-// a printer, 50 SAR for filament with no printed items, otherwise none.
-// Mirrors bnplFee() in 3d/assets/js/3d-store.js.
-function bnplFeeCents(cats) {
-  if (cats.has('3D Printers')) return 10000;
-  if (cats.has('Filament') && !cats.has('3D Artwork')) return 5000;
-  return 0;
-}
 
 function cleanBilling(b) {
   const s = (v, max) => String(v || '').trim().slice(0, max);
@@ -73,24 +19,18 @@ function cleanBilling(b) {
   const lastName = s(b && b.lastName, 60);
   if (!phone || !firstName || !lastName || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return null;
   return {
+    firstName,
+    lastName,
     name: (firstName + ' ' + lastName).slice(0, 120),
     email,
     phone,
     city: s(b.city, 60) || 'NA',
+    street: s(b.street, 120),
+    building: s(b.building, 20),
+    apartment: s(b.apartment, 40),
     address: [s(b.street, 120), s(b.building, 20), s(b.apartment, 40)].filter(Boolean).join(', ') || 'NA',
     zip: s(b.postalCode, 20) || '00000',
   };
-}
-
-async function supabase(method, path, body, prefer) {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error('supabase_not_configured');
-  const headers = { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
-  if (prefer) headers.Prefer = prefer;
-  const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
-  if (!r.ok) throw new Error('supabase_' + r.status);
-  return r;
 }
 
 module.exports = async (req, res) => {
@@ -104,41 +44,35 @@ module.exports = async (req, res) => {
   if (!secret || !merchantCode) return res.status(500).json({ error: 'payment_not_configured' });
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
-  const priced = priceCart(body.items);
-  if (!priced) return res.status(400).json({ error: 'invalid_cart' });
-  let shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
-  if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
-  // Free delivery only ever waives Regular shipping — Fast stays paid even once the order qualifies.
-  const freeShippingApplies = priced.freeShipping && body.shipping === 'regular';
-  if (freeShippingApplies) shippingCents = 0;
-  priced.lines.push({ title: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (freeShippingApplies ? ' (Free)' : ''), unit_price: (shippingCents / 100).toFixed(2), quantity: 1, reference_id: 'shipping-' + body.shipping });
-  priced.total_cents += shippingCents;
-  const feeCents = bnplFeeCents(priced.categories);
-  if (feeCents) {
-    priced.lines.push({ title: 'Pay-later service fee', unit_price: (feeCents / 100).toFixed(2), quantity: 1, reference_id: 'pay-later-fee' });
-    priced.total_cents += feeCents;
-  }
+  const draft = buildOrder(body.items, body.shipping, true, null);
+  if (draft.error) return res.status(400).json({ error: draft.error });
+  const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
+  const order = buildOrder(body.items, body.shipping, true, rw);
 
-  const totalSar = priced.total_cents / 100;
+  const totalSar = order.totalCents / 100;
   if (totalSar < MIN_SAR || totalSar > MAX_SAR) return res.status(400).json({ error: 'amount_out_of_range' });
 
   const buyer = cleanBilling(body.billing);
   if (!buyer) return res.status(400).json({ error: 'invalid_billing' });
 
   const orderRef = crypto.randomBytes(12).toString('hex');
-  const amount = totalSar.toFixed(2);
+  const money = (c) => (c / 100).toFixed(2);
+
+  const tabbyItems = order.lines.map((l) => ({ title: l.name, unit_price: money(l.unitCents), quantity: l.qty, reference_id: l.id }));
+  if (order.feeCents) tabbyItems.push({ title: 'Pay-later service fee', unit_price: money(order.feeCents), quantity: 1, reference_id: 'pay-later-fee' });
 
   const payload = {
     payment: {
-      amount,
+      amount: totalSar.toFixed(2),
       currency: 'SAR',
       description: 'Black Arrow 3D order',
       buyer: { name: buyer.name, email: buyer.email, phone: buyer.phone },
       shipping_address: { city: buyer.city, address: buyer.address, zip: buyer.zip },
       order: {
         reference_id: orderRef,
-        items: priced.lines,
-        shipping_amount: (shippingCents / 100).toFixed(2),
+        items: tabbyItems,
+        shipping_amount: money(order.shippingCents),
+        discount_amount: money(order.discountCents),
         tax_amount: '0.00',
       },
     },
@@ -152,15 +86,27 @@ module.exports = async (req, res) => {
   };
 
   try {
-    await supabase('POST', 'tabby_orders', {
+    await insertOrder('tabby_orders', {
       order_ref: orderRef,
       status: 'pending',
-      amount_cents: priced.total_cents,
+      amount_cents: order.totalCents,
       currency: 'SAR',
-      items: priced.lines,
+      items: tabbyItems,
+    }, {
+      details: {
+        method: 'Tabby (Pay in 4)',
+        lang: body.lang === 'ar' ? 'ar' : 'en',
+        billing: {
+          first_name: buyer.firstName, last_name: buyer.lastName, email: buyer.email, phone: buyer.phone,
+          city: buyer.city, street: buyer.street, building: buyer.building, apartment: buyer.apartment, postal_code: buyer.zip,
+        },
+        summary: order.summary,
+        shipping_label: order.shippingLabel,
+        rewards: order.discountCents ? { phone: rw.phone, discount_cents: order.discountCents } : null,
+      },
     });
   } catch (e) {
-    console.error('tabby_orders insert failed:', e.message);
+    console.error('tabby_orders insert failed:', e.message, e.body || '');
     return res.status(502).json({ error: 'order_store_unavailable' });
   }
 
@@ -186,8 +132,8 @@ module.exports = async (req, res) => {
       console.error('tabby checkout rejected:', r.status, JSON.stringify(data).slice(0, 300));
       return res.status(502).json({ error: 'gateway_rejected' });
     }
-    await supabase('PATCH', 'tabby_orders?order_ref=eq.' + orderRef, { tabby_payment_id: data.payment.id });
-    return res.status(200).json({ orderRef, amount_sar: totalSar, checkoutUrl: webUrl });
+    await db('PATCH', 'tabby_orders?order_ref=eq.' + orderRef, { tabby_payment_id: data.payment.id }, 'return=minimal');
+    return res.status(200).json({ orderRef, amount_sar: totalSar, rewards_used_sar: order.discountCents / 100, checkoutUrl: webUrl });
   } catch (e) {
     console.error('tabby checkout failed:', e.message);
     return res.status(502).json({ error: 'gateway_unreachable' });

@@ -1,75 +1,12 @@
 const crypto = require('crypto');
-const catalog = require('../../3d/assets/data/3d-products.json');
+const { buildOrder } = require('../_lib/pricing');
+const { insertOrder, db } = require('../_lib/db');
+const rewards = require('../_lib/rewards');
 
 const PAYMOB_BASE = 'https://ksa.paymob.com';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
   ? 'https://www.blackarrowksa.com'
   : 'https://' + process.env.VERCEL_URL;
-const MAX_LINES = 20;
-const MAX_QTY = 10;
-// Free delivery thresholds (SAR): either qualifies the whole order. Mirrors
-// the same thresholds applied client-side in 3d-store.js — recomputed here
-// from trusted catalog data so a client can never fake free shipping.
-const FREE_SHIP_ARTWORK_MIN = 100;
-const FREE_SHIP_PRINTER_MIN = 3000;
-
-function unitPrice(product, variantIndex) {
-  if (product.variants && product.variants.length) {
-    const v = product.variants[variantIndex];
-    if (!v) return null;
-    if (v.available === false) return null;
-    return v.price;
-  }
-  if (product.available === false) return null;
-  return product.onSale && product.salePrice != null ? product.salePrice : product.price;
-}
-
-async function supabase(method, path, body, prefer) {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error('supabase_not_configured');
-  const headers = { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
-  if (prefer) headers.Prefer = prefer;
-  const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
-  if (!r.ok) throw new Error('supabase_' + r.status);
-  return r;
-}
-
-function priceCart(items) {
-  if (!Array.isArray(items) || items.length === 0 || items.length > MAX_LINES) return null;
-  const byId = new Map(catalog.products.map((p) => [p.id, p]));
-  const lines = [];
-  let total = 0;
-  let artworkCents = 0;
-  const categories = new Set();
-  for (const item of items) {
-    const product = byId.get(item && item.productId);
-    const qty = Number(item && item.qty);
-    if (!product || !Number.isInteger(qty) || qty < 1 || qty > MAX_QTY) return null;
-    const variantIndex = item.variantIndex == null ? null : Number(item.variantIndex);
-    if (product.variants && product.variants.length && variantIndex == null) return null;
-    const unit = unitPrice(product, variantIndex == null ? 0 : variantIndex);
-    if (unit == null) return null;
-    const lineCents = Math.round(unit * 100) * qty;
-    const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
-    const name = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
-    lines.push({ name, amount_cents: Math.round(unit * 100), quantity: qty });
-    total += lineCents;
-    if (product.category === '3D Artwork') artworkCents += lineCents;
-    categories.add(product.category);
-  }
-  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || total >= FREE_SHIP_PRINTER_MIN * 100;
-  return { lines, total_cents: total, freeShipping, categories };
-}
-
-// Pay-later (Tabby / Tamara) service fee, per order: 100 SAR if the order has
-// a printer, 50 SAR for filament with no printed items, otherwise none.
-// Mirrors bnplFee() in 3d/assets/js/3d-store.js.
-function bnplFeeCents(cats) {
-  if (cats.has('3D Printers')) return 10000;
-  if (cats.has('Filament') && !cats.has('3D Artwork')) return 5000;
-  return 0;
-}
 
 function cleanBilling(b) {
   const s = (v, max) => String(v || '').trim().slice(0, max);
@@ -118,8 +55,7 @@ module.exports = async (req, res) => {
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
 
   // 'card' (the default) is the card/mada checkout, with Apple Pay offered
-  // alongside it when configured. 'tamara' is its own buy-now-pay-later
-  // checkout, shown as a separate option in the cart next to Tabby.
+  // alongside it when configured. 'tamara' is its own buy-now-pay-later checkout.
   const channel = body.channel === 'tamara' ? 'tamara' : 'card';
   let paymentMethods;
   if (channel === 'tamara') {
@@ -131,31 +67,35 @@ module.exports = async (req, res) => {
     paymentMethods = [integrationId].concat(applePayIntegrationId ? [applePayIntegrationId] : []);
   }
 
-  const priced = priceCart(body.items);
-  if (!priced) return res.status(400).json({ error: 'invalid_cart' });
-  let shippingCents = body.shipping === 'fast' ? 5000 : body.shipping === 'regular' ? 3000 : null;
-  if (shippingCents == null) return res.status(400).json({ error: 'invalid_shipping' });
-  // Free delivery only ever waives Regular shipping — Fast stays paid even once the order qualifies.
-  const freeShippingApplies = priced.freeShipping && body.shipping === 'regular';
-  if (freeShippingApplies) shippingCents = 0;
-  priced.lines.push({ name: (body.shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (freeShippingApplies ? ' (Free)' : ''), amount_cents: shippingCents, quantity: 1 });
-  priced.total_cents += shippingCents;
-  const feeCents = channel === 'tamara' ? bnplFeeCents(priced.categories) : 0;
-  if (feeCents) {
-    priced.lines.push({ name: 'Pay-later service fee', amount_cents: feeCents, quantity: 1 });
-    priced.total_cents += feeCents;
-  }
+  // Rewards need the customer's real items total first, then the final order.
+  const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null);
+  if (draft.error) return res.status(400).json({ error: draft.error });
+  const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
+  const order = buildOrder(body.items, body.shipping, channel === 'tamara', rw);
 
   const billing = cleanBilling(body.billing);
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });
 
   const orderRef = crypto.randomBytes(12).toString('hex');
+  const method = channel === 'tamara' ? 'Tamara (Pay Later)' : 'Card (Paymob)';
+
+  // Paymob wants the item lines to add up to the amount. With a rewards
+  // discount there is no negative line it accepts, so the order goes as one
+  // line; the itemised order stays in our own records and emails.
+  let paymobItems;
+  if (order.discountCents) {
+    paymobItems = [{ name: 'Black Arrow 3D order ' + orderRef.slice(0, 8) + ' (rewards applied)', amount: order.totalCents, quantity: 1, description: 'Black Arrow 3D order' }];
+  } else {
+    paymobItems = order.lines.map((l) => ({ name: l.name, amount: l.unitCents, quantity: l.qty, description: l.name }));
+    paymobItems.push({ name: order.shippingLabel, amount: order.shippingCents, quantity: 1, description: order.shippingLabel });
+    if (order.feeCents) paymobItems.push({ name: 'Pay-later service fee', amount: order.feeCents, quantity: 1, description: 'Pay-later service fee' });
+  }
 
   const intentionBody = {
-    amount: priced.total_cents,
+    amount: order.totalCents,
     currency: 'SAR',
     payment_methods: paymentMethods,
-    items: priced.lines.map((l) => ({ name: l.name, amount: l.amount_cents, quantity: l.quantity, description: l.name })),
+    items: paymobItems,
     billing_data: billing,
     special_reference: orderRef,
     notification_url: SITE + '/api/paymob/webhook',
@@ -163,16 +103,28 @@ module.exports = async (req, res) => {
   };
 
   try {
-    await supabase('POST', 'card_orders', {
+    await insertOrder('card_orders', {
       order_ref: orderRef,
       status: 'pending',
-      amount_cents: priced.total_cents,
+      amount_cents: order.totalCents,
       currency: 'SAR',
-      items: priced.lines,
+      items: order.lines.map((l) => ({ name: l.name, amount_cents: l.unitCents, quantity: l.qty })),
       billing: { first_name: billing.first_name, last_name: billing.last_name, email: billing.email, phone_number: billing.phone_number, city: billing.city, street: billing.street },
+    }, {
+      details: {
+        method,
+        lang: body.lang === 'ar' ? 'ar' : 'en',
+        billing: {
+          first_name: billing.first_name, last_name: billing.last_name, email: billing.email, phone: billing.phone_number,
+          city: billing.city, street: billing.street, building: billing.building, apartment: billing.apartment, postal_code: billing.postal_code,
+        },
+        summary: order.summary,
+        shipping_label: order.shippingLabel,
+        rewards: order.discountCents ? { phone: rw.phone, discount_cents: order.discountCents } : null,
+      },
     });
   } catch (e) {
-    console.error('card_orders insert failed:', e.message);
+    console.error('card_orders insert failed:', e.message, e.body || '');
     return res.status(502).json({ error: 'order_store_unavailable' });
   }
 
@@ -190,14 +142,15 @@ module.exports = async (req, res) => {
       if (body.debug === true) out.detail = intention;
       return res.status(502).json(out);
     }
-    await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef, { paymob_intention_id: String(intention.id || '') });
+    await db('PATCH', 'card_orders?order_ref=eq.' + orderRef, { paymob_intention_id: String(intention.id || '') }, 'return=minimal');
   } catch (e) {
     return res.status(502).json({ error: 'gateway_unreachable' });
   }
 
   return res.status(200).json({
     orderRef,
-    amount_sar: priced.total_cents / 100,
+    amount_sar: order.totalCents / 100,
+    rewards_used_sar: order.discountCents / 100,
     checkoutUrl: PAYMOB_BASE + '/unifiedcheckout/?publicKey=' + encodeURIComponent(publicKey) + '&clientSecret=' + encodeURIComponent(intention.client_secret),
   });
 };

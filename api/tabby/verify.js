@@ -1,4 +1,5 @@
 const TABBY_API = 'https://api.tabby.ai/api/v2';
+const { afterPaid } = require('../_lib/order-emails');
 
 async function supabase(method, path, body, prefer) {
   const url = process.env.SUPABASE_URL;
@@ -34,7 +35,10 @@ module.exports = async (req, res) => {
   }
   const order = rows[0];
   if (!order || !order.tabby_payment_id) return res.status(404).json({ error: 'order_not_found' });
-  if (order.status === 'paid') return res.status(200).json({ status: 'paid' });
+  if (order.status === 'paid') {
+    const done = await afterPaid('tabby_orders', ref);
+    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent });
+  }
 
   const auth = { Authorization: 'Bearer ' + secret, 'Content-Type': 'application/json' };
   try {
@@ -68,7 +72,8 @@ module.exports = async (req, res) => {
       status: 'paid',
       paid_at: new Date().toISOString(),
     }, 'return=minimal');
-    return res.status(200).json({ status: 'paid' });
+    const done = await afterPaid('tabby_orders', ref);
+    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent });
   } catch (e) {
     console.error('tabby verify failed:', e.message);
     return res.status(502).json({ error: 'verify_failed' });
