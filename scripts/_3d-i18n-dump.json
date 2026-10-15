@@ -1631,6 +1631,10 @@
     "en": "Enhanced Rewards",
     "ar": "مكافآت معززة"
   },
+  "rwd_unlock_silver": {
+    "en": "Free when you sign up",
+    "ar": "مجانًا عند التسجيل"
+  },
   "rwd_unlock_gold": {
     "en": "Unlocks at 5,000 SAR lifetime spend",
     "ar": "يُفتح عند إنفاق 5,000 ريال تراكميًا"
