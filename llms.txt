@@ -38,15 +38,27 @@ Website: https://www.blackarrowksa.com
 
 ## Black Arrow 3D (3D printing store)
 
-A separate online store from Black Arrow, unrelated to the infrastructure services above: 3D printers, filament, spare parts and in-house 3D printed gifts, priced in SAR with delivery across Saudi Arabia. English and Arabic (/3d/ar/).
+Black Arrow 3D (https://www.blackarrowksa.com/3d/) is an online 3D printer store in Saudi Arabia, run by Black Arrow Venture (Dammam, CR 7054542985). It is separate from the infrastructure services above. English and Arabic (/3d/ar/).
 
+Key facts:
+- Sells 3D printers (Bambu Lab A1 mini, A1, A2L, P2S, H2C; Snapmaker U1; Creality SparkX i7; Elegoo Centauri Carbon 2; Anycubic Kobra 3 Max; Flashforge), PLA+/PLA/PETG filament, spare parts, in-house 3D printed gifts, and a custom 3D printing service with an instant online STL quote.
+- Ships from Dammam to every city in Saudi Arabia (Riyadh, Jeddah, Makkah, Madinah, Dammam, Al Khobar, Jubail, Qassim, Abha, Tabuk and more). In-stock orders placed before 4 pm Sunday to Thursday are dispatched the same day. Standard delivery 4-5 business days (30 SAR), fast 2-3 business days (50 SAR). Free regular delivery on 100 SAR+ of 3D printed items or 3,000 SAR+ of printers.
+- Payment: bank transfer, mada, Visa, Mastercard, Apple Pay, Tabby (pay in 4) and Tamara. A pay-later service fee applies to orders with printers or filament only.
+- Prices in SAR including 15% VAT. Manufacturer warranty on printers; the store helps with warranty claims.
+- Support in Arabic and English: WhatsApp +966 56 022 4715, info@blackarrowksa.com.
+
+Pages:
 - [Store home](https://www.blackarrowksa.com/3d/)
 - [3D Printers](https://www.blackarrowksa.com/3d/shop/3d-printers/): Bambu Lab, Snapmaker, Creality, Elegoo, Anycubic, Flashforge.
 - [Filament](https://www.blackarrowksa.com/3d/shop/filament/)
 - [Accessories & spare parts](https://www.blackarrowksa.com/3d/shop/accessories/)
 - [3D Printed Gifts & Artwork](https://www.blackarrowksa.com/3d/shop/3d-artwork/): keychains, PS5 controller stands, Saudi-themed decor.
-- [3D Printing Service in Saudi Arabia](https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/): custom prints from your file or idea.
-- [Guides & Blog](https://www.blackarrowksa.com/3d/blog/): buying guides, printer comparisons, filament guide.
+- [3D Printing Service in Saudi Arabia](https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/) · [Instant STL quote](https://www.blackarrowksa.com/3d/quote/) · [Business & bulk orders](https://www.blackarrowksa.com/3d/business/)
+- [Guides & Blog](https://www.blackarrowksa.com/3d/blog/): buying guides, printer comparisons, filament and troubleshooting guides.
+- [Where to buy a 3D printer in Saudi Arabia](https://www.blackarrowksa.com/3d/blog/where-to-buy-3d-printer-saudi-arabia/)
+- [3D printer in instalments with Tabby or Tamara](https://www.blackarrowksa.com/3d/blog/3d-printer-installments-tabby-tamara-saudi/)
+- [Bambu Lab printers in Saudi Arabia: prices](https://www.blackarrowksa.com/3d/blog/bambu-lab-printers-saudi-arabia-prices/)
+- City guides: [Riyadh](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-riyadh/) · [Jeddah](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-jeddah/) · [Makkah](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-makkah/) · [Madinah](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-madinah/) · [Dammam & Al Khobar](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-dammam-khobar/) · [Jubail](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-jubail/) · [Qassim](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-qassim/) · [Abha & Khamis Mushait](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-abha-khamis-mushait/) · [Tabuk](https://www.blackarrowksa.com/3d/blog/buy-3d-printer-tabuk/)
 - [Shipping](https://www.blackarrowksa.com/3d/shipping/) · [Returns](https://www.blackarrowksa.com/3d/returns/) · [Terms](https://www.blackarrowksa.com/3d/terms/)
 
 Content on this site is also available in Arabic under /ar/.

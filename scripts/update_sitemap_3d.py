@@ -26,17 +26,9 @@ CATEGORY_SLUGS = {
     '3D Artwork': '3d-artwork',
 }
 
-BLOG_SLUGS = [
-    '3d-printer-maintenance-guide',
-    'bambu-lab-a1-vs-a1-mini-vs-a2l',
-    'bambu-lab-vs-creality-vs-snapmaker',
-    'best-3d-printer-for-beginners-saudi-arabia',
-    'buy-3d-printer-saudi-arabia-price-guide',
-    'custom-3d-printing-cost-saudi-arabia',
-    'multi-color-3d-printing-explained',
-    'pla-vs-petg-vs-abs-filament-guide',
-    '3d-printed-gifts-home-decor-saudi-arabia',
-]
+# Every post folder under /3d/blog/ (so new guides are picked up automatically).
+BLOG_SLUGS = sorted(d for d in os.listdir(os.path.join(ROOT, '3d', 'blog'))
+                    if os.path.isfile(os.path.join(ROOT, '3d', 'blog', d, 'index.html')))
 # Pick up any newer article folder too, so a new post never misses the sitemap.
 BLOG_SLUGS += sorted(d for d in os.listdir(os.path.join(ROOT, '3d', 'blog'))
                      if d not in BLOG_SLUGS and os.path.isfile(os.path.join(ROOT, '3d', 'blog', d, 'index.html')))

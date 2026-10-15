@@ -2912,3 +2912,15 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-rwd-how li::before { content: counter(rwd); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--clr-accent); color: #1a1a1a; font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center; }
 [dir="rtl"] .b3d-rwd-how li { padding-inline-start: 0; padding-inline-end: 40px; }
 [dir="rtl"] .b3d-rwd-how li::before { left: auto; right: 0; }
+
+/* Home: delivery across Saudi Arabia + store facts */
+.b3d-cities__list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 26px; }
+.b3d-city-chip { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid #cfcbc0; background: #fff; color: #1a1a1a; font-weight: 600; font-size: .9rem; text-decoration: none; }
+.b3d-city-chip:hover, .b3d-city-chip:focus-visible { border-color: #1a1a1a; }
+.b3d-glance { max-width: 760px; margin: 0 auto; padding: 18px 20px; border: 1px solid #e3dfd4; border-radius: 12px; background: #fff; color: #1a1a1a; }
+.b3d-glance h3 { margin: 0 0 10px; font-size: 1.05rem; }
+.b3d-glance dl { margin: 0; display: grid; gap: 8px; }
+.b3d-glance dl > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; }
+.b3d-glance dt { font-weight: 700; color: #555; }
+.b3d-glance dd { margin: 0; }
+@media (max-width: 520px) { .b3d-glance dl > div { grid-template-columns: 1fr; gap: 2px; } }
