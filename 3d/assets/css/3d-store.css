@@ -2853,29 +2853,47 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
   gap: 14px;
   min-height: 300px;
   border: 1px solid transparent;
-  background-repeat: repeat, no-repeat;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  box-shadow: 0 14px 32px -12px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
 }
 .b3d-rwd-card::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse at 110% 120%, rgba(255,255,255,.08), transparent 55%);
+  background: linear-gradient(115deg, rgba(255,255,255,.1) 0%, transparent 22%);
 }
 .b3d-rwd-card__mark {
-  position: absolute; right: -36px; bottom: -36px; width: 180px; height: 180px;
-  opacity: .08; pointer-events: none;
+  position: absolute; right: -30px; bottom: -30px; width: 190px; height: 190px;
+  opacity: .14; pointer-events: none; z-index: 0;
 }
-.b3d-rwd-card__mark svg { width: 100%; height: 100%; }
+.b3d-rwd-card__mark svg { width: 100%; height: 100%; display: block; }
+[dir="rtl"] .b3d-rwd-card__mark { right: auto; left: -30px; transform: scaleX(-1); }
 .b3d-rwd-card--silver {
-  background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 2px, transparent 2px, transparent 7px), linear-gradient(155deg, #2b2b2e, #1a1a1c);
-  border-color: rgba(203,210,219,.35);
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.1) 0px, rgba(255,255,255,.1) 1.5px, transparent 1.5px, transparent 6px),
+    radial-gradient(ellipse 60% 50% at 18% 12%, rgba(203,210,219,.18), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 115%, rgba(0,0,0,.55), transparent 60%),
+    linear-gradient(150deg, #3a3c40, #151617 65%);
+  border-color: rgba(203,210,219,.4);
 }
+.b3d-rwd-card__mark svg { fill: #cbd2db; }
 .b3d-rwd-card--gold {
-  background-image: repeating-linear-gradient(to bottom, rgba(245,158,11,.06) 0px, rgba(245,158,11,.06) 2px, transparent 2px, transparent 7px), linear-gradient(155deg, #3a2a10, #15120a);
-  border-color: rgba(245,158,11,.55);
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(253,230,138,.12) 0px, rgba(253,230,138,.12) 1.5px, transparent 1.5px, transparent 6px),
+    radial-gradient(ellipse 60% 50% at 18% 12%, rgba(245,158,11,.3), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 115%, rgba(0,0,0,.6), transparent 60%),
+    linear-gradient(150deg, #4a3415, #15100a 65%);
+  border-color: rgba(245,158,11,.65);
+  box-shadow: 0 14px 34px -10px rgba(245,158,11,.25), inset 0 1px 0 rgba(255,255,255,.08);
 }
+.b3d-rwd-card--gold .b3d-rwd-card__mark svg { fill: #f5b942; }
 .b3d-rwd-card--platinum {
-  background-image: repeating-linear-gradient(to bottom, rgba(159,180,199,.07) 0px, rgba(159,180,199,.07) 2px, transparent 2px, transparent 7px), linear-gradient(155deg, #262b30, #121416);
-  border-color: rgba(159,180,199,.5);
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(159,180,199,.12) 0px, rgba(159,180,199,.12) 1.5px, transparent 1.5px, transparent 6px),
+    radial-gradient(ellipse 60% 50% at 18% 12%, rgba(159,180,199,.28), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 115%, rgba(0,0,0,.6), transparent 60%),
+    linear-gradient(150deg, #323a42, #0f1214 65%);
+  border-color: rgba(159,180,199,.6);
 }
+.b3d-rwd-card--platinum .b3d-rwd-card__mark svg { fill: #9fb4c7; }
 .b3d-rwd-card__logo { width: 130px; height: auto; position: relative; z-index: 1; }
 .b3d-rwd-card__tier { font-family: var(--font-display, inherit); font-size: 1.3rem; font-weight: 800; letter-spacing: .02em; position: relative; z-index: 1; }
 .b3d-rwd-card--silver .b3d-rwd-card__tier { color: #e8ebef; }
