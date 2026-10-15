@@ -184,8 +184,8 @@
     "ar": "تسوّق المنتجات"
   },
   "cart_checkout_note": {
-    "en": "Bank Transfer is available now.",
-    "ar": "التحويل البنكي متاح الآن."
+    "en": "Bank Transfer, Card, Tabby and Tamara are available now.",
+    "ar": "التحويل البنكي، البطاقة، تابي وتمارا متاحة الآن."
   },
   "cart_crosssell_h3": {
     "en": "Complete your setup",
@@ -448,8 +448,8 @@
     "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني — راجع تذييل الصفحة لبيانات التواصل."
   },
   "faq_a2": {
-    "en": "Bank Transfer is available.",
-    "ar": "التحويل البنكي متاح."
+    "en": "Bank Transfer, Card payment (mada, Visa, Mastercard, Apple Pay), Tabby and Tamara are all available at checkout.",
+    "ar": "التحويل البنكي، الدفع بالبطاقة (مدى، فيزا، ماستركارد، Apple Pay)، تابي، وتمارا، جميعها متاحة عند إتمام الطلب."
   },
   "faq_a3": {
     "en": "Printers, filament and accessories are the manufacturer's products, as shown and described on each product page. Our 3D printed items (artwork, keychains, gifts) are made by 3D printing, so you may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the printing process, not a defect.",
@@ -836,8 +836,8 @@
     "ar": "دعم عبر واتساب"
   },
   "hub_trust_4": {
-    "en": "Bank transfer available",
-    "ar": "التحويل البنكي متاح"
+    "en": "Multiple secure payment options",
+    "ar": "خيارات دفع متعددة وآمنة"
   },
   "hub_why_h2": {
     "en": "Real Printers, Real Support, Real Warranty",
@@ -1178,6 +1178,18 @@
   "js_view_product": {
     "en": "View Product",
     "ar": "عرض المنتج"
+  },
+  "js_guides_heading": {
+    "en": "Setup & Maintenance Guides",
+    "ar": "أدلة التركيب والصيانة"
+  },
+  "js_guides_official_wiki": {
+    "en": "Official Bambu Lab Guide — Installation, Usage & Maintenance",
+    "ar": "دليل Bambu Lab الرسمي — التركيب والاستخدام والصيانة"
+  },
+  "js_guides_official_youtube": {
+    "en": "Bambu Lab Official YouTube Channel",
+    "ar": "قناة Bambu Lab الرسمية على يوتيوب"
   },
   "js_warranty_heading": {
     "en": "Warranty",
@@ -1556,8 +1568,8 @@
     "ar": "توصيل لجميع مناطق السعودية"
   },
   "trust_payment": {
-    "en": "Bank transfer available",
-    "ar": "التحويل البنكي متاح"
+    "en": "Multiple secure payment options",
+    "ar": "خيارات دفع متعددة وآمنة"
   },
   "trust_support": {
     "en": "Local support",

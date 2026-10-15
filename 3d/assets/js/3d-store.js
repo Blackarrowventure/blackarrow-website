@@ -497,6 +497,26 @@
     return p.category === '3D Printers' ? T('js_wa_printer') : p.category === 'Filament' ? T('js_wa_filament') : T('js_wa_item');
   }
 
+  /* Official Bambu Lab wiki page per printer model - installation, usage and
+     maintenance guides, straight from the manufacturer (wiki.bambulab.com),
+     plus their official YouTube channel for video tutorials. */
+  var BAMBU_WIKI_URL = {
+    'bambu-lab-a1-mini': 'https://wiki.bambulab.com/en/a1-mini',
+    'bambu-lab-a1': 'https://wiki.bambulab.com/en/a1',
+    'bambu-lab-a2l': 'https://wiki.bambulab.com/en/a2l',
+    'bambu-lab-h2c-combo': 'https://wiki.bambulab.com/en/h2c',
+    'bambu-lab-p2s': 'https://wiki.bambulab.com/en/p2s'
+  };
+  var BAMBU_YOUTUBE_URL = 'https://www.youtube.com/@bambulab';
+  function guidesHtml(p) {
+    var wikiUrl = BAMBU_WIKI_URL[p.id];
+    if (!wikiUrl) return '';
+    return '<div class="b3d-pd__guides"><h2>' + T('js_guides_heading') + '</h2><ul>' +
+      '<li><a href="' + wikiUrl + '" target="_blank" rel="noopener noreferrer">' + T('js_guides_official_wiki') + '</a></li>' +
+      '<li><a href="' + BAMBU_YOUTUBE_URL + '" target="_blank" rel="noopener noreferrer">' + T('js_guides_official_youtube') + '</a></li>' +
+      '</ul></div>';
+  }
+
   /* Kits: contents with thumbnails, and the saving against buying each part. */
   function kitBoxHtml(p) {
     if (!p.kit) return '';
@@ -2489,6 +2509,7 @@
           (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
+          guidesHtml(p) +
           '<div class="b3d-pd__shipreturn">' +
             '<div><strong>' + T('js_shipping_heading') + '</strong><p>' + T('js_shipping_desc') + '</p></div>' +
             '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/3d/returns/">' + T('footer_returns') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +

@@ -79,6 +79,22 @@ def T(key, lang):
     return entry.get(lang) or entry.get('en') or key
 
 
+# The homepage's FAQPage JSON-LD (3d/index.html) has its question/answer text
+# written out plain, not as data-i18n - translate_static_chrome only bakes
+# <details> text, so the AR build needs its own EN->AR swap for the schema,
+# built from the same faq_qN/faq_aN keys the visible FAQ already uses.
+FAQ_SCHEMA_AR = {v['en']: v['ar'] for k, v in I18N.items() if k.startswith('faq_q') or k.startswith('faq_a')}
+
+
+def translate_faq_schema(html, lang):
+    if lang != 'ar':
+        return html
+    for en, ar in FAQ_SCHEMA_AR.items():
+        html = html.replace('"text": "' + en + '"', '"text": "' + ar.replace('"', '\\"') + '"') \
+                   .replace('"name": "' + en + '"', '"name": "' + ar.replace('"', '\\"') + '"')
+    return html
+
+
 def L(p, field, lang):
     if lang == 'ar' and p.get(field + '_ar'):
         return p[field + '_ar']
@@ -240,6 +256,32 @@ def price_block(p, lang):
     return '<span class="b3d-price">' + money(p['price'], p.get('currency')) + '</span>'
 
 
+# Official Bambu Lab wiki page per printer model - installation, usage and
+# maintenance guides, straight from the manufacturer (wiki.bambulab.com),
+# plus their official YouTube channel for video tutorials. Mirrors
+# BAMBU_WIKI_URL / guidesHtml() in 3d-store.js.
+BAMBU_WIKI_URL = {
+    'bambu-lab-a1-mini': 'https://wiki.bambulab.com/en/a1-mini',
+    'bambu-lab-a1': 'https://wiki.bambulab.com/en/a1',
+    'bambu-lab-a2l': 'https://wiki.bambulab.com/en/a2l',
+    'bambu-lab-h2c-combo': 'https://wiki.bambulab.com/en/h2c',
+    'bambu-lab-p2s': 'https://wiki.bambulab.com/en/p2s',
+}
+BAMBU_YOUTUBE_URL = 'https://www.youtube.com/@bambulab'
+
+
+def guides_html(p, lang):
+    wiki_url = BAMBU_WIKI_URL.get(p.get('id'))
+    if not wiki_url:
+        return ''
+    return (
+        '<div class="b3d-pd__guides"><h2>' + T('js_guides_heading', lang) + '</h2><ul>'
+        + '<li><a href="' + wiki_url + '" target="_blank" rel="noopener noreferrer">' + T('js_guides_official_wiki', lang) + '</a></li>'
+        + '<li><a href="' + BAMBU_YOUTUBE_URL + '" target="_blank" rel="noopener noreferrer">' + T('js_guides_official_youtube', lang) + '</a></li>'
+        + '</ul></div>'
+    )
+
+
 def product_detail_html(p, lang):
     name = L(p, 'name', lang)
     desc = L(p, 'description', lang) or ''
@@ -348,6 +390,7 @@ def product_detail_html(p, lang):
         + ('<table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table>' if specs_html else '')
         + compat_html
         + ('<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading', lang) + '</h2><p>' + esc(L(p, 'warranty', lang)) + '</p></div>' if L(p, 'warranty', lang) else '')
+        + guides_html(p, lang)
         + '<div class="b3d-pd__shipreturn">'
         + '<div><strong>' + T('js_shipping_heading', lang) + '</strong><p>' + T('js_shipping_desc', lang) + '</p></div>'
         + '<div><strong>' + T('js_returns_heading', lang) + '</strong><p>' + T('js_returns_desc_prefix', lang)
@@ -391,6 +434,7 @@ def localize_ar_hrefs(html, lang):
     if lang != 'ar':
         return html
     html = html.replace('href="/3d/shop/?cat=', 'href="/3d/ar/shop/?cat=')
+    html = html.replace('href="/3d/shop/?brand=', 'href="/3d/ar/shop/?brand=')
     for slug in CATEGORY_SLUGS.values():
         html = html.replace('href="/3d/shop/' + slug + '/"', 'href="/3d/ar/shop/' + slug + '/"')
     html = html.replace('href="/3d/brands/', 'href="/3d/ar/brands/')
@@ -1301,7 +1345,7 @@ STATIC_PAGES = {
                 ('ul', [
                     "Cancellation is possible only before production begins.",
                     "Custom and personalized orders are not returnable for change of mind. Defects, a wrong product or shipping damage are covered by our Return & Exchange Policy.",
-                    "Payment: Bank Transfer.",
+                    "Payment: Bank Transfer, Card payment (mada, Visa, Mastercard, Apple Pay), Tabby and Tamara.",
                 ]),
                 ('h2', 'Ready-made 3D printed items'),
                 ('p', "Prefer something ready to order? Browse our in-house designs in 3D Artwork: keychains, decor and gifts."),
@@ -1339,7 +1383,7 @@ STATIC_PAGES = {
                 ('ul', [
                     "يمكن الإلغاء فقط قبل بدء الإنتاج.",
                     "لا يُقبل إرجاع الطلبات المخصصة والشخصية لمجرد تغيير الرأي. أما العيوب أو المنتج الخاطئ أو التلف أثناء الشحن فتشملها سياسة الاسترجاع والاستبدال.",
-                    "الدفع: بالتحويل البنكي.",
+                    "الدفع: التحويل البنكي، الدفع بالبطاقة (مدى، فيزا، ماستركارد، Apple Pay)، تابي، وتمارا.",
                 ]),
                 ('h2', 'منتجات مطبوعة جاهزة'),
                 ('p', "تفضّل شيئًا جاهزًا للطلب؟ تصفح تصاميمنا الخاصة في قسم الأعمال الفنية: ميدالِيات المفاتيح والديكور والهدايا."),
@@ -1374,7 +1418,7 @@ STATIC_PAGES = {
                 ('h2', '5. Damage during shipping'),
                 ('p', "If your order arrives damaged, contact us within 3 days of receiving it with clear photos. See the Return & Exchange Policy for details."),
                 ('h2', '6. Payment'),
-                ('p', "Bank Transfer is available."),
+                ('p', "Bank Transfer, Card payment (mada, Visa, Mastercard, Apple Pay), Tabby and Tamara are all available at checkout."),
                 ('h2', '7. Contact'),
                 ('contact', ''),
                 ('links', [('/3d/returns/', 'Return & Exchange Policy'), ('/3d/terms/', 'Terms and Conditions')]),
@@ -1401,7 +1445,7 @@ STATIC_PAGES = {
                 ('h2', '5. التلف أثناء الشحن'),
                 ('p', "إذا وصل طلبك تالفًا، تواصل معنا خلال 3 أيام من استلامه مع صور واضحة. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."),
                 ('h2', '6. الدفع'),
-                ('p', "التحويل البنكي متاح."),
+                ('p', "التحويل البنكي، الدفع بالبطاقة (مدى، فيزا، ماستركارد، Apple Pay)، تابي، وتمارا، جميعها متاحة عند إتمام الطلب."),
                 ('h2', '7. التواصل'),
                 ('contact', ''),
                 ('links', [('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/terms/', 'الشروط والأحكام')]),
@@ -1690,6 +1734,7 @@ def build_ar_home():
     html = apply_ar_meta(html, AR_HOME_META)
     html = prerender_grids(html, 'ar', 'home')
     html = translate_static_chrome(html, 'ar')
+    html = translate_faq_schema(html, 'ar')
     html = localize_ar_hrefs(html, 'ar')
     html = lang_toggle_link(html, 'ar', '/3d/')
     write(os.path.join(ROOT, '3d', 'ar', 'index.html'), html)
