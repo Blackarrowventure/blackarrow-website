@@ -257,10 +257,36 @@
   /* ---------------- Data ---------------- */
 
   var __b3dProductsById = {};
+  // Items the CRM's Website Inventory tab marks Not Available (quantity 0 or
+  // switched off). If the lookup fails the catalog's own flags stand.
+  function fetchCrmUnavailable() {
+    return fetch('/api/availability/').then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { return (d && d.unavailable) || []; })
+      .catch(function () { return []; });
+  }
+
+  function applyCrmUnavailable(rows) {
+    rows.forEach(function (row) {
+      var p = __b3dProductsById[row.id];
+      if (!p) return;
+      var label = String(row.variant || '').trim().toLowerCase();
+      if (!label) { p.available = false; return; }
+      (p.variants || []).forEach(function (v) {
+        if (String(v.label || '').trim().toLowerCase() === label) v.available = false;
+      });
+      if (p.variants && p.variants.length && p.variants.every(function (v) { return v.available === false; })) p.available = false;
+    });
+  }
+
   function fetchProducts() {
-    return fetch(DATA_URL).then(function (r) { return r.json(); }).then(function (data) {
+    return Promise.all([
+      fetch(DATA_URL).then(function (r) { return r.json(); }),
+      fetchCrmUnavailable()
+    ]).then(function (res) {
+      var data = res[0];
       var list = data.products || [];
       list.forEach(function (p) { __b3dProductsById[p.id] = p; });
+      applyCrmUnavailable(res[1]);
       // A kit is only in stock while every part of it is.
       list.forEach(function (p) {
         if (!p.kit) return;
