@@ -1582,5 +1582,161 @@
   "trust_warranty": {
     "en": "Manufacturer warranty",
     "ar": "ضمان الشركة المصنّعة"
+  },
+  "nav_rewards": {
+    "en": "Rewards",
+    "ar": "المكافآت"
+  },
+  "rwd_crumb": {
+    "en": "Arrowhead Rewards",
+    "ar": "مكافآت أروهيد"
+  },
+  "rwd_overline": {
+    "en": "Loyalty Program",
+    "ar": "برنامج الولاء"
+  },
+  "rwd_h1": {
+    "en": "Arrowhead Rewards",
+    "ar": "مكافآت أروهيد"
+  },
+  "rwd_tagline": {
+    "en": "Every order adds to your reward balance. Use it from your next order, and unlock Gold or Platinum status as you shop with us.",
+    "ar": "كل طلب يضيف إلى رصيد مكافآتك. استخدمه من طلبك التالي، وافتح مستوى ذهبي أو بلاتيني كلما تسوقت معنا أكثر."
+  },
+  "rwd_tier_silver": {
+    "en": "Silver",
+    "ar": "فضي"
+  },
+  "rwd_status_silver": {
+    "en": "Member Rewards",
+    "ar": "مكافآت الأعضاء"
+  },
+  "rwd_perk_silver_1": {
+    "en": "Earn reward balance on every order",
+    "ar": "اكسب رصيد مكافآت مع كل طلب"
+  },
+  "rwd_perk_silver_2": {
+    "en": "Use your balance from your next order",
+    "ar": "استخدم رصيدك ابتداءً من طلبك التالي"
+  },
+  "rwd_perk_silver_3": {
+    "en": "Birthday reward: 2,000 points (4 SAR)",
+    "ar": "مكافأة عيد الميلاد: 2,000 نقطة (4 ريال)"
+  },
+  "rwd_tier_gold": {
+    "en": "Gold",
+    "ar": "ذهبي"
+  },
+  "rwd_status_gold": {
+    "en": "Enhanced Rewards",
+    "ar": "مكافآت معززة"
+  },
+  "rwd_unlock_gold": {
+    "en": "Unlocks at 5,000 SAR lifetime spend",
+    "ar": "يُفتح عند إنفاق 5,000 ريال تراكميًا"
+  },
+  "rwd_perk_gold_1": {
+    "en": "Everything in Silver, at a better rate",
+    "ar": "كل ما في المستوى الفضي، بمعدل أفضل"
+  },
+  "rwd_perk_gold_2": {
+    "en": "Free delivery on every order",
+    "ar": "توصيل مجاني مع كل طلب"
+  },
+  "rwd_perk_gold_3": {
+    "en": "Birthday reward: 3,000 points (6 SAR)",
+    "ar": "مكافأة عيد الميلاد: 3,000 نقطة (6 ريال)"
+  },
+  "rwd_tier_platinum": {
+    "en": "Platinum",
+    "ar": "بلاتيني"
+  },
+  "rwd_status_platinum": {
+    "en": "Maximum Rewards",
+    "ar": "أقصى مكافآت"
+  },
+  "rwd_unlock_platinum": {
+    "en": "Unlocks at 8,000 SAR lifetime spend",
+    "ar": "يُفتح عند إنفاق 8,000 ريال تراكميًا"
+  },
+  "rwd_perk_platinum_1": {
+    "en": "Everything in Gold, at our best rate",
+    "ar": "كل ما في المستوى الذهبي، وبأفضل معدلاتنا"
+  },
+  "rwd_perk_platinum_2": {
+    "en": "Free delivery on every order",
+    "ar": "توصيل مجاني مع كل طلب"
+  },
+  "rwd_perk_platinum_3": {
+    "en": "Surprise 3D-printed gift with select orders",
+    "ar": "هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة"
+  },
+  "rwd_perk_platinum_4": {
+    "en": "Birthday reward: 4,000 points (8 SAR)",
+    "ar": "مكافأة عيد الميلاد: 4,000 نقطة (8 ريال)"
+  },
+  "rwd_your_card_sr": {
+    "en": "Your Arrowhead Rewards Card",
+    "ar": "بطاقة مكافآت أروهيد الخاصة بك"
+  },
+  "rwd_live_name": {
+    "en": "Name",
+    "ar": "الاسم"
+  },
+  "rwd_live_since": {
+    "en": "Member since",
+    "ar": "عضو منذ"
+  },
+  "rwd_live_sar": {
+    "en": "SAR reward balance",
+    "ar": "ريال رصيد المكافآت"
+  },
+  "rwd_panel_signedout": {
+    "en": "Sign in or create a free account to see your card and join Arrowhead Rewards.",
+    "ar": "سجّل الدخول أو أنشئ حسابًا مجانيًا لرؤية بطاقتك والانضمام إلى مكافآت أروهيد."
+  },
+  "rwd_panel_signedout_cta": {
+    "en": "Sign In / Create Account",
+    "ar": "تسجيل الدخول / إنشاء حساب"
+  },
+  "rwd_panel_needsphone": {
+    "en": "Add your phone number to join Arrowhead Rewards and get your 5 SAR welcome credit.",
+    "ar": "أضف رقم هاتفك للانضمام إلى مكافآت أروهيد والحصول على رصيد ترحيبي 5 ريال."
+  },
+  "rwd_join_error": {
+    "en": "Could not join right now — please try again.",
+    "ar": "تعذّر الانضمام الآن — يرجى المحاولة مرة أخرى."
+  },
+  "rwd_join_cta": {
+    "en": "Join Arrowhead Rewards",
+    "ar": "انضم إلى مكافآت أروهيد"
+  },
+  "rwd_panel_error": {
+    "en": "We couldn't load your card right now — please refresh or try again shortly.",
+    "ar": "تعذّر تحميل بطاقتك الآن — يرجى تحديث الصفحة أو المحاولة لاحقًا."
+  },
+  "rwd_how_h2": {
+    "en": "How it works",
+    "ar": "كيف يعمل البرنامج"
+  },
+  "rwd_how_1": {
+    "en": "Create or sign in to your Black Arrow 3D account and add your phone number.",
+    "ar": "أنشئ حسابًا أو سجّل الدخول إلى حسابك في Black Arrow 3D وأضف رقم هاتفك."
+  },
+  "rwd_how_2": {
+    "en": "Shop normally — every order adds to your reward balance, shown in SAR.",
+    "ar": "تسوّق كالمعتاد — كل طلب يضيف إلى رصيد مكافآتك، معروضًا بالريال."
+  },
+  "rwd_how_3": {
+    "en": "From your next order onward, use your balance toward what you buy.",
+    "ar": "ابتداءً من طلبك التالي، استخدم رصيدك فيما تشتريه."
+  },
+  "rwd_how_4": {
+    "en": "Reach 5,000 SAR lifetime spend for Gold, 8,000 SAR for Platinum — your status never resets, even after you redeem.",
+    "ar": "صِل إلى 5,000 ريال إنفاقًا تراكميًا للمستوى الذهبي، و8,000 ريال للبلاتيني — مستواك لا يُعاد تصفيره أبدًا، حتى بعد استخدام رصيدك."
+  },
+  "rwd_how_5": {
+    "en": "Gold and Platinum members also get free delivery, and Platinum members a surprise 3D-printed gift with select orders.",
+    "ar": "يحصل أعضاء المستوى الذهبي والبلاتيني أيضًا على توصيل مجاني، وأعضاء البلاتيني على هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة."
   }
 }

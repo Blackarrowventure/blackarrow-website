@@ -442,6 +442,7 @@ def localize_ar_hrefs(html, lang):
         html = html.replace('href="/3d/' + _slug + '/"', 'href="/3d/ar/' + _slug + '/"')
     html = re.sub(r'href="/3d/product/([a-z0-9-]+)/"', r'href="/3d/ar/product/\1/"', html)
     html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')
+    html = html.replace('href="/3d/rewards/"', 'href="/3d/ar/rewards/"')
     html = html.replace('href="/3d/blog/"', 'href="/3d/ar/blog/"')
     html = html.replace('href="/3d/"', 'href="/3d/ar/"')
     return html
