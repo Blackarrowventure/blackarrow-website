@@ -438,6 +438,10 @@ def localize_ar_hrefs(html, lang):
     for slug in CATEGORY_SLUGS.values():
         html = html.replace('href="/3d/shop/' + slug + '/"', 'href="/3d/ar/shop/' + slug + '/"')
     html = html.replace('href="/3d/brands/', 'href="/3d/ar/brands/')
+    # Blog posts that have an Arabic twin (city guides, buying guides on the home page).
+    html = re.sub(r'href="/3d/blog/([a-z0-9-]+)/"',
+                  lambda m: 'href="/3d/ar/blog/' + m.group(1) + '/"'
+                  if os.path.isfile(os.path.join(ROOT, '3d', 'ar', 'blog', m.group(1), 'index.html')) else m.group(0), html)
     for _slug in ('3d-printing-service-saudi-arabia', 'shipping'):
         html = html.replace('href="/3d/' + _slug + '/"', 'href="/3d/ar/' + _slug + '/"')
     html = re.sub(r'href="/3d/product/([a-z0-9-]+)/"', r'href="/3d/ar/product/\1/"', html)
@@ -1286,16 +1290,16 @@ Afzal's review/approval like every other AR copy block in this project;
 nothing here is a new business claim, just an Arabic rendering of
 strings that already exist in English on the same pages."""
 AR_HOME_META = {
-    'description': 'اشترِ طابعات ثلاثية الأبعاد وخيوطاً وإكسسوارات وهدايا مطبوعة في السعودية من Bambu Lab وCreality وElegoo وغيرها. الأسعار بالريال والتوصيل لكل المملكة.',
-    'og_title': 'شراء طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
-    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — طابعات ثلاثية الأبعاد وخيوط وإكسسوارات لصناع المحتوى والطلاب والاستخدام المنزلي. ضمان شامل وتوصيل سريع لكل مناطق السعودية.',
-    'title': 'طابعات وخيوط وهدايا ثلاثية الأبعاد | Black Arrow 3D',
+    'description': 'بلاك أرو 3D: طابعات ثلاثية الأبعاد وفلمنت وقطع غيار وهدايا مطبوعة مع التوصيل لكل مدن السعودية، منها الرياض وجدة ومكة والمدينة والدمام.',
+    'og_title': 'بلاك أرو 3D | متجر الطابعات ثلاثية الأبعاد في السعودية',
+    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — طابعات ثلاثية الأبعاد وخيوط وإكسسوارات لصناع المحتوى والطلاب والاستخدام المنزلي. مع التوصيل لكل مدن السعودية والمساعدة في مطالبات ضمان الشركة المصنّعة.',
+    'title': 'بلاك أرو 3D | متجر الطابعات ثلاثية الأبعاد في السعودية',
 }
 AR_SHOP_META = {
-    'description': 'تسوّق طابعات ثلاثية الأبعاد وخيوطاً وإكسسوارات في السعودية من Bambu Lab وCreality وElegoo وغيرها. قارن الأسعار بالريال مع التوصيل لكل المملكة.',
-    'og_title': 'تسوق طابعات ثلاثية الأبعاد وخيوط وإكسسوارات أونلاين — Black Arrow 3D',
-    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — قارن الطابعات ثلاثية الأبعاد والخيوط والإكسسوارات بالسعر والعلامة التجارية وحجم الطباعة. ضمان شامل، توصيل لكل مناطق السعودية.',
-    'title': 'تسوق طابعات وخيوط ثلاثية الأبعاد في السعودية | Black Arrow',
+    'description': 'تصفّح كل منتجات بلاك أرو 3D: طابعات ثلاثية الأبعاد وفلمنت وإكسسوارات وهدايا مطبوعة. فلترة حسب العلامة التجارية والفئة والسعر، والأسعار بالريال.',
+    'og_title': 'كل المنتجات | Black Arrow 3D',
+    'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — قارن الطابعات ثلاثية الأبعاد والخيوط والإكسسوارات بالسعر والعلامة التجارية وحجم الطباعة. مع التوصيل لكل مدن السعودية.',
+    'title': 'كل المنتجات: طابعات وفلمنت وقطع غيار | Black Arrow 3D',
 }
 
 
