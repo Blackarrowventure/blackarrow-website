@@ -101,7 +101,7 @@
       hub_cat_h2: 'Shop by Category',
       hub_trust_1: 'Genuine, authorized products',
       hub_trust_3: 'WhatsApp support',
-      hub_trust_4: 'Bank transfer available',
+      hub_trust_4: 'Multiple secure payment options',
       cat_coming_soon: 'Coming Soon',
 
       partners_h2: 'Nationwide Delivery, Powered by OTO',
@@ -145,7 +145,7 @@
 
       faq_h2: 'Frequently Asked Questions',
       faq_q2: 'What payment methods are available?',
-      faq_a2: 'Bank Transfer is available.',
+      faq_a2: 'Bank Transfer, Card payment (mada, Visa, Mastercard, Apple Pay), Tabby and Tamara are all available at checkout.',
       faq_q3: 'Are the products the same as shown in the images?',
       faq_a3: 'Printers, filament and accessories are the manufacturer\'s products, as shown and described on each product page. Our 3D printed items (artwork, keychains, gifts) are made by 3D printing, so you may notice slight layer lines or minor variations in colour or texture. This is normal and reflects the printing process, not a defect.',
       faq_q4: 'Are the products worth the price?',
@@ -239,7 +239,7 @@
       filter_clear: 'Clear all',
       js_from_tooltip: 'Starting price — final price depends on the option you choose (e.g. Standalone vs Combo).',
       trust_delivery: 'Delivery across Saudi Arabia',
-      trust_payment: 'Bank transfer available',
+      trust_payment: 'Multiple secure payment options',
       trust_vat: 'VAT invoice',
       trust_warranty: 'Manufacturer warranty',
       trust_damaged_replace: 'Replaced if it arrives damaged',
@@ -272,7 +272,7 @@
       coupon_min: 'This code needs a minimum order of {n} SAR.',
       cart_payment_h4: 'Payment Method',
       cart_preorder_notice: 'This order includes a pre-order item. Pre-order items are confirmed with you about one week before delivery.',
-      cart_checkout_note: 'Bank Transfer is available now.',
+      cart_checkout_note: 'Bank Transfer, Card, Tabby and Tamara are available now.',
 
       pm_soon: 'Coming Soon',
       pm_banktransfer: 'Bank Transfer',
@@ -550,7 +550,7 @@
       hub_cat_h2: 'تسوّق حسب الفئة',
       hub_trust_1: 'منتجات أصلية ومعتمدة',
       hub_trust_3: 'دعم عبر واتساب',
-      hub_trust_4: 'التحويل البنكي متاح',
+      hub_trust_4: 'خيارات دفع متعددة وآمنة',
       cat_coming_soon: 'قريباً',
 
       partners_h2: 'توصيل لكل مناطق المملكة عبر OTO',
@@ -594,7 +594,7 @@
 
       faq_h2: 'الأسئلة الشائعة',
       faq_q2: 'ما هي طرق الدفع المتاحة؟',
-      faq_a2: 'التحويل البنكي متاح.',
+      faq_a2: 'التحويل البنكي، الدفع بالبطاقة (مدى، فيزا، ماستركارد، Apple Pay)، تابي، وتمارا، جميعها متاحة عند إتمام الطلب.',
       faq_q3: 'هل المنتجات مطابقة للصور المعروضة؟',
       faq_a3: 'الطابعات والفلامنت والإكسسوارات هي منتجات الشركة المصنّعة كما تظهر وتُوصف في صفحة كل منتج. أما منتجاتنا المطبوعة ثلاثية الأبعاد (الأعمال الفنية وميدالِيات المفاتيح والهدايا) فتُصنع بالطباعة ثلاثية الأبعاد، لذا قد تلاحظ خطوط طبقات خفيفة أو اختلافات بسيطة في اللون أو الملمس. هذا أمر طبيعي يعكس عملية الطباعة وليس عيبًا.',
       faq_q4: 'هل المنتجات تستحق سعرها؟',
@@ -688,7 +688,7 @@
       filter_clear: 'مسح الكل',
       js_from_tooltip: 'السعر الابتدائي — السعر النهائي يعتمد على الخيار الذي تختاره (مثلاً منفردة أو باقة).',
       trust_delivery: 'توصيل لجميع مناطق السعودية',
-      trust_payment: 'التحويل البنكي متاح',
+      trust_payment: 'خيارات دفع متعددة وآمنة',
       trust_vat: 'فاتورة ضريبية',
       trust_warranty: 'ضمان الشركة المصنّعة',
       trust_damaged_replace: 'يُستبدل إذا وصل تالفًا',
@@ -721,7 +721,7 @@
       coupon_min: 'يتطلب هذا الرمز حدًا أدنى للطلب قدره {n} ريال.',
       cart_payment_h4: 'طريقة الدفع',
       cart_preorder_notice: 'يتضمن هذا الطلب منتجًا بالحجز المسبق. يتم تأكيد منتجات الحجز المسبق معك قبل أسبوع تقريبًا من موعد التوصيل.',
-      cart_checkout_note: 'التحويل البنكي متاح الآن.',
+      cart_checkout_note: 'التحويل البنكي، البطاقة، تابي وتمارا متاحة الآن.',
 
       pm_soon: 'قريباً',
       pm_banktransfer: 'تحويل بنكي',
