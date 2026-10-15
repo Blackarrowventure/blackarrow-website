@@ -41,7 +41,6 @@ function priceCart(items) {
   const lines = [];
   let total = 0;
   let artworkCents = 0;
-  let printerCents = 0;
   const categories = new Set();
   for (const item of items) {
     const product = byId.get(item && item.productId);
@@ -57,10 +56,9 @@ function priceCart(items) {
     lines.push({ name, amount_cents: Math.round(unit * 100), quantity: qty });
     total += lineCents;
     if (product.category === '3D Artwork') artworkCents += lineCents;
-    if (product.category === '3D Printers') printerCents += lineCents;
     categories.add(product.category);
   }
-  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || printerCents >= FREE_SHIP_PRINTER_MIN * 100;
+  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || total >= FREE_SHIP_PRINTER_MIN * 100;
   return { lines, total_cents: total, freeShipping, categories };
 }
 
