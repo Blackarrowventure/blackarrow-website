@@ -131,6 +131,18 @@
     return n;
   }
 
+  // True if any line in the cart is a Filament product, regardless of what
+  // else is in the order (a printer alongside it doesn't change this) — used
+  // to show the "we'll contact you if the colour isn't available" note on
+  // the order-confirmation screen.
+  function cartHasFilament(cart) {
+    cart = cart || getCart();
+    return Object.keys(cart).some(function (id) {
+      var p = __b3dProductsById[parseLineId(id).productId];
+      return !!(p && p.category === 'Filament');
+    });
+  }
+
   function updateCartBadges(cart) {
     cart = cart || getCart();
     var count = cartCount(cart);
@@ -1630,6 +1642,8 @@
     if (totEl && o.total != null) totEl.textContent = o.total + ' SAR';
     var emailEl = view.querySelector('[data-b3d-thanks-email]');
     if (emailEl) emailEl.textContent = o.fields.email || '';
+    var filamentNote = view.querySelector('[data-b3d-thanks-filament-note]');
+    if (filamentNote) filamentNote.hidden = !o.hasFilament;
   }
 
   // A paid order whose confirmation emails were not sent yet (tab closed on the
@@ -1788,6 +1802,8 @@
     view.querySelector('[data-b3d-thanks-payment]').textContent = val('[data-b3d-order-payment]');
     view.querySelector('[data-b3d-thanks-shipping]').textContent = val('[data-b3d-shipping-field]');
     view.querySelector('[data-b3d-thanks-total]').textContent = grand;
+    var filamentNote = view.querySelector('[data-b3d-thanks-filament-note]');
+    if (filamentNote) filamentNote.hidden = !cartHasFilament();
     var lead = view.querySelector('[data-b3d-thanks-lead]');
     var emailEl = view.querySelector('[data-b3d-thanks-email]');
     if (mailOn) {
@@ -1851,6 +1867,7 @@
       return;
     }
     var cart = getCart();
+    var hasFilament = cartHasFilament(cart);
     var items = Object.keys(cart).map(function (id) {
       var parsed = parseLineId(id);
       var product = __b3dProductsById[parsed.productId];
@@ -1907,7 +1924,7 @@
           var keep = {};
           fd.forEach(function (v, k) { if (k !== 'access_key' && k !== 'botcheck' && typeof v === 'string') keep[k] = v; });
           keep.order_id = data.orderRef;
-          savePendingOrder({ ref: data.orderRef, total: data.amount_sar, method: method, gateway: endpoint && endpoint.indexOf('tabby') !== -1 ? 'tabby' : 'paymob', at: Date.now(), fields: keep });
+          savePendingOrder({ ref: data.orderRef, total: data.amount_sar, method: method, gateway: endpoint && endpoint.indexOf('tabby') !== -1 ? 'tabby' : 'paymob', at: Date.now(), fields: keep, hasFilament: hasFilament });
           fd.set('payment_status', 'Customer sent to ' + method + ' to pay ' + data.amount_sar + ' SAR. Check the payment email / dashboard with this reference before shipping.');
           var timer = setTimeout(go, 3000);
           fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' }, keepalive: true })
