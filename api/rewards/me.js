@@ -1,4 +1,4 @@
-// The signed-in customer's Arrowhead Rewards card. First call auto-enrols
+// The signed-in customer's Black Arrow Loyalty Rewards card. First call auto-enrols
 // them (Silver, 5 SAR welcome credit) using their account's phone number.
 const { bearer } = require('../_lib/db');
 const rewards = require('../_lib/rewards');

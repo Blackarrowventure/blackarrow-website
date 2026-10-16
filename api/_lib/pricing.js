@@ -74,7 +74,7 @@ function buildOrder(items, shipping, payLater, rewards, products) {
 
   const sar = (c) => (c / 100).toLocaleString('en-US') + ' SAR';
   const summary = priced.lines.map((l) => l.qty + ' x ' + l.name + ' — ' + sar(l.unitCents * l.qty));
-  if (discountCents) summary.push('Arrowhead Rewards balance used: -' + sar(discountCents));
+  if (discountCents) summary.push('Black Arrow Loyalty Rewards balance used: -' + sar(discountCents));
   if (feeCents) summary.push('Pay-later service fee: ' + sar(feeCents));
   summary.push('Shipping: ' + shippingLabel + ' — ' + (free ? 'Free' : sar(shippingCents)));
   summary.push('Grand Total: ' + sar(totalCents));

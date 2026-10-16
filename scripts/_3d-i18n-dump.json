@@ -1588,16 +1588,16 @@
     "ar": "المكافآت"
   },
   "rwd_crumb": {
-    "en": "Arrowhead Rewards",
-    "ar": "مكافآت أروهيد"
+    "en": "Black Arrow Loyalty Rewards",
+    "ar": "مكافآت ولاء بلاك آرو"
   },
   "rwd_overline": {
     "en": "Loyalty Program",
     "ar": "برنامج الولاء"
   },
   "rwd_h1": {
-    "en": "Arrowhead Rewards",
-    "ar": "مكافآت أروهيد"
+    "en": "Black Arrow Loyalty Rewards",
+    "ar": "مكافآت ولاء بلاك آرو"
   },
   "rwd_tagline": {
     "en": "Every order adds to your reward balance. Use it from your next order, and unlock Gold or Platinum status as you shop with us.",
@@ -1684,8 +1684,8 @@
     "ar": "مكافأة عيد الميلاد: 4,000 نقطة"
   },
   "rwd_your_card_sr": {
-    "en": "Your Arrowhead Rewards Card",
-    "ar": "بطاقة مكافآت أروهيد الخاصة بك"
+    "en": "Your Black Arrow Loyalty Rewards Card",
+    "ar": "بطاقة مكافآت ولاء بلاك آرو الخاصة بك"
   },
   "rwd_live_name": {
     "en": "Name",
@@ -1700,24 +1700,24 @@
     "ar": "ريال رصيد المكافآت"
   },
   "rwd_panel_signedout": {
-    "en": "Sign in or create a free account to see your card and join Arrowhead Rewards.",
-    "ar": "سجّل الدخول أو أنشئ حسابًا مجانيًا لرؤية بطاقتك والانضمام إلى مكافآت أروهيد."
+    "en": "Sign in or create a free account to see your card and join Black Arrow Loyalty Rewards.",
+    "ar": "سجّل الدخول أو أنشئ حسابًا مجانيًا لرؤية بطاقتك والانضمام إلى مكافآت ولاء بلاك آرو."
   },
   "rwd_panel_signedout_cta": {
     "en": "Sign In / Create Account",
     "ar": "تسجيل الدخول / إنشاء حساب"
   },
   "rwd_panel_needsphone": {
-    "en": "Add your phone number to join Arrowhead Rewards and get your 5 SAR welcome credit.",
-    "ar": "أضف رقم هاتفك للانضمام إلى مكافآت أروهيد والحصول على رصيد ترحيبي 5 ريال."
+    "en": "Add your phone number to join Black Arrow Loyalty Rewards and get your 5 SAR welcome credit.",
+    "ar": "أضف رقم هاتفك للانضمام إلى مكافآت ولاء بلاك آرو والحصول على رصيد ترحيبي 5 ريال."
   },
   "rwd_join_error": {
     "en": "Could not join right now — please try again.",
     "ar": "تعذّر الانضمام الآن — يرجى المحاولة مرة أخرى."
   },
   "rwd_join_cta": {
-    "en": "Join Arrowhead Rewards",
-    "ar": "انضم إلى مكافآت أروهيد"
+    "en": "Join Black Arrow Loyalty Rewards",
+    "ar": "انضم إلى مكافآت ولاء بلاك آرو"
   },
   "rwd_panel_error": {
     "en": "We couldn't load your card right now — please refresh or try again shortly.",

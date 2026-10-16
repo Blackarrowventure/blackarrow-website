@@ -1,4 +1,4 @@
-// Arrowhead Rewards: every loyalty call goes from here to the BAV CRM's
+// Black Arrow Loyalty Rewards: every loyalty call goes from here to the BAV CRM's
 // Supabase with its service_role key (the CRM functions are not callable
 // from browsers). A customer is identified only through their signed-in
 // website account, never through a phone number typed into a form.

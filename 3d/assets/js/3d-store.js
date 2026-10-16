@@ -1204,7 +1204,7 @@
     return appliedCoupon ? Math.min(appliedCoupon.amount, lastSubtotal) : 0;
   }
 
-  /* Arrowhead Rewards in the cart: signed-in members can use their balance
+  /* Black Arrow Loyalty Rewards in the cart: signed-in members can use their balance
      (4 SAR minimum) and Gold/Platinum get free Regular delivery. The server
      re-checks all of it (api/_lib/rewards.js); this is only the display. */
   var REWARDS_MIN = 4;
@@ -1250,8 +1250,8 @@
       box.hidden = true;
       amount.textContent = '';
       text.innerHTML = ar
-        ? '<a href="/3d/ar/rewards/">سجّل الدخول لتكسب وتستخدم مكافآت أروهيد</a>'
-        : '<a href="/3d/rewards/">Sign in to earn and use Arrowhead Rewards</a>';
+        ? '<a href="/3d/ar/rewards/">سجّل الدخول لتكسب وتستخدم مكافآت ولاء بلاك آرو</a>'
+        : '<a href="/3d/rewards/">Sign in to earn and use Black Arrow Loyalty Rewards</a>';
       return;
     }
     var m = rewardsState.member;
@@ -1261,16 +1261,16 @@
       box.hidden = true;
       amount.textContent = '';
       text.textContent = ar
-        ? 'رصيد مكافآت أروهيد: ' + bal + ' ريال (يُستخدم من 4 ريال)'
-        : 'Arrowhead Rewards: ' + bal + ' SAR (usable from 4 SAR)';
+        ? 'رصيد مكافآت ولاء بلاك آرو: ' + bal + ' ريال (يُستخدم من 4 ريال)'
+        : 'Black Arrow Loyalty Rewards: ' + bal + ' SAR (usable from 4 SAR)';
       return;
     }
     box.hidden = false;
     box.checked = !!rewardsState.use || !!rewardsState.redeemed;
     box.disabled = !!rewardsState.redeemed;
     text.textContent = ar
-      ? 'استخدم رصيد مكافآت أروهيد (' + bal + ' ريال)'
-      : 'Use my Arrowhead Rewards balance (' + bal + ' SAR)';
+      ? 'استخدم رصيد مكافآت ولاء بلاك آرو (' + bal + ' ريال)'
+      : 'Use my Black Arrow Loyalty Rewards balance (' + bal + ' SAR)';
     var d = rewardsDiscount();
     amount.innerHTML = d ? '−' + money(d, 'SAR') : '';
   }
@@ -1530,7 +1530,7 @@
     var feeLine = fee ? '\nPay-later service fee: ' + fee + ' SAR' : '';
     renderRewardsRow(summaryEl);
     var rewardsUsed = rewardsDiscount();
-    var rewardsLine = rewardsUsed ? '\nArrowhead Rewards balance used: -' + rewardsUsed + ' SAR' : '';
+    var rewardsLine = rewardsUsed ? '\nBlack Arrow Loyalty Rewards balance used: -' + rewardsUsed + ' SAR' : '';
     discountLine += rewardsLine;
     var after = lastSubtotal - discount - rewardsUsed + fee;
 

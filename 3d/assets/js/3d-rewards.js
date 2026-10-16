@@ -1,4 +1,4 @@
-/* Black Arrow 3D — Arrowhead Rewards. The browser never talks to the CRM:
+/* Black Arrow 3D — Black Arrow Loyalty Rewards. The browser never talks to the CRM:
    it asks the site's own server (/api/rewards/*), which checks the signed-in
    website account and does the CRM call itself. Used by the rewards page
    (below) and by the cart (BlackArrow3DRewards.fetchMe / redeemForOrder). */
@@ -77,8 +77,8 @@
         pct = Math.max(0, Math.min(100, (spend - next.from) / (next.at - next.from) * 100));
         var nextName = isAr ? TIER_AR[next.name] : next.name;
         text.innerHTML = isAr
-          ? 'أنفقت <strong>' + sar(spend) + ' ريال</strong> · تبقى <strong>' + sar(left) + ' ريال</strong> للوصول إلى ' + nextName
-          : '<strong>' + sar(spend) + ' SAR</strong> spent · <strong>' + sar(left) + ' SAR</strong> more to reach ' + nextName;
+          ? 'اجمع <strong>' + sar(left) + ' نقطة إضافية</strong> للوصول إلى ' + nextName
+          : 'Get <strong>' + sar(left) + ' more points</strong> to reach ' + nextName;
       } else {
         text.textContent = isAr ? 'وصلت إلى أعلى مستوى لدينا. شكرًا لك!' : 'You have reached our top tier. Thank you!';
       }

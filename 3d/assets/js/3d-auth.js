@@ -103,7 +103,7 @@
   }
 
   // Short-lived token the site's own server uses to check who is signed in
-  // (Arrowhead Rewards); never sent anywhere else.
+  // (Black Arrow Loyalty Rewards); never sent anywhere else.
   function getAccessToken() {
     if (!ready || !client) return Promise.resolve(null);
     return client.auth.getSession().then(function (res) {
