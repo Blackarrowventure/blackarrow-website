@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const { buildOrder } = require('../_lib/pricing');
 const { insertOrder, db } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
+const { liveProducts } = require('../_lib/crm-catalog');
 
 const PAYMOB_BASE = 'https://ksa.paymob.com';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
@@ -68,10 +69,12 @@ module.exports = async (req, res) => {
   }
 
   // Rewards need the customer's real items total first, then the final order.
-  const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null);
+  // Stock and prices as set in the CRM's Website Inventory tab.
+  const products = await liveProducts();
+  const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null, products);
   if (draft.error) return res.status(400).json({ error: draft.error });
   const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
-  const order = buildOrder(body.items, body.shipping, channel === 'tamara', rw);
+  const order = buildOrder(body.items, body.shipping, channel === 'tamara', rw, products);
 
   const billing = cleanBilling(body.billing);
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });

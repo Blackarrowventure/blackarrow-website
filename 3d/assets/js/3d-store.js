@@ -267,11 +267,13 @@
       .catch(function () { return []; });
   }
 
+  // Same rules as api/_lib/crm-catalog.js (what checkout charges): a row's
+  // price replaces the catalog price; its old price is the crossed-out one.
   function applyCrmStock(rows) {
     var byProduct = {};
     rows.forEach(function (row) {
       var key = String(row.variant || '').trim().toLowerCase();
-      (byProduct[row.id] = byProduct[row.id] || {})[key] = row.available !== false;
+      (byProduct[row.id] = byProduct[row.id] || {})[key] = row;
     });
     Object.keys(byProduct).forEach(function (id) {
       var p = __b3dProductsById[id];
@@ -281,11 +283,24 @@
       if (p.variants && p.variants.length) {
         p.variants.forEach(function (v) {
           var key = String(v.label || '').trim().toLowerCase();
-          v.available = key in crm ? crm[key] : whole === true;
+          var row = crm[key];
+          v.available = row ? row.available !== false : !!(whole && whole.available !== false);
+          if (row && row.price != null) {
+            v.price = row.price;
+            if (row.oldPrice != null && row.oldPrice > row.price) v.oldPrice = row.oldPrice;
+            else delete v.oldPrice;
+          }
         });
-        p.available = whole !== false && p.variants.some(function (v) { return v.available !== false; });
+        p.available = !(whole && whole.available === false) && p.variants.some(function (v) { return v.available !== false; });
       } else {
-        p.available = whole === true;
+        p.available = !!(whole && whole.available !== false);
+        if (whole && whole.price != null) {
+          if (whole.oldPrice != null && whole.oldPrice > whole.price) {
+            p.price = whole.oldPrice; p.onSale = true; p.salePrice = whole.price;
+          } else {
+            p.price = whole.price; p.onSale = false; delete p.salePrice;
+          }
+        }
       }
     });
   }

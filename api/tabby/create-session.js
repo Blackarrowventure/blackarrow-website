@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const { buildOrder } = require('../_lib/pricing');
 const { insertOrder, db } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
+const { liveProducts } = require('../_lib/crm-catalog');
 
 const TABBY_API = 'https://api.tabby.ai/api/v2';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
@@ -44,10 +45,12 @@ module.exports = async (req, res) => {
   if (!secret || !merchantCode) return res.status(500).json({ error: 'payment_not_configured' });
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
-  const draft = buildOrder(body.items, body.shipping, true, null);
+  // Stock and prices as set in the CRM's Website Inventory tab.
+  const products = await liveProducts();
+  const draft = buildOrder(body.items, body.shipping, true, null, products);
   if (draft.error) return res.status(400).json({ error: draft.error });
   const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
-  const order = buildOrder(body.items, body.shipping, true, rw);
+  const order = buildOrder(body.items, body.shipping, true, rw, products);
 
   const totalSar = order.totalCents / 100;
   if (totalSar < MIN_SAR || totalSar > MAX_SAR) return res.status(400).json({ error: 'amount_out_of_range' });

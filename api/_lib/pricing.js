@@ -19,9 +19,9 @@ function unitPrice(product, variantIndex) {
   return product.onSale && product.salePrice != null ? product.salePrice : product.price;
 }
 
-function priceCart(items) {
+function priceCart(items, products) {
   if (!Array.isArray(items) || items.length === 0 || items.length > MAX_LINES) return null;
-  const byId = new Map(catalog.products.map((p) => [p.id, p]));
+  const byId = new Map((products || catalog.products).map((p) => [p.id, p]));
   const lines = [];
   let itemsCents = 0;
   let artworkCents = 0;
@@ -57,8 +57,10 @@ function bnplFeeCents(cats) {
 // Everything that decides the final amount, in one place.
 //   shipping: 'regular' | 'fast'; payLater: add the BNPL fee;
 //   rewards: { discountCents, freeDelivery } from api/_lib/rewards.js
-function buildOrder(items, shipping, payLater, rewards) {
-  const priced = priceCart(items);
+//   products: the catalog with the CRM's stock and prices applied
+//   (crm-catalog.liveProducts); defaults to the plain catalog file.
+function buildOrder(items, shipping, payLater, rewards, products) {
+  const priced = priceCart(items, products);
   if (!priced) return { error: 'invalid_cart' };
   if (shipping !== 'regular' && shipping !== 'fast') return { error: 'invalid_shipping' };
 
