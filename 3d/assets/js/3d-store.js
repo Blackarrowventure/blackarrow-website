@@ -1860,10 +1860,15 @@
     lead.textContent = ar ? 'جارٍ تأكيد الدفع…' : 'Confirming your payment…';
     showOnlineThanks(view);
 
+    // Pass on Paymob's signed result (id, success, hmac...) so the server can
+    // confirm the payment even if Paymob's webhook hasn't reached it.
+    var statusQs = new URLSearchParams(window.location.search);
+    statusQs.delete('paid'); statusQs.delete('pm'); statusQs.set('ref', ref);
+    var statusUrl = '/api/paymob/status/?' + statusQs.toString();
     var tries = 0;
     var check = function () {
       tries++;
-      fetch('/api/paymob/status?ref=' + ref).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+      fetch(statusUrl).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
         if (d.status === 'paid') {
           lead.textContent = ar
             ? 'تم تأكيد طلبك ودفعتك. أرسلنا تأكيد الطلب إلى بريدك الإلكتروني.'

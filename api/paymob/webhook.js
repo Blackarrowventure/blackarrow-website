@@ -1,36 +1,6 @@
-const crypto = require('crypto');
 const { afterPaid } = require('../_lib/order-emails');
-
-async function supabase(method, path, body, prefer) {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error('supabase_not_configured');
-  const headers = { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
-  if (prefer) headers.Prefer = prefer;
-  const r = await fetch(url + '/rest/v1/' + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
-  if (!r.ok) throw new Error('supabase_' + r.status);
-  const text = await r.text();
-  return text ? JSON.parse(text) : null;
-}
-
-const HMAC_FIELDS = [
-  'amount_cents', 'created_at', 'currency', 'error_occured', 'has_parent_transaction',
-  'obj.id', 'integration_id', 'is_3d_secure', 'is_auth', 'is_capture', 'is_refunded',
-  'is_standalone_payment', 'is_voided', 'order.id', 'owner', 'pending',
-  'source_data.pan', 'source_data.sub_type', 'source_data.type', 'success',
-];
-
-function readPath(obj, path) {
-  return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
-}
-
-function computeHmac(tx, secret) {
-  const concatenated = HMAC_FIELDS.map((f) => {
-    const v = f === 'obj.id' ? tx.id : readPath(tx, f);
-    return v == null ? '' : String(v);
-  }).join('');
-  return crypto.createHmac('sha512', secret).update(concatenated).digest('hex');
-}
+const { markPaid, markFailed } = require('../_lib/paymob-orders');
+const { webhookValid } = require('../_lib/paymob-hmac');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -39,50 +9,36 @@ module.exports = async (req, res) => {
   }
 
   const secret = process.env.PAYMOB_HMAC_SECRET;
-  if (!secret) return res.status(500).end();
+  if (!secret) { console.error('paymob webhook: PAYMOB_HMAC_SECRET is not set'); return res.status(500).end(); }
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
   const tx = body.obj;
   const received = String((req.query && req.query.hmac) || '');
-  if (!tx || !received) return res.status(400).end();
+  const ref = tx && tx.order && tx.order.merchant_order_id;
+  if (!tx || !received) { console.error('paymob webhook: no transaction or hmac', body.type || ''); return res.status(400).end(); }
 
-  const expected = computeHmac(tx, secret);
-  const a = Buffer.from(expected, 'utf8');
-  const b = Buffer.from(received, 'utf8');
-  if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) {
+  if (!webhookValid(tx, received, secret)) {
+    console.error('paymob webhook: HMAC mismatch - check PAYMOB_HMAC_SECRET in Vercel', ref, tx.id);
     return res.status(401).end();
   }
+  console.log('paymob webhook:', ref, 'tx', tx.id, 'success', tx.success, 'pending', tx.pending);
 
   if (tx.success === true && tx.pending === false && tx.error_occured === false) {
-    const orderRef = tx.order && tx.order.merchant_order_id;
-    if (!orderRef || !/^[a-f0-9]{24}$/.test(orderRef)) return res.status(200).end();
+    if (!ref || !/^[a-f0-9]{24}$/.test(ref)) { console.error('paymob webhook: unexpected merchant_order_id', ref); return res.status(200).end(); }
     try {
-      const rows = await supabase('GET', 'card_orders?order_ref=eq.' + orderRef + '&select=order_ref,status,amount_cents');
-      const order = rows[0];
-      if (!order) { console.error('paymob webhook: no order for ref', orderRef); return res.status(200).end(); }
-      // 'failed' too: a declined card retried successfully in the same checkout.
-      if ((order.status === 'pending' || order.status === 'failed') && Number(tx.amount_cents) === order.amount_cents) {
-        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=in.(pending,failed)', {
-          status: 'paid',
-          paymob_transaction_id: tx.id,
-          paid_at: new Date().toISOString(),
-        }, 'return=minimal');
-      }
+      await markPaid(ref, tx.id, Number(tx.amount_cents));
     } catch (e) {
+      console.error('paymob webhook: could not mark paid', ref, e.message);
       return res.status(500).end();
     }
     // Rewards spent + "Order CONFIRMED" emails, from the server, whether or not
     // the customer ever returns to the site. Safe if Paymob retries the webhook.
-    await afterPaid('card_orders', orderRef);
+    const r = await afterPaid('card_orders', ref);
+    console.log('paymob webhook: emails', ref, r && r.emailsSent ? 'sent' : 'NOT sent');
   } else if (tx.success === false && tx.pending === false) {
     // Declined or cancelled: lets the cart page tell the customer straight away.
-    const orderRef = tx.order && tx.order.merchant_order_id;
-    if (orderRef && /^[a-f0-9]{24}$/.test(orderRef)) {
-      try {
-        await supabase('PATCH', 'card_orders?order_ref=eq.' + orderRef + '&status=eq.pending', { status: 'failed' }, 'return=minimal');
-      } catch (e) {
-        return res.status(500).end();
-      }
+    if (ref && /^[a-f0-9]{24}$/.test(ref)) {
+      try { await markFailed(ref); } catch (e) { return res.status(500).end(); }
     }
   }
 
