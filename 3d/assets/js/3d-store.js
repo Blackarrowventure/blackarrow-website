@@ -1749,16 +1749,17 @@
     })();
   }
 
+  // The shop's Web3Forms order email (full order, customer, address) always
+  // goes out once the payment is confirmed. The customer's own confirmation
+  // is sent from here only if the server did not already send it.
   function confirmOnlineOrder(ref, method, serverHandled) {
     var sentKey = 'b3d-confirmed-' + ref;
     try { if (localStorage.getItem(sentKey)) return; } catch (e) {}
-    if (serverHandled) {
-      try { localStorage.setItem(sentKey, '1'); } catch (e) {}
-      clearPendingOrder();
+    var o = readPendingOrder();
+    if (!o || o.ref !== ref || !o.fields) {
+      if (serverHandled) { try { localStorage.setItem(sentKey, '1'); } catch (e) {} clearPendingOrder(); }
       return;
     }
-    var o = readPendingOrder();
-    if (!o || o.ref !== ref || !o.fields) return;
     var f = o.fields;
     if (confirmOnlineOrder._busy) return;
     confirmOnlineOrder._busy = true;
@@ -1781,7 +1782,7 @@
         clearPendingOrder();
       });
 
-    sendEmailJs({
+    if (!serverHandled) sendEmailJs({
       to_email: f.email || '',
       to_name: ((f.customer_first_name || '') + ' ' + (f.customer_last_name || '')).trim(),
       order_id: ref,
