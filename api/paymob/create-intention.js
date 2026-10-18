@@ -107,7 +107,9 @@ module.exports = async (req, res) => {
     items: paymobItems,
     billing_data: billing,
     special_reference: orderRef,
-    notification_url: SITE + '/api/paymob/webhook',
+    // Trailing slash matters: vercel.json redirects /path to /path/ (308) and
+    // Paymob does not follow redirects, so without it the webhook never runs.
+    notification_url: SITE + '/api/paymob/webhook/',
     redirection_url: SITE + '/3d/cart/?paid=' + orderRef + (channel === 'card' ? '' : '&pm=' + channel),
   };
 
