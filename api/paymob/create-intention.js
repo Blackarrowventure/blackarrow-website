@@ -55,17 +55,23 @@ module.exports = async (req, res) => {
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
 
-  // 'card' (the default) is the card/mada checkout, with Apple Pay offered
-  // alongside it when configured. 'tamara' is its own buy-now-pay-later checkout.
-  const channel = body.channel === 'tamara' ? 'tamara' : 'card';
+  // Each channel opens Paymob with exactly one method, so a problem with one
+  // never leaves another looking empty: 'card' (mada / Visa / Mastercard,
+  // the default), 'applepay' (offered only on Apple devices) and 'tamara'.
+  const channel = body.channel === 'tamara' ? 'tamara' : body.channel === 'applepay' ? 'applepay' : 'card';
   let paymentMethods;
   if (channel === 'tamara') {
     if (!tamaraIntegrationId) {
       return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_TAMARA'] });
     }
     paymentMethods = [tamaraIntegrationId];
+  } else if (channel === 'applepay') {
+    if (!applePayIntegrationId) {
+      return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_APPLEPAY'] });
+    }
+    paymentMethods = [applePayIntegrationId];
   } else {
-    paymentMethods = [integrationId].concat(applePayIntegrationId ? [applePayIntegrationId] : []);
+    paymentMethods = [integrationId];
   }
 
   // Rewards need the customer's real items total first, then the final order.
@@ -80,7 +86,7 @@ module.exports = async (req, res) => {
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });
 
   const orderRef = crypto.randomBytes(12).toString('hex');
-  const method = channel === 'tamara' ? 'Tamara (Pay Later)' : 'Card (Paymob)';
+  const method = channel === 'tamara' ? 'Tamara (Pay Later)' : channel === 'applepay' ? 'Apple Pay (Paymob)' : 'Card (Paymob)';
 
   // Paymob wants the item lines to add up to the amount. With a rewards
   // discount there is no negative line it accepts, so the order goes as one
@@ -102,7 +108,7 @@ module.exports = async (req, res) => {
     billing_data: billing,
     special_reference: orderRef,
     notification_url: SITE + '/api/paymob/webhook',
-    redirection_url: SITE + '/3d/cart/?paid=' + orderRef + (channel === 'tamara' ? '&pm=tamara' : ''),
+    redirection_url: SITE + '/3d/cart/?paid=' + orderRef + (channel === 'card' ? '' : '&pm=' + channel),
   };
 
   try {
@@ -144,6 +150,14 @@ module.exports = async (req, res) => {
       const out = { error: 'gateway_rejected' };
       if (body.debug === true) out.detail = intention;
       return res.status(502).json(out);
+    }
+    // Paymob silently drops an integration it can't use (inactive, not live,
+    // wrong account) and would show the customer a checkout with nothing to
+    // pay with. Stop here instead, with a message they can act on.
+    const offered = (intention.payment_methods || []).map((m) => m && m.integration_id);
+    if (Array.isArray(intention.payment_methods) && !paymentMethods.some((id) => offered.includes(id))) {
+      console.error('paymob dropped integration:', channel, 'sent', paymentMethods, 'got', offered);
+      return res.status(502).json({ error: 'method_unavailable' });
     }
     await db('PATCH', 'card_orders?order_ref=eq.' + orderRef, { paymob_intention_id: String(intention.id || '') }, 'return=minimal');
   } catch (e) {
