@@ -1472,8 +1472,8 @@
       }
       note.hidden = !fee;
       note.textContent = ar
-        ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + fee + ' ريال على هذا الطلب. 💡 ادفع عبر Apple Pay أو البطاقة أو التحويل البنكي ووفّر ' + fee + ' ريال.'
-        : 'A pay-later service fee of ' + fee + ' SAR applies to this order. 💡 Pay with Apple Pay, card or bank transfer and save ' + fee + ' SAR.';
+        ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + fee + ' ريال على هذا الطلب. لا تُضاف هذه الرسوم عند الدفع بالبطاقة أو Apple Pay أو التحويل البنكي.'
+        : 'A pay-later service fee of ' + fee + ' SAR is added to this order. Card, Apple Pay and bank transfer have no extra fee.';
     });
     ['card', 'applepay', 'bank'].forEach(function (m) {
       var btn = document.querySelector('[data-pm="' + m + '"]');
@@ -1486,7 +1486,7 @@
         btn.appendChild(chip);
       }
       chip.hidden = !fee;
-      chip.textContent = ar ? 'وفّر ' + fee + ' ريال' : 'Save ' + fee + ' SAR';
+      chip.textContent = ar ? 'بدون رسوم الدفع لاحقًا (' + fee + ' ريال)' : 'No pay-later fee (' + fee + ' SAR)';
     });
   }
 
