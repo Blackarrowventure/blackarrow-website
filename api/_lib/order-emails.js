@@ -10,6 +10,7 @@
 // page falls back to sending from the customer's browser, as before.
 const { db } = require('./db');
 const rewards = require('./rewards');
+const crmOrders = require('./crm-orders');
 
 const EMAILJS = { serviceId: 'service_2rpw1y5', templateId: 'template_hopo6zf', publicKey: 'DN3sB2Ge_A6IXCu_f' };
 
@@ -109,6 +110,14 @@ async function afterPaid(table, ref) {
       console.error('afterPaid: rewards redeem failed', ref, e.message, e.detail || '');
       d.rewards_note = 'NOTE: ' + (d.rewards.discount_cents / 100) + ' SAR rewards discount was given but could not be taken off the customer\'s card (' + (e.detail || e.message) + '). Check it in the CRM.';
     }
+  }
+
+  // Into the CRM's Online Orders inbox, to be confirmed or rejected there. Never blocks the emails;
+  // the CRM ignores a repeat, so the webhook and the customer's return both trying is fine.
+  try {
+    await crmOrders.sendPaidOrder(table, order);
+  } catch (e) {
+    console.error('afterPaid: CRM online order failed', ref, e.message, e.detail || '');
   }
 
   if (order.emails_sent_at) return { emailsSent: true };

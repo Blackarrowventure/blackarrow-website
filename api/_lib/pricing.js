@@ -37,7 +37,7 @@ function priceCart(items, products) {
     const unitCents = Math.round(unit * 100);
     const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
     const name = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
-    lines.push({ id: product.id, name, unitCents, qty });
+    lines.push({ id: product.id, name, productName: product.name, variantLabel: variant && variant.label ? variant.label : '', unitCents, qty });
     itemsCents += unitCents * qty;
     if (product.category === '3D Artwork') artworkCents += unitCents * qty;
     categories.add(product.category);

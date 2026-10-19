@@ -2043,6 +2043,48 @@
   }
 
   // Card (Paymob) and Tabby share this flow; only the endpoint differs.
+  // A bank transfer order also goes to the CRM's Online Orders inbox, where it waits to be
+  // confirmed (as an unpaid invoice) or rejected. Fire and forget: the order email has already
+  // gone, so a failure here never troubles the customer.
+  function sendBankOrderToCrm(form, orderId) {
+    try {
+      var cart = getCart();
+      var items = Object.keys(cart).map(function (id) {
+        var parsed = parseLineId(id);
+        return { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
+      });
+      var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
+      var shipping = form.querySelector('input[name="shipping_choice"]:checked');
+      var shipFree = lastFreeShipping && shipping && shipping.value === 'regular';
+      var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
+      fetch('/api/bank-order/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          orderId: orderId,
+          items: items,
+          shipping: shipping ? shipping.value : 'regular',
+          shippingPrice: shipPrice,
+          couponCode: appliedCoupon ? appliedCoupon.code : '',
+          couponDiscount: couponDiscount(),
+          rewardsUsed: rewardsDiscount(),
+          billing: {
+            firstName: get('customer_first_name'),
+            lastName: get('customer_last_name'),
+            email: get('email'),
+            phone: get('customer_phone'),
+            city: get('customer_city'),
+            street: get('customer_national_address'),
+            building: get('customer_building'),
+            apartment: get('customer_apartment'),
+            postalCode: get('customer_postal_code')
+          }
+        })
+      }).catch(function () {});
+    } catch (e) { /* never block the order */ }
+  }
+
   function startCardPayment(form, btn, errorEl, endpoint, extraBody) {
     var cm = document.querySelector('[data-b3d-coupon-msg]');
     if (appliedCoupon) {
@@ -2188,6 +2230,7 @@
       }).then(function (res) {
         return res.json().catch(function () { return {}; }).then(function (data) {
           if (!res.ok || data.success === false) throw new Error(data.message || 'failed');
+          sendBankOrderToCrm(form, orderId);
           var mailCfg = window.BLACK_ARROW_EMAILJS_CONFIG;
           var mailOn = !!(mailCfg && mailCfg.publicKey && mailCfg.serviceId && mailCfg.templateId);
           showThankYou(form, mailOn);

@@ -3,6 +3,7 @@ const { buildOrder } = require('../_lib/pricing');
 const { insertOrder, db } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
 const { liveProducts } = require('../_lib/crm-catalog');
+const { crmDetails } = require('../_lib/crm-orders');
 
 const TABBY_API = 'https://api.tabby.ai/api/v2';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
@@ -106,6 +107,7 @@ module.exports = async (req, res) => {
         summary: order.summary,
         shipping_label: order.shippingLabel,
         rewards: order.discountCents ? { phone: rw.phone, discount_cents: order.discountCents } : null,
+        crm: crmDetails(order),
       },
     });
   } catch (e) {
