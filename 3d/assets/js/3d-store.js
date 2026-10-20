@@ -1047,6 +1047,22 @@
       var pageItems = list.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
 
       renderGrid(pageItems, els.grid);
+      // Nothing matches the chosen category / filters / search: say so, with a way back to
+      // everything ("No products published yet" is only for an empty catalogue).
+      if (!list.length && products.length) {
+        var ar = isAr();
+        els.grid.innerHTML = '<div class="b3d-empty" style="grid-column:1/-1;">' +
+          '<h2 style="margin-bottom:10px;">' + (ar ? 'لا توجد منتجات تطابق هذا الاختيار' : 'No products match this selection') + '</h2>' +
+          '<p>' + (ar ? 'جرّب فئة أخرى أو امسح الفلاتر والبحث.' : 'Try another category, or clear the filters and search.') + '</p>' +
+          '<button type="button" class="btn btn-primary" data-b3d-show-all style="margin-top:14px;">' + (ar ? 'عرض كل المنتجات' : 'Show all products') + '</button>' +
+          '</div>';
+        els.grid.querySelector('[data-b3d-show-all]').addEventListener('click', function () {
+          if (els.filterClear) els.filterClear.click();
+          state.q = '';
+          if (els.searchInput) els.searchInput.value = '';
+          setCategory('All');
+        });
+      }
       if (els.count) els.count.textContent = list.length;
       if (els.filterToggle) {
         var activeCount = [
