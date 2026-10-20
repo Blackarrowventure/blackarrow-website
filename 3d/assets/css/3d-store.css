@@ -3094,3 +3094,9 @@ main.b3d-light .b3d-color-chip--dot, main.b3d-light .b3d-grid > * .b3d-color-chi
 main.b3d-light .b3d-color-chip--dot .b3d-color-chip__dot { border-color: rgba(0,0,0,.25); }
 :is(main.b3d-light, .b3d-band--light) .b3d-grid > * .b3d-card__colors button.b3d-color-chip--dot { background: transparent !important; border-color: transparent !important; }
 :is(main.b3d-light, .b3d-band--light) .b3d-grid > * .b3d-card__colors button.b3d-color-chip--dot[aria-pressed="true"] { border-color: var(--clr-accent) !important; }
+
+/* Shop toolbar category buttons on the light shop page: dark text on white (they used to keep
+   the dark-theme white text and disappear on the white toolbar). */
+main.b3d-light .b3d-cat-tabs button { background: #fff; border: 1px solid #cfcbc0; color: #1a1a1a; }
+main.b3d-light .b3d-cat-tabs button:hover { border-color: #b45309; }
+main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr-accent); border-color: var(--clr-accent); color: #1a1a1a; }
