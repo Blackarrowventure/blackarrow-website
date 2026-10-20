@@ -5,7 +5,7 @@
 const catalog = require('../../3d/assets/data/3d-products.json');
 const rewards = require('./rewards');
 
-// -> [{ id, variant, available, price, oldPrice }]; [] if the CRM can't be reached.
+// -> [{ id, variant, available, price, oldPrice, preorder }]; [] if the CRM can't be reached.
 async function fetchRows() {
   if (!rewards.configured()) return [];
   let data;
@@ -23,6 +23,7 @@ async function fetchRows() {
       available: r.available !== false,
       price: r.price_sar == null ? null : Number(r.price_sar),
       oldPrice: r.old_price_sar == null ? null : Number(r.old_price_sar),
+      preorder: r.preorder === true,
     }));
 }
 
@@ -53,8 +54,15 @@ function applyRows(products, rows) {
         }
       }
       p.available = !(whole && !whole.available) && p.variants.some((v) => v.available !== false);
+      for (const v of p.variants) {
+        const row = crm.get(key(v.label));
+        v.preorder = !!(row ? row.preorder : whole && whole.preorder);
+      }
+      const buyable = p.variants.filter((v) => v.available);
+      if (buyable.length && buyable.every((v) => v.preorder)) p.preorder = true;
     } else {
       p.available = !!(whole && whole.available);
+      if (whole && whole.preorder) p.preorder = true;
       if (whole && whole.price != null) {
         if (whole.oldPrice != null && whole.oldPrice > whole.price) {
           p.price = whole.oldPrice;

@@ -292,8 +292,17 @@
           }
         });
         p.available = !(whole && whole.available === false) && p.variants.some(function (v) { return v.available !== false; });
+        // Pre-order (CRM: none in hand). The whole product reads Pre-order when every option
+        // you can buy is pre-order; otherwise only the picked option's button says so.
+        p.variants.forEach(function (v) {
+          var row = crm[String(v.label || '').trim().toLowerCase()];
+          v.preorder = !!(row ? row.preorder : whole && whole.preorder);
+        });
+        var buyable = p.variants.filter(function (v) { return v.available !== false; });
+        if (buyable.length && buyable.every(function (v) { return v.preorder; })) p.preorder = true;
       } else {
         p.available = !!(whole && whole.available !== false);
+        if (whole && whole.preorder) p.preorder = true;
         if (whole && whole.price != null) {
           if (whole.oldPrice != null && whole.oldPrice > whole.price) {
             p.price = whole.oldPrice; p.onSale = true; p.salePrice = whole.price;
@@ -2609,7 +2618,8 @@
       if (p.bundlePick) variantSelectorHtml = '';
       function buyState(v) {
         var out = !pdAvailable || !!(v && v.available === false);
-        return { disabled: out && !p.preorder, label: p.preorder ? T('js_pre_order') : (out ? T('js_out_of_stock') : T('js_add_to_cart')) };
+        var pre = p.preorder || !!(v && v.preorder && !out);
+        return { disabled: out && !p.preorder, label: pre ? T('js_pre_order') : (out ? T('js_out_of_stock') : T('js_add_to_cart')) };
       }
       var initBuy = buyState(initV);
 
