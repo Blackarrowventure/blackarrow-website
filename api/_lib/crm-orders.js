@@ -63,7 +63,8 @@ async function sendPaidOrder(table, order) {
       order_ref: order.order_ref,
       source: table,
       method_label: d.method || (table === 'tabby_orders' ? 'Tabby (Pay in 4)' : 'Paymob'),
-      payment_method: table === 'tabby_orders' ? 'Tabby' : 'Paymob',
+      // The CRM groups pay-later together: Tabby and Tamara (Tamara runs through Paymob).
+      payment_method: table === 'tabby_orders' || /^tamara/i.test(d.method || '') ? 'Tabby' : 'Paymob',
       paid: true,
       paid_at: order.paid_at || null,
       ordered_at: order.created_at || null,
