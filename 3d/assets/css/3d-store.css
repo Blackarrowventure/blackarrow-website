@@ -3060,3 +3060,10 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 /* Category landing pages: the "Filters →" button gets its own row, clear of the material
    tabs and the product grid below it (it used to overlap them on phones). */
 main.b3d-light .container > p:has(> a.btn) { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+
+/* Checkout: order summary repeated right above "Place Order". */
+.b3d-checkout .b3d-account__form > .b3d-checkout-recap { grid-column: 1 / -1; }
+.b3d-checkout-recap { display: grid; gap: 6px; margin-top: 6px; padding: 14px 16px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(255,255,255,.04); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.b3d-checkout-recap__title { margin: 0 0 4px; font-size: .95rem; color: #fff; }
+.b3d-checkout-recap__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; color: rgba(255,255,255,.8); }
+.b3d-checkout-recap__total { margin-top: 4px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.16); color: #fff; font-size: 1.08rem; font-weight: 800; }

@@ -1632,6 +1632,40 @@
         '\nShipping: ' + label + ' — ' + (shipFree ? T('js_free_ship_label') : price + ' SAR') +
         '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
+    renderCheckoutRecap(summaryEl, checkout);
+  }
+
+  // A copy of the order summary right above "Place Order", so after filling in the address and
+  // picking delivery the buyer sees the final amounts without scrolling back up.
+  function renderCheckoutRecap(summaryEl, checkout) {
+    var submit = checkout.querySelector('button[type="submit"]');
+    if (!submit) return;
+    var recap = checkout.querySelector('[data-b3d-checkout-recap]');
+    if (!recap) {
+      recap = document.createElement('div');
+      recap.className = 'b3d-checkout-recap';
+      recap.setAttribute('data-b3d-checkout-recap', '');
+      recap.setAttribute('aria-live', 'polite');
+      submit.parentNode.insertBefore(recap, submit);
+    }
+    var html = '<h4 class="b3d-checkout-recap__title">' + (isAr() ? 'ملخص الطلب' : 'Order summary') + '</h4>';
+    summaryEl.querySelectorAll('.b3d-cart-summary__row').forEach(function (row) {
+      if (row.hidden || row.children.length < 2) return;
+      if (row.hasAttribute('data-b3d-rewards-row')) {
+        var used = rewardsDiscount();
+        if (used) html += '<div class="b3d-checkout-recap__row"><span>' + (isAr() ? 'مكافآت الولاء المستخدمة' : 'Loyalty Rewards used') + '</span><span>−' + money(used, 'SAR') + '</span></div>';
+        return;
+      }
+      var labelEl = row.children[0].cloneNode(true);
+      labelEl.querySelectorAll('button').forEach(function (b) { b.remove(); });
+      var label = labelEl.textContent.replace(/\s+/g, ' ').replace(/\(\s+/g, '(').replace(/\s+\)/g, ')').trim();
+      html += '<div class="b3d-checkout-recap__row"><span>' + label + '</span><span>' + row.children[row.children.length - 1].innerHTML + '</span></div>';
+    });
+    var total = summaryEl.querySelector('.b3d-cart-summary__total');
+    if (total && total.children.length >= 2) {
+      html += '<div class="b3d-checkout-recap__row b3d-checkout-recap__total"><span>' + total.children[0].textContent + '</span><span>' + total.children[1].innerHTML + '</span></div>';
+    }
+    recap.innerHTML = html;
   }
 
   var __snapCheckoutFired = false;
