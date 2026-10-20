@@ -1478,9 +1478,9 @@
     return 0;
   }
 
-  // Bank transfer saving: 2.5% off the items (after coupon / rewards, before delivery). Shown to
+  // Bank transfer saving: 2% off the items (after coupon / rewards, before delivery). Shown to
   // the customer only as the amount saved. The server (api/bank-order.js) works out the same.
-  var BANK_SAVE_RATE = 0.025;
+  var BANK_SAVE_RATE = 0.02;
   function bankSaving() {
     var base = lastSubtotal - couponDiscount() - rewardsDiscount();
     return base > 0 ? Math.round(base * BANK_SAVE_RATE * 100) / 100 : 0;
