@@ -863,10 +863,10 @@ header .navbar__pill-badge { border-color: #000; }
 
 .navbar__toggle svg { width: 24px; height: 24px; }
 
-@media (max-width: 1150px) {
+@media (max-width: 1365px) {
   .navbar__toggle { display: inline-flex; }
 
-  /* Below 1150px .navbar__links (3D Printers, Filaments, Accessories, 3D
+  /* Below 1365px .navbar__links (3D Printers, Filaments, Accessories, 3D
      Artwork, Brands, Blog) had no replacement, so phones and tablets lost
      all category navigation from the header. .navbar__toggle opens it as a
      dropdown panel instead of hiding it outright. */

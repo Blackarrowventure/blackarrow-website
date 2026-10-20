@@ -1108,8 +1108,8 @@ CATEGORY_GUIDE = {
     '3D Printers': {
         'en': {
             'intro': [
-                "Shop desktop 3D printers online in Saudi Arabia from Black Arrow 3D. We offer printers from Bambu Lab, Creality, Elegoo, Anycubic and Snapmaker, from compact, beginner-friendly models to enclosed printers for professional use and large-format machines with far more build room.",
-                "Many models can print in several colors: Bambu Lab's AMS Lite, Creality's CFS Lite and Elegoo's CANVAS system each handle up to four filaments, and the Snapmaker U1 uses four independent toolheads. Every price is in Saudi riyals (SAR) and orders are delivered across Saudi Arabia.",
+                "Shop desktop 3D printers online in Saudi Arabia from Black Arrow 3D. We offer printers from Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge, from compact, beginner-friendly models to enclosed printers for professional use and large-format machines with far more build room.",
+                "Many models can print in several colors: Bambu Lab's AMS lite, Creality's CFS Lite and Elegoo's CANVAS system each handle up to four filaments, and the Snapmaker U1 uses four independent toolheads. Every price is in Saudi riyals (SAR) and orders are delivered across Saudi Arabia.",
                 "Not sure which one to pick? Use the guides below, compare build volume and price in the shop, or ask us on WhatsApp and we will help you choose.",
             ],
             'sections': [
@@ -1131,7 +1131,7 @@ CATEGORY_GUIDE = {
         },
         'ar': {
             'intro': [
-                "تسوّق الطابعات ثلاثية الأبعاد المكتبية أونلاين في السعودية من Black Arrow 3D. نوفّر طابعات Bambu Lab وCreality وElegoo وAnycubic وSnapmaker، من الموديلات الصغيرة المناسبة للمبتدئين إلى الطابعات المغلقة للاستخدام المهني والطابعات كبيرة الحجم ذات مساحة الطباعة الأوسع.",
+                "تسوّق الطابعات ثلاثية الأبعاد المكتبية أونلاين في السعودية من Black Arrow 3D. نوفّر طابعات Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge، من الموديلات الصغيرة المناسبة للمبتدئين إلى الطابعات المغلقة للاستخدام المهني والطابعات كبيرة الحجم ذات مساحة الطباعة الأوسع.",
                 "كثير من الموديلات تطبع بعدة ألوان: نظام AMS Lite من Bambu Lab ونظام CFS Lite من Creality ونظام CANVAS من Elegoo يتعامل كلٌّ منها مع ما يصل إلى أربعة خيوط، وتستخدم Snapmaker U1 أربعة رؤوس طباعة مستقلة. جميع الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة.",
                 "لست متأكدًا من الطابعة المناسبة؟ استعن بالأدلة أدناه، وقارن حجم الطباعة والسعر في المتجر، أو راسلنا عبر واتساب لنساعدك في الاختيار.",
             ],
