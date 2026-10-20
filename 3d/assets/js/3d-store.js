@@ -1094,7 +1094,7 @@
 
     if (els.categoryTabs) {
       els.categoryTabs.querySelectorAll('[data-cat]').forEach(function (tab) {
-        if (tab.getAttribute('data-cat') === state.cat) tab.setAttribute('aria-pressed', 'true');
+        tab.setAttribute('aria-pressed', String(tab.getAttribute('data-cat') === state.cat));
         tab.addEventListener('click', function () { setCategory(tab.getAttribute('data-cat')); });
       });
     }
