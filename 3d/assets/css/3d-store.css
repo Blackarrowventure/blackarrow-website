@@ -3076,3 +3076,21 @@ main.b3d-light .container > p:has(> a.btn) { display: flex; flex-wrap: wrap; gap
 html[dir="rtl"] .b3d-badges > .b3d-corner-badge,
 html[dir="rtl"] .b3d-badges > .b3d-stock-badge { position: static; top: auto; left: auto; right: auto; margin: 0; }
 .b3d-badges > .b3d-stock-badge { margin-inline-start: auto; }
+
+/* Product cards: colours as compact dots (name in the label above and on hover), so a product
+   with many colours keeps the same height as the other cards in its row. */
+.b3d-card__color-label { position: relative; z-index: 2; margin: 12px 0 6px; font-size: 12px; color: rgba(255,255,255,.7); }
+.b3d-card__color-label strong { font-weight: 700; color: #fff; }
+.b3d-card__colors--dots { gap: 8px; margin: 0 0 4px; }
+.b3d-color-chip--dot { width: 26px; height: 26px; min-height: 0; padding: 0; justify-content: center; border-radius: 50%; border: 1px solid transparent; background: transparent; position: relative; }
+.b3d-color-chip--dot .b3d-color-chip__dot { width: 20px; height: 20px; }
+.b3d-color-chip--dot[aria-pressed="true"] { border-color: var(--clr-accent); box-shadow: 0 0 0 1px var(--clr-accent); }
+.b3d-color-chip--dot:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.b3d-color-chip--dot.is-out .b3d-color-chip__dot { opacity: .35; }
+.b3d-color-chip--dot.is-out::after { content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 1.5px; background: #b91c1c; transform: rotate(-45deg); }
+main.b3d-light .b3d-card__color-label, main.b3d-light .b3d-grid > * .b3d-card__color-label { color: #555 !important; }
+main.b3d-light .b3d-card__color-label strong, main.b3d-light .b3d-grid > * .b3d-card__color-label strong { color: #111 !important; }
+main.b3d-light .b3d-color-chip--dot, main.b3d-light .b3d-grid > * .b3d-color-chip--dot { background: transparent !important; }
+main.b3d-light .b3d-color-chip--dot .b3d-color-chip__dot { border-color: rgba(0,0,0,.25); }
+:is(main.b3d-light, .b3d-band--light) .b3d-grid > * .b3d-card__colors button.b3d-color-chip--dot { background: transparent !important; border-color: transparent !important; }
+:is(main.b3d-light, .b3d-band--light) .b3d-grid > * .b3d-card__colors button.b3d-color-chip--dot[aria-pressed="true"] { border-color: var(--clr-accent) !important; }

@@ -674,13 +674,20 @@
     }
     var colorsHtml = '';
     if (colorProduct) {
-      colorsHtml = '<div class="b3d-card__colors" data-card-colors="' + p.id + '" role="group" aria-label="' + T('js_colour') + '">' +
-        p.variants.map(function (v, i) {
+      // Compact colour dots (name on hover / in the label above), in-stock colours first, so a
+      // filament with 15 colours keeps the same card height as everything else in the row.
+      var order = p.variants.map(function (v, i) { return i; }).sort(function (a, b) {
+        return (p.variants[a].available === false) - (p.variants[b].available === false) || a - b;
+      });
+      var labelOf = function (v) { return LVariant(v) + (v.available === false ? ' · ' + T('js_out_of_stock') : ''); };
+      colorsHtml = '<p class="b3d-card__color-label" data-card-color-label>' + T('js_colour') + ': <strong>' + labelOf(p.variants[colorIdx]) + '</strong></p>' +
+        '<div class="b3d-card__colors b3d-card__colors--dots" data-card-colors="' + p.id + '" role="group" aria-label="' + T('js_colour') + '">' +
+        order.map(function (i) {
+          var v = p.variants[i];
           var out = v.available === false;
-          return '<button type="button" class="b3d-color-chip' + (out ? ' is-out' : '') + '" data-card-color="' + i + '" aria-pressed="' + (i === colorIdx) + '"' +
-            ' data-out="' + (out ? '1' : '0') + '"' + (v.image ? ' data-img="' + v.image + '"' : '') + '>' +
-            '<span class="b3d-color-chip__dot" style="background:' + v.swatch + ';"></span>' +
-            '<span class="b3d-color-chip__name">' + LVariant(v) + (out ? ' <em>' + T('js_out_of_stock') + '</em>' : '') + '</span></button>';
+          return '<button type="button" class="b3d-color-chip b3d-color-chip--dot' + (out ? ' is-out' : '') + '" data-card-color="' + i + '" aria-pressed="' + (i === colorIdx) + '"' +
+            ' data-out="' + (out ? '1' : '0') + '" data-label="' + labelOf(v).replace(/"/g, '&quot;') + '" title="' + labelOf(v).replace(/"/g, '&quot;') + '" aria-label="' + labelOf(v).replace(/"/g, '&quot;') + '"' + (v.image ? ' data-img="' + v.image + '"' : '') + '>' +
+            '<span class="b3d-color-chip__dot" style="background:' + v.swatch + ';"></span></button>';
         }).join('') + '</div>';
     }
     var colorOut = colorProduct && p.variants[colorIdx].available === false;
@@ -759,6 +766,8 @@
       if (chip) {
         var card = chip.closest('.b3d-card');
         card.querySelectorAll('[data-card-color]').forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        var colorLabel = card.querySelector('[data-card-color-label] strong');
+        if (colorLabel && chip.getAttribute('data-label')) colorLabel.textContent = chip.getAttribute('data-label');
         var out = chip.getAttribute('data-out') === '1';
         var btn = card.querySelector('[data-card-add]');
         if (btn) {
