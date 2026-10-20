@@ -3056,3 +3056,7 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
   .b3d-blog-filter { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
   .b3d-blog-filter__btn { flex: none; }
 }
+
+/* Category landing pages: the "Filters →" button gets its own row, clear of the material
+   tabs and the product grid below it (it used to overlap them on phones). */
+main.b3d-light .container > p:has(> a.btn) { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
