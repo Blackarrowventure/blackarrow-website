@@ -1478,6 +1478,45 @@
     return 0;
   }
 
+  // Bank transfer saving: 2.5% off the items (after coupon / rewards, before delivery). Shown to
+  // the customer only as the amount saved. The server (api/bank-order.js) works out the same.
+  var BANK_SAVE_RATE = 0.025;
+  function bankSaving() {
+    var base = lastSubtotal - couponDiscount() - rewardsDiscount();
+    return base > 0 ? Math.round(base * BANK_SAVE_RATE * 100) / 100 : 0;
+  }
+
+  function updateBankSaveUi(saving) {
+    var ar = isAr();
+    var btn = document.querySelector('[data-pm="bank"]');
+    if (btn) {
+      var chip = btn.querySelector('[data-b3d-save-chip]');
+      if (!chip) {
+        chip = document.createElement('span');
+        chip.className = 'b3d-save-chip';
+        chip.setAttribute('data-b3d-save-chip', '');
+        btn.appendChild(chip);
+      }
+      chip.hidden = !saving;
+      chip.innerHTML = (ar ? 'وفّر ' : 'Save ') + money(saving, 'SAR');
+    }
+    var detail = document.querySelector('[data-pm-detail="bank"]');
+    if (detail) {
+      var note = detail.querySelector('[data-b3d-bank-save-note]');
+      if (!note) {
+        note = document.createElement('p');
+        note.className = 'b3d-bnpl-note';
+        note.setAttribute('data-b3d-bank-save-note', '');
+        var h = detail.querySelector('h4');
+        detail.insertBefore(note, h ? h.nextSibling : detail.firstChild);
+      }
+      note.hidden = !saving;
+      note.innerHTML = ar
+        ? 'ادفع بالتحويل البنكي ووفّر ' + money(saving, 'SAR') + ' على هذا الطلب. تم خصمها من الإجمالي.'
+        : 'Pay by bank transfer and save ' + money(saving, 'SAR') + ' on this order. It is already taken off the total.';
+    }
+  }
+
   function updateBnplUi(fee) {
     var ar = isAr();
     ['tabby', 'tamara'].forEach(function (m) {
@@ -1495,7 +1534,7 @@
         ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + fee + ' ريال على هذا الطلب. لا تُضاف هذه الرسوم عند الدفع بالبطاقة أو Apple Pay أو التحويل البنكي.'
         : 'A pay-later service fee of ' + fee + ' SAR is added to this order. Card, Apple Pay and bank transfer have no extra fee.';
     });
-    ['card', 'applepay', 'bank'].forEach(function (m) {
+    ['card', 'applepay'].forEach(function (m) {
       var btn = document.querySelector('[data-pm="' + m + '"]');
       if (!btn) return;
       var chip = btn.querySelector('[data-b3d-save-chip]');
@@ -1552,7 +1591,22 @@
     var rewardsUsed = rewardsDiscount();
     var rewardsLine = rewardsUsed ? '\nBlack Arrow Loyalty Rewards balance used: -' + rewardsUsed + ' SAR' : '';
     discountLine += rewardsLine;
-    var after = lastSubtotal - discount - rewardsUsed + fee;
+    var savingAmount = bankSaving();
+    updateBankSaveUi(savingAmount);
+    var saving = currentPayMethod === 'bank' ? savingAmount : 0;
+    var saveRow = summaryEl.querySelector('[data-b3d-bank-save-row]');
+    if (!saveRow) {
+      saveRow = document.createElement('div');
+      saveRow.className = 'b3d-cart-summary__row';
+      saveRow.setAttribute('data-b3d-bank-save-row', '');
+      saveRow.innerHTML = '<span></span><span></span>';
+      summaryEl.insertBefore(saveRow, summaryEl.querySelector('.b3d-cart-summary__total'));
+    }
+    saveRow.hidden = !saving;
+    saveRow.firstChild.textContent = isAr() ? 'توفير التحويل البنكي' : 'Bank transfer saving';
+    saveRow.lastChild.innerHTML = '−' + money(saving, 'SAR');
+    if (saving) discountLine += '\nBank transfer saving: -' + saving + ' SAR';
+    var after = Math.round((lastSubtotal - discount - rewardsUsed + fee - saving) * 100) / 100;
 
     var showShipping = checkout && !checkout.hidden;
     if (!showShipping) {
@@ -2089,6 +2143,7 @@
           couponCode: appliedCoupon ? appliedCoupon.code : '',
           couponDiscount: couponDiscount(),
           rewardsUsed: rewardsDiscount(),
+          bankSaving: bankSaving(),
           billing: {
             firstName: get('customer_first_name'),
             lastName: get('customer_last_name'),

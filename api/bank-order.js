@@ -37,12 +37,15 @@ module.exports = async (req, res) => {
   // Gold/Platinum members get free Regular delivery in the cart; accept a lower delivery than the
   // standard price, never a higher one.
   const shippingCents = Math.min(Math.round(num(body.shippingPrice) * 100), order.shippingCents);
-  const totalCents = order.itemsCents - discountCents + shippingCents;
+  // Bank transfer saving: 2.5% off the items after coupon / rewards (the cart shows the same).
+  const savingCents = Math.round((order.itemsCents - discountCents) * 0.025);
+  const totalCents = order.itemsCents - discountCents - savingCents + shippingCents;
 
-  const details = crmDetails(Object.assign({}, order, { discountCents, shippingCents, totalCents, feeCents: 0 }));
+  const details = crmDetails(Object.assign({}, order, { discountCents: discountCents + savingCents, shippingCents, totalCents, feeCents: 0 }));
   const notes = [];
   if (body.couponCode) notes.push('Coupon ' + s(body.couponCode, 40) + ': -' + num(body.couponDiscount) + ' SAR');
   if (num(body.rewardsUsed)) notes.push('Loyalty Rewards used: -' + num(body.rewardsUsed) + ' SAR');
+  if (savingCents) notes.push('Bank transfer saving (2.5%): -' + (savingCents / 100) + ' SAR');
   notes.push('Bank transfer: check the amount reached the bank before marking the invoice Paid.');
 
   try {
@@ -57,7 +60,7 @@ module.exports = async (req, res) => {
       customer_email: s(b.email, 120),
       customer_city: s(b.city, 60),
       customer_address: [s(b.street, 120), s(b.building, 20), s(b.apartment, 40), s(b.postalCode, 20)].filter(Boolean).join(', '),
-      discount_note: discountCents ? notes.slice(0, -1).join(' · ') : null,
+      discount_note: discountCents + savingCents ? notes.slice(0, -1).join(' · ') : null,
       notes: notes.join(' · '),
     }));
   } catch (e) {
