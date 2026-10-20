@@ -3067,3 +3067,12 @@ main.b3d-light .container > p:has(> a.btn) { display: flex; flex-wrap: wrap; gap
 .b3d-checkout-recap__title { margin: 0 0 4px; font-size: .95rem; color: #fff; }
 .b3d-checkout-recap__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; color: rgba(255,255,255,.8); }
 .b3d-checkout-recap__total { margin-top: 4px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.16); color: #fff; font-size: 1.08rem; font-weight: 800; }
+
+/* Card / product badges share one wrapping row (badgesHtml in 3d-store.js), so TOP PICK,
+   FEATURED, SALE and the stock badge never sit on top of each other on narrow cards. */
+.b3d-badges { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 2; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px; pointer-events: none; }
+.b3d-badges > .b3d-corner-badge,
+.b3d-badges > .b3d-stock-badge,
+html[dir="rtl"] .b3d-badges > .b3d-corner-badge,
+html[dir="rtl"] .b3d-badges > .b3d-stock-badge { position: static; top: auto; left: auto; right: auto; margin: 0; }
+.b3d-badges > .b3d-stock-badge { margin-inline-start: auto; }

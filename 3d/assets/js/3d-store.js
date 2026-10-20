@@ -633,6 +633,12 @@
     return p.vatIncluded ? '<span class="b3d-vat-note">' + T('js_vat_included') + '</span>' : '';
   }
 
+  // All of a card's badges in one wrapping row: deal badges on the left, stock on the right.
+  // When the card is too narrow for both they wrap to a new line instead of overlapping.
+  function badgesHtml(p) {
+    return '<div class="b3d-badges">' + cornerBadges(p) + statusBadge(p) + '</div>';
+  }
+
   function cornerBadges(p) {
     var out = '';
     if (p.bestSeller) out += '<span class="b3d-corner-badge b3d-corner-badge--bestseller">' + bestSellerLabel(p.bestSeller) + '</span>';
@@ -715,8 +721,7 @@
       '<article class="b3d-card' + (isArt ? ' b3d-card--art' : '') + '" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
         '<a href="' + href + '" class="b3d-card__stretched-link" aria-label="' + L(p, 'name') + '"></a>' +
         '<div class="b3d-card__visual">' +
-          cornerBadges(p) +
-          statusBadge(p) +
+          badgesHtml(p) +
           visual(p) +
         '</div>' +
         '<div class="b3d-card__body">' +
@@ -2837,8 +2842,7 @@
       container.innerHTML = '' +
         '<div>' +
           '<div class="b3d-pd__visual' + (p.category === '3D Artwork' ? ' b3d-pd__visual--art' : '') + '" data-pd-zoom>' +
-            cornerBadges(p) +
-            statusBadge(p) +
+            badgesHtml(p) +
             mainVisual +
           '</div>' +
           thumbsHtml +
