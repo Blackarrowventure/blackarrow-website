@@ -37,15 +37,15 @@ module.exports = async (req, res) => {
   // Gold/Platinum members get free Regular delivery in the cart; accept a lower delivery than the
   // standard price, never a higher one.
   const shippingCents = Math.min(Math.round(num(body.shippingPrice) * 100), order.shippingCents);
-  // Bank transfer saving: 2% off the items after coupon / rewards (the cart shows the same).
-  const savingCents = Math.round((order.itemsCents - discountCents) * 0.02);
+  // Bank transfer saving: 1% off the items after coupon / rewards (the cart shows the same).
+  const savingCents = Math.round((order.itemsCents - discountCents) * 0.01);
   const totalCents = order.itemsCents - discountCents - savingCents + shippingCents;
 
   const details = crmDetails(Object.assign({}, order, { discountCents: discountCents + savingCents, shippingCents, totalCents, feeCents: 0 }));
   const notes = [];
   if (body.couponCode) notes.push('Coupon ' + s(body.couponCode, 40) + ': -' + num(body.couponDiscount) + ' SAR');
   if (num(body.rewardsUsed)) notes.push('Loyalty Rewards used: -' + num(body.rewardsUsed) + ' SAR');
-  if (savingCents) notes.push('Bank transfer saving (2%): -' + (savingCents / 100) + ' SAR');
+  if (savingCents) notes.push('Bank transfer saving (1%): -' + (savingCents / 100) + ' SAR');
   notes.push('Bank transfer: check the amount reached the bank before marking the invoice Paid.');
 
   try {
