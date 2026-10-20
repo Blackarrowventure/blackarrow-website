@@ -312,6 +312,17 @@
         }
       }
     });
+    // Same as the server: a shop product missing from the CRM's Website Inventory is out of
+    // stock (3D Artwork is printed to order; kits and pick-bundles follow their parts).
+    if (rows.length) {
+      Object.keys(__b3dProductsById).forEach(function (id) {
+        var p = __b3dProductsById[id];
+        if (byProduct[id] || p.category === '3D Artwork' || p.kit || p.bundlePick) return;
+        p.available = false;
+        p.preorder = false;
+        (p.variants || []).forEach(function (v) { v.available = false; });
+      });
+    }
   }
 
   function fetchProducts() {

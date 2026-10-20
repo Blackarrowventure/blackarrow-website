@@ -30,7 +30,8 @@ async function fetchRows() {
 const key = (s) => String(s || '').trim().toLowerCase();
 
 // Once a product has any CRM row, the CRM decides every option of it: an
-// option with no row is out of stock. A row's price replaces the catalog
+// option with no row is out of stock. A shop product with no row at all is
+// out of stock too (see the end of applyRows). A row's price replaces the catalog
 // price; its old price (if any) is the crossed-out "was" price.
 function applyRows(products, rows) {
   const byId = new Map(products.map((p) => [p.id, p]));
@@ -74,6 +75,17 @@ function applyRows(products, rows) {
           delete p.salePrice;
         }
       }
+    }
+  }
+  // The CRM's Website Inventory is the only stock list: a shop product (printer, filament,
+  // accessory) that is not in it is out of stock. 3D Artwork is printed to order, and kits /
+  // pick-bundles follow their parts. Only when the CRM answered (rows), never on an outage.
+  if (rows.length) {
+    for (const p of products) {
+      if (byProduct.has(p.id) || p.category === '3D Artwork' || p.kit || p.bundlePick) continue;
+      p.available = false;
+      p.preorder = false;
+      for (const v of p.variants || []) v.available = false;
     }
   }
   return products;
