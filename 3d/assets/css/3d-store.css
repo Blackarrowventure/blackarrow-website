@@ -3123,3 +3123,15 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 @media (max-width: 640px) {
   body:has([data-b3d-checkout]:not([hidden])) .wa-float { display: none !important; }
 }
+
+/* Bank transfer discount: banner above the payment methods (click = pick bank transfer) and the
+   confirmation inside the bank transfer details. */
+.b3d-bank-promo { display: flex; align-items: center; gap: 10px; width: 100%; margin: 0 0 12px; padding: 12px 14px; border: 1px dashed #22c55e; border-radius: 12px; background: rgba(34,197,94,.12); color: #bbf7d0; font: inherit; font-size: .92rem; font-weight: 600; text-align: start; cursor: pointer; }
+.b3d-bank-promo:hover { background: rgba(34,197,94,.18); }
+.b3d-bank-promo strong { color: #fff; font-weight: 800; }
+.b3d-bank-promo svg { flex: none; color: #4ade80; }
+.b3d-bank-promo[hidden], .b3d-bank-saved[hidden] { display: none; }
+.b3d-bank-saved { display: flex; align-items: flex-start; gap: 8px; margin: 8px 0 12px; padding: 10px 12px; border-radius: 10px; background: rgba(34,197,94,.14); color: #bbf7d0; font-size: .88rem; font-weight: 600; }
+.b3d-bank-saved strong { color: #fff; }
+.b3d-bank-saved svg { flex: none; margin-top: 2px; color: #4ade80; }
+.b3d-bank-promo .b3d-riyal svg, .b3d-bank-saved .b3d-riyal svg { color: inherit; }

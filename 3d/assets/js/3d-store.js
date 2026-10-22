@@ -419,10 +419,24 @@
     return '<img src="' + img + '"' + srcsetAttr + ' alt="' + L(p, 'name') + '" loading="lazy" decoding="async" width="400" height="400">';
   }
 
-  function statusBadge(p) {
-    if (p.preorder) return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order') + '</span>';
-    if (p.available === false) return '<span class="b3d-stock-badge b3d-stock-badge--out">' + T('js_out_of_stock') + '</span>';
-    return '<span class="b3d-stock-badge b3d-stock-badge--in">' + T('js_in_stock') + '</span>';
+  // Stock badge for the product, or for the option currently picked (v), so the picture never says
+  // In Stock while the chosen option is out of stock.
+  function stockState(p, v) {
+    if (p.preorder || (v && v.preorder && v.available !== false)) return 'pre';
+    if (p.available === false || (v && v.available === false)) return 'out';
+    return 'in';
+  }
+  var STOCK_LABEL = { pre: 'js_pre_order', out: 'js_out_of_stock', in: 'js_in_stock' };
+  function statusBadge(p, v) {
+    var st = stockState(p, v);
+    return '<span class="b3d-stock-badge b3d-stock-badge--' + st + '">' + T(STOCK_LABEL[st]) + '</span>';
+  }
+  function syncStockBadge(scope, p, v) {
+    var badge = scope && p && scope.querySelector('.b3d-stock-badge');
+    if (!badge) return;
+    var st = stockState(p, v);
+    badge.className = 'b3d-stock-badge b3d-stock-badge--' + st;
+    badge.textContent = T(STOCK_LABEL[st]);
   }
 
   // A variant may carry `oldPrice` (the pre-offer price): it renders as an
@@ -635,8 +649,8 @@
 
   // All of a card's badges in one wrapping row: deal badges on the left, stock on the right.
   // When the card is too narrow for both they wrap to a new line instead of overlapping.
-  function badgesHtml(p) {
-    return '<div class="b3d-badges">' + cornerBadges(p) + statusBadge(p) + '</div>';
+  function badgesHtml(p, v) {
+    return '<div class="b3d-badges">' + cornerBadges(p) + statusBadge(p, v) + '</div>';
   }
 
   function cornerBadges(p) {
@@ -728,7 +742,7 @@
       '<article class="b3d-card' + (isArt ? ' b3d-card--art' : '') + '" data-cat="' + p.category + '" data-brand="' + (p.brand || '') + '">' +
         '<a href="' + href + '" class="b3d-card__stretched-link" aria-label="' + L(p, 'name') + '"></a>' +
         '<div class="b3d-card__visual">' +
-          badgesHtml(p) +
+          badgesHtml(p, colorProduct ? p.variants[colorIdx] : pillProduct ? p.variants[pillIdx] : null) +
           visual(p) +
         '</div>' +
         '<div class="b3d-card__body">' +
@@ -768,6 +782,8 @@
         card.querySelectorAll('[data-card-color]').forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
         var colorLabel = card.querySelector('[data-card-color-label] strong');
         if (colorLabel && chip.getAttribute('data-label')) colorLabel.textContent = chip.getAttribute('data-label');
+        var cProduct = __b3dProductsById && __b3dProductsById[chip.closest('[data-card-colors]').getAttribute('data-card-colors')];
+        if (cProduct) syncStockBadge(card, cProduct, cProduct.variants[parseInt(chip.getAttribute('data-card-color'), 10)]);
         var out = chip.getAttribute('data-out') === '1';
         var btn = card.querySelector('[data-card-add]');
         if (btn) {
@@ -788,6 +804,7 @@
         var product = __b3dProductsById && __b3dProductsById[pid];
         pCard.querySelectorAll('[data-card-pill]').forEach(function (c) { c.setAttribute('aria-pressed', c === pill ? 'true' : 'false'); });
         var pOut = pill.getAttribute('data-out') === '1' || !!(product && product.available === false);
+        if (product) syncStockBadge(pCard, product, product.variants[pIdx]);
         var pBtn = pCard.querySelector('[data-card-add]');
         if (pBtn) {
           pBtn.setAttribute('data-variant-idx', pIdx);
@@ -1516,8 +1533,29 @@
     return base > 0 ? Math.round(base * BANK_SAVE_RATE * 100) / 100 : 0;
   }
 
+  var TAG_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>';
+
+  // Bank transfer discount, shown as an amount (never a percentage): a banner above the payment
+  // methods, a chip on the Bank Transfer button, and a confirmation once it is picked.
   function updateBankSaveUi(saving) {
     var ar = isAr();
+    var amount = '<strong>' + money(saving, 'SAR') + '</strong>';
+    var methods = document.querySelector('.b3d-payment-methods');
+    if (methods) {
+      var promo = document.querySelector('[data-b3d-bank-promo]');
+      if (!promo) {
+        promo = document.createElement('button');
+        promo.type = 'button';
+        promo.className = 'b3d-bank-promo';
+        promo.setAttribute('data-b3d-bank-promo', '');
+        promo.addEventListener('click', function () { var b = document.querySelector('[data-pm="bank"]'); if (b) b.click(); });
+        methods.parentNode.insertBefore(promo, methods);
+      }
+      promo.hidden = !saving || currentPayMethod === 'bank';
+      promo.innerHTML = TAG_ICON + '<span>' + (ar
+        ? 'ادفع بالتحويل البنكي واحصل على خصم ' + amount + ' فورًا'
+        : 'Pay by bank transfer and get ' + amount + ' off instantly') + '</span>';
+    }
     var btn = document.querySelector('[data-pm="bank"]');
     if (btn) {
       var chip = btn.querySelector('[data-b3d-save-chip]');
@@ -1528,22 +1566,22 @@
         btn.appendChild(chip);
       }
       chip.hidden = !saving;
-      chip.innerHTML = (ar ? 'وفّر ' : 'Save ') + money(saving, 'SAR');
+      chip.innerHTML = (ar ? 'خصم ' : 'Get ') + money(saving, 'SAR') + (ar ? '' : ' off');
     }
     var detail = document.querySelector('[data-pm-detail="bank"]');
     if (detail) {
       var note = detail.querySelector('[data-b3d-bank-save-note]');
       if (!note) {
         note = document.createElement('p');
-        note.className = 'b3d-bnpl-note';
+        note.className = 'b3d-bank-saved';
         note.setAttribute('data-b3d-bank-save-note', '');
         var h = detail.querySelector('h4');
         detail.insertBefore(note, h ? h.nextSibling : detail.firstChild);
       }
       note.hidden = !saving;
-      note.innerHTML = ar
-        ? 'ادفع بالتحويل البنكي ووفّر ' + money(saving, 'SAR') + ' على هذا الطلب. تم خصمها من الإجمالي.'
-        : 'Pay by bank transfer and save ' + money(saving, 'SAR') + ' on this order. It is already taken off the total.';
+      note.innerHTML = TAG_ICON + '<span>' + (ar
+        ? 'رائع! وفّرت ' + amount + ' بالدفع بالتحويل البنكي، وتم خصمها من الإجمالي.'
+        : 'Nice! You save ' + amount + ' with bank transfer. Already taken off your total.') + '</span>';
     }
   }
 
@@ -1633,7 +1671,7 @@
       summaryEl.insertBefore(saveRow, summaryEl.querySelector('.b3d-cart-summary__total'));
     }
     saveRow.hidden = !saving;
-    saveRow.firstChild.textContent = isAr() ? 'توفير التحويل البنكي' : 'Bank transfer saving';
+    saveRow.firstChild.textContent = isAr() ? 'خصم التحويل البنكي' : 'Bank transfer discount';
     saveRow.lastChild.innerHTML = '−' + money(saving, 'SAR');
     if (saving) discountLine += '\nBank transfer saving: -' + saving + ' SAR';
     var after = Math.round((lastSubtotal - discount - rewardsUsed + fee - saving) * 100) / 100;
@@ -2869,7 +2907,7 @@
       container.innerHTML = '' +
         '<div>' +
           '<div class="b3d-pd__visual' + (p.category === '3D Artwork' ? ' b3d-pd__visual--art' : '') + '" data-pd-zoom>' +
-            badgesHtml(p) +
+            badgesHtml(p, hasVariants ? initV : null) +
             mainVisual +
           '</div>' +
           thumbsHtml +
@@ -3033,6 +3071,7 @@
         fbtEl.querySelector('[data-fbt-add]').disabled = !any;
       }
       function refreshStockUi() {
+        syncStockBadge(container.querySelector('.b3d-pd__visual'), p, hasVariants ? p.variants[selectedVariant] : null);
         if (restockEl) restockEl.hidden = !selectionOut();
         var etaWrap = container.querySelector('[data-pd-eta]');
         if (etaWrap) etaWrap.innerHTML = (selectionOut() || p.preorder) ? '' : etaHtml(p);
