@@ -19,7 +19,7 @@
   function loadSupabaseSdk(cb) {
     if (window.supabase && window.supabase.createClient) { cb(); return; }
     var script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0';
     script.onload = function () { cb(); };
     script.onerror = function () { cb(); };
     document.head.appendChild(script);

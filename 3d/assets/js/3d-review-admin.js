@@ -21,7 +21,7 @@
   function loadSdk(cb) {
     if (window.supabase && window.supabase.createClient) { cb(); return; }
     var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+    s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0';
     s.onload = cb; s.onerror = cb;
     document.head.appendChild(s);
   }
