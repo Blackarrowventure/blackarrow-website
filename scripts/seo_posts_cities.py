@@ -356,7 +356,7 @@ POSTS = [
           <p>Standard delivery costs 30 SAR (4–5 business days) and fast delivery 50 SAR (2–3 business days). Regular delivery is free on qualifying orders.</p>
 
           <div class="b3d-article__cta">
-            <p>Printers, filament and ready-made 3D printed gifts, delivered to Makkah. Need advice first? WhatsApp +966 56 022 4715 or email info@blackarrowksa.com.</p>
+            <p>Printers, filament and ready-made 3D printed gifts, delivered to Makkah. Need advice first? WhatsApp +966 56 022 4715 or email sales@blackarrowksa.com.</p>
             <a href="/3d/" class="btn btn-primary">Open the Black Arrow 3D store</a>
           </div>
 
@@ -423,7 +423,7 @@ POSTS = [
           <p>التوصيل العادي 30 ريالًا (4–5 أيام عمل) والسريع 50 ريالًا (2–3 أيام عمل)، والتوصيل العادي مجاني للطلبات المؤهلة.</p>
 
           <div class="b3d-article__cta">
-            <p>طابعات وفلمنت وهدايا مطبوعة جاهزة مع التوصيل إلى مكة المكرمة. تحتاج استشارة أولًا؟ واتساب ‎+966 56 022 4715 أو البريد info@blackarrowksa.com.</p>
+            <p>طابعات وفلمنت وهدايا مطبوعة جاهزة مع التوصيل إلى مكة المكرمة. تحتاج استشارة أولًا؟ واتساب ‎+966 56 022 4715 أو البريد sales@blackarrowksa.com.</p>
             <a href="/3d/ar/" class="btn btn-primary">افتح متجر Black Arrow 3D</a>
           </div>
 
@@ -638,7 +638,7 @@ POSTS = [
           <h3>How do I protect filament from Eastern Province humidity?</h3>
           <p>Store spools sealed with desiccant, print in an air-conditioned room, and dry filament before long or important prints.</p>
           <h3>Can companies order in bulk?</h3>
-          <p>Yes. Use our business and bulk orders page or email info@blackarrowksa.com.</p>
+          <p>Yes. Use our business and bulk orders page or email sales@blackarrowksa.com.</p>
 
           <div class="b3d-article__cta">
             <p>Printers, filament, spare parts and 3D printed gifts from Dammam, for customers across the Eastern Province and the rest of Saudi Arabia.</p>
@@ -710,7 +710,7 @@ POSTS = [
           <h3>كيف أحمي الفلمنت من رطوبة المنطقة الشرقية؟</h3>
           <p>احفظ البكرات في عبوات محكمة مع مادة مجففة، واطبع في غرفة مكيفة، وجفّف الفلمنت قبل الطباعات الطويلة أو المهمة.</p>
           <h3>هل يمكن للشركات الطلب بالجملة؟</h3>
-          <p>نعم، عبر صفحة طلبات الأعمال والجملة أو البريد info@blackarrowksa.com.</p>
+          <p>نعم، عبر صفحة طلبات الأعمال والجملة أو البريد sales@blackarrowksa.com.</p>
 
           <div class="b3d-article__cta">
             <p>طابعات وفلمنت وقطع غيار وهدايا مطبوعة من الدمام، لعملاء المنطقة الشرقية وبقية مناطق المملكة.</p>
@@ -783,7 +783,7 @@ POSTS = [
           <p>Yes. Al Ahsa gets the same options: standard delivery in 4–5 business days (30 SAR) or fast delivery in 2–3 business days (50 SAR).</p>
 
           <div class="b3d-article__cta">
-            <p>Enclosed printers, PETG and spares for Jubail and Al Ahsa. Talk to us on WhatsApp at +966 56 022 4715 or email info@blackarrowksa.com.</p>
+            <p>Enclosed printers, PETG and spares for Jubail and Al Ahsa. Talk to us on WhatsApp at +966 56 022 4715 or email sales@blackarrowksa.com.</p>
             <a href="/3d/" class="btn btn-primary">Visit the Black Arrow 3D store</a>
           </div>
 
@@ -849,7 +849,7 @@ POSTS = [
           <p>نعم، بالخيارات نفسها: التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) أو السريع خلال 2–3 أيام عمل (50 ريالًا).</p>
 
           <div class="b3d-article__cta">
-            <p>طابعات مغلقة وفلمنت PETG وقطع غيار للجبيل والأحساء. تحدث معنا عبر واتساب ‎+966 56 022 4715 أو البريد info@blackarrowksa.com.</p>
+            <p>طابعات مغلقة وفلمنت PETG وقطع غيار للجبيل والأحساء. تحدث معنا عبر واتساب ‎+966 56 022 4715 أو البريد sales@blackarrowksa.com.</p>
             <a href="/3d/ar/" class="btn btn-primary">زر متجر Black Arrow 3D</a>
           </div>
 
@@ -1192,7 +1192,7 @@ POSTS = [
           <p>Standard delivery is 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR), after dispatch from Dammam.</p>
 
           <div class="b3d-article__cta">
-            <p>Enclosed printers, filament and gifts with delivery to Tabuk. Need help choosing? WhatsApp +966 56 022 4715 or email info@blackarrowksa.com.</p>
+            <p>Enclosed printers, filament and gifts with delivery to Tabuk. Need help choosing? WhatsApp +966 56 022 4715 or email sales@blackarrowksa.com.</p>
             <a href="/3d/" class="btn btn-primary">Shop the Black Arrow 3D store</a>
           </div>
 
@@ -1257,7 +1257,7 @@ POSTS = [
           <p>التوصيل العادي 4–5 أيام عمل (30 ريالًا) والسريع 2–3 أيام عمل (50 ريالًا) بعد الشحن من الدمام.</p>
 
           <div class="b3d-article__cta">
-            <p>طابعات مغلقة وفلمنت وهدايا مع التوصيل إلى تبوك. تحتاج مساعدة في الاختيار؟ واتساب ‎+966 56 022 4715 أو البريد info@blackarrowksa.com.</p>
+            <p>طابعات مغلقة وفلمنت وهدايا مع التوصيل إلى تبوك. تحتاج مساعدة في الاختيار؟ واتساب ‎+966 56 022 4715 أو البريد sales@blackarrowksa.com.</p>
             <a href="/3d/ar/" class="btn btn-primary">تسوّق من متجر Black Arrow 3D</a>
           </div>
 

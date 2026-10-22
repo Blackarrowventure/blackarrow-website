@@ -67,7 +67,7 @@ POSTS = [
             <li><strong>Delivery:</strong> Standard 4–5 business days (30&nbsp;SAR) or Fast 2–3 business days (50&nbsp;SAR). Regular delivery is free on 3,000&nbsp;SAR or more of printers. See the <a href="/3d/shipping/">shipping policy</a>.</li>
             <li><strong>Payment:</strong> bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby and Tamara. Pay-later orders carry a service fee shown at checkout.</li>
             <li><strong>Warranty:</strong> printers come with the manufacturer’s warranty for defects, and the team helps you with warranty claims.</li>
-            <li><strong>Support:</strong> Arabic and English, on WhatsApp +966&nbsp;56&nbsp;022&nbsp;4715 or info@blackarrowksa.com.</li>
+            <li><strong>Support:</strong> Arabic and English, on WhatsApp +966&nbsp;56&nbsp;022&nbsp;4715 or sales@blackarrowksa.com.</li>
             <li><strong>Filament and parts:</strong> <a href="/3d/shop/filament/">PLA, PLA+ and PETG filament</a> from 59&nbsp;SAR per 1&nbsp;kg spool, and <a href="/3d/product/bambu-hotend-a1-series/">A1-series hot ends</a> at 110&nbsp;SAR.</li>
           </ul>
           <p>To be fair about the limits: the range is focused on a dozen printers, and some models are currently out of stock (for example the <a href="/3d/product/bambu-lab-a1/">Bambu Lab A1</a> and the A1 mini standalone version), while the Bambu Lab H2C and Creality SparkX i7 are currently on pre-order. Stock is shown on every product page.</p>
@@ -170,7 +170,7 @@ POSTS = [
             <li><strong>التوصيل:</strong> عادي خلال 4–5 أيام عمل (30 ريالًا) أو سريع خلال 2–3 أيام عمل (50 ريالًا)، والتوصيل العادي مجاني للطابعات بقيمة 3,000 ريال فأكثر. راجع <a href="/3d/ar/shipping/">سياسة الشحن</a>.</li>
             <li><strong>الدفع:</strong> تحويل بنكي، وبطاقة (Visa وMastercard ومدى)، وApple Pay، وتابي وتمارا. طلبات الدفع الآجل عليها رسوم خدمة تظهر عند إتمام الطلب.</li>
             <li><strong>الضمان:</strong> الطابعات مشمولة بضمان الشركة المصنّعة ضد العيوب، والفريق يساعدك في مطالبات الضمان.</li>
-            <li><strong>الدعم:</strong> بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو info@blackarrowksa.com.</li>
+            <li><strong>الدعم:</strong> بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو sales@blackarrowksa.com.</li>
             <li><strong>الفلمنت وقطع الغيار:</strong> <a href="/3d/ar/shop/filament/">فلمنت PLA وPLA+ وPETG</a> من 59 ريالًا للبكرة 1 كجم، و<a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند لسلسلة A1</a> بسعر 110 ريال.</li>
           </ul>
           <p>وللإنصاف في الحدود: التشكيلة مركّزة على نحو اثنتي عشرة طابعة، وبعض الطرازات غير متوفرة حاليًا (مثل <a href="/3d/ar/product/bambu-lab-a1/">Bambu Lab A1</a> والنسخة المنفردة من A1 mini)، بينما Bambu Lab H2C وCreality SparkX i7 متاحتان حاليًا بالطلب المسبق. حالة المخزون ظاهرة في صفحة كل منتج.</p>
@@ -866,7 +866,7 @@ POSTS = [
           <p>Check how you will send files: Wi-Fi with a phone or desktop app, USB, or a memory card. The A1 mini, for example, supports Wi-Fi and Micro SD; the P2S works with Bambu Handy and Bambu Studio. Check the interface languages before you buy if that matters to you, and remember that many tutorials and slicer menus are in English.</p>
 
           <h3>7. Support</h3>
-          <p>You will almost certainly have questions in the first weeks. Buy from a seller who answers in your language. Black Arrow 3D supports customers in Arabic and English on WhatsApp +966&nbsp;56&nbsp;022&nbsp;4715 and at info@blackarrowksa.com.</p>
+          <p>You will almost certainly have questions in the first weeks. Buy from a seller who answers in your language. Black Arrow 3D supports customers in Arabic and English on WhatsApp +966&nbsp;56&nbsp;022&nbsp;4715 and at sales@blackarrowksa.com.</p>
 
           <h3>8. Power: 220–230&nbsp;V and plug type</h3>
           <p>Saudi homes use 220–230&nbsp;V. Check the printer’s input rating on the spec sheet: the A1 mini, for example, is rated 100–240&nbsp;VAC, 50/60&nbsp;Hz, 150&nbsp;W max. Also check that the plug fits your sockets (many newer Saudi buildings use UK-style three-pin sockets) or plan a good-quality adapter, and use a surge-protected power strip.</p>
@@ -952,7 +952,7 @@ POSTS = [
           <p>تحقق من طريقة إرسال الملفات: Wi-Fi مع تطبيق للجوال أو الكمبيوتر، أو USB، أو بطاقة ذاكرة. A1 mini مثلًا تدعم Wi-Fi وبطاقة Micro SD، وP2S تعمل مع Bambu Handy وBambu Studio. تحقق من لغات الواجهة قبل الشراء إن كان ذلك مهمًا لك، وتذكّر أن كثيرًا من الشروحات وقوائم برامج التقطيع باللغة الإنجليزية.</p>
 
           <h3>7. الدعم</h3>
-          <p>ستحتاج غالبًا إلى طرح أسئلة في الأسابيع الأولى، فاشترِ من بائع يرد بلغتك. يدعم Black Arrow 3D عملاءه بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 وعلى info@blackarrowksa.com.</p>
+          <p>ستحتاج غالبًا إلى طرح أسئلة في الأسابيع الأولى، فاشترِ من بائع يرد بلغتك. يدعم Black Arrow 3D عملاءه بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 وعلى sales@blackarrowksa.com.</p>
 
           <h3>8. الكهرباء: 220–230 فولت ونوع القابس</h3>
           <p>الكهرباء المنزلية في السعودية 220–230 فولت. راجع تصنيف الجهد في مواصفات الطابعة: A1 mini مثلًا مصنّفة 100–240 فولت متردد، 50/60 هرتز، بحد أقصى 150 واط. وتحقق كذلك من أن القابس يناسب مقابس منزلك (كثير من المباني الحديثة في السعودية تستخدم المقابس البريطانية ثلاثية الأطراف) أو جهّز محولًا جيد الجودة، واستخدم مشترك كهرباء بحماية من التذبذب.</p>

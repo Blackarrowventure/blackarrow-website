@@ -553,7 +553,7 @@ POSTS = [
           <h3>How can I pay for a printer?</h3>
           <p>By card (Visa, Mastercard, mada), Apple Pay, bank transfer, Tabby or Tamara. A pay-later service fee applies to orders that include printers or filament. The manufacturer warranty covers defects, and we help with any claim.</p>
           <h3>Can you help us choose?</h3>
-          <p>Yes. Message us on WhatsApp at +966 56 022 4715 or email info@blackarrowksa.com, in Arabic or English, and tell us the age group and room you have in mind.</p>
+          <p>Yes. Message us on WhatsApp at +966 56 022 4715 or email sales@blackarrowksa.com, in Arabic or English, and tell us the age group and room you have in mind.</p>
 
           <div class="b3d-article__cta">
             <p>Find the right printer for your home or classroom</p>
@@ -664,7 +664,7 @@ POSTS = [
           <h3>كيف أدفع ثمن الطابعة؟</h3>
           <p>بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي أو تابي أو تمارا، مع رسوم خدمة للدفع الآجل على الطلبات التي تشمل طابعات أو فلمنت. وتغطي ضمانة الشركة المصنعة عيوب التصنيع، ونساعدك في أي مطالبة.</p>
           <h3>هل يمكنكم مساعدتنا في الاختيار؟</h3>
-          <p>نعم. راسلنا عبر واتساب على +966 56 022 4715 أو على البريد info@blackarrowksa.com، بالعربية أو الإنجليزية، وأخبرنا بالفئة العمرية والمكان الذي تفكر فيه.</p>
+          <p>نعم. راسلنا عبر واتساب على +966 56 022 4715 أو على البريد sales@blackarrowksa.com، بالعربية أو الإنجليزية، وأخبرنا بالفئة العمرية والمكان الذي تفكر فيه.</p>
 
           <div class="b3d-article__cta">
             <p>اختر الطابعة المناسبة لبيتك أو فصلك</p>

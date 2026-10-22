@@ -1688,9 +1688,9 @@ def build_static_page(slug, lang):
             out.append('<p><a class="btn btn-primary" href="' + WA_QUOTE + '" target="_blank" rel="noopener noreferrer">' + esc(val) + '</a></p>')
         elif kind == 'contact':
             if lang == 'ar':
-                out.append('<p>Black Arrow 3D &mdash; تُدار بواسطة Black Arrow Venture<br>الدمام، المنطقة الشرقية، المملكة العربية السعودية<br>البريد الإلكتروني: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>الهاتف/واتساب: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
+                out.append('<p>Black Arrow 3D &mdash; تُدار بواسطة Black Arrow Venture<br>الدمام، المنطقة الشرقية، المملكة العربية السعودية<br>البريد الإلكتروني: <a href="mailto:sales@blackarrowksa.com">sales@blackarrowksa.com</a><br>الهاتف/واتساب: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
             else:
-                out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:info@blackarrowksa.com">info@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
+                out.append('<p>Black Arrow 3D &mdash; operated by Black Arrow Venture<br>Dammam, Eastern Province, Kingdom of Saudi Arabia<br>Email: <a href="mailto:sales@blackarrowksa.com">sales@blackarrowksa.com</a><br>Telephone/WhatsApp: <a href="tel:+966560224715">+966 56 022 4715</a></p>')
         elif kind == 'reviews':
             out.append('<div data-b3d-reviews="page"></div>')
         elif kind == 'wa_cta':

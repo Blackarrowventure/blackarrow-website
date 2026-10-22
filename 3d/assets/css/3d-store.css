@@ -3117,3 +3117,9 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
   .b3d-cart-item > .b3d-qty { grid-column: 2; grid-row: 2; justify-self: start; }
   .b3d-cart-item > .b3d-cart-item__price { grid-column: 3; grid-row: 2; }
 }
+
+/* Phones: hide the floating WhatsApp button while the checkout form is open, so it never sits on
+   top of "Place Order" (WhatsApp stays in the footer and on the product pages). */
+@media (max-width: 640px) {
+  body:has([data-b3d-checkout]:not([hidden])) .wa-float { display: none !important; }
+}
