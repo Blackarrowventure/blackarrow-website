@@ -2491,7 +2491,9 @@
 
       lastSubtotal = subtotal;
       lastArtworkSubtotal = artworkSubtotal;
-      lastFreeShipping = artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN || memberFreeDelivery();
+      // Free Regular delivery with any 3D printer in the order (same rule as api/_lib/pricing.js).
+      var hasPrinter = Object.keys(cart).some(function (id) { var pp = __b3dProductsById[parseLineId(id).productId]; return !!pp && pp.category === '3D Printers'; });
+      lastFreeShipping = hasPrinter || artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN || memberFreeDelivery();
       updateFreeShippingUi(artworkSubtotal, subtotal);
       lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();

@@ -42,7 +42,8 @@ function priceCart(items, products) {
     if (product.category === '3D Artwork') artworkCents += unitCents * qty;
     categories.add(product.category);
   }
-  const freeShipping = artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || itemsCents >= FREE_SHIP_ORDER_MIN * 100;
+  // Free Regular delivery: any order with a 3D printer, 3D artwork from 100 SAR, anything from 3,000 SAR.
+  const freeShipping = categories.has('3D Printers') || artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || itemsCents >= FREE_SHIP_ORDER_MIN * 100;
   return { lines, itemsCents, freeShipping, categories };
 }
 
