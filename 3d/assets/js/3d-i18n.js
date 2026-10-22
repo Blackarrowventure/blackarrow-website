@@ -1126,6 +1126,13 @@
     translateStaticPage: translateStaticPage
   };
 
+  // Remember the language of the page the visitor is reading, so pages that exist in one copy
+  // only (cart, checkout, account, quote...) open in that same language.
+  (function rememberPageLang() {
+    var path = location.pathname;
+    if (path.indexOf('/3d/ar/') === 0) setLang('ar');
+    else if (isBilingualEnRoute(path)) setLang('en');
+  })();
   applyDirection(getLang());
   document.addEventListener('DOMContentLoaded', initLangToggle);
 })();

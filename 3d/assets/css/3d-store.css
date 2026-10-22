@@ -3100,3 +3100,10 @@ main.b3d-light .b3d-color-chip--dot .b3d-color-chip__dot { border-color: rgba(0,
 main.b3d-light .b3d-cat-tabs button { background: #fff; border: 1px solid #cfcbc0; color: #1a1a1a; }
 main.b3d-light .b3d-cat-tabs button:hover { border-color: #b45309; }
 main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr-accent); border-color: var(--clr-accent); color: #1a1a1a; }
+
+/* Cart: delivery options keep the price on the same line as the option, riyal sign included. */
+.b3d-checkout .b3d-shipping-option { display: flex !important; }
+.b3d-shipping-option__price { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; flex: none; }
+.b3d-shipping-option__price .b3d-riyal { display: inline-flex; }
+/* "Complete your setup" in the cart: cards wide enough for their name, badges and buttons. */
+.b3d-cart-crosssell .b3d-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
