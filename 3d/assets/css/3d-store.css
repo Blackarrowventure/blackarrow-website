@@ -3107,3 +3107,13 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 .b3d-shipping-option__price .b3d-riyal { display: inline-flex; }
 /* "Complete your setup" in the cart: cards wide enough for their name, badges and buttons. */
 .b3d-cart-crosssell .b3d-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+/* Cart lines on phones: photo on the left; name across; quantity and line price share the row
+   below (the quantity box used to be squeezed into the 56px photo column and cut off). */
+@media (max-width: 640px) {
+  .b3d-cart-item { grid-template-columns: 56px 1fr auto; grid-template-areas: none; gap: 10px 12px; }
+  .b3d-cart-item > .b3d-cart-item__visual { grid-column: 1; grid-row: 1 / span 2; width: 56px; height: 56px; align-self: start; }
+  .b3d-cart-item > :nth-child(2) { grid-column: 2 / -1; grid-row: 1; }
+  .b3d-cart-item > .b3d-qty { grid-column: 2; grid-row: 2; justify-self: start; }
+  .b3d-cart-item > .b3d-cart-item__price { grid-column: 3; grid-row: 2; }
+}
