@@ -14,12 +14,15 @@
       '3d-printer-installments-tabby-tamara-saudi'] },
     { id: 'reviews', en: 'Reviews & Comparisons', ar: 'مراجعات ومقارنات', slugs: [
       'bambu-lab-a1-mini-combo-review', 'snapmaker-u1-multicolor-3d-printer-review',
-      'bambu-lab-a1-vs-a1-mini-vs-a2l', 'bambu-lab-vs-creality-vs-snapmaker', 'multi-color-3d-printing-explained'] },
+      'bambu-lab-a1-vs-a1-mini-vs-a2l', 'bambu-lab-vs-creality-vs-snapmaker', 'multi-color-3d-printing-explained',
+      'bambu-lab-a1-combo-review-saudi', 'bambu-lab-a2l-combo-guide-saudi', 'bambu-lab-p2s-combo-review-saudi'] },
     { id: 'filament', en: 'Filament & Materials', ar: 'الفلمنت والمواد', slugs: [
-      'pla-vs-petg-vs-abs-filament-guide', 'which-filament-for-which-print', '3d-printing-filament-saudi-heat-humidity'] },
+      'pla-vs-petg-vs-abs-filament-guide', 'which-filament-for-which-print', '3d-printing-filament-saudi-heat-humidity',
+      'kingroon-pla-basic-filament-review', 'kingroon-petg-basic-filament-guide', 'pla-vs-pla-plus-difference',
+      'best-filament-for-bambu-lab-a1-ams-lite', '3d-printer-filament-price-saudi-arabia'] },
     { id: 'fixes', en: 'Setup, Maintenance & Fixes', ar: 'التشغيل والصيانة وحل المشاكل', slugs: [
       'bambu-lab-a1-mini-setup-guide', '3d-printer-maintenance-guide', 'clogged-3d-printer-nozzle-fix',
-      '3d-print-stringing-fix', '3d-print-bed-adhesion-first-layer'] },
+      '3d-print-stringing-fix', '3d-print-bed-adhesion-first-layer', 'bambu-a1-hotend-replacement-guide'] },
     { id: 'gifts', en: 'Gifts, Custom Printing & Business', ar: 'الهدايا والطباعة حسب الطلب والأعمال', slugs: [
       '3d-printed-gifts-saudi-occasions', '3d-printed-gifts-home-decor-saudi-arabia', 'custom-3d-printing-cost-saudi-arabia',
       'start-3d-printing-business-saudi-arabia', '3d-printing-students-engineers-saudi-arabia'] },

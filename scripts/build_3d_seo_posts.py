@@ -19,17 +19,21 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_3d_troubleshooting_guides as guides  # noqa: E402
 import generate_3d_blog_ar as ar_blog  # noqa: E402
 
-MODULES = ['seo_posts_cities', 'seo_posts_buying', 'seo_posts_local']
+# (module, publish date). seo_posts_products: filament and product posts added 2026-10-22.
+MODULES = [('seo_posts_cities', '2026-10-15'), ('seo_posts_buying', '2026-10-15'), ('seo_posts_local', '2026-10-15'),
+           ('seo_posts_products', '2026-10-22')]
 
 
 def load_posts():
     posts = []
-    for name in MODULES:
+    for name, date in MODULES:
         try:
             mod = __import__(name)
         except ImportError:
             print('skipped (not written yet):', name)
             continue
+        for p in mod.POSTS:
+            p.setdefault('date', date)
         posts += mod.POSTS
     return posts
 
@@ -40,8 +44,8 @@ def main():
         for lang in ('en', 'ar'):
             for key in ('headline', 'title', 'desc', 'lead'):
                 assert '"' not in p[lang][key], (p['slug'], lang, key)
-    guides.DATE = '2026-10-15'
     for p in posts:
+        guides.DATE = p['date']
         guides.build_en(p)
         a = p['ar']
         ar_blog.SEO_TITLES[p['slug']] = a['title']

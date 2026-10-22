@@ -535,7 +535,7 @@
       js_best_seller_badge_2: 'Customer Favorite',
       js_best_seller_badge_n: 'Top Pick',
       js_vat_included: 'VAT included',
-      announce_1: 'Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -1061,7 +1061,7 @@
       js_best_seller_badge_2: 'المفضل لدى العملاء',
       js_best_seller_badge_n: 'مُختار مميز',
       js_vat_included: 'شامل ضريبة القيمة المضافة',
-      announce_1: 'منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 

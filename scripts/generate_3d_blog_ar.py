@@ -75,7 +75,7 @@ POSTS = {
             <tr><td>حجم الطباعة</td><td>180 &times; 180 &times; 180&nbsp;مم</td><td>256 &times; 256 &times; 256&nbsp;مم</td><td>330 &times; 320 &times; 325&nbsp;مم</td></tr>
             <tr><td>السرعة القصوى</td><td>500&nbsp;مم/ث</td><td>500&nbsp;مم/ث</td><td>500&nbsp;مم/ث</td></tr>
             <tr><td>تعدد الألوان</td><td>AMS lite (باقة)</td><td>AMS Lite (باقة)</td><td>AMS / AMS Lite (باقة)</td></tr>
-            <tr><td>سعر الطابعة منفردة</td><td>1,699&nbsp;ريال</td><td>2,699&nbsp;ريال</td><td>3,699&nbsp;ريال</td></tr>
+            <tr><td>سعر الطابعة منفردة</td><td>1,699&nbsp;ريال</td><td>2,749&nbsp;ريال</td><td>3,699&nbsp;ريال</td></tr>
             <tr><td>سعر الباقة</td><td>2,799&nbsp;ريال</td><td>3,530&nbsp;ريال</td><td>4,650&nbsp;ريال</td></tr>
           </table>
 
@@ -164,7 +164,7 @@ POSTS = {
             <tr><td><a href="/3d/ar/product/flashforge-adventurer-5m/">فلاش فورج أدفنتشرر 5M</a></td><td>فلاش فورج</td><td>1,559 ريال</td></tr>
             <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">بامبو لاب A1 ميني</a></td><td>بامبو لاب</td><td>1,699 ريال</td></tr>
             <tr><td><a href="/3d/ar/product/creality-sparkx-i7/">كرياليتي سباركس آي 7</a></td><td>كرياليتي</td><td>2,090 ريال</td></tr>
-            <tr><td><a href="/3d/ar/product/bambu-lab-a1/">بامبو لاب A1</a></td><td>بامبو لاب</td><td>2,699 ريال</td></tr>
+            <tr><td><a href="/3d/ar/product/bambu-lab-a1/">بامبو لاب A1</a></td><td>بامبو لاب</td><td>2,749 ريال</td></tr>
             <tr><td><a href="/3d/ar/product/anycubic-kobra-3-max/">أنيكيوبك كوبرا 3 ماكس</a></td><td>أنيكيوبك</td><td>3,090 ريال</td></tr>
             <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">إليجو سنتوري كاربون 2</a></td><td>إليجو</td><td>3,180 ريال</td></tr>
             <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">بامبو لاب A2L</a></td><td>بامبو لاب</td><td>3,699 ريال</td></tr>
