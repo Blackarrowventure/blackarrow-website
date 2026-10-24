@@ -1,11 +1,15 @@
 // A bank transfer order, sent by the cart once its order email has gone out, so it also lands in
 // the CRM's Online Orders inbox (as not paid yet). Prices and delivery are recomputed from the
-// live catalog; only the discount comes from the browser (coupon / rewards it already applied),
-// capped at the items total. Nothing here holds stock or touches the accounts: the order just
-// waits in the CRM until it is confirmed (as an Unpaid invoice) or rejected.
+// live catalog. The coupon and the rewards balance the cart already used are checked here, not
+// taken from the browser: the coupon by its redemption, the rewards by what the CRM recorded as
+// spent on this order; member free delivery by the signed-in account. Anything that cannot be
+// checked is flagged in the order notes. The order waits in the CRM until it is confirmed (as an
+// Unpaid invoice) or rejected.
 const { buildOrder } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
+const rewards = require('./_lib/rewards');
+const { db } = require('./_lib/db');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -28,24 +32,69 @@ module.exports = async (req, res) => {
   const phone = s(b.phone, 20);
   if (!name || !phone) return res.status(400).json({ error: 'invalid_billing' });
 
-  const products = await liveProducts();
-  const order = buildOrder(body.items, body.shipping, false, null, products);
-  if (order.error) return res.status(400).json({ error: order.error });
-
   const num = (v) => (Number.isFinite(Number(v)) && Number(v) > 0 ? Number(v) : 0);
-  const discountCents = Math.min(Math.round((num(body.couponDiscount) + num(body.rewardsUsed)) * 100), order.itemsCents);
-  // Gold/Platinum members get free Regular delivery in the cart; accept a lower delivery than the
-  // standard price, never a higher one.
-  const shippingCents = Math.min(Math.round(num(body.shippingPrice) * 100), order.shippingCents);
+  const checks = [];
+
+  // Signed-in member: Gold / Platinum free Regular delivery comes from their account.
+  let member = null;
+  if (body.authToken && rewards.configured()) {
+    try {
+      const m = await rewards.memberForToken(String(body.authToken), { enroll: false });
+      if (m && m.member) member = m.member;
+    } catch (e) {
+      console.error('bank-order: member lookup failed', e.message);
+    }
+  }
+
+  const products = await liveProducts();
+  const order = buildOrder(body.items, body.shipping, false, member ? { freeDelivery: rewards.freeDelivery(member) } : null, products);
+  if (order.error) return res.status(400).json({ error: order.error });
+  const shippingCents = order.shippingCents;
+  if (Math.round(num(body.shippingPrice) * 100) < shippingCents) {
+    checks.push('Customer saw delivery ' + num(body.shippingPrice) + ' SAR, charged ' + shippingCents / 100 + ' SAR (free delivery not confirmed for this account)');
+  }
+
+  // Coupon: only what its redemption (used up at checkout) says.
+  let couponCents = 0;
+  const couponCode = s(body.couponCode, 40);
+  if (couponCode) {
+    const rid = s(body.couponRedemption, 80);
+    try {
+      const rows = rid ? await db('GET', 'coupon_redemptions?id=eq.' + encodeURIComponent(rid) + '&select=code,amount') : [];
+      const r = rows && rows[0];
+      if (r && String(r.code).toUpperCase() === couponCode.toUpperCase()) couponCents = Math.round(Number(r.amount) * 100);
+      else checks.push('Coupon ' + couponCode + ' NOT verified: discount left off, check with the customer');
+    } catch (e) {
+      couponCents = Math.round(num(body.couponDiscount) * 100);
+      checks.push('Coupon ' + couponCode + ' could not be checked just now: check it');
+    }
+  }
+
+  // Rewards: what the CRM recorded as spent on this order (the cart spends it just before sending).
+  let rewardsCents = 0;
+  const rewardsClaimed = num(body.rewardsUsed);
+  if (rewardsClaimed) {
+    try {
+      const used = await rewards.redeemedFor(orderId);
+      rewardsCents = Math.round(used * 100);
+      if (Math.abs(used - rewardsClaimed) > 0.009) checks.push('Rewards: customer claimed ' + rewardsClaimed + ' SAR, CRM recorded ' + used + ' SAR used');
+    } catch (e) {
+      rewardsCents = Math.round(rewardsClaimed * 100);
+      checks.push('Rewards ' + rewardsClaimed + ' SAR could not be checked just now: check the loyalty history');
+    }
+  }
+
+  const discountCents = Math.min(couponCents + rewardsCents, order.itemsCents);
   // Bank transfer saving: 1% off the items after coupon / rewards (the cart shows the same).
   const savingCents = Math.round((order.itemsCents - discountCents) * 0.01);
   const totalCents = order.itemsCents - discountCents - savingCents + shippingCents;
 
   const details = crmDetails(Object.assign({}, order, { discountCents: discountCents + savingCents, shippingCents, totalCents, feeCents: 0 }));
   const notes = [];
-  if (body.couponCode) notes.push('Coupon ' + s(body.couponCode, 40) + ': -' + num(body.couponDiscount) + ' SAR');
-  if (num(body.rewardsUsed)) notes.push('Loyalty Rewards used: -' + num(body.rewardsUsed) + ' SAR');
+  if (couponCents) notes.push('Coupon ' + couponCode + ': -' + couponCents / 100 + ' SAR');
+  if (rewardsCents) notes.push('Loyalty Rewards used: -' + rewardsCents / 100 + ' SAR');
   if (savingCents) notes.push('Bank transfer saving (1%): -' + (savingCents / 100) + ' SAR');
+  checks.forEach((c) => notes.push('CHECK: ' + c));
   notes.push('Bank transfer: check the amount reached the bank before marking the invoice Paid.');
 
   try {

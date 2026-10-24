@@ -2233,12 +2233,17 @@
       var shipping = form.querySelector('input[name="shipping_choice"]:checked');
       var shipFree = lastFreeShipping && shipping && shipping.value === 'regular';
       var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
-      fetch('/api/bank-order/', {
+      // The server checks the coupon, rewards and member delivery itself (by account and redemption).
+      var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth
+        ? Promise.resolve(window.BlackArrow3DAuth.getAccessToken()).catch(function () { return null; }) : Promise.resolve(null);
+      tokenP.then(function (token) { return fetch('/api/bank-order/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         keepalive: true,
         body: JSON.stringify({
           orderId: orderId,
+          authToken: token || undefined,
+          couponRedemption: appliedCoupon && appliedCoupon.redemption ? appliedCoupon.redemption : '',
           items: items,
           shipping: shipping ? shipping.value : 'regular',
           shippingPrice: shipPrice,
@@ -2258,7 +2263,7 @@
             postalCode: get('customer_postal_code')
           }
         })
-      }).catch(function () {});
+      }); }).catch(function () {});
     } catch (e) { /* never block the order */ }
   }
 

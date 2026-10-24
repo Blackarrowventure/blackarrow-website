@@ -30,6 +30,18 @@ async function crmRpc(fn, args) {
   return data;
 }
 
+// SAR the CRM recorded as spent from a rewards balance on one order (0 when none).
+async function redeemedFor(ref) {
+  const key = process.env.CRM_SUPABASE_SERVICE_ROLE_KEY;
+  if (!key) throw new Error('rewards_not_configured');
+  const r = await fetch(CRM_URL + '/rest/v1/bav3d_loyalty_ledger?kind=eq.redeem&ref=eq.' + encodeURIComponent(ref) + '&select=amount', {
+    headers: { apikey: key, Authorization: 'Bearer ' + key },
+  });
+  if (!r.ok) throw new Error('crm_' + r.status);
+  const rows = await r.json();
+  return rows && rows[0] ? Math.abs(Number(rows[0].amount) || 0) : 0;
+}
+
 // The phone that identifies this account's rewards card. Fixed at the first
 // enrolment (rewards_phone), so editing the profile phone later can't move
 // the account onto a fresh card with a fresh welcome credit.
@@ -104,4 +116,4 @@ async function checkoutRewards(token, useRewards, itemsCents) {
   return { member: m.member, phone: m.phone, discountCents, freeDelivery: freeDelivery(m.member) };
 }
 
-module.exports = { configured, crmRpc, memberForToken, freeDelivery, redeem, checkoutRewards, MIN_REDEEM };
+module.exports = { configured, crmRpc, memberForToken, freeDelivery, redeem, redeemedFor, checkoutRewards, MIN_REDEEM };
