@@ -3135,3 +3135,8 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 .b3d-bank-saved strong { color: #fff; }
 .b3d-bank-saved svg { flex: none; margin-top: 2px; color: #4ade80; }
 .b3d-bank-promo .b3d-riyal svg, .b3d-bank-saved .b3d-riyal svg { color: inherit; }
+
+/* Tamara next to Tabby on the instalment line (product page and cards). */
+.b3d-bnpl__tamara { display: inline-block; height: 21px; width: auto; border-radius: 999px; vertical-align: middle; }
+.b3d-bnpl-card .b3d-bnpl__tamara { height: 17px; }
+.b3d-bnpl__marks { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }

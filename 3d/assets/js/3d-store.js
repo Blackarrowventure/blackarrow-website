@@ -523,14 +523,14 @@
     return q % 1 ? money(q, currency).replace(whole, q.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })) : money(q, currency);
   }
   var TABBY_MARK = '<span class="b3d-bnpl__tabby"><img src="/3d/assets/images/payment/tabby.png" alt="" width="16" height="16">tabby</span>';
+  var TAMARA_MARK = '<img class="b3d-bnpl__tamara" src="/3d/assets/images/payment/tamara.png" alt="tamara" width="62" height="20">';
   function bnplHtml(price, currency) {
     if (!bnplOk(price)) return '';
-    return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price, currency) + '</b> ' + T('js_bnpl_with') + ' ' + TABBY_MARK +
-      '<span class="b3d-bnpl__alt">' + T('js_bnpl_tamara') + '</span></p>';
+    return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price, currency) + '</b> ' + T('js_bnpl_with') + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span></p>';
   }
   function bnplCardHtml(price, currency) {
     if (!bnplOk(price)) return '';
-    return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' ' + TABBY_MARK + '</span>';
+    return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span></span>';
   }
 
   /* Delivery estimate, counted in Saudi business days (Sun–Thu) in Riyadh time.
