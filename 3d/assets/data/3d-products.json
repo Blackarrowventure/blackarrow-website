@@ -2670,7 +2670,14 @@
         { "label": "Pink", "label_ar": "وردي", "price": 59, "swatch": "#f48fb1", "image": "/3d/assets/images/products/kingroon-pla-pink.webp" },
         { "label": "Brown", "label_ar": "نحاسي", "price": 59, "swatch": "#c17a4e", "image": "/3d/assets/images/products/kingroon-pla-brown.webp" },
         { "label": "Transparent", "label_ar": "شفاف", "price": 59, "swatch": "#eef5f5", "image": "/3d/assets/images/products/kingroon-pla-transparent.webp" },
-        { "label": "Skin", "label_ar": "بيج", "price": 59, "swatch": "#e8c39e", "image": "/3d/assets/images/products/kingroon-pla-skin.webp", "available": false }
+        { "label": "Skin", "label_ar": "بيج", "price": 59, "swatch": "#e8c39e", "image": "/3d/assets/images/products/kingroon-pla-skin.webp", "available": false },
+        {
+          "label": "Gold",
+          "label_ar": "ذهبي",
+          "price": 59,
+          "swatch": "#e0a81c",
+          "image": "/3d/assets/images/products/kingroon-pla-gold.webp"
+        }
       ],
       "images": [
         "/3d/assets/images/products/kingroon-pla-black.webp",
@@ -2686,10 +2693,9 @@
         "/3d/assets/images/products/kingroon-pla-purple.webp",
         "/3d/assets/images/products/kingroon-pla-pink.webp",
         "/3d/assets/images/products/kingroon-pla-brown.webp",
-        "/3d/assets/images/products/kingroon-pla-transparent.webp",
-        "/3d/assets/images/products/kingroon-pla-skin.webp"
+        "/3d/assets/images/products/kingroon-pla-transparent.webp", "/3d/assets/images/products/kingroon-pla-gold.webp", "/3d/assets/images/products/kingroon-pla-skin.webp"
       ],
-      "shortDesc": "KINGROON PLA Basic filament, 1.75 mm, 1 kg spool — smooth feeding and consistent layers, in 15 colours.",
+      "shortDesc": "KINGROON PLA Basic filament, 1.75 mm, 1 kg spool — smooth feeding and consistent layers, in 16 colours.",
       "description": "KINGROON PLA Basic is a 1.75 mm PLA filament on a 1 kg spool, available in a wide range of colours. It feeds smoothly and prints with consistent, reliable layers, making it a solid everyday choice for display models, prototypes, decorative pieces, and educational projects. Works with most FDM 3D printers that support 1.75 mm PLA. Recommended nozzle temperature 190–210°C on a 50–70°C bed.",
       "specs": [
         ["Material", "PLA"],
@@ -2701,7 +2707,7 @@
         ["Colours", "Black, White, Gray, Silver, Red, Orange, Yellow, Green, Blue, Sky Blue, Purple, Pink, Brown, Transparent, Skin — pick one"]
       ],
       "name_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم (1 كغ)",
-      "shortDesc_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم، بكرة 1 كغ — تغذية سلسة وطباعة متسقة، ب― 15 لونًا.",
+      "shortDesc_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم، بكرة 1 كغ — تغذية سلسة وطباعة متسقة، بـ 16 لونًا.",
       "description_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم على بكرة وزنها 1 كغ، متوفر بتشكيلة واسعة من الألوان. يتميز بتغذية سلسة وطباعة متسقة وموثوقة، ما يجعله خيارًا يوميًا ممتازًا للمجسمات، النماذج الأولية، القطع الزخرفية، والمشاريع التعليمية. يعمل مع معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم. درجة حرارة الفوهة الموصى بها 190–210°C على سرير بدرجة حرارة 50–70°C.",
       "specs_ar": [
         ["الخامة", "PLA"],

@@ -152,8 +152,8 @@
     "ar": "بياناتك"
   },
   "announce_1": {
-    "en": "Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Send your custom design or a MakerWorld design to get it printed",
-    "ar": "منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+    "en": "Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
   },
   "b3d_compare_printers": {
     "en": "Compare printers",
@@ -1746,5 +1746,269 @@
   "rwd_how_5": {
     "en": "Gold and Platinum members also get free delivery, and Platinum members a surprise 3D-printed gift with select orders.",
     "ar": "يحصل أعضاء المستوى الذهبي والبلاتيني أيضًا على توصيل مجاني، وأعضاء البلاتيني على هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة."
+  },
+  "checkout_notes_placeholder": {
+    "en": "Transfer reference, delivery instructions, etc.",
+    "ar": "رقم مرجع التحويل، تعليمات التوصيل، إلخ."
+  },
+  "cities_guides": {
+    "en": "City guides",
+    "ar": "أدلة المدن"
+  },
+  "cities_h2": {
+    "en": "3D printers delivered across Saudi Arabia",
+    "ar": "طابعات ثلاثية الأبعاد بالتوصيل لكل مدن السعودية"
+  },
+  "cities_p": {
+    "en": "We ship from Dammam to every city in the Kingdom. In-stock orders placed before 4 pm (Sunday to Thursday) leave the same day. Standard delivery takes 4–5 business days and fast delivery 2–3.",
+    "ar": "نشحن من الدمام إلى كل مدن المملكة. الطلبات المتوفرة التي تصل قبل الساعة 4 مساءً (من الأحد إلى الخميس) تُشحن في اليوم نفسه. التوصيل العادي يستغرق 4–5 أيام عمل والسريع 2–3 أيام."
+  },
+  "city_abha_khamis_mushait": {
+    "en": "Abha & Khamis Mushait",
+    "ar": "أبها وخميس مشيط"
+  },
+  "city_dammam_khobar": {
+    "en": "Dammam & Al Khobar",
+    "ar": "الدمام والخبر"
+  },
+  "city_jeddah": {
+    "en": "Jeddah",
+    "ar": "جدة"
+  },
+  "city_jubail": {
+    "en": "Jubail",
+    "ar": "الجبيل"
+  },
+  "city_madinah": {
+    "en": "Madinah",
+    "ar": "المدينة المنورة"
+  },
+  "city_makkah": {
+    "en": "Makkah",
+    "ar": "مكة المكرمة"
+  },
+  "city_qassim": {
+    "en": "Qassim",
+    "ar": "القصيم"
+  },
+  "city_riyadh": {
+    "en": "Riyadh",
+    "ar": "الرياض"
+  },
+  "city_tabuk": {
+    "en": "Tabuk",
+    "ar": "تبوك"
+  },
+  "glance_based_k": {
+    "en": "Based in",
+    "ar": "المقر"
+  },
+  "glance_based_v": {
+    "en": "Dammam, Saudi Arabia. A business line of Black Arrow Venture (CR 7054542985).",
+    "ar": "الدمام، المملكة العربية السعودية. أحد أنشطة شركة بلاك أرو فنتشر (سجل تجاري 7054542985)."
+  },
+  "glance_delivery_k": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
+  "glance_delivery_v": {
+    "en": "All cities in Saudi Arabia: standard 4–5 business days (30 SAR), fast 2–3 business days (50 SAR). We also deliver across the GCC: UAE, Kuwait, Qatar, Bahrain and Oman.",
+    "ar": "لكل مدن السعودية: العادي 4–5 أيام عمل (30 ريالًا)، والسريع 2–3 أيام عمل (50 ريالًا). ونوصّل أيضًا إلى جميع دول الخليج: الإمارات والكويت وقطر والبحرين وعُمان."
+  },
+  "glance_h3": {
+    "en": "Black Arrow 3D at a glance",
+    "ar": "بلاك أرو 3D باختصار"
+  },
+  "glance_pay_k": {
+    "en": "Payment",
+    "ar": "الدفع"
+  },
+  "glance_pay_v": {
+    "en": "Bank transfer, mada, Visa, Mastercard, Apple Pay, Tabby and Tamara.",
+    "ar": "تحويل بنكي، مدى، فيزا، ماستركارد، Apple Pay، تابي وتمارا."
+  },
+  "glance_sells_k": {
+    "en": "Sells",
+    "ar": "المنتجات"
+  },
+  "glance_sells_v": {
+    "en": "3D printers (Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic, Flashforge), filament, spare parts, 3D printed gifts and a custom 3D printing service.",
+    "ar": "طابعات ثلاثية الأبعاد (Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge)، وفلمنت، وقطع غيار، وهدايا مطبوعة، وخدمة طباعة ثلاثية الأبعاد حسب الطلب."
+  },
+  "glance_support_k": {
+    "en": "Support",
+    "ar": "الدعم"
+  },
+  "glance_support_v": {
+    "en": "Arabic and English, by WhatsApp +966 56 022 4715 or sales@blackarrowksa.com.",
+    "ar": "بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو sales@blackarrowksa.com."
+  },
+  "js_bnpl_card": {
+    "en": "4 payments of",
+    "ar": "4 دفعات بقيمة"
+  },
+  "js_bnpl_prefix": {
+    "en": "or 4 interest-free payments of",
+    "ar": "أو 4 دفعات بدون فوائد بقيمة"
+  },
+  "js_bnpl_tamara": {
+    "en": "Tamara also available at checkout",
+    "ar": "تمارا متاحة أيضًا عند الدفع"
+  },
+  "js_bnpl_with": {
+    "en": "with",
+    "ar": "مع"
+  },
+  "js_eta_and": {
+    "en": "and",
+    "ar": "و"
+  },
+  "js_eta_between": {
+    "en": "between",
+    "ar": "بين"
+  },
+  "js_eta_by": {
+    "en": "Order today, get it",
+    "ar": "اطلب اليوم واستلمه"
+  },
+  "js_eta_made": {
+    "en": "Made to order: ready to ship in 3–5 business days.",
+    "ar": "يُصنع حسب الطلب: جاهز للشحن خلال 3–5 أيام عمل."
+  },
+  "js_eta_std": {
+    "en": "with standard shipping. Faster delivery available at checkout.",
+    "ar": "بالشحن العادي. يتوفر توصيل أسرع عند إتمام الطلب."
+  },
+  "js_fbt_add": {
+    "en": "Add selected to cart",
+    "ar": "أضف المحدد إلى السلة"
+  },
+  "js_fbt_added": {
+    "en": "Added to cart",
+    "ar": "تمت الإضافة إلى السلة"
+  },
+  "js_fbt_this": {
+    "en": "This item",
+    "ar": "هذا المنتج"
+  },
+  "js_fbt_title": {
+    "en": "Frequently bought together",
+    "ar": "يُشترى معًا عادةً"
+  },
+  "js_fbt_total": {
+    "en": "Total for selected",
+    "ar": "إجمالي المحدد"
+  },
+  "js_free_ship_reached": {
+    "en": "Free delivery unlocked",
+    "ar": "حصلت على توصيل مجاني"
+  },
+  "js_kit_colors": {
+    "en": "Pick your filament colors in the order notes at checkout.",
+    "ar": "اختر ألوان الفلمنت في ملاحظات الطلب عند الدفع."
+  },
+  "js_kit_price": {
+    "en": "Kit price",
+    "ar": "سعر الطقم"
+  },
+  "js_kit_save": {
+    "en": "You save",
+    "ar": "توفّر"
+  },
+  "js_kit_separately": {
+    "en": "Bought separately",
+    "ar": "عند الشراء منفصلًا"
+  },
+  "js_kit_title": {
+    "en": "What's in the kit",
+    "ar": "محتويات الطقم"
+  },
+  "js_kit_upsell": {
+    "en": "Save {n} with the",
+    "ar": "وفّر {n} مع"
+  },
+  "js_rating_reviews": {
+    "en": "customer reviews",
+    "ar": "تقييم من العملاء"
+  },
+  "js_restock_btn": {
+    "en": "Notify me when it's back",
+    "ar": "نبّهني عند توفره"
+  },
+  "js_restock_done": {
+    "en": "Done! We will message you as soon as it is back in stock.",
+    "ar": "تم! سنراسلك فور توفر المنتج من جديد."
+  },
+  "js_restock_fallback": {
+    "en": "Opening WhatsApp so we can note your request…",
+    "ar": "جارٍ فتح واتساب لتسجيل طلبك…"
+  },
+  "js_restock_invalid": {
+    "en": "Please enter a Saudi mobile number (05…) or an email address.",
+    "ar": "أدخل رقم جوال سعودي (05…) أو بريدًا إلكترونيًا."
+  },
+  "js_restock_placeholder": {
+    "en": "WhatsApp number or email",
+    "ar": "رقم واتساب أو بريد إلكتروني"
+  },
+  "js_restock_submit": {
+    "en": "Notify me",
+    "ar": "نبّهني"
+  },
+  "js_restock_title": {
+    "en": "Get a message when this is back in stock",
+    "ar": "استلم رسالة عند توفر المنتج من جديد"
+  },
+  "js_wa_filament": {
+    "en": "Ask about this filament on WhatsApp",
+    "ar": "اسأل عن هذا الفلمنت عبر واتساب"
+  },
+  "js_wa_item": {
+    "en": "Ask about this item on WhatsApp",
+    "ar": "اسأل عن هذا المنتج عبر واتساب"
+  },
+  "js_wa_msg": {
+    "en": "Hello! I have a question about",
+    "ar": "مرحبًا! لدي سؤال عن"
+  },
+  "js_wa_printer": {
+    "en": "Ask about this printer on WhatsApp",
+    "ar": "اسأل عن هذه الطابعة عبر واتساب"
+  },
+  "pm_applepay_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay with Apple Pay, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع عبر Apple Pay، ثم تعود إلى هنا."
+  },
+  "pm_card_h4": {
+    "en": "Card payment",
+    "ar": "الدفع بالبطاقة"
+  },
+  "pm_card_label": {
+    "en": "Card (mada, Visa, Mastercard)",
+    "ar": "البطاقة (مدى، فيزا، ماستركارد)"
+  },
+  "pm_card_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع بمدى أو فيزا أو ماستركارد، ثم تعود إلى هنا."
+  },
+  "pm_tabby_label": {
+    "en": "Pay in 4 with Tabby",
+    "ar": "قسّمها على 4 دفعات مع تابي"
+  },
+  "pm_tabby_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تابي الآمنة لتقسيم المبلغ، ثم تعود إلى هنا."
+  },
+  "pm_tamara_label": {
+    "en": "Pay Later with Tamara",
+    "ar": "ادفع لاحقًا مع تمارا"
+  },
+  "pm_tamara_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تمارا الآمنة لترتيب الدفع، ثم تعود إلى هنا."
+  },
+  "thanks_contact_note": {
+    "en": "A member of our team will personally contact you shortly to confirm every detail of your order, so you can be sure everything is exactly right before it ships.",
+    "ar": "سيتواصل معك أحد أعضاء فريقنا شخصيًا قريبًا لتأكيد جميع تفاصيل طلبك، لنضمن معًا أن كل شيء مطابق تمامًا لرغبتك قبل شحنه."
   }
 }
