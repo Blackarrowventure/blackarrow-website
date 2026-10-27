@@ -87,7 +87,7 @@ POSTS = [
 
           <h2>Do you need an enclosure?</h2>
           <p>For PLA, no: open printers handle PLA well, and on an enclosed printer you usually open the door or lid for PLA so heat does not build up. For PETG an enclosure is optional. For ABS and ASA it is essential, together with ventilation for fumes. In Saudi homes an enclosure has two extra benefits: it shields the print from AC drafts and keeps dust out. If you mainly print decor and gifts in PLA, an open printer is fine; if you want heat-resistant car and outdoor parts, plan for an enclosed one. The <a href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">PLA vs PETG vs ABS guide</a> compares the materials in more detail.</p>
-          <p>The filament we currently list at <a href="/3d/">Black Arrow 3D</a> is PLA+ (75 SAR per kg), KINGROON PLA Basic (59 SAR per kg) and KINGROON PETG Basic (59 SAR per kg), with in-stock orders placed before 4 pm Saudi time, Sunday to Thursday, dispatched the same day from Dammam.</p>
+          <p>The filament we currently list at <a href="/3d/">Black Arrow 3D</a> is PLA+ (75 SAR per kg), KINGROON PLA Basic (65 SAR per kg) and KINGROON PETG Basic (65 SAR per kg), with in-stock orders placed before 4 pm Saudi time, Sunday to Thursday, dispatched the same day from Dammam.</p>
 
           <h2>Frequently asked questions</h2>
           <h3>How do I know if my filament has absorbed moisture?</h3>
@@ -194,7 +194,7 @@ POSTS = [
 
           <h2>هل تحتاج إلى طابعة مغلقة؟</h2>
           <p>مع PLA لا تحتاج؛ فالطابعات المفتوحة تتعامل معه جيدًا، وفي الطابعات المغلقة يُفتح الباب أو الغطاء عادة عند طباعة PLA حتى لا تتراكم الحرارة. ومع PETG يكون الإغلاق اختياريًا، أما مع ABS وASA فهو ضروري مع تهوية للأبخرة. وفي البيوت السعودية للطابعة المغلقة فائدتان إضافيتان: تحمي المطبوعة من تيار المكيف وتمنع دخول الغبار. إذا كنت تطبع الديكور والهدايا من PLA غالبًا فالطابعة المفتوحة تكفي، وإذا أردت قطعًا تتحمل حرارة السيارة والأماكن الخارجية فخطط لطابعة مغلقة. ويقارن <a href="/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/">دليل PLA وPETG وABS</a> بين الخامات بتفصيل أكبر.</p>
-          <p>الفلمنت المعروض حاليًا في <a href="/3d/ar/">Black Arrow 3D</a> هو PLA+ (75 ريالًا للكيلو) وKINGROON PLA Basic (59 ريالًا للكيلو) وKINGROON PETG Basic (59 ريالًا للكيلو)، وتُشحن الطلبات المتوفرة في المخزون في اليوم نفسه من الدمام إذا تمت قبل الساعة 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس.</p>
+          <p>الفلمنت المعروض حاليًا في <a href="/3d/ar/">Black Arrow 3D</a> هو PLA+ (75 ريالًا للكيلو) وKINGROON PLA Basic (65 ريالًا للكيلو) وKINGROON PETG Basic (65 ريالًا للكيلو)، وتُشحن الطلبات المتوفرة في المخزون في اليوم نفسه من الدمام إذا تمت قبل الساعة 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس.</p>
 
           <h2>الأسئلة الشائعة</h2>
           <h3>كيف أعرف أن الفلمنت امتص الرطوبة؟</h3>
@@ -276,7 +276,7 @@ POSTS = [
               </tbody>
             </table>
           </div>
-          <p>The A1 mini printer-only option is currently out of stock, so the Combo is the version available now. A 1&nbsp;kg spool of KINGROON PLA Basic or PETG Basic is currently 59 SAR, enough for many small project parts. Every printer order qualifies for free regular delivery, and you can pay by card (Visa, Mastercard, mada), Apple Pay, bank transfer, or split the payment with Tabby or Tamara; a pay-later service fee applies to orders that include printers or filament. For a wider comparison, see the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> and the <a href="/3d/blog/buy-3d-printer-saudi-arabia-price-guide/">3D printer price guide</a>.</p>
+          <p>The A1 mini printer-only option is currently out of stock, so the Combo is the version available now. A 1&nbsp;kg spool of KINGROON PLA Basic or PETG Basic is currently 65 SAR, enough for many small project parts. Every printer order qualifies for free regular delivery, and you can pay by card (Visa, Mastercard, mada), Apple Pay, bank transfer, or split the payment with Tabby or Tamara; a pay-later service fee applies to orders that include printers or filament. For a wider comparison, see the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> and the <a href="/3d/blog/buy-3d-printer-saudi-arabia-price-guide/">3D printer price guide</a>.</p>
 
           <h2>File formats: STL, 3MF and STEP</h2>
           <ul>
@@ -392,7 +392,7 @@ POSTS = [
               </tbody>
             </table>
           </div>
-          <p>خيار A1 mini دون AMS غير متوفر حاليًا، لذلك نسخة الكومبو هي المتاحة الآن. وسعر بكرة KINGROON PLA Basic أو PETG Basic بوزن 1 كجم حاليًا 59 ريالًا، وتكفي لقطع مشاريع صغيرة كثيرة. وتحصل كل طلبات الطابعات على توصيل عادي مجاني، ويمكنك الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي، أو تقسيط المبلغ عبر تابي أو تمارا، مع رسوم خدمة للدفع الآجل على الطلبات التي تشمل طابعات أو فلمنت. ولمقارنة أوسع، اقرأ <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a> و<a href="/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/">دليل أسعار الطابعات ثلاثية الأبعاد</a>.</p>
+          <p>خيار A1 mini دون AMS غير متوفر حاليًا، لذلك نسخة الكومبو هي المتاحة الآن. وسعر بكرة KINGROON PLA Basic أو PETG Basic بوزن 1 كجم حاليًا 65 ريالًا، وتكفي لقطع مشاريع صغيرة كثيرة. وتحصل كل طلبات الطابعات على توصيل عادي مجاني، ويمكنك الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي، أو تقسيط المبلغ عبر تابي أو تمارا، مع رسوم خدمة للدفع الآجل على الطلبات التي تشمل طابعات أو فلمنت. ولمقارنة أوسع، اقرأ <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a> و<a href="/3d/ar/blog/buy-3d-printer-saudi-arabia-price-guide/">دليل أسعار الطابعات ثلاثية الأبعاد</a>.</p>
 
           <h2>صيغ الملفات: STL و3MF وSTEP</h2>
           <ul>
@@ -520,7 +520,7 @@ POSTS = [
             </table>
           </div>
           <p>Stock notes: the A1 mini printer-only version and the P2S printer-only version are currently out of stock, so the Combo versions above are the ones available now. The Bambu Lab A1 is also currently out of stock. Every printer order ships with free regular delivery anywhere in Saudi Arabia. For a deeper comparison of entry-level models, read the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> and the <a href="/3d/blog/bambu-lab-a1-mini-combo-review/">Bambu Lab A1 mini Combo review</a>.</p>
-          <p>For filament, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is currently 59 SAR per 1&nbsp;kg spool in many bright colors, and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is 75 SAR, currently in stock in black, gray and white.</p>
+          <p>For filament, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is currently 65 SAR per 1&nbsp;kg spool in many bright colors, and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is 75 SAR, currently in stock in black, gray and white.</p>
 
           <h2>Project ideas for kids</h2>
           <ul>
@@ -631,7 +631,7 @@ POSTS = [
             </table>
           </div>
           <p>ملاحظات التوفر: نسخة A1 mini دون AMS ونسخة P2S دون AMS غير متوفرتين حاليًا، لذلك نسخ الكومبو أعلاه هي المتاحة الآن. وطابعة Bambu Lab A1 غير متوفرة حاليًا أيضًا. وكل طلب طابعة يُشحن بتوصيل عادي مجاني إلى أي مكان في السعودية. ولمقارنة أعمق بين طرازات البداية، اقرأ <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a> و<a href="/3d/ar/blog/bambu-lab-a1-mini-combo-review/">مراجعة Bambu Lab A1 mini Combo</a>.</p>
-          <p>أما الفلمنت، فسعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> حاليًا 59 ريالًا للبكرة بوزن 1 كجم بألوان زاهية كثيرة، و<a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a> بسعر 75 ريالًا، ومتوفر حاليًا بالأسود والرمادي والأبيض.</p>
+          <p>أما الفلمنت، فسعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> حاليًا 65 ريالًا للبكرة بوزن 1 كجم بألوان زاهية كثيرة، و<a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a> بسعر 75 ريالًا، ومتوفر حاليًا بالأسود والرمادي والأبيض.</p>
 
           <h2>أفكار مشاريع للأطفال</h2>
           <ul>

@@ -46,7 +46,7 @@ POSTS = [
           <p>Need big parts such as cosplay armour or large architecture models? The <a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (currently from 2,999 SAR) has a 420 x 420 x 500&nbsp;mm build volume. Compare every option on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
           <h2>Filament for Riyadh</h2>
-          <p>PLA is the right choice for most models and gifts. For parts that will sit in a hot car or near a sunny window, PETG is more heat resistant. KINGROON <a href="/3d/product/kingroon-pla-basic-filament/">PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> are currently 59 SAR per 1&nbsp;kg spool. Not sure which to choose? Read <a href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">PLA vs PETG vs ABS</a>.</p>
+          <p>PLA is the right choice for most models and gifts. For parts that will sit in a hot car or near a sunny window, PETG is more heat resistant. KINGROON <a href="/3d/product/kingroon-pla-basic-filament/">PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> are currently 65 SAR per 1&nbsp;kg spool. Not sure which to choose? Read <a href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">PLA vs PETG vs ABS</a>.</p>
 
           <h2>Delivery to Riyadh</h2>
           <p>We ship from Dammam to every district of Riyadh. In-stock items ordered before 4&nbsp;pm (Saudi time), Sunday to Thursday, are dispatched the same day; later orders leave on the next business day.</p>
@@ -119,7 +119,7 @@ POSTS = [
           <p>تحتاج قطعًا كبيرة مثل دروع الكوسبلاي أو المجسمات المعمارية الكبيرة؟ توفر <a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (حاليًا من 2,999 ريالًا) مساحة طباعة 420 × 420 × 500 مم. قارن جميع الخيارات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
           <h2>الفلمنت المناسب للرياض</h2>
-          <p>فلمنت PLA هو الخيار الأنسب لمعظم المجسمات والهدايا. أما القطع التي ستبقى في سيارة حارة أو قرب نافذة مشمسة فالأفضل لها PETG لأنه يتحمل الحرارة أكثر. سعر بكرة <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> حاليًا 59 ريالًا لكل 1 كجم. محتار في الاختيار؟ اقرأ <a href="/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/">مقارنة PLA وPETG وABS</a>.</p>
+          <p>فلمنت PLA هو الخيار الأنسب لمعظم المجسمات والهدايا. أما القطع التي ستبقى في سيارة حارة أو قرب نافذة مشمسة فالأفضل لها PETG لأنه يتحمل الحرارة أكثر. سعر بكرة <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> حاليًا 65 ريالًا لكل 1 كجم. محتار في الاختيار؟ اقرأ <a href="/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/">مقارنة PLA وPETG وABS</a>.</p>
 
           <h2>التوصيل إلى الرياض</h2>
           <p>نشحن من الدمام إلى جميع أحياء الرياض. الطلبات المتوفرة في المخزون قبل الساعة 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وما بعد ذلك يُشحن في يوم العمل التالي.</p>
@@ -336,7 +336,7 @@ POSTS = [
           <p>See every model on the <a href="/3d/shop/3d-printers/">3D printers page</a>, or read the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> guide.</p>
 
           <h2>Filament and accessories</h2>
-          <p>White and grey PLA are the standard for architecture models because they show shape and shadow clearly. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR, and KINGROON PLA Basic is currently 59 SAR. Keep a spare <a href="/3d/product/bambu-hotend-a1-series/">A1 series hotend</a> (currently 110 SAR) if you print every day on an A1 mini.</p>
+          <p>White and grey PLA are the standard for architecture models because they show shape and shadow clearly. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR, and KINGROON PLA Basic is currently 65 SAR. Keep a spare <a href="/3d/product/bambu-hotend-a1-series/">A1 series hotend</a> (currently 110 SAR) if you print every day on an A1 mini.</p>
 
           <h2>Delivery to Makkah</h2>
           <p>We deliver to all districts of Makkah from our base in Dammam. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; later orders go out the next business day. Choose standard delivery (4–5 business days, 30 SAR) or fast delivery (2–3 business days, 50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping. Pre-order items follow the timing shown on their product page.</p>
@@ -403,7 +403,7 @@ POSTS = [
           <p>اطّلع على جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>، أو اقرأ دليل <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a>.</p>
 
           <h2>الفلمنت والإكسسوارات</h2>
-          <p>فلمنت PLA الأبيض والرمادي هو المعتاد في المجسمات المعمارية لأنه يُظهر الشكل والظلال بوضوح. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 59 ريالًا. وإذا كنت تطبع يوميًا على A1 mini فاحتفظ بـ <a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند احتياطي لسلسلة A1</a> (حاليًا 110 ريالات).</p>
+          <p>فلمنت PLA الأبيض والرمادي هو المعتاد في المجسمات المعمارية لأنه يُظهر الشكل والظلال بوضوح. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 65 ريالًا. وإذا كنت تطبع يوميًا على A1 mini فاحتفظ بـ <a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند احتياطي لسلسلة A1</a> (حاليًا 110 ريالات).</p>
 
           <h2>التوصيل إلى مكة المكرمة</h2>
           <p>نوصل إلى جميع أحياء مكة من مقرنا في الدمام. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وما بعد ذلك في يوم العمل التالي. اختر التوصيل العادي (4–5 أيام عمل، 30 ريالًا) أو السريع (2–3 أيام عمل، 50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. المطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن، أما منتجات الطلب المسبق فتتبع المدة الموضحة في صفحة كل منتج.</p>
@@ -476,7 +476,7 @@ POSTS = [
           <p>Not sure how multicolour printing works? Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a>, or compare everything on the <a href="/3d/shop/3d-printers/">printers page</a>.</p>
 
           <h2>Filament</h2>
-          <p>For signs and gifts, PLA gives the best colours and the easiest printing. KINGROON PLA Basic is currently 59 SAR per kilo in black, white, grey, silver, red and orange. For items that sit outdoors, use PETG. See the full range in the <a href="/3d/shop/filament/">filament shop</a>.</p>
+          <p>For signs and gifts, PLA gives the best colours and the easiest printing. KINGROON PLA Basic is currently 65 SAR per kilo in black, white, grey, silver, red and orange. For items that sit outdoors, use PETG. See the full range in the <a href="/3d/shop/filament/">filament shop</a>.</p>
 
           <h2>Delivery to Madinah</h2>
           <p>Orders are shipped from Dammam to any address in Madinah. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery: 4–5 business days for 30 SAR. Fast delivery: 2–3 business days for 50 SAR. Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
@@ -545,7 +545,7 @@ POSTS = [
           <p>لا تعرف كيف تعمل الطباعة متعددة الألوان؟ اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a>، أو قارن جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
           <h2>الفلمنت</h2>
-          <p>للوحات والهدايا يعطي PLA أجمل الألوان وأسهل طباعة. سعر KINGROON PLA Basic حاليًا 59 ريالًا للكيلو بألوان الأسود والأبيض والرمادي والفضي والأحمر والبرتقالي. وللقطع التي تبقى في الخارج استخدم PETG. تصفح المجموعة كاملة في <a href="/3d/ar/shop/filament/">قسم الفلمنت</a>.</p>
+          <p>للوحات والهدايا يعطي PLA أجمل الألوان وأسهل طباعة. سعر KINGROON PLA Basic حاليًا 65 ريالًا للكيلو بألوان الأسود والأبيض والرمادي والفضي والأحمر والبرتقالي. وللقطع التي تبقى في الخارج استخدم PETG. تصفح المجموعة كاملة في <a href="/3d/ar/shop/filament/">قسم الفلمنت</a>.</p>
 
           <h2>التوصيل إلى المدينة المنورة</h2>
           <p>نشحن الطلبات من الدمام إلى أي عنوان في المدينة المنورة. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل بتكلفة 30 ريالًا. التوصيل السريع: 2–3 أيام عمل بتكلفة 50 ريالًا. التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
@@ -619,7 +619,7 @@ POSTS = [
           <p><strong>For students and beginners:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is the easiest place to start. See the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner’s guide</a> and the full <a href="/3d/shop/3d-printers/">printer range</a>.</p>
 
           <h2>Filament and spare parts</h2>
-          <p>KINGROON <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> (currently 59 SAR) is a good everyday engineering material: tougher and more heat resistant than PLA. Bambu Lab A1 series owners can find replacement hotends in <a href="/3d/shop/accessories/">accessories</a>. Read <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a> before choosing materials for functional parts.</p>
+          <p>KINGROON <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> (currently 65 SAR) is a good everyday engineering material: tougher and more heat resistant than PLA. Bambu Lab A1 series owners can find replacement hotends in <a href="/3d/shop/accessories/">accessories</a>. Read <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a> before choosing materials for functional parts.</p>
 
           <h2>Delivery in Dammam, Khobar and Dhahran</h2>
           <p>Delivery terms are the same across Saudi Arabia. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
@@ -691,7 +691,7 @@ POSTS = [
           <p><strong>للطلاب والمبتدئين:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) أسهل نقطة بداية. اطّلع على <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a> و<a href="/3d/ar/shop/3d-printers/">جميع الطابعات</a>.</p>
 
           <h2>الفلمنت وقطع الغيار</h2>
-          <p>فلمنت <a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> (حاليًا 59 ريالًا) خامة هندسية يومية جيدة، أقوى من PLA وأكثر تحملًا للحرارة. ويجد مالكو طابعات Bambu Lab من سلسلة A1 هوت إند بديلًا في <a href="/3d/ar/shop/accessories/">قسم الإكسسوارات</a>. اقرأ <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a> قبل اختيار خامة القطع العملية.</p>
+          <p>فلمنت <a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> (حاليًا 65 ريالًا) خامة هندسية يومية جيدة، أقوى من PLA وأكثر تحملًا للحرارة. ويجد مالكو طابعات Bambu Lab من سلسلة A1 هوت إند بديلًا في <a href="/3d/ar/shop/accessories/">قسم الإكسسوارات</a>. اقرأ <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a> قبل اختيار خامة القطع العملية.</p>
 
           <h2>التوصيل في الدمام والخبر والظهران</h2>
           <p>شروط التوصيل واحدة في جميع أنحاء المملكة. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
@@ -763,7 +763,7 @@ POSTS = [
           <p>Compare all models on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
           <h2>Filament and spares</h2>
-          <p>KINGROON <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> and PLA Basic are each currently 59 SAR per kilo. Keep spare nozzles and hotends for printers that run every day; you will find them under <a href="/3d/shop/accessories/">accessories</a>.</p>
+          <p>KINGROON <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> and PLA Basic are each currently 65 SAR per kilo. Keep spare nozzles and hotends for printers that run every day; you will find them under <a href="/3d/shop/accessories/">accessories</a>.</p>
 
           <h2>Delivery to Jubail and Al Ahsa</h2>
           <p>We ship from Dammam to Jubail, Al Ahsa and every other city in Saudi Arabia on the same terms. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery: 4–5 business days (30 SAR). Fast delivery: 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
@@ -829,7 +829,7 @@ POSTS = [
           <p>قارن جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
           <h2>الفلمنت وقطع الغيار</h2>
-          <p>سعر <a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> وKINGROON PLA Basic حاليًا 59 ريالًا للكيلو لكل منهما. واحتفظ بفوهات وهوت إند احتياطية للطابعات التي تعمل يوميًا، وتجدها في <a href="/3d/ar/shop/accessories/">قسم الإكسسوارات</a>.</p>
+          <p>سعر <a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> وKINGROON PLA Basic حاليًا 65 ريالًا للكيلو لكل منهما. واحتفظ بفوهات وهوت إند احتياطية للطابعات التي تعمل يوميًا، وتجدها في <a href="/3d/ar/shop/accessories/">قسم الإكسسوارات</a>.</p>
 
           <h2>التوصيل إلى الجبيل والأحساء</h2>
           <p>نشحن من الدمام إلى الجبيل والأحساء وكل مدن المملكة بالشروط نفسها. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل (30 ريالًا). التوصيل السريع: 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
@@ -901,7 +901,7 @@ POSTS = [
           <p>Compare them on the <a href="/3d/shop/3d-printers/">3D printers page</a> or read our <a href="/3d/blog/bambu-lab-vs-creality-vs-snapmaker/">Bambu Lab vs Creality vs Snapmaker</a> comparison.</p>
 
           <h2>Filament</h2>
-          <p>PLA for indoor items and gifts, PETG for outdoor and farm use. KINGROON PLA Basic and <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> are currently 59 SAR per kilo each. Browse all spools in the <a href="/3d/shop/filament/">filament shop</a>.</p>
+          <p>PLA for indoor items and gifts, PETG for outdoor and farm use. KINGROON PLA Basic and <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> are currently 65 SAR per kilo each. Browse all spools in the <a href="/3d/shop/filament/">filament shop</a>.</p>
 
           <h2>Delivery to Buraidah, Unaizah and the rest of Qassim</h2>
           <p>We ship from Dammam to addresses across the Qassim region. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery: 4–5 business days (30 SAR). Fast delivery: 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping. Pre-order items follow the timing shown on their product page.</p>
@@ -969,7 +969,7 @@ POSTS = [
           <p>قارن بينها في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a> أو اقرأ <a href="/3d/ar/blog/bambu-lab-vs-creality-vs-snapmaker/">مقارنة Bambu Lab وCreality وSnapmaker</a>.</p>
 
           <h2>الفلمنت</h2>
-          <p>PLA للقطع الداخلية والهدايا، وPETG للاستخدام الخارجي وفي المزارع. سعر KINGROON PLA Basic و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> حاليًا 59 ريالًا للكيلو لكل منهما. تصفح جميع البكرات في <a href="/3d/ar/shop/filament/">قسم الفلمنت</a>.</p>
+          <p>PLA للقطع الداخلية والهدايا، وPETG للاستخدام الخارجي وفي المزارع. سعر KINGROON PLA Basic و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> حاليًا 65 ريالًا للكيلو لكل منهما. تصفح جميع البكرات في <a href="/3d/ar/shop/filament/">قسم الفلمنت</a>.</p>
 
           <h2>التوصيل إلى بريدة وعنيزة وبقية القصيم</h2>
           <p>نشحن من الدمام إلى العناوين في جميع أنحاء منطقة القصيم. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل (30 ريالًا). التوصيل السريع: 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن، أما منتجات الطلب المسبق فتتبع المدة الموضحة في صفحة كل منتج.</p>
@@ -1038,7 +1038,7 @@ POSTS = [
           <p>Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a> or browse all <a href="/3d/shop/3d-printers/">3D printers</a>.</p>
 
           <h2>Filament</h2>
-          <p>PLA is the easiest material in cool rooms because it warps the least. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR and KINGROON PLA Basic is currently 59 SAR. Check the <a href="/3d/shop/filament/">filament shop</a> for the colours currently in stock.</p>
+          <p>PLA is the easiest material in cool rooms because it warps the least. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR and KINGROON PLA Basic is currently 65 SAR. Check the <a href="/3d/shop/filament/">filament shop</a> for the colours currently in stock.</p>
 
           <h2>Delivery to Abha and Khamis Mushait</h2>
           <p>We deliver from Dammam to Abha, Khamis Mushait and the surrounding Asir towns. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
@@ -1103,7 +1103,7 @@ POSTS = [
           <p>اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a> أو تصفح جميع <a href="/3d/ar/shop/3d-printers/">الطابعات ثلاثية الأبعاد</a>.</p>
 
           <h2>الفلمنت</h2>
-          <p>فلمنت PLA الأسهل في الغرف الباردة لأنه الأقل التواءً. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 59 ريالًا. راجع <a href="/3d/ar/shop/filament/">قسم الفلمنت</a> لمعرفة الألوان المتوفرة حاليًا.</p>
+          <p>فلمنت PLA الأسهل في الغرف الباردة لأنه الأقل التواءً. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 65 ريالًا. راجع <a href="/3d/ar/shop/filament/">قسم الفلمنت</a> لمعرفة الألوان المتوفرة حاليًا.</p>
 
           <h2>التوصيل إلى أبها وخميس مشيط</h2>
           <p>نوصل من الدمام إلى أبها وخميس مشيط والبلدات المحيطة في عسير. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
@@ -1172,7 +1172,7 @@ POSTS = [
           <p>For students starting out with PLA, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is reliable in a warm room. For large terrain or site models, the <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (currently 4,200 SAR) offers a 330 x 320 x 325&nbsp;mm build volume. Our <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L comparison</a> explains the differences, and the full range is on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
           <h2>Filament</h2>
-          <p>Start with PLA for models and gifts, and move to PETG for parts that need to be tougher. KINGROON <a href="/3d/product/kingroon-pla-basic-filament/">PLA Basic</a> and PETG Basic are currently 59 SAR per kilo. Not sure which to buy? See <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a>.</p>
+          <p>Start with PLA for models and gifts, and move to PETG for parts that need to be tougher. KINGROON <a href="/3d/product/kingroon-pla-basic-filament/">PLA Basic</a> and PETG Basic are currently 65 SAR per kilo. Not sure which to buy? See <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a>.</p>
 
           <h2>Delivery to Tabuk</h2>
           <p>We ship from Dammam to Tabuk city and the surrounding region. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
@@ -1237,7 +1237,7 @@ POSTS = [
           <p>وللطلاب المبتدئين بـ PLA، تعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) بثبات في غرفة دافئة. ولمجسمات التضاريس والمواقع الكبيرة، توفر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (حاليًا 4,200 ريال) مساحة طباعة 330 × 320 × 325 مم. تشرح <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a> الفروق، وتجد جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
           <h2>الفلمنت</h2>
-          <p>ابدأ بـ PLA للمجسمات والهدايا، وانتقل إلى PETG للقطع التي تحتاج صلابة أكبر. سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> وKINGROON PETG Basic حاليًا 59 ريالًا للكيلو. محتار في الاختيار؟ راجع <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>.</p>
+          <p>ابدأ بـ PLA للمجسمات والهدايا، وانتقل إلى PETG للقطع التي تحتاج صلابة أكبر. سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> وKINGROON PETG Basic حاليًا 65 ريالًا للكيلو. محتار في الاختيار؟ راجع <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>.</p>
 
           <h2>التوصيل إلى تبوك</h2>
           <p>نشحن من الدمام إلى مدينة تبوك والمنطقة المحيطة بها. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>

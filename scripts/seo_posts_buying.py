@@ -68,7 +68,7 @@ POSTS = [
             <li><strong>Payment:</strong> bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby and Tamara. Pay-later orders carry a service fee shown at checkout.</li>
             <li><strong>Warranty:</strong> printers come with the manufacturer’s warranty for defects, and the team helps you with warranty claims.</li>
             <li><strong>Support:</strong> Arabic and English, on WhatsApp +966&nbsp;56&nbsp;022&nbsp;4715 or sales@blackarrowksa.com.</li>
-            <li><strong>Filament and parts:</strong> <a href="/3d/shop/filament/">PLA, PLA+ and PETG filament</a> from 59&nbsp;SAR per 1&nbsp;kg spool, and <a href="/3d/product/bambu-hotend-a1-series/">A1-series hot ends</a> at 110&nbsp;SAR.</li>
+            <li><strong>Filament and parts:</strong> <a href="/3d/shop/filament/">PLA, PLA+ and PETG filament</a> from 65&nbsp;SAR per 1&nbsp;kg spool, and <a href="/3d/product/bambu-hotend-a1-series/">A1-series hot ends</a> at 110&nbsp;SAR.</li>
           </ul>
           <p>To be fair about the limits: the range is focused on a dozen printers, and some models are currently out of stock (for example the standalone versions of the <a href="/3d/product/bambu-lab-a1/">Bambu Lab A1</a>, A1 mini and P2S). Stock is shown on every product page.</p>
 
@@ -171,7 +171,7 @@ POSTS = [
             <li><strong>الدفع:</strong> تحويل بنكي، وبطاقة (Visa وMastercard ومدى)، وApple Pay، وتابي وتمارا. طلبات الدفع الآجل عليها رسوم خدمة تظهر عند إتمام الطلب.</li>
             <li><strong>الضمان:</strong> الطابعات مشمولة بضمان الشركة المصنّعة ضد العيوب، والفريق يساعدك في مطالبات الضمان.</li>
             <li><strong>الدعم:</strong> بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو sales@blackarrowksa.com.</li>
-            <li><strong>الفلمنت وقطع الغيار:</strong> <a href="/3d/ar/shop/filament/">فلمنت PLA وPLA+ وPETG</a> من 59 ريالًا للبكرة 1 كجم، و<a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند لسلسلة A1</a> بسعر 110 ريال.</li>
+            <li><strong>الفلمنت وقطع الغيار:</strong> <a href="/3d/ar/shop/filament/">فلمنت PLA وPLA+ وPETG</a> من 65 ريالًا للبكرة 1 كجم، و<a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند لسلسلة A1</a> بسعر 110 ريال.</li>
           </ul>
           <p>وللإنصاف في الحدود: التشكيلة مركّزة على نحو اثنتي عشرة طابعة، وبعض الطرازات غير متوفرة حاليًا (مثل النسخ المنفردة من <a href="/3d/ar/product/bambu-lab-a1/">Bambu Lab A1</a> وA1 mini وP2S). حالة المخزون ظاهرة في صفحة كل منتج.</p>
 
@@ -290,8 +290,8 @@ POSTS = [
 
           <h2>When paying in full is cheaper</h2>
           <ul>
-            <li><strong>Whenever you can afford it upfront.</strong> Paying by card (Visa, Mastercard, mada), Apple Pay or bank transfer avoids the 100&nbsp;SAR pay-later fee on a printer order. That alone covers a spool of filament, which costs from 59&nbsp;SAR.</li>
-            <li><strong>On small add-on orders.</strong> A filament-only order paid later adds 50&nbsp;SAR, which is close to the price of a whole 1&nbsp;kg spool of <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> (59&nbsp;SAR). Buying filament together with the printer, or paying for it in full, is better value.</li>
+            <li><strong>Whenever you can afford it upfront.</strong> Paying by card (Visa, Mastercard, mada), Apple Pay or bank transfer avoids the 100&nbsp;SAR pay-later fee on a printer order. That alone covers a spool of filament, which costs from 65&nbsp;SAR.</li>
+            <li><strong>On small add-on orders.</strong> A filament-only order paid later adds 50&nbsp;SAR, which is close to the price of a whole 1&nbsp;kg spool of <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> (65&nbsp;SAR). Buying filament together with the printer, or paying for it in full, is better value.</li>
             <li><strong>If you might miss a payment.</strong> Providers can charge late fees under their own terms. Read the provider’s terms and set up reminders.</li>
           </ul>
           <p>Instalments make the most sense when spreading the cost lets you buy the right printer now instead of a cheaper one you will outgrow, for example choosing the A2L Combo for its 330 x 320 x 325&nbsp;mm build volume instead of a smaller machine.</p>
@@ -394,8 +394,8 @@ POSTS = [
 
           <h2>متى يكون الدفع كاملًا أوفر</h2>
           <ul>
-            <li><strong>كلما استطعت الدفع مقدمًا.</strong> الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي يجنبك رسوم 100 ريال على طلب الطابعة، وهذا المبلغ وحده يغطي بكرة فلمنت يبدأ سعرها من 59 ريالًا.</li>
-            <li><strong>في الطلبات الإضافية الصغيرة.</strong> طلب الفلمنت فقط بالدفع الآجل يضيف 50 ريالًا، وهو قريب من سعر بكرة كاملة 1 كجم من <a href="/3d/ar/product/kingroon-pla-basic-filament/">فلمنت KINGROON PLA</a> (59 ريالًا). شراء الفلمنت مع الطابعة أو دفع ثمنه كاملًا أوفر.</li>
+            <li><strong>كلما استطعت الدفع مقدمًا.</strong> الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي يجنبك رسوم 100 ريال على طلب الطابعة، وهذا المبلغ وحده يغطي بكرة فلمنت يبدأ سعرها من 65 ريالًا.</li>
+            <li><strong>في الطلبات الإضافية الصغيرة.</strong> طلب الفلمنت فقط بالدفع الآجل يضيف 50 ريالًا، وهو قريب من سعر بكرة كاملة 1 كجم من <a href="/3d/ar/product/kingroon-pla-basic-filament/">فلمنت KINGROON PLA</a> (65 ريالًا). شراء الفلمنت مع الطابعة أو دفع ثمنه كاملًا أوفر.</li>
             <li><strong>إذا كنت قد تتأخر في السداد.</strong> قد يفرض المزودون رسوم تأخير بحسب شروطهم، فاقرأ الشروط وفعّل التذكيرات.</li>
           </ul>
           <p>يكون التقسيط منطقيًا أكثر عندما يتيح لك شراء الطابعة المناسبة الآن بدل طابعة أرخص ستتجاوزها قريبًا، مثل اختيار A2L كومبو بحجم طباعة 330 x 320 x 325 مم بدل طابعة أصغر.</p>
@@ -624,7 +624,7 @@ POSTS = [
             'card': ('Buying guide', '8 min read', 'What to print and sell, real startup costs in SAR, cost per print and where to sell: a practical start for a Saudi 3D printing business.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>You can start a small 3D printing business in Saudi Arabia for roughly <strong>3,000–3,500&nbsp;SAR</strong>: a Bambu Lab A1 mini Combo (currently 2,749&nbsp;SAR) plus 5–10 spools of PLA filament at 59&nbsp;SAR per 1&nbsp;kg. Filament costs about <strong>0.06&nbsp;SAR per gram</strong> (59&nbsp;SAR ÷ 1,000&nbsp;g), so a 10&nbsp;g keychain uses about 0.6&nbsp;SAR of material. Popular products are personalised gifts, keychains, desk items, cosplay parts, replacement parts and architecture models. Sell through Instagram, a Salla or Zid store and local events, check the current Ministry of Commerce requirements (such as Maroof or a commercial registration) before you start selling, and avoid selling licensed characters without permission.</p>
+          <p>You can start a small 3D printing business in Saudi Arabia for roughly <strong>3,000–3,500&nbsp;SAR</strong>: a Bambu Lab A1 mini Combo (currently 2,749&nbsp;SAR) plus 5–10 spools of PLA filament at 65&nbsp;SAR per 1&nbsp;kg. Filament costs about <strong>0.065&nbsp;SAR per gram</strong> (65&nbsp;SAR ÷ 1,000&nbsp;g), so a 10&nbsp;g keychain uses about 0.65&nbsp;SAR of material. Popular products are personalised gifts, keychains, desk items, cosplay parts, replacement parts and architecture models. Sell through Instagram, a Salla or Zid store and local events, check the current Ministry of Commerce requirements (such as Maroof or a commercial registration) before you start selling, and avoid selling licensed characters without permission.</p>
 
           <h2>What to print and sell</h2>
           <ul>
@@ -644,9 +644,9 @@ POSTS = [
                 <tr><th>Setup</th><th>Printer (current price)</th><th>Filament</th><th>Approx. total (SAR)</th></tr>
               </thead>
               <tbody>
-                <tr><td>Starter: small items, multi-color</td><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> 2,749</td><td>6 x PLA at 59 = 354</td><td>3,053</td></tr>
-                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> 4,200</td><td>8 x PLA + 2 x PETG at 59 = 590</td><td>4,790</td></tr>
-                <tr><td>Enclosed daily production</td><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> 6,299</td><td>8 x PLA + 2 x PETG at 59 = 590</td><td>6,889</td></tr>
+                <tr><td>Starter: small items, multi-color</td><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> 2,749</td><td>6 x PLA at 65 = 390</td><td>3,139</td></tr>
+                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> 4,200</td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>4,850</td></tr>
+                <tr><td>Enclosed daily production</td><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> 6,299</td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
           </div>
@@ -660,16 +660,16 @@ POSTS = [
                 <tr><th>Filament (1&nbsp;kg)</th><th>Current price (SAR)</th><th>Cost per gram (SAR)</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>59</td><td>0.059</td></tr>
-                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>59</td><td>0.059</td></tr>
+                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>65</td><td>0.065</td></tr>
+                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>65</td><td>0.065</td></tr>
                 <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>75</td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Worked examples with PLA at 0.059&nbsp;SAR/g:</p>
+          <p>Worked examples with PLA at 0.065&nbsp;SAR/g:</p>
           <ul>
-            <li>A 10&nbsp;g keychain: about 0.59&nbsp;SAR of filament.</li>
-            <li>A 150&nbsp;g controller stand: about 8.85&nbsp;SAR of filament.</li>
+            <li>A 10&nbsp;g keychain: about 0.65&nbsp;SAR of filament.</li>
+            <li>A 150&nbsp;g controller stand: about 9.75&nbsp;SAR of filament.</li>
             <li>A 400&nbsp;g cosplay part: about 23.60&nbsp;SAR of filament.</li>
           </ul>
           <p>Your slicer shows the exact grams for each model. Add a margin for failed prints and supports (10–20% is a practical starting assumption), and remember that multi-color prints waste extra filament when the printer purges between colors. Electricity is small: the A1 mini is rated at 150&nbsp;W maximum, so even a 5-hour print uses at most 0.75&nbsp;kWh. The real costs are your time (design, removing supports, packing, messaging customers) and delivery. Price for those, not just for plastic.</p>
@@ -693,9 +693,9 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>How much does it cost to start a 3D printing business in Saudi Arabia?</h3>
-          <p>About 3,000–3,500&nbsp;SAR for a starter setup: a Bambu Lab A1 mini Combo at 2,749&nbsp;SAR plus 5–10 spools of PLA at 59&nbsp;SAR each. A larger A2L Combo setup is about 4,800&nbsp;SAR with 10 spools.</p>
+          <p>About 3,000–3,500&nbsp;SAR for a starter setup: a Bambu Lab A1 mini Combo at 2,749&nbsp;SAR plus 5–10 spools of PLA at 65&nbsp;SAR each. A larger A2L Combo setup is about 4,850&nbsp;SAR with 10 spools.</p>
           <h3>How much does one 3D print cost to make?</h3>
-          <p>With PLA at 59&nbsp;SAR per kg, filament costs about 0.059&nbsp;SAR per gram: roughly 0.59&nbsp;SAR for a 10&nbsp;g keychain and 8.85&nbsp;SAR for a 150&nbsp;g stand, before failed prints, packaging, time and delivery.</p>
+          <p>With PLA at 65&nbsp;SAR per kg, filament costs about 0.065&nbsp;SAR per gram: roughly 0.65&nbsp;SAR for a 10&nbsp;g keychain and 9.75&nbsp;SAR for a 150&nbsp;g stand, before failed prints, packaging, time and delivery.</p>
           <h3>Do I need a licence to sell 3D printed products in Saudi Arabia?</h3>
           <p>Check with the Ministry of Commerce and its official platforms, including Maroof and commercial registration options, because the right requirement depends on how and where you sell and the rules can change.</p>
           <h3>Can I sell 3D printed anime or game characters?</h3>
@@ -724,7 +724,7 @@ POSTS = [
             'card': ('دليل شراء', '8 دقائق قراءة', 'ماذا تطبع وتبيع، وتكلفة البداية بالريال، وتكلفة المطبوعة، وأين تبيع: بداية عملية لمشروع طباعة ثلاثية الأبعاد في السعودية.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>يمكنك بدء مشروع صغير للطباعة ثلاثية الأبعاد في السعودية بنحو <strong>3,000–3,500 ريال</strong>: طابعة Bambu Lab A1 mini كومبو (سعرها الحالي 2,749 ريالًا) مع 5–10 بكرات فلمنت PLA بسعر 59 ريالًا للكيلوجرام. يكلف الفلمنت نحو <strong>0.06 ريال للجرام</strong> (59 ريالًا ÷ 1,000 جرام)، أي أن ميدالية مفاتيح وزنها 10 جرامات تستهلك خامة بنحو 0.6 ريال. من المنتجات الرائجة: الهدايا المخصصة، وميداليات المفاتيح، وقطع المكتب، وقطع الكوسبلاي، وقطع الغيار، والمجسمات المعمارية. بِع عبر إنستغرام ومتجر على سلة أو زد والفعاليات المحلية، وتحقق من متطلبات وزارة التجارة الحالية (مثل معروف أو السجل التجاري) قبل البدء بالبيع، وتجنب بيع الشخصيات المرخصة دون إذن.</p>
+          <p>يمكنك بدء مشروع صغير للطباعة ثلاثية الأبعاد في السعودية بنحو <strong>3,000–3,500 ريال</strong>: طابعة Bambu Lab A1 mini كومبو (سعرها الحالي 2,749 ريالًا) مع 5–10 بكرات فلمنت PLA بسعر 65 ريالًا للكيلوجرام. يكلف الفلمنت نحو <strong>0.065 ريال للجرام</strong> (65 ريالًا ÷ 1,000 جرام)، أي أن ميدالية مفاتيح وزنها 10 جرامات تستهلك خامة بنحو 0.65 ريال. من المنتجات الرائجة: الهدايا المخصصة، وميداليات المفاتيح، وقطع المكتب، وقطع الكوسبلاي، وقطع الغيار، والمجسمات المعمارية. بِع عبر إنستغرام ومتجر على سلة أو زد والفعاليات المحلية، وتحقق من متطلبات وزارة التجارة الحالية (مثل معروف أو السجل التجاري) قبل البدء بالبيع، وتجنب بيع الشخصيات المرخصة دون إذن.</p>
 
           <h2>ماذا تطبع وتبيع</h2>
           <ul>
@@ -744,9 +744,9 @@ POSTS = [
                 <tr><th>التجهيز</th><th>الطابعة (السعر الحالي)</th><th>الفلمنت</th><th>الإجمالي التقريبي (ريال)</th></tr>
               </thead>
               <tbody>
-                <tr><td>بداية: قطع صغيرة متعددة الألوان</td><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> 2,749</td><td>6 بكرات PLA × 59 = 354</td><td>3,053</td></tr>
-                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> 4,200</td><td>8 PLA + 2 PETG × 59 = 590</td><td>4,790</td></tr>
-                <tr><td>إنتاج يومي بطابعة مغلقة</td><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a> 6,299</td><td>8 PLA + 2 PETG × 59 = 590</td><td>6,889</td></tr>
+                <tr><td>بداية: قطع صغيرة متعددة الألوان</td><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> 2,749</td><td>6 بكرات PLA × 65 = 390</td><td>3,139</td></tr>
+                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> 4,200</td><td>8 PLA + 2 PETG × 65 = 650</td><td>4,850</td></tr>
+                <tr><td>إنتاج يومي بطابعة مغلقة</td><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a> 6,299</td><td>8 PLA + 2 PETG × 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
           </div>
@@ -760,16 +760,16 @@ POSTS = [
                 <tr><th>الفلمنت (1 كجم)</th><th>السعر الحالي (ريال)</th><th>تكلفة الجرام (ريال)</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>59</td><td>0.059</td></tr>
-                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>59</td><td>0.059</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>65</td><td>0.065</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>65</td><td>0.065</td></tr>
                 <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>75</td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>
-          <p>أمثلة محسوبة بفلمنت PLA بتكلفة 0.059 ريال للجرام:</p>
+          <p>أمثلة محسوبة بفلمنت PLA بتكلفة 0.065 ريال للجرام:</p>
           <ul>
-            <li>ميدالية مفاتيح 10 جرامات: نحو 0.59 ريال من الفلمنت.</li>
-            <li>حامل يد ألعاب 150 جرامًا: نحو 8.85 ريال من الفلمنت.</li>
+            <li>ميدالية مفاتيح 10 جرامات: نحو 0.65 ريال من الفلمنت.</li>
+            <li>حامل يد ألعاب 150 جرامًا: نحو 9.75 ريال من الفلمنت.</li>
             <li>قطعة كوسبلاي 400 جرام: نحو 23.60 ريالًا من الفلمنت.</li>
           </ul>
           <p>برنامج التقطيع يعرض لك الجرامات الدقيقة لكل مجسم. أضف هامشًا للطباعات الفاشلة والدعامات (10–20% افتراض عملي للبداية)، وتذكّر أن الطباعة متعددة الألوان تهدر فلمنت إضافيًا عند تنظيف الفوهة بين الألوان. الكهرباء تكلفتها صغيرة: A1 mini مصنّفة بحد أقصى 150 واط، فحتى طباعة مدتها 5 ساعات تستهلك 0.75 كيلوواط ساعة على الأكثر. التكلفة الحقيقية هي وقتك (التصميم، وإزالة الدعامات، والتغليف، والرد على العملاء) والتوصيل، فسعّر على أساسها لا على أساس البلاستيك فقط.</p>
@@ -793,9 +793,9 @@ POSTS = [
 
           <h2>الأسئلة الشائعة</h2>
           <h3>كم تكلفة بدء مشروع طباعة ثلاثية الأبعاد في السعودية؟</h3>
-          <p>نحو 3,000–3,500 ريال لتجهيز البداية: طابعة Bambu Lab A1 mini كومبو بسعر 2,749 ريالًا مع 5–10 بكرات PLA بسعر 59 ريالًا للبكرة. وتجهيز أكبر مع A2L كومبو يكلف نحو 4,800 ريال مع 10 بكرات.</p>
+          <p>نحو 3,000–3,500 ريال لتجهيز البداية: طابعة Bambu Lab A1 mini كومبو بسعر 2,749 ريالًا مع 5–10 بكرات PLA بسعر 65 ريالًا للبكرة. وتجهيز أكبر مع A2L كومبو يكلف نحو 4,850 ريال مع 10 بكرات.</p>
           <h3>كم تكلفة إنتاج مطبوعة ثلاثية الأبعاد واحدة؟</h3>
-          <p>مع PLA بسعر 59 ريالًا للكيلوجرام، يكلف الفلمنت نحو 0.059 ريال للجرام: قرابة 0.59 ريال لميدالية 10 جرامات و8.85 ريال لحامل 150 جرامًا، قبل حساب الطباعات الفاشلة والتغليف والوقت والتوصيل.</p>
+          <p>مع PLA بسعر 65 ريالًا للكيلوجرام، يكلف الفلمنت نحو 0.065 ريال للجرام: قرابة 0.65 ريال لميدالية 10 جرامات و9.75 ريال لحامل 150 جرامًا، قبل حساب الطباعات الفاشلة والتغليف والوقت والتوصيل.</p>
           <h3>هل أحتاج ترخيصًا لبيع المنتجات المطبوعة ثلاثية الأبعاد في السعودية؟</h3>
           <p>تحقق من وزارة التجارة ومنصاتها الرسمية، ومنها معروف وخيارات السجل التجاري، لأن المتطلب المناسب يعتمد على طريقة البيع ومكانه، والأنظمة قد تتغير.</p>
           <h3>هل يمكنني بيع مطبوعات لشخصيات أنمي أو ألعاب؟</h3>
@@ -835,7 +835,7 @@ POSTS = [
           <h2>The 12-point checklist</h2>
 
           <h3>1. Budget, including filament</h3>
-          <p>Do not spend your whole budget on the printer. Plan for 3–5 spools of filament at 59–75&nbsp;SAR each (about 180–375&nbsp;SAR), delivery (30&nbsp;SAR Standard or 50&nbsp;SAR Fast, free on every printer order) and, later, a spare nozzle or hot end. If you plan to pay with Tabby or Tamara, add the 100&nbsp;SAR pay-later service fee on printer orders.</p>
+          <p>Do not spend your whole budget on the printer. Plan for 3–5 spools of filament at 65–75&nbsp;SAR each (about 195–375&nbsp;SAR), delivery (30&nbsp;SAR Standard or 50&nbsp;SAR Fast, free on every printer order) and, later, a spare nozzle or hot end. If you plan to pay with Tabby or Tamara, add the 100&nbsp;SAR pay-later service fee on printer orders.</p>
 
           <h3>2. Build size</h3>
           <p>Build volume decides the largest single piece you can print. As a guide, using current catalog sizes:</p>
@@ -878,7 +878,7 @@ POSTS = [
           <p>Printers carry the manufacturer’s warranty for defects. Ask who helps you with the claim and how the process works. Black Arrow 3D helps customers with warranty claims. Also read the <a href="/3d/returns/">return and exchange policy</a> before ordering.</p>
 
           <h3>11. Filament types and availability</h3>
-          <p>Start with PLA or PLA+: easy to print, low warping, no enclosure needed. Move to PETG for stronger, more heat-tolerant parts, and TPU for flexible items. Check the printer’s supported materials: the A2L, for example, is best with PLA, PETG and TPU, with ABS and ASA not recommended. Current local prices: <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> 59&nbsp;SAR, <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG</a> 59&nbsp;SAR, <a href="/3d/product/filament-pla-1kg/">PLA+</a> 75&nbsp;SAR per 1&nbsp;kg. Humid coastal cities like Dammam and Jeddah make dry storage important.</p>
+          <p>Start with PLA or PLA+: easy to print, low warping, no enclosure needed. Move to PETG for stronger, more heat-tolerant parts, and TPU for flexible items. Check the printer’s supported materials: the A2L, for example, is best with PLA, PETG and TPU, with ABS and ASA not recommended. Current local prices: <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> 65&nbsp;SAR, <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG</a> 65&nbsp;SAR, <a href="/3d/product/filament-pla-1kg/">PLA+</a> 75&nbsp;SAR per 1&nbsp;kg. Humid coastal cities like Dammam and Jeddah make dry storage important.</p>
 
           <h3>12. Learning resources</h3>
           <p>Choose a popular printer with a big community, so tutorials, ready-made profiles and model libraries are easy to find. Start with our guides: <a href="/3d/blog/bambu-lab-a1-mini-setup-guide/">A1 mini setup</a>, <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">first-layer adhesion</a> and <a href="/3d/blog/3d-printer-maintenance-guide/">printer maintenance</a>.</p>
@@ -889,7 +889,7 @@ POSTS = [
           <h3>Do I need an enclosed 3D printer in Saudi Arabia’s heat?</h3>
           <p>Not for PLA, PETG or TPU, as long as the printer is in an air-conditioned room. You need an enclosed printer mainly for ABS and ASA.</p>
           <h3>How much should I budget for my first 3D printer?</h3>
-          <p>About 3,000&nbsp;SAR for a beginner setup: an A1 mini Combo at 2,749&nbsp;SAR plus 3–5 spools of filament at 59–75&nbsp;SAR each.</p>
+          <p>About 3,000&nbsp;SAR for a beginner setup: an A1 mini Combo at 2,749&nbsp;SAR plus 3–5 spools of filament at 65–75&nbsp;SAR each.</p>
           <h3>Will a 3D printer work on Saudi 220&nbsp;V power?</h3>
           <p>Most modern printers accept a wide input range; the A1 mini is rated 100–240&nbsp;VAC. Check the rating for your model and whether the plug fits your sockets.</p>
 
@@ -921,7 +921,7 @@ POSTS = [
           <h2>قائمة التحقق من 12 نقطة</h2>
 
           <h3>1. الميزانية مع الفلمنت</h3>
-          <p>لا تصرف ميزانيتك كلها على الطابعة. خطط لـ3–5 بكرات فلمنت بسعر 59–75 ريالًا للبكرة (نحو 180–375 ريالًا)، والتوصيل (30 ريالًا عادي أو 50 ريالًا سريع، ومجاني لكل طلب طابعة)، ولاحقًا فوهة أو هوت إند احتياطي. وإذا كنت ستدفع عبر تابي أو تمارا، فأضف رسوم خدمة الدفع الآجل البالغة 100 ريال على طلبات الطابعات.</p>
+          <p>لا تصرف ميزانيتك كلها على الطابعة. خطط لـ3–5 بكرات فلمنت بسعر 65–75 ريالًا للبكرة (نحو 195–375 ريالًا)، والتوصيل (30 ريالًا عادي أو 50 ريالًا سريع، ومجاني لكل طلب طابعة)، ولاحقًا فوهة أو هوت إند احتياطي. وإذا كنت ستدفع عبر تابي أو تمارا، فأضف رسوم خدمة الدفع الآجل البالغة 100 ريال على طلبات الطابعات.</p>
 
           <h3>2. حجم الطباعة</h3>
           <p>حجم الطباعة يحدد أكبر قطعة واحدة يمكنك طباعتها. كدليل، وفق المقاسات الحالية في الكتالوج:</p>
@@ -964,7 +964,7 @@ POSTS = [
           <p>الطابعات مشمولة بضمان الشركة المصنّعة ضد العيوب. اسأل من سيساعدك في المطالبة وكيف تسير الإجراءات. يساعد Black Arrow 3D عملاءه في مطالبات الضمان، واسألنا عن سياسة الإرجاع والاستبدال قبل الطلب إن كان لديك أي استفسار.</p>
 
           <h3>11. أنواع الفلمنت وتوفره</h3>
-          <p>ابدأ بـPLA أو PLA+: سهل الطباعة وقليل الالتواء ولا يحتاج طابعة مغلقة. انتقل إلى PETG للقطع الأقوى والأكثر تحملًا للحرارة، وTPU للقطع المرنة. وراجع الخامات المدعومة في طابعتك: A2L مثلًا الأنسب لها PLA وPETG وTPU، ولا يُنصح بـABS وASA. الأسعار المحلية الحالية: <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA</a> بـ59 ريالًا، و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG</a> بـ59 ريالًا، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بـ75 ريالًا للبكرة 1 كجم. والمدن الساحلية الرطبة مثل الدمام وجدة تجعل التخزين الجاف أمرًا مهمًا.</p>
+          <p>ابدأ بـPLA أو PLA+: سهل الطباعة وقليل الالتواء ولا يحتاج طابعة مغلقة. انتقل إلى PETG للقطع الأقوى والأكثر تحملًا للحرارة، وTPU للقطع المرنة. وراجع الخامات المدعومة في طابعتك: A2L مثلًا الأنسب لها PLA وPETG وTPU، ولا يُنصح بـABS وASA. الأسعار المحلية الحالية: <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA</a> بـ65 ريالًا، و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG</a> بـ65 ريالًا، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بـ75 ريالًا للبكرة 1 كجم. والمدن الساحلية الرطبة مثل الدمام وجدة تجعل التخزين الجاف أمرًا مهمًا.</p>
 
           <h3>12. مصادر التعلم</h3>
           <p>اختر طابعة منتشرة ولها مجتمع كبير، لتجد الشروحات وملفات الإعداد الجاهزة ومكتبات المجسمات بسهولة. ابدأ بأدلتنا: <a href="/3d/ar/blog/bambu-lab-a1-mini-setup-guide/">تشغيل A1 mini</a>، و<a href="/3d/ar/blog/3d-print-bed-adhesion-first-layer/">التصاق الطبقة الأولى</a>، و<a href="/3d/ar/blog/3d-printer-maintenance-guide/">صيانة الطابعة</a>.</p>
@@ -975,7 +975,7 @@ POSTS = [
           <h3>هل أحتاج طابعة مغلقة مع حرارة السعودية؟</h3>
           <p>ليس لطباعة PLA أو PETG أو TPU ما دامت الطابعة في غرفة مكيفة. الطابعة المغلقة تحتاجها أساسًا لخامات ABS وASA.</p>
           <h3>كم ميزانية أول طابعة ثلاثية الأبعاد؟</h3>
-          <p>نحو 3,000 ريال لتجهيز المبتدئ: A1 mini كومبو بسعر 2,749 ريالًا مع 3–5 بكرات فلمنت بسعر 59–75 ريالًا للبكرة.</p>
+          <p>نحو 3,000 ريال لتجهيز المبتدئ: A1 mini كومبو بسعر 2,749 ريالًا مع 3–5 بكرات فلمنت بسعر 65–75 ريالًا للبكرة.</p>
           <h3>هل تعمل الطابعة ثلاثية الأبعاد على كهرباء 220 فولت في السعودية؟</h3>
           <p>معظم الطابعات الحديثة تقبل نطاقًا واسعًا من الجهد، وA1 mini مصنّفة 100–240 فولت متردد. تحقق من تصنيف طرازك ومن ملاءمة القابس لمقابس منزلك.</p>
 

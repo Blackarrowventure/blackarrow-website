@@ -72,15 +72,15 @@ POSTS = [
           <p>PLA also absorbs moisture slowly from the air. In humid coastal cities like Jeddah, Dammam and Khobar, keep opened spools in a sealed box or bag with silica gel. Signs of a wet spool are popping or crackling at the nozzle, extra stringing and a rough surface. Read our <a href="/3d/blog/3d-printing-filament-saudi-heat-humidity/">filament in Saudi heat and humidity</a> guide for drying and storage.</p>
 
           <h2>What a print costs</h2>
-          <p>A 1 kg spool at 59&nbsp;SAR works out to about <strong>0.06&nbsp;SAR per gram</strong>. Your slicer tells you the weight of each print before you start:</p>
+          <p>A 1 kg spool at 65&nbsp;SAR works out to about <strong>0.065&nbsp;SAR per gram</strong>. Your slicer tells you the weight of each print before you start:</p>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>Print</th><th>Typical weight</th><th>Filament cost</th></tr></thead>
               <tbody>
                 <tr><td>Keychain</td><td>5–10 g</td><td>under 1&nbsp;SAR</td></tr>
-                <tr><td>Phone stand</td><td>40–60 g</td><td>about 2.5–3.5&nbsp;SAR</td></tr>
-                <tr><td>Controller stand</td><td>100–150 g</td><td>about 6–9&nbsp;SAR</td></tr>
-                <tr><td>Desk lamp shade or vase</td><td>200–300 g</td><td>about 12–18&nbsp;SAR</td></tr>
+                <tr><td>Phone stand</td><td>40–60 g</td><td>about 2.5–4&nbsp;SAR</td></tr>
+                <tr><td>Controller stand</td><td>100–150 g</td><td>about 6.5–10&nbsp;SAR</td></tr>
+                <tr><td>Desk lamp shade or vase</td><td>200–300 g</td><td>about 13–20&nbsp;SAR</td></tr>
               </tbody>
             </table>
           </div>
@@ -154,15 +154,15 @@ POSTS = [
           <p>يمتص PLA الرطوبة ببطء من الهواء. في المدن الساحلية الرطبة مثل جدة والدمام والخبر، احفظ البكرات المفتوحة في صندوق محكم أو كيس مع السيليكا جل. علامات البكرة الرطبة: طقطقة عند الفوهة، وخيوط أكثر، وسطح خشن. اقرأ دليل <a href="/3d/ar/blog/3d-printing-filament-saudi-heat-humidity/">الفلمنت في حرارة السعودية ورطوبتها</a> لمعرفة طرق التجفيف والتخزين.</p>
 
           <h2>كم تكلف الطبعة؟</h2>
-          <p>بكرة 1 كجم بسعر 59 ريالًا تعني حوالي <strong>0.06 ريال للغرام</strong>. يخبرك برنامج التقطيع بوزن كل طبعة قبل البدء:</p>
+          <p>بكرة 1 كجم بسعر 65 ريالًا تعني حوالي <strong>0.065 ريال للغرام</strong>. يخبرك برنامج التقطيع بوزن كل طبعة قبل البدء:</p>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>الطبعة</th><th>الوزن المعتاد</th><th>تكلفة الفلمنت</th></tr></thead>
               <tbody>
                 <tr><td>ميدالية مفاتيح</td><td>5–10 غرامات</td><td>أقل من ريال</td></tr>
-                <tr><td>حامل جوال</td><td>40–60 غرامًا</td><td>حوالي 2.5–3.5 ريال</td></tr>
-                <tr><td>حامل يد تحكم</td><td>100–150 غرامًا</td><td>حوالي 6–9 ريالات</td></tr>
-                <tr><td>غطاء مصباح أو مزهرية</td><td>200–300 غرام</td><td>حوالي 12–18 ريالًا</td></tr>
+                <tr><td>حامل جوال</td><td>40–60 غرامًا</td><td>حوالي 2.5–4 ريالات</td></tr>
+                <tr><td>حامل يد تحكم</td><td>100–150 غرامًا</td><td>حوالي 6.5–10 ريالات</td></tr>
+                <tr><td>غطاء مصباح أو مزهرية</td><td>200–300 غرام</td><td>حوالي 13–20 ريالًا</td></tr>
               </tbody>
             </table>
           </div>
@@ -384,7 +384,7 @@ POSTS = [
                 <tr><td>Toughness</td><td>Stiff, can snap</td><td>Tougher, less brittle</td></tr>
                 <tr><td>Surface</td><td>Clean, slightly glossy</td><td>Often more matte</td></tr>
                 <tr><td>Heat resistance</td><td>Low</td><td>Low</td></tr>
-                <tr><td>Price on our store</td><td><a href="/3d/product/kingroon-pla-basic-filament/">from 59&nbsp;SAR / kg</a></td><td><a href="/3d/product/filament-pla-1kg/">75&nbsp;SAR / kg</a></td></tr>
+                <tr><td>Price on our store</td><td><a href="/3d/product/kingroon-pla-basic-filament/">from 65&nbsp;SAR / kg</a></td><td><a href="/3d/product/filament-pla-1kg/">75&nbsp;SAR / kg</a></td></tr>
               </tbody>
             </table>
           </div>
@@ -456,7 +456,7 @@ POSTS = [
                 <tr><td>المتانة</td><td>صلب وقد ينكسر</td><td>أمتن وأقل هشاشة</td></tr>
                 <tr><td>السطح</td><td>نظيف ولامع قليلًا</td><td>غالبًا أكثر مطفأً</td></tr>
                 <tr><td>مقاومة الحرارة</td><td>منخفضة</td><td>منخفضة</td></tr>
-                <tr><td>السعر في متجرنا</td><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">من 59 ريالًا للكيلو</a></td><td><a href="/3d/ar/product/filament-pla-1kg/">75 ريالًا للكيلو</a></td></tr>
+                <tr><td>السعر في متجرنا</td><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">من 65 ريالًا للكيلو</a></td><td><a href="/3d/ar/product/filament-pla-1kg/">75 ريالًا للكيلو</a></td></tr>
               </tbody>
             </table>
           </div>
@@ -654,15 +654,15 @@ POSTS = [
             'card': ('Price guide', '6 min read', 'PLA, PLA+ and PETG prices per kg in SAR, and how to work out the cost of any print.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong>59&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong>75&nbsp;SAR</strong>, VAT included. At 59&nbsp;SAR a kilo, filament costs about <strong>6 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
+          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong>65&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong>75&nbsp;SAR</strong>, VAT included. At 65&nbsp;SAR a kilo, filament costs about <strong>6.5 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
 
           <h2>Prices on our store</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>Filament</th><th>Spool</th><th>Price (SAR, incl. VAT)</th><th>Per gram</th></tr></thead>
               <tbody>
-                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 kg, 1.75 mm</td><td>59</td><td>0.059</td></tr>
-                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 kg, 1.75 mm</td><td>59</td><td>0.059</td></tr>
+                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 kg, 1.75 mm</td><td>65</td><td>0.065</td></tr>
+                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 kg, 1.75 mm</td><td>65</td><td>0.065</td></tr>
                 <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>1 kg, 1.75 mm</td><td>75</td><td>0.075</td></tr>
               </tbody>
             </table>
@@ -672,7 +672,7 @@ POSTS = [
           <h2>How to work out the cost of a print</h2>
           <ol>
             <li>Slice the model. Bambu Studio, OrcaSlicer and other slicers show the <strong>filament weight in grams</strong> before you print.</li>
-            <li>Multiply the grams by the price per gram. Example: 120 g × 0.059 = <strong>7.08&nbsp;SAR</strong>.</li>
+            <li>Multiply the grams by the price per gram. Example: 120 g × 0.065 = <strong>7.80&nbsp;SAR</strong>.</li>
             <li>For multi-colour prints, include the purge waste the slicer shows as well.</li>
             <li>Add a little for failed prints and electricity. A small printer uses only a few halalas of electricity per hour at Saudi home tariffs.</li>
           </ol>
@@ -680,13 +680,13 @@ POSTS = [
           <h2>Typical prints and their filament cost</h2>
           <div class="b3d-table-wrap">
             <table>
-              <thead><tr><th>Print</th><th>Weight</th><th>Cost at 59&nbsp;SAR/kg</th></tr></thead>
+              <thead><tr><th>Print</th><th>Weight</th><th>Cost at 65&nbsp;SAR/kg</th></tr></thead>
               <tbody>
-                <tr><td>Keychain</td><td>5–10 g</td><td>0.30–0.60&nbsp;SAR</td></tr>
+                <tr><td>Keychain</td><td>5–10 g</td><td>0.33–0.65&nbsp;SAR</td></tr>
                 <tr><td>Cable clips (set of 10)</td><td>15–20 g</td><td>about 1&nbsp;SAR</td></tr>
-                <tr><td>Phone stand</td><td>40–60 g</td><td>2.40–3.50&nbsp;SAR</td></tr>
-                <tr><td>Game controller stand</td><td>100–150 g</td><td>6–9&nbsp;SAR</td></tr>
-                <tr><td>Large vase or lamp</td><td>250–400 g</td><td>15–24&nbsp;SAR</td></tr>
+                <tr><td>Phone stand</td><td>40–60 g</td><td>2.60–3.90&nbsp;SAR</td></tr>
+                <tr><td>Game controller stand</td><td>100–150 g</td><td>6.50–9.75&nbsp;SAR</td></tr>
+                <tr><td>Large vase or lamp</td><td>250–400 g</td><td>16–26&nbsp;SAR</td></tr>
               </tbody>
             </table>
           </div>
@@ -705,9 +705,9 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>How much is a 1 kg spool of PLA in Saudi Arabia?</h3>
-          <p>Everyday PLA is roughly 55–100&nbsp;SAR per kilogram. KINGROON PLA Basic is 59&nbsp;SAR on our store, VAT included.</p>
+          <p>Everyday PLA is roughly 55–100&nbsp;SAR per kilogram. KINGROON PLA Basic is 65&nbsp;SAR on our store, VAT included.</p>
           <h3>Is PETG more expensive than PLA?</h3>
-          <p>Often slightly, but on our store KINGROON PETG Basic and PLA Basic are the same price, 59&nbsp;SAR per kg.</p>
+          <p>Often slightly, but on our store KINGROON PETG Basic and PLA Basic are the same price, 65&nbsp;SAR per kg.</p>
           <h3>How many prints do I get from 1 kg?</h3>
           <p>Around 100 keychain-sized prints, 15–25 phone stands, or 3–4 large vases. Your slicer shows the exact weight for each model.</p>
 
@@ -733,15 +733,15 @@ POSTS = [
             'card': ('دليل أسعار', '6 دقائق قراءة', 'أسعار PLA وPLA+ وPETG للكيلو بالريال، وكيف تحسب تكلفة أي طبعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong>59 ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong>75 ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 59 ريالًا للكيلو يكلّف الغرام حوالي <strong>6 هللات</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
+          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong>65 ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong>75 ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 65 ريالًا للكيلو يكلّف الغرام حوالي <strong>6.5 هللة</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
 
           <h2>الأسعار في متجرنا</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>الفلمنت</th><th>البكرة</th><th>السعر (ريال شامل الضريبة)</th><th>للغرام</th></tr></thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 كجم، 1.75 مم</td><td>59</td><td>0.059</td></tr>
-                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 كجم، 1.75 مم</td><td>59</td><td>0.059</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 كجم، 1.75 مم</td><td>65</td><td>0.065</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 كجم، 1.75 مم</td><td>65</td><td>0.065</td></tr>
                 <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>1 كجم، 1.75 مم</td><td>75</td><td>0.075</td></tr>
               </tbody>
             </table>
@@ -751,7 +751,7 @@ POSTS = [
           <h2>كيف تحسب تكلفة الطبعة</h2>
           <ol>
             <li>قطّع النموذج. يعرض Bambu Studio وOrcaSlicer وغيرهما <strong>وزن الفلمنت بالغرام</strong> قبل الطباعة.</li>
-            <li>اضرب الغرامات في سعر الغرام. مثال: 120 غرامًا × 0.059 = <strong>7.08 ريال</strong>.</li>
+            <li>اضرب الغرامات في سعر الغرام. مثال: 120 غرامًا × 0.065 = <strong>7.80 ريال</strong>.</li>
             <li>في الطبعات متعددة الألوان أضف أيضًا هدر التنظيف الذي يعرضه البرنامج.</li>
             <li>أضف هامشًا بسيطًا للطبعات الفاشلة والكهرباء. الطابعة الصغيرة تستهلك بضع هللات فقط من الكهرباء في الساعة بتعرفة المنازل في السعودية.</li>
           </ol>
@@ -759,13 +759,13 @@ POSTS = [
           <h2>طبعات شائعة وتكلفة فلمنتها</h2>
           <div class="b3d-table-wrap">
             <table>
-              <thead><tr><th>الطبعة</th><th>الوزن</th><th>التكلفة بسعر 59 ريالًا للكيلو</th></tr></thead>
+              <thead><tr><th>الطبعة</th><th>الوزن</th><th>التكلفة بسعر 65 ريالًا للكيلو</th></tr></thead>
               <tbody>
-                <tr><td>ميدالية مفاتيح</td><td>5–10 غرامات</td><td>0.30–0.60 ريال</td></tr>
+                <tr><td>ميدالية مفاتيح</td><td>5–10 غرامات</td><td>0.33–0.65 ريال</td></tr>
                 <tr><td>مشابك كابلات (10 قطع)</td><td>15–20 غرامًا</td><td>حوالي ريال</td></tr>
-                <tr><td>حامل جوال</td><td>40–60 غرامًا</td><td>2.40–3.50 ريال</td></tr>
-                <tr><td>حامل يد ألعاب</td><td>100–150 غرامًا</td><td>6–9 ريالات</td></tr>
-                <tr><td>مزهرية أو مصباح كبير</td><td>250–400 غرام</td><td>15–24 ريالًا</td></tr>
+                <tr><td>حامل جوال</td><td>40–60 غرامًا</td><td>2.60–3.90 ريال</td></tr>
+                <tr><td>حامل يد ألعاب</td><td>100–150 غرامًا</td><td>6.50–9.75 ريال</td></tr>
+                <tr><td>مزهرية أو مصباح كبير</td><td>250–400 غرام</td><td>16–26 ريالًا</td></tr>
               </tbody>
             </table>
           </div>
@@ -784,9 +784,9 @@ POSTS = [
 
           <h2>الأسئلة الشائعة</h2>
           <h3>كم سعر بكرة PLA بوزن 1 كجم في السعودية؟</h3>
-          <p>سعر PLA اليومي حوالي 55–100 ريال للكيلو، وسعر KINGROON PLA Basic في متجرنا 59 ريالًا شاملة الضريبة.</p>
+          <p>سعر PLA اليومي حوالي 55–100 ريال للكيلو، وسعر KINGROON PLA Basic في متجرنا 65 ريالًا شاملة الضريبة.</p>
           <h3>هل PETG أغلى من PLA؟</h3>
-          <p>غالبًا بقليل، لكن في متجرنا سعر KINGROON PETG Basic وPLA Basic واحد، 59 ريالًا للكيلو.</p>
+          <p>غالبًا بقليل، لكن في متجرنا سعر KINGROON PETG Basic وPLA Basic واحد، 65 ريالًا للكيلو.</p>
           <h3>كم طبعة تخرج من 1 كجم؟</h3>
           <p>حوالي 100 طبعة بحجم الميدالية، أو 15–25 حامل جوال، أو 3–4 مزهريات كبيرة. يعرض برنامج التقطيع الوزن الدقيق لكل نموذج.</p>
 
