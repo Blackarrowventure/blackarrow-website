@@ -1,0 +1,227 @@
+{
+ "_note": "CRM stock, written by scripts/sync_crm_prices.py. Do not edit.",
+ "rows": [
+  {
+   "id": "bambu-ams-2-pro",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-ams-ht",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-ams-lite",
+   "variant": "",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "bambu-hotend-a1-series",
+   "variant": "0.4mm",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-a1",
+   "variant": "Combo (printer + AMS Lite)",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-a1-mini",
+   "variant": "Combo (printer + AMS lite)",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-a1-mini",
+   "variant": "Standalone (printer only)",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-a2l",
+   "variant": "Combo (printer + AMS lite)",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-a2l",
+   "variant": "Standalone (printer only)",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-h2c-combo",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-h2d-combo",
+   "variant": "",
+   "available": true,
+   "preorder": true
+  },
+  {
+   "id": "bambu-lab-h2s-combo",
+   "variant": "",
+   "available": true,
+   "preorder": true
+  },
+  {
+   "id": "bambu-lab-p1s",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-p2s",
+   "variant": "Combo (printer + AMS 2 Pro)",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-x1e-combo",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-x2d-combo",
+   "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "elegoo-centauri-carbon-2",
+   "variant": "",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "filament-pla-1kg",
+   "variant": "Turquoise Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Blue",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Dark Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Gray",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Orange",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Yellow",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Black",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Gold",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Gray",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Orange",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Pink",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Purple",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "White",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Yellow",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "snapmaker-u1",
+   "variant": "",
+   "available": false,
+   "preorder": false
+  }
+ ]
+}

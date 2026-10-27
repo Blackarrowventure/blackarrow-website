@@ -34,6 +34,12 @@ PRIORITY = {
 CHANGEFREQ = {'/': 'weekly', '/services.html': 'weekly', '/resources/blog/': 'weekly'}
 
 
+def is_noindex(page):
+    """A page marked noindex must never be in the sitemap (the case studies came back that way once)."""
+    src = ROOT / page.get('src', '')
+    return src.is_file() and 'noindex' in src.read_text('utf-8', errors='ignore')[:6000]
+
+
 def priority(url):
     if url in PRIORITY:
         return PRIORITY[url]
@@ -82,7 +88,7 @@ def main():
     en_count = ar_count = 0
     for page in MANIFEST['pages']:
         url = page.get('url')
-        if not url or url in EXCLUDE:
+        if not url or url in EXCLUDE or is_noindex(page):
             continue
         has_ar = bool(page.get('ar'))
         out.append(entry(url, today, has_ar))
@@ -90,7 +96,7 @@ def main():
 
     for page in MANIFEST['pages']:
         url = page.get('url')
-        if not url or url in EXCLUDE or not page.get('ar'):
+        if not url or url in EXCLUDE or not page.get('ar') or is_noindex(page):
             continue
         out.append(entry(ar_of(url), today, True, is_ar=True, en_url=url))
         ar_count += 1

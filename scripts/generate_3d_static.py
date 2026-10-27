@@ -45,8 +45,10 @@ CATEGORY_NAV_KEY = {
 with open(I18N_JSON, encoding='utf-8') as f:
     I18N = json.load(f)
 
-with open(PRODUCTS_JSON, encoding='utf-8') as f:
-    PRODUCTS = json.load(f)['products']
+# Catalog with tonight's CRM stock applied, so Google's in-stock data matches the live store.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from crm_stock import load_products  # noqa: E402
+PRODUCTS = load_products()
 # Photo sizes + small copies (scripts/build_3d_image_sizes.py).
 _SIZES_JSON = os.path.join(ROOT, '3d', 'assets', 'data', '3d-image-sizes.json')
 IMG_SIZES = json.load(open(_SIZES_JSON, encoding='utf-8')) if os.path.isfile(_SIZES_JSON) else {}
@@ -1461,7 +1463,7 @@ STATIC_PAGES = {
     },
     'business': {
         'en': {
-            'title': 'Corporate Gifts & Bulk 3D Printing in Saudi Arabia | Black Arrow 3D',
+            'title': 'Corporate Gifts & Bulk 3D Printing in Saudi Arabia | Black Arrow',
             'desc': 'Bulk 3D printing for companies, events and schools in Saudi Arabia: logo keychains, corporate gifts, National Day giveaways, trophies and custom parts. Quote on WhatsApp.',
             'h1': 'Corporate Gifts & Bulk Orders',
             'crumb': 'Business & Bulk Orders',
@@ -1789,7 +1791,9 @@ def main():
     n_brands = 0
     for brand in BRAND_SLUGS:
         prods = by_brand.get(brand, [])
-        if sum(1 for p in prods if p.get('available') is not False) >= BRAND_MIN_PRODUCTS and brand in BRAND_SEO:
+        # Counts every product, not just in-stock ones: a brand page Google has indexed must not
+        # stop being rebuilt because stock ran low for a night.
+        if len(prods) >= BRAND_MIN_PRODUCTS and brand in BRAND_SEO:
             build_category_page(None, 'en', prods, brand=brand)
             build_category_page(None, 'ar', prods, brand=brand)
             n_brands += 2

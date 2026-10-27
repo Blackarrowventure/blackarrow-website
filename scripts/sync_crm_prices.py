@@ -9,7 +9,9 @@ source - product pages, the shop grid, blog posts, Google's price data - is buil
   2. writes them into 3d-products.json (keeping the file's own formatting),
   3. updates every price marked <span data-b3d-price="id|option">...</span> in the HTML and
      in the blog source scripts (scripts/seo_posts_*.py),
-  4. rebuilds the product/shop pages and the blog FAQ data when anything changed.
+  4. saves the CRM's stock to 3d/assets/data/3d-stock.json (read by scripts/crm_stock.py), so
+     Google's in-stock data and the Google Shopping feed match the live store,
+  5. rebuilds the product/shop pages, the Shopping feed and the blog FAQ data when anything changed.
 
 Run nightly by .github/workflows/sync-prices.yml; safe to run by hand any time.
 Prints 'changed' or 'unchanged' on the last line.
@@ -27,6 +29,7 @@ import urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 CATALOG = os.path.join(ROOT, '3d', 'assets', 'data', '3d-products.json')
+STOCK = os.path.join(ROOT, '3d', 'assets', 'data', '3d-stock.json')
 API = 'https://www.blackarrowksa.com/api/availability/'
 SPAN = re.compile(r'(<span data-b3d-price="([^"]+)">)([^<]*)(</span>)')
 
@@ -141,6 +144,18 @@ def update_spans(products):
     return changed
 
 
+def save_stock(rows):
+    """Writes the CRM stock (no prices - those go into the catalog); True when it changed."""
+    keep = ('id', 'variant', 'available', 'preorder')
+    slim = sorted(({k: r.get(k) for k in keep} for r in rows), key=lambda r: (r['id'], r['variant'] or ''))
+    text = json.dumps({'_note': 'CRM stock, written by scripts/sync_crm_prices.py. Do not edit.', 'rows': slim},
+                      ensure_ascii=False, indent=1) + '\n'
+    if os.path.isfile(STOCK) and read(STOCK) == text:
+        return False
+    write(STOCK, text)
+    return True
+
+
 def main():
     api = sys.argv[sys.argv.index('--api') + 1] if '--api' in sys.argv else API
     rows = fetch_rows(api)
@@ -151,12 +166,14 @@ def main():
         write(CATALOG, raw)
         products = json.loads(raw)['products']
     files_changed = update_spans(products)
-    print('catalog prices changed:', prices_changed, '| files with marked prices updated:', files_changed)
-    if not (prices_changed or files_changed):
+    stock_changed = save_stock(rows)
+    print('catalog prices changed:', prices_changed, '| files with marked prices updated:', files_changed,
+          '| stock changed:', stock_changed)
+    if not (prices_changed or files_changed or stock_changed):
         print('unchanged')
         return
     if '--no-build' not in sys.argv:
-        for script in ('generate_3d_static.py', 'add_blog_faq_schema.py'):
+        for script in ('generate_3d_static.py', 'build_merchant_feed.py', 'add_blog_faq_schema.py'):
             subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', script)], check=True, cwd=ROOT)
     print('changed')
 
