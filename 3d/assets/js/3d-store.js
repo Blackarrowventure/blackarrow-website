@@ -3597,7 +3597,7 @@
     return (window.BlackArrow3DBrands && window.BlackArrow3DBrands.length) ? window.BlackArrow3DBrands : [];
   }
 
-  // Brands that have no stock (or are our own / generic labels) are not listed.
+  // Brands with no products (or our own / generic labels) are not listed.
   // A brand with a full landing page links there; a single-product brand goes
   // straight to that product, so the menu never points at a thin filter URL.
   var BRAND_PAGES = { 'Bambu Lab': 'bambu-lab' };
@@ -3609,7 +3609,9 @@
     'Creality': ['creality.svg', 400, 92],
     'Elegoo': ['elegoo.webp', 372, 70],
     'Anycubic': ['anycubic.png', 187, 48],
-    'Snapmaker': ['snapmaker.svg', 125, 24]
+    'Snapmaker': ['snapmaker.svg', 125, 24],
+    'Flashforge': ['flashforge.png', 600, 120],
+    'KINGROON': ['kingroon.png', 530, 120]
   };
 
   function initMobileNav() {
@@ -3667,7 +3669,8 @@
       var html = menu.innerHTML;
       brandList().forEach(function (brand) {
         if (brand === 'Black Arrow' || brand === 'Generic') return;
-        var items = products.filter(function (p) { return p.brand === brand && p.available !== false; });
+        // Every brand we sell is listed, in stock or not (the shop shows out-of-stock items too).
+        var items = products.filter(function (p) { return p.brand === brand; });
         if (!items.length) return;
         var href;
         if (BRAND_PAGES[brand] && items.length >= BRAND_PAGE_MIN) href = base + '/brands/' + BRAND_PAGES[brand] + '/';

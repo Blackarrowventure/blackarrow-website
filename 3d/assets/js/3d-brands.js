@@ -11,6 +11,7 @@
     'Flashforge',
     'Anycubic',
     'Snapmaker',
+    'KINGROON',
     'Polymaker',
     'eSUN',
     'Sunlu',
