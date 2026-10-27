@@ -1,0 +1,44 @@
+# Every night: copy the CRM's Website Inventory prices into the site (product pages, shop grid,
+# blog posts, Google's price data) and publish if anything changed. Visitors already see CRM
+# prices live; this keeps the page source the same. Run it by hand from the Actions tab
+# ("Sync CRM prices" > Run workflow) to update straight away.
+name: Sync CRM prices
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 03:00 Saudi time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-prices
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Copy CRM prices into the site
+        id: sync
+        run: |
+          python scripts/sync_crm_prices.py | tee sync.log
+          if tail -n 1 sync.log | grep -qx changed; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Publish
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          # Committed as the site owner so Vercel builds it like any other push.
+          git config user.name "Afzal"
+          git config user.email "afzaladnan24@gmail.com"
+          git add -A 3d scripts
+          git diff --cached --quiet && exit 0
+          git commit -m "Prices: synced from the CRM (nightly)"
+          git push

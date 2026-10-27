@@ -654,16 +654,16 @@ POSTS = [
             'card': ('Price guide', '6 min read', 'PLA, PLA+ and PETG prices per kg in SAR, and how to work out the cost of any print.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong>65&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong>75&nbsp;SAR</strong>, VAT included. At 65&nbsp;SAR a kilo, filament costs about <strong>6.5 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
+          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span>&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong><span data-b3d-price="filament-pla-1kg">75</span>&nbsp;SAR</strong>, VAT included. At 65&nbsp;SAR a kilo, filament costs about <strong>6.5 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
 
           <h2>Prices on our store</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>Filament</th><th>Spool</th><th>Price (SAR, incl. VAT)</th><th>Per gram</th></tr></thead>
               <tbody>
-                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 kg, 1.75 mm</td><td>65</td><td>0.065</td></tr>
-                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 kg, 1.75 mm</td><td>65</td><td>0.065</td></tr>
-                <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>1 kg, 1.75 mm</td><td>75</td><td>0.075</td></tr>
+                <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="kingroon-pla-basic-filament">65</span></td><td>0.065</td></tr>
+                <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="kingroon-petg-basic-filament">65</span></td><td>0.065</td></tr>
+                <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="filament-pla-1kg">75</span></td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>
@@ -733,16 +733,16 @@ POSTS = [
             'card': ('دليل أسعار', '6 دقائق قراءة', 'أسعار PLA وPLA+ وPETG للكيلو بالريال، وكيف تحسب تكلفة أي طبعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong>65 ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong>75 ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 65 ريالًا للكيلو يكلّف الغرام حوالي <strong>6.5 هللة</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
+          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span> ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong><span data-b3d-price="filament-pla-1kg">75</span> ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 65 ريالًا للكيلو يكلّف الغرام حوالي <strong>6.5 هللة</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
 
           <h2>الأسعار في متجرنا</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>الفلمنت</th><th>البكرة</th><th>السعر (ريال شامل الضريبة)</th><th>للغرام</th></tr></thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 كجم، 1.75 مم</td><td>65</td><td>0.065</td></tr>
-                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 كجم، 1.75 مم</td><td>65</td><td>0.065</td></tr>
-                <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>1 كجم، 1.75 مم</td><td>75</td><td>0.075</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="kingroon-pla-basic-filament">65</span></td><td>0.065</td></tr>
+                <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="kingroon-petg-basic-filament">65</span></td><td>0.065</td></tr>
+                <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="filament-pla-1kg">75</span></td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>
@@ -1330,7 +1330,7 @@ POSTS = [
           <h3>How often should I replace the hot end?</h3>
           <p>There is no fixed schedule. With PLA and PETG a hot end can last a long time; replace it when print quality drops and cleaning no longer helps.</p>
           <h3>How much is a replacement hot end in Saudi Arabia?</h3>
-          <p>On our store A1-series hot ends start from 100&nbsp;SAR, VAT included. The <a href="/3d/product/bambu-hotend-a1-series/">product page</a> shows the price and stock of each size.</p>
+          <p>On our store A1-series hot ends start from <span data-b3d-price="bambu-hotend-a1-series|0.4mm">100</span>&nbsp;SAR, VAT included. The <a href="/3d/product/bambu-hotend-a1-series/">product page</a> shows the price and stock of each size.</p>
 
           <div class="b3d-article__cta">
             <p>Genuine Bambu A1-series hot ends, 0.2 to 0.8 mm</p>

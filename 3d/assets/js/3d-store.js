@@ -458,6 +458,33 @@
     return (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
   }
 
+  /* Prices written into page text (blog posts, guides, tables) are marked
+     <span data-b3d-price="product-id|Option label">2,699</span> (option optional). They show the
+     live price - the CRM's Website Inventory price when it sets one - as soon as the page loads.
+     scripts/sync_crm_prices.py writes the same price into the HTML every night, so the page
+     source (what Google reads) matches. Same rule there: an option's price, else the product's
+     lowest option, else its sale or normal price. */
+  function livePriceOf(key) {
+    var cut = key.indexOf('|');
+    var p = __b3dProductsById[cut < 0 ? key : key.slice(0, cut)];
+    if (!p) return null;
+    var label = cut < 0 ? '' : key.slice(cut + 1).trim().toLowerCase();
+    if (label) {
+      var v = (p.variants || []).filter(function (x) { return String(x.label || '').trim().toLowerCase() === label; })[0];
+      return v ? v.price : null;
+    }
+    if (p.variants && p.variants.length) return Math.min.apply(null, p.variants.map(function (x) { return x.price; }));
+    return (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
+  }
+
+  function paintLivePrices(els) {
+    Array.prototype.forEach.call(els, function (el) {
+      var n = livePriceOf(el.getAttribute('data-b3d-price') || '');
+      if (typeof n !== 'number' || !isFinite(n)) return;
+      el.textContent = n % 1 ? n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : n.toLocaleString('en-US');
+    });
+  }
+
   function priceBlock(p) {
     if (p.variants && p.variants.length) {
       // Price only from options the buyer can pick; an out-of-stock option never sets the price shown.
@@ -3662,6 +3689,9 @@
     initBrandNavMenu();
     initMobileNav();
     markLangPill();
+
+    var livePrices = document.querySelectorAll('[data-b3d-price]');
+    if (livePrices.length) fetchProducts().then(function () { paintLivePrices(livePrices); });
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
     if (pickerGrid) renderPrinterPicker(pickerGrid);
