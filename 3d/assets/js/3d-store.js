@@ -2347,14 +2347,42 @@
     });
   }
 
+  // National Address short code (4 letters + 4 numbers, e.g. RRRD2929) and the 4-number building
+  // number: tidied as typed (capitals, no spaces; English digits) and checked with a clear message.
+  function toLatinDigits(v) {
+    return String(v || '').replace(/[\u0660-\u0669]/g, function (d) { return String(d.charCodeAt(0) - 0x0660); })
+      .replace(/[\u06F0-\u06F9]/g, function (d) { return String(d.charCodeAt(0) - 0x06F0); });
+  }
+  function initAddressChecks(form) {
+    var rules = [
+      { name: 'customer_national_address', tidy: function (v) { return toLatinDigits(v).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8); }, ok: /^[A-Z]{4}[0-9]{4}$/, msg: 'checkout_national_invalid' },
+      { name: 'customer_building', tidy: function (v) { return toLatinDigits(v).replace(/[^0-9]/g, '').slice(0, 4); }, ok: /^[0-9]{4}$/, msg: 'checkout_building_invalid' }
+    ];
+    rules.forEach(function (r) {
+      var el = form.querySelector('[name="' + r.name + '"]');
+      if (!el) return;
+      var check = function () {
+        var tidy = r.tidy(el.value);
+        if (tidy !== el.value) el.value = tidy;
+        el.setCustomValidity(!tidy || r.ok.test(tidy) ? '' : T(r.msg));
+      };
+      el.addEventListener('input', check);
+      el.addEventListener('blur', check);
+      el._b3dCheck = check;
+    });
+    return function () { rules.forEach(function (r) { var el = form.querySelector('[name="' + r.name + '"]'); if (el && el._b3dCheck) el._b3dCheck(); }); };
+  }
+
   function initCheckoutSubmit(form) {
     if (!form) return;
+    var checkAddress = initAddressChecks(form);
     var successEl = document.getElementById('b3d-checkout-success');
     var errorEl = document.getElementById('b3d-checkout-error');
     var submitBtn = form.querySelector('[type="submit"]');
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      checkAddress();
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var payField = form.querySelector('[data-b3d-order-payment]');
       if (payField && payField.value === 'Card (Paymob)') { startCardPayment(form, submitBtn, errorEl); return; }
