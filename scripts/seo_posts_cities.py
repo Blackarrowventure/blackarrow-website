@@ -41,7 +41,7 @@ POSTS = [
           </ul>
 
           <h2>Which 3D printer fits a Riyadh workspace</h2>
-          <p>For a first printer in a home office or dorm, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR with the AMS lite for multicolour printing) is the easiest start. Our <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner’s guide</a> explains why.</p>
+          <p>For a first printer in a home office or dorm, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR with the AMS lite for multicolour printing) is the easiest start. Our <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner’s guide</a> explains why.</p>
           <p>Because of dust and AC drafts, many Riyadh makers prefer an enclosed printer. The <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) is an enclosed CoreXY printer with a hardened steel nozzle and multicolour printing with up to 4 filaments, and it handles PETG and ABS well. For a startup that prints every day, the enclosed <a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> is currently 6,299 SAR.</p>
           <p>Need big parts such as cosplay armour or large architecture models? The <a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (currently from 2,999 SAR) has a 420 x 420 x 500&nbsp;mm build volume. Compare every option on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
@@ -114,7 +114,7 @@ POSTS = [
           </ul>
 
           <h2>أي طابعة تناسب مساحة العمل في الرياض</h2>
-          <p>لأول طابعة في المنزل أو السكن الجامعي، تُعد <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا مع وحدة AMS lite للطباعة متعددة الألوان) أسهل بداية، ويشرح <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a> السبب.</p>
+          <p>لأول طابعة في المنزل أو السكن الجامعي، تُعد <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا مع وحدة AMS lite للطباعة متعددة الألوان) أسهل بداية، ويشرح <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a> السبب.</p>
           <p>وبسبب الغبار وتيار المكيف يفضّل كثير من صنّاع الرياض الطابعة المغلقة، مثل <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا)، وهي طابعة CoreXY مغلقة بفوهة من الفولاذ المقسّى وتطبع حتى 4 ألوان، وتتعامل جيدًا مع PETG وABS. أما للشركة الناشئة التي تطبع يوميًا فهناك <a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> المغلقة بسعر 6,299 ريالًا حاليًا.</p>
           <p>تحتاج قطعًا كبيرة مثل دروع الكوسبلاي أو المجسمات المعمارية الكبيرة؟ توفر <a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (حاليًا من 2,999 ريالًا) مساحة طباعة 420 × 420 × 500 مم. قارن جميع الخيارات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
@@ -195,7 +195,7 @@ POSTS = [
 
           <h2>Which printer to choose in Jeddah</h2>
           <p>For cosplay, size matters. The <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (currently 4,200 SAR) has a 330 x 320 x 325&nbsp;mm build volume and comes with the AMS lite, which can feed up to four spools. The AMS lite is an open unit, so in humid weather load only the spools you are printing with and store the rest sealed. For full-size helmets and armour in fewer pieces, the <a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (currently from 2,999 SAR) offers 420 x 420 x 500&nbsp;mm.</p>
-          <p>For beginners and gift makers the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is compact and easy. If you want an enclosed printer for more stable results and engineering materials, look at the <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR). Our <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L comparison</a> helps you decide between the Bambu Lab models.</p>
+          <p>For beginners and gift makers the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) is compact and easy. If you want an enclosed printer for more stable results and engineering materials, look at the <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR). Our <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L comparison</a> helps you decide between the Bambu Lab models.</p>
 
           <h2>Filament advice for the coast</h2>
           <p>Buy filament in quantities you will use within a few weeks, and keep a dry box ready. PLA is the easiest material for props and gifts; PETG is tougher and better for parts that stay outdoors or in a hot car. Browse the <a href="/3d/shop/filament/">filament shop</a> and the <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a> guide.</p>
@@ -262,7 +262,7 @@ POSTS = [
 
           <h2>أي طابعة تختار في جدة</h2>
           <p>في الكوسبلاي الحجم مهم. توفر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (حاليًا 4,200 ريال) مساحة طباعة 330 × 320 × 325 مم وتأتي مع وحدة AMS lite التي تغذي حتى أربع بكرات. وحدة AMS lite مفتوحة، لذا ضع فيها في الأجواء الرطبة البكرات التي تطبع بها فقط واحفظ الباقي مغلقًا. ولطباعة الخوذ والدروع الكاملة بعدد أجزاء أقل، توفر <a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (حاليًا من 2,999 ريالًا) مساحة 420 × 420 × 500 مم.</p>
-          <p>للمبتدئين وصنّاع الهدايا، <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) صغيرة وسهلة. وإذا أردت طابعة مغلقة لنتائج أكثر ثباتًا وخامات هندسية، فانظر إلى <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا). وتساعدك <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a> على الاختيار بين طابعات Bambu Lab.</p>
+          <p>للمبتدئين وصنّاع الهدايا، <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) صغيرة وسهلة. وإذا أردت طابعة مغلقة لنتائج أكثر ثباتًا وخامات هندسية، فانظر إلى <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا). وتساعدك <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a> على الاختيار بين طابعات Bambu Lab.</p>
 
           <h2>نصائح الفلمنت على الساحل</h2>
           <p>اشترِ من الفلمنت ما ستستخدمه خلال أسابيع قليلة، وجهّز صندوق تجفيف. فلمنت PLA الأسهل للمجسمات والهدايا، أما PETG فأقوى وأنسب للقطع التي تبقى في الخارج أو في سيارة حارة. تصفح <a href="/3d/ar/shop/filament/">قسم الفلمنت</a> ودليل <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>.</p>
@@ -330,13 +330,13 @@ POSTS = [
           </ul>
 
           <h2>Which printer fits</h2>
-          <p><strong>For students and first-time buyers:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) calibrates itself and prints up to four colours with the AMS lite. Its 180&nbsp;mm build volume covers most models and gifts. The <a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a> (listed from 2,090 SAR; check the product page for stock) is a lower-cost entry point with a larger 260 x 260 x 255&nbsp;mm build volume.</p>
+          <p><strong>For students and first-time buyers:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) calibrates itself and prints up to four colours with the AMS lite. Its 180&nbsp;mm build volume covers most models and gifts. The <a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a> (listed from 2,090 SAR; check the product page for stock) is a lower-cost entry point with a larger 260 x 260 x 255&nbsp;mm build volume.</p>
           <p><strong>For architecture models:</strong> large site models need room. The <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (currently 4,200 SAR) prints up to 330 x 320 x 325&nbsp;mm with the same easy A-series experience.</p>
           <p><strong>For a busy gift business:</strong> an enclosed printer such as the <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) gives consistent results day after day; just keep the lid open for PLA in a warm room.</p>
           <p>See every model on the <a href="/3d/shop/3d-printers/">3D printers page</a>, or read the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> guide.</p>
 
           <h2>Filament and accessories</h2>
-          <p>White and grey PLA are the standard for architecture models because they show shape and shadow clearly. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR, and KINGROON PLA Basic is currently 65 SAR. Keep a spare <a href="/3d/product/bambu-hotend-a1-series/">A1 series hotend</a> (currently 110 SAR) if you print every day on an A1 mini.</p>
+          <p>White and grey PLA are the standard for architecture models because they show shape and shadow clearly. Our <a href="/3d/product/filament-pla-1kg/">PLA+ Filament 1kg</a> is currently 75 SAR, and KINGROON PLA Basic is currently 65 SAR. Keep a spare <a href="/3d/product/bambu-hotend-a1-series/">A1 series hotend</a> (currently from 100 SAR) if you print every day on an A1 mini.</p>
 
           <h2>Delivery to Makkah</h2>
           <p>We deliver to all districts of Makkah from our base in Dammam. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; later orders go out the next business day. Choose standard delivery (4–5 business days, 30 SAR) or fast delivery (2–3 business days, 50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 3,000 SAR. 3D printed items are made to order in 3–5 business days before shipping. Pre-order items follow the timing shown on their product page.</p>
@@ -397,13 +397,13 @@ POSTS = [
           </ul>
 
           <h2>أي طابعة تناسبك</h2>
-          <p><strong>للطلاب ولمن يشتري أول طابعة:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) تعاير نفسها تلقائيًا وتطبع حتى أربعة ألوان مع AMS lite، ومساحتها 180 مم تكفي معظم المجسمات والهدايا. أما <a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a> (من 2,090 ريالًا، تحقق من المخزون في صفحة المنتج) فبداية أقل تكلفة بمساحة أكبر تبلغ 260 × 260 × 255 مم.</p>
+          <p><strong>للطلاب ولمن يشتري أول طابعة:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) تعاير نفسها تلقائيًا وتطبع حتى أربعة ألوان مع AMS lite، ومساحتها 180 مم تكفي معظم المجسمات والهدايا. أما <a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a> (من 2,090 ريالًا، تحقق من المخزون في صفحة المنتج) فبداية أقل تكلفة بمساحة أكبر تبلغ 260 × 260 × 255 مم.</p>
           <p><strong>للمجسمات المعمارية:</strong> نماذج المواقع الكبيرة تحتاج مساحة، و<a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (حاليًا 4,200 ريال) تطبع حتى 330 × 320 × 325 مم بسهولة سلسلة A نفسها.</p>
           <p><strong>لمشروع هدايا نشط:</strong> الطابعة المغلقة مثل <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا) تعطي نتائج ثابتة يومًا بعد يوم، مع إبقاء الغطاء مفتوحًا عند طباعة PLA في غرفة دافئة.</p>
           <p>اطّلع على جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>، أو اقرأ دليل <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a>.</p>
 
           <h2>الفلمنت والإكسسوارات</h2>
-          <p>فلمنت PLA الأبيض والرمادي هو المعتاد في المجسمات المعمارية لأنه يُظهر الشكل والظلال بوضوح. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 65 ريالًا. وإذا كنت تطبع يوميًا على A1 mini فاحتفظ بـ <a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند احتياطي لسلسلة A1</a> (حاليًا 110 ريالات).</p>
+          <p>فلمنت PLA الأبيض والرمادي هو المعتاد في المجسمات المعمارية لأنه يُظهر الشكل والظلال بوضوح. سعر <a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+ 1 كجم</a> حاليًا 75 ريالًا، وKINGROON PLA Basic حاليًا 65 ريالًا. وإذا كنت تطبع يوميًا على A1 mini فاحتفظ بـ <a href="/3d/ar/product/bambu-hotend-a1-series/">هوت إند احتياطي لسلسلة A1</a> (حاليًا من 100 ريال).</p>
 
           <h2>التوصيل إلى مكة المكرمة</h2>
           <p>نوصل إلى جميع أحياء مكة من مقرنا في الدمام. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وما بعد ذلك في يوم العمل التالي. اختر التوصيل العادي (4–5 أيام عمل، 30 ريالًا) أو السريع (2–3 أيام عمل، 50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 3,000 ريال. المطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن، أما منتجات الطلب المسبق فتتبع المدة الموضحة في صفحة كل منتج.</p>
@@ -469,8 +469,8 @@ POSTS = [
           <h2>Choosing a printer</h2>
           <p>Multicolour printing is popular in Madinah because two-colour Arabic text looks so much better than painted lettering. Three good options on our store (check each product page for stock):</p>
           <ul>
-            <li><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a>, currently 2,749 SAR: the simplest way into four-colour printing for small signs and gifts.</li>
-            <li><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a>, currently 5,550 SAR: four independent toolheads, so colour changes are faster and waste less filament than single-nozzle colour swapping. A strong choice if you plan to sell coloured products.</li>
+            <li><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a>, currently 2,699 SAR: the simplest way into four-colour printing for small signs and gifts.</li>
+            <li><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a>, currently 5,600 SAR: four independent toolheads, so colour changes are faster and waste less filament than single-nozzle colour swapping. A strong choice if you plan to sell coloured products.</li>
             <li><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a>, currently 3,050 SAR: an enclosed printer, which also keeps the build area at a steadier temperature on cool nights.</li>
           </ul>
           <p>Not sure how multicolour printing works? Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a>, or compare everything on the <a href="/3d/shop/3d-printers/">printers page</a>.</p>
@@ -538,8 +538,8 @@ POSTS = [
           <h2>اختيار الطابعة</h2>
           <p>الطباعة متعددة الألوان مطلوبة في المدينة، لأن النص العربي بلونين يبدو أجمل بكثير من الحروف المطلية يدويًا. إليك ثلاثة خيارات جيدة متوفرة حاليًا:</p>
           <ul>
-            <li><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> بسعر 2,749 ريالًا حاليًا: أسهل مدخل إلى الطباعة بأربعة ألوان للوحات الصغيرة والهدايا.</li>
-            <li><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> بسعر 5,550 ريالًا حاليًا: أربعة رؤوس طباعة مستقلة، فيكون تغيير اللون أسرع وبهدر أقل من أنظمة تبديل الفلمنت بفوهة واحدة. خيار قوي إذا كنت تخطط لبيع منتجات ملونة.</li>
+            <li><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> بسعر 2,699 ريالًا حاليًا: أسهل مدخل إلى الطباعة بأربعة ألوان للوحات الصغيرة والهدايا.</li>
+            <li><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> بسعر 5,600 ريالًا حاليًا: أربعة رؤوس طباعة مستقلة، فيكون تغيير اللون أسرع وبهدر أقل من أنظمة تبديل الفلمنت بفوهة واحدة. خيار قوي إذا كنت تخطط لبيع منتجات ملونة.</li>
             <li><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> بسعر 3,050 ريالًا حاليًا: طابعة مغلقة تحافظ أيضًا على حرارة أكثر ثباتًا داخلها في الليالي الباردة.</li>
           </ul>
           <p>لا تعرف كيف تعمل الطباعة متعددة الألوان؟ اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a>، أو قارن جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
@@ -616,7 +616,7 @@ POSTS = [
           <h2>Which printer to choose</h2>
           <p><strong>For engineers:</strong> an enclosed printer opens up tougher materials. The <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) has a 350&nbsp;°C hardened steel nozzle and is rated for PETG, ABS, ASA, PC, PA and carbon-filled PLA, depending on settings. The <a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (currently 6,299 SAR) is an enclosed, fast printer for everyday production with multicolour printing through the AMS 2 Pro.</p>
           <p><strong>For workshops and labs:</strong> the <a href="/3d/product/bambu-lab-h2c-combo/">Bambu Lab H2C</a> (listed at 15,990 SAR; check the product page for stock) is a professional printer with a 350&nbsp;°C hot end and a chamber that reaches up to 65&nbsp;°C, built for engineering materials.</p>
-          <p><strong>For students and beginners:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is the easiest place to start. See the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner’s guide</a> and the full <a href="/3d/shop/3d-printers/">printer range</a>.</p>
+          <p><strong>For students and beginners:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) is the easiest place to start. See the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner’s guide</a> and the full <a href="/3d/shop/3d-printers/">printer range</a>.</p>
 
           <h2>Filament and spare parts</h2>
           <p>KINGROON <a href="/3d/product/kingroon-petg-basic-filament/">PETG Basic</a> (currently 65 SAR) is a good everyday engineering material: tougher and more heat resistant than PLA. Bambu Lab A1 series owners can find replacement hotends in <a href="/3d/shop/accessories/">accessories</a>. Read <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a> before choosing materials for functional parts.</p>
@@ -688,7 +688,7 @@ POSTS = [
           <h2>أي طابعة تختار</h2>
           <p><strong>للمهندسين:</strong> الطابعة المغلقة تفتح لك خامات أقوى. <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا) بفوهة فولاذ مقسّى تتحمل 350 °م، وتدعم PETG وABS وASA وPC وPA وPLA المدعّم بالكربون بحسب الإعدادات. و<a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (حاليًا 6,299 ريالًا) طابعة مغلقة وسريعة للإنتاج اليومي مع طباعة متعددة الألوان عبر AMS 2 Pro.</p>
           <p><strong>للورش والمختبرات:</strong> <a href="/3d/ar/product/bambu-lab-h2c-combo/">Bambu Lab H2C</a> (15,990 ريالًا، تحقق من المخزون في صفحة المنتج) طابعة احترافية بهوت إند يصل إلى 350 °م وحجرة تصل حرارتها إلى 65 °م، مصممة للخامات الهندسية.</p>
-          <p><strong>للطلاب والمبتدئين:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) أسهل نقطة بداية. اطّلع على <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a> و<a href="/3d/ar/shop/3d-printers/">جميع الطابعات</a>.</p>
+          <p><strong>للطلاب والمبتدئين:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) أسهل نقطة بداية. اطّلع على <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a> و<a href="/3d/ar/shop/3d-printers/">جميع الطابعات</a>.</p>
 
           <h2>الفلمنت وقطع الغيار</h2>
           <p>فلمنت <a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> (حاليًا 65 ريالًا) خامة هندسية يومية جيدة، أقوى من PLA وأكثر تحملًا للحرارة. ويجد مالكو طابعات Bambu Lab من سلسلة A1 هوت إند بديلًا في <a href="/3d/ar/shop/accessories/">قسم الإكسسوارات</a>. اقرأ <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a> قبل اختيار خامة القطع العملية.</p>
@@ -758,7 +758,7 @@ POSTS = [
             <li><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a>, currently 3,050 SAR: enclosed CoreXY, 350&nbsp;°C hardened steel nozzle, and support for PETG, ABS, ASA, PC, PA and carbon-filled PLA depending on settings. The best value for functional parts.</li>
             <li><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a>, currently 6,299 SAR: enclosed, fast and consistent for daily production, with the AMS 2 Pro for multicolour.</li>
             <li><a href="/3d/product/bambu-lab-h2c-combo/">Bambu Lab H2C</a>, listed at 15,990 SAR: a professional machine with a 350&nbsp;°C hot end and a chamber up to 65&nbsp;°C for workshops that print engineering materials every day.</li>
-            <li>For training rooms and beginners, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is simple and safe to learn on.</li>
+            <li>For training rooms and beginners, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) is simple and safe to learn on.</li>
           </ul>
           <p>Compare all models on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
@@ -824,7 +824,7 @@ POSTS = [
             <li><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> بسعر 3,050 ريالًا حاليًا: CoreXY مغلقة بفوهة فولاذ مقسّى تتحمل 350 °م، وتدعم PETG وABS وASA وPC وPA وPLA المدعّم بالكربون بحسب الإعدادات. أفضل قيمة مقابل السعر للقطع العملية.</li>
             <li><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> بسعر 6,299 ريالًا حاليًا: مغلقة وسريعة وثابتة للإنتاج اليومي، مع AMS 2 Pro للطباعة متعددة الألوان.</li>
             <li><a href="/3d/ar/product/bambu-lab-h2c-combo/">Bambu Lab H2C</a> بسعر 15,990 ريالًا: آلة احترافية بهوت إند حتى 350 °م وحجرة تصل إلى 65 °م للورش التي تطبع الخامات الهندسية يوميًا.</li>
-            <li>ولقاعات التدريب والمبتدئين، <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) بسيطة وآمنة للتعلم.</li>
+            <li>ولقاعات التدريب والمبتدئين، <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) بسيطة وآمنة للتعلم.</li>
           </ul>
           <p>قارن جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
@@ -895,7 +895,7 @@ POSTS = [
 
           <h2>Which printer fits</h2>
           <p><strong>Lowest cost entry:</strong> the <a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a> is listed from 2,090 SAR (check the product page for stock), with a 260 x 260 x 255&nbsp;mm build volume and optional multicolour with the CFS Lite.</p>
-          <p><strong>Easiest for beginners:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) calibrates itself and prints up to four colours.</p>
+          <p><strong>Easiest for beginners:</strong> the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) calibrates itself and prints up to four colours.</p>
           <p><strong>Big parts:</strong> the <a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (currently from 2,999 SAR) prints up to 420 x 420 x 500&nbsp;mm, useful for signs and large displays.</p>
           <p><strong>Cold rooms and tougher materials:</strong> the enclosed <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) keeps the build area warm and steady in winter.</p>
           <p>Compare them on the <a href="/3d/shop/3d-printers/">3D printers page</a> or read our <a href="/3d/blog/bambu-lab-vs-creality-vs-snapmaker/">Bambu Lab vs Creality vs Snapmaker</a> comparison.</p>
@@ -963,7 +963,7 @@ POSTS = [
 
           <h2>أي طابعة تناسبك</h2>
           <p><strong>أقل تكلفة للبداية:</strong> <a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a> من 2,090 ريالًا (تحقق من المخزون في صفحة المنتج)، بمساحة طباعة 260 × 260 × 255 مم وطباعة متعددة الألوان اختيارية مع CFS Lite.</p>
-          <p><strong>الأسهل للمبتدئين:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) تعاير نفسها وتطبع حتى أربعة ألوان.</p>
+          <p><strong>الأسهل للمبتدئين:</strong> <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) تعاير نفسها وتطبع حتى أربعة ألوان.</p>
           <p><strong>للقطع الكبيرة:</strong> <a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a> (حاليًا من 2,999 ريالًا) تطبع حتى 420 × 420 × 500 مم، وهي مفيدة للوحات وحوامل العرض الكبيرة.</p>
           <p><strong>للغرف الباردة والخامات الأقوى:</strong> <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> المغلقة (حاليًا 3,050 ريالًا) تحافظ على حرارة داخلية دافئة وثابتة في الشتاء.</p>
           <p>قارن بينها في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a> أو اقرأ <a href="/3d/ar/blog/bambu-lab-vs-creality-vs-snapmaker/">مقارنة Bambu Lab وCreality وSnapmaker</a>.</p>
@@ -1034,7 +1034,7 @@ POSTS = [
 
           <h2>Which printer to choose</h2>
           <p>Because rooms are cooler, an enclosed printer is worth more here than in hotter cities. The <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) is enclosed, prints up to 4 colours with the CANVAS system, and handles PETG and ABS. The <a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (currently 6,299 SAR) is a fast enclosed printer for daily production.</p>
-          <p>For colourful Asiri-style patterns with less waste, the <a href="/3d/product/snapmaker-u1/">Snapmaker U1</a> (currently 5,550 SAR) uses four separate toolheads. For beginners printing mostly PLA, the open-frame <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) works well as long as it is kept out of drafts.</p>
+          <p>For colourful Asiri-style patterns with less waste, the <a href="/3d/product/snapmaker-u1/">Snapmaker U1</a> (currently 5,600 SAR) uses four separate toolheads. For beginners printing mostly PLA, the open-frame <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) works well as long as it is kept out of drafts.</p>
           <p>Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a> or browse all <a href="/3d/shop/3d-printers/">3D printers</a>.</p>
 
           <h2>Filament</h2>
@@ -1099,7 +1099,7 @@ POSTS = [
 
           <h2>أي طابعة تختار</h2>
           <p>لأن الغرف أبرد، فالطابعة المغلقة هنا أكثر قيمة منها في المدن الحارة. <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا) مغلقة، وتطبع حتى 4 ألوان بنظام CANVAS، وتتعامل مع PETG وABS. و<a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (حاليًا 6,299 ريالًا) طابعة مغلقة سريعة للإنتاج اليومي.</p>
-          <p>وللزخارف العسيرية الملونة بهدر أقل، تستخدم <a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> (حاليًا 5,550 ريالًا) أربعة رؤوس طباعة منفصلة. أما للمبتدئين الذين يطبعون PLA غالبًا، فتعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> المفتوحة (حاليًا 2,749 ريالًا) جيدًا ما دامت بعيدة عن تيارات الهواء.</p>
+          <p>وللزخارف العسيرية الملونة بهدر أقل، تستخدم <a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> (حاليًا 5,600 ريالًا) أربعة رؤوس طباعة منفصلة. أما للمبتدئين الذين يطبعون PLA غالبًا، فتعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> المفتوحة (حاليًا 2,699 ريالًا) جيدًا ما دامت بعيدة عن تيارات الهواء.</p>
           <p>اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a> أو تصفح جميع <a href="/3d/ar/shop/3d-printers/">الطابعات ثلاثية الأبعاد</a>.</p>
 
           <h2>الفلمنت</h2>
@@ -1169,7 +1169,7 @@ POSTS = [
 
           <h2>Which printer suits Tabuk</h2>
           <p>An enclosed printer is the best match for Tabuk winters. The <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently 3,050 SAR) keeps the build area warm and supports PETG, ABS, ASA and other engineering materials depending on settings. The <a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (currently 6,299 SAR) is an enclosed, fast printer with multicolour printing for heavier use.</p>
-          <p>For students starting out with PLA, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,749 SAR) is reliable in a warm room. For large terrain or site models, the <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (currently 4,200 SAR) offers a 330 x 320 x 325&nbsp;mm build volume. Our <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L comparison</a> explains the differences, and the full range is on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
+          <p>For students starting out with PLA, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently 2,699 SAR) is reliable in a warm room. For large terrain or site models, the <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (currently 4,200 SAR) offers a 330 x 320 x 325&nbsp;mm build volume. Our <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L comparison</a> explains the differences, and the full range is on the <a href="/3d/shop/3d-printers/">3D printers page</a>.</p>
 
           <h2>Filament</h2>
           <p>Start with PLA for models and gifts, and move to PETG for parts that need to be tougher. KINGROON <a href="/3d/product/kingroon-pla-basic-filament/">PLA Basic</a> and PETG Basic are currently 65 SAR per kilo. Not sure which to buy? See <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a>.</p>
@@ -1234,7 +1234,7 @@ POSTS = [
 
           <h2>أي طابعة تناسب تبوك</h2>
           <p>الطابعة المغلقة هي الأنسب لشتاء تبوك. <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا 3,050 ريالًا) تحافظ على دفء منطقة الطباعة وتدعم PETG وABS وASA وخامات هندسية أخرى بحسب الإعدادات. و<a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (حاليًا 6,299 ريالًا) طابعة مغلقة سريعة بطباعة متعددة الألوان للاستخدام المكثف.</p>
-          <p>وللطلاب المبتدئين بـ PLA، تعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,749 ريالًا) بثبات في غرفة دافئة. ولمجسمات التضاريس والمواقع الكبيرة، توفر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (حاليًا 4,200 ريال) مساحة طباعة 330 × 320 × 325 مم. تشرح <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a> الفروق، وتجد جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
+          <p>وللطلاب المبتدئين بـ PLA، تعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (حاليًا 2,699 ريالًا) بثبات في غرفة دافئة. ولمجسمات التضاريس والمواقع الكبيرة، توفر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> (حاليًا 4,200 ريال) مساحة طباعة 330 × 320 × 325 مم. تشرح <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a> الفروق، وتجد جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
 
           <h2>الفلمنت</h2>
           <p>ابدأ بـ PLA للمجسمات والهدايا، وانتقل إلى PETG للقطع التي تحتاج صلابة أكبر. سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> وKINGROON PETG Basic حاليًا 65 ريالًا للكيلو. محتار في الاختيار؟ راجع <a href="/3d/ar/blog/which-filament-for-which-print/">أي فلمنت لأي طباعة</a>.</p>

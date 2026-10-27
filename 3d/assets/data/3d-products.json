@@ -120,7 +120,7 @@
       "available": false,
       "variants": [
         { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 2700, "available": false, "image": "/3d/assets/images/products/bambu-a1-01.webp" },
-        { "label": "Combo (printer + AMS Lite)", "label_ar": "باقة (الطابعة + AMS Lite)", "price": 3400, "available": false, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
+        { "label": "Combo (printer + AMS Lite)", "label_ar": "باقة (الطابعة + AMS Lite)", "price": 3449, "available": false, "image": "/3d/assets/images/products/bambu-a1-02.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-01.webp",
@@ -239,7 +239,6 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "preorder": true,
       "newArrival": true,
       "images": [
         "/3d/assets/images/products/bambu-h2c-01.webp",
@@ -748,7 +747,7 @@
       "boughtTogether": ["filament-pla-1kg", "kingroon-pla-basic-filament", "kingroon-petg-basic-filament"],
       "printerType": "FDM",
       "sku": "SNAPMAKER-U1",
-      "price": 5550,
+      "price": 5600,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
@@ -1035,7 +1034,7 @@
       "available": true,
       "variants": [
         { "label": "0.2mm", "label_ar": "0.2 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-02" },
-        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-04" },
+        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 100, "sku": "BAMBU-A1-HOTEND-04" },
         { "label": "0.6mm", "label_ar": "0.6 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-06" },
         { "label": "0.8mm", "label_ar": "0.8 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-08" }
       ],
@@ -1260,6 +1259,45 @@
         ["الأبعاد", "114 × 280 × 245 مم"],
         ["الوزن", "1.21 كجم"],
         ["محتويات العلبة", "AMS HT، مجفف رطوبة، أنابيب PTFE، كابل Bambu Bus بستة أطراف، كابل كهرباء"]
+      ]
+    },
+    {
+      "id": "bambu-ams-lite",
+      "name": "Bambu Lab AMS lite",
+      "brand": "Bambu Lab",
+      "category": "Accessories",
+      "boughtTogether": ["filament-pla-1kg", "kingroon-pla-basic-filament", "kingroon-petg-basic-filament"],
+      "sku": "BAMBU-AMS-LITE",
+      "price": 1499,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/bambu-ams-lite-01.webp",
+        "/3d/assets/images/products/bambu-ams-lite-02.webp",
+        "/3d/assets/images/products/bambu-ams-lite-03.webp"
+      ],
+      "shortDesc": "4-spool automatic material system for the Bambu Lab A1, A1 mini and A2L.",
+      "description": "The AMS lite is Bambu Lab's automatic material system for the A-series. It holds four spools on an open, compact stand and switches between them automatically during a print, so an A1, A1 mini or A2L can print in up to four colors or materials without you changing spools by hand. RFID reads Bambu Lab filament and fills in the settings for you. Add it to a printer you already own to turn it into a Combo.",
+      "specs": [
+        ["Spools", "4"],
+        ["Spool Switching", "Automatic, during a print"],
+        ["Filament Diameter", "1.75 mm"],
+        ["RFID", "Reads Bambu Lab filament automatically"],
+        ["Compatible Printers", "Bambu Lab A1, A1 mini and A2L"],
+        ["Drying", "Not included (use a filament dryer for damp spools)"]
+      ],
+      "name_ar": "بامبو لاب AMS lite",
+      "shortDesc_ar": "نظام خامات تلقائي لأربع بكرات لطابعات بامبو لاب A1 وA1 mini وA2L.",
+      "description_ar": "AMS lite هو نظام الخامات التلقائي من بامبو لاب لسلسلة A. يحمل أربع بكرات على حامل مفتوح ومدمج ويبدّل بينها تلقائيًا أثناء الطباعة، فتطبع A1 أو A1 mini أو A2L حتى أربعة ألوان أو خامات دون تغيير البكرات يدويًا. يتعرف RFID على خيوط بامبو لاب ويضبط الإعدادات تلقائيًا. أضفه إلى طابعتك الحالية لتصبح باقة Combo.",
+      "specs_ar": [
+        ["عدد البكرات", "4"],
+        ["تبديل البكرات", "تلقائي أثناء الطباعة"],
+        ["قطر الخيط", "1.75 مم"],
+        ["RFID", "يتعرف على خيوط Bambu Lab تلقائيًا"],
+        ["الطابعات المتوافقة", "Bambu Lab A1 وA1 mini وA2L"],
+        ["التجفيف", "غير مدمج (استخدم مجفف خيوط للبكرات الرطبة)"]
       ]
     },
     {
