@@ -957,7 +957,7 @@ COLLECTIONS = [
                 "معظم الحوامل تناسب يد تحكم PS5 DualSense. لست متأكدًا أيها يناسبك؟ اسألنا عبر واتساب."]),
     }),
     ('anime-fans', {'ids': [
-        'anime-straw-hat-keychain', 'straw-hat-ps5-controller-stand', 'one-piece-sword-keychain',
+        'anime-straw-hat-keychain', 'one-piece-jolly-roger-keychain', 'straw-hat-ps5-controller-stand', 'one-piece-sword-keychain',
         'one-piece-luffy-silhouette-lamp', 'one-piece-zoro-silhouette-lamp', 'one-piece-sanji-silhouette-lamp',
         'naruto-portrait-plaque', 'naruto-leaf-keychain', 'uchiha-clan-keychain', 'toji-edge-sitter-figure']}, {
         'en': ('3D Printed Anime Gifts', 'Anime Fans',
