@@ -1,7 +1,7 @@
 /* Homepage welcome band: "Welcome to Black Arrow 3D" printed layer by layer inside a drawn
    printer chamber (frame posts, Z screws, LED strip, textured PEI plate, gantry rail).
    Plays once per visit (sessionStorage); after that, and with reduced motion, the finished
-   print is drawn straight away. Text and font follow <html lang>. */
+   print is drawn straight away. Pointing at the band prints it again. Text and font follow <html lang>. */
 (function () {
   var band = document.querySelector('[data-b3d-welcome]');
   if (!band) return;
@@ -13,7 +13,7 @@
   var TEXT = AR ? 'أهلاً بك في Black Arrow 3D' : 'Welcome to Black Arrow 3D';
   var FONT = AR ? '700 {s}px "Noto Kufi Arabic", Tahoma, sans-serif' : '800 {s}px "Playfair Display", Georgia, serif';
   var DESCEND_MS = 350, DURATION = 2400, LAYER_CSS_PX = 3, SEEN_KEY = 'b3dWelcomePrinted';
-  var raf = 0, played = false;
+  var raf = 0, played = false, printing = false;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function seen() { try { return sessionStorage.getItem(SEEN_KEY) === '1'; } catch (e) { return false; } }
@@ -188,12 +188,12 @@
     drawRail(P, lastL.top - 50 * P.dpr, 1);
   }
 
-  function play() {
+  function play(again) {
     cancelAnimationFrame(raf);
     var P = plan();
     if (!P.layers.length) return;
-    if (reduce || played || seen()) { drawFinished(P); return; }
-    played = true; markSeen();
+    if (reduce || (!again && (played || seen()))) { drawFinished(P); printing = false; return; }
+    played = true; printing = true; markSeen();
     var first = P.layers[0], end = P.layers[P.layers.length - 1].end;
     var t0 = performance.now(), last = { x: first.rev ? first.hi : first.lo, y: first.top };
     (function frame(ts) {
@@ -209,13 +209,20 @@
         drawRail(P, ly, 1); drawHead(P, last.x, ly, 1 - q, false, now);
       } else drawRail(P, last.y - 50 * P.dpr, 1);
       if (now < end + 1000) raf = requestAnimationFrame(frame);
+      else printing = false;
     })(t0);
   }
 
-  function start() {
+  function start(again) {
+    var go = function () { play(again === true); };
     var ready = document.fonts && document.fonts.load ? document.fonts.load(FONT.replace('{s}', 40), TEXT) : Promise.resolve();
-    ready.then(play, play);
+    ready.then(go, go);
   }
+
+  // Hover replays the print (mouse/trackpad only), once the current one has finished.
+  band.addEventListener('mouseenter', function () {
+    if (!printing && !reduce) start(true);
+  });
 
   var lastW = 0, rt;
   window.addEventListener('resize', function () {
