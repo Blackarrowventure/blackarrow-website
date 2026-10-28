@@ -906,14 +906,14 @@ ART_ICON_PATHS = {
 
 ART_SUBCATEGORIES = [
     ('keychains', {'en': 'Keychains', 'ar': 'ميداليات المفاتيح'}, '#fbe7ef', 'keychain', [
-        'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
+        'one-piece-jolly-roger-keychain', 'sports-duffel-bag-keychain', 'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
         'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain', 'uchiha-clan-keychain']),
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand', 'button-symbols-controller-stand',
         'pillow-controller-stand', 'gta-vi-ps5-controller-stand']),
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
-        'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue', 'toji-edge-sitter-figure']),
+        'leonidas-kick-edge-display', 'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue', 'toji-edge-sitter-figure']),
     ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
         'air-filter-style-lamp', 'synapse-usb-lamp', 'spiderman-mask-pen-holder',
         'one-piece-luffy-silhouette-lamp', 'one-piece-zoro-silhouette-lamp', 'one-piece-sanji-silhouette-lamp']),

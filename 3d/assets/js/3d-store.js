@@ -1085,6 +1085,12 @@
       if (state.sort === 'price-desc') list.sort(function (a, b) { return currentPrice(b) - currentPrice(a); });
       if (state.sort === 'name-asc') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
       if (state.sort === 'best-seller') list.sort(function (a, b) { return (a.bestSeller || Infinity) - (b.bestSeller || Infinity); });
+      // Featured order: 3D Artwork newest first (new products are added at the end of the
+      // catalog), keeping the same slots in the list so printers and parts stay where they are.
+      if (state.sort === 'default') {
+        var art = list.filter(function (p) { return p.category === '3D Artwork'; }).reverse();
+        list = list.map(function (p) { return p.category === '3D Artwork' ? art.shift() : p; });
+      }
 
       var totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
       if (state.page > totalPages) state.page = totalPages;

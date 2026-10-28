@@ -1716,79 +1716,6 @@
       ]
     },
     {
-      "id": "sports-duffel-bag-keychain",
-      "name": "Mini Sports Duffel Bag Keychain",
-      "brand": "Black Arrow",
-      "category": "3D Artwork",
-      "price": 15,
-      "currency": "SAR",
-      "vatIncluded": true,
-      "available": true,
-      "newArrival": true,
-      "variants": [
-        { "label": "Pink", "label_ar": "وردي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp" },
-        { "label": "Black", "label_ar": "أسود", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp" },
-        { "label": "Purple", "label_ar": "بنفسجي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp" }
-      ],
-      "images": [
-        "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp",
-        "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp",
-        "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp",
-        "/3d/assets/images/products/sports-duffel-bag-keychain-group.webp"
-      ],
-      "shortDesc": "A tiny 3D printed gym duffel bag for your keys or backpack, with carry handles, zip details and a crisp white logo. Pink, black or purple.",
-      "description": "A miniature sports duffel bag, 3D printed in-house as a keychain. It has the look of a real gym bag scaled down to fit in your palm: two arched carry handles, a zipped top, a front zip pocket with its pull tab, strap seams running down each side and a crisp white logo printed in a second colour so it stays sharp. The fine fabric-like texture comes from the printing itself, so every bag catches the light like woven nylon. Printed in durable PLA and finished with a metal keychain attachment, it clips straight onto keys, a school bag, a gym bag or a backpack zip. Choose pink, black or purple below; each colour is sold separately. A fun small gift for anyone who lives at the gym, and an easy add-on to any order.",
-      "specs": [
-        ["Material", "PLA"],
-        ["Finish", "Two-colour print, fabric-like texture"],
-        ["Colours", "Pink, black or purple (pick one)"],
-        ["Details", "Carry handles, zipped top, front zip pocket, white logo"],
-        ["Includes", "Metal keychain attachment"]
-      ],
-      "name_ar": "ميدالية مفاتيح حقيبة رياضية صغيرة",
-      "shortDesc_ar": "حقيبة رياضية صغيرة مطبوعة ثلاثية الأبعاد لمفاتيحك أو شنطتك، بمقابض وتفاصيل سحاب وشعار أبيض واضح. وردي أو أسود أو بنفسجي.",
-      "description_ar": "حقيبة رياضية مصغّرة مطبوعة بتقنية الطباعة ثلاثية الأبعاد داخل الشركة على شكل ميدالية مفاتيح. تبدو كحقيبة نادٍ حقيقية بحجم كف اليد: مقبضان مقوّسان، وسحاب في الأعلى، وجيب أمامي بسحاب وحلقة السحب، وخياطة الأحزمة على الجانبين، وشعار أبيض مطبوع بلون ثانٍ ليبقى واضحًا. الملمس الدقيق الشبيه بالقماش ناتج عن الطباعة نفسها، فتلمع كل حقيبة كأنها من النايلون المنسوج. مطبوعة من مادة PLA المتينة مع حلقة معدنية للتعليق، تُثبَّت مباشرة على المفاتيح أو حقيبة المدرسة أو حقيبة النادي أو سحاب الشنطة. اختر الوردي أو الأسود أو البنفسجي أدناه، وكل لون يُباع منفردًا. هدية صغيرة ممتعة لعشّاق النادي، وإضافة سهلة لأي طلب.",
-      "specs_ar": [
-        ["الخامة", "PLA"],
-        ["اللمسة النهائية", "طباعة بلونين، ملمس يشبه القماش"],
-        ["الألوان", "وردي أو أسود أو بنفسجي (اختر واحدًا)"],
-        ["التفاصيل", "مقابض، سحاب علوي، جيب أمامي بسحاب، شعار أبيض"],
-        ["يتضمن", "حلقة معدنية للتعليق"]
-      ]
-    },
-    {
-      "id": "one-piece-jolly-roger-keychain",
-      "name": "One Piece Straw Hat Jolly Roger Keychain",
-      "brand": "Black Arrow",
-      "category": "3D Artwork",
-      "price": 15,
-      "currency": "SAR",
-      "vatIncluded": true,
-      "available": true,
-      "newArrival": true,
-      "images": [
-        "/3d/assets/images/products/one-piece-jolly-roger-keychain-01.webp",
-        "/3d/assets/images/products/one-piece-jolly-roger-keychain-02.webp"
-      ],
-      "shortDesc": "The Straw Hat Pirates' Jolly Roger from One Piece as a bold 3D printed keychain: Luffy's skull and crossbones with the yellow straw hat and red band.",
-      "description": "Fly the Straw Hat Pirates' flag wherever you go. This keychain recreates Luffy's famous Jolly Roger from One Piece: the grinning white skull wearing the yellow straw hat with its red band, crossed bones behind it, all set inside a black circle with a white ring. Every colour is printed as its own raised layer, so the hat, band, skull and bones stand out crisply from the black background with clean, sharp edges and no paint to chip or fade. Printed in-house at Black Arrow 3D in durable PLA, with a hole at the top and a metal keyring so it goes straight onto your keys, bag or backpack zip. A perfect small gift for any One Piece fan, and an easy add-on to any order.",
-      "specs": [
-        ["Material", "PLA"],
-        ["Colours", "Black, white, yellow and red, printed in raised layers"],
-        ["Design", "Straw Hat Pirates Jolly Roger (One Piece), printed in-house"],
-        ["Includes", "Metal keyring"]
-      ],
-      "name_ar": "ميدالية مفاتيح علم قراصنة قبعة القش من ون بيس",
-      "shortDesc_ar": "علم قراصنة قبعة القش من ون بيس كميدالية مفاتيح مطبوعة ثلاثية الأبعاد: جمجمة لوفي وعظمتاها مع قبعة القش الصفراء وشريطها الأحمر.",
-      "description_ar": "ارفع علم قراصنة قبعة القش أينما ذهبت. تعيد هذه الميدالية تصميم علم لوفي الشهير من ون بيس: الجمجمة البيضاء المبتسمة بقبعة القش الصفراء وشريطها الأحمر، والعظمتان المتقاطعتان خلفها، داخل دائرة سوداء بحلقة بيضاء. كل لون مطبوع كطبقة بارزة مستقلة، فتبرز القبعة والشريط والجمجمة والعظام بوضوح على الخلفية السوداء بحواف نظيفة وحادة ودون طلاء يتقشر أو يبهت. مطبوعة داخل Black Arrow 3D من مادة PLA المتينة، مع فتحة في الأعلى وحلقة مفاتيح معدنية لتثبيتها مباشرة على مفاتيحك أو حقيبتك أو سحاب شنطتك. هدية صغيرة مثالية لكل محبي ون بيس، وإضافة سهلة لأي طلب.",
-      "specs_ar": [
-        ["الخامة", "PLA"],
-        ["الألوان", "أسود وأبيض وأصفر وأحمر، مطبوعة بطبقات بارزة"],
-        ["التصميم", "علم قراصنة قبعة القش (ون بيس)، مطبوع داخليًا"],
-        ["يتضمن", "حلقة مفاتيح معدنية"]
-      ]
-    },
-    {
       "id": "one-piece-sword-keychain",
       "name": "One Piece Sword Keychain",
       "brand": "Black Arrow",
@@ -3117,41 +3044,6 @@
       ]
     },
     {
-      "id": "leonidas-kick-edge-display",
-      "name": "This Is Sparta! King Leonidas Kick Edge Display",
-      "brand": "Black Arrow",
-      "category": "3D Artwork",
-      "price": 39,
-      "currency": "SAR",
-      "vatIncluded": true,
-      "available": true,
-      "newArrival": true,
-      "images": [
-        "/3d/assets/images/products/leonidas-kick-edge-display-01.webp",
-        "/3d/assets/images/products/leonidas-kick-edge-display-02.webp",
-        "/3d/assets/images/products/leonidas-kick-edge-display-03.webp"
-      ],
-      "shortDesc": "The legendary \"This is Sparta!\" kick as a 3D printed edge display: King Leonidas stands on the edge while the messenger falls off it.",
-      "description": "Put the most famous kick in movie history on your shelf. King Leonidas stands on the very edge of your desk, shelf or 3D printer, cape flying, sword in hand and mouth open mid-roar, while his kick sends the cloaked messenger falling backwards off the edge into thin air. The figures connect only at the kick, so the messenger seems to hang in mid-fall, which is what makes this piece stop people in their tracks. Printed in-house at Black Arrow 3D in two contrasting colours, stone grey for Leonidas and black for the messenger, with fine sculpted detail in the muscles, the torn battle kilt, the greaves and the flowing robes. Leonidas stands on a small flat base that sits right at the edge, and the messenger hangs out over the drop. A bold conversation piece for a desk, bookshelf, gaming setup or printer top, and a great gift for any fan of the film.",
-      "specs": [
-        ["Material", "PLA"],
-        ["Colours", "Stone grey (Leonidas) and black (messenger)"],
-        ["Design", "King Leonidas kick edge display, printed in-house"],
-        ["Finish", "Unpainted display finish"],
-        ["Use", "Place on the edge of a shelf, desk, monitor or 3D printer"]
-      ],
-      "name_ar": "مجسم هذه إسبرطة! ركلة الملك ليونيداس على الحافة",
-      "shortDesc_ar": "ركلة \"هذه إسبرطة!\" الأسطورية كمجسم مطبوع ثلاثي الأبعاد للحافة: الملك ليونيداس يقف على الحافة والرسول يسقط منها.",
-      "description_ar": "ضع أشهر ركلة في تاريخ السينما على رفّك. يقف الملك ليونيداس على حافة مكتبك أو رفك أو طابعتك ثلاثية الأبعاد، عباءته تتطاير وسيفه في يده وفمه مفتوح بصرخة، بينما تُسقط ركلته الرسولَ ذا العباءة إلى الخلف خارج الحافة في الهواء. لا يتصل المجسمان إلا عند الركلة، فيبدو الرسول معلّقًا في منتصف سقوطه، وهذا ما يجعل القطعة تلفت أنظار كل من يراها. مطبوع داخل Black Arrow 3D بلونين متباينين: الرمادي الحجري لليونيداس والأسود للرسول، مع تفاصيل منحوتة دقيقة في العضلات والتنورة القتالية الممزقة وواقيات الساق والأردية المتدفقة. يقف ليونيداس على قاعدة صغيرة مسطحة توضع عند الحافة تمامًا، ويتدلى الرسول فوق الفراغ. قطعة لافتة للمكتب أو رف الكتب أو ركن الألعاب أو فوق الطابعة، وهدية رائعة لكل محبي الفيلم.",
-      "specs_ar": [
-        ["الخامة", "PLA"],
-        ["الألوان", "رمادي حجري (ليونيداس) وأسود (الرسول)"],
-        ["التصميم", "مجسم ركلة الملك ليونيداس على الحافة، مطبوع داخليًا"],
-        ["اللمسة النهائية", "بدون طلاء"],
-        ["الاستخدام", "يوضع على حافة رف أو مكتب أو شاشة أو طابعة ثلاثية الأبعاد"]
-      ]
-    },
-    {
       "id": "toji-edge-sitter-figure",
       "name": "Toji Fushiguro Edge-Sitter Figure",
       "brand": "Black Arrow",
@@ -3256,6 +3148,114 @@
         ["درجة حرارة السرير", "50–70°C"],
         ["التوافق", "معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم"],
         ["الألوان", "أسود، أبيض، رمادي، فضي، أحمر، برتقالي، أصفر، أخضر، أزرق، أزرق فاتح، بنفسجي، وردي، نحاسي، شفاف، بيج — اختر واحدًا"]
+      ]
+    },
+    {
+      "id": "sports-duffel-bag-keychain",
+      "name": "Mini Sports Duffel Bag Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Pink", "label_ar": "وردي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp" },
+        { "label": "Purple", "label_ar": "بنفسجي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-group.webp"
+      ],
+      "shortDesc": "A tiny 3D printed gym duffel bag for your keys or backpack, with carry handles, zip details and a crisp white logo. Pink, black or purple.",
+      "description": "A miniature sports duffel bag, 3D printed in-house as a keychain. It has the look of a real gym bag scaled down to fit in your palm: two arched carry handles, a zipped top, a front zip pocket with its pull tab, strap seams running down each side and a crisp white logo printed in a second colour so it stays sharp. The fine fabric-like texture comes from the printing itself, so every bag catches the light like woven nylon. Printed in durable PLA and finished with a metal keychain attachment, it clips straight onto keys, a school bag, a gym bag or a backpack zip. Choose pink, black or purple below; each colour is sold separately. A fun small gift for anyone who lives at the gym, and an easy add-on to any order.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Finish", "Two-colour print, fabric-like texture"],
+        ["Colours", "Pink, black or purple (pick one)"],
+        ["Details", "Carry handles, zipped top, front zip pocket, white logo"],
+        ["Includes", "Metal keychain attachment"]
+      ],
+      "name_ar": "ميدالية مفاتيح حقيبة رياضية صغيرة",
+      "shortDesc_ar": "حقيبة رياضية صغيرة مطبوعة ثلاثية الأبعاد لمفاتيحك أو شنطتك، بمقابض وتفاصيل سحاب وشعار أبيض واضح. وردي أو أسود أو بنفسجي.",
+      "description_ar": "حقيبة رياضية مصغّرة مطبوعة بتقنية الطباعة ثلاثية الأبعاد داخل الشركة على شكل ميدالية مفاتيح. تبدو كحقيبة نادٍ حقيقية بحجم كف اليد: مقبضان مقوّسان، وسحاب في الأعلى، وجيب أمامي بسحاب وحلقة السحب، وخياطة الأحزمة على الجانبين، وشعار أبيض مطبوع بلون ثانٍ ليبقى واضحًا. الملمس الدقيق الشبيه بالقماش ناتج عن الطباعة نفسها، فتلمع كل حقيبة كأنها من النايلون المنسوج. مطبوعة من مادة PLA المتينة مع حلقة معدنية للتعليق، تُثبَّت مباشرة على المفاتيح أو حقيبة المدرسة أو حقيبة النادي أو سحاب الشنطة. اختر الوردي أو الأسود أو البنفسجي أدناه، وكل لون يُباع منفردًا. هدية صغيرة ممتعة لعشّاق النادي، وإضافة سهلة لأي طلب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["اللمسة النهائية", "طباعة بلونين، ملمس يشبه القماش"],
+        ["الألوان", "وردي أو أسود أو بنفسجي (اختر واحدًا)"],
+        ["التفاصيل", "مقابض، سحاب علوي، جيب أمامي بسحاب، شعار أبيض"],
+        ["يتضمن", "حلقة معدنية للتعليق"]
+      ]
+    },
+    {
+      "id": "leonidas-kick-edge-display",
+      "name": "This Is Sparta! King Leonidas Kick Edge Display",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 39,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/leonidas-kick-edge-display-01.webp",
+        "/3d/assets/images/products/leonidas-kick-edge-display-02.webp",
+        "/3d/assets/images/products/leonidas-kick-edge-display-03.webp"
+      ],
+      "shortDesc": "The legendary \"This is Sparta!\" kick as a 3D printed edge display: King Leonidas stands on the edge while the messenger falls off it.",
+      "description": "Put the most famous kick in movie history on your shelf. King Leonidas stands on the very edge of your desk, shelf or 3D printer, cape flying, sword in hand and mouth open mid-roar, while his kick sends the cloaked messenger falling backwards off the edge into thin air. The figures connect only at the kick, so the messenger seems to hang in mid-fall, which is what makes this piece stop people in their tracks. Printed in-house at Black Arrow 3D in two contrasting colours, stone grey for Leonidas and black for the messenger, with fine sculpted detail in the muscles, the torn battle kilt, the greaves and the flowing robes. Leonidas stands on a small flat base that sits right at the edge, and the messenger hangs out over the drop. A bold conversation piece for a desk, bookshelf, gaming setup or printer top, and a great gift for any fan of the film.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Colours", "Stone grey (Leonidas) and black (messenger)"],
+        ["Design", "King Leonidas kick edge display, printed in-house"],
+        ["Finish", "Unpainted display finish"],
+        ["Use", "Place on the edge of a shelf, desk, monitor or 3D printer"]
+      ],
+      "name_ar": "مجسم هذه إسبرطة! ركلة الملك ليونيداس على الحافة",
+      "shortDesc_ar": "ركلة \"هذه إسبرطة!\" الأسطورية كمجسم مطبوع ثلاثي الأبعاد للحافة: الملك ليونيداس يقف على الحافة والرسول يسقط منها.",
+      "description_ar": "ضع أشهر ركلة في تاريخ السينما على رفّك. يقف الملك ليونيداس على حافة مكتبك أو رفك أو طابعتك ثلاثية الأبعاد، عباءته تتطاير وسيفه في يده وفمه مفتوح بصرخة، بينما تُسقط ركلته الرسولَ ذا العباءة إلى الخلف خارج الحافة في الهواء. لا يتصل المجسمان إلا عند الركلة، فيبدو الرسول معلّقًا في منتصف سقوطه، وهذا ما يجعل القطعة تلفت أنظار كل من يراها. مطبوع داخل Black Arrow 3D بلونين متباينين: الرمادي الحجري لليونيداس والأسود للرسول، مع تفاصيل منحوتة دقيقة في العضلات والتنورة القتالية الممزقة وواقيات الساق والأردية المتدفقة. يقف ليونيداس على قاعدة صغيرة مسطحة توضع عند الحافة تمامًا، ويتدلى الرسول فوق الفراغ. قطعة لافتة للمكتب أو رف الكتب أو ركن الألعاب أو فوق الطابعة، وهدية رائعة لكل محبي الفيلم.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الألوان", "رمادي حجري (ليونيداس) وأسود (الرسول)"],
+        ["التصميم", "مجسم ركلة الملك ليونيداس على الحافة، مطبوع داخليًا"],
+        ["اللمسة النهائية", "بدون طلاء"],
+        ["الاستخدام", "يوضع على حافة رف أو مكتب أو شاشة أو طابعة ثلاثية الأبعاد"]
+      ]
+    },
+    {
+      "id": "one-piece-jolly-roger-keychain",
+      "name": "One Piece Straw Hat Jolly Roger Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/one-piece-jolly-roger-keychain-01.webp",
+        "/3d/assets/images/products/one-piece-jolly-roger-keychain-02.webp"
+      ],
+      "shortDesc": "The Straw Hat Pirates' Jolly Roger from One Piece as a bold 3D printed keychain: Luffy's skull and crossbones with the yellow straw hat and red band.",
+      "description": "Fly the Straw Hat Pirates' flag wherever you go. This keychain recreates Luffy's famous Jolly Roger from One Piece: the grinning white skull wearing the yellow straw hat with its red band, crossed bones behind it, all set inside a black circle with a white ring. Every colour is printed as its own raised layer, so the hat, band, skull and bones stand out crisply from the black background with clean, sharp edges and no paint to chip or fade. Printed in-house at Black Arrow 3D in durable PLA, with a hole at the top and a metal keyring so it goes straight onto your keys, bag or backpack zip. A perfect small gift for any One Piece fan, and an easy add-on to any order.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Colours", "Black, white, yellow and red, printed in raised layers"],
+        ["Design", "Straw Hat Pirates Jolly Roger (One Piece), printed in-house"],
+        ["Includes", "Metal keyring"]
+      ],
+      "name_ar": "ميدالية مفاتيح علم قراصنة قبعة القش من ون بيس",
+      "shortDesc_ar": "علم قراصنة قبعة القش من ون بيس كميدالية مفاتيح مطبوعة ثلاثية الأبعاد: جمجمة لوفي وعظمتاها مع قبعة القش الصفراء وشريطها الأحمر.",
+      "description_ar": "ارفع علم قراصنة قبعة القش أينما ذهبت. تعيد هذه الميدالية تصميم علم لوفي الشهير من ون بيس: الجمجمة البيضاء المبتسمة بقبعة القش الصفراء وشريطها الأحمر، والعظمتان المتقاطعتان خلفها، داخل دائرة سوداء بحلقة بيضاء. كل لون مطبوع كطبقة بارزة مستقلة، فتبرز القبعة والشريط والجمجمة والعظام بوضوح على الخلفية السوداء بحواف نظيفة وحادة ودون طلاء يتقشر أو يبهت. مطبوعة داخل Black Arrow 3D من مادة PLA المتينة، مع فتحة في الأعلى وحلقة مفاتيح معدنية لتثبيتها مباشرة على مفاتيحك أو حقيبتك أو سحاب شنطتك. هدية صغيرة مثالية لكل محبي ون بيس، وإضافة سهلة لأي طلب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الألوان", "أسود وأبيض وأصفر وأحمر، مطبوعة بطبقات بارزة"],
+        ["التصميم", "علم قراصنة قبعة القش (ون بيس)، مطبوع داخليًا"],
+        ["يتضمن", "حلقة مفاتيح معدنية"]
       ]
     }
   ]
