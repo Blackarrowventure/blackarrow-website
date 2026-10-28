@@ -3085,6 +3085,41 @@
       ]
     },
     {
+      "id": "leonidas-kick-edge-display",
+      "name": "This Is Sparta! King Leonidas Kick Edge Display",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 39,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/leonidas-kick-edge-display-01.webp",
+        "/3d/assets/images/products/leonidas-kick-edge-display-02.webp",
+        "/3d/assets/images/products/leonidas-kick-edge-display-03.webp"
+      ],
+      "shortDesc": "The legendary \"This is Sparta!\" kick as a 3D printed edge display: King Leonidas stands on the edge while the messenger falls off it.",
+      "description": "Put the most famous kick in movie history on your shelf. King Leonidas stands on the very edge of your desk, shelf or 3D printer, cape flying, sword in hand and mouth open mid-roar, while his kick sends the cloaked messenger falling backwards off the edge into thin air. The figures connect only at the kick, so the messenger seems to hang in mid-fall, which is what makes this piece stop people in their tracks. Printed in-house at Black Arrow 3D in two contrasting colours, stone grey for Leonidas and black for the messenger, with fine sculpted detail in the muscles, the torn battle kilt, the greaves and the flowing robes. Leonidas stands on a small flat base that sits right at the edge, and the messenger hangs out over the drop. A bold conversation piece for a desk, bookshelf, gaming setup or printer top, and a great gift for any fan of the film.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Colours", "Stone grey (Leonidas) and black (messenger)"],
+        ["Design", "King Leonidas kick edge display, printed in-house"],
+        ["Finish", "Unpainted display finish"],
+        ["Use", "Place on the edge of a shelf, desk, monitor or 3D printer"]
+      ],
+      "name_ar": "مجسم هذه إسبرطة! ركلة الملك ليونيداس على الحافة",
+      "shortDesc_ar": "ركلة \"هذه إسبرطة!\" الأسطورية كمجسم مطبوع ثلاثي الأبعاد للحافة: الملك ليونيداس يقف على الحافة والرسول يسقط منها.",
+      "description_ar": "ضع أشهر ركلة في تاريخ السينما على رفّك. يقف الملك ليونيداس على حافة مكتبك أو رفك أو طابعتك ثلاثية الأبعاد، عباءته تتطاير وسيفه في يده وفمه مفتوح بصرخة، بينما تُسقط ركلته الرسولَ ذا العباءة إلى الخلف خارج الحافة في الهواء. لا يتصل المجسمان إلا عند الركلة، فيبدو الرسول معلّقًا في منتصف سقوطه، وهذا ما يجعل القطعة تلفت أنظار كل من يراها. مطبوع داخل Black Arrow 3D بلونين متباينين: الرمادي الحجري لليونيداس والأسود للرسول، مع تفاصيل منحوتة دقيقة في العضلات والتنورة القتالية الممزقة وواقيات الساق والأردية المتدفقة. يقف ليونيداس على قاعدة صغيرة مسطحة توضع عند الحافة تمامًا، ويتدلى الرسول فوق الفراغ. قطعة لافتة للمكتب أو رف الكتب أو ركن الألعاب أو فوق الطابعة، وهدية رائعة لكل محبي الفيلم.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الألوان", "رمادي حجري (ليونيداس) وأسود (الرسول)"],
+        ["التصميم", "مجسم ركلة الملك ليونيداس على الحافة، مطبوع داخليًا"],
+        ["اللمسة النهائية", "بدون طلاء"],
+        ["الاستخدام", "يوضع على حافة رف أو مكتب أو شاشة أو طابعة ثلاثية الأبعاد"]
+      ]
+    },
+    {
       "id": "toji-edge-sitter-figure",
       "name": "Toji Fushiguro Edge-Sitter Figure",
       "brand": "Black Arrow",
