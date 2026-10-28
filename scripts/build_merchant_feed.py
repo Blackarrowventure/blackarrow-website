@@ -28,6 +28,10 @@ FREE_SHIP_PRINTER_MIN = 3000
 FREE_SHIP_ARTWORK_MIN = 100
 SHIPPING_FEE = 30
 
+# Kept off Google Shopping (still sold on the site): designs that carry another company's
+# logo. Google treats those as counterfeit and can suspend the whole Merchant account.
+FEED_EXCLUDE = {'sports-duffel-bag-keychain'}
+
 PRODUCT_TYPE = {
     '3D Printers': '3D Printing > 3D Printers',
     'Filament': '3D Printing > Filament',
@@ -103,6 +107,8 @@ def build(products):
     items = []
     for p in products:
         images = p.get('images') or []
+        if p['id'] in FEED_EXCLUDE:
+            continue
         if not images:
             continue
         vs = p.get('variants') or []

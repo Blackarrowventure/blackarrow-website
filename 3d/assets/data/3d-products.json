@@ -1716,6 +1716,47 @@
       ]
     },
     {
+      "id": "sports-duffel-bag-keychain",
+      "name": "Mini Sports Duffel Bag Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Pink", "label_ar": "وردي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp" },
+        { "label": "Purple", "label_ar": "بنفسجي", "price": 15, "image": "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/sports-duffel-bag-keychain-pink.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-black.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-purple.webp",
+        "/3d/assets/images/products/sports-duffel-bag-keychain-group.webp"
+      ],
+      "shortDesc": "A tiny 3D printed gym duffel bag for your keys or backpack, with carry handles, zip details and a crisp white logo. Pink, black or purple.",
+      "description": "A miniature sports duffel bag, 3D printed in-house as a keychain. It has the look of a real gym bag scaled down to fit in your palm: two arched carry handles, a zipped top, a front zip pocket with its pull tab, strap seams running down each side and a crisp white logo printed in a second colour so it stays sharp. The fine fabric-like texture comes from the printing itself, so every bag catches the light like woven nylon. Printed in durable PLA and finished with a metal keychain attachment, it clips straight onto keys, a school bag, a gym bag or a backpack zip. Choose pink, black or purple below; each colour is sold separately. A fun small gift for anyone who lives at the gym, and an easy add-on to any order.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Finish", "Two-colour print, fabric-like texture"],
+        ["Colours", "Pink, black or purple (pick one)"],
+        ["Details", "Carry handles, zipped top, front zip pocket, white logo"],
+        ["Includes", "Metal keychain attachment"]
+      ],
+      "name_ar": "ميدالية مفاتيح حقيبة رياضية صغيرة",
+      "shortDesc_ar": "حقيبة رياضية صغيرة مطبوعة ثلاثية الأبعاد لمفاتيحك أو شنطتك، بمقابض وتفاصيل سحاب وشعار أبيض واضح. وردي أو أسود أو بنفسجي.",
+      "description_ar": "حقيبة رياضية مصغّرة مطبوعة بتقنية الطباعة ثلاثية الأبعاد داخل الشركة على شكل ميدالية مفاتيح. تبدو كحقيبة نادٍ حقيقية بحجم كف اليد: مقبضان مقوّسان، وسحاب في الأعلى، وجيب أمامي بسحاب وحلقة السحب، وخياطة الأحزمة على الجانبين، وشعار أبيض مطبوع بلون ثانٍ ليبقى واضحًا. الملمس الدقيق الشبيه بالقماش ناتج عن الطباعة نفسها، فتلمع كل حقيبة كأنها من النايلون المنسوج. مطبوعة من مادة PLA المتينة مع حلقة معدنية للتعليق، تُثبَّت مباشرة على المفاتيح أو حقيبة المدرسة أو حقيبة النادي أو سحاب الشنطة. اختر الوردي أو الأسود أو البنفسجي أدناه، وكل لون يُباع منفردًا. هدية صغيرة ممتعة لعشّاق النادي، وإضافة سهلة لأي طلب.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["اللمسة النهائية", "طباعة بلونين، ملمس يشبه القماش"],
+        ["الألوان", "وردي أو أسود أو بنفسجي (اختر واحدًا)"],
+        ["التفاصيل", "مقابض، سحاب علوي، جيب أمامي بسحاب، شعار أبيض"],
+        ["يتضمن", "حلقة معدنية للتعليق"]
+      ]
+    },
+    {
       "id": "one-piece-sword-keychain",
       "name": "One Piece Sword Keychain",
       "brand": "Black Arrow",
