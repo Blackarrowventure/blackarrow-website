@@ -3140,3 +3140,11 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 .b3d-bnpl__tamara { display: inline-block; height: 21px; width: auto; border-radius: 999px; vertical-align: middle; }
 .b3d-bnpl-card .b3d-bnpl__tamara { height: 17px; }
 .b3d-bnpl__marks { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+
+/* ---- Homepage welcome band: the text is printed inside a drawn printer chamber (3d-welcome.js).
+   Height is fixed so nothing below moves while it prints. ---- */
+.b3d-welcome { position: relative; overflow: hidden; background: #14161a; padding: 4px 16px 0; }
+.b3d-welcome__chamber { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.b3d-welcome__print { position: relative; display: block; width: 100%; max-width: 1100px; height: 150px; margin: 0 auto; filter: drop-shadow(0 5px 6px rgba(0,0,0,.55)); }
+.b3d-welcome + main > section:first-child { border-top: 0 !important; }
+@media (max-width: 600px) { .b3d-welcome__print { height: 104px; } }
