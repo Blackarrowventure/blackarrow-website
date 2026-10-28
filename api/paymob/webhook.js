@@ -11,7 +11,12 @@ module.exports = async (req, res) => {
   const secret = process.env.PAYMOB_HMAC_SECRET;
   if (!secret) { console.error('paymob webhook: PAYMOB_HMAC_SECRET is not set'); return res.status(500).end(); }
 
-  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  } catch (e) {
+    return res.status(400).end();
+  }
   const tx = body.obj;
   const received = String((req.query && req.query.hmac) || '');
   const ref = tx && tx.order && tx.order.merchant_order_id;

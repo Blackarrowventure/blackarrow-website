@@ -12,7 +12,12 @@ module.exports = async (req, res) => {
   }
   if (!rewards.configured()) return res.status(503).json({ error: 'rewards_not_configured' });
 
-  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  } catch (e) {
+    return res.status(400).json({ error: 'invalid_json' });
+  }
   const orderId = String(body.orderId || '');
   const amount = Number(body.amount);
   if (!/^BAV-3D-\d{1,16}$/.test(orderId)) return res.status(400).json({ error: 'invalid_order' });

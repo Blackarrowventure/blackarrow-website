@@ -45,7 +45,12 @@ module.exports = async (req, res) => {
   const merchantCode = process.env.TABBY_MERCHANT_CODE;
   if (!secret || !merchantCode) return res.status(500).json({ error: 'payment_not_configured' });
 
-  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  } catch (e) {
+    return res.status(400).json({ error: 'invalid_json' });
+  }
   // Stock and prices as set in the CRM's Website Inventory tab.
   const products = await liveProducts();
   const draft = buildOrder(body.items, body.shipping, true, null, products);

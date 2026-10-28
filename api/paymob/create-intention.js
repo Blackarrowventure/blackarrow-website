@@ -46,15 +46,21 @@ module.exports = async (req, res) => {
   const applePayIntegrationId = Number(process.env.PAYMOB_INTEGRATION_ID_APPLEPAY) || null;
   const tamaraIntegrationId = Number(process.env.PAYMOB_INTEGRATION_ID_TAMARA) || null;
   if (!secret || !publicKey || !integrationId) {
-    const missing = [
+    // Which setting is missing goes to the Vercel log (and /api/checkout-health/), not to the browser.
+    console.error('paymob: not configured, missing', [
       !secret && 'PAYMOB_SECRET_KEY',
       !publicKey && 'PAYMOB_PUBLIC_KEY',
       !integrationId && 'PAYMOB_INTEGRATION_ID',
-    ].filter(Boolean);
-    return res.status(500).json({ error: 'payment_not_configured', missing });
+    ].filter(Boolean).join(', '));
+    return res.status(500).json({ error: 'payment_not_configured' });
   }
 
-  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+  } catch (e) {
+    return res.status(400).json({ error: 'invalid_json' });
+  }
 
   // Each channel opens Paymob with exactly one method, so a problem with one
   // never leaves another looking empty: 'card' (mada / Visa / Mastercard,
@@ -63,12 +69,14 @@ module.exports = async (req, res) => {
   let paymentMethods;
   if (channel === 'tamara') {
     if (!tamaraIntegrationId) {
-      return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_TAMARA'] });
+      console.error('paymob: not configured, missing PAYMOB_INTEGRATION_ID_TAMARA');
+      return res.status(500).json({ error: 'payment_not_configured' });
     }
     paymentMethods = [tamaraIntegrationId];
   } else if (channel === 'applepay') {
     if (!applePayIntegrationId) {
-      return res.status(500).json({ error: 'payment_not_configured', missing: ['PAYMOB_INTEGRATION_ID_APPLEPAY'] });
+      console.error('paymob: not configured, missing PAYMOB_INTEGRATION_ID_APPLEPAY');
+      return res.status(500).json({ error: 'payment_not_configured' });
     }
     paymentMethods = [applePayIntegrationId];
   } else {
@@ -151,9 +159,7 @@ module.exports = async (req, res) => {
     intention = await r.json();
     if (!r.ok || !intention.client_secret) {
       console.error('paymob intention rejected:', channel, r.status, JSON.stringify(intention).slice(0, 1000));
-      const out = { error: 'gateway_rejected' };
-      if (body.debug === true) out.detail = intention;
-      return res.status(502).json(out);
+      return res.status(502).json({ error: 'gateway_rejected' });
     }
     // Paymob silently drops an integration it can't use (inactive, not live,
     // wrong account) and would show the customer a checkout with nothing to
