@@ -998,38 +998,76 @@
     return m ? m[1] : null;
   }
 
-  // "Bambu Lab series: All · A Series · P Series ..." chips for a product list; null when the
-  // list holds fewer than two series. onPick gets 'All' or the series letter.
-  function seriesBar(list, current, onPick) {
-    var found = SERIES_ORDER.filter(function (s) { return list.some(function (p) { return seriesOf(p) === s; }); });
-    if (found.length < 2) return null;
-    var ar = isAr();
-    var bar = document.createElement('div');
-    bar.className = 'b3d-cat-tabs b3d-series';
-    bar.setAttribute('role', 'group');
-    bar.setAttribute('aria-label', ar ? 'سلاسل طابعات Bambu Lab' : 'Bambu Lab series');
-    bar.innerHTML = '<span class="b3d-series__label">' + (ar ? 'سلاسل Bambu Lab' : 'Bambu Lab series') + '</span>' +
-      ['All'].concat(found).map(function (s) {
-        var label = s === 'All' ? (ar ? 'الكل' : 'All') : (ar ? 'سلسلة ' + s : s + ' Series');
-        return '<button type="button" data-series="' + s + '" aria-pressed="' + (s === current) + '">' + label + '</button>';
-      }).join('');
-    bar.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-series]');
-      if (!btn) return;
-      bar.querySelectorAll('[data-series]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-      onPick(btn.getAttribute('data-series'));
-    });
-    return bar;
+  // The chip rows a product list gets: Bambu Lab series when it holds printers from two or
+  // more series; material and brand when it is all filament. Each facet is
+  // { key, label, options: [[value, text]], test(p, value) }.
+  var MATERIAL_ORDER = ['PLA', 'PLA+', 'PETG'];
+  function chipFacets(list) {
+    var ar = isAr(), facets = [];
+    function distinct(values) {
+      return values.filter(function (v, i) { return v && values.indexOf(v) === i; });
+    }
+    var series = SERIES_ORDER.filter(function (s) { return list.some(function (p) { return seriesOf(p) === s; }); });
+    if (series.length > 1) facets.push({ key: 'series', label: ar ? 'سلاسل Bambu Lab' : 'Bambu Lab series',
+      options: series.map(function (s) { return [s, ar ? 'سلسلة ' + s : s + ' Series']; }),
+      test: function (p, v) { return seriesOf(p) === v; } });
+    if (list.length && list.every(function (p) { return p.category === 'Filament'; })) {
+      var rank = function (m) { var i = MATERIAL_ORDER.indexOf(m); return i === -1 ? 99 : i; };
+      var mats = distinct(list.map(filamentMaterialOf)).sort(function (x, y) { return rank(x) - rank(y); });
+      if (mats.length > 1) facets.push({ key: 'material', label: ar ? 'الخامة' : 'Material',
+        options: mats.map(function (m) { return [m, m]; }),
+        test: function (p, v) { return filamentMaterialOf(p) === v; } });
+      var brands = distinct(list.map(function (p) { return p.brand; }));
+      if (brands.length > 1) facets.push({ key: 'brand', label: ar ? 'العلامة التجارية' : 'Brand',
+        options: brands.map(function (b) { return [b, b === 'Generic' && ar ? 'عام' : b]; }),
+        test: function (p, v) { return (p.brand || '').toLowerCase() === v.toLowerCase(); } });
+    }
+    return facets;
   }
 
-  // A grid with the series chips above it (brand and category pages).
-  function renderGridWithSeries(list, grid) {
-    var bar = seriesBar(list, 'All', function (s) {
-      renderGrid(s === 'All' ? list : list.filter(function (p) { return seriesOf(p) === s; }), grid);
+  // One "Label: All · A · B" chip row per facet; null when there are none.
+  // current maps facet key -> chosen value ('All' by default); onPick(key, value).
+  function chipRows(facets, current, onPick) {
+    if (!facets.length) return null;
+    var ar = isAr();
+    function h(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+    var wrap = document.createElement('div');
+    wrap.className = 'b3d-chip-rows';
+    facets.forEach(function (f) {
+      var cur = String(current[f.key] || 'All').toLowerCase();
+      if (!f.options.some(function (o) { return o[0].toLowerCase() === cur; })) cur = 'all';
+      var bar = document.createElement('div');
+      bar.className = 'b3d-cat-tabs b3d-series';
+      bar.setAttribute('role', 'group');
+      bar.setAttribute('aria-label', f.label);
+      bar.innerHTML = '<span class="b3d-series__label">' + h(f.label) + '</span>' +
+        [['All', ar ? 'الكل' : 'All']].concat(f.options).map(function (o) {
+          return '<button type="button" data-chip="' + h(o[0]) + '" aria-pressed="' + (o[0].toLowerCase() === cur) + '">' + h(o[1]) + '</button>';
+        }).join('');
+      bar.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-chip]');
+        if (!btn) return;
+        bar.querySelectorAll('[data-chip]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        onPick(f.key, btn.getAttribute('data-chip'));
+      });
+      wrap.appendChild(bar);
     });
-    if (bar) grid.parentNode.insertBefore(bar, grid);
-    renderGrid(list, grid);
+    return wrap;
   }
+
+  // A grid with its chip rows above it (brand and category pages).
+  function renderGridWithChips(list, grid) {
+    var facets = chipFacets(list), picked = {};
+    function draw() {
+      renderGrid(list.filter(function (p) {
+        return facets.every(function (f) { return !picked[f.key] || picked[f.key] === 'All' || f.test(p, picked[f.key]); });
+      }), grid);
+    }
+    var rows = chipRows(facets, picked, function (key, v) { picked[key] = v; draw(); });
+    if (rows) grid.parentNode.insertBefore(rows, grid);
+    draw();
+  }
+
 
   function initShopPage(products, els) {
     var state = {
@@ -1126,10 +1164,18 @@
       if (state.priceMin != null) list = list.filter(function (p) { return currentPrice(p) >= state.priceMin; });
       if (state.priceMax != null) list = list.filter(function (p) { return currentPrice(p) <= state.priceMax; });
 
+      // Chip rows come from the whole category, so picking one value keeps the others on show.
+      var facets = chipFacets(products.filter(function (p) { return state.cat === 'All' || p.category === state.cat; }));
+      if (!facets.some(function (f) { return f.key === 'series'; })) state.series = 'All';
       if (seriesEl) seriesEl.remove();
-      seriesEl = seriesBar(list, state.series, function (s) { state.series = s; state.page = 1; apply(); });
+      seriesEl = chipRows(facets, { series: state.series, material: state.filamentMaterial, brand: state.brand }, function (key, v) {
+        if (key === 'series') state.series = v;
+        if (key === 'material') { state.filamentMaterial = v; if (els.filamentMaterialSelect) els.filamentMaterialSelect.value = v; }
+        if (key === 'brand') { state.brand = v; if (els.brandSelect) els.brandSelect.value = v; }
+        state.page = 1;
+        apply();
+      });
       if (seriesEl) els.grid.parentNode.insertBefore(seriesEl, els.grid);
-      else state.series = 'All';
       if (state.series !== 'All') list = list.filter(function (p) { return seriesOf(p) === state.series; });
 
       if (state.sort === 'price-asc') list.sort(function (a, b) { return currentPrice(a) - currentPrice(b); });
@@ -3794,7 +3840,7 @@
     document.querySelectorAll('[data-b3d-cat-grid]').forEach(function (grid) {
       var cat = grid.getAttribute('data-b3d-cat-grid');
       fetchProducts().then(function (products) {
-        renderGridWithSeries(products.filter(function (p) { return p.category === cat; }), grid);
+        renderGridWithChips(products.filter(function (p) { return p.category === cat; }), grid);
       });
     });
     document.querySelectorAll('[data-b3d-ids]').forEach(function (grid) {
@@ -3808,7 +3854,7 @@
     document.querySelectorAll('[data-b3d-brand-grid]').forEach(function (grid) {
       var brand = grid.getAttribute('data-b3d-brand-grid');
       fetchProducts().then(function (products) {
-        renderGridWithSeries(products.filter(function (p) { return p.brand === brand; }), grid);
+        renderGridWithChips(products.filter(function (p) { return p.brand === brand; }), grid);
       });
     });
 
