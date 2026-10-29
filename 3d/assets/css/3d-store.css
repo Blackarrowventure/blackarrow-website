@@ -3154,3 +3154,6 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 .b3d-series__label { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: rgba(255,255,255,.6); margin-inline-end: 4px; }
 main.b3d-light .b3d-series__label { color: #6b6658; }
 @media (max-width: 600px) { .b3d-series__label { flex-basis: 100%; } }
+
+/* Stock badge in the pre-rendered product page sits in the text column, not pinned to a corner */
+.b3d-pd__stock .b3d-stock-badge { position: static; display: inline-block; }

@@ -18,10 +18,15 @@
 
   function loadSupabaseSdk(cb) {
     if (window.supabase && window.supabase.createClient) { cb(); return; }
+    // Called once: on load, on error, or after 12s if the CDN never answers (a hung
+    // request would otherwise leave the account page blank).
+    var done = false;
+    var finish = function () { if (!done) { done = true; cb(); } };
+    setTimeout(finish, 12000);
     var script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0';
-    script.onload = function () { cb(); };
-    script.onerror = function () { cb(); };
+    script.onload = finish;
+    script.onerror = finish;
     document.head.appendChild(script);
   }
 

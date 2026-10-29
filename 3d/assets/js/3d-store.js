@@ -260,11 +260,13 @@
   // Stock from the CRM's Website Inventory tab. Once a product has any row
   // there, the CRM decides every option of it: in stock only if listed with
   // quantity above 0 (or blank) and not switched off. Products with no rows,
-  // or a failed lookup, keep the catalog's own flags.
+  // or a failed lookup, keep the catalog's own flags. A lookup slower than 6s counts as failed,
+  // so a slow CRM never leaves the page stuck on its pre-rendered copy.
   function fetchCrmStock() {
-    return fetch('/api/availability/').then(function (r) { return r.ok ? r.json() : null; })
+    var lookup = fetch('/api/availability/').then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) { return (d && d.rows) || []; })
       .catch(function () { return []; });
+    return Promise.race([lookup, new Promise(function (resolve) { setTimeout(function () { resolve([]); }, 6000); })]);
   }
 
   // Same rules as api/_lib/crm-catalog.js (what checkout charges): a row's

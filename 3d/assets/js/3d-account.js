@@ -80,7 +80,15 @@
     var currentUser = null;
 
     window.BlackArrow3DAuth.init(function (ok) {
-      if (!ok) { notConfigured.hidden = false; return; }
+      if (!ok) {
+        // Sign-in is set up, so this is a connection problem (the sign-in library did not load).
+        notConfigured.removeAttribute('data-i18n');
+        notConfigured.textContent = document.documentElement.lang === 'ar'
+          ? 'تعذّر تحميل تسجيل الدخول. تحقق من اتصالك بالإنترنت ثم حدّث الصفحة.'
+          : "Sign-in couldn't load. Check your internet connection and refresh the page.";
+        notConfigured.hidden = false;
+        return;
+      }
 
       window.BlackArrow3DAuth.onAuthChange(function (user) {
         currentUser = user;

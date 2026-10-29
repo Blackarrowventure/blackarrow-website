@@ -373,7 +373,7 @@ def product_detail_html(p, lang):
         + '<div class="b3d-pd__price" data-pd-price>' + initial_price_html + '</div>'
         + vat_note_html(p, lang)
         + variant_selector_html
-        + ('<div style="margin-bottom:16px;">' + status + '</div>' if status else '')
+        + ('<div class="b3d-pd__stock" style="margin-bottom:16px;">' + status + '</div>' if status else '')
         + '<p class="b3d-pd__desc">' + esc(desc) + '</p>'
         + bundle_pick_html
         + '<div class="b3d-pd__actions">'
