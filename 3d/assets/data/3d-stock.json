@@ -46,7 +46,7 @@
   {
    "id": "bambu-lab-a2l",
    "variant": "Combo (printer + AMS lite)",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {

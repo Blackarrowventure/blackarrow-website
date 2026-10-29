@@ -82,7 +82,7 @@ POSTS = [
                 <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td>180 x 180 x 180 mm</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td></tr>
                 <tr><td><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td>256 x 256 x 256 mm</td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span></td></tr>
                 <tr><td><a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td>420 x 420 x 500 mm</td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span></td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td>330 x 320 x 325 mm</td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td>330 x 320 x 325 mm</td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
                 <tr><td><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a></td><td>270 x 270 x 270 mm</td><td><span data-b3d-price="snapmaker-u1">5,600</span></td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td>256 x 256 x 256 mm</td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td></tr>
               </tbody>
@@ -185,7 +185,7 @@ POSTS = [
                 <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td>180 x 180 x 180 مم</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td></tr>
                 <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td>256 x 256 x 256 مم</td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span></td></tr>
                 <tr><td><a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td>420 x 420 x 500 مم</td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span></td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td>330 x 320 x 325 مم</td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td>330 x 320 x 325 مم</td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
                 <tr><td><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a></td><td>270 x 270 x 270 مم</td><td><span data-b3d-price="snapmaker-u1">5,600</span></td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a></td><td>256 x 256 x 256 مم</td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td></tr>
               </tbody>
@@ -232,7 +232,7 @@ POSTS = [
             'card': ('Buying guide', '8 min read', 'How Tabby and Tamara instalments work for a 3D printer in Saudi Arabia, with a real 4-payment example and the fees to expect.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>Yes, you can buy a 3D printer in instalments in Saudi Arabia using Tabby or Tamara. You choose the provider at checkout, the provider checks your eligibility in a minute or two, and you pay the first instalment immediately. The number of payments, your spending limit and any provider fees depend on the provider and on you as a customer. At Black Arrow 3D, pay-later orders carry a <strong>service fee of 100&nbsp;SAR on orders that include a printer</strong>, 50&nbsp;SAR on filament-only orders and no fee on 3D printed items; the fee is shown at checkout before you confirm. Example: the Bambu Lab A2L Combo at <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span>&nbsp;SAR becomes 4,300&nbsp;SAR with the fee, or <strong>4 payments of 1,075&nbsp;SAR</strong>. If you can pay in full by card, mada, Apple Pay or bank transfer, you save the 100&nbsp;SAR.</p>
+          <p>Yes, you can buy a 3D printer in instalments in Saudi Arabia using Tabby or Tamara. You choose the provider at checkout, the provider checks your eligibility in a minute or two, and you pay the first instalment immediately. The number of payments, your spending limit and any provider fees depend on the provider and on you as a customer. At Black Arrow 3D, pay-later orders carry a <strong>service fee of 100&nbsp;SAR on orders that include a printer</strong>, 50&nbsp;SAR on filament-only orders and no fee on 3D printed items; the fee is shown at checkout before you confirm. Example: the Bambu Lab A2L Combo at <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR becomes 4,300&nbsp;SAR with the fee, or <strong>4 payments of 1,075&nbsp;SAR</strong>. If you can pay in full by card, mada, Apple Pay or bank transfer, you save the 100&nbsp;SAR.</p>
 
           <h2>How Tabby and Tamara work</h2>
           <p>Tabby and Tamara are “buy now, pay later” (BNPL) services widely used by Saudi online shoppers. They pay the store on your behalf and you repay them in scheduled instalments, usually every month, from a card you link to your account.</p>
@@ -265,7 +265,7 @@ POSTS = [
                 <tr><th>Order</th><th>Price</th><th>Delivery</th><th>Pay-later fee</th><th>Total</th><th>Each of 4 payments</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>Free (regular)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>Free (regular)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>Free (regular)</td><td>100</td><td>2,849</td><td>712.25</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>Free (regular)</td><td>100</td><td>6,399</td><td>1,599.75</td></tr>
               </tbody>
@@ -336,7 +336,7 @@ POSTS = [
             'card': ('دليل شراء', '8 دقائق قراءة', 'كيف يعمل التقسيط عبر تابي وتمارا عند شراء طابعة ثلاثية الأبعاد في السعودية، مع مثال حقيقي على 4 دفعات والرسوم المتوقعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>نعم، يمكنك شراء طابعة ثلاثية الأبعاد بالتقسيط في السعودية عبر تابي أو تمارا. تختار مزود الخدمة عند إتمام الطلب، فيتحقق من أهليتك خلال دقيقة أو دقيقتين، ثم تدفع القسط الأول فورًا. عدد الدفعات وحد الإنفاق وأي رسوم لدى المزود تعتمد على المزود وعليك كعميل. في Black Arrow 3D تُضاف على طلبات الدفع الآجل <strong>رسوم خدمة 100 ريال على الطلبات التي تحتوي على طابعة</strong>، و50 ريالًا على طلبات الفلمنت فقط، ولا رسوم على المنتجات المطبوعة ثلاثية الأبعاد، وتظهر الرسوم عند إتمام الطلب قبل التأكيد. مثال: طابعة Bambu Lab A2L كومبو بسعر <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span> ريال تصبح 4,300 ريال مع الرسوم، أي <strong>4 دفعات قيمة كل منها 1,075 ريالًا</strong>. وإذا استطعت الدفع كاملًا بالبطاقة أو مدى أو Apple Pay أو التحويل البنكي، توفّر 100 ريال.</p>
+          <p>نعم، يمكنك شراء طابعة ثلاثية الأبعاد بالتقسيط في السعودية عبر تابي أو تمارا. تختار مزود الخدمة عند إتمام الطلب، فيتحقق من أهليتك خلال دقيقة أو دقيقتين، ثم تدفع القسط الأول فورًا. عدد الدفعات وحد الإنفاق وأي رسوم لدى المزود تعتمد على المزود وعليك كعميل. في Black Arrow 3D تُضاف على طلبات الدفع الآجل <strong>رسوم خدمة 100 ريال على الطلبات التي تحتوي على طابعة</strong>، و50 ريالًا على طلبات الفلمنت فقط، ولا رسوم على المنتجات المطبوعة ثلاثية الأبعاد، وتظهر الرسوم عند إتمام الطلب قبل التأكيد. مثال: طابعة Bambu Lab A2L كومبو بسعر <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال تصبح 4,300 ريال مع الرسوم، أي <strong>4 دفعات قيمة كل منها 1,075 ريالًا</strong>. وإذا استطعت الدفع كاملًا بالبطاقة أو مدى أو Apple Pay أو التحويل البنكي، توفّر 100 ريال.</p>
 
           <h2>كيف تعمل تابي وتمارا</h2>
           <p>تابي وتمارا خدمتا «اشترِ الآن وادفع لاحقًا» يستخدمهما كثير من المتسوقين في السعودية. تدفع الخدمة للمتجر نيابة عنك، ثم تسددها أنت على أقساط مجدولة، شهرية في الغالب، من بطاقة تربطها بحسابك.</p>
@@ -369,7 +369,7 @@ POSTS = [
                 <tr><th>الطلب</th><th>السعر</th><th>التوصيل</th><th>رسوم الدفع الآجل</th><th>الإجمالي</th><th>كل دفعة من 4</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>مجاني (عادي)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>مجاني (عادي)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>مجاني (عادي)</td><td>100</td><td>2,849</td><td>712.25</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>مجاني (عادي)</td><td>100</td><td>6,399</td><td>1,599.75</td></tr>
               </tbody>
@@ -446,7 +446,7 @@ POSTS = [
             'card': ('Buying guide', '8 min read', 'All ten Bambu Lab printers we sell in Saudi Arabia, with current SAR prices, stock and who each one is for.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>As of October 2026, Black Arrow 3D lists ten Bambu Lab printers. In stock now: the <strong>A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR</strong>, the <strong>A2L at <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span>&nbsp;SAR</strong> (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span>&nbsp;SAR as a Combo), the <strong>P1S at <span data-b3d-price="bambu-lab-p1s">3,499</span>&nbsp;SAR</strong>, the <strong>P2S Combo at <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>&nbsp;SAR</strong>, the <strong>X2D AMS Combo at <span data-b3d-price="bambu-lab-x2d-combo">7,899</span>&nbsp;SAR</strong>, the <strong>X1E Combo at <span data-b3d-price="bambu-lab-x1e-combo">11,999</span>&nbsp;SAR</strong> and the <strong>H2C at <span data-b3d-price="bambu-lab-h2c-combo">15,990</span>&nbsp;SAR</strong>. The <strong>H2S AMS Combo (<span data-b3d-price="bambu-lab-h2s-combo">9,999</span>&nbsp;SAR)</strong> and the <strong>H2D AMS Combo (<span data-b3d-price="bambu-lab-h2d-combo">13,999</span>&nbsp;SAR)</strong> are available to pre-order. The A1 (<span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span>&nbsp;SAR, or <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span>&nbsp;SAR as a Combo) and the standalone A1 mini (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span>&nbsp;SAR) and P2S (<span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span>&nbsp;SAR) are currently out of stock. All prices include VAT. For most beginners the A1 mini Combo is the easiest start; the A2L suits anyone who needs bigger prints; the P1S and P2S are the enclosed choices for daily production; the X2D and H2D print two materials in one job; and the H2S, X1E and H2C are for large or engineering-grade work.</p>
+          <p>As of October 2026, Black Arrow 3D lists ten Bambu Lab printers. In stock now: the <strong>A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR</strong>, the <strong>A2L at <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span>&nbsp;SAR</strong> (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR as a Combo), the <strong>P1S at <span data-b3d-price="bambu-lab-p1s">3,499</span>&nbsp;SAR</strong>, the <strong>P2S Combo at <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>&nbsp;SAR</strong>, the <strong>X2D AMS Combo at <span data-b3d-price="bambu-lab-x2d-combo">7,899</span>&nbsp;SAR</strong>, the <strong>X1E Combo at <span data-b3d-price="bambu-lab-x1e-combo">11,999</span>&nbsp;SAR</strong> and the <strong>H2C at <span data-b3d-price="bambu-lab-h2c-combo">15,990</span>&nbsp;SAR</strong>. The <strong>H2S AMS Combo (<span data-b3d-price="bambu-lab-h2s-combo">9,999</span>&nbsp;SAR)</strong> and the <strong>H2D AMS Combo (<span data-b3d-price="bambu-lab-h2d-combo">13,999</span>&nbsp;SAR)</strong> are available to pre-order. The A1 (<span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span>&nbsp;SAR, or <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span>&nbsp;SAR as a Combo) and the standalone A1 mini (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span>&nbsp;SAR) and P2S (<span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span>&nbsp;SAR) are currently out of stock. All prices include VAT. For most beginners the A1 mini Combo is the easiest start; the A2L suits anyone who needs bigger prints; the P1S and P2S are the enclosed choices for daily production; the X2D and H2D print two materials in one job; and the H2S, X1E and H2C are for large or engineering-grade work.</p>
 
           <h2>The lineup at a glance</h2>
           <div class="b3d-table-wrap">
@@ -456,9 +456,9 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td><a href="/3d/product/bambu-lab-a1-mini/">A1 mini</a></td><td>180 x 180 x 180 mm</td><td>Combo (printer + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>In stock</td></tr>
-                <tr><td>A1 mini</td><td>180 x 180 x 180 mm</td><td>Standalone</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span></td><td>Currently out of stock</td></tr>
+                <tr><td>A1 mini</td><td>180 x 180 x 180 mm</td><td>Standalone</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span></td><td>Currently out of stock</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-a1/">A1</a></td><td>256 x 256 x 256 mm</td><td>Standalone / Combo (AMS Lite)</td><td><span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span> / <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span></td><td>Currently out of stock</td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-a2l/">A2L</a></td><td>330 x 320 x 325 mm</td><td>Standalone / Combo (AMS lite)</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span> / <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>In stock</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a2l/">A2L</a></td><td>330 x 320 x 325 mm</td><td>Standalone / Combo (AMS lite)</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> / <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>In stock</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-p1s/">P1S</a></td><td>256 x 256 x 256 mm</td><td>Standalone</td><td><span data-b3d-price="bambu-lab-p1s">3,499</span></td><td>In stock</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-p2s/">P2S</a></td><td>256 x 256 x 256 mm</td><td>Combo (printer + AMS 2 Pro)</td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>In stock</td></tr>
                 <tr><td>P2S</td><td>256 x 256 x 256 mm</td><td>Standalone</td><td><span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span></td><td>Currently out of stock</td></tr>
@@ -481,7 +481,7 @@ POSTS = [
 
           <h2>Bambu Lab A2L Combo: large-format, still easy</h2>
           <p>The A2L is the large-format member of the A-series. Its 330 x 320 x 325&nbsp;mm build volume (about 34.3&nbsp;liters) is more than double the A1’s. It keeps fully automatic calibration, including flow-dynamics calibration before each print, a quick-swap 0.4&nbsp;mm nozzle (0.2 to 0.8&nbsp;mm available), a built-in filament cutter and a touchscreen. The Combo includes the AMS lite for up to four colors or materials. Top speed is 500&nbsp;mm/s with 10,000&nbsp;mm/s² acceleration, a 300&nbsp;°C hot end and an 80&nbsp;°C bed. It is best suited to PLA, PETG and TPU; ABS and ASA are not recommended.</p>
-          <p>The A2L costs <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span>&nbsp;SAR as a printer only, or <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span>&nbsp;SAR as a Combo with the AMS lite.</p>
+          <p>The A2L costs <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span>&nbsp;SAR as a printer only, or <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR as a Combo with the AMS lite.</p>
           <p><strong>Who it is for:</strong> cosplay makers, home decor, bigger models and small businesses that print large items. Compare it in <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L</a>.</p>
 
           <h2>Bambu Lab P1S: the proven enclosed printer</h2>
@@ -527,7 +527,7 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>What is the cheapest Bambu Lab printer in Saudi Arabia right now?</h3>
-          <p>At Black Arrow 3D the cheapest in-stock Bambu Lab printer is currently the A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR. The A1 mini standalone (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span>&nbsp;SAR) is currently out of stock.</p>
+          <p>At Black Arrow 3D the cheapest in-stock Bambu Lab printer is currently the A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR. The A1 mini standalone (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span>&nbsp;SAR) is currently out of stock.</p>
           <h3>Which Bambu Lab printer is best for beginners?</h3>
           <p>The A1 mini Combo for small items and the A2L Combo if you want larger prints. Both use automatic calibration and the AMS lite for up to 4 colors.</p>
           <h3>Is the Bambu Lab P2S enclosed?</h3>
@@ -558,7 +558,7 @@ POSTS = [
             'card': ('دليل شراء', '8 دقائق قراءة', 'طابعات Bambu Lab العشر التي نبيعها في السعودية، بالأسعار الحالية والمخزون ولمن تناسب كل واحدة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>حتى أكتوبر 2026، يعرض Black Arrow 3D عشر طابعات من Bambu Lab. المتوفر حاليًا: <strong>A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا</strong>، و<strong>A2L بسعر <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span> ريالًا</strong> (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span> ريال ككومبو)، و<strong>P1S بسعر <span data-b3d-price="bambu-lab-p1s">3,499</span> ريالًا</strong>، و<strong>P2S كومبو بسعر <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريالًا</strong>، و<strong>X2D AMS كومبو بسعر <span data-b3d-price="bambu-lab-x2d-combo">7,899</span> ريالًا</strong>، و<strong>X1E كومبو بسعر <span data-b3d-price="bambu-lab-x1e-combo">11,999</span> ريالًا</strong>، و<strong>H2C بسعر <span data-b3d-price="bambu-lab-h2c-combo">15,990</span> ريالًا</strong>. ويمكن الطلب المسبق لـ<strong>H2S AMS كومبو (<span data-b3d-price="bambu-lab-h2s-combo">9,999</span> ريالًا)</strong> و<strong>H2D AMS كومبو (<span data-b3d-price="bambu-lab-h2d-combo">13,999</span> ريالًا)</strong>. أما A1 (<span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span> ريال، أو <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span> ريالًا ككومبو) والنسخ المنفردة من A1 mini (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span> ريالًا) وP2S (4,399 ريالًا) فغير متوفرة حاليًا. جميع الأسعار شاملة الضريبة. لمعظم المبتدئين تُعد A1 mini كومبو أسهل بداية، وA2L تناسب من يحتاج مطبوعات أكبر، وP1S وP2S هما الخياران المغلقان للإنتاج اليومي، وX2D وH2D تطبعان خامتين في عمل واحد، أما H2S وX1E وH2C فللأعمال الكبيرة والخامات الهندسية.</p>
+          <p>حتى أكتوبر 2026، يعرض Black Arrow 3D عشر طابعات من Bambu Lab. المتوفر حاليًا: <strong>A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا</strong>، و<strong>A2L بسعر <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> ريالًا</strong> (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال ككومبو)، و<strong>P1S بسعر <span data-b3d-price="bambu-lab-p1s">3,499</span> ريالًا</strong>، و<strong>P2S كومبو بسعر <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريالًا</strong>، و<strong>X2D AMS كومبو بسعر <span data-b3d-price="bambu-lab-x2d-combo">7,899</span> ريالًا</strong>، و<strong>X1E كومبو بسعر <span data-b3d-price="bambu-lab-x1e-combo">11,999</span> ريالًا</strong>، و<strong>H2C بسعر <span data-b3d-price="bambu-lab-h2c-combo">15,990</span> ريالًا</strong>. ويمكن الطلب المسبق لـ<strong>H2S AMS كومبو (<span data-b3d-price="bambu-lab-h2s-combo">9,999</span> ريالًا)</strong> و<strong>H2D AMS كومبو (<span data-b3d-price="bambu-lab-h2d-combo">13,999</span> ريالًا)</strong>. أما A1 (<span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span> ريال، أو <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span> ريالًا ككومبو) والنسخ المنفردة من A1 mini (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span> ريالًا) وP2S (4,399 ريالًا) فغير متوفرة حاليًا. جميع الأسعار شاملة الضريبة. لمعظم المبتدئين تُعد A1 mini كومبو أسهل بداية، وA2L تناسب من يحتاج مطبوعات أكبر، وP1S وP2S هما الخياران المغلقان للإنتاج اليومي، وX2D وH2D تطبعان خامتين في عمل واحد، أما H2S وX1E وH2C فللأعمال الكبيرة والخامات الهندسية.</p>
 
           <h2>الطرازات بنظرة سريعة</h2>
           <div class="b3d-table-wrap">
@@ -568,9 +568,9 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">A1 mini</a></td><td>180 x 180 x 180 مم</td><td>كومبو (الطابعة + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>متوفرة</td></tr>
-                <tr><td>A1 mini</td><td>180 x 180 x 180 مم</td><td>منفردة</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span></td><td>غير متوفرة حاليًا</td></tr>
+                <tr><td>A1 mini</td><td>180 x 180 x 180 مم</td><td>منفردة</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span></td><td>غير متوفرة حاليًا</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-a1/">A1</a></td><td>256 x 256 x 256 مم</td><td>منفردة / كومبو (AMS Lite)</td><td><span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span> / <span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span></td><td>غير متوفرة حاليًا</td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">A2L</a></td><td>330 x 320 x 325 مم</td><td>منفردة / كومبو (AMS lite)</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span> / <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>متوفرة</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">A2L</a></td><td>330 x 320 x 325 مم</td><td>منفردة / كومبو (AMS lite)</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> / <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>متوفرة</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-p1s/">P1S</a></td><td>256 x 256 x 256 مم</td><td>منفردة</td><td><span data-b3d-price="bambu-lab-p1s">3,499</span></td><td>متوفرة</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">P2S</a></td><td>256 x 256 x 256 مم</td><td>كومبو (الطابعة + AMS 2 Pro)</td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>متوفرة</td></tr>
                 <tr><td>P2S</td><td>256 x 256 x 256 مم</td><td>منفردة</td><td><span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span></td><td>غير متوفرة حاليًا</td></tr>
@@ -593,7 +593,7 @@ POSTS = [
 
           <h2>Bambu Lab A2L كومبو: حجم كبير وسهولة كما هي</h2>
           <p>A2L هي الطابعة كبيرة الحجم في سلسلة A. حجم طباعتها 330 x 320 x 325 مم (نحو 34.3 لترًا)، أي أكثر من ضعف A1. تحتفظ بالمعايرة التلقائية الكاملة، ومنها معايرة ديناميكية التدفق قبل كل طباعة، وفوهة 0.4 مم سريعة التبديل (تتوفر من 0.2 إلى 0.8 مم)، وقاطع فلمنت مدمج، وشاشة لمس. يشمل الكومبو AMS lite حتى أربعة ألوان أو خامات. السرعة القصوى 500 مم/ث بتسارع 10,000 مم/ث²، والهوت إند حتى 300 °م، والسرير 80 °م. الأنسب لها PLA وPETG وTPU، ولا يُنصح بـABS وASA.</p>
-          <p>سعر A2L الآن <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,250</span> ريالًا للطابعة فقط، أو <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span> ريال ككومبو مع AMS lite.</p>
+          <p>سعر A2L الآن <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> ريالًا للطابعة فقط، أو <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال ككومبو مع AMS lite.</p>
           <p><strong>لمن تناسب:</strong> صنّاع الكوسبلاي، والديكور المنزلي، والمجسمات الكبيرة، والمشاريع الصغيرة التي تطبع قطعًا كبيرة. قارنها في <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 mini وA2L</a>.</p>
 
           <h2>Bambu Lab P1S: الطابعة المغلقة المجرّبة</h2>
@@ -639,7 +639,7 @@ POSTS = [
 
           <h2>الأسئلة الشائعة</h2>
           <h3>ما أرخص طابعة Bambu Lab في السعودية حاليًا؟</h3>
-          <p>في Black Arrow 3D، أرخص طابعة Bambu Lab متوفرة حاليًا هي A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا، أما A1 mini المنفردة (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,699</span> ريالًا) فغير متوفرة حاليًا.</p>
+          <p>في Black Arrow 3D، أرخص طابعة Bambu Lab متوفرة حاليًا هي A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا، أما A1 mini المنفردة (<span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span> ريالًا) فغير متوفرة حاليًا.</p>
           <h3>ما أفضل طابعة Bambu Lab للمبتدئين؟</h3>
           <p>A1 mini كومبو للقطع الصغيرة، وA2L كومبو إذا أردت مطبوعات أكبر. كلتاهما بمعايرة تلقائية ومع AMS lite حتى 4 ألوان.</p>
           <h3>هل طابعة Bambu Lab P2S مغلقة؟</h3>
@@ -697,7 +697,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td>Starter: small items, multi-color</td><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>6 x PLA at 65 = 390</td><td>3,089</td></tr>
-                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>4,850</td></tr>
+                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>4,850</td></tr>
                 <tr><td>Enclosed daily production</td><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
@@ -797,7 +797,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td>بداية: قطع صغيرة متعددة الألوان</td><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>6 بكرات PLA × 65 = 390</td><td>3,089</td></tr>
-                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>4,850</td></tr>
+                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>4,850</td></tr>
                 <tr><td>إنتاج يومي بطابعة مغلقة</td><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a> <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
@@ -937,7 +937,7 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>What is the best first 3D printer to buy in Saudi Arabia?</h3>
-          <p>For most beginners, a printer with automatic calibration and a mid-size bed. The Bambu Lab A1 mini Combo (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR, 180&nbsp;mm cube) suits small items, and the A2L Combo (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span>&nbsp;SAR, 330 x 320 x 325&nbsp;mm) suits larger prints. See <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a>.</p>
+          <p>For most beginners, a printer with automatic calibration and a mid-size bed. The Bambu Lab A1 mini Combo (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR, 180&nbsp;mm cube) suits small items, and the A2L Combo (<span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR, 330 x 320 x 325&nbsp;mm) suits larger prints. See <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a>.</p>
           <h3>Do I need an enclosed 3D printer in Saudi Arabia’s heat?</h3>
           <p>Not for PLA, PETG or TPU, as long as the printer is in an air-conditioned room. You need an enclosed printer mainly for ABS and ASA.</p>
           <h3>How much should I budget for my first 3D printer?</h3>

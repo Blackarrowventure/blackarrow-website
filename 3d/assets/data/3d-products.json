@@ -51,7 +51,7 @@
       "available": true,
       "bestSeller": 1,
       "variants": [
-        { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 1699, "available": false, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
+        { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 1799, "available": false, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
         { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
       ],
       "images": [
@@ -223,8 +223,8 @@
         ["الخامات المناسبة", "PLA / PETG / TPU (لا يُنصح بـ ABS / ASA)"]
       ],
       "variants": [
-        { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 4200, "image": "/3d/assets/images/products/bambu-a2l-04.webp" },
-        { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 3250, "image": "/3d/assets/images/products/bambu-a2l-01.webp" }
+        { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 4300, "image": "/3d/assets/images/products/bambu-a2l-04.webp" },
+        { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 3350, "image": "/3d/assets/images/products/bambu-a2l-01.webp" }
       ]
     },
     {

@@ -272,7 +272,7 @@ POSTS = [
                 <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR</td><td>180 x 180 x 180 mm</td><td>Small parts and multicolor with the AMS lite; very easy setup</td></tr>
                 <tr><td><a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span> SAR</td><td>420 x 420 x 500 mm</td><td>Large architecture models and big parts in one piece</td></tr>
                 <tr><td><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR</td><td>256 x 256 x 256 mm</td><td>Enclosed; engineering materials such as ABS, ASA and PA</td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span> SAR</td><td>330 x 320 x 325 mm</td><td>Large, easy multicolor printing</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> SAR</td><td>330 x 320 x 325 mm</td><td>Large, easy multicolor printing</td></tr>
               </tbody>
             </table>
           </div>
@@ -388,7 +388,7 @@ POSTS = [
                 <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال</td><td>180 x 180 x 180 مم</td><td>القطع الصغيرة والطباعة متعددة الألوان مع AMS lite، وإعداد سهل جدًا</td></tr>
                 <tr><td><a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span> ريال</td><td>420 x 420 x 500 مم</td><td>مجسمات معمارية كبيرة وقطع ضخمة بقطعة واحدة</td></tr>
                 <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريال</td><td>256 x 256 x 256 مم</td><td>مغلقة، وتدعم خامات هندسية مثل ABS وASA وPA</td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,200</span> ريال</td><td>330 x 320 x 325 مم</td><td>طباعة كبيرة ومتعددة الألوان بسهولة</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال</td><td>330 x 320 x 325 مم</td><td>طباعة كبيرة ومتعددة الألوان بسهولة</td></tr>
               </tbody>
             </table>
           </div>
