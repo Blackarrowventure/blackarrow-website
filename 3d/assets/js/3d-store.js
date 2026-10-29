@@ -1819,6 +1819,8 @@
     var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
     // Free delivery only ever waives Regular shipping — Fast shipping keeps its fee
     // even once the order qualifies, so the override is gated on the chosen method too.
+    // Self pickup: the "add X more for free delivery" messages and bars don't apply (CSS hides them).
+    document.body.classList.toggle('b3d-is-pickup', !!(checkedRadio && checkedRadio.value === 'pickup'));
     var shipFree = checkedRadio && (checkedRadio.value === 'pickup' || (lastFreeShipping && checkedRadio.value === 'regular'));
     var price = shipFree ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';

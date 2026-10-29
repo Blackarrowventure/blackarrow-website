@@ -3157,3 +3157,6 @@ main.b3d-light .b3d-series__label { color: #6b6658; }
 
 /* Stock badge in the pre-rendered product page sits in the text column, not pinned to a corner */
 .b3d-pd__stock .b3d-stock-badge { position: static; display: inline-block; }
+
+/* Self pickup chosen at checkout: free-delivery progress does not apply */
+.b3d-is-pickup [data-b3d-shipping-note], .b3d-is-pickup [data-b3d-ship-bar], .b3d-is-pickup [data-b3d-ship-progress] { display: none !important; }
