@@ -1819,7 +1819,7 @@
     var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
     // Free delivery only ever waives Regular shipping — Fast shipping keeps its fee
     // even once the order qualifies, so the override is gated on the chosen method too.
-    var shipFree = lastFreeShipping && checkedRadio && checkedRadio.value === 'regular';
+    var shipFree = checkedRadio && (checkedRadio.value === 'pickup' || (lastFreeShipping && checkedRadio.value === 'regular'));
     var price = shipFree ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
     if (shippingEl) shippingEl.innerHTML = shipFree ? T('js_free_ship_label') : money(price, 'SAR');
@@ -2364,7 +2364,7 @@
       });
       var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
       var shipping = form.querySelector('input[name="shipping_choice"]:checked');
-      var shipFree = lastFreeShipping && shipping && shipping.value === 'regular';
+      var shipFree = shipping && (shipping.value === 'pickup' || (lastFreeShipping && shipping.value === 'regular'));
       var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
       // The server checks the coupon, rewards and member delivery itself (by account and redemption).
       var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth

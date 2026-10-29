@@ -56,19 +56,21 @@ function bnplFeeCents(cats) {
 }
 
 // Everything that decides the final amount, in one place.
-//   shipping: 'regular' | 'fast'; payLater: add the BNPL fee;
+//   shipping: 'regular' | 'fast' | 'pickup'; payLater: add the BNPL fee;
 //   rewards: { discountCents, freeDelivery } from api/_lib/rewards.js
 //   products: the catalog with the CRM's stock and prices applied
 //   (crm-catalog.liveProducts); defaults to the plain catalog file.
 function buildOrder(items, shipping, payLater, rewards, products) {
   const priced = priceCart(items, products);
   if (!priced) return { error: 'invalid_cart' };
-  if (shipping !== 'regular' && shipping !== 'fast') return { error: 'invalid_shipping' };
+  if (shipping !== 'regular' && shipping !== 'fast' && shipping !== 'pickup') return { error: 'invalid_shipping' };
 
-  // Free delivery only ever waives Regular shipping; Fast always stays paid.
-  const free = shipping === 'regular' && (priced.freeShipping || !!(rewards && rewards.freeDelivery));
+  // Free delivery only ever waives Regular shipping; Fast always stays paid. Self pickup is always free.
+  const pickup = shipping === 'pickup';
+  const free = pickup || (shipping === 'regular' && (priced.freeShipping || !!(rewards && rewards.freeDelivery)));
   const shippingCents = free ? 0 : shipping === 'fast' ? 5000 : 3000;
-  const shippingLabel = (shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (free ? ' (Free)' : '');
+  const shippingLabel = pickup ? 'Self pickup (Free)'
+    : (shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (free ? ' (Free)' : '');
   const feeCents = payLater ? bnplFeeCents(priced.categories) : 0;
   const discountCents = Math.min((rewards && rewards.discountCents) || 0, priced.itemsCents);
   const totalCents = priced.itemsCents - discountCents + shippingCents + feeCents;
