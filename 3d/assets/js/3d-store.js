@@ -989,6 +989,48 @@
     return specValue(p, /^material$/i);
   }
 
+  // Bambu Lab printer lines, read from the model name: A1 mini/A1/A2L -> A, P1S/P2S -> P,
+  // X1E/X2D -> X, H2C/H2S/H2D -> H.
+  var SERIES_ORDER = ['A', 'P', 'X', 'H'];
+  function seriesOf(p) {
+    if (p.brand !== 'Bambu Lab' || p.category !== '3D Printers') return null;
+    var m = /^Bambu Lab ([A-Z])\d/.exec(p.name || '');
+    return m ? m[1] : null;
+  }
+
+  // "Bambu Lab series: All · A Series · P Series ..." chips for a product list; null when the
+  // list holds fewer than two series. onPick gets 'All' or the series letter.
+  function seriesBar(list, current, onPick) {
+    var found = SERIES_ORDER.filter(function (s) { return list.some(function (p) { return seriesOf(p) === s; }); });
+    if (found.length < 2) return null;
+    var ar = isAr();
+    var bar = document.createElement('div');
+    bar.className = 'b3d-cat-tabs b3d-series';
+    bar.setAttribute('role', 'group');
+    bar.setAttribute('aria-label', ar ? 'سلاسل طابعات Bambu Lab' : 'Bambu Lab series');
+    bar.innerHTML = '<span class="b3d-series__label">' + (ar ? 'سلاسل Bambu Lab' : 'Bambu Lab series') + '</span>' +
+      ['All'].concat(found).map(function (s) {
+        var label = s === 'All' ? (ar ? 'الكل' : 'All') : (ar ? 'سلسلة ' + s : s + ' Series');
+        return '<button type="button" data-series="' + s + '" aria-pressed="' + (s === current) + '">' + label + '</button>';
+      }).join('');
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-series]');
+      if (!btn) return;
+      bar.querySelectorAll('[data-series]').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      onPick(btn.getAttribute('data-series'));
+    });
+    return bar;
+  }
+
+  // A grid with the series chips above it (brand and category pages).
+  function renderGridWithSeries(list, grid) {
+    var bar = seriesBar(list, 'All', function (s) {
+      renderGrid(s === 'All' ? list : list.filter(function (p) { return seriesOf(p) === s; }), grid);
+    });
+    if (bar) grid.parentNode.insertBefore(bar, grid);
+    renderGrid(list, grid);
+  }
+
   function initShopPage(products, els) {
     var state = {
       cat: 'All',
@@ -1003,16 +1045,19 @@
       buildVolume: 'All',
       filamentMaterial: 'All',
       accessoryCompat: 'All',
+      series: 'All',
       priceMin: null,
       priceMax: null,
       page: 1
     };
+    var seriesEl = null;
 
     var params = new URLSearchParams(location.search);
     if (params.get('cat')) state.cat = params.get('cat');
     if (params.get('brand')) state.brand = params.get('brand');
     if (params.get('q')) state.q = params.get('q');
     if (params.get('material')) state.filamentMaterial = params.get('material');
+    if (params.get('series')) state.series = params.get('series').charAt(0).toUpperCase();
 
     // Filtered views are for visitors, not the search index (the server also
     // sends X-Robots-Tag: noindex for these); the clean /shop/<category>/ and
@@ -1080,6 +1125,12 @@
       if (state.accessoryCompat !== 'All') list = list.filter(function (p) { return (p.compatibility || []).indexOf(state.accessoryCompat) !== -1; });
       if (state.priceMin != null) list = list.filter(function (p) { return currentPrice(p) >= state.priceMin; });
       if (state.priceMax != null) list = list.filter(function (p) { return currentPrice(p) <= state.priceMax; });
+
+      if (seriesEl) seriesEl.remove();
+      seriesEl = seriesBar(list, state.series, function (s) { state.series = s; state.page = 1; apply(); });
+      if (seriesEl) els.grid.parentNode.insertBefore(seriesEl, els.grid);
+      else state.series = 'All';
+      if (state.series !== 'All') list = list.filter(function (p) { return seriesOf(p) === state.series; });
 
       if (state.sort === 'price-asc') list.sort(function (a, b) { return currentPrice(a) - currentPrice(b); });
       if (state.sort === 'price-desc') list.sort(function (a, b) { return currentPrice(b) - currentPrice(a); });
@@ -1228,6 +1279,7 @@
         state.buildVolume = 'All';
         state.filamentMaterial = 'All';
         state.accessoryCompat = 'All';
+        state.series = 'All';
         state.page = 1;
         apply();
       });
@@ -3742,7 +3794,7 @@
     document.querySelectorAll('[data-b3d-cat-grid]').forEach(function (grid) {
       var cat = grid.getAttribute('data-b3d-cat-grid');
       fetchProducts().then(function (products) {
-        renderGrid(products.filter(function (p) { return p.category === cat; }), grid);
+        renderGridWithSeries(products.filter(function (p) { return p.category === cat; }), grid);
       });
     });
     document.querySelectorAll('[data-b3d-ids]').forEach(function (grid) {
@@ -3756,7 +3808,7 @@
     document.querySelectorAll('[data-b3d-brand-grid]').forEach(function (grid) {
       var brand = grid.getAttribute('data-b3d-brand-grid');
       fetchProducts().then(function (products) {
-        renderGrid(products.filter(function (p) { return p.brand === brand; }), grid);
+        renderGridWithSeries(products.filter(function (p) { return p.brand === brand; }), grid);
       });
     });
 

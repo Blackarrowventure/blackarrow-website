@@ -3148,3 +3148,9 @@ main.b3d-light .b3d-cat-tabs button[aria-pressed="true"] { background: var(--clr
 .b3d-welcome__print { position: relative; display: block; width: 100%; max-width: 1100px; height: 150px; margin: 0 auto; filter: drop-shadow(0 5px 6px rgba(0,0,0,.55)); }
 .b3d-welcome + main > section:first-child { border-top: 0 !important; }
 @media (max-width: 600px) { .b3d-welcome__print { height: 104px; } }
+
+/* Bambu Lab series chips (shop, brand and category pages) */
+.b3d-series { align-items: center; margin: 4px 0 18px; }
+.b3d-series__label { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: rgba(255,255,255,.6); margin-inline-end: 4px; }
+main.b3d-light .b3d-series__label { color: #6b6658; }
+@media (max-width: 600px) { .b3d-series__label { flex-basis: 100%; } }
