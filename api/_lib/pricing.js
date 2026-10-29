@@ -47,6 +47,26 @@ function priceCart(items, products) {
   return { lines, itemsCents, freeShipping, categories };
 }
 
+// The first cart line asking for more than is in hand (the CRM's max_qty, see crm-catalog.js),
+// as { name, max }; null when everything fits. Lines for the same option are added up.
+function stockProblem(items, products) {
+  const byId = new Map((products || catalog.products).map((p) => [p.id, p]));
+  const wanted = new Map();
+  for (const item of Array.isArray(items) ? items : []) {
+    const product = byId.get(item && item.productId);
+    if (!product) continue;
+    const vi = item.variantIndex == null ? null : Number(item.variantIndex);
+    const variant = vi != null && product.variants ? product.variants[vi] : null;
+    const max = variant ? variant.maxQty : product.maxQty;
+    if (max == null) continue;
+    const key = product.id + '|' + vi;
+    const qty = (wanted.get(key) || 0) + (Number(item.qty) || 0);
+    wanted.set(key, qty);
+    if (qty > max) return { name: variant && variant.label ? product.name + ' - ' + variant.label : product.name, max };
+  }
+  return null;
+}
+
 // Pay-later (Tabby / Tamara) service fee: 100 SAR with a printer, 50 SAR for
 // filament with no printed items, otherwise none.
 function bnplFeeCents(cats) {
@@ -85,4 +105,4 @@ function buildOrder(items, shipping, payLater, rewards, products) {
   return Object.assign({}, priced, { shippingCents, shippingLabel, feeCents, discountCents, totalCents, summary });
 }
 
-module.exports = { buildOrder, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };
+module.exports = { buildOrder, stockProblem, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };

@@ -5,7 +5,7 @@
 // spent on this order; member free delivery by the signed-in account. Anything that cannot be
 // checked is flagged in the order notes. The order waits in the CRM until it is confirmed (as an
 // Unpaid invoice) or rejected.
-const { buildOrder } = require('./_lib/pricing');
+const { buildOrder, stockProblem } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
 const rewards = require('./_lib/rewards');
@@ -49,6 +49,9 @@ module.exports = async (req, res) => {
   const products = await liveProducts();
   const order = buildOrder(body.items, body.shipping, false, member ? { freeDelivery: rewards.freeDelivery(member) } : null, products);
   if (order.error) return res.status(400).json({ error: order.error });
+  // The order is already placed (bank transfer), so a short item is flagged for staff, not refused.
+  const short = stockProblem(body.items, products);
+  if (short) checks.push('More than in hand: ' + short.name + ' (only ' + short.max + ' in stock)');
   const shippingCents = order.shippingCents;
   if (Math.round(num(body.shippingPrice) * 100) < shippingCents) {
     checks.push('Customer saw delivery ' + num(body.shippingPrice) + ' SAR, charged ' + shippingCents / 100 + ' SAR (free delivery not confirmed for this account)');

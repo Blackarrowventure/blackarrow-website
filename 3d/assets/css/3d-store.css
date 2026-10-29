@@ -3160,3 +3160,9 @@ main.b3d-light .b3d-series__label { color: #6b6658; }
 
 /* Self pickup chosen at checkout: free-delivery progress does not apply */
 .b3d-is-pickup [data-b3d-shipping-note], .b3d-is-pickup [data-b3d-ship-bar], .b3d-is-pickup [data-b3d-ship-progress] { display: none !important; }
+
+/* Stock limit next to a quantity stepper (product page and cart) */
+.b3d-qty-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.b3d-qty__limit { display: block; margin-top: 6px; font-size: .78rem; font-weight: 700; color: #d97706; }
+.b3d-qty-wrap .b3d-qty__limit { margin-top: 0; }
+.b3d-qty button:disabled { opacity: .35; cursor: not-allowed; }

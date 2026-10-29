@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const { buildOrder } = require('../_lib/pricing');
+const { buildOrder, stockProblem } = require('../_lib/pricing');
 const { insertOrder, db } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
 const { liveProducts } = require('../_lib/crm-catalog');
@@ -88,6 +88,8 @@ module.exports = async (req, res) => {
   const products = await liveProducts();
   const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null, products);
   if (draft.error) return res.status(400).json({ error: draft.error });
+  const short = stockProblem(body.items, products);
+  if (short) return res.status(409).json({ error: 'not_enough_stock', item: short.name, max: short.max });
   const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
   const order = buildOrder(body.items, body.shipping, channel === 'tamara', rw, products);
 

@@ -140,12 +140,29 @@
     });
   }
 
+  // Most of one cart line the shop can sell: the CRM's "In hand" count for stock-only items,
+  // null = no limit (supplier / pre-order / printed to order). Same rule as api/_lib/pricing.js.
+  function maxQtyOf(id) {
+    var parsed = parseLineId(id);
+    var p = __b3dProductsById[parsed.productId];
+    if (!p) return null;
+    var v = parsed.variantIndex != null && p.variants ? p.variants[parsed.variantIndex] : null;
+    var m = v ? v.maxQty : p.maxQty;
+    return typeof m === 'number' ? m : null;
+  }
+
+  // Returns how many were actually added (fewer when stock runs out).
   function addToCart(id, qty) {
     qty = qty || 1;
     var cart = getCart();
-    cart[id] = (cart[id] || 0) + qty;
+    var have = cart[id] || 0;
+    var max = maxQtyOf(id);
+    if (max != null) qty = Math.max(0, Math.min(qty, max - have));
+    if (!qty) return 0;
+    cart[id] = have + qty;
     saveCart(cart);
     pushAddToCartEvent(id, qty);
+    return qty;
   }
 
   /* GA4/GTM ecommerce event — best-effort: if the product isn't in the
@@ -219,6 +236,8 @@
 
   function setQty(id, qty) {
     var cart = getCart();
+    var max = maxQtyOf(id);
+    if (max != null && qty > max) qty = max;
     if (qty <= 0) { delete cart[id]; } else { cart[id] = qty; }
     saveCart(cart);
   }
@@ -287,6 +306,8 @@
           var key = String(v.label || '').trim().toLowerCase();
           var row = crm[key];
           v.available = row ? row.available !== false : !!(whole && whole.available !== false);
+          var limit = row || whole;
+          if (limit && limit.maxQty != null) v.maxQty = limit.maxQty;
           if (row && row.price != null) {
             v.price = row.price;
             if (row.oldPrice != null && row.oldPrice > row.price) v.oldPrice = row.oldPrice;
@@ -305,6 +326,7 @@
       } else {
         p.available = !!(whole && whole.available !== false);
         if (whole && whole.preorder) p.preorder = true;
+        if (whole && whole.maxQty != null) p.maxQty = whole.maxQty;
         if (whole && whole.price != null) {
           if (whole.oldPrice != null && whole.oldPrice > whole.price) {
             p.price = whole.oldPrice; p.onSale = true; p.salePrice = whole.price;
@@ -2476,8 +2498,15 @@
         } catch (e) {}
         window.location.href = data.checkoutUrl;
       });
-    }).catch(function () {
-      if (errorEl) errorEl.hidden = false;
+    }).catch(function (err) {
+      if (errorEl) {
+        if (err && err.message === 'not_enough_stock') {
+          errorEl.removeAttribute('data-i18n');
+          errorEl.textContent = T('js_cart_stock_changed');
+          setTimeout(function () { location.reload(); }, 3500);
+        }
+        errorEl.hidden = false;
+      }
       if (btn) { btn.textContent = label; btn.disabled = false; }
     });
   }
@@ -2597,6 +2626,15 @@
   function renderCartPage(listEl, summaryEl, emptyEl) {
     fetchProducts().then(function (products) {
       var cart = getCart();
+      // A line added before stock dropped is trimmed to what is in hand.
+      var trimmed = false;
+      Object.keys(cart).forEach(function (id) {
+        var max = maxQtyOf(id);
+        if (max == null || cart[id] <= max) return;
+        if (max > 0) cart[id] = max; else delete cart[id];
+        trimmed = true;
+      });
+      if (trimmed) saveCart(cart);
       var ids = Object.keys(cart);
       if (ids.length === 0) {
         listEl.hidden = true;
@@ -2652,11 +2690,12 @@
               bundleLineHtml +
               '<button class="b3d-cart-item__remove" data-remove-id="' + id + '">' + T('js_remove') + '</button>' +
             '</div>' +
-            '<div class="b3d-qty">' +
+            '<div class="b3d-qty-wrap"><div class="b3d-qty">' +
               '<button data-qty-btn="minus" data-id="' + id + '" aria-label="' + T('js_qty_decrease') + '">−</button>' +
               '<input type="text" readonly value="' + qty + '" data-qty-val="' + id + '" aria-label="' + T('js_qty_label') + '">' +
-              '<button data-qty-btn="plus" data-id="' + id + '" aria-label="' + T('js_qty_increase') + '">+</button>' +
+              '<button data-qty-btn="plus" data-id="' + id + '" aria-label="' + T('js_qty_increase') + '"' + (maxQtyOf(id) != null && qty >= maxQtyOf(id) ? ' disabled' : '') + '>+</button>' +
             '</div>' +
+            (maxQtyOf(id) != null && qty >= maxQtyOf(id) ? '<small class="b3d-qty__limit">' + T('js_only_n_in_stock').replace('{n}', maxQtyOf(id)) + '</small>' : '')+ '</div>' +
             '<div class="b3d-cart-item__price">' + money(lineTotal, p.currency) + '</div>' +
           '</div>';
       }).join('');
@@ -3148,19 +3187,46 @@
       }
 
       var qtyInput = container.querySelector('[data-pd-qty-val]');
+      // How many more of the chosen option can go in the cart (null = no limit).
+      var roomLeft = function () {
+        var id = hasVariants ? lineId(p.id, selectedVariant) : p.id;
+        var max = maxQtyOf(id);
+        return max == null ? null : Math.max(0, max - (getCart()[id] || 0));
+      };
+      var qtyNote = document.createElement('small');
+      qtyNote.className = 'b3d-qty__limit';
+      qtyNote.hidden = true;
+      if (qtyInput && qtyInput.parentNode) qtyInput.parentNode.parentNode.insertBefore(qtyNote, qtyInput.parentNode.nextSibling);
+      var syncQtyLimit = function () {
+        if (!qtyInput) return;
+        var room = roomLeft();
+        var current = parseInt(qtyInput.value, 10) || 1;
+        if (room != null && current > Math.max(1, room)) qtyInput.value = Math.max(1, room);
+        var max = maxQtyOf(hasVariants ? lineId(p.id, selectedVariant) : p.id);
+        qtyNote.hidden = max == null || max > 5;
+        qtyNote.textContent = max == null ? '' : T('js_only_n_in_stock').replace('{n}', max);
+      };
       container.querySelectorAll('[data-pd-qty]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var current = parseInt(qtyInput.value, 10) || 1;
+          var room = roomLeft();
           var next = btn.getAttribute('data-pd-qty') === 'plus' ? current + 1 : Math.max(1, current - 1);
+          if (room != null && next > Math.max(1, room)) {
+            next = Math.max(1, room);
+            qtyNote.textContent = T('js_only_n_in_stock').replace('{n}', maxQtyOf(hasVariants ? lineId(p.id, selectedVariant) : p.id));
+            qtyNote.hidden = false;
+          }
           qtyInput.value = next;
         });
       });
+      syncQtyLimit();
       if (hasVariants) {
         container.querySelectorAll('[data-variant-idx]').forEach(function (btn) {
           btn.addEventListener('click', function () {
             container.querySelectorAll('[data-variant-idx]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
             btn.setAttribute('aria-pressed', 'true');
             selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
+            syncQtyLimit();
             var v = p.variants[selectedVariant];
             container.querySelector('[data-pd-price]').innerHTML = variantPriceHtml(v, p);
             var saveEl = container.querySelector('[data-pd-save]');
@@ -3305,7 +3371,16 @@
             setBundlePicks(p.id, picked);
           }
           var cartId = hasVariants ? lineId(p.id, selectedVariant) : p.id;
-          addToCart(cartId, parseInt(qtyInput.value, 10) || 1);
+          var asked = parseInt(qtyInput.value, 10) || 1;
+          var added = addToCart(cartId, asked);
+          syncQtyLimit();
+          if (added < asked) {
+            // Stock ran out: say how many there are instead of "Added".
+            var was = addBtn.textContent;
+            addBtn.textContent = T('js_only_n_in_stock').replace('{n}', maxQtyOf(cartId));
+            setTimeout(function () { if (!addBtn.disabled) addBtn.textContent = was; }, 2200);
+            if (!added) return;
+          }
           if (p.preorder) {
             location.href = '/3d/cart/';
             return;
