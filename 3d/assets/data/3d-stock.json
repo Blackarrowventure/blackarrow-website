@@ -124,7 +124,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Gray",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -148,7 +148,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Yellow",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
