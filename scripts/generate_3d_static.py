@@ -525,25 +525,62 @@ def build_product_page(p, lang):
             if len(c) <= 60:
                 return c
         return cands[-1]
+
+    def _clip(text, room):
+        """The first sentence of text, or its first clause, if it fits whole; never a cut-off phrase."""
+        text = (text or '').split('. ')[0].strip().rstrip('.')
+        if len(text) <= room:
+            return text
+        for sep in (' — ', ': '):
+            part = text.split(sep)[0].strip()
+            if 25 < len(part) <= room:
+                return part
+        if room < 45:
+            return ''
+        return text[:room - 1].rsplit(' ', 1)[0].rstrip(',;:—–- ') + '…'
+
+    # "from" when the options cost different amounts; stock as the store shows it tonight.
+    prices = sorted({v['price'] for v in (p.get('variants') or []) if v.get('available') is not False})
+    if isinstance(price_now, (int, float)):
+        price_txt = '{:,.2f}'.format(price_now).replace('.00', '') if price_now % 1 else '{:,}'.format(int(price_now))
+    from_price = len(prices) > 1
+    available = p.get('available') is not False
+    preorder = bool(p.get('preorder'))
+    art = p.get('category') == '3D Artwork'
+    printer = p.get('category') == '3D Printers'
+    # Search results show about 155 characters of a description.
+    LIMIT = 155
     if lang == 'ar':
-        # Stable keyword-led title; the live SAR price comes from the Product markup and the page itself.
-        lead = ('طابعة ' + name if p.get('category') == '3D Printers' and not name.startswith('طابعة') else name)
-        seo_title = _fit(*([lead + ' في السعودية | Black Arrow 3D'] if 'السعود' not in name else []), lead + ' | Black Arrow 3D', name)
-        seo_desc = (desc.rstrip('.') + '. السعر ' + price_txt + ' ريال. توصيل لكل مناطق السعودية.')
-    else:
-        lead = (name + ' 3D Printer' if p.get('category') == '3D Printers' else name)
-        seo_title = _fit(*([lead + ' in Saudi Arabia | Black Arrow 3D'] if 'Saudi' not in name else []), lead + ' | Black Arrow 3D', name + ' | Black Arrow 3D', name)
-        seo_desc = (desc.rstrip('.') + '. Price: ' + price_txt + ' SAR. Delivery across Saudi Arabia.')
-    if p.get('category') == '3D Artwork':
-        # Art pieces: name alone says nothing about what they are — add the gift angle.
-        if lang == 'ar':
-            seo_title = _fit(name + ' | هدية مطبوعة ثلاثية الأبعاد | Black Arrow', name + ' | هدايا ثلاثية الأبعاد | Black Arrow', seo_title)
-            art_desc = desc.rstrip('.') + '. صُنع بالطباعة ثلاثية الأبعاد في السعودية — هدية مميزة. السعر ' + price_txt + ' ريال. توصيل لكل مناطق المملكة.'
+        price_ar = ('ابتداءً من ' if from_price else '') + price_txt + ' ريال'
+        lead = ('طابعة ' + name if printer and not name.startswith('طابعة') else name)
+        if art:
+            seo_title = _fit(name + ' | هدية مطبوعة ثلاثية الأبعاد | Black Arrow', name + ' | هدايا ثلاثية الأبعاد | Black Arrow', name + ' | Black Arrow 3D', name)
+            head = name + ' بسعر ' + price_ar + '. '
+            tail = ' نطبعها في السعودية، والتوصيل مجاني للطلبات فوق 100 ريال.'
         else:
-            seo_title = _fit(name + ' | 3D Printed Gift | Black Arrow 3D', name + ' | 3D Printed | Black Arrow 3D', seo_title)
-            art_desc = desc.rstrip('.') + '. Made in Saudi Arabia by Black Arrow — a unique gift. Price: ' + price_txt + ' SAR. Delivery across the Kingdom.'
-        if len(art_desc) <= 165:
-            seo_desc = art_desc
+            seo_title = _fit('سعر ' + lead + ' في السعودية | Black Arrow 3D', lead + ' في السعودية | Black Arrow 3D', lead + ' | Black Arrow 3D', name)
+            fem = 'ة' if printer else ''
+            stock = '، متوفر' + fem + ' الآن' if available and not preorder else ('، متاح' + fem + ' للطلب المسبق' if preorder else '')
+            head = name + ' بسعر ' + price_ar + ' شامل الضريبة' + stock + '. '
+            tail = (' توصيل مجاني لكل مناطق السعودية وتقسيط مع تابي وتمارا.' if printer
+                    else ' توصيل سريع لكل مناطق السعودية.')
+    else:
+        price_en = ('from ' if from_price else '') + price_txt + ' SAR'
+        lead = (name + ' 3D Printer' if printer and '3D Printer' not in name else name)
+        if art:
+            seo_title = _fit(name + ' | 3D Printed Gift | Black Arrow 3D', name + ' | 3D Printed | Black Arrow 3D', name + ' | Black Arrow 3D', name)
+            head = name + ', ' + price_en + '. '
+            tail = ' Made in Saudi Arabia. Free delivery on gift orders over 100 SAR.'
+        else:
+            seo_title = _fit(name + ' Price in Saudi Arabia | Black Arrow 3D', name + ' Price in Saudi Arabia',
+                             lead + ' in Saudi Arabia | Black Arrow 3D', name + ' | Black Arrow 3D', name)
+            stock = ', in stock' if available and not preorder else (', available to pre-order' if preorder else '')
+            head = name + ': ' + price_en + ' incl. VAT' + stock + '. '
+            tail = (' Free delivery across Saudi Arabia, or split it with Tabby or Tamara.' if printer
+                    else ' Fast delivery across Saudi Arabia.')
+    hook = _clip(desc, LIMIT - len(head) - len(tail) - 1)
+    seo_desc = head + ((hook if hook.endswith('…') else hook + '.') if len(hook) > 25 else '') + tail
+    seo_desc = seo_desc.replace('..', '.').replace('  ', ' ').strip()
     # Hand-written overrides from the catalog win (seoTitle / seoDescription, + _ar).
     sfx = '_ar' if lang == 'ar' else ''
     seo_title = p.get('seoTitle' + sfx) or seo_title
@@ -1347,6 +1384,8 @@ STATIC_PAGES = {
                     "We print your order. 3D printed items are typically prepared within 3 to 5 business days, as most are made to order.",
                     "We deliver across Saudi Arabia: standard shipping 30 SAR (4-5 business days) or fast shipping 50 SAR (2-3 business days). You receive a tracking number once your order has shipped.",
                 ]),
+                ('h2', '3D printing in Riyadh, Jeddah, Dammam and across Saudi Arabia'),
+                ('p', "We print in-house and ship from Dammam to every city in the Kingdom, so you get the same service whether you are in Riyadh, Jeddah, Makkah, Madinah, Dammam, Khobar or anywhere else in Saudi Arabia. Standard delivery takes 4-5 business days and fast delivery 2-3, with a tracking number for every order."),
                 ('h2', 'Good to know'),
                 ('ul', [
                     "Cancellation is possible only before production begins.",
@@ -1385,6 +1424,8 @@ STATIC_PAGES = {
                     "نطبع طلبك. تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد عادةً خلال 3 إلى 5 أيام عمل، لأن معظمها يُصنع حسب الطلب.",
                     "نوصّل لجميع مناطق المملكة: شحن عادي 30 ريال (4-5 أيام عمل) أو شحن سريع 50 ريال (2-3 أيام عمل). ويصلك رقم تتبع بعد شحن الطلب.",
                 ]),
+                ('h2', 'الطباعة ثلاثية الأبعاد في الرياض وجدة والدمام وكل مدن السعودية'),
+                ('p', "نطبع داخلياً ونشحن من الدمام إلى كل مدن المملكة، فتحصل على الخدمة نفسها سواء كنت في الرياض أو جدة أو مكة أو المدينة أو الدمام أو الخبر أو أي مدينة أخرى في السعودية. التوصيل العادي يستغرق 4-5 أيام عمل والسريع 2-3 أيام، مع رقم تتبع لكل طلب."),
                 ('h2', 'من المفيد أن تعرف'),
                 ('ul', [
                     "يمكن الإلغاء فقط قبل بدء الإنتاج.",

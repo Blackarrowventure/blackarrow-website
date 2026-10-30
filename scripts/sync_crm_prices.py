@@ -173,7 +173,7 @@ def main():
         print('unchanged')
         return
     if '--no-build' not in sys.argv:
-        for script in ('generate_3d_static.py', 'build_merchant_feed.py', 'add_blog_faq_schema.py'):
+        for script in ('generate_3d_static.py', 'build_merchant_feed.py', 'add_blog_faq_schema.py', 'seo_meta_overrides.py'):
             subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', script)], check=True, cwd=ROOT)
     print('changed')
 
