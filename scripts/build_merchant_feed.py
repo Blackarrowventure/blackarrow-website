@@ -30,7 +30,7 @@ SHIPPING_FEE = 30
 
 # Kept off Google Shopping (still sold on the site): designs that carry another company's
 # logo. Google treats those as counterfeit and can suspend the whole Merchant account.
-FEED_EXCLUDE = {'sports-duffel-bag-keychain'}
+FEED_EXCLUDE = {'sports-duffel-bag-keychain', 'demon-slayer-logo-keychain'}
 
 PRODUCT_TYPE = {
     '3D Printers': '3D Printing > 3D Printers',

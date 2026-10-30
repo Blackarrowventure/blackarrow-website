@@ -3257,6 +3257,38 @@
         ["التصميم", "علم قراصنة قبعة القش (ون بيس)، مطبوع داخليًا"],
         ["يتضمن", "حلقة مفاتيح معدنية"]
       ]
+    },
+    {
+      "id": "demon-slayer-logo-keychain",
+      "name": "Demon Slayer Logo Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 35,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/demon-slayer-logo-keychain-01.webp",
+        "/3d/assets/images/products/demon-slayer-logo-keychain-02.webp"
+      ],
+      "shortDesc": "The Demon Slayer title logo as a large 3D printed keychain: bold black lettering over a white disc with the red brush-stroke ring.",
+      "description": "Carry the Demon Slayer Corps with you. This keychain recreates the anime's famous title logo: the rough, brush-style black \"Demon Slayer\" lettering running across a white disc, wrapped in the red and black brush-stroke ring that frames it. Every colour is printed as its own raised layer, so the lettering and the ring stand out sharply from the white face, with no paint to chip or fade. It is a statement piece that fills your palm, with a printed loop at the top and a metal keyring and chain so it goes straight onto your keys, bag or backpack. Printed in-house at Black Arrow 3D in durable PLA. A great gift for any Demon Slayer fan.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Colours", "Black, white and red, printed in raised layers"],
+        ["Design", "Demon Slayer title logo, printed in-house"],
+        ["Includes", "Metal keyring with chain"]
+      ],
+      "name_ar": "ميدالية مفاتيح شعار قاتل الشياطين",
+      "shortDesc_ar": "شعار أنمي قاتل الشياطين (Demon Slayer) كميدالية مفاتيح كبيرة مطبوعة ثلاثية الأبعاد: كتابة سوداء عريضة على قرص أبيض مع حلقة ضربات الفرشاة الحمراء.",
+      "description_ar": "احمل فيلق قتلة الشياطين معك أينما ذهبت. تعيد هذه الميدالية تصميم شعار أنمي قاتل الشياطين الشهير: كتابة \"Demon Slayer\" السوداء بأسلوب ضربات الفرشاة الخشنة على قرص أبيض، تحيط بها حلقة ضربات الفرشاة الحمراء والسوداء. كل لون مطبوع كطبقة بارزة مستقلة، فتبرز الكتابة والحلقة بوضوح على الوجه الأبيض دون طلاء يتقشر أو يبهت. قطعة لافتة بحجم كف اليد، مع حلقة مطبوعة في الأعلى وحلقة مفاتيح معدنية بسلسلة لتثبيتها مباشرة على مفاتيحك أو حقيبتك. مطبوعة داخل Black Arrow 3D من مادة PLA المتينة. هدية رائعة لكل محبي قاتل الشياطين.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الألوان", "أسود وأبيض وأحمر، مطبوعة بطبقات بارزة"],
+        ["التصميم", "شعار قاتل الشياطين (Demon Slayer)، مطبوع داخليًا"],
+        ["يتضمن", "حلقة مفاتيح معدنية بسلسلة"]
+      ]
     }
   ]
 }
