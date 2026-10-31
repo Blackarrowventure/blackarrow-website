@@ -326,5 +326,8 @@
         }
       ]
     }
+  ],
+  "crons": [
+    { "path": "/api/rewards/birthday/", "schedule": "0 5 * * *" }
   ]
 }

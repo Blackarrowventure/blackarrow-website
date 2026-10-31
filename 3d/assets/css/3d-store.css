@@ -2988,6 +2988,13 @@ main.b3d-light .b3d-filter-panel__actions .btn { flex: 0 0 auto !important; widt
 .b3d-rwd-progress__text strong { color: #fff; }
 .b3d-rwd-progress__bar { height: 8px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
 .b3d-rwd-progress__bar span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #b45309, #F59E0B, #fde68a); transition: width .8s ease; }
+.b3d-rwd-bday { margin-top: 18px; padding: 16px; border: 1px solid rgba(245,158,11,.3); border-radius: 12px; background: rgba(245,158,11,.06); display: flex; flex-direction: column; gap: 10px; }
+.b3d-rwd-bday[hidden] { display: none; }
+.b3d-rwd-live__row[hidden] { display: none; }
+.b3d-rwd-bday p { margin: 0; font-size: .9rem; color: rgba(255,255,255,.85); }
+.b3d-rwd-bday__row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; }
+.b3d-rwd-bday__field { display: flex; flex-direction: column; gap: 4px; flex: 1 1 180px; font-size: .78rem; color: rgba(255,255,255,.7); }
+.b3d-rwd-bday__field input { padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,.18); background: #111; color: #fff; font: inherit; font-size: .95rem; color-scheme: dark; }
 [dir="rtl"] .b3d-rwd-progress__bar span { margin-inline-start: auto; background: linear-gradient(270deg, #b45309, #F59E0B, #fde68a); }
 .b3d-rwd-progress--gold .b3d-rwd-progress__bar span,
 .b3d-rwd-progress--platinum .b3d-rwd-progress__bar span { background: linear-gradient(90deg, #a9c4ff, #d9b8ff, #ffe2b8); }

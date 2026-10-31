@@ -40,7 +40,22 @@
     });
   }
 
-  window.BlackArrow3DRewards = { fetchMe: fetchMe, redeemForOrder: redeemForOrder };
+  // Saves the date of birth ("YYYY-MM-DD") for the yearly birthday reward. The
+  // first one saved stays; later changes go through the shop. -> me | null
+  function saveBirthday(dob) {
+    return withToken(function (token) {
+      return fetch('/api/rewards/me/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ dob: dob })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('birthday_failed');
+        return r.json();
+      });
+    });
+  }
+
+  window.BlackArrow3DRewards = { fetchMe: fetchMe, redeemForOrder: redeemForOrder, saveBirthday: saveBirthday };
 
   /* --- Rewards page: only runs where its own markup exists. --- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -77,8 +92,8 @@
         pct = Math.max(0, Math.min(100, (spend - next.from) / (next.at - next.from) * 100));
         var nextName = isAr ? TIER_AR[next.name] : next.name;
         text.innerHTML = isAr
-          ? 'اجمع <strong>' + sar(left) + ' نقطة إضافية</strong> للوصول إلى ' + nextName
-          : 'Get <strong>' + sar(left) + ' more points</strong> to reach ' + nextName;
+          ? 'تسوّق بـ <strong>' + sar(left) + ' ريال إضافية</strong> للوصول إلى ' + nextName
+          : 'Spend <strong>' + sar(left) + ' SAR more</strong> to reach ' + nextName;
       } else {
         text.textContent = isAr ? 'وصلت إلى أعلى مستوى لدينا. شكرًا لك!' : 'You have reached our top tier. Thank you!';
       }
@@ -100,7 +115,32 @@
       liveSection.querySelector('[data-rwd-balance]').textContent = Number(member.balance || 0).toFixed(2);
       show(liveSection);
       renderProgress(member);
+      renderBirthday(member);
     }
+
+    // Birthday on the card once saved; until then, a short form under the card.
+    function renderBirthday(member) {
+      var row = liveSection.querySelector('[data-rwd-bday-row]');
+      var form = document.getElementById('b3d-rwd-bday-form');
+      var dob = member.dateOfBirth;
+      if (row) {
+        if (dob) {
+          var parts = String(dob).split('-');
+          var d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
+          row.querySelector('[data-rwd-bday]').textContent =
+            d.toLocaleDateString(isAr ? 'ar-SA-u-ca-gregory' : 'en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+        }
+        row.hidden = !dob;
+      }
+      if (form) form.hidden = !!dob;
+    }
+
+    // Latest date that still makes someone at least 10 (matches the server check).
+    var maxDob = (function () { var d = new Date(); d.setFullYear(d.getFullYear() - 10); return d.toISOString().slice(0, 10); })();
+    ['rwd-bday-input', 'rwd-join-dob'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.max = maxDob;
+    });
 
     // Cards tilt toward the pointer with a moving highlight (mouse only, motion allowed).
     if (window.matchMedia && matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
@@ -149,12 +189,37 @@
       joinForm.addEventListener('submit', function (e) {
         e.preventDefault();
         var phone = document.getElementById('rwd-join-phone').value.trim();
+        var dobInput = document.getElementById('rwd-join-dob');
+        var dob = dobInput ? dobInput.value : '';
         var err = document.getElementById('rwd-join-error');
         var btn = joinForm.querySelector('button[type="submit"]');
         if (err) err.hidden = true;
         if (!phone || !currentUser) return;
         btn.disabled = true;
-        auth.saveProfile(currentUser.id, { phone: phone }).then(load).catch(function () {
+        auth.saveProfile(currentUser.id, { phone: phone }).then(function () {
+          // Joining must not fail over the birthday: if it can't be saved, the
+          // card shows the birthday form again.
+          return dob ? saveBirthday(dob).catch(function () { return null; }) : null;
+        }).then(load).catch(function () {
+          if (err) err.hidden = false;
+        }).then(function () { btn.disabled = false; });
+      });
+    }
+
+    var bdayForm = document.getElementById('b3d-rwd-bday-form');
+    if (bdayForm) {
+      bdayForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var dob = document.getElementById('rwd-bday-input').value;
+        var err = document.getElementById('rwd-bday-error');
+        var btn = bdayForm.querySelector('button[type="submit"]');
+        if (err) err.hidden = true;
+        if (!dob) return;
+        btn.disabled = true;
+        saveBirthday(dob).then(function (me) {
+          if (!me || !me.member || !me.member.dateOfBirth) throw new Error('not_saved');
+          renderCard(me.member);
+        }).catch(function () {
           if (err) err.hidden = false;
         }).then(function () { btn.disabled = false; });
       });

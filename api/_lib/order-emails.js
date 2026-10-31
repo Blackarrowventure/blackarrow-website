@@ -29,13 +29,13 @@ function isPlaceholderEmail(email) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function sendEmailJs(params) {
+async function sendEmailJs(params, templateId) {
   const r = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       service_id: EMAILJS.serviceId,
-      template_id: EMAILJS.templateId,
+      template_id: templateId || EMAILJS.templateId,
       user_id: EMAILJS.publicKey,
       accessToken: process.env.EMAILJS_PRIVATE_KEY,
       template_params: params,
@@ -141,4 +141,4 @@ async function afterPaid(table, ref) {
   }
 }
 
-module.exports = { afterPaid, emailsConfigured };
+module.exports = { afterPaid, emailsConfigured, sendEmailJs, isPlaceholderEmail };

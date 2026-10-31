@@ -73,7 +73,25 @@ function toMember(row) {
     balance: Number(row.reward_balance) || 0,
     lifetimeSpend: Number(row.lifetime_spend) || 0,
     memberSince: row.member_since,
+    dateOfBirth: row.date_of_birth || null,
   };
+}
+
+// Saves the member's date of birth ("YYYY-MM-DD"). The CRM only accepts it while
+// none is set, so a customer can't move their birthday to collect the reward
+// again; returns the date the CRM holds afterwards.
+async function setBirthday(phone, dob) {
+  return crmRpc('bav3d_loyalty_set_birthday', { p_phone: phone, p_dob: dob });
+}
+
+// Same rule as the CRM's bav3d_normalize_phone(), e.g. "+966 50..." / "050..." -> "96650...".
+function normalizePhone(p) {
+  const d = String(p || '').replace(/[^0-9]/g, '');
+  if (!d) return '';
+  if (d.startsWith('00')) return d.slice(2);
+  if (d.startsWith('05') && d.length === 10) return '966' + d.slice(1);
+  if (d.startsWith('5') && d.length === 9) return '966' + d;
+  return d;
 }
 
 // { user, phone, member } | { user, needsPhone: true } | null (not signed in)
@@ -116,4 +134,4 @@ async function checkoutRewards(token, useRewards, itemsCents) {
   return { member: m.member, phone: m.phone, discountCents, freeDelivery: freeDelivery(m.member) };
 }
 
-module.exports = { configured, crmRpc, memberForToken, freeDelivery, redeem, redeemedFor, checkoutRewards, MIN_REDEEM };
+module.exports = { configured, crmRpc, memberForToken, freeDelivery, redeem, redeemedFor, checkoutRewards, setBirthday, normalizePhone, MIN_REDEEM };
