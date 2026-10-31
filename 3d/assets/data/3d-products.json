@@ -3320,6 +3320,38 @@
         ["التصميم", "24 حلبة فورمولا 1 مع أسماء المدن وتواريخ السباقات، وشعار F1 2027 في المنتصف"],
         ["العرض", "تقف منتصبة على أرجل صغيرة"]
       ]
+    },
+    {
+      "id": "gta-vi-logo-keychain",
+      "name": "GTA VI Logo Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gta-vi-logo-keychain-01.webp",
+        "/3d/assets/images/products/gta-vi-logo-keychain-02.webp"
+      ],
+      "shortDesc": "The Grand Theft Auto VI logo as a 3D printed keychain: bold white lettering on a black backing, with the purple VI.",
+      "description": "Carry Vice City with you. This keychain recreates the Grand Theft Auto VI logo: the chunky white \"grand theft auto\" lettering stacked on a black backing, finished with the purple brush-stroke VI and its long swoosh underneath. Every colour is printed as its own raised layer, so the white letters and the purple VI stand out sharply from the black, with no paint to chip or fade. A printed loop at the top takes a keyring, so it goes straight onto your keys, bag or backpack. Printed in-house at Black Arrow 3D in durable PLA. A great gift for any GTA fan.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Colours", "Black, white and purple, printed in raised layers"],
+        ["Design", "Grand Theft Auto VI logo, printed in-house"],
+        ["Loop", "Printed loop for a keyring"]
+      ],
+      "name_ar": "ميدالية مفاتيح شعار GTA VI",
+      "shortDesc_ar": "شعار لعبة Grand Theft Auto VI كميدالية مفاتيح مطبوعة ثلاثية الأبعاد: كتابة بيضاء عريضة على خلفية سوداء مع رقم VI باللون البنفسجي.",
+      "description_ar": "احمل أجواء فايس سيتي معك. تعيد هذه الميدالية تصميم شعار لعبة Grand Theft Auto VI: كتابة \"grand theft auto\" البيضاء العريضة على خلفية سوداء، مع رقم VI البنفسجي بأسلوب ضربة الفرشاة وخطه الطويل في الأسفل. كل لون مطبوع كطبقة بارزة مستقلة، فتبرز الحروف البيضاء والرقم البنفسجي بوضوح على الأسود دون طلاء يتقشر أو يبهت. وفي الأعلى حلقة مطبوعة لتركيب حلقة المفاتيح، لتضعها مباشرة على مفاتيحك أو حقيبتك. مطبوعة داخل Black Arrow 3D من مادة PLA المتينة. هدية رائعة لكل محبي GTA.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["الألوان", "أسود وأبيض وبنفسجي، مطبوعة بطبقات بارزة"],
+        ["التصميم", "شعار لعبة Grand Theft Auto VI، مطبوع داخليًا"],
+        ["الحلقة", "حلقة مطبوعة لتركيب حلقة المفاتيح"]
+      ]
     }
   ]
 }
