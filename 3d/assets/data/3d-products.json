@@ -1527,46 +1527,6 @@
       ]
     },
     {
-      "id": "mustang-gt-3d-model",
-      "name": "3D Printed Mustang GT",
-      "brand": "Black Arrow",
-      "category": "3D Artwork",
-      "price": 30,
-      "currency": "SAR",
-      "vatIncluded": true,
-      "available": true,
-      "newArrival": true,
-      "variants": [
-        { "label": "White", "label_ar": "أبيض", "price": 30, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/mustang-gt-promo.webp" },
-        { "label": "Green", "label_ar": "أخضر", "price": 30, "swatch": "#006c35", "image": "/3d/assets/images/products/mustang-gt-green.webp" },
-        { "label": "Black", "label_ar": "أسود", "price": 30, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/mustang-gt-black.webp" },
-        { "label": "Yellow", "label_ar": "أصفر", "price": 30, "swatch": "#f5d020", "image": "/3d/assets/images/products/mustang-gt-yellow.webp" },
-        { "label": "Red", "label_ar": "أحمر", "price": 30, "swatch": "#d92b2b", "image": "/3d/assets/images/products/mustang-gt-red.webp" }
-      ],
-      "images": [
-        "/3d/assets/images/products/mustang-gt-promo.webp",
-        "/3d/assets/images/products/mustang-gt-green.webp",
-        "/3d/assets/images/products/mustang-gt-black.webp",
-        "/3d/assets/images/products/mustang-gt-yellow.webp",
-        "/3d/assets/images/products/mustang-gt-red.webp"
-      ],
-      "shortDesc": "In-house 3D printed Mustang GT display model, rear-view design — pick your color.",
-      "description": "A detailed 3D printed display model of the Ford Mustang GT, designed around its iconic rear view and made in-house at Black Arrow 3D. It features racing stripes over the bodywork, a raised rear spoiler, red tail lights, a GT badge, a rear diffuser and quad exhaust tips, all printed as part of the model. The car sits on black stand legs, so it works on a desk or shelf. Available in five body colors: white, green, black, yellow and red. A great gift for car lovers and Mustang fans, or a statement piece for your office or garage.",
-      "specs": [
-        ["Material", "PLA"],
-        ["Design", "Rear-view Mustang GT"],
-        ["Finish", "Available in the colors shown"]
-      ],
-      "name_ar": "نموذج فورد موستنج GT مطبوع ثلاثي الأبعاد",
-      "shortDesc_ar": "نموذج عرض فورد موستنج GT مطبوع ثلاثي الأبعاد داخليًا، بتصميم من الخلف — اختر لونك.",
-      "description_ar": "مجسم عرض مطبوع ثلاثي الأبعاد لسيارة فورد موستنج GT بتفاصيل دقيقة، مصمم حول شكلها الخلفي الشهير ومصنوع داخليًا لدى Black Arrow 3D. يتضمن خطوط السباق على الهيكل، والجناح الخلفي المرتفع، والأضواء الخلفية الحمراء، وشعار GT، والناشر الخلفي، وأربع فتحات عادم، وكلها مطبوعة ضمن المجسم. تقف السيارة على أرجل سوداء لتناسب المكتب أو الرف. متوفر بخمسة ألوان للهيكل: أبيض وأخضر وأسود وأصفر وأحمر. هدية رائعة لمحبي السيارات وعشاق موستنج، أو قطعة لافتة للمكتب أو الكراج.",
-      "specs_ar": [
-        ["الخامة", "PLA"],
-        ["التصميم", "فورد موستنج GT من الخلف"],
-        ["التشطيب", "متوفر بالألوان الموضحة"]
-      ]
-    },
-    {
       "id": "saudi-map-hanging-decor",
       "name": "Saudi Map Hanging Decor",
       "brand": "Black Arrow",

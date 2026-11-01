@@ -53,6 +53,16 @@
       "source": "/3d/ar/product/gta-vi-game-case-rack/",
       "destination": "/3d/ar/product/gta-vi-ps5-controller-stand/",
       "permanent": true
+    },
+    {
+      "source": "/3d/product/mustang-gt-3d-model/",
+      "destination": "/3d/shop/3d-artwork/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/product/mustang-gt-3d-model/",
+      "destination": "/3d/ar/shop/3d-artwork/",
+      "permanent": true
     }
   ],
   "headers": [
