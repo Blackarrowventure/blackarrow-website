@@ -968,7 +968,7 @@ ART_ICON_PATHS = {
 
 ART_SUBCATEGORIES = [
     ('keychains', {'en': 'Keychains', 'ar': 'ميداليات المفاتيح'}, '#fbe7ef', 'keychain', [
-        'rockstar-logo-keycap-clicker-keychain', 'gta-vi-logo-keychain', 'demon-slayer-logo-keychain', 'one-piece-jolly-roger-keychain', 'sports-duffel-bag-keychain', 'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
+        'gta-phrase-keychains', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-logo-keychain', 'demon-slayer-logo-keychain', 'one-piece-jolly-roger-keychain', 'sports-duffel-bag-keychain', 'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
         'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain', 'uchiha-clan-keychain']),
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
@@ -1007,7 +1007,7 @@ COLLECTIONS = [
     ('gamers', {'ids': [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand',
-        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-phone-stand',
+        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain', 'gta-phrase-keychains', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-phone-stand',
         'knitted-mario-cap-figure', 'green-knit-cap', 'synapse-usb-lamp']}, {
         'en': ('3D Printed Gifts for Gamers', 'Gifts for Gamers',
                'Gifts for gamers in Saudi Arabia: PS5 controller stands, Mario and Luigi cap figures, GTA VI pieces and desk lamps, 3D printed by Black Arrow 3D.',

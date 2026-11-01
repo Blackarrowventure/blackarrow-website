@@ -3528,6 +3528,58 @@
         ["التصميم", "شعار لعبة Grand Theft Auto VI، مطبوع داخليًا"],
         ["التثبيت", "نتوءتان أماميتان على القاعدة"]
       ]
+    },
+    {
+      "id": "gta-phrase-keychains",
+      "name": "GTA Phrase Keychains",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        { "label": "Full set (all 10)", "label_ar": "المجموعة كاملة (10 قطع)", "price": 99, "image": "/3d/assets/images/products/gta-phrase-keychains-set.webp" },
+        { "label": "Wasted", "label_ar": "Wasted", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-wasted.webp" },
+        { "label": "Busted", "label_ar": "Busted", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-busted.webp" },
+        { "label": "Wanted (5 stars)", "label_ar": "Wanted (5 نجوم)", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-wanted-stars.webp" },
+        { "label": "Wanted", "label_ar": "Wanted", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-set.webp" },
+        { "label": "Respect", "label_ar": "Respect", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-respect.webp" },
+        { "label": "Mission Passed!", "label_ar": "Mission Passed!", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-mission-passed.webp" },
+        { "label": "Mission Failed!", "label_ar": "Mission Failed!", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-mission-failed.webp" },
+        { "label": "+$99", "label_ar": "+$99", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-plus-99.webp" },
+        { "label": "-$99", "label_ar": "-$99", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-set.webp" },
+        { "label": "Grand Theft Auto", "label_ar": "Grand Theft Auto", "price": 15, "image": "/3d/assets/images/products/gta-phrase-keychains-grand-theft-auto.webp" }
+      ],
+      "images": [
+        "/3d/assets/images/products/gta-phrase-keychains-set.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-wasted.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-busted.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-wanted-stars.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-respect.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-mission-passed.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-mission-failed.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-plus-99.webp",
+        "/3d/assets/images/products/gta-phrase-keychains-grand-theft-auto.webp"
+      ],
+      "shortDesc": "Keychains with the famous GTA screen words: Wasted, Busted, Wanted, Respect, Mission Passed and more. Pick one for 15 SAR or get the full set of 10 for 99 SAR.",
+      "description": "Every GTA player knows these words. Wasted, Busted, Wanted with five stars, Mission Passed, Mission Failed, Respect, +$99 and -$99, all in the game's own lettering, plus the Grand Theft Auto logo. Each colour is printed as its own raised layer on a black outline, so the text stays sharp with no paint to chip or fade. Every keychain comes on a metal chain with a key ring, ready for your keys or bag. Pick your favourite for 15 SAR, or take the full set of 10 for 99 SAR and share them with your squad. Printed in-house at Black Arrow 3D.",
+      "specs": [
+        ["Options", "Full set of 10, or one keychain of your choice"],
+        ["Designs", "Wasted, Busted, Wanted, Wanted (5 stars), Respect, Mission Passed!, Mission Failed!, +$99, -$99, Grand Theft Auto"],
+        ["Colours", "Each phrase in its game colour on a black outline"],
+        ["Attachment", "Metal chain with key ring"]
+      ],
+      "name_ar": "ميداليات مفاتيح عبارات GTA",
+      "shortDesc_ar": "ميداليات مفاتيح بعبارات شاشة GTA الشهيرة: Wasted وBusted وWanted وRespect وMission Passed وغيرها. اختر واحدة بـ 15 ريال أو المجموعة كاملة (10 قطع) بـ 99 ريال.",
+      "description_ar": "كل لاعب GTA يعرف هذه الكلمات. Wasted وBusted وWanted بخمس نجوم وMission Passed وMission Failed وRespect و+$99 و-$99، كلها بخط اللعبة نفسه، بالإضافة إلى شعار Grand Theft Auto. كل لون مطبوع كطبقة بارزة مستقلة على إطار أسود، فيبقى النص واضحًا دون طلاء يتقشر أو يبهت. وتأتي كل ميدالية مع سلسلة معدنية وحلقة مفاتيح، جاهزة لمفاتيحك أو حقيبتك. اختر المفضلة لديك بـ 15 ريال، أو خذ المجموعة كاملة (10 قطع) بـ 99 ريال وشاركها مع أصحابك. مطبوعة داخل Black Arrow 3D.",
+      "specs_ar": [
+        ["الخيارات", "المجموعة كاملة (10 قطع)، أو ميدالية واحدة من اختيارك"],
+        ["التصاميم", "Wasted، Busted، Wanted، Wanted (5 نجوم)، Respect، Mission Passed!، Mission Failed!، +$99، -$99، Grand Theft Auto"],
+        ["الألوان", "كل عبارة بلونها في اللعبة على إطار أسود"],
+        ["التعليق", "سلسلة معدنية مع حلقة مفاتيح"]
+      ]
     }
   ]
 }
