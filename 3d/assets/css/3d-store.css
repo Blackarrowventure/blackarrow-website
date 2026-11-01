@@ -1433,6 +1433,7 @@ html[dir="rtl"] .b3d-filter-toggle__count { margin-left: 0; margin-right: 4px; }
 .b3d-corner-badge--new { top: 94px; background: rgba(4,120,87,.92); color: #fff; }
 
 .b3d-stock-badge--pre { background: rgba(245,158,11,.92); color: #1a1a1a; border: 1px solid var(--clr-accent); }
+.b3d-stock-badge--soon { background: #1e3a8a; color: #fff; border: 1px solid #fff; }
 
 .b3d-card__specs { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 4px; }
 .b3d-card__specs li { display: flex; justify-content: space-between; font-size: .76rem; color: rgba(255,255,255,.55); }
@@ -2469,6 +2470,7 @@ main.b3d-light .b3d-star.is-on { color: #D97706; }
 /* ---- Product page: one clear buy action, trust facts and real savings next to the price ---- */
 .b3d-stock-badge--in { background: rgba(4,120,87,.92); color: #fff; }
 main.b3d-light .b3d-grid > * .b3d-stock-badge--out { color: #fff !important; }
+main.b3d-light .b3d-grid > * .b3d-stock-badge--soon { color: #fff !important; }
 .b3d-pd__price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .b3d-pd__save { background: rgba(4,120,87,.14); color: #059669; font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 main.b3d-light .b3d-pd__save { background: rgba(4,120,87,.12); color: #047857; }

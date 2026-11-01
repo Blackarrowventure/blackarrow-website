@@ -58,4 +58,13 @@ def load_products():
     with io.open(CATALOG, encoding='utf-8') as f:
         products = json.load(f)['products']
     rows = load_rows()
-    return apply_stock(products, rows) if rows else products
+    products = apply_stock(products, rows) if rows else products
+    # "comingSoon": listed but not orderable yet, whatever stock the CRM holds.
+    for p in products:
+        if p.get('comingSoon'):
+            p['available'] = False
+            p['preorder'] = False
+            for v in p.get('variants') or []:
+                v['available'] = False
+                v['preorder'] = False
+    return products

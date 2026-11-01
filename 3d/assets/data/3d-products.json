@@ -3352,6 +3352,100 @@
         ["التصميم", "شعار لعبة Grand Theft Auto VI، مطبوع داخليًا"],
         ["الحلقة", "حلقة مطبوعة لتركيب حلقة المفاتيح"]
       ]
+    },
+    {
+      "id": "bambu-lab-pla-matte-filament",
+      "name": "Bambu Lab PLA Matte Filament 1.75 mm (1 kg)",
+      "brand": "Bambu Lab",
+      "category": "Filament",
+      "boughtTogether": [
+        "bambu-lab-pla-basic-filament"
+      ],
+      "price": 140,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "comingSoon": true,
+      "images": [
+        "/3d/assets/images/products/bambu-pla-matte-sakura-pink.webp",
+        "/3d/assets/images/products/bambu-pla-matte-grass-green.webp"
+      ],
+      "shortDesc": "Bambu Lab PLA Matte, 1.75 mm, 1 kg: a soft, non-glossy finish that hides layer lines. Coming soon in Sakura Pink and Grass Green.",
+      "description": "Bambu Lab PLA Matte is 1 kg of 1.75 mm PLA with a soft, non-glossy finish. The matte surface hides layer lines better than standard glossy PLA, so figures, decor and gifts come off the printer with a smooth, premium look. Made for Bambu Lab printers and the AMS, and it also prints on most FDM printers that take 1.75 mm PLA. Coming soon to Black Arrow 3D in Sakura Pink and Grass Green, at 140 SAR per colour.",
+      "specs": [
+        ["Material", "PLA Matte"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Weight", "1 kg"],
+        ["Compatibility", "Bambu Lab printers and AMS, and most FDM printers that take 1.75 mm PLA"],
+        ["Colours", "Sakura Pink, Grass Green: pick one"]
+      ],
+      "name_ar": "فيلامنت بامبو لاب PLA Matte بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت بامبو لاب PLA Matte بقطر 1.75 مم، 1 كغ: لمسة نهائية مطفية غير لامعة تخفي خطوط الطبقات. قريبًا بلوني وردي ساكورا وأخضر عشبي.",
+      "description_ar": "فيلامنت بامبو لاب PLA Matte هو 1 كغ من فيلامنت PLA بقطر 1.75 مم بلمسة نهائية مطفية غير لامعة. يخفي السطح المطفي خطوط الطبقات أفضل من PLA اللامع العادي، فتخرج المجسمات وقطع الديكور والهدايا من الطابعة بمظهر ناعم وفاخر. مصمم لطابعات بامبو لاب ونظام AMS، ويطبع أيضًا على معظم طابعات FDM التي تستخدم فيلامنت PLA بقطر 1.75 مم. قريبًا في Black Arrow 3D بلوني وردي ساكورا وأخضر عشبي، بسعر 140 ريال للون.",
+      "specs_ar": [
+        ["الخامة", "PLA Matte (مطفي)"],
+        ["قطر الفيلامنت", "1.75 مم"],
+        ["الوزن", "1 كغ"],
+        ["التوافق", "طابعات بامبو لاب ونظام AMS، ومعظم طابعات FDM التي تستخدم فيلامنت PLA بقطر 1.75 مم"],
+        ["الألوان", "وردي ساكورا، أخضر عشبي: اختر واحدًا"]
+      ],
+      "variants": [
+        {"label": "Sakura Pink", "label_ar": "وردي ساكورا", "price": 140, "swatch": "#E8AFCF", "image": "/3d/assets/images/products/bambu-pla-matte-sakura-pink.webp"},
+        {"label": "Grass Green", "label_ar": "أخضر عشبي", "price": 140, "swatch": "#61C680", "image": "/3d/assets/images/products/bambu-pla-matte-grass-green.webp"}
+      ]
+    },
+    {
+      "id": "bambu-lab-pla-basic-filament",
+      "name": "Bambu Lab PLA Basic Filament 1.75 mm (1 kg)",
+      "brand": "Bambu Lab",
+      "category": "Filament",
+      "boughtTogether": [
+        "bambu-lab-pla-matte-filament"
+      ],
+      "price": 140,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "comingSoon": true,
+      "images": [
+        "/3d/assets/images/products/bambu-pla-basic-solar-breeze.webp",
+        "/3d/assets/images/products/bambu-pla-basic-cyan.webp",
+        "/3d/assets/images/products/bambu-pla-basic-blue.webp",
+        "/3d/assets/images/products/bambu-pla-basic-purple.webp",
+        "/3d/assets/images/products/bambu-pla-basic-yellow.webp",
+        "/3d/assets/images/products/bambu-pla-basic-red.webp",
+        "/3d/assets/images/products/bambu-pla-basic-gray.webp",
+        "/3d/assets/images/products/bambu-pla-basic-silver.webp"
+      ],
+      "shortDesc": "Bambu Lab PLA Basic, 1.75 mm, 1 kg: Bambu Lab’s everyday PLA for reliable, smooth printing. Coming soon in 8 colours.",
+      "description": "Bambu Lab PLA Basic is Bambu Lab’s everyday PLA: 1 kg of 1.75 mm filament made for reliable, smooth printing on Bambu Lab printers and with the AMS. It also prints on most FDM printers that take 1.75 mm PLA, and suits models, prototypes, decor and school projects. Coming soon to Black Arrow 3D in Solar Breeze, Cyan, Blue, Purple, Yellow, Red, Gray and Silver, at 140 SAR per colour.",
+      "specs": [
+        ["Material", "PLA Basic"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Weight", "1 kg"],
+        ["Compatibility", "Bambu Lab printers and AMS, and most FDM printers that take 1.75 mm PLA"],
+        ["Colours", "Solar Breeze, Cyan, Blue, Purple, Yellow, Red, Gray, Silver: pick one"]
+      ],
+      "name_ar": "فيلامنت بامبو لاب PLA Basic بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت بامبو لاب PLA Basic بقطر 1.75 مم، 1 كغ: فيلامنت PLA اليومي من بامبو لاب لطباعة سلسة وموثوقة. قريبًا بـ 8 ألوان.",
+      "description_ar": "فيلامنت بامبو لاب PLA Basic هو فيلامنت PLA اليومي من بامبو لاب: 1 كغ من فيلامنت بقطر 1.75 مم مصمم لطباعة سلسة وموثوقة على طابعات بامبو لاب ومع نظام AMS. ويطبع أيضًا على معظم طابعات FDM التي تستخدم فيلامنت PLA بقطر 1.75 مم، ويناسب المجسمات والنماذج الأولية والديكور والمشاريع المدرسية. قريبًا في Black Arrow 3D بألوان Solar Breeze والسماوي والأزرق والبنفسجي والأصفر والأحمر والرمادي والفضي، بسعر 140 ريال للون.",
+      "specs_ar": [
+        ["الخامة", "PLA Basic (أساسي)"],
+        ["قطر الفيلامنت", "1.75 مم"],
+        ["الوزن", "1 كغ"],
+        ["التوافق", "طابعات بامبو لاب ونظام AMS، ومعظم طابعات FDM التي تستخدم فيلامنت PLA بقطر 1.75 مم"],
+        ["الألوان", "Solar Breeze (متدرّج)، سماوي، أزرق، بنفسجي، أصفر، أحمر، رمادي، فضي: اختر واحدًا"]
+      ],
+      "variants": [
+        {"label": "Solar Breeze", "label_ar": "Solar Breeze (متدرّج)", "price": 140, "swatch": "#F3A93F", "image": "/3d/assets/images/products/bambu-pla-basic-solar-breeze.webp"},
+        {"label": "Cyan", "label_ar": "سماوي", "price": 140, "swatch": "#0086D6", "image": "/3d/assets/images/products/bambu-pla-basic-cyan.webp"},
+        {"label": "Blue", "label_ar": "أزرق", "price": 140, "swatch": "#0A2989", "image": "/3d/assets/images/products/bambu-pla-basic-blue.webp"},
+        {"label": "Purple", "label_ar": "بنفسجي", "price": 140, "swatch": "#5E43B7", "image": "/3d/assets/images/products/bambu-pla-basic-purple.webp"},
+        {"label": "Yellow", "label_ar": "أصفر", "price": 140, "swatch": "#F4EE2A", "image": "/3d/assets/images/products/bambu-pla-basic-yellow.webp"},
+        {"label": "Red", "label_ar": "أحمر", "price": 140, "swatch": "#C12E1F", "image": "/3d/assets/images/products/bambu-pla-basic-red.webp"},
+        {"label": "Gray", "label_ar": "رمادي", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray.webp"},
+        {"label": "Silver", "label_ar": "فضي", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver.webp"}
+      ]
     }
   ]
 }

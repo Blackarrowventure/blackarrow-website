@@ -107,7 +107,7 @@ def build(products):
     items = []
     for p in products:
         images = p.get('images') or []
-        if p['id'] in FEED_EXCLUDE:
+        if p['id'] in FEED_EXCLUDE or p.get('comingSoon'):   # not orderable yet
             continue
         if not images:
             continue

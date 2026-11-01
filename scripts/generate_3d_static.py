@@ -216,6 +216,8 @@ def vat_note_html(p, lang):
 
 
 def status_badge(p, lang):
+    if p.get('comingSoon'):
+        return '<span class="b3d-stock-badge b3d-stock-badge--soon">' + T('cat_coming_soon', lang) + '</span>'
     if p.get('preorder'):
         return '<span class="b3d-stock-badge b3d-stock-badge--pre">' + T('js_pre_order', lang) + '</span>'
     if p.get('available') is False:
@@ -348,7 +350,7 @@ def product_detail_html(p, lang):
     is_art = p.get('category') == '3D Artwork'
     compare_btn = '' if is_art else ('<button class="btn btn-outline" data-pd-compare="' + p['id'] + '">'
                                       + T('js_compare_btn', lang) + '</button>')
-    add_label = T('js_pre_order', lang) if p.get('preorder') else (T('js_add_to_cart', lang) if pd_available else T('js_out_of_stock', lang))
+    add_label = T('js_pre_order', lang) if p.get('preorder') else (T('js_add_to_cart', lang) if pd_available else T('cat_coming_soon' if p.get('comingSoon') else 'js_out_of_stock', lang))
     add_disabled = '' if (pd_available or p.get('preorder')) else 'disabled'
     status = status_badge(p, lang)
     wa_msg = 'Hello! I have a question about ' + name + '.'

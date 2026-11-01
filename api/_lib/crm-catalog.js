@@ -93,6 +93,13 @@ function applyRows(products, rows) {
       for (const v of p.variants || []) v.available = false;
     }
   }
+  // "comingSoon": listed but not orderable yet, whatever stock the CRM holds.
+  for (const p of products) {
+    if (!p.comingSoon) continue;
+    p.available = false;
+    p.preorder = false;
+    for (const v of p.variants || []) { v.available = false; v.preorder = false; }
+  }
   return products;
 }
 
