@@ -968,7 +968,7 @@ ART_ICON_PATHS = {
 
 ART_SUBCATEGORIES = [
     ('keychains', {'en': 'Keychains', 'ar': 'ميداليات المفاتيح'}, '#fbe7ef', 'keychain', [
-        'gta-vi-logo-keychain', 'demon-slayer-logo-keychain', 'one-piece-jolly-roger-keychain', 'sports-duffel-bag-keychain', 'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
+        'rockstar-logo-keycap-clicker-keychain', 'gta-vi-logo-keychain', 'demon-slayer-logo-keychain', 'one-piece-jolly-roger-keychain', 'sports-duffel-bag-keychain', 'anime-straw-hat-keychain', 'saudi-map-keychain', 'saudi-palm-swords-keychain',
         'saudi-riyal-keychain', 'one-piece-sword-keychain', 'naruto-leaf-keychain', 'uchiha-clan-keychain']),
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
@@ -977,7 +977,7 @@ ART_SUBCATEGORIES = [
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
         'f1-2027-calendar-plaque', 'leonidas-kick-edge-display', 'mustang-gt-3d-model', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue', 'toji-edge-sitter-figure']),
     ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
-        'air-filter-style-lamp', 'synapse-usb-lamp', 'spiderman-mask-pen-holder',
+        'gta-vi-phone-stand', 'air-filter-style-lamp', 'synapse-usb-lamp', 'spiderman-mask-pen-holder',
         'one-piece-luffy-silhouette-lamp', 'one-piece-zoro-silhouette-lamp', 'one-piece-sanji-silhouette-lamp']),
     ('wall-decor', {'en': 'Wall Decor & Key Holders', 'ar': 'ديكور الحائط وعلاقات المفاتيح'}, '#efe7f5', 'wall', [
         'saudi-map-hanging-decor', 'naruto-portrait-plaque', 'national-day-key-holder']),
@@ -1007,7 +1007,7 @@ COLLECTIONS = [
     ('gamers', {'ids': [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand',
-        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain',
+        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-phone-stand',
         'knitted-mario-cap-figure', 'green-knit-cap', 'synapse-usb-lamp']}, {
         'en': ('3D Printed Gifts for Gamers', 'Gifts for Gamers',
                'Gifts for gamers in Saudi Arabia: PS5 controller stands, Mario and Luigi cap figures, GTA VI pieces and desk lamps, 3D printed by Black Arrow 3D.',

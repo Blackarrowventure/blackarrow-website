@@ -3462,6 +3462,72 @@
         {"label": "Gray — Refill", "label_ar": "رمادي — تعبئة بدون بكرة", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray-10103.webp", "color": "Gray", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
         {"label": "Silver — Refill", "label_ar": "فضي — تعبئة بدون بكرة", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver-10102.webp", "color": "Silver", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false}
       ]
+    },
+    {
+      "id": "rockstar-logo-keycap-clicker-keychain",
+      "name": "Rockstar Logo Keycap Clicker Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 15,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/rockstar-logo-keycap-clicker-keychain-01.webp"
+      ],
+      "shortDesc": "A clicky keyboard-key keychain with the Rockstar logo: an orange keycap with a black R and white star in a black base. Press it and it clicks.",
+      "description": "A fidget clicker and a keychain in one. The orange keycap carries the Rockstar logo, a raised black R with a white star, and sits in a black base like a key on a keyboard. Press it and it clicks, just like a real keyboard key, so it is hard to put down. Every colour is printed as its own raised layer, so the logo stays sharp with no paint to chip or fade. It comes on a metal swivel clasp with a key ring, ready for your keys, bag or backpack. Printed in-house at Black Arrow 3D. A great small gift for any GTA or Red Dead fan.",
+      "specs": [
+        ["Type", "Keycap clicker keychain (press to click)"],
+        ["Colours", "Orange keycap, black R and base, white star"],
+        ["Design", "Rockstar logo, printed in-house"],
+        ["Attachment", "Metal swivel clasp with key ring"]
+      ],
+      "name_ar": "ميدالية مفاتيح زر كيبورد بشعار روكستار (كليكر)",
+      "shortDesc_ar": "ميدالية مفاتيح على شكل زر كيبورد بشعار روكستار: زر برتقالي بحرف R أسود ونجمة بيضاء داخل قاعدة سوداء. اضغطه فيصدر صوت نقرة.",
+      "description_ar": "كليكر للتسلية وميدالية مفاتيح في قطعة واحدة. يحمل الزر البرتقالي شعار روكستار، حرف R أسود بارز مع نجمة بيضاء، ويجلس داخل قاعدة سوداء مثل زر في لوحة المفاتيح. اضغطه فيصدر نقرة مثل زر الكيبورد الحقيقي، ويصعب أن تتركه من يدك. كل لون مطبوع كطبقة بارزة مستقلة، فيبقى الشعار واضحًا دون طلاء يتقشر أو يبهت. وتأتي مع مشبك معدني دوّار وحلقة مفاتيح، جاهزة لمفاتيحك أو حقيبتك. مطبوعة داخل Black Arrow 3D. هدية صغيرة رائعة لكل محبي GTA وRed Dead.",
+      "specs_ar": [
+        ["النوع", "ميدالية مفاتيح كليكر على شكل زر كيبورد (اضغط لتسمع النقرة)"],
+        ["الألوان", "زر برتقالي، حرف R وقاعدة باللون الأسود، نجمة بيضاء"],
+        ["التصميم", "شعار روكستار، مطبوع داخليًا"],
+        ["التعليق", "مشبك معدني دوّار مع حلقة مفاتيح"]
+      ]
+    },
+    {
+      "id": "gta-vi-phone-stand",
+      "name": "GTA VI Logo Phone Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 59,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gta-vi-phone-stand-01.webp",
+        "/3d/assets/images/products/gta-vi-phone-stand-02.webp",
+        "/3d/assets/images/products/gta-vi-phone-stand-03.webp",
+        "/3d/assets/images/products/gta-vi-phone-stand-04.webp",
+        "/3d/assets/images/products/gta-vi-phone-stand-05.webp"
+      ],
+      "shortDesc": "A 3D printed phone stand shaped like the GTA VI logo: white gta, pink VI and a black palm tree on a black base. Holds your phone upright or sideways.",
+      "description": "Bring Vice City to your desk. This phone stand is built around the Grand Theft Auto VI logo: the white \"gta\" lettering on top, a big pink VI and a black palm tree, all standing on a black base. Your phone sits on the base in front of the logo, held by two raised stops with pink accents. Use it upright for messages and videos, or turn the phone sideways to watch trailers and play. Every colour is printed as its own layer, so the logo stays sharp with no paint to chip or fade. Printed in-house at Black Arrow 3D. A great gift for any GTA fan, and a desk piece even when your phone is not on it.",
+      "specs": [
+        ["Type", "Phone stand, upright or sideways"],
+        ["Colours", "Black base and palm tree, white gta, pink VI and accents"],
+        ["Design", "Grand Theft Auto VI logo, printed in-house"],
+        ["Phone holding", "Two raised front stops on the base"]
+      ],
+      "name_ar": "حامل جوال بشعار GTA VI",
+      "shortDesc_ar": "حامل جوال مطبوع ثلاثي الأبعاد على شكل شعار GTA VI: كلمة gta بيضاء ورقم VI وردي ونخلة سوداء على قاعدة سوداء. يحمل جوالك عموديًا أو أفقيًا.",
+      "description_ar": "أحضر أجواء فايس سيتي إلى مكتبك. صُمم هذا الحامل حول شعار لعبة Grand Theft Auto VI: كلمة \"gta\" البيضاء في الأعلى، ورقم VI كبير باللون الوردي، ونخلة سوداء، وكلها على قاعدة سوداء. يستقر جوالك على القاعدة أمام الشعار، وتثبته نتوءتان أماميتان بلمسات وردية. استخدمه عموديًا للرسائل والفيديوهات، أو ضع الجوال أفقيًا لمشاهدة العروض واللعب. كل لون مطبوع كطبقة مستقلة، فيبقى الشعار واضحًا دون طلاء يتقشر أو يبهت. مطبوع داخل Black Arrow 3D. هدية رائعة لكل محبي GTA، وقطعة ديكور جميلة على المكتب حتى بدون الجوال.",
+      "specs_ar": [
+        ["النوع", "حامل جوال، عمودي أو أفقي"],
+        ["الألوان", "قاعدة ونخلة سوداء، gta بيضاء، VI ولمسات وردية"],
+        ["التصميم", "شعار لعبة Grand Theft Auto VI، مطبوع داخليًا"],
+        ["التثبيت", "نتوءتان أماميتان على القاعدة"]
+      ]
     }
   ]
 }
