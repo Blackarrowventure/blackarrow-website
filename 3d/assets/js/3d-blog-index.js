@@ -19,7 +19,8 @@
     { id: 'filament', en: 'Filament & Materials', ar: 'الفلمنت والمواد', slugs: [
       'pla-vs-petg-vs-abs-filament-guide', 'which-filament-for-which-print', '3d-printing-filament-saudi-heat-humidity',
       'kingroon-pla-basic-filament-review', 'kingroon-petg-basic-filament-guide', 'pla-vs-pla-plus-difference',
-      'best-filament-for-bambu-lab-a1-ams-lite', '3d-printer-filament-price-saudi-arabia'] },
+      'best-filament-for-bambu-lab-a1-ams-lite', '3d-printer-filament-price-saudi-arabia',
+      'bambu-lab-pla-basic-vs-pla-matte-filament'] },
     { id: 'fixes', en: 'Setup, Maintenance & Fixes', ar: 'التشغيل والصيانة وحل المشاكل', slugs: [
       'bambu-lab-a1-mini-setup-guide', '3d-printer-maintenance-guide', 'clogged-3d-printer-nozzle-fix',
       '3d-print-stringing-fix', '3d-print-bed-adhesion-first-layer', 'bambu-a1-hotend-replacement-guide'] },

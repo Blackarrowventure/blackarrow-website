@@ -569,6 +569,7 @@ POSTS = [
             <a href="/3d/blog/bambu-lab-a1-mini-setup-guide/">Bambu Lab A1 mini setup guide</a>
             <a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">A1 vs A1 mini vs A2L</a>
             <a href="/3d/blog/bambu-a1-hotend-replacement-guide/">Replacing the A1 hot end</a>
+            <a href="/3d/blog/bambu-lab-pla-basic-vs-pla-matte-filament/">Bambu PLA Basic vs PLA Matte</a>
           </div>
 ''',
         },
@@ -636,6 +637,7 @@ POSTS = [
             <a href="/3d/ar/blog/bambu-lab-a1-mini-setup-guide/">دليل تشغيل بامبو لاب A1 ميني</a>
             <a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">مقارنة A1 وA1 ميني وA2L</a>
             <a href="/3d/ar/blog/bambu-a1-hotend-replacement-guide/">تغيير رأس طباعة A1</a>
+            <a href="/3d/ar/blog/bambu-lab-pla-basic-vs-pla-matte-filament/">بامبو PLA Basic مقابل PLA Matte</a>
           </div>
 ''',
         },

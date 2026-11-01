@@ -10,7 +10,7 @@ rewritten and index cards are only added once.
 
 Afterwards run: python scripts/generate_3d_static.py && python scripts/update_sitemap_3d.py
 
-Usage: python scripts/build_3d_seo_posts.py
+Usage: python scripts/build_3d_seo_posts.py [slug ...]   (slugs: build only those posts)
 """
 import os
 import sys
@@ -21,7 +21,7 @@ import generate_3d_blog_ar as ar_blog  # noqa: E402
 
 # (module, publish date). seo_posts_products: filament and product posts added 2026-10-22.
 MODULES = [('seo_posts_cities', '2026-10-15'), ('seo_posts_buying', '2026-10-15'), ('seo_posts_local', '2026-10-15'),
-           ('seo_posts_products', '2026-10-22')]
+           ('seo_posts_products', '2026-10-22'), ('seo_posts_bambu_filament', '2026-11-01')]
 
 
 def load_posts():
@@ -40,6 +40,9 @@ def load_posts():
 
 def main():
     posts = load_posts()
+    if sys.argv[1:]:
+        posts = [p for p in posts if p['slug'] in sys.argv[1:]]
+        assert posts, 'no post with that slug'
     for p in posts:
         for lang in ('en', 'ar'):
             for key in ('headline', 'title', 'desc', 'lead'):
