@@ -79,6 +79,37 @@
   }
   function isBaseVariant(p, v) { return !v.option || v.option === baseOption(p); }
   function LOption(v) { return isAr() && v.option_ar ? v.option_ar : v.option; }
+  function cardOptionIdx(p, color, option) {
+    for (var k = 0; k < p.variants.length; k++) { if (p.variants[k].color === color && p.variants[k].option === option) return k; }
+    return -1;
+  }
+
+  // A card colour dot or option pill was picked on a product with options: select the
+  // variant for (colour, option) and refresh the dots, pills, label, badge, button and photo.
+  function pickCardOption(card, p, color, option) {
+    var idx = cardOptionIdx(p, color, option);
+    if (idx < 0) return;
+    var v = p.variants[idx], out = v.available === false;
+    card.querySelectorAll('[data-card-color]').forEach(function (c) {
+      var cv = p.variants[cardOptionIdx(p, c.getAttribute('data-color'), option)];
+      var cOut = !cv || cv.available === false;
+      c.setAttribute('aria-pressed', String(c.getAttribute('data-color') === color));
+      c.classList.toggle('is-out', cOut);
+      c.setAttribute('data-out', cOut ? '1' : '0');
+    });
+    card.querySelectorAll('[data-card-option]').forEach(function (b) {
+      var bv = p.variants[cardOptionIdx(p, color, b.getAttribute('data-card-option'))];
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-card-option') === option));
+      b.classList.toggle('is-out', !bv || bv.available === false);
+    });
+    var colorLabel = card.querySelector('[data-card-color-label] strong');
+    if (colorLabel) colorLabel.textContent = LVariant(v) + (out ? ' · ' + outText(p) : '');
+    syncStockBadge(card, p, v);
+    var btn = card.querySelector('[data-card-add]');
+    if (btn) { btn.setAttribute('data-variant-idx', idx); btn.disabled = out; btn.textContent = out ? outText(p) : T('js_add_to_cart'); }
+    var img = card.querySelector('.b3d-card__visual img');
+    if (v.image && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = v.image; }
+  }
 
   function categoryLabel(cat) {
     if (cat === '3D Printers') return T('nav_3d_printers');
@@ -770,10 +801,20 @@
         order.map(function (i) {
           var v = p.variants[i];
           var out = v.available === false;
-          return '<button type="button" class="b3d-color-chip b3d-color-chip--dot' + (out ? ' is-out' : '') + '" data-card-color="' + i + '" aria-pressed="' + (i === colorIdx) + '"' +
+          return '<button type="button" class="b3d-color-chip b3d-color-chip--dot' + (out ? ' is-out' : '') + '" data-card-color="' + i + '"' + (v.color ? ' data-color="' + v.color + '"' : '') + ' aria-pressed="' + (i === colorIdx) + '"' +
             ' data-out="' + (out ? '1' : '0') + '" data-label="' + labelOf(v).replace(/"/g, '&quot;') + '" title="' + labelOf(v).replace(/"/g, '&quot;') + '" aria-label="' + labelOf(v).replace(/"/g, '&quot;') + '"' + (v.image ? ' data-img="' + v.image + '"' : '') + '>' +
             '<span class="b3d-color-chip__dot" style="background:' + v.swatch + ';"></span></button>';
         }).join('') + '</div>';
+      // Option row (e.g. With spool / Refill) under the colour dots; the first option is preselected.
+      if (baseOption(p)) {
+        var opts = [];
+        p.variants.forEach(function (v) { if (v.option && opts.indexOf(v.option) < 0) opts.push(v.option); });
+        colorsHtml += '<div class="b3d-card__pills" data-card-options="' + p.id + '" role="group" aria-label="' + T('js_options') + '">' +
+          opts.map(function (o) {
+            var k = cardOptionIdx(p, p.variants[colorIdx].color, o), v = p.variants[k];
+            return '<button type="button" class="b3d-quick-pill' + (!v || v.available === false ? ' is-out' : '') + '" data-card-option="' + o + '" aria-pressed="' + (o === baseOption(p)) + '">' + (v ? LOption(v) : o) + '</button>';
+          }).join('') + '</div>';
+      }
     }
     var colorOut = colorProduct && p.variants[colorIdx].available === false;
 
@@ -848,6 +889,16 @@
     window.__b3dCardColors = true;
     document.addEventListener('click', function (e) {
       var chip = e.target.closest && e.target.closest('[data-card-color]');
+      var optPill = e.target.closest && e.target.closest('[data-card-option]');
+      var optCard = (chip || optPill) && (chip || optPill).closest('.b3d-card');
+      var optRow = optCard && optCard.querySelector('[data-card-options]');
+      if (optRow) {
+        var oProduct = __b3dProductsById && __b3dProductsById[optRow.getAttribute('data-card-options')];
+        var curDot = chip || optCard.querySelector('[data-card-color][aria-pressed="true"]');
+        var curOpt = optPill || optRow.querySelector('[data-card-option][aria-pressed="true"]');
+        if (oProduct && curDot && curOpt) pickCardOption(optCard, oProduct, curDot.getAttribute('data-color'), curOpt.getAttribute('data-card-option'));
+        return;
+      }
       if (chip) {
         var card = chip.closest('.b3d-card');
         card.querySelectorAll('[data-card-color]').forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
