@@ -3393,8 +3393,10 @@
         ["الألوان", "وردي ساكورا (11201)، أخضر عشبي (11500)"]
       ],
       "variants": [
-        {"label": "Sakura Pink", "label_ar": "وردي ساكورا", "price": 140, "swatch": "#E8AFCF", "image": "/3d/assets/images/products/bambu-pla-matte-sakura-pink-11201.webp"},
-        {"label": "Grass Green", "label_ar": "أخضر عشبي", "price": 140, "swatch": "#61C680", "image": "/3d/assets/images/products/bambu-pla-matte-grass-green-11500.webp"}
+        {"label": "Sakura Pink", "label_ar": "وردي ساكورا", "price": 140, "swatch": "#E8AFCF", "image": "/3d/assets/images/products/bambu-pla-matte-sakura-pink-11201.webp", "color": "Sakura Pink", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Grass Green", "label_ar": "أخضر عشبي", "price": 140, "swatch": "#61C680", "image": "/3d/assets/images/products/bambu-pla-matte-grass-green-11500.webp", "color": "Grass Green", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Sakura Pink — Refill", "label_ar": "وردي ساكورا — تعبئة بدون بكرة", "price": 140, "swatch": "#E8AFCF", "image": "/3d/assets/images/products/bambu-pla-matte-sakura-pink-11201.webp", "color": "Sakura Pink", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Grass Green — Refill", "label_ar": "أخضر عشبي — تعبئة بدون بكرة", "price": 140, "swatch": "#61C680", "image": "/3d/assets/images/products/bambu-pla-matte-grass-green-11500.webp", "color": "Grass Green", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false}
       ]
     },
     {
@@ -3443,14 +3445,22 @@
         ["الألوان", "Solar Breeze (10901، من فئة PLA Basic Gradient)، سماوي (10603)، أزرق (10601)، بنفسجي (10700)، أصفر (10400)، أحمر (10200)، رمادي (10103)، فضي (10102)"]
       ],
       "variants": [
-        {"label": "Solar Breeze", "label_ar": "Solar Breeze (متدرّج)", "price": 140, "swatch": "linear-gradient(135deg, #FFFFFF, #E94B3C)", "image": "/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp"},
-        {"label": "Cyan", "label_ar": "سماوي", "price": 140, "swatch": "#0086D6", "image": "/3d/assets/images/products/bambu-pla-basic-cyan-10603.webp"},
-        {"label": "Blue", "label_ar": "أزرق", "price": 140, "swatch": "#0A2989", "image": "/3d/assets/images/products/bambu-pla-basic-blue-10601.webp"},
-        {"label": "Purple", "label_ar": "بنفسجي", "price": 140, "swatch": "#5E43B7", "image": "/3d/assets/images/products/bambu-pla-basic-purple-10700.webp"},
-        {"label": "Yellow", "label_ar": "أصفر", "price": 140, "swatch": "#F4EE2A", "image": "/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp"},
-        {"label": "Red", "label_ar": "أحمر", "price": 140, "swatch": "#C12E1F", "image": "/3d/assets/images/products/bambu-pla-basic-red-10200.webp"},
-        {"label": "Gray", "label_ar": "رمادي", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray-10103.webp"},
-        {"label": "Silver", "label_ar": "فضي", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver-10102.webp"}
+        {"label": "Solar Breeze", "label_ar": "Solar Breeze (متدرّج)", "price": 140, "swatch": "linear-gradient(135deg, #FFFFFF, #E94B3C)", "image": "/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp", "color": "Solar Breeze", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Cyan", "label_ar": "سماوي", "price": 140, "swatch": "#0086D6", "image": "/3d/assets/images/products/bambu-pla-basic-cyan-10603.webp", "color": "Cyan", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Blue", "label_ar": "أزرق", "price": 140, "swatch": "#0A2989", "image": "/3d/assets/images/products/bambu-pla-basic-blue-10601.webp", "color": "Blue", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Purple", "label_ar": "بنفسجي", "price": 140, "swatch": "#5E43B7", "image": "/3d/assets/images/products/bambu-pla-basic-purple-10700.webp", "color": "Purple", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Yellow", "label_ar": "أصفر", "price": 140, "swatch": "#F4EE2A", "image": "/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp", "color": "Yellow", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Red", "label_ar": "أحمر", "price": 140, "swatch": "#C12E1F", "image": "/3d/assets/images/products/bambu-pla-basic-red-10200.webp", "color": "Red", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Gray", "label_ar": "رمادي", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray-10103.webp", "color": "Gray", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Silver", "label_ar": "فضي", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver-10102.webp", "color": "Silver", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Solar Breeze — Refill", "label_ar": "Solar Breeze (متدرّج) — تعبئة بدون بكرة", "price": 140, "swatch": "linear-gradient(135deg, #FFFFFF, #E94B3C)", "image": "/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp", "color": "Solar Breeze", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Cyan — Refill", "label_ar": "سماوي — تعبئة بدون بكرة", "price": 140, "swatch": "#0086D6", "image": "/3d/assets/images/products/bambu-pla-basic-cyan-10603.webp", "color": "Cyan", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Blue — Refill", "label_ar": "أزرق — تعبئة بدون بكرة", "price": 140, "swatch": "#0A2989", "image": "/3d/assets/images/products/bambu-pla-basic-blue-10601.webp", "color": "Blue", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Purple — Refill", "label_ar": "بنفسجي — تعبئة بدون بكرة", "price": 140, "swatch": "#5E43B7", "image": "/3d/assets/images/products/bambu-pla-basic-purple-10700.webp", "color": "Purple", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Yellow — Refill", "label_ar": "أصفر — تعبئة بدون بكرة", "price": 140, "swatch": "#F4EE2A", "image": "/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp", "color": "Yellow", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Red — Refill", "label_ar": "أحمر — تعبئة بدون بكرة", "price": 140, "swatch": "#C12E1F", "image": "/3d/assets/images/products/bambu-pla-basic-red-10200.webp", "color": "Red", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Gray — Refill", "label_ar": "رمادي — تعبئة بدون بكرة", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray-10103.webp", "color": "Gray", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
+        {"label": "Silver — Refill", "label_ar": "فضي — تعبئة بدون بكرة", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver-10102.webp", "color": "Silver", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false}
       ]
     }
   ]

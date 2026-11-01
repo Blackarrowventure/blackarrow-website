@@ -71,6 +71,15 @@
     return v.label;
   }
 
+  // Variants with an "option" (e.g. filament "With spool" / "Refill") pick a colour and an
+  // option separately: one dot per colour, one pill per option. The first option is the default.
+  function baseOption(p) {
+    var v = (p.variants || []).filter(function (x) { return x.option; })[0];
+    return v ? v.option : null;
+  }
+  function isBaseVariant(p, v) { return !v.option || v.option === baseOption(p); }
+  function LOption(v) { return isAr() && v.option_ar ? v.option_ar : v.option; }
+
   function categoryLabel(cat) {
     if (cat === '3D Printers') return T('nav_3d_printers');
     if (cat === 'Filament') return T('nav_filaments');
@@ -746,13 +755,13 @@
 
     var colorIdx = 0;
     if (colorProduct) {
-      for (var ci = 0; ci < p.variants.length; ci++) { if (p.variants[ci].available !== false) { colorIdx = ci; break; } }
+      for (var ci = 0; ci < p.variants.length; ci++) { if (p.variants[ci].available !== false && isBaseVariant(p, p.variants[ci])) { colorIdx = ci; break; } }
     }
     var colorsHtml = '';
     if (colorProduct) {
       // Compact colour dots (name on hover / in the label above), in-stock colours first, so a
       // filament with 15 colours keeps the same card height as everything else in the row.
-      var order = p.variants.map(function (v, i) { return i; }).sort(function (a, b) {
+      var order = p.variants.map(function (v, i) { return i; }).filter(function (i) { return isBaseVariant(p, p.variants[i]); }).sort(function (a, b) {
         return (p.variants[a].available === false) - (p.variants[b].available === false) || a - b;
       });
       var labelOf = function (v) { return LVariant(v) + (v.available === false ? ' · ' + outText(p) : ''); };
@@ -2984,21 +2993,33 @@
 
       var hasVariants = !!(p.variants && p.variants.length);
       var hasSwatches = hasVariants && p.variants.some(function (v) { return !!v.swatch; });
-      var firstOk = hasVariants ? p.variants.findIndex(function (v) { return v.available !== false; }) : 0;
+      var firstOk = hasVariants ? p.variants.findIndex(function (v) { return v.available !== false && isBaseVariant(p, v); }) : 0;
       if (firstOk < 0) firstOk = 0;
       var selectedVariant = firstOk;
       var initV = hasVariants ? p.variants[firstOk] : null;
+      var hasOptions = hasVariants && !!baseOption(p);
+      var optionList = [];
+      if (hasOptions) p.variants.forEach(function (v) { if (v.option && optionList.indexOf(v.option) < 0) optionList.push(v.option); });
       var variantSelectorHtml = hasVariants
         ? '<div class="b3d-pd__variants' + (hasSwatches ? ' b3d-pd__swatches' : '') + '" data-pd-variants style="display:flex;gap:' + (hasSwatches ? '10px' : '8px') + ';flex-wrap:wrap;margin-bottom:20px;align-items:center;">' +
             p.variants.map(function (v, i) {
+              if (hasOptions && !isBaseVariant(p, v)) return '';
               if (v.swatch) {
-                return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '" title="' + LVariant(v) + (v.available === false ? ' (' + outText(p) + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
+                return '<button type="button" class="b3d-swatch' + (v.available === false ? ' is-unavailable' : '') + '" data-variant-idx="' + i + '"' + (v.color ? ' data-color="' + v.color + '"' : '') + ' aria-pressed="' + (i === firstOk) + '" title="' + LVariant(v) + (v.available === false ? ' (' + outText(p) + ')' : '') + '" style="background:' + v.swatch + ';"></button>';
               }
               var pOut = v.available === false;
               return '<button type="button" class="b3d-quick-pill' + (pOut ? ' is-out' : '') + '" data-variant-idx="' + i + '" aria-pressed="' + (i === firstOk) + '">' + LVariant(v) + (pOut ? ' (' + T('js_out_of_stock') + ')' : '') + '</button>';
             }).join('') +
           '</div>' +
-          (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(initV) + '</div>' : '')
+          (hasSwatches ? '<div class="b3d-pd__swatch-label" data-pd-swatch-label style="color:rgba(255,255,255,.75);font-size:.85rem;margin:-12px 0 20px;">' + LVariant(initV) + '</div>' : '') +
+          (hasOptions ? '<div class="b3d-pd__variants" data-pd-options role="group" aria-label="' + T('js_options') + '" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">' +
+            optionList.map(function (o) {
+              var v = p.variants.filter(function (x) { return x.option === o && x.color === initV.color; })[0];
+              var i = p.variants.indexOf(v);
+              var out = !v || v.available === false;
+              return '<button type="button" class="b3d-quick-pill' + (out ? ' is-out' : '') + '" data-pd-option="' + o + '" data-variant-idx="' + i + '" aria-pressed="' + (o === initV.option) + '">' +
+                (v ? LOption(v) : o) + (out ? ' (' + outText(p) + ')' : '') + '</button>';
+            }).join('') + '</div>' : '')
         : '';
       // Combo-builder products pick their tier by how many items are added
       // below, not from the raw variant pills — the tiers are still real
@@ -3231,12 +3252,39 @@
         });
       });
       syncQtyLimit();
+      // Colour dots and option pills point at the variant for (that colour, current option)
+      // and (current colour, that option); re-pointed after every pick.
+      function syncOptions() {
+        if (!hasOptions) return;
+        var cur = p.variants[selectedVariant];
+        var find = function (color, option) {
+          for (var k = 0; k < p.variants.length; k++) { if (p.variants[k].color === color && p.variants[k].option === option) return k; }
+          return -1;
+        };
+        container.querySelectorAll('[data-color]').forEach(function (b) {
+          var k = find(b.getAttribute('data-color'), cur.option);
+          if (k < 0) k = find(b.getAttribute('data-color'), optionList[0]);
+          b.setAttribute('data-variant-idx', k);
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-color') === cur.color));
+          b.classList.toggle('is-unavailable', p.variants[k].available === false);
+        });
+        container.querySelectorAll('[data-pd-option]').forEach(function (b) {
+          var o = b.getAttribute('data-pd-option'), k = find(cur.color, o), v = p.variants[k];
+          var out = !v || v.available === false;
+          b.setAttribute('data-variant-idx', k);
+          b.setAttribute('aria-pressed', String(o === cur.option));
+          b.classList.toggle('is-out', out);
+          b.textContent = (v ? LOption(v) : o) + (out ? ' (' + outText(p) + ')' : '');
+        });
+      }
       if (hasVariants) {
         container.querySelectorAll('[data-variant-idx]').forEach(function (btn) {
           btn.addEventListener('click', function () {
             container.querySelectorAll('[data-variant-idx]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
             btn.setAttribute('aria-pressed', 'true');
             selectedVariant = parseInt(btn.getAttribute('data-variant-idx'), 10);
+            if (selectedVariant < 0) return;
+            syncOptions();
             syncQtyLimit();
             var v = p.variants[selectedVariant];
             container.querySelector('[data-pd-price]').innerHTML = variantPriceHtml(v, p);

@@ -139,8 +139,10 @@ def money(n, currency):
 
 def first_ok_index(p):
     """Index of the first option the buyer can pick (same rule as firstOk in 3d-store.js)."""
-    for i, v in enumerate(p.get('variants') or []):
-        if v.get('available') is not False:
+    variants = p.get('variants') or []
+    base_opt = next((v['option'] for v in variants if v.get('option')), None)
+    for i, v in enumerate(variants):
+        if v.get('available') is not False and (not base_opt or v.get('option') == base_opt):
             return i
     return 0
 
@@ -323,8 +325,12 @@ def product_detail_html(p, lang):
         has_swatches = any(v.get('swatch') for v in variants)
         ok_idx = first_ok_index(p)
         pills = []
+        # Variants with an "option" (filament With spool / Refill): one swatch per colour plus option pills.
+        base_opt = next((v['option'] for v in variants if v.get('option')), None)
         for i, v in enumerate(variants):
             pressed = 'true' if i == ok_idx else 'false'
+            if base_opt and v.get('option') != base_opt:
+                continue
             if v.get('swatch'):
                 pills.append('<button type="button" class="b3d-swatch' + (' is-unavailable' if v.get('available') is False else '')
                               + '" data-variant-idx="' + str(i)
@@ -338,6 +344,23 @@ def product_detail_html(p, lang):
         variant_selector_html = ('<div class="b3d-pd__variants' + (' b3d-pd__swatches' if has_swatches else '')
                                   + '" data-pd-variants style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
                                   + ''.join(pills) + '</div>')
+        if base_opt:
+            cur = variants[ok_idx]
+            opts = []
+            for v in variants:
+                if v.get('option') and v['option'] not in opts:
+                    opts.append(v['option'])
+            opt_pills = []
+            for o in opts:
+                k = next((j for j, v in enumerate(variants) if v.get('option') == o and v.get('color') == cur.get('color')), -1)
+                v = variants[k] if k >= 0 else {}
+                out = k < 0 or v.get('available') is False
+                text = (v.get('option_ar') if lang == 'ar' and v.get('option_ar') else v.get('option', o))
+                opt_pills.append('<button type="button" class="b3d-quick-pill' + (' is-out' if out else '') + '" data-pd-option="' + esc(o)
+                                 + '" data-variant-idx="' + str(k) + '" aria-pressed="' + ('true' if o == cur.get('option') else 'false') + '">'
+                                 + esc(text) + (' (' + T('cat_coming_soon' if p.get('comingSoon') else 'js_out_of_stock', lang) + ')' if out else '') + '</button>')
+            variant_selector_html += ('<div class="b3d-pd__variants" data-pd-options style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;">'
+                                      + ''.join(opt_pills) + '</div>')
         initial_price_html = variant_price_html(variants[ok_idx], p)
         if p.get('bundlePick'):
             variant_selector_html = ''
