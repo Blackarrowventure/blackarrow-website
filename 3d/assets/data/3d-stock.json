@@ -218,6 +218,66 @@
    "preorder": false
   },
   {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Cyan",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Gray",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Purple",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Silver",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Solar Breeze",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-basic-filament-1-75mm-1kg",
+   "variant": "Yellow",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-matte-filament-1-75mm-1kg",
+   "variant": "Grass Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-matte-filament-1-75mm-1kg",
+   "variant": "Sakura Pink",
+   "available": true,
+   "preorder": false
+  },
+  {
    "id": "snapmaker-u1",
    "variant": "",
    "available": false,
