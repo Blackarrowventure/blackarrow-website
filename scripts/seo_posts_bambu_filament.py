@@ -2,7 +2,7 @@
 
 Data only, same schema as scripts/seo_posts_products.py. Every spec, setting and material value
 is Bambu Lab's own: the product pages on us.store.bambulab.com and the official Technical Data
-Sheets V3.0 for PLA Basic and PLA Matte (read 1 Nov 2026). Price, colours and the Coming Soon /
+Sheets V3.0 for PLA Basic and PLA Matte (read 1 Nov 2026). Price, colours, stock and the
 Refill status are from the live store (3d/assets/data/3d-products.json). The post points to the
 product pages for current stock rather than promising it.
 """
@@ -27,7 +27,7 @@ POSTS = [
             'card': ('Filament guide', '8 min read', 'Bambu PLA Basic or PLA Matte? Official settings, RFID and AMS, colours, spool vs refill and cost per print.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>Pick <a href="''' + PB + '''">Bambu Lab PLA Basic</a> for most prints: toys, gifts, household parts and anything you want bright and a little tougher. Pick <a href="''' + PM + '''">Bambu Lab PLA Matte</a> for display pieces, decor, figures and architectural models, where a smooth non-glossy surface with fewer visible layer lines matters more than strength. Both are 1.75&nbsp;mm, 1&nbsp;kg, print with the same settings, and carry an RFID tag that the AMS reads to set everything up for you. Both are coming soon to Black Arrow 3D at <strong>140&nbsp;SAR per 1&nbsp;kg</strong>.</p>
+          <p>Pick <a href="''' + PB + '''">Bambu Lab PLA Basic</a> for most prints: toys, gifts, household parts and anything you want bright and a little tougher. Pick <a href="''' + PM + '''">Bambu Lab PLA Matte</a> for display pieces, decor, figures and architectural models, where a smooth non-glossy surface with fewer visible layer lines matters more than strength. Both are 1.75&nbsp;mm, 1&nbsp;kg, print with the same settings, and carry an RFID tag that the AMS reads to set everything up for you. Both are now available at Black Arrow 3D for <strong>140&nbsp;SAR per 1&nbsp;kg</strong>, in limited stock.</p>
 
           <h2>PLA Basic and PLA Matte side by side</h2>
           <p>All figures below are from Bambu Lab's official technical data sheets (V3.0). They are lab values for comparison; real parts depend on the model and settings.</p>
@@ -127,10 +127,10 @@ POSTS = [
           <h3>Do Bambu Lab filaments work on other printers?</h3>
           <p>They are standard 1.75&nbsp;mm PLA, so they print on other FDM printers that take 1.75&nbsp;mm filament; use the settings above. Only the RFID auto-setup needs a Bambu Lab AMS.</p>
           <h3>How much is Bambu Lab filament in Saudi Arabia?</h3>
-          <p>Bambu Lab PLA Basic and PLA Matte are coming soon to Black Arrow 3D at 140&nbsp;SAR per 1&nbsp;kg, VAT included. The product pages show when each colour is available.</p>
+          <p>Bambu Lab PLA Basic and PLA Matte are now available at Black Arrow 3D for 140&nbsp;SAR per 1&nbsp;kg spool, VAT included, with delivery across Saudi Arabia. Stock is limited, so check the product page for the colours still in stock.</p>
 
           <div class="b3d-article__cta">
-            <p>Bambu Lab PLA Basic and PLA Matte, coming soon at 140 SAR per kilo</p>
+            <p>Bambu Lab PLA Basic and PLA Matte, now available at 140 SAR per kilo. Limited stock.</p>
             <a href="''' + PB + '''" class="btn btn-primary">See PLA Basic colours</a>
           </div>
 
@@ -153,7 +153,7 @@ POSTS = [
             'card': ('دليل الفلمنت', '8 دقائق قراءة', 'PLA Basic أم PLA Matte من بامبو لاب؟ الإعدادات الرسمية وRFID ونظام AMS والألوان، والبكرة أم التعبئة، وتكلفة الطبعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>اختر <a href="''' + PB_AR + '''">بامبو لاب PLA Basic</a> لمعظم الطبعات: الألعاب والهدايا والقطع المنزلية وكل ما تريده بألوان زاهية وقوة أعلى قليلًا. واختر <a href="''' + PM_AR + '''">بامبو لاب PLA Matte</a> لقطع العرض والديكور والمجسمات والنماذج المعمارية، حيث يهم السطح الناعم غير اللامع وقلة خطوط الطبقات الظاهرة أكثر من القوة. كلاهما بقطر 1.75 مم ووزن 1 كجم، ويُطبعان بالإعدادات نفسها، وعليهما شريحة RFID يقرؤها نظام AMS ليضبط كل شيء تلقائيًا. وكلاهما قريبًا في Black Arrow 3D بسعر <strong>140 ريالًا لكل 1 كجم</strong>.</p>
+          <p>اختر <a href="''' + PB_AR + '''">بامبو لاب PLA Basic</a> لمعظم الطبعات: الألعاب والهدايا والقطع المنزلية وكل ما تريده بألوان زاهية وقوة أعلى قليلًا. واختر <a href="''' + PM_AR + '''">بامبو لاب PLA Matte</a> لقطع العرض والديكور والمجسمات والنماذج المعمارية، حيث يهم السطح الناعم غير اللامع وقلة خطوط الطبقات الظاهرة أكثر من القوة. كلاهما بقطر 1.75 مم ووزن 1 كجم، ويُطبعان بالإعدادات نفسها، وعليهما شريحة RFID يقرؤها نظام AMS ليضبط كل شيء تلقائيًا. وكلاهما متوفر الآن في Black Arrow 3D بسعر <strong>140 ريالًا لكل 1 كجم</strong>، والكمية محدودة.</p>
 
           <h2>مقارنة PLA Basic وPLA Matte</h2>
           <p>جميع الأرقام أدناه من أوراق البيانات الفنية الرسمية لبامبو لاب (الإصدار 3.0). وهي قيم مخبرية للمقارنة، أما القطع الفعلية فتعتمد على المجسم والإعدادات.</p>
@@ -253,10 +253,10 @@ POSTS = [
           <h3>هل يعمل فلمنت بامبو لاب على طابعات أخرى؟</h3>
           <p>هو فلمنت PLA قياسي بقطر 1.75 مم، فيُطبع على طابعات FDM الأخرى التي تقبل فلمنت 1.75 مم باستخدام الإعدادات أعلاه. فقط الضبط التلقائي عبر RFID يحتاج إلى نظام AMS من بامبو لاب.</p>
           <h3>كم سعر فلمنت بامبو لاب في السعودية؟</h3>
-          <p>فلمنت بامبو لاب PLA Basic وPLA Matte قريبًا في Black Arrow 3D بسعر 140 ريالًا لكل 1 كجم شامل الضريبة. وتعرض صفحات المنتجات متى يتوفر كل لون.</p>
+          <p>فلمنت بامبو لاب PLA Basic وPLA Matte متوفر الآن في Black Arrow 3D بسعر 140 ريالًا لبكرة 1 كجم شامل الضريبة، مع التوصيل لجميع مناطق السعودية. الكمية محدودة، لذا راجع صفحة المنتج لمعرفة الألوان المتوفرة.</p>
 
           <div class="b3d-article__cta">
-            <p>بامبو لاب PLA Basic وPLA Matte، قريبًا بسعر 140 ريالًا للكيلو</p>
+            <p>بامبو لاب PLA Basic وPLA Matte، متوفر الآن بسعر 140 ريالًا للكيلو. الكمية محدودة.</p>
             <a href="''' + PB_AR + '''" class="btn btn-primary">ألوان PLA Basic</a>
           </div>
 
