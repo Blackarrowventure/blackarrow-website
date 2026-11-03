@@ -105,6 +105,8 @@
     var colorLabel = card.querySelector('[data-card-color-label] strong');
     if (colorLabel) colorLabel.textContent = LVariant(v) + (out ? ' · ' + outText(p) : '');
     syncStockBadge(card, p, v);
+    var priceEl = card.querySelector('[data-card-price]');
+    if (priceEl) priceEl.innerHTML = variantPriceHtml(v, p);
     var btn = card.querySelector('[data-card-add]');
     if (btn) { btn.setAttribute('data-variant-idx', idx); btn.disabled = out; btn.textContent = out ? outText(p) : T('js_add_to_cart'); }
     var img = card.querySelector('.b3d-card__visual img');
