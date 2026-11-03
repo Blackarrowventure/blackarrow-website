@@ -207,6 +207,18 @@
   },
   {
    "id": "kingroon-pla-basic-filament",
+   "variant": "Sky Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Transparent",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
    "variant": "White",
    "available": true,
    "preorder": false
