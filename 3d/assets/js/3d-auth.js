@@ -47,11 +47,58 @@
   function onAuthChange(fn) {
     if (!ready || !client) { fn(null); return; }
     client.auth.getSession().then(function (res) {
-      fn(res.data && res.data.session ? res.data.session.user : null);
+      var user = res.data && res.data.session ? res.data.session.user : null;
+      if (user) finishSignupProfile(user);
+      fn(user);
     });
     client.auth.onAuthStateChange(function (_event, session) {
+      if (session && session.user) finishSignupProfile(session.user);
       fn(session ? session.user : null);
     });
+  }
+
+  // "05XXXXXXXX", "5XXXXXXXX", "+966 5X...", "009665X..." -> valid Saudi mobile?
+  function validSaudiMobile(p) {
+    var d = String(p || '').replace(/[^0-9]/g, '');
+    if (d.indexOf('00') === 0) d = d.slice(2);
+    if (d.length === 10 && d.indexOf('05') === 0) d = '966' + d.slice(1);
+    if (d.length === 9 && d.charAt(0) === '5') d = '966' + d;
+    return /^9665[0-9]{8}$/.test(d);
+  }
+
+  // Sign-up details (name, phone, date of birth) travel on the account itself
+  // (user_metadata), because with email confirmation there is no session at
+  // sign-up and the customer row can't be written yet. On the first signed-in
+  // visit they fill the customer record (blanks only, never overwriting later
+  // edits) and the date of birth goes to the rewards card for the birthday
+  // reward. Runs once per account (profile_saved).
+  var profileRunning = {};
+  function finishSignupProfile(user) {
+    var meta = (user && user.user_metadata) || {};
+    if (!user || meta.profile_saved || profileRunning[user.id]) return;
+    if (!meta.full_name && !meta.phone && !meta.dob) return;
+    profileRunning[user.id] = true;
+    getProfile(user.id).then(function (p) {
+      var row = { id: user.id, email: user.email, source: '3d-site' };
+      if (meta.full_name && !(p && p.name)) row.name = meta.full_name;
+      if (meta.phone && !(p && p.phone)) row.phone = meta.phone;
+      return client.from('customers').upsert(row);
+    }).then(function (res) {
+      if (res && res.error) throw res.error;
+      if (!meta.dob) return null;
+      return getAccessToken().then(function (token) {
+        if (!token) return null;
+        return fetch('/api/rewards/me/', {
+          method: 'POST',
+          headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dob: meta.dob })
+        }).catch(function () { return null; });
+      });
+    }).then(function () {
+      return client.auth.updateUser({ data: { profile_saved: true } });
+    }).catch(function (e) {
+      console.warn('Black Arrow 3D: could not save sign-up details yet', e);
+    }).then(function () { profileRunning[user.id] = false; });
   }
 
   function upsertCustomerRow(user, extra) {
@@ -72,10 +119,16 @@
   }
 
   function signUp(email, password, extra) {
-    return client.auth.signUp({ email: email, password: password }).then(function (res) {
+    var meta = {};
+    if (extra && extra.name) meta.full_name = extra.name;
+    if (extra && extra.phone) meta.phone = extra.phone;
+    if (extra && extra.dob) meta.dob = extra.dob;
+    return client.auth.signUp({ email: email, password: password, options: { data: meta } }).then(function (res) {
       if (res.error) throw res.error;
       var user = res.data && res.data.user;
-      if (user) return upsertCustomerRow(user, extra).then(function () { return res; });
+      // Only possible when there is already a session (email confirmation off);
+      // otherwise finishSignupProfile() writes the record on the first sign-in.
+      if (user && res.data.session) return upsertCustomerRow(user, extra).then(function () { return res; });
       return res;
     });
   }
@@ -159,6 +212,7 @@
     getAccessToken: getAccessToken,
     getProfile: getProfile,
     saveProfile: saveProfile,
-    reviewAdminInfo: reviewAdminInfo
+    reviewAdminInfo: reviewAdminInfo,
+    validSaudiMobile: validSaudiMobile
   };
 })();

@@ -176,17 +176,43 @@
         ).catch(function (error) { showError(err, error); throw error; });
       });
 
+      // Date of birth: 1920 up to 10 years ago (the same range the rewards server accepts).
+      var dobInput = document.getElementById('signup-dob');
+      if (dobInput) {
+        var maxDob = new Date();
+        maxDob.setFullYear(maxDob.getFullYear() - 10);
+        dobInput.max = maxDob.toISOString().slice(0, 10);
+      }
+      var tr = function (key, fallback) {
+        var I = window.BlackArrow3DI18n;
+        var v = I && I.t ? I.t(key) : '';
+        return v && v !== key ? v : fallback;
+      };
+
       guardedSubmit(signupForm, function () {
         var err = document.getElementById('signup-error');
         var success = document.getElementById('signup-success');
         err.hidden = true;
         success.hidden = true;
+        var phone = document.getElementById('signup-phone').value.trim();
+        var dob = dobInput ? dobInput.value : '';
+        if (!window.BlackArrow3DAuth.validSaudiMobile(phone)) {
+          err.textContent = tr('account_phone_invalid', 'Please enter a Saudi mobile number, e.g. 05XXXXXXXX.');
+          err.hidden = false;
+          return Promise.reject(new Error('phone'));
+        }
+        if (!dob || (dobInput.min && dob < dobInput.min) || (dobInput.max && dob > dobInput.max)) {
+          err.textContent = tr('account_dob_invalid', 'Please enter your date of birth.');
+          err.hidden = false;
+          return Promise.reject(new Error('dob'));
+        }
         return window.BlackArrow3DAuth.signUp(
           document.getElementById('signup-email').value,
           document.getElementById('signup-password').value,
           {
-            name: document.getElementById('signup-name').value,
-            phone: document.getElementById('signup-phone').value
+            name: document.getElementById('signup-name').value.trim(),
+            phone: phone,
+            dob: dob
           }
         ).then(function (res) {
           // Email confirmation is on by default: a successful signUp() call

@@ -143,8 +143,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <form class="b3d-account__form" id="b3d-signup-form" hidden>
               <label><span data-i18n="account_name">Full name</span><input type="text" id="signup-name" required autocomplete="name"></label>
-              <label><span data-i18n="account_phone">Phone</span><input type="tel" id="signup-phone" autocomplete="tel" placeholder="+966 5XX XXX XXX"></label>
+              <label><span data-i18n="account_phone">Phone</span><input type="tel" id="signup-phone" required autocomplete="tel" inputmode="tel" placeholder="05XXXXXXXX"></label>
               <label><span data-i18n="account_email">Email</span><input type="email" id="signup-email" required autocomplete="email"></label>
+              <label><span data-i18n="account_dob">Date of birth</span><input type="date" id="signup-dob" required autocomplete="bday" min="1920-01-01"><small class="b3d-account__hint" data-i18n="account_dob_hint">For your yearly birthday reward.</small></label>
               <label><span data-i18n="account_password_min">Password (min. 6 characters)</span><input type="password" id="signup-password" required minlength="6" autocomplete="new-password"></label>
               <p class="b3d-account__error" id="signup-error" hidden></p>
               <p class="b3d-account__success" id="signup-success" hidden data-i18n="account_signup_confirm_email">Account created — check your email to confirm it before signing in.</p>
@@ -267,10 +268,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
-  <script src="/3d/assets/js/3d-i18n.js?v=20261107" defer></script>
+  <script src="/3d/assets/js/3d-i18n.js?v=20261108" defer></script>
   <script src="/3d/assets/js/3d-brands.js?v=20261065" defer></script>
   <script src="/3d/assets/js/3d-store.js?v=20261106" defer></script>
-  <script src="/3d/assets/js/3d-auth.js?v=20261074" defer></script>
-  <script src="/3d/assets/js/3d-account.js?v=20261074" defer></script>
+  <script src="/3d/assets/js/3d-auth.js?v=20261108" defer></script>
+  <script src="/3d/assets/js/3d-account.js?v=20261108" defer></script>
 </body>
 </html>

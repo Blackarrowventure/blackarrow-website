@@ -35,6 +35,18 @@
     "en": "Saved.",
     "ar": "تم الحفظ."
   },
+  "account_dob": {
+    "en": "Date of birth",
+    "ar": "تاريخ الميلاد"
+  },
+  "account_dob_hint": {
+    "en": "For your yearly birthday reward.",
+    "ar": "لهدية عيد ميلادك كل سنة."
+  },
+  "account_dob_invalid": {
+    "en": "Please enter your date of birth.",
+    "ar": "يرجى إدخال تاريخ ميلادك."
+  },
   "account_email": {
     "en": "Email",
     "ar": "البريد الإلكتروني"
@@ -102,6 +114,10 @@
   "account_phone": {
     "en": "Phone",
     "ar": "رقم الجوال"
+  },
+  "account_phone_invalid": {
+    "en": "Please enter a Saudi mobile number, e.g. 05XXXXXXXX.",
+    "ar": "يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX."
   },
   "account_reset_hint": {
     "en": "Enter your email and we'll send you a password reset link. It may take a minute to arrive — check your spam folder too.",
