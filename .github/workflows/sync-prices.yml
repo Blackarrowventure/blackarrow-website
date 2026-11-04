@@ -38,7 +38,7 @@ jobs:
           # Committed as the site owner so Vercel builds it like any other push.
           git config user.name "Afzal"
           git config user.email "afzaladnan24@gmail.com"
-          git add -A 3d scripts
+          git add -A 3d scripts assets sitemap.xml
           git diff --cached --quiet && exit 0
           git commit -m "Prices: synced from the CRM (nightly)"
           git push
