@@ -2650,7 +2650,9 @@
           "swatch": "#6ec6e8",
           "image": "/3d/assets/images/products/kingroon-petg-sky-blue.webp",
           "available": false
-        }
+        },
+        { "label": "White", "label_ar": "أبيض", "price": 65, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/kingroon-petg-white.webp" },
+        { "label": "Black", "label_ar": "أسود", "price": 65, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/kingroon-petg-black.webp" }
       ],
       "images": [
         "/3d/assets/images/products/kingroon-petg-basic-blue.webp",
@@ -2668,7 +2670,9 @@
         "/3d/assets/images/products/kingroon-petg-transparent-red.webp",
         "/3d/assets/images/products/kingroon-petg-transparent-pink.webp",
         "/3d/assets/images/products/kingroon-petg-transparent-green.webp",
-        "/3d/assets/images/products/kingroon-petg-sky-blue.webp"
+        "/3d/assets/images/products/kingroon-petg-sky-blue.webp",
+        "/3d/assets/images/products/kingroon-petg-white.webp",
+        "/3d/assets/images/products/kingroon-petg-black.webp"
       ],
       "shortDesc": "KINGROON PETG Basic filament, 1.75 mm, 1 kg spool — low shrinkage and strong layer bonding for functional prints.",
       "description": "KINGROON PETG Basic is a 1.75 mm PETG filament on a 1 kg spool. Its diameter is held to ±0.03 mm by quality control, which helps keep feeding smooth and prints consistent. PETG offers low shrinkage and strong layer bonding, making it suitable for functional parts. It prints at 190–220°C on a 50–65°C bed. If the filament has absorbed moisture, dry it at 55°C for 8 hours before use, and store it in a dry place after use.",
@@ -2699,7 +2703,7 @@
         ],
         [
           "Colours",
-          "Blue, Orange, Yellow, Green, Red, Gray, Silver, Dark Blue, Fluorescent Blue, Fluorescent Yellow, Pink, Transparent, Transparent Red, Transparent Pink, Transparent Green, Sky Blue — pick one"
+          "Blue, Orange, Yellow, Green, Red, Gray, Silver, Dark Blue, Fluorescent Blue, Fluorescent Yellow, Pink, Transparent, Transparent Red, Transparent Pink, Transparent Green, Sky Blue, White, Black — pick one"
         ]
       ],
       "name_ar": "فيلامنت KINGROON PETG Basic بقطر 1.75 مم (1 كغ)",
@@ -2732,7 +2736,7 @@
         ],
         [
           "الألوان",
-          "أزرق، برتقالي، أصفر، أخضر، أحمر، رمادي، فضي، أزرق غامق، أزرق فسفوري، أصفر فسفوري، وردي، شفاف، أحمر شفاف، وردي شفاف، أخضر شفاف، سماوي — اختر واحدًا"
+          "أزرق، برتقالي، أصفر، أخضر، أحمر، رمادي، فضي، أزرق غامق، أزرق فسفوري، أصفر فسفوري، وردي، شفاف، أحمر شفاف، وردي شفاف، أخضر شفاف، سماوي، أبيض، أسود — اختر واحدًا"
         ]
       ]
     },
@@ -3038,6 +3042,162 @@
       ]
     },
     {
+      "id": "kingroon-petg-hs-filament",
+      "name": "KINGROON PETG HS High-Speed Filament 1.75 mm (1 kg)",
+      "brand": "KINGROON",
+      "category": "Filament",
+      "boughtTogether": [
+        "kingroon-petg-basic-filament",
+        "kingroon-pla-basic-filament"
+      ],
+      "price": 65,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "variants": [
+        {
+          "label": "Silver",
+          "label_ar": "فضي",
+          "price": 65,
+          "swatch": "#9a9ea3",
+          "image": "/3d/assets/images/products/kingroon-petg-hs-silver.webp"
+        },
+        {
+          "label": "Brown",
+          "label_ar": "بني",
+          "price": 65,
+          "swatch": "#8b4a1c",
+          "image": "/3d/assets/images/products/kingroon-petg-hs-brown.webp"
+        },
+        {
+          "label": "Green",
+          "label_ar": "أخضر",
+          "price": 65,
+          "swatch": "#1f9a6c",
+          "image": "/3d/assets/images/products/kingroon-petg-hs-green.webp"
+        },
+        {
+          "label": "Orange",
+          "label_ar": "برتقالي",
+          "price": 65,
+          "swatch": "#f5821f",
+          "image": "/3d/assets/images/products/kingroon-petg-hs-orange.webp"
+        },
+        {
+          "label": "Yellow",
+          "label_ar": "أصفر",
+          "price": 65,
+          "swatch": "#f2d00f",
+          "image": "/3d/assets/images/products/kingroon-petg-hs-yellow.webp"
+        }
+      ],
+      "images": [
+        "/3d/assets/images/products/kingroon-petg-hs-silver.webp",
+        "/3d/assets/images/products/kingroon-petg-hs-brown.webp",
+        "/3d/assets/images/products/kingroon-petg-hs-green.webp",
+        "/3d/assets/images/products/kingroon-petg-hs-orange.webp",
+        "/3d/assets/images/products/kingroon-petg-hs-yellow.webp"
+      ],
+      "shortDesc": "KINGROON PETG HS high-speed filament, 1.75 mm, 1 kg spool — up to twice the default speed of standard PETG, with a matte finish.",
+      "description": "KINGROON PETG HS is a PETG filament engineered specifically for high-speed 3D printing. With a default printing speed up to twice as fast as standard PETG, it boosts printing efficiency while keeping performance stable. The upgraded formulation minimises common PETG issues such as oozing, stringing and clumping, for smoother, cleaner prints even at higher speeds. Its matte finish avoids uneven gloss shifts during speed changes, giving a uniform surface. Stronger and tougher than PLA, it suits durable, long-lasting functional parts. Prints at 230–260°C on a 65–75°C smooth or textured PEI plate with glue, at up to 300 mm/s. Dry at 65°C for 8 hours before printing, and store sealed with desiccant below 20% humidity.",
+      "specs": [
+        [
+          "Material",
+          "PETG (high-speed)"
+        ],
+        [
+          "Filament Diameter",
+          "1.75 mm"
+        ],
+        [
+          "Weight",
+          "1 kg"
+        ],
+        [
+          "Finish",
+          "Matte"
+        ],
+        [
+          "Nozzle Temperature",
+          "230–260°C"
+        ],
+        [
+          "Bed Temperature",
+          "65–75°C (smooth or textured PEI, with glue)"
+        ],
+        [
+          "Printing Speed",
+          "Up to 300 mm/s"
+        ],
+        [
+          "Cooling Fan",
+          "0–60%"
+        ],
+        [
+          "Drying",
+          "65°C for 8 hours before printing"
+        ],
+        [
+          "Spool",
+          "ABS, 200 mm diameter × 67 mm"
+        ],
+        [
+          "Colours",
+          "Silver, Brown, Green, Orange, Yellow — pick one"
+        ]
+      ],
+      "name_ar": "فيلامنت KINGROON PETG HS عالي السرعة بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت KINGROON PETG HS عالي السرعة بقطر 1.75 مم، بكرة 1 كغ — سرعة طباعة افتراضية تصل إلى ضعف PETG العادي، بلمسة مطفية.",
+      "description_ar": "فيلامنت KINGROON PETG HS مصمم خصيصًا للطباعة ثلاثية الأبعاد عالية السرعة. بسرعة طباعة افتراضية تصل إلى ضعف سرعة PETG العادي، يرفع كفاءة الطباعة مع الحفاظ على أداء ثابت. تركيبته المحسّنة تقلل مشاكل PETG الشائعة مثل التسريب والخيوط والتكتل، لطباعة أنعم وأنظف حتى عند السرعات العالية. لمسته المطفية تمنع تفاوت اللمعان عند تغيّر السرعة، فتحصل على سطح متجانس. أقوى وأمتن من PLA، ومناسب للقطع الوظيفية المتينة طويلة العمر. يُطبع عند 230–260°C على سرير PEI أملس أو محبب بدرجة 65–75°C مع الغراء، بسرعة تصل إلى 300 مم/ث. جففه عند 65°C لمدة 8 ساعات قبل الطباعة، واحفظه مغلقًا مع مادة مجففة تحت 20% رطوبة.",
+      "specs_ar": [
+        [
+          "الخامة",
+          "PETG (عالي السرعة)"
+        ],
+        [
+          "قطر الفيلامنت",
+          "1.75 مم"
+        ],
+        [
+          "الوزن",
+          "1 كغ"
+        ],
+        [
+          "اللمسة",
+          "مطفية"
+        ],
+        [
+          "درجة حرارة الفوهة",
+          "230–260°C"
+        ],
+        [
+          "درجة حرارة السرير",
+          "65–75°C (PEI أملس أو محبب، مع الغراء)"
+        ],
+        [
+          "سرعة الطباعة",
+          "حتى 300 مم/ث"
+        ],
+        [
+          "مروحة التبريد",
+          "0–60%"
+        ],
+        [
+          "التجفيف",
+          "65°C لمدة 8 ساعات قبل الطباعة"
+        ],
+        [
+          "البكرة",
+          "ABS، قطر 200 مم × 67 مم"
+        ],
+        [
+          "الألوان",
+          "فضي، بني، أخضر، برتقالي، أصفر — اختر واحدًا"
+        ]
+      ]
+    },
+    {
       "id": "kingroon-pla-basic-filament",
       "name": "KINGROON PLA Basic Filament 1.75 mm (1 kg)",
       "brand": "KINGROON",
@@ -3070,7 +3230,11 @@
           "price": 65,
           "swatch": "#e0a81c",
           "image": "/3d/assets/images/products/kingroon-pla-gold.webp"
-        }
+        },
+        { "label": "Midnight Brown", "label_ar": "بني داكن", "price": 65, "swatch": "#5a3325", "image": "/3d/assets/images/products/kingroon-pla-midnight-brown.webp" },
+        { "label": "Wood", "label_ar": "خشبي", "price": 65, "swatch": "#8b7a5a", "image": "/3d/assets/images/products/kingroon-pla-wood.webp" },
+        { "label": "Vibrant Orange", "label_ar": "برتقالي زاهي", "price": 65, "swatch": "#f08a24", "image": "/3d/assets/images/products/kingroon-pla-vibrant-orange.webp" },
+        { "label": "Retro Red", "label_ar": "أحمر ريترو", "price": 65, "swatch": "#5e1f24", "image": "/3d/assets/images/products/kingroon-pla-retro-red.webp" }
       ],
       "images": [
         "/3d/assets/images/products/kingroon-pla-black.webp",
@@ -3086,9 +3250,13 @@
         "/3d/assets/images/products/kingroon-pla-purple.webp",
         "/3d/assets/images/products/kingroon-pla-pink.webp",
         "/3d/assets/images/products/kingroon-pla-brown.webp",
-        "/3d/assets/images/products/kingroon-pla-transparent.webp", "/3d/assets/images/products/kingroon-pla-gold.webp", "/3d/assets/images/products/kingroon-pla-skin.webp"
+        "/3d/assets/images/products/kingroon-pla-transparent.webp", "/3d/assets/images/products/kingroon-pla-gold.webp", "/3d/assets/images/products/kingroon-pla-skin.webp",
+        "/3d/assets/images/products/kingroon-pla-midnight-brown.webp",
+        "/3d/assets/images/products/kingroon-pla-wood.webp",
+        "/3d/assets/images/products/kingroon-pla-vibrant-orange.webp",
+        "/3d/assets/images/products/kingroon-pla-retro-red.webp"
       ],
-      "shortDesc": "KINGROON PLA Basic filament, 1.75 mm, 1 kg spool — smooth feeding and consistent layers, in 16 colours.",
+      "shortDesc": "KINGROON PLA Basic filament, 1.75 mm, 1 kg spool — smooth feeding and consistent layers, in 20 colours.",
       "description": "KINGROON PLA Basic is a 1.75 mm PLA filament on a 1 kg spool, available in a wide range of colours. It feeds smoothly and prints with consistent, reliable layers, making it a solid everyday choice for display models, prototypes, decorative pieces, and educational projects. Works with most FDM 3D printers that support 1.75 mm PLA. Recommended nozzle temperature 190–210°C on a 50–70°C bed.",
       "specs": [
         ["Material", "PLA"],
@@ -3097,10 +3265,10 @@
         ["Nozzle Temperature", "190–210°C"],
         ["Bed Temperature", "50–70°C"],
         ["Compatibility", "Most FDM 3D printers that support 1.75 mm PLA"],
-        ["Colours", "Black, White, Gray, Silver, Red, Orange, Yellow, Green, Blue, Sky Blue, Purple, Pink, Brown, Transparent, Skin — pick one"]
+        ["Colours", "Black, White, Gray, Silver, Red, Orange, Yellow, Green, Blue, Sky Blue, Purple, Pink, Brown, Transparent, Skin, Gold, Midnight Brown, Wood, Vibrant Orange, Retro Red — pick one"]
       ],
       "name_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم (1 كغ)",
-      "shortDesc_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم، بكرة 1 كغ — تغذية سلسة وطباعة متسقة، بـ 16 لونًا.",
+      "shortDesc_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم، بكرة 1 كغ — تغذية سلسة وطباعة متسقة، بـ 20 لونًا.",
       "description_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم على بكرة وزنها 1 كغ، متوفر بتشكيلة واسعة من الألوان. يتميز بتغذية سلسة وطباعة متسقة وموثوقة، ما يجعله خيارًا يوميًا ممتازًا للمجسمات، النماذج الأولية، القطع الزخرفية، والمشاريع التعليمية. يعمل مع معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم. درجة حرارة الفوهة الموصى بها 190–210°C على سرير بدرجة حرارة 50–70°C.",
       "specs_ar": [
         ["الخامة", "PLA"],
@@ -3109,7 +3277,7 @@
         ["درجة حرارة الفوهة", "190–210°C"],
         ["درجة حرارة السرير", "50–70°C"],
         ["التوافق", "معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم"],
-        ["الألوان", "أسود، أبيض، رمادي، فضي، أحمر، برتقالي، أصفر، أخضر، أزرق، أزرق فاتح، بنفسجي، وردي، نحاسي، شفاف، بيج — اختر واحدًا"]
+        ["الألوان", "أسود، أبيض، رمادي، فضي، أحمر، برتقالي، أصفر، أخضر، أزرق، أزرق فاتح، بنفسجي، وردي، نحاسي، شفاف، بيج، ذهبي، بني داكن، خشبي، برتقالي زاهي، أحمر ريترو — اختر واحدًا"]
       ]
     },
     {
