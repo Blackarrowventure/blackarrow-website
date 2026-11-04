@@ -1031,10 +1031,14 @@
       "vatIncluded": true,
       "available": true,
       "variants": [
-        { "label": "0.2mm", "label_ar": "0.2 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-02" },
-        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 100, "sku": "BAMBU-A1-HOTEND-04" },
-        { "label": "0.6mm", "label_ar": "0.6 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-06" },
-        { "label": "0.8mm", "label_ar": "0.8 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-08" }
+        { "label": "0.2mm", "label_ar": "0.2 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-02",
+          "image": "/3d/assets/images/products/bambu-hotend-a1-01.webp" },
+        { "label": "0.4mm", "label_ar": "0.4 مم", "price": 100, "sku": "BAMBU-A1-HOTEND-04",
+          "image": "/3d/assets/images/products/bambu-hotend-a1-02.webp" },
+        { "label": "0.6mm", "label_ar": "0.6 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-06",
+          "image": "/3d/assets/images/products/bambu-hotend-a1-03.webp" },
+        { "label": "0.8mm", "label_ar": "0.8 مم", "price": 110, "sku": "BAMBU-A1-HOTEND-08",
+          "image": "/3d/assets/images/products/bambu-hotend-a1-04.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-hotend-a1-01.webp",
