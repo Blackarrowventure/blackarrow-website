@@ -78,7 +78,10 @@ def T(key, lang):
     entry = I18N.get(key)
     if not entry:
         return key
-    return entry.get(lang) or entry.get('en') or key
+    text = entry.get(lang) or entry.get('en') or key
+    # Ticker messages carry their link as "Message => /path" (3d-store.js turns it into
+    # an <a>); baked static text shows the message only.
+    return re.sub(r' => /\S*', '', text)
 
 
 # The homepage's FAQPage JSON-LD (3d/index.html) has its question/answer text

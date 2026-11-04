@@ -40,7 +40,7 @@ POSTS = [
             'card': ('Filament review', '7 min read', 'Everyday 1 kg PLA in many colours: settings, Bambu Lab tips, storage and cost per print.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is a good default filament for most printers sold in Saudi Arabia, including the Bambu Lab A1, A1 mini, A2L and P2S. It prints at <strong>190–210&nbsp;°C</strong> on a <strong>50–70&nbsp;°C</strong> bed, needs no enclosure, has almost no smell and comes in plenty of colours. Choose it for decorative pieces, gifts, prototypes and indoor parts. Choose <a href="/3d/blog/kingroon-petg-basic-filament-guide/">PETG</a> instead for parts that sit in a hot car, outdoors or near heat.</p>
+          <p><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is a good default filament for most printers sold in Saudi Arabia, including the Bambu Lab A1, A1 mini, A2L and P2S. KINGROON rates it for <strong>190–230&nbsp;°C</strong> on a <strong>35–45&nbsp;°C</strong> bed, needs no enclosure, has almost no smell and comes in plenty of colours. Choose it for decorative pieces, gifts, prototypes and indoor parts. Choose <a href="/3d/blog/kingroon-petg-basic-filament-guide/">PETG</a> instead for parts that sit in a hot car, outdoors or near heat.</p>
 
           <h2>What you get</h2>
           <div class="b3d-table-wrap">
@@ -50,19 +50,22 @@ POSTS = [
                 <tr><td>Material</td><td>PLA</td></tr>
                 <tr><td>Diameter</td><td>1.75 mm</td></tr>
                 <tr><td>Weight</td><td>1 kg per spool</td></tr>
-                <tr><td>Nozzle temperature</td><td>190–210&nbsp;°C</td></tr>
-                <tr><td>Bed temperature</td><td>50–70&nbsp;°C</td></tr>
+                <tr><td>Nozzle temperature</td><td>190–230&nbsp;°C</td></tr>
+                <tr><td>Bed temperature</td><td>35–45&nbsp;°C</td></tr>
+                <tr><td>Print speed</td><td>under 300&nbsp;mm/s</td></tr>
+                <tr><td>Drying</td><td>50&nbsp;°C for 8 hours</td></tr>
                 <tr><td>Works with</td><td>Most FDM printers that take 1.75 mm PLA</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Colours on the store include black, white, red, orange, yellow, purple and pink, with more arriving as stock is restocked. The <a href="/3d/product/kingroon-pla-basic-filament/">product page</a> shows which colours are in stock right now.</p>
+          <p><small>Figures from KINGROON's PLA Basic Technical Data Sheet V1.0.</small></p>
+          <p>The store lists 20 colours, from black, white and gray to the newest arrivals: <strong>Midnight Brown, Wood, Vibrant Orange and Retro Red</strong>. The <a href="/3d/product/kingroon-pla-basic-filament/">product page</a> shows which colours are in stock right now.</p>
 
           <h2>Settings that work</h2>
           <ul>
             <li><strong>Bambu Lab printers:</strong> in Bambu Studio choose a <em>Generic PLA</em> profile. Run the flow calibration once for a new spool if your printer offers it.</li>
-            <li><strong>Temperature:</strong> start at 200&nbsp;°C. Go towards 210&nbsp;°C if layers look weak or the surface is dull; go towards 195&nbsp;°C if you see stringing.</li>
-            <li><strong>Bed:</strong> 55–60&nbsp;°C on a textured or smooth PEI plate. Clean the plate with warm water and dish soap when the first layer stops sticking. Our <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">first-layer guide</a> covers the rest.</li>
+            <li><strong>Temperature:</strong> KINGROON tested it at 220&nbsp;°C. Stay inside 190–230&nbsp;°C: go hotter if layers look weak or the surface is dull, cooler if you see stringing.</li>
+            <li><strong>Bed:</strong> 35–45&nbsp;°C on a Cool Plate, High Temperature Plate or Textured PEI Plate, with glue, as KINGROON recommends. Clean the plate with warm water and dish soap when the first layer stops sticking. Our <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">first-layer guide</a> covers the rest.</li>
             <li><strong>Cooling:</strong> part fan at full speed after the first few layers. PLA likes cooling; that is what keeps overhangs and small details sharp.</li>
             <li><strong>Speed:</strong> the default profiles of modern printers are fine. If very thin walls look rough, lower the outer wall speed rather than the whole print.</li>
           </ul>
@@ -122,7 +125,7 @@ POSTS = [
             'card': ('مراجعة فلمنت', '7 دقائق قراءة', 'فلمنت PLA يومي بوزن 1 كجم وألوان كثيرة: الإعدادات ونصائح بامبو لاب والتخزين وتكلفة الطبعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>فلمنت <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> خيار افتراضي ممتاز لمعظم الطابعات المباعة في السعودية، ومنها بامبو لاب A1 وA1 ميني وA2L وP2S. يُطبع على حرارة <strong>190–210 درجة</strong> وسرير بحرارة <strong>50–70 درجة</strong>، ولا يحتاج إلى طابعة مغلقة، ورائحته تكاد تكون معدومة، ومتوفر بألوان كثيرة. اختره للقطع الديكورية والهدايا والنماذج الأولية والقطع الداخلية، واختر <a href="/3d/ar/blog/kingroon-petg-basic-filament-guide/">PETG</a> بدلًا منه للقطع التي توضع في السيارة أو في الخارج أو قرب الحرارة.</p>
+          <p>فلمنت <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> خيار افتراضي ممتاز لمعظم الطابعات المباعة في السعودية، ومنها بامبو لاب A1 وA1 ميني وA2L وP2S. تحدد KINGROON له حرارة <strong>190–230 درجة</strong> وسريرًا بحرارة <strong>35–45 درجة</strong>، ولا يحتاج إلى طابعة مغلقة، ورائحته تكاد تكون معدومة، ومتوفر بألوان كثيرة. اختره للقطع الديكورية والهدايا والنماذج الأولية والقطع الداخلية، واختر <a href="/3d/ar/blog/kingroon-petg-basic-filament-guide/">PETG</a> بدلًا منه للقطع التي توضع في السيارة أو في الخارج أو قرب الحرارة.</p>
 
           <h2>المواصفات</h2>
           <div class="b3d-table-wrap">
@@ -132,19 +135,22 @@ POSTS = [
                 <tr><td>المادة</td><td>PLA</td></tr>
                 <tr><td>القطر</td><td>1.75 مم</td></tr>
                 <tr><td>الوزن</td><td>1 كجم للبكرة</td></tr>
-                <tr><td>حرارة الفوهة</td><td>190–210 درجة</td></tr>
-                <tr><td>حرارة السرير</td><td>50–70 درجة</td></tr>
+                <tr><td>حرارة الفوهة</td><td>190–230 درجة</td></tr>
+                <tr><td>حرارة السرير</td><td>35–45 درجة</td></tr>
+                <tr><td>سرعة الطباعة</td><td>أقل من 300 مم/ث</td></tr>
+                <tr><td>التجفيف</td><td>50 درجة لمدة 8 ساعات</td></tr>
                 <tr><td>التوافق</td><td>معظم طابعات FDM التي تقبل PLA بقطر 1.75 مم</td></tr>
               </tbody>
             </table>
           </div>
-          <p>من الألوان المتوفرة في المتجر: الأسود والأبيض والأحمر والبرتقالي والأصفر والبنفسجي والوردي، وتصل ألوان أخرى مع كل شحنة. تعرض <a href="/3d/ar/product/kingroon-pla-basic-filament/">صفحة المنتج</a> الألوان المتوفرة حاليًا.</p>
+          <p><small>الأرقام من ورقة البيانات الفنية الرسمية لـ KINGROON PLA Basic (الإصدار 1.0).</small></p>
+          <p>يعرض المتجر 20 لونًا، من الأسود والأبيض والرمادي إلى أحدث الألوان: <strong>البني الداكن والخشبي والبرتقالي الزاهي والأحمر الريترو</strong>. تعرض <a href="/3d/ar/product/kingroon-pla-basic-filament/">صفحة المنتج</a> الألوان المتوفرة حاليًا.</p>
 
           <h2>إعدادات مجرّبة</h2>
           <ul>
             <li><strong>طابعات بامبو لاب:</strong> اختر في Bambu Studio ملف <em>Generic PLA</em>، وشغّل معايرة التدفق مرة واحدة لكل بكرة جديدة إن كانت طابعتك تدعمها.</li>
-            <li><strong>الحرارة:</strong> ابدأ بـ 200 درجة، وارفعها نحو 210 إذا كانت الطبقات ضعيفة أو السطح باهتًا، واخفضها نحو 195 إذا ظهرت خيوط رفيعة.</li>
-            <li><strong>السرير:</strong> 55–60 درجة على لوح PEI محبب أو أملس. نظّف اللوح بالماء الدافئ وسائل الصحون إذا لم تعد الطبقة الأولى تلتصق. تجد التفاصيل في <a href="/3d/ar/blog/3d-print-bed-adhesion-first-layer/">دليل الطبقة الأولى</a>.</li>
+            <li><strong>الحرارة:</strong> اختبرته KINGROON على 220 درجة. ابقَ ضمن 190–230 درجة: ارفعها إذا كانت الطبقات ضعيفة أو السطح باهتًا، واخفضها إذا ظهرت خيوط رفيعة.</li>
+            <li><strong>السرير:</strong> 35–45 درجة على لوح Cool Plate أو High Temperature Plate أو Textured PEI مع الغراء، كما توصي KINGROON. نظّف اللوح بالماء الدافئ وسائل الصحون إذا لم تعد الطبقة الأولى تلتصق. تجد التفاصيل في <a href="/3d/ar/blog/3d-print-bed-adhesion-first-layer/">دليل الطبقة الأولى</a>.</li>
             <li><strong>التبريد:</strong> مروحة القطعة على السرعة الكاملة بعد الطبقات الأولى، فالتبريد هو ما يحافظ على حدّة البروزات والتفاصيل الصغيرة.</li>
             <li><strong>السرعة:</strong> الإعدادات الافتراضية للطابعات الحديثة مناسبة. وإذا بدت الجدران الرفيعة خشنة، فاخفض سرعة الجدار الخارجي فقط.</li>
           </ul>
@@ -249,7 +255,8 @@ POSTS = [
           <p>In a parked car in summer, a PLA mount can droop within a day. PETG holds its shape much better, which makes it the practical choice for phone holders, cable clips and dashcam mounts. For parts that sit in direct sun for months, choose a darker or opaque colour; transparent colours show sun damage first. In humid cities, keep PETG sealed with silica gel even more strictly than PLA.</p>
 
           <h2>Colours</h2>
-          <p>KINGROON PETG Basic comes in many colours, including orange, yellow, green, red, gray and dark blue, with transparent and fluorescent colours as stock allows. Check the <a href="/3d/product/kingroon-petg-basic-filament/">product page</a> for the colours in stock today.</p>
+          <p>KINGROON PETG Basic comes in many colours, including orange, yellow, green, red, gray and dark blue, with transparent and fluorescent colours as stock allows. <strong>White and Black</strong> have just arrived. Check the <a href="/3d/product/kingroon-petg-basic-filament/">product page</a> for the colours in stock today.</p>
+          <p>Want PETG that prints faster? <a href="/3d/product/kingroon-petg-hs-filament/">KINGROON PETG HS</a> is the high-speed version, with a matte finish and higher heat resistance. Read the <a href="/3d/blog/kingroon-petg-hs-high-speed-filament-guide/">PETG HS guide</a>.</p>
 
           <h2>Frequently asked questions</h2>
           <h3>Can the Bambu Lab A1 mini print PETG?</h3>
@@ -323,7 +330,8 @@ POSTS = [
           <p>في سيارة متوقفة صيفًا قد يرتخي حامل من PLA خلال يوم، بينما يحافظ PETG على شكله أكثر بكثير، لذا فهو الخيار العملي لحوامل الجوال ومشابك الكابلات وحوامل كاميرات السيارة. للقطع التي تبقى تحت الشمس المباشرة لأشهر اختر لونًا داكنًا أو معتمًا، فالألوان الشفافة تُظهر أثر الشمس أولًا. وفي المدن الرطبة احفظ PETG مغلقًا مع السيليكا جل بحرص أكبر من PLA.</p>
 
           <h2>الألوان</h2>
-          <p>يتوفر KINGROON PETG Basic بألوان كثيرة منها البرتقالي والأصفر والأخضر والأحمر والرمادي والأزرق الداكن، مع ألوان شفافة وفسفورية حسب المخزون. راجع <a href="/3d/ar/product/kingroon-petg-basic-filament/">صفحة المنتج</a> لمعرفة الألوان المتوفرة اليوم.</p>
+          <p>يتوفر KINGROON PETG Basic بألوان كثيرة منها البرتقالي والأصفر والأخضر والأحمر والرمادي والأزرق الداكن، مع ألوان شفافة وفسفورية حسب المخزون. وقد وصل حديثًا <strong>الأبيض والأسود</strong>. راجع <a href="/3d/ar/product/kingroon-petg-basic-filament/">صفحة المنتج</a> لمعرفة الألوان المتوفرة اليوم.</p>
+          <p>تريد PETG يُطبع أسرع؟ فيلامنت <a href="/3d/ar/product/kingroon-petg-hs-filament/">KINGROON PETG HS</a> هو النسخة عالية السرعة، بلمسة مطفية ومقاومة أعلى للحرارة. اقرأ <a href="/3d/ar/blog/kingroon-petg-hs-high-speed-filament-guide/">دليل PETG HS</a>.</p>
 
           <h2>الأسئلة الشائعة</h2>
           <h3>هل تطبع بامبو لاب A1 ميني فلمنت PETG؟</h3>

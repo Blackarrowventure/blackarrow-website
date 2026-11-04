@@ -3257,25 +3257,29 @@
         "/3d/assets/images/products/kingroon-pla-retro-red.webp"
       ],
       "shortDesc": "KINGROON PLA Basic filament, 1.75 mm, 1 kg spool — smooth feeding and consistent layers, in 20 colours.",
-      "description": "KINGROON PLA Basic is a 1.75 mm PLA filament on a 1 kg spool, available in a wide range of colours. It feeds smoothly and prints with consistent, reliable layers, making it a solid everyday choice for display models, prototypes, decorative pieces, and educational projects. Works with most FDM 3D printers that support 1.75 mm PLA. Recommended nozzle temperature 190–210°C on a 50–70°C bed.",
+      "description": "KINGROON PLA Basic is a 1.75 mm PLA filament on a 1 kg spool, available in a wide range of colours. It feeds smoothly and prints with consistent, reliable layers, making it a solid everyday choice for display models, prototypes, decorative pieces, and educational projects. Works with most FDM 3D printers that support 1.75 mm PLA. KINGROON recommends a nozzle temperature of 190–230°C on a 35–45°C bed, print speeds under 300 mm/s, and drying at 50°C for 8 hours before printing.",
       "specs": [
         ["Material", "PLA"],
         ["Filament Diameter", "1.75 mm"],
         ["Weight", "1 kg"],
-        ["Nozzle Temperature", "190–210°C"],
-        ["Bed Temperature", "50–70°C"],
+        ["Nozzle Temperature", "190–230°C"],
+        ["Bed Temperature", "35–45°C"],
+        ["Print Speed", "Under 300 mm/s"],
+        ["Drying", "50°C for 8 hours before printing"],
         ["Compatibility", "Most FDM 3D printers that support 1.75 mm PLA"],
         ["Colours", "Black, White, Gray, Silver, Red, Orange, Yellow, Green, Blue, Sky Blue, Purple, Pink, Brown, Transparent, Skin, Gold, Midnight Brown, Wood, Vibrant Orange, Retro Red — pick one"]
       ],
       "name_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم (1 كغ)",
       "shortDesc_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم، بكرة 1 كغ — تغذية سلسة وطباعة متسقة، بـ 20 لونًا.",
-      "description_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم على بكرة وزنها 1 كغ، متوفر بتشكيلة واسعة من الألوان. يتميز بتغذية سلسة وطباعة متسقة وموثوقة، ما يجعله خيارًا يوميًا ممتازًا للمجسمات، النماذج الأولية، القطع الزخرفية، والمشاريع التعليمية. يعمل مع معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم. درجة حرارة الفوهة الموصى بها 190–210°C على سرير بدرجة حرارة 50–70°C.",
+      "description_ar": "فيلامنت KINGROON PLA Basic بقطر 1.75 مم على بكرة وزنها 1 كغ، متوفر بتشكيلة واسعة من الألوان. يتميز بتغذية سلسة وطباعة متسقة وموثوقة، ما يجعله خيارًا يوميًا ممتازًا للمجسمات، النماذج الأولية، القطع الزخرفية، والمشاريع التعليمية. يعمل مع معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم. توصي KINGROON بحرارة فوهة 190–230°C على سرير بدرجة حرارة 35–45°C، وسرعة طباعة أقل من 300 مم/ث، وتجفيفه عند 50°C لمدة 8 ساعات قبل الطباعة.",
       "specs_ar": [
         ["الخامة", "PLA"],
         ["قطر الفيلامنت", "1.75 مم"],
         ["الوزن", "1 كغ"],
-        ["درجة حرارة الفوهة", "190–210°C"],
-        ["درجة حرارة السرير", "50–70°C"],
+        ["درجة حرارة الفوهة", "190–230°C"],
+        ["درجة حرارة السرير", "35–45°C"],
+        ["سرعة الطباعة", "أقل من 300 مم/ث"],
+        ["التجفيف", "50°C لمدة 8 ساعات قبل الطباعة"],
         ["التوافق", "معظم طابعات FDM التي تدعم فيلامنت PLA بقطر 1.75 مم"],
         ["الألوان", "أسود، أبيض، رمادي، فضي، أحمر، برتقالي، أصفر، أخضر، أزرق، أزرق فاتح، بنفسجي، وردي، نحاسي، شفاف، بيج، ذهبي، بني داكن، خشبي، برتقالي زاهي، أحمر ريترو — اختر واحدًا"]
       ]

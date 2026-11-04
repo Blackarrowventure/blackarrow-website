@@ -152,8 +152,8 @@
     "ar": "بياناتك"
   },
   "announce_1": {
-    "en": "Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed",
-    "ar": "منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+    "en": "Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
   },
   "b3d_compare_printers": {
     "en": "Compare printers",
@@ -255,6 +255,14 @@
     "en": "Building Number",
     "ar": "رقم المبنى"
   },
+  "checkout_building_invalid": {
+    "en": "The building number is 4 numbers, e.g. 7584.",
+    "ar": "رقم المبنى 4 أرقام، مثل 7584."
+  },
+  "checkout_building_placeholder": {
+    "en": "e.g. 7584",
+    "ar": "مثال: 7584"
+  },
   "checkout_city": {
     "en": "City",
     "ar": "المدينة"
@@ -288,12 +296,28 @@
     "ar": "سجّل الدخول لإتمام أسرع"
   },
   "checkout_national_address": {
-    "en": "National Address",
-    "ar": "العنوان الوطني"
+    "en": "National Address (short code)",
+    "ar": "العنوان الوطني (الرمز المختصر)"
+  },
+  "checkout_national_hint": {
+    "en": "4 letters + 4 numbers, from your National Address (Absher or the SPL app).",
+    "ar": "4 حروف + 4 أرقام، من عنوانك الوطني (أبشر أو تطبيق سبل)."
+  },
+  "checkout_national_invalid": {
+    "en": "Enter your National Address short code: 4 letters then 4 numbers, e.g. RRRD2929.",
+    "ar": "أدخل الرمز المختصر لعنوانك الوطني: 4 حروف ثم 4 أرقام، مثل RRRD2929."
+  },
+  "checkout_national_placeholder": {
+    "en": "e.g. RRRD2929",
+    "ar": "مثال: RRRD2929"
   },
   "checkout_notes": {
     "en": "Notes (optional)",
     "ar": "ملاحظات (اختياري)"
+  },
+  "checkout_notes_placeholder": {
+    "en": "Transfer reference, delivery instructions, etc.",
+    "ar": "رقم مرجع التحويل، تعليمات التوصيل، إلخ."
   },
   "checkout_phone": {
     "en": "Phone",
@@ -319,6 +343,14 @@
     "en": "Shipping Method",
     "ar": "طريقة الشحن"
   },
+  "checkout_shipping_pickup": {
+    "en": "Self pickup",
+    "ar": "استلام ذاتي"
+  },
+  "checkout_shipping_pickup_eta": {
+    "en": "We'll message you the pickup location when your order is ready",
+    "ar": "سنرسل لك موقع الاستلام عندما يكون طلبك جاهزًا"
+  },
   "checkout_shipping_regular": {
     "en": "Regular shipping",
     "ar": "شحن عادي"
@@ -342,6 +374,54 @@
   "checkout_success_email": {
     "en": "Order received — check your email for confirmation, and we'll contact you shortly to arrange delivery.",
     "ar": "تم استلام طلبك — تحقق من بريدك الإلكتروني للتأكيد، وسنتواصل معك قريباً لترتيب التوصيل."
+  },
+  "cities_guides": {
+    "en": "City guides",
+    "ar": "أدلة المدن"
+  },
+  "cities_h2": {
+    "en": "3D printers delivered across Saudi Arabia",
+    "ar": "طابعات ثلاثية الأبعاد بالتوصيل لكل مدن السعودية"
+  },
+  "cities_p": {
+    "en": "We ship from Dammam to every city in the Kingdom. In-stock orders placed before 4 pm (Sunday to Thursday) leave the same day. Standard delivery takes 4–5 business days and fast delivery 2–3.",
+    "ar": "نشحن من الدمام إلى كل مدن المملكة. الطلبات المتوفرة التي تصل قبل الساعة 4 مساءً (من الأحد إلى الخميس) تُشحن في اليوم نفسه. التوصيل العادي يستغرق 4–5 أيام عمل والسريع 2–3 أيام."
+  },
+  "city_abha_khamis_mushait": {
+    "en": "Abha & Khamis Mushait",
+    "ar": "أبها وخميس مشيط"
+  },
+  "city_dammam_khobar": {
+    "en": "Dammam & Al Khobar",
+    "ar": "الدمام والخبر"
+  },
+  "city_jeddah": {
+    "en": "Jeddah",
+    "ar": "جدة"
+  },
+  "city_jubail": {
+    "en": "Jubail",
+    "ar": "الجبيل"
+  },
+  "city_madinah": {
+    "en": "Madinah",
+    "ar": "المدينة المنورة"
+  },
+  "city_makkah": {
+    "en": "Makkah",
+    "ar": "مكة المكرمة"
+  },
+  "city_qassim": {
+    "en": "Qassim",
+    "ar": "القصيم"
+  },
+  "city_riyadh": {
+    "en": "Riyadh",
+    "ar": "الرياض"
+  },
+  "city_tabuk": {
+    "en": "Tabuk",
+    "ar": "تبوك"
   },
   "cmp_help_1": {
     "en": "Build volume: the largest part you can print in one piece.",
@@ -687,6 +767,50 @@
     "en": "WhatsApp",
     "ar": "واتساب"
   },
+  "glance_based_k": {
+    "en": "Based in",
+    "ar": "المقر"
+  },
+  "glance_based_v": {
+    "en": "Dammam, Saudi Arabia. A business line of Black Arrow Venture (CR 7054542985).",
+    "ar": "الدمام، المملكة العربية السعودية. أحد أنشطة شركة بلاك أرو فنتشر (سجل تجاري 7054542985)."
+  },
+  "glance_delivery_k": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
+  "glance_delivery_v": {
+    "en": "All cities in Saudi Arabia: standard 4–5 business days (30 SAR), fast 2–3 business days (50 SAR). We also deliver across the GCC: UAE, Kuwait, Qatar, Bahrain and Oman.",
+    "ar": "لكل مدن السعودية: العادي 4–5 أيام عمل (30 ريالًا)، والسريع 2–3 أيام عمل (50 ريالًا). ونوصّل أيضًا إلى جميع دول الخليج: الإمارات والكويت وقطر والبحرين وعُمان."
+  },
+  "glance_h3": {
+    "en": "Black Arrow 3D at a glance",
+    "ar": "بلاك أرو 3D باختصار"
+  },
+  "glance_pay_k": {
+    "en": "Payment",
+    "ar": "الدفع"
+  },
+  "glance_pay_v": {
+    "en": "Bank transfer, mada, Visa, Mastercard, Apple Pay, Tabby and Tamara.",
+    "ar": "تحويل بنكي، مدى، فيزا، ماستركارد، Apple Pay، تابي وتمارا."
+  },
+  "glance_sells_k": {
+    "en": "Sells",
+    "ar": "المنتجات"
+  },
+  "glance_sells_v": {
+    "en": "3D printers (Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic, Flashforge), filament, spare parts, 3D printed gifts and a custom 3D printing service.",
+    "ar": "طابعات ثلاثية الأبعاد (Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge)، وفلمنت، وقطع غيار، وهدايا مطبوعة، وخدمة طباعة ثلاثية الأبعاد حسب الطلب."
+  },
+  "glance_support_k": {
+    "en": "Support",
+    "ar": "الدعم"
+  },
+  "glance_support_v": {
+    "en": "Arabic and English, by WhatsApp +966 56 022 4715 or sales@blackarrowksa.com.",
+    "ar": "بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو sales@blackarrowksa.com."
+  },
   "header_search_btn": {
     "en": "Search",
     "ar": "بحث"
@@ -963,6 +1087,22 @@
     "en": "Top Pick",
     "ar": "مُختار مميز"
   },
+  "js_bnpl_card": {
+    "en": "4 payments of",
+    "ar": "4 دفعات بقيمة"
+  },
+  "js_bnpl_prefix": {
+    "en": "or 4 interest-free payments of",
+    "ar": "أو 4 دفعات بدون فوائد بقيمة"
+  },
+  "js_bnpl_tamara": {
+    "en": "Tamara also available at checkout",
+    "ar": "تمارا متاحة أيضًا عند الدفع"
+  },
+  "js_bnpl_with": {
+    "en": "with",
+    "ar": "مع"
+  },
   "js_bundle_pick_cta": {
     "en": "Build Your Combo",
     "ar": "اصنع الكومبو"
@@ -1015,6 +1155,10 @@
     "en": "Keychains not selected yet",
     "ar": "لم يتم اختيار الميداليات بعد"
   },
+  "js_cart_stock_changed": {
+    "en": "Some items in your cart have less stock now. Your cart will update in a moment; please check it and try again.",
+    "ar": "بعض المنتجات في سلتك أصبحت كميتها أقل. سيتم تحديث السلة خلال لحظات، يرجى مراجعتها والمحاولة مرة أخرى."
+  },
   "js_check_back_soon": {
     "en": "Check back soon, or contact us for current availability.",
     "ar": "تابعونا قريباً، أو تواصلوا معنا لمعرفة التوفر الحالي."
@@ -1043,6 +1187,46 @@
     "en": "Compatibility",
     "ar": "التوافق"
   },
+  "js_eta_and": {
+    "en": "and",
+    "ar": "و"
+  },
+  "js_eta_between": {
+    "en": "between",
+    "ar": "بين"
+  },
+  "js_eta_by": {
+    "en": "Order today, get it",
+    "ar": "اطلب اليوم واستلمه"
+  },
+  "js_eta_made": {
+    "en": "Made to order: ready to ship in 3–5 business days.",
+    "ar": "يُصنع حسب الطلب: جاهز للشحن خلال 3–5 أيام عمل."
+  },
+  "js_eta_std": {
+    "en": "with standard shipping. Faster delivery available at checkout.",
+    "ar": "بالشحن العادي. يتوفر توصيل أسرع عند إتمام الطلب."
+  },
+  "js_fbt_add": {
+    "en": "Add selected to cart",
+    "ar": "أضف المحدد إلى السلة"
+  },
+  "js_fbt_added": {
+    "en": "Added to cart",
+    "ar": "تمت الإضافة إلى السلة"
+  },
+  "js_fbt_this": {
+    "en": "This item",
+    "ar": "هذا المنتج"
+  },
+  "js_fbt_title": {
+    "en": "Frequently bought together",
+    "ar": "يُشترى معًا عادةً"
+  },
+  "js_fbt_total": {
+    "en": "Total for selected",
+    "ar": "إجمالي المحدد"
+  },
   "js_free_ship_label": {
     "en": "Free",
     "ar": "مجاني"
@@ -1054,6 +1238,10 @@
   "js_free_ship_progress_printer": {
     "en": "Add {n} SAR more to your order for free delivery",
     "ar": "أضف {n} ريال أخرى إلى طلبك للحصول على توصيل مجاني"
+  },
+  "js_free_ship_reached": {
+    "en": "Free delivery unlocked",
+    "ar": "حصلت على توصيل مجاني"
   },
   "js_free_ship_unlocked": {
     "en": "Free Regular delivery unlocked for this order! (Fast shipping still has a fee.)",
@@ -1067,9 +1255,45 @@
     "en": "Starting price — final price depends on the option you choose (e.g. Standalone vs Combo).",
     "ar": "السعر الابتدائي — السعر النهائي يعتمد على الخيار الذي تختاره (مثلاً منفردة أو باقة)."
   },
+  "js_guides_heading": {
+    "en": "Setup & Maintenance Guides",
+    "ar": "أدلة التركيب والصيانة"
+  },
+  "js_guides_official_wiki": {
+    "en": "Official Bambu Lab Guide — Installation, Usage & Maintenance",
+    "ar": "دليل Bambu Lab الرسمي — التركيب والاستخدام والصيانة"
+  },
+  "js_guides_official_youtube": {
+    "en": "Bambu Lab Official YouTube Channel",
+    "ar": "قناة Bambu Lab الرسمية على يوتيوب"
+  },
   "js_in_stock": {
     "en": "In Stock",
     "ar": "متوفر"
+  },
+  "js_kit_colors": {
+    "en": "Pick your filament colors in the order notes at checkout.",
+    "ar": "اختر ألوان الفلمنت في ملاحظات الطلب عند الدفع."
+  },
+  "js_kit_price": {
+    "en": "Kit price",
+    "ar": "سعر الطقم"
+  },
+  "js_kit_save": {
+    "en": "You save",
+    "ar": "توفّر"
+  },
+  "js_kit_separately": {
+    "en": "Bought separately",
+    "ar": "عند الشراء منفصلًا"
+  },
+  "js_kit_title": {
+    "en": "What's in the kit",
+    "ar": "محتويات الطقم"
+  },
+  "js_kit_upsell": {
+    "en": "Save {n} with the",
+    "ar": "وفّر {n} مع"
   },
   "js_motion_off": {
     "en": "Motion: Off",
@@ -1090,6 +1314,10 @@
   "js_nothing_to_compare_p": {
     "en": "Select at least two products from the shop to compare specifications, features and prices.",
     "ar": "اختر منتجين على الأقل من المتجر لمقارنة المواصفات والميزات والأسعار."
+  },
+  "js_only_n_in_stock": {
+    "en": "Only {n} in stock",
+    "ar": "متوفر {n} فقط"
   },
   "js_options": {
     "en": "Options",
@@ -1127,6 +1355,10 @@
     "en": "Quantity",
     "ar": "الكمية"
   },
+  "js_rating_reviews": {
+    "en": "customer reviews",
+    "ar": "تقييم من العملاء"
+  },
   "js_related_products": {
     "en": "Related Products",
     "ar": "منتجات ذات صلة"
@@ -1134,6 +1366,34 @@
   "js_remove": {
     "en": "Remove",
     "ar": "إزالة"
+  },
+  "js_restock_btn": {
+    "en": "Notify me when it's back",
+    "ar": "نبّهني عند توفره"
+  },
+  "js_restock_done": {
+    "en": "Done! We will message you as soon as it is back in stock.",
+    "ar": "تم! سنراسلك فور توفر المنتج من جديد."
+  },
+  "js_restock_fallback": {
+    "en": "Opening WhatsApp so we can note your request…",
+    "ar": "جارٍ فتح واتساب لتسجيل طلبك…"
+  },
+  "js_restock_invalid": {
+    "en": "Please enter a Saudi mobile number (05…) or an email address.",
+    "ar": "أدخل رقم جوال سعودي (05…) أو بريدًا إلكترونيًا."
+  },
+  "js_restock_placeholder": {
+    "en": "WhatsApp number or email",
+    "ar": "رقم واتساب أو بريد إلكتروني"
+  },
+  "js_restock_submit": {
+    "en": "Notify me",
+    "ar": "نبّهني"
+  },
+  "js_restock_title": {
+    "en": "Get a message when this is back in stock",
+    "ar": "استلم رسالة عند توفر المنتج من جديد"
   },
   "js_returns_desc_prefix": {
     "en": "See our",
@@ -1179,17 +1439,21 @@
     "en": "View Product",
     "ar": "عرض المنتج"
   },
-  "js_guides_heading": {
-    "en": "Setup & Maintenance Guides",
-    "ar": "أدلة التركيب والصيانة"
+  "js_wa_filament": {
+    "en": "Ask about this filament on WhatsApp",
+    "ar": "اسأل عن هذا الفلمنت عبر واتساب"
   },
-  "js_guides_official_wiki": {
-    "en": "Official Bambu Lab Guide — Installation, Usage & Maintenance",
-    "ar": "دليل Bambu Lab الرسمي — التركيب والاستخدام والصيانة"
+  "js_wa_item": {
+    "en": "Ask about this item on WhatsApp",
+    "ar": "اسأل عن هذا المنتج عبر واتساب"
   },
-  "js_guides_official_youtube": {
-    "en": "Bambu Lab Official YouTube Channel",
-    "ar": "قناة Bambu Lab الرسمية على يوتيوب"
+  "js_wa_msg": {
+    "en": "Hello! I have a question about",
+    "ar": "مرحبًا! لدي سؤال عن"
+  },
+  "js_wa_printer": {
+    "en": "Ask about this printer on WhatsApp",
+    "ar": "اسأل عن هذه الطابعة عبر واتساب"
   },
   "js_warranty_heading": {
     "en": "Warranty",
@@ -1246,6 +1510,10 @@
   "nav_profile": {
     "en": "Profile",
     "ar": "الحساب"
+  },
+  "nav_rewards": {
+    "en": "Rewards",
+    "ar": "المكافآت"
   },
   "nav_shop": {
     "en": "Shop",
@@ -1335,6 +1603,10 @@
     "en": "Available Now",
     "ar": "متاح الآن"
   },
+  "pm_applepay_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay with Apple Pay, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع عبر Apple Pay، ثم تعود إلى هنا."
+  },
   "pm_bank_bankname": {
     "en": "Bank Name",
     "ar": "اسم البنك"
@@ -1363,9 +1635,37 @@
     "en": "Bank Transfer",
     "ar": "تحويل بنكي"
   },
+  "pm_card_h4": {
+    "en": "Card payment",
+    "ar": "الدفع بالبطاقة"
+  },
+  "pm_card_label": {
+    "en": "Card (mada, Visa, Mastercard)",
+    "ar": "البطاقة (مدى، فيزا، ماستركارد)"
+  },
+  "pm_card_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع بمدى أو فيزا أو ماستركارد، ثم تعود إلى هنا."
+  },
   "pm_soon": {
     "en": "Coming Soon",
     "ar": "قريباً"
+  },
+  "pm_tabby_label": {
+    "en": "Pay in 4 with Tabby",
+    "ar": "قسّمها على 4 دفعات مع تابي"
+  },
+  "pm_tabby_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تابي الآمنة لتقسيم المبلغ، ثم تعود إلى هنا."
+  },
+  "pm_tamara_label": {
+    "en": "Pay Later with Tamara",
+    "ar": "ادفع لاحقًا مع تمارا"
+  },
+  "pm_tamara_p": {
+    "en": "After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.",
+    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تمارا الآمنة لترتيب الدفع، ثم تعود إلى هنا."
   },
   "promo_a1_desc": {
     "en": "The full-size Bambu Lab A1 — bigger build volume than the mini, with optional AMS Lite for 4-color printing.",
@@ -1426,6 +1726,190 @@
   "promo_view_details": {
     "en": "View details",
     "ar": "عرض التفاصيل"
+  },
+  "rwd_badge_top": {
+    "en": "Top tier",
+    "ar": "أعلى مستوى"
+  },
+  "rwd_bday_error": {
+    "en": "Could not save your birthday. Check the date and try again.",
+    "ar": "تعذّر حفظ تاريخ ميلادك. تحقق من التاريخ وحاول مرة أخرى."
+  },
+  "rwd_bday_label": {
+    "en": "Date of birth",
+    "ar": "تاريخ الميلاد"
+  },
+  "rwd_bday_prompt": {
+    "en": "Add your birthday and we’ll add a birthday reward to your balance every year.",
+    "ar": "أضف تاريخ ميلادك وسنضيف مكافأة عيد ميلاد إلى رصيدك كل عام."
+  },
+  "rwd_bday_save": {
+    "en": "Save birthday",
+    "ar": "حفظ تاريخ الميلاد"
+  },
+  "rwd_crumb": {
+    "en": "Black Arrow Loyalty Rewards",
+    "ar": "مكافآت ولاء بلاك آرو"
+  },
+  "rwd_h1": {
+    "en": "Black Arrow Loyalty Rewards",
+    "ar": "مكافآت ولاء بلاك آرو"
+  },
+  "rwd_how_1": {
+    "en": "Create or sign in to your Black Arrow 3D account and add your phone number.",
+    "ar": "أنشئ حسابًا أو سجّل الدخول إلى حسابك في Black Arrow 3D وأضف رقم هاتفك."
+  },
+  "rwd_how_2": {
+    "en": "Shop normally — every order adds to your reward balance, shown in SAR.",
+    "ar": "تسوّق كالمعتاد — كل طلب يضيف إلى رصيد مكافآتك، معروضًا بالريال."
+  },
+  "rwd_how_3": {
+    "en": "From your next order onward, use your balance toward what you buy.",
+    "ar": "ابتداءً من طلبك التالي، استخدم رصيدك فيما تشتريه."
+  },
+  "rwd_how_4": {
+    "en": "Reach 5,000 SAR lifetime spend for Gold, 8,000 SAR for Platinum — your status never resets, even after you redeem.",
+    "ar": "صِل إلى 5,000 ريال إنفاقًا تراكميًا للمستوى الذهبي، و8,000 ريال للبلاتيني — مستواك لا يُعاد تصفيره أبدًا، حتى بعد استخدام رصيدك."
+  },
+  "rwd_how_5": {
+    "en": "Gold and Platinum members also get free delivery, and Platinum members a surprise 3D-printed gift with select orders.",
+    "ar": "يحصل أعضاء المستوى الذهبي والبلاتيني أيضًا على توصيل مجاني، وأعضاء البلاتيني على هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة."
+  },
+  "rwd_how_h2": {
+    "en": "How it works",
+    "ar": "كيف يعمل البرنامج"
+  },
+  "rwd_join_cta": {
+    "en": "Join Black Arrow Loyalty Rewards",
+    "ar": "انضم إلى مكافآت ولاء بلاك آرو"
+  },
+  "rwd_join_dob": {
+    "en": "Date of birth (optional, for your birthday reward)",
+    "ar": "تاريخ الميلاد (اختياري، لمكافأة عيد ميلادك)"
+  },
+  "rwd_join_error": {
+    "en": "Could not join right now — please try again.",
+    "ar": "تعذّر الانضمام الآن — يرجى المحاولة مرة أخرى."
+  },
+  "rwd_live_bday": {
+    "en": "Birthday",
+    "ar": "عيد الميلاد"
+  },
+  "rwd_live_name": {
+    "en": "Name",
+    "ar": "الاسم"
+  },
+  "rwd_live_sar": {
+    "en": "SAR reward balance",
+    "ar": "ريال رصيد المكافآت"
+  },
+  "rwd_live_since": {
+    "en": "Member since",
+    "ar": "عضو منذ"
+  },
+  "rwd_overline": {
+    "en": "Loyalty Program",
+    "ar": "برنامج الولاء"
+  },
+  "rwd_panel_error": {
+    "en": "We couldn't load your card right now — please refresh or try again shortly.",
+    "ar": "تعذّر تحميل بطاقتك الآن — يرجى تحديث الصفحة أو المحاولة لاحقًا."
+  },
+  "rwd_panel_needsphone": {
+    "en": "Add your phone number to join Black Arrow Loyalty Rewards and get your 5 SAR welcome credit.",
+    "ar": "أضف رقم هاتفك للانضمام إلى مكافآت ولاء بلاك آرو والحصول على رصيد ترحيبي 5 ريال."
+  },
+  "rwd_panel_signedout": {
+    "en": "Sign in or create a free account to see your card and join Black Arrow Loyalty Rewards.",
+    "ar": "سجّل الدخول أو أنشئ حسابًا مجانيًا لرؤية بطاقتك والانضمام إلى مكافآت ولاء بلاك آرو."
+  },
+  "rwd_panel_signedout_cta": {
+    "en": "Sign In / Create Account",
+    "ar": "تسجيل الدخول / إنشاء حساب"
+  },
+  "rwd_perk_gold_1": {
+    "en": "Everything in Silver, at a better rate",
+    "ar": "كل ما في المستوى الفضي، بمعدل أفضل"
+  },
+  "rwd_perk_gold_2": {
+    "en": "Free delivery on every order",
+    "ar": "توصيل مجاني مع كل طلب"
+  },
+  "rwd_perk_gold_3": {
+    "en": "Birthday reward: 20 SAR",
+    "ar": "مكافأة عيد الميلاد: 20 ريال"
+  },
+  "rwd_perk_platinum_1": {
+    "en": "Everything in Gold, at our best rate",
+    "ar": "كل ما في المستوى الذهبي، وبأفضل معدلاتنا"
+  },
+  "rwd_perk_platinum_2": {
+    "en": "Free delivery on every order",
+    "ar": "توصيل مجاني مع كل طلب"
+  },
+  "rwd_perk_platinum_3": {
+    "en": "Surprise 3D-printed gift with select orders",
+    "ar": "هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة"
+  },
+  "rwd_perk_platinum_4": {
+    "en": "Birthday reward: 30 SAR",
+    "ar": "مكافأة عيد الميلاد: 30 ريال"
+  },
+  "rwd_perk_silver_1": {
+    "en": "Earn reward balance on every order",
+    "ar": "اكسب رصيد مكافآت مع كل طلب"
+  },
+  "rwd_perk_silver_2": {
+    "en": "Use your balance from your next order",
+    "ar": "استخدم رصيدك ابتداءً من طلبك التالي"
+  },
+  "rwd_perk_silver_3": {
+    "en": "Birthday reward: 10 SAR",
+    "ar": "مكافأة عيد الميلاد: 10 ريال"
+  },
+  "rwd_status_gold": {
+    "en": "Enhanced Rewards",
+    "ar": "مكافآت معززة"
+  },
+  "rwd_status_platinum": {
+    "en": "Maximum Rewards",
+    "ar": "أقصى مكافآت"
+  },
+  "rwd_status_silver": {
+    "en": "Member Rewards",
+    "ar": "مكافآت الأعضاء"
+  },
+  "rwd_tagline": {
+    "en": "Every order adds to your reward balance. Use it from your next order, and unlock Gold or Platinum status as you shop with us.",
+    "ar": "كل طلب يضيف إلى رصيد مكافآتك. استخدمه من طلبك التالي، وافتح مستوى ذهبي أو بلاتيني كلما تسوقت معنا أكثر."
+  },
+  "rwd_tier_gold": {
+    "en": "Gold",
+    "ar": "ذهبي"
+  },
+  "rwd_tier_platinum": {
+    "en": "Platinum",
+    "ar": "بلاتيني"
+  },
+  "rwd_tier_silver": {
+    "en": "Silver",
+    "ar": "فضي"
+  },
+  "rwd_unlock_gold": {
+    "en": "Unlocks at 5,000 SAR lifetime spend",
+    "ar": "يُفتح عند إنفاق 5,000 ريال تراكميًا"
+  },
+  "rwd_unlock_platinum": {
+    "en": "Unlocks at 8,000 SAR lifetime spend",
+    "ar": "يُفتح عند إنفاق 8,000 ريال تراكميًا"
+  },
+  "rwd_unlock_silver": {
+    "en": "Free when you sign up",
+    "ar": "مجانًا عند التسجيل"
+  },
+  "rwd_your_card_sr": {
+    "en": "Your Black Arrow Loyalty Rewards Card",
+    "ar": "بطاقة مكافآت ولاء بلاك آرو الخاصة بك"
   },
   "shop_all": {
     "en": "All",
@@ -1511,6 +1995,46 @@
     "en": "Top quality",
     "ar": "الأعلى جودة"
   },
+  "slide_bambu_text": {
+    "en": "10 official Bambu Lab colours in stock. Limited quantity.",
+    "ar": "10 ألوان أصلية من Bambu Lab متوفرة. الكمية محدودة."
+  },
+  "slide_bambu_title": {
+    "en": "Bambu Lab PLA Basic & Matte",
+    "ar": "Bambu Lab PLA Basic و Matte"
+  },
+  "slide_cta": {
+    "en": "Shop now",
+    "ar": "تسوق الآن"
+  },
+  "slide_kr_text": {
+    "en": "New PLA and PETG colours, plus PETG HS high-speed filament.",
+    "ar": "ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة."
+  },
+  "slide_kr_title": {
+    "en": "New KINGROON filament",
+    "ar": "فيلامنت KINGROON جديد"
+  },
+  "slide_tag_new": {
+    "en": "Just arrived",
+    "ar": "وصل حديثًا"
+  },
+  "slide_tag_now": {
+    "en": "Now available",
+    "ar": "متوفر الآن"
+  },
+  "slide_u1_text": {
+    "en": "4-toolhead multi-colour 3D printer, up to 500 mm/s. In stock now.",
+    "ar": "طابعة ثلاثية الأبعاد متعددة الألوان بأربعة رؤوس طباعة، بسرعة تصل إلى 500 مم/ث. متوفرة الآن."
+  },
+  "slide_u1_title": {
+    "en": "Snapmaker U1",
+    "ar": "Snapmaker U1"
+  },
+  "thanks_contact_note": {
+    "en": "A member of our team will personally contact you shortly to confirm every detail of your order, so you can be sure everything is exactly right before it ships.",
+    "ar": "سيتواصل معك أحد أعضاء فريقنا شخصيًا قريبًا لتأكيد جميع تفاصيل طلبك، لنضمن معًا أن كل شيء مطابق تمامًا لرغبتك قبل شحنه."
+  },
   "thanks_details_h": {
     "en": "Your order",
     "ar": "طلبك"
@@ -1582,433 +2106,5 @@
   "trust_warranty": {
     "en": "Manufacturer warranty",
     "ar": "ضمان الشركة المصنّعة"
-  },
-  "nav_rewards": {
-    "en": "Rewards",
-    "ar": "المكافآت"
-  },
-  "rwd_crumb": {
-    "en": "Black Arrow Loyalty Rewards",
-    "ar": "مكافآت ولاء بلاك آرو"
-  },
-  "rwd_overline": {
-    "en": "Loyalty Program",
-    "ar": "برنامج الولاء"
-  },
-  "rwd_h1": {
-    "en": "Black Arrow Loyalty Rewards",
-    "ar": "مكافآت ولاء بلاك آرو"
-  },
-  "rwd_tagline": {
-    "en": "Every order adds to your reward balance. Use it from your next order, and unlock Gold or Platinum status as you shop with us.",
-    "ar": "كل طلب يضيف إلى رصيد مكافآتك. استخدمه من طلبك التالي، وافتح مستوى ذهبي أو بلاتيني كلما تسوقت معنا أكثر."
-  },
-  "rwd_tier_silver": {
-    "en": "Silver",
-    "ar": "فضي"
-  },
-  "rwd_status_silver": {
-    "en": "Member Rewards",
-    "ar": "مكافآت الأعضاء"
-  },
-  "rwd_perk_silver_1": {
-    "en": "Earn reward balance on every order",
-    "ar": "اكسب رصيد مكافآت مع كل طلب"
-  },
-  "rwd_perk_silver_2": {
-    "en": "Use your balance from your next order",
-    "ar": "استخدم رصيدك ابتداءً من طلبك التالي"
-  },
-  "rwd_perk_silver_3": {
-    "en": "Birthday reward: 2,000 points",
-    "ar": "مكافأة عيد الميلاد: 2,000 نقطة"
-  },
-  "rwd_tier_gold": {
-    "en": "Gold",
-    "ar": "ذهبي"
-  },
-  "rwd_status_gold": {
-    "en": "Enhanced Rewards",
-    "ar": "مكافآت معززة"
-  },
-  "rwd_badge_top": {
-    "en": "Top tier",
-    "ar": "أعلى مستوى"
-  },
-  "rwd_unlock_silver": {
-    "en": "Free when you sign up",
-    "ar": "مجانًا عند التسجيل"
-  },
-  "rwd_unlock_gold": {
-    "en": "Unlocks at 5,000 SAR lifetime spend",
-    "ar": "يُفتح عند إنفاق 5,000 ريال تراكميًا"
-  },
-  "rwd_perk_gold_1": {
-    "en": "Everything in Silver, at a better rate",
-    "ar": "كل ما في المستوى الفضي، بمعدل أفضل"
-  },
-  "rwd_perk_gold_2": {
-    "en": "Free delivery on every order",
-    "ar": "توصيل مجاني مع كل طلب"
-  },
-  "rwd_perk_gold_3": {
-    "en": "Birthday reward: 3,000 points",
-    "ar": "مكافأة عيد الميلاد: 3,000 نقطة"
-  },
-  "rwd_tier_platinum": {
-    "en": "Platinum",
-    "ar": "بلاتيني"
-  },
-  "rwd_status_platinum": {
-    "en": "Maximum Rewards",
-    "ar": "أقصى مكافآت"
-  },
-  "rwd_unlock_platinum": {
-    "en": "Unlocks at 8,000 SAR lifetime spend",
-    "ar": "يُفتح عند إنفاق 8,000 ريال تراكميًا"
-  },
-  "rwd_perk_platinum_1": {
-    "en": "Everything in Gold, at our best rate",
-    "ar": "كل ما في المستوى الذهبي، وبأفضل معدلاتنا"
-  },
-  "rwd_perk_platinum_2": {
-    "en": "Free delivery on every order",
-    "ar": "توصيل مجاني مع كل طلب"
-  },
-  "rwd_perk_platinum_3": {
-    "en": "Surprise 3D-printed gift with select orders",
-    "ar": "هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة"
-  },
-  "rwd_perk_platinum_4": {
-    "en": "Birthday reward: 4,000 points",
-    "ar": "مكافأة عيد الميلاد: 4,000 نقطة"
-  },
-  "rwd_your_card_sr": {
-    "en": "Your Black Arrow Loyalty Rewards Card",
-    "ar": "بطاقة مكافآت ولاء بلاك آرو الخاصة بك"
-  },
-  "rwd_live_name": {
-    "en": "Name",
-    "ar": "الاسم"
-  },
-  "rwd_live_since": {
-    "en": "Member since",
-    "ar": "عضو منذ"
-  },
-  "rwd_live_sar": {
-    "en": "SAR reward balance",
-    "ar": "ريال رصيد المكافآت"
-  },
-  "rwd_panel_signedout": {
-    "en": "Sign in or create a free account to see your card and join Black Arrow Loyalty Rewards.",
-    "ar": "سجّل الدخول أو أنشئ حسابًا مجانيًا لرؤية بطاقتك والانضمام إلى مكافآت ولاء بلاك آرو."
-  },
-  "rwd_panel_signedout_cta": {
-    "en": "Sign In / Create Account",
-    "ar": "تسجيل الدخول / إنشاء حساب"
-  },
-  "rwd_panel_needsphone": {
-    "en": "Add your phone number to join Black Arrow Loyalty Rewards and get your 5 SAR welcome credit.",
-    "ar": "أضف رقم هاتفك للانضمام إلى مكافآت ولاء بلاك آرو والحصول على رصيد ترحيبي 5 ريال."
-  },
-  "rwd_join_error": {
-    "en": "Could not join right now — please try again.",
-    "ar": "تعذّر الانضمام الآن — يرجى المحاولة مرة أخرى."
-  },
-  "rwd_join_cta": {
-    "en": "Join Black Arrow Loyalty Rewards",
-    "ar": "انضم إلى مكافآت ولاء بلاك آرو"
-  },
-  "rwd_panel_error": {
-    "en": "We couldn't load your card right now — please refresh or try again shortly.",
-    "ar": "تعذّر تحميل بطاقتك الآن — يرجى تحديث الصفحة أو المحاولة لاحقًا."
-  },
-  "rwd_how_h2": {
-    "en": "How it works",
-    "ar": "كيف يعمل البرنامج"
-  },
-  "rwd_how_1": {
-    "en": "Create or sign in to your Black Arrow 3D account and add your phone number.",
-    "ar": "أنشئ حسابًا أو سجّل الدخول إلى حسابك في Black Arrow 3D وأضف رقم هاتفك."
-  },
-  "rwd_how_2": {
-    "en": "Shop normally — every order adds to your reward balance, shown in SAR.",
-    "ar": "تسوّق كالمعتاد — كل طلب يضيف إلى رصيد مكافآتك، معروضًا بالريال."
-  },
-  "rwd_how_3": {
-    "en": "From your next order onward, use your balance toward what you buy.",
-    "ar": "ابتداءً من طلبك التالي، استخدم رصيدك فيما تشتريه."
-  },
-  "rwd_how_4": {
-    "en": "Reach 5,000 SAR lifetime spend for Gold, 8,000 SAR for Platinum — your status never resets, even after you redeem.",
-    "ar": "صِل إلى 5,000 ريال إنفاقًا تراكميًا للمستوى الذهبي، و8,000 ريال للبلاتيني — مستواك لا يُعاد تصفيره أبدًا، حتى بعد استخدام رصيدك."
-  },
-  "rwd_how_5": {
-    "en": "Gold and Platinum members also get free delivery, and Platinum members a surprise 3D-printed gift with select orders.",
-    "ar": "يحصل أعضاء المستوى الذهبي والبلاتيني أيضًا على توصيل مجاني، وأعضاء البلاتيني على هدية مطبوعة ثلاثية الأبعاد مفاجئة مع طلبات مختارة."
-  },
-  "checkout_notes_placeholder": {
-    "en": "Transfer reference, delivery instructions, etc.",
-    "ar": "رقم مرجع التحويل، تعليمات التوصيل، إلخ."
-  },
-  "cities_guides": {
-    "en": "City guides",
-    "ar": "أدلة المدن"
-  },
-  "cities_h2": {
-    "en": "3D printers delivered across Saudi Arabia",
-    "ar": "طابعات ثلاثية الأبعاد بالتوصيل لكل مدن السعودية"
-  },
-  "cities_p": {
-    "en": "We ship from Dammam to every city in the Kingdom. In-stock orders placed before 4 pm (Sunday to Thursday) leave the same day. Standard delivery takes 4–5 business days and fast delivery 2–3.",
-    "ar": "نشحن من الدمام إلى كل مدن المملكة. الطلبات المتوفرة التي تصل قبل الساعة 4 مساءً (من الأحد إلى الخميس) تُشحن في اليوم نفسه. التوصيل العادي يستغرق 4–5 أيام عمل والسريع 2–3 أيام."
-  },
-  "city_abha_khamis_mushait": {
-    "en": "Abha & Khamis Mushait",
-    "ar": "أبها وخميس مشيط"
-  },
-  "city_dammam_khobar": {
-    "en": "Dammam & Al Khobar",
-    "ar": "الدمام والخبر"
-  },
-  "city_jeddah": {
-    "en": "Jeddah",
-    "ar": "جدة"
-  },
-  "city_jubail": {
-    "en": "Jubail",
-    "ar": "الجبيل"
-  },
-  "city_madinah": {
-    "en": "Madinah",
-    "ar": "المدينة المنورة"
-  },
-  "city_makkah": {
-    "en": "Makkah",
-    "ar": "مكة المكرمة"
-  },
-  "city_qassim": {
-    "en": "Qassim",
-    "ar": "القصيم"
-  },
-  "city_riyadh": {
-    "en": "Riyadh",
-    "ar": "الرياض"
-  },
-  "city_tabuk": {
-    "en": "Tabuk",
-    "ar": "تبوك"
-  },
-  "glance_based_k": {
-    "en": "Based in",
-    "ar": "المقر"
-  },
-  "glance_based_v": {
-    "en": "Dammam, Saudi Arabia. A business line of Black Arrow Venture (CR 7054542985).",
-    "ar": "الدمام، المملكة العربية السعودية. أحد أنشطة شركة بلاك أرو فنتشر (سجل تجاري 7054542985)."
-  },
-  "glance_delivery_k": {
-    "en": "Delivery",
-    "ar": "التوصيل"
-  },
-  "glance_delivery_v": {
-    "en": "All cities in Saudi Arabia: standard 4–5 business days (30 SAR), fast 2–3 business days (50 SAR). We also deliver across the GCC: UAE, Kuwait, Qatar, Bahrain and Oman.",
-    "ar": "لكل مدن السعودية: العادي 4–5 أيام عمل (30 ريالًا)، والسريع 2–3 أيام عمل (50 ريالًا). ونوصّل أيضًا إلى جميع دول الخليج: الإمارات والكويت وقطر والبحرين وعُمان."
-  },
-  "glance_h3": {
-    "en": "Black Arrow 3D at a glance",
-    "ar": "بلاك أرو 3D باختصار"
-  },
-  "glance_pay_k": {
-    "en": "Payment",
-    "ar": "الدفع"
-  },
-  "glance_pay_v": {
-    "en": "Bank transfer, mada, Visa, Mastercard, Apple Pay, Tabby and Tamara.",
-    "ar": "تحويل بنكي، مدى، فيزا، ماستركارد، Apple Pay، تابي وتمارا."
-  },
-  "glance_sells_k": {
-    "en": "Sells",
-    "ar": "المنتجات"
-  },
-  "glance_sells_v": {
-    "en": "3D printers (Bambu Lab, Creality, Elegoo, Snapmaker, Anycubic, Flashforge), filament, spare parts, 3D printed gifts and a custom 3D printing service.",
-    "ar": "طابعات ثلاثية الأبعاد (Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge)، وفلمنت، وقطع غيار، وهدايا مطبوعة، وخدمة طباعة ثلاثية الأبعاد حسب الطلب."
-  },
-  "glance_support_k": {
-    "en": "Support",
-    "ar": "الدعم"
-  },
-  "glance_support_v": {
-    "en": "Arabic and English, by WhatsApp +966 56 022 4715 or sales@blackarrowksa.com.",
-    "ar": "بالعربية والإنجليزية عبر واتساب ‎+966 56 022 4715 أو sales@blackarrowksa.com."
-  },
-  "js_bnpl_card": {
-    "en": "4 payments of",
-    "ar": "4 دفعات بقيمة"
-  },
-  "js_bnpl_prefix": {
-    "en": "or 4 interest-free payments of",
-    "ar": "أو 4 دفعات بدون فوائد بقيمة"
-  },
-  "js_bnpl_tamara": {
-    "en": "Tamara also available at checkout",
-    "ar": "تمارا متاحة أيضًا عند الدفع"
-  },
-  "js_bnpl_with": {
-    "en": "with",
-    "ar": "مع"
-  },
-  "js_eta_and": {
-    "en": "and",
-    "ar": "و"
-  },
-  "js_eta_between": {
-    "en": "between",
-    "ar": "بين"
-  },
-  "js_eta_by": {
-    "en": "Order today, get it",
-    "ar": "اطلب اليوم واستلمه"
-  },
-  "js_eta_made": {
-    "en": "Made to order: ready to ship in 3–5 business days.",
-    "ar": "يُصنع حسب الطلب: جاهز للشحن خلال 3–5 أيام عمل."
-  },
-  "js_eta_std": {
-    "en": "with standard shipping. Faster delivery available at checkout.",
-    "ar": "بالشحن العادي. يتوفر توصيل أسرع عند إتمام الطلب."
-  },
-  "js_fbt_add": {
-    "en": "Add selected to cart",
-    "ar": "أضف المحدد إلى السلة"
-  },
-  "js_fbt_added": {
-    "en": "Added to cart",
-    "ar": "تمت الإضافة إلى السلة"
-  },
-  "js_fbt_this": {
-    "en": "This item",
-    "ar": "هذا المنتج"
-  },
-  "js_fbt_title": {
-    "en": "Frequently bought together",
-    "ar": "يُشترى معًا عادةً"
-  },
-  "js_fbt_total": {
-    "en": "Total for selected",
-    "ar": "إجمالي المحدد"
-  },
-  "js_free_ship_reached": {
-    "en": "Free delivery unlocked",
-    "ar": "حصلت على توصيل مجاني"
-  },
-  "js_kit_colors": {
-    "en": "Pick your filament colors in the order notes at checkout.",
-    "ar": "اختر ألوان الفلمنت في ملاحظات الطلب عند الدفع."
-  },
-  "js_kit_price": {
-    "en": "Kit price",
-    "ar": "سعر الطقم"
-  },
-  "js_kit_save": {
-    "en": "You save",
-    "ar": "توفّر"
-  },
-  "js_kit_separately": {
-    "en": "Bought separately",
-    "ar": "عند الشراء منفصلًا"
-  },
-  "js_kit_title": {
-    "en": "What's in the kit",
-    "ar": "محتويات الطقم"
-  },
-  "js_kit_upsell": {
-    "en": "Save {n} with the",
-    "ar": "وفّر {n} مع"
-  },
-  "js_rating_reviews": {
-    "en": "customer reviews",
-    "ar": "تقييم من العملاء"
-  },
-  "js_restock_btn": {
-    "en": "Notify me when it's back",
-    "ar": "نبّهني عند توفره"
-  },
-  "js_restock_done": {
-    "en": "Done! We will message you as soon as it is back in stock.",
-    "ar": "تم! سنراسلك فور توفر المنتج من جديد."
-  },
-  "js_restock_fallback": {
-    "en": "Opening WhatsApp so we can note your request…",
-    "ar": "جارٍ فتح واتساب لتسجيل طلبك…"
-  },
-  "js_restock_invalid": {
-    "en": "Please enter a Saudi mobile number (05…) or an email address.",
-    "ar": "أدخل رقم جوال سعودي (05…) أو بريدًا إلكترونيًا."
-  },
-  "js_restock_placeholder": {
-    "en": "WhatsApp number or email",
-    "ar": "رقم واتساب أو بريد إلكتروني"
-  },
-  "js_restock_submit": {
-    "en": "Notify me",
-    "ar": "نبّهني"
-  },
-  "js_restock_title": {
-    "en": "Get a message when this is back in stock",
-    "ar": "استلم رسالة عند توفر المنتج من جديد"
-  },
-  "js_wa_filament": {
-    "en": "Ask about this filament on WhatsApp",
-    "ar": "اسأل عن هذا الفلمنت عبر واتساب"
-  },
-  "js_wa_item": {
-    "en": "Ask about this item on WhatsApp",
-    "ar": "اسأل عن هذا المنتج عبر واتساب"
-  },
-  "js_wa_msg": {
-    "en": "Hello! I have a question about",
-    "ar": "مرحبًا! لدي سؤال عن"
-  },
-  "js_wa_printer": {
-    "en": "Ask about this printer on WhatsApp",
-    "ar": "اسأل عن هذه الطابعة عبر واتساب"
-  },
-  "pm_applepay_p": {
-    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay with Apple Pay, then returned here.",
-    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع عبر Apple Pay، ثم تعود إلى هنا."
-  },
-  "pm_card_h4": {
-    "en": "Card payment",
-    "ar": "الدفع بالبطاقة"
-  },
-  "pm_card_label": {
-    "en": "Card (mada, Visa, Mastercard)",
-    "ar": "البطاقة (مدى، فيزا، ماستركارد)"
-  },
-  "pm_card_p": {
-    "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.",
-    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع بمدى أو فيزا أو ماستركارد، ثم تعود إلى هنا."
-  },
-  "pm_tabby_label": {
-    "en": "Pay in 4 with Tabby",
-    "ar": "قسّمها على 4 دفعات مع تابي"
-  },
-  "pm_tabby_p": {
-    "en": "After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.",
-    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تابي الآمنة لتقسيم المبلغ، ثم تعود إلى هنا."
-  },
-  "pm_tamara_label": {
-    "en": "Pay Later with Tamara",
-    "ar": "ادفع لاحقًا مع تمارا"
-  },
-  "pm_tamara_p": {
-    "en": "After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.",
-    "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة تمارا الآمنة لترتيب الدفع، ثم تعود إلى هنا."
-  },
-  "thanks_contact_note": {
-    "en": "A member of our team will personally contact you shortly to confirm every detail of your order, so you can be sure everything is exactly right before it ships.",
-    "ar": "سيتواصل معك أحد أعضاء فريقنا شخصيًا قريبًا لتأكيد جميع تفاصيل طلبك، لنضمن معًا أن كل شيء مطابق تمامًا لرغبتك قبل شحنه."
   }
 }

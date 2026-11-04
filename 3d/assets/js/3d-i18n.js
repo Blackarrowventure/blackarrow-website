@@ -550,6 +550,15 @@
       js_best_seller_badge_2: 'Customer Favorite',
       js_best_seller_badge_n: 'Top Pick',
       js_vat_included: 'VAT included',
+      slide_tag_now: 'Now available',
+      slide_tag_new: 'Just arrived',
+      slide_u1_title: 'Snapmaker U1',
+      slide_u1_text: '4-toolhead multi-colour 3D printer, up to 500 mm/s. In stock now.',
+      slide_bambu_title: 'Bambu Lab PLA Basic & Matte',
+      slide_bambu_text: '10 official Bambu Lab colours in stock. Limited quantity.',
+      slide_kr_title: 'New KINGROON filament',
+      slide_kr_text: 'New PLA and PETG colours, plus PETG HS high-speed filament.',
+      slide_cta: 'Shop now',
       announce_1: 'Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
@@ -1091,6 +1100,15 @@
       js_best_seller_badge_2: 'المفضل لدى العملاء',
       js_best_seller_badge_n: 'مُختار مميز',
       js_vat_included: 'شامل ضريبة القيمة المضافة',
+      slide_tag_now: 'متوفر الآن',
+      slide_tag_new: 'وصل حديثًا',
+      slide_u1_title: 'Snapmaker U1',
+      slide_u1_text: 'طابعة ثلاثية الأبعاد متعددة الألوان بأربعة رؤوس طباعة، بسرعة تصل إلى 500 مم/ث. متوفرة الآن.',
+      slide_bambu_title: 'Bambu Lab PLA Basic و Matte',
+      slide_bambu_text: '10 ألوان أصلية من Bambu Lab متوفرة. الكمية محدودة.',
+      slide_kr_title: 'فيلامنت KINGROON جديد',
+      slide_kr_text: 'ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة.',
+      slide_cta: 'تسوق الآن',
       announce_1: 'متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };

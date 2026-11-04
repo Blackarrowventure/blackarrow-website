@@ -21,7 +21,8 @@ import generate_3d_blog_ar as ar_blog  # noqa: E402
 
 # (module, publish date). seo_posts_products: filament and product posts added 2026-10-22.
 MODULES = [('seo_posts_cities', '2026-10-15'), ('seo_posts_buying', '2026-10-15'), ('seo_posts_local', '2026-10-15'),
-           ('seo_posts_products', '2026-10-22'), ('seo_posts_bambu_filament', '2026-11-01')]
+           ('seo_posts_products', '2026-10-22'), ('seo_posts_bambu_filament', '2026-11-01'),
+           ('seo_posts_kingroon', '2026-11-04')]
 
 
 def load_posts():

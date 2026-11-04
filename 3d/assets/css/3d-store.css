@@ -1059,7 +1059,11 @@ html[data-b3d-motion="off"] [data-slider-track] {
 .b3d-slider__track {
   display: flex;
   transition: transform .5s ease;
+  /* The script slides with translateX(-n * 100%), which only works left-to-right;
+     on Arabic pages the slides themselves stay right-to-left. */
+  direction: ltr;
 }
+[dir="rtl"] .b3d-slide { direction: rtl; }
 
 /* One quiet dark surface for every slide — a single warm glow instead of a
    different accent hue and striped texture per slide, so the product,
@@ -1106,6 +1110,26 @@ html[data-b3d-motion="off"] [data-slider-track] {
   height: 100%;
 }
 .b3d-slider--hero .b3d-slide--img-only img { object-fit: cover; }
+/* Promo slides: photo + caption panel along the bottom */
+.b3d-slide--promo a { position: relative; color: #fff; text-decoration: none; }
+.b3d-slider--hero .b3d-slide--promo-fit { background: #fff; }
+.b3d-slider--hero .b3d-slide--promo-fit img { object-fit: contain; object-position: 50% 8%; padding: 4% 6% 30%; box-sizing: border-box; }
+.b3d-slide__cap { position: absolute; inset: auto 0 0 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 56px 28px 26px; background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,.86) 38%, rgba(20,20,20,.94) 100%); text-align: start; }
+.b3d-slide__cap-tag { background: var(--clr-accent); color: #1a1a1a; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+.b3d-slide__cap-title { font-family: inherit; font-size: clamp(1.35rem, 2.2vw, 2rem); font-weight: 700; line-height: 1.15; text-wrap: balance; }
+.b3d-slide__cap-text { font-size: .95rem; line-height: 1.5; color: rgba(255,255,255,.85); max-width: 46ch; }
+.b3d-slide__cap-cta { font-style: normal; font-weight: 700; font-size: .92rem; color: var(--clr-accent); margin-top: 2px; }
+.b3d-slide__cap-cta::after { content: " \2192"; }
+[dir="rtl"] .b3d-slide__cap-cta::after { content: " \2190"; }
+.b3d-slide--promo a:hover .b3d-slide__cap-cta, .b3d-slide--promo a:focus-visible .b3d-slide__cap-cta { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 720px) {
+  .b3d-slide__cap { padding: 28px 16px 30px; gap: 3px; }
+  .b3d-slide__cap-title { font-size: 1.15rem; }
+  .b3d-slide__cap-text { display: none; }
+  .b3d-slide__cap-tag { font-size: .64rem; padding: 3px 8px; }
+  .b3d-slide__cap-cta { font-size: .84rem; }
+  .b3d-slider--hero .b3d-slide--promo-fit img { padding: 3% 8% 24%; }
+}
 
 .b3d-slide__content { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; max-width: 440px; }
 @media (max-width: 720px) { .b3d-slide__content { align-items: center; max-width: none; } }
