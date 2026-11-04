@@ -3719,8 +3719,17 @@
       track.classList.add('b3d-announce__track--run');
       for (var c = 0; c < 12; c++) {
         parts.forEach(function (text) {
+          // "Message => /path" makes that message a link.
+          var bits = text.split(' => ');
           var item = document.createElement('span');
-          item.textContent = text;
+          if (bits.length === 2 && bits[1].charAt(0) === '/') {
+            var a = document.createElement('a');
+            a.href = bits[1];
+            a.textContent = bits[0];
+            item.appendChild(a);
+          } else {
+            item.textContent = text;
+          }
           track.appendChild(item);
         });
       }

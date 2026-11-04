@@ -1043,6 +1043,9 @@ html[data-b3d-motion="off"] [data-slider-track] {
    and script slides the track by half its length for a seamless loop. */
 .b3d-announce__track--run { gap: 0; padding-left: 0; animation: none !important; will-change: transform; }
 .b3d-announce__track--run > span { padding-inline-end: 64px; }
+.b3d-announce__track a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.b3d-announce__track a:hover { text-decoration-thickness: 2px; }
+.b3d-announce__track a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 3px; }
 
 /* Promo slider */
 .b3d-slider {
