@@ -58,11 +58,23 @@ async function accountPhone(userId) {
   return { name: c.name || '', phone: String((locked ? c.rewards_phone : c.phone) || '').trim(), locked };
 }
 
+// A phone opens one card for one website account. True if another account has
+// already claimed it (rewards_phone is stored normalized).
+async function phoneClaimedByOther(userId, phone) {
+  const rows = await db('GET', 'customers?rewards_phone=eq.' + encodeURIComponent(phone) +
+    '&id=neq.' + encodeURIComponent(userId) + '&select=id&limit=1');
+  return !!(rows && rows.length);
+}
+
+// Claims the phone for this account. False if the database refuses because
+// another account claimed it at the same moment (unique index, 409).
 async function lockPhone(userId, phone) {
   try {
     await db('PATCH', 'customers?id=eq.' + encodeURIComponent(userId) + '&rewards_phone=is.null', { rewards_phone: phone }, 'return=minimal');
+    return true;
   } catch (e) {
-    // Column not added yet (supabase/3d-order-details.sql): not fatal.
+    if (e.message === 'supabase_409') return false;
+    throw e;
   }
 }
 
@@ -94,16 +106,30 @@ function normalizePhone(p) {
   return d;
 }
 
-// { user, phone, member } | { user, needsPhone: true } | null (not signed in)
+// { user, phone, member } | { user, needsPhone: true, phoneTaken? } | null (not signed in)
+//
+// A card belongs to the website account that claimed its phone first. The claim
+// happens only on enrolment (Rewards page / cart, opts.enroll); every other
+// caller (checkout, bank orders) only sees a card this account already claimed,
+// so typing someone else's phone into a profile never reaches their balance.
 async function memberForToken(token, opts) {
   const user = await websiteUser(token);
   if (!user) return null;
   const acct = await accountPhone(user.id);
   if (!acct.phone) return { user, needsPhone: true };
-  if (opts && opts.enroll) {
+  const enroll = !!(opts && opts.enroll);
+  if (!acct.locked) {
+    if (!enroll) return { user, phone: null, member: null };
+    const phone = normalizePhone(acct.phone);
+    if (!phone) return { user, needsPhone: true };
+    if (await phoneClaimedByOther(user.id, phone)) return { user, needsPhone: true, phoneTaken: true };
+    if (!(await lockPhone(user.id, phone))) return { user, needsPhone: true, phoneTaken: true };
+    acct.phone = phone;
+    acct.locked = true;
+  }
+  if (enroll) {
     const name = acct.name || (user.email ? user.email.split('@')[0] : 'Member');
     await crmRpc('bav3d_loyalty_signup', { p_full_name: name, p_phone: acct.phone, p_date_of_birth: null });
-    if (!acct.locked) await lockPhone(user.id, acct.phone);
   }
   const rows = await crmRpc('bav3d_loyalty_get', { p_phone: acct.phone });
   const row = rows && rows[0];

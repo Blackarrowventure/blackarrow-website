@@ -45,4 +45,21 @@ function bearer(req) {
   return h.startsWith('Bearer ') ? h.slice(7).trim() : '';
 }
 
-module.exports = { db, insertOrder, websiteUser, bearer };
+// Flood limit (supabase/3d-security-2026-11.sql). Fails open: if the limiter itself is not
+// reachable or not set up, a real customer is never blocked.
+async function rateHit(key, max, windowText) {
+  try {
+    return (await db('POST', 'rpc/rate_hit', { p_key: key, p_max: max, p_window: windowText })) !== false;
+  } catch (e) {
+    console.error('rate limit unavailable:', e.message);
+    return true;
+  }
+}
+
+// The visitor's IP as Vercel reports it (Vercel sets these headers itself).
+function clientIp(req) {
+  const h = req.headers || {};
+  return String(h['x-real-ip'] || String(h['x-forwarded-for'] || '').split(',')[0] || '').trim() || 'unknown';
+}
+
+module.exports = { db, insertOrder, websiteUser, bearer, rateHit, clientIp };

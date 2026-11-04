@@ -166,7 +166,12 @@
       return fetchMe().then(function (me) {
         if (!me) { show(panelSignedOut); return; }
         if (!me.signedIn) { show(panelSignedOut); return; }
-        if (me.needsPhone) { show(panelNeedsPhone); return; }
+        if (me.needsPhone) {
+          show(panelNeedsPhone);
+          var taken = document.getElementById('rwd-join-taken');
+          if (taken) taken.hidden = !me.phoneTaken;
+          return;
+        }
         if (me.member) { renderCard(me.member); return; }
         show(panelError);
       });

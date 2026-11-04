@@ -1791,6 +1791,10 @@
     "en": "Could not join right now — please try again.",
     "ar": "تعذّر الانضمام الآن — يرجى المحاولة مرة أخرى."
   },
+  "rwd_join_taken": {
+    "en": "This phone number is already linked to another Black Arrow account. Sign in with that account, or message us on WhatsApp if the number is yours.",
+    "ar": "رقم الجوال هذا مرتبط بحساب آخر في Black Arrow. سجّل الدخول بذلك الحساب، أو راسلنا عبر واتساب إذا كان الرقم لك."
+  },
   "rwd_live_bday": {
     "en": "Birthday",
     "ar": "عيد الميلاد"

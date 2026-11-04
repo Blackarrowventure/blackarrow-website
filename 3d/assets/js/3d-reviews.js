@@ -37,6 +37,7 @@
       err_comment: 'Please write 10 to 600 characters.',
       err_photo: 'One of the photos could not be read. Please choose a JPG, PNG, WebP or HEIC photo.',
       err_send: 'We could not send your review right now. Please try again later.',
+      err_limit: 'Too many reviews have been sent today. Please try again tomorrow.',
       wait: 'Please wait a moment before sending another review.',
       photoOf: 'Photo from a customer review',
       written: function (l) { return 'Written in ' + (l === 'ar' ? 'Arabic' : 'English'); },
@@ -69,6 +70,7 @@
       err_comment: 'يرجى كتابة من 10 إلى 600 حرف.',
       err_photo: 'تعذّرت قراءة إحدى الصور. يرجى اختيار صورة بصيغة JPG أو PNG أو WebP أو HEIC.',
       err_send: 'تعذّر إرسال تقييمك الآن. يرجى المحاولة لاحقًا.',
+      err_limit: 'تم إرسال عدد كبير من التقييمات اليوم. يرجى المحاولة غدًا.',
       wait: 'يرجى الانتظار قليلًا قبل إرسال تقييم آخر.',
       photoOf: 'صورة من تقييم عميل',
       written: function (l) { return 'مكتوب بال' + (l === 'ar' ? 'عربية' : 'إنجليزية'); },
@@ -333,6 +335,7 @@
           return rpc('submit_review', { p_name: name, p_rating: rating, p_comment: comment, p_lang: rvlang, p_photos: files });
         })
         .then(function (r) {
+          if (r && r.reason === 'limit') throw new Error('limit');
           if (!r || r.ok !== true) throw new Error('rejected');
           try { localStorage.setItem(SENT_KEY, String(Date.now())); } catch (err) {}
           form.reset();
@@ -342,7 +345,8 @@
           reset();
         })
         .catch(function (err) {
-          showMsg(err && err.message === 'photo' ? S.err_photo : S.err_send, false);
+          var m = err && err.message;
+          showMsg(m === 'photo' ? S.err_photo : m === 'limit' ? S.err_limit : S.err_send, false);
           reset();
         });
     });

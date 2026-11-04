@@ -9,7 +9,7 @@ const { buildOrder, stockProblem } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
 const rewards = require('./_lib/rewards');
-const { db } = require('./_lib/db');
+const { db, rateHit, clientIp } = require('./_lib/db');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -25,6 +25,11 @@ module.exports = async (req, res) => {
 
   const orderId = String(body.orderId || '').trim();
   if (!/^[A-Za-z0-9-]{3,40}$/.test(orderId)) return res.status(400).json({ error: 'invalid_order_id' });
+
+  // Flood guard: 5 bank-transfer orders per visitor per hour, 100 a day in total.
+  if (!(await rateHit('bank-order:' + clientIp(req), 5, '1 hour')) || !(await rateHit('bank-order:all', 100, '1 day'))) {
+    return res.status(429).json({ error: 'too_many_orders' });
+  }
 
   const s = (v, max) => String(v || '').trim().slice(0, max);
   const b = body.billing || {};

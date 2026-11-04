@@ -29,3 +29,6 @@ BLOG_PLAN.md
 GOOGLE_*.md
 # Blog post specs for scripts/new_post.py. Prose in progress, not pages.
 drafts/
+
+# Database setup SQL: run by hand in Supabase, never served (it maps the schema).
+supabase/

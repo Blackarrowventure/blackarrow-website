@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
   try {
     let m = await rewards.memberForToken(bearer(req), { enroll: true });
     if (!m) return res.status(200).json({ signedIn: false });
-    if (m.needsPhone) return res.status(200).json({ signedIn: true, needsPhone: true });
+    if (m.needsPhone) return res.status(200).json({ signedIn: true, needsPhone: true, phoneTaken: !!m.phoneTaken });
     if (!m.member) return res.status(502).json({ error: 'enrol_failed' });
     if (dob && !m.member.dateOfBirth) {
       await rewards.setBirthday(m.phone, dob);
