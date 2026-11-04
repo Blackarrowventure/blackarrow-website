@@ -470,7 +470,7 @@ POSTS = [
           <p>Multicolour printing is popular in Madinah because two-colour Arabic text looks so much better than painted lettering. Three good options on our store (check each product page for stock):</p>
           <ul>
             <li><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a>, currently <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR: the simplest way into four-colour printing for small signs and gifts.</li>
-            <li><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a>, currently <span data-b3d-price="snapmaker-u1">5,600</span> SAR: four independent toolheads, so colour changes are faster and waste less filament than single-nozzle colour swapping. A strong choice if you plan to sell coloured products.</li>
+            <li><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a>, currently <span data-b3d-price="snapmaker-u1">5,699</span> SAR: four independent toolheads, so colour changes are faster and waste less filament than single-nozzle colour swapping. A strong choice if you plan to sell coloured products.</li>
             <li><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a>, currently <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR: an enclosed printer, which also keeps the build area at a steadier temperature on cool nights.</li>
           </ul>
           <p>Not sure how multicolour printing works? Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a>, or compare everything on the <a href="/3d/shop/3d-printers/">printers page</a>.</p>
@@ -539,7 +539,7 @@ POSTS = [
           <p>الطباعة متعددة الألوان مطلوبة في المدينة، لأن النص العربي بلونين يبدو أجمل بكثير من الحروف المطلية يدويًا. إليك ثلاثة خيارات جيدة متوفرة حاليًا:</p>
           <ul>
             <li><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا حاليًا: أسهل مدخل إلى الطباعة بأربعة ألوان للوحات الصغيرة والهدايا.</li>
-            <li><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> بسعر <span data-b3d-price="snapmaker-u1">5,600</span> ريالًا حاليًا: أربعة رؤوس طباعة مستقلة، فيكون تغيير اللون أسرع وبهدر أقل من أنظمة تبديل الفلمنت بفوهة واحدة. خيار قوي إذا كنت تخطط لبيع منتجات ملونة.</li>
+            <li><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> بسعر <span data-b3d-price="snapmaker-u1">5,699</span> ريالًا حاليًا: أربعة رؤوس طباعة مستقلة، فيكون تغيير اللون أسرع وبهدر أقل من أنظمة تبديل الفلمنت بفوهة واحدة. خيار قوي إذا كنت تخطط لبيع منتجات ملونة.</li>
             <li><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> بسعر <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريالًا حاليًا: طابعة مغلقة تحافظ أيضًا على حرارة أكثر ثباتًا داخلها في الليالي الباردة.</li>
           </ul>
           <p>لا تعرف كيف تعمل الطباعة متعددة الألوان؟ اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a>، أو قارن جميع الطرازات في <a href="/3d/ar/shop/3d-printers/">صفحة الطابعات</a>.</p>
@@ -1034,7 +1034,7 @@ POSTS = [
 
           <h2>Which printer to choose</h2>
           <p>Because rooms are cooler, an enclosed printer is worth more here than in hotter cities. The <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (currently <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR) is enclosed, prints up to 4 colours with the CANVAS system, and handles PETG and ABS. The <a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (currently <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> SAR) is a fast enclosed printer for daily production.</p>
-          <p>For colourful Asiri-style patterns with less waste, the <a href="/3d/product/snapmaker-u1/">Snapmaker U1</a> (currently <span data-b3d-price="snapmaker-u1">5,600</span> SAR) uses four separate toolheads. For beginners printing mostly PLA, the open-frame <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR) works well as long as it is kept out of drafts.</p>
+          <p>For colourful Asiri-style patterns with less waste, the <a href="/3d/product/snapmaker-u1/">Snapmaker U1</a> (currently <span data-b3d-price="snapmaker-u1">5,699</span> SAR) uses four separate toolheads. For beginners printing mostly PLA, the open-frame <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR) works well as long as it is kept out of drafts.</p>
           <p>Read <a href="/3d/blog/multi-color-3d-printing-explained/">multi-color 3D printing explained</a> or browse all <a href="/3d/shop/3d-printers/">3D printers</a>.</p>
 
           <h2>Filament</h2>
@@ -1099,7 +1099,7 @@ POSTS = [
 
           <h2>أي طابعة تختار</h2>
           <p>لأن الغرف أبرد، فالطابعة المغلقة هنا أكثر قيمة منها في المدن الحارة. <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> (حاليًا <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريالًا) مغلقة، وتطبع حتى 4 ألوان بنظام CANVAS، وتتعامل مع PETG وABS. و<a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> (حاليًا <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريالًا) طابعة مغلقة سريعة للإنتاج اليومي.</p>
-          <p>وللزخارف العسيرية الملونة بهدر أقل، تستخدم <a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> (حاليًا <span data-b3d-price="snapmaker-u1">5,600</span> ريالًا) أربعة رؤوس طباعة منفصلة. أما للمبتدئين الذين يطبعون PLA غالبًا، فتعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> المفتوحة (حاليًا <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا) جيدًا ما دامت بعيدة عن تيارات الهواء.</p>
+          <p>وللزخارف العسيرية الملونة بهدر أقل، تستخدم <a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a> (حاليًا <span data-b3d-price="snapmaker-u1">5,699</span> ريالًا) أربعة رؤوس طباعة منفصلة. أما للمبتدئين الذين يطبعون PLA غالبًا، فتعمل <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> المفتوحة (حاليًا <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا) جيدًا ما دامت بعيدة عن تيارات الهواء.</p>
           <p>اقرأ <a href="/3d/ar/blog/multi-color-3d-printing-explained/">شرح الطباعة متعددة الألوان</a> أو تصفح جميع <a href="/3d/ar/shop/3d-printers/">الطابعات ثلاثية الأبعاد</a>.</p>
 
           <h2>الفلمنت</h2>

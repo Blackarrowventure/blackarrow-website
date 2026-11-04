@@ -85,7 +85,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-04.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-05.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-06.jpg</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>3449.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -111,7 +111,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-06.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-07.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-08.jpg</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>4300.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -137,7 +137,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-06.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-07.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-08.jpg</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>3350.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -398,7 +398,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-07.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-08.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-09.jpg</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>3050.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Elegoo</g:brand>
@@ -426,8 +426,8 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/snapmaker-u1-09.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/snapmaker-u1-10.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/snapmaker-u1-11.jpg</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>5600.00 SAR</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:price>5699.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Snapmaker</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -3618,7 +3618,7 @@
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-matte-sakura-pink-11201.webp</g:image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-filament-with-spool-and-refill.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-matte-grass-green-11500.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3639,7 +3639,7 @@
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-matte-grass-green-11500.webp</g:image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-matte-sakura-pink-11201.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-filament-with-spool-and-refill.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3708,7 +3708,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3735,7 +3735,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3762,7 +3762,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3789,7 +3789,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3816,7 +3816,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3843,7 +3843,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3870,7 +3870,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -3897,7 +3897,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
