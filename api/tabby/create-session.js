@@ -51,8 +51,14 @@ module.exports = async (req, res) => {
   } catch (e) {
     return res.status(400).json({ error: 'invalid_json' });
   }
-  // Stock and prices as set in the CRM's Website Inventory tab.
-  const products = await liveProducts();
+  // Stock and prices as set in the CRM's Website Inventory tab. Refuse rather than price against
+  // stale/default stock if the CRM can't be reached right now.
+  let products;
+  try {
+    products = await liveProducts();
+  } catch (e) {
+    return res.status(503).json({ error: 'crm_unavailable' });
+  }
   const draft = buildOrder(body.items, body.shipping, true, null, products);
   if (draft.error) return res.status(400).json({ error: draft.error });
   const short = stockProblem(body.items, products);

@@ -46,7 +46,13 @@ module.exports = async (req, res) => {
     }
   }
 
-  const products = await liveProducts();
+  // Refuse rather than price against stale/default stock if the CRM can't be reached right now.
+  let products;
+  try {
+    products = await liveProducts();
+  } catch (e) {
+    return res.status(503).json({ error: 'crm_unavailable' });
+  }
   const order = buildOrder(body.items, body.shipping, false, member ? { freeDelivery: rewards.freeDelivery(member) } : null, products);
   if (order.error) return res.status(400).json({ error: order.error });
   // The order is already placed (bank transfer), so a short item is flagged for staff, not refused.

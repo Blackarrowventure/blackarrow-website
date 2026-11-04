@@ -5,16 +5,7 @@
 const catalog = require('../../3d/assets/data/3d-products.json');
 const rewards = require('./rewards');
 
-// -> [{ id, variant, available, price, oldPrice, preorder, maxQty }]; [] if the CRM can't be reached.
-async function fetchRows() {
-  if (!rewards.configured()) return [];
-  let data;
-  try {
-    data = await rewards.crmRpc('bav3d_website_catalog', {});
-  } catch (e) {
-    // Before migration 0150 only the stock function exists.
-    try { data = await rewards.crmRpc('bav3d_website_availability', {}); } catch (e2) { return []; }
-  }
+function mapRows(data) {
   return (Array.isArray(data) ? data : [])
     .filter((r) => r && r.product_slug)
     .map((r) => ({
@@ -27,6 +18,36 @@ async function fetchRows() {
       // In hand, when the item can only be sold from stock; null = no limit (supplier / pre-order).
       maxQty: r.max_qty == null ? null : Number(r.max_qty),
     }));
+}
+
+// -> [{ id, variant, available, price, oldPrice, preorder, maxQty }]; [] if the CRM can't be reached.
+// Used for display only (/api/availability) - a CRM outage degrades to the static catalog rather
+// than breaking the page. Checkout never uses this: see fetchRowsOrThrow below.
+async function fetchRows() {
+  if (!rewards.configured()) return [];
+  let data;
+  try {
+    data = await rewards.crmRpc('bav3d_website_catalog', {});
+  } catch (e) {
+    // Before migration 0150 only the stock function exists.
+    try { data = await rewards.crmRpc('bav3d_website_availability', {}); } catch (e2) { return []; }
+  }
+  return mapRows(data);
+}
+
+// Same CRM call, but throws instead of silently returning [] when the CRM can't be reached.
+// liveProducts() uses this so checkout never prices or accepts an order against stale/default
+// catalog data - if the CRM is down, the order is refused rather than risk selling what isn't
+// actually in stock or orderable from the supplier.
+async function fetchRowsOrThrow() {
+  if (!rewards.configured()) throw new Error('crm_not_configured');
+  let data;
+  try {
+    data = await rewards.crmRpc('bav3d_website_catalog', {});
+  } catch (e) {
+    try { data = await rewards.crmRpc('bav3d_website_availability', {}); } catch (e2) { throw new Error('crm_unreachable'); }
+  }
+  return mapRows(data);
 }
 
 const key = (s) => String(s || '').trim().toLowerCase();
@@ -49,8 +70,10 @@ function applyRows(products, rows) {
     if (p.variants && p.variants.length) {
       for (const v of p.variants) {
         const row = crm.get(key(v.label));
-        v.available = row ? row.available : !!(whole && whole.available);
-        const src = row || whole;
+        // An option with no row of its own is out of stock - it must never inherit the whole
+        // product's row (e.g. a "can order from supplier" switch set on the base product).
+        v.available = row ? row.available : false;
+        const src = row;
         if (src && src.maxQty != null) v.maxQty = src.maxQty;
         if (row && row.price != null) {
           v.price = row.price;
@@ -61,7 +84,7 @@ function applyRows(products, rows) {
       p.available = !(whole && !whole.available) && p.variants.some((v) => v.available !== false);
       for (const v of p.variants) {
         const row = crm.get(key(v.label));
-        v.preorder = !!(row ? row.preorder : whole && whole.preorder);
+        v.preorder = !!(row && row.preorder);
       }
       const buyable = p.variants.filter((v) => v.available);
       if (buyable.length && buyable.every((v) => v.preorder)) p.preorder = true;
@@ -103,10 +126,12 @@ function applyRows(products, rows) {
   return products;
 }
 
-// A fresh copy of the catalog with the CRM's stock and prices applied.
+// A fresh copy of the catalog with the CRM's stock and prices applied. Used only for checkout
+// pricing - throws (crm_not_configured / crm_unreachable) instead of falling back to the static
+// catalog, so an order is refused rather than priced or accepted against stale stock data.
 async function liveProducts() {
   const products = JSON.parse(JSON.stringify(catalog.products));
-  return applyRows(products, await fetchRows());
+  return applyRows(products, await fetchRowsOrThrow());
 }
 
 module.exports = { fetchRows, applyRows, liveProducts };

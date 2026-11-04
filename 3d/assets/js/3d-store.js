@@ -347,9 +347,10 @@
         p.variants.forEach(function (v) {
           var key = String(v.label || '').trim().toLowerCase();
           var row = crm[key];
-          v.available = row ? row.available !== false : !!(whole && whole.available !== false);
-          var limit = row || whole;
-          if (limit && limit.maxQty != null) v.maxQty = limit.maxQty;
+          // An option with no row of its own is out of stock - it must never inherit the whole
+          // product's row (e.g. a "can order from supplier" switch set on the base product).
+          v.available = row ? row.available !== false : false;
+          if (row && row.maxQty != null) v.maxQty = row.maxQty;
           if (row && row.price != null) {
             v.price = row.price;
             if (row.oldPrice != null && row.oldPrice > row.price) v.oldPrice = row.oldPrice;
@@ -361,7 +362,7 @@
         // you can buy is pre-order; otherwise only the picked option's button says so.
         p.variants.forEach(function (v) {
           var row = crm[String(v.label || '').trim().toLowerCase()];
-          v.preorder = !!(row ? row.preorder : whole && whole.preorder);
+          v.preorder = !!(row && row.preorder);
         });
         var buyable = p.variants.filter(function (v) { return v.available !== false; });
         if (buyable.length && buyable.every(function (v) { return v.preorder; })) p.preorder = true;
