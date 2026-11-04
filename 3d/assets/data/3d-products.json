@@ -39,6 +39,229 @@
   },
   "products": [
     {
+      "id": "bambu-lab-h3c",
+      "name": "Bambu Lab H3C with AMS 3H",
+      "brand": "Bambu Lab",
+      "category": "3D Printers",
+      "printerType": "FDM",
+      "sku": "BAMBU-H3C-AMS3H",
+      "price": 17899,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "comingSoon": true,
+      "featured": true,
+      "boughtTogether": [
+        "bambu-lab-pla-basic-filament",
+        "bambu-lab-pla-matte-filament",
+        "kingroon-petg-hs-filament"
+      ],
+      "images": [
+        "/3d/assets/images/products/bambu-h3c-01.webp",
+        "/3d/assets/images/products/bambu-h3c-02.webp",
+        "/3d/assets/images/products/bambu-h3c-03.webp",
+        "/3d/assets/images/products/bambu-h3c-04.webp",
+        "/3d/assets/images/products/bambu-h3c-05.webp",
+        "/3d/assets/images/products/bambu-h3c-06.webp",
+        "/3d/assets/images/products/bambu-h3c-07.webp",
+        "/3d/assets/images/products/bambu-h3c-08.webp",
+        "/3d/assets/images/products/bambu-h3c-09.webp",
+        "/3d/assets/images/products/bambu-h3c-10.webp",
+        "/3d/assets/images/products/bambu-h3c-11.webp",
+        "/3d/assets/images/products/bambu-h3c-12.webp",
+        "/3d/assets/images/products/bambu-h3c-13.webp"
+      ],
+      "videos": [
+        {
+          "src": "/3d/assets/video/bambu-h3c-swaptek.mp4",
+          "poster": "/3d/assets/images/products/bambu-h3c-swaptek-poster.webp",
+          "width": 1280,
+          "height": 514,
+          "caption": "Swaptek: nine PrintTools, a material switch in about 6 seconds",
+          "caption_ar": "نظام Swaptek: تسع أدوات طباعة وتبديل المادة في نحو 6 ثوانٍ"
+        },
+        {
+          "src": "/3d/assets/video/bambu-h3c-flexfeed.mp4",
+          "poster": "/3d/assets/images/products/bambu-h3c-flexfeed-poster.webp",
+          "width": 1280,
+          "height": 724,
+          "caption": "FlexFeed extruder: 1.75 mm and 2.85 mm filament, soft TPU down to 75A",
+          "caption_ar": "طارد FlexFeed: فيلامنت 1.75 مم و2.85 مم، وTPU مرن حتى 75A"
+        },
+        {
+          "src": "/3d/assets/video/bambu-h3c-motion.mp4",
+          "poster": "/3d/assets/images/products/bambu-h3c-motion-poster.webp",
+          "width": 1280,
+          "height": 514,
+          "caption": "Nine docked PrintTools and a 40% lighter toolhead and X-axis",
+          "caption_ar": "تسع أدوات طباعة في محطاتها، ورأس طباعة ومحور X أخف بنسبة 40%"
+        }
+      ],
+      "shortDesc": "Bambu Lab's first tool changer: nine PrintTools, a 6-second material switch and the AMS 3H with built-in drying. Coming soon.",
+      "description": "The Bambu Lab H3C is Bambu Lab's first third-generation printer and its first true tool changer. Instead of one nozzle that purges between colours, it has nine independent PrintTools on the Swaptek system, each with its own filament path and heating, so it switches material in about 6 seconds with very little waste. The integrated AMS 3H keeps nine spools in a sealed chamber, reads them by RFID and dries two at a time at up to 85 °C, and the FlexFeed extruder takes both 1.75 mm and 2.85 mm filament, including soft TPU down to 75A. With a 330 × 320 × 325 mm build volume, 350 °C tools, a 120 °C bed and active chamber heating to 65 °C, it prints everything from multi-colour PLA to carbon-fibre nylon. Coming soon to Black Arrow 3D with delivery across Saudi Arabia; message us on WhatsApp to reserve yours.",
+      "features": [
+        "Swaptek tool changer with nine independent PrintTools, each with its own filament path and heating",
+        "Material switch in about 6 seconds with very little purge, according to Bambu Lab",
+        "Mix nozzle sizes in one print and use crafting tools: CutTool, DrawTool and DebossTool",
+        "Integrated AMS 3H: sealed, airtight chamber for nine spools with RFID and filament inventory",
+        "Two drying slots at up to 85 °C, so filament dries while you print",
+        "FlexFeed extruder for 1.75 mm and 2.85 mm filament, including soft TPU down to 75A",
+        "40% lighter toolhead and X-axis: up to 1,400 mm/s and 25,000 mm/s² acceleration",
+        "Active dual-zone chamber heating to 65 °C, 350 °C tools and a 120 °C bed for engineering materials",
+        "Auto-calibration, dual-camera AI monitoring and HEPA H11 air filtration",
+        "Up to 24 materials in one print by connecting an existing Bambu Lab AMS"
+      ],
+      "specs": [
+        [
+          "Build Volume",
+          "330 × 320 × 325 mm"
+        ],
+        [
+          "Tool System",
+          "9 PrintTools, Swaptek tool changer"
+        ],
+        [
+          "Material Switch",
+          "About 6 seconds (Bambu Lab)"
+        ],
+        [
+          "Max Nozzle Temperature",
+          "350 °C"
+        ],
+        [
+          "Max Bed Temperature",
+          "120 °C"
+        ],
+        [
+          "Active Chamber Heating",
+          "Up to 65 °C"
+        ],
+        [
+          "Max Speed / Acceleration",
+          "1,400 mm/s / 25,000 mm/s²"
+        ],
+        [
+          "Nozzle",
+          "Hardened steel; 0.2, 0.4, 0.6 and 0.8 mm supported"
+        ],
+        [
+          "Extruder Gears",
+          "Hardened steel"
+        ],
+        [
+          "Filament Diameter",
+          "1.75 mm and 2.85 mm"
+        ],
+        [
+          "Filament System",
+          "AMS 3H: 9 slots, 2 drying slots up to 85 °C, RFID"
+        ],
+        [
+          "Supported Filaments",
+          "PLA, PETG, PCTG, TPU, ABS, ASA, HIPS, PA, PAHT, PC, PET, PPA, PPS, carbon/glass-fibre grades, PVA and BVOH supports"
+        ],
+        [
+          "Air Filtration",
+          "HEPA H11"
+        ],
+        [
+          "Dimensions",
+          "493 × 571 × 587 mm"
+        ],
+        [
+          "Weight",
+          "36.28 kg (with AMS 3H)"
+        ],
+        [
+          "Availability",
+          "Coming soon"
+        ]
+      ],
+      "seoTitle": "Bambu Lab H3C 9-Tool 3D Printer in Saudi Arabia (Coming Soon)",
+      "seoDescription": "Bambu Lab H3C with AMS 3H coming soon to Saudi Arabia: 9-tool Swaptek tool changer, 6-second material switch, 85 °C filament drying, TPU 75A. 17,899 SAR.",
+      "name_ar": "بامبو لاب H3C مع AMS 3H",
+      "shortDesc_ar": "أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة، وتبديل المادة في 6 ثوانٍ، ونظام AMS 3H مع تجفيف مدمج. قريبًا.",
+      "description_ar": "بامبو لاب H3C هي أول طابعة من الجيل الثالث لدى بامبو لاب وأول طابعة لديها بتغيير الأدوات الحقيقي. فبدلًا من فوهة واحدة تُفرغ المادة بين كل لون وآخر، تضم تسع أدوات طباعة مستقلة على نظام Swaptek، لكل منها مسار فيلامنت وتسخين خاص، فتبدّل المادة في نحو 6 ثوانٍ بهدر قليل جدًا. ويحفظ نظام AMS 3H المدمج تسع بكرات في حجرة محكمة الإغلاق، ويتعرف عليها عبر RFID، ويجفف بكرتين في الوقت نفسه على حرارة تصل إلى 85 درجة، بينما يقبل طارد FlexFeed فيلامنت 1.75 مم و2.85 مم، ومنه TPU المرن حتى 75A. وبمساحة طباعة 330 × 320 × 325 مم وأدوات تصل إلى 350 درجة وسرير حتى 120 درجة وتسخين نشط للحجرة حتى 65 درجة، تطبع كل شيء من PLA متعدد الألوان إلى النايلون المقوّى بألياف الكربون. قريبًا في Black Arrow 3D مع التوصيل لجميع مناطق السعودية؛ راسلنا عبر واتساب لحجز طابعتك.",
+      "features_ar": [
+        "نظام Swaptek لتغيير الأدوات مع تسع أدوات طباعة مستقلة، لكل منها مسار فيلامنت وتسخين خاص",
+        "تبديل المادة في نحو 6 ثوانٍ بهدر قليل جدًا، حسب بامبو لاب",
+        "استخدم أحجام فوهات مختلفة في الطبعة نفسها، وأدوات حرفية: CutTool وDrawTool وDebossTool",
+        "نظام AMS 3H مدمج: حجرة محكمة لتسع بكرات مع RFID وتتبع مخزون الفيلامنت",
+        "خانتا تجفيف حتى 85 درجة، فيجف الفيلامنت أثناء الطباعة",
+        "طارد FlexFeed لفيلامنت 1.75 مم و2.85 مم، ومنه TPU المرن حتى 75A",
+        "رأس طباعة ومحور X أخف بنسبة 40%: سرعة حتى 1,400 مم/ث وتسارع 25,000 مم/ث²",
+        "تسخين نشط للحجرة بمنطقتين حتى 65 درجة، وأدوات حتى 350 درجة، وسرير حتى 120 درجة للمواد الهندسية",
+        "معايرة تلقائية، ومراقبة بالذكاء الاصطناعي عبر كاميرتين، وتنقية هواء HEPA H11",
+        "حتى 24 مادة في الطبعة الواحدة بتوصيل نظام AMS من بامبو لاب لديك"
+      ],
+      "specs_ar": [
+        [
+          "حجم الطباعة",
+          "330 × 320 × 325 مم"
+        ],
+        [
+          "نظام الأدوات",
+          "9 أدوات طباعة، نظام Swaptek لتغيير الأدوات"
+        ],
+        [
+          "تبديل المادة",
+          "نحو 6 ثوانٍ (بامبو لاب)"
+        ],
+        [
+          "أقصى حرارة للفوهة",
+          "350 °م"
+        ],
+        [
+          "أقصى حرارة للسرير",
+          "120 °م"
+        ],
+        [
+          "تسخين الحجرة النشط",
+          "حتى 65 °م"
+        ],
+        [
+          "السرعة / التسارع",
+          "1,400 مم/ث / 25,000 مم/ث²"
+        ],
+        [
+          "الفوهة",
+          "فولاذ مقسّى؛ تدعم 0.2 و0.4 و0.6 و0.8 مم"
+        ],
+        [
+          "تروس الطارد",
+          "فولاذ مقسّى"
+        ],
+        [
+          "قطر الفيلامنت",
+          "1.75 مم و2.85 مم"
+        ],
+        [
+          "نظام الفيلامنت",
+          "AMS 3H: 9 خانات، وخانتا تجفيف حتى 85 °م، وRFID"
+        ],
+        [
+          "الخامات المدعومة",
+          "PLA وPETG وPCTG وTPU وABS وASA وHIPS وPA وPAHT وPC وPET وPPA وPPS، والأنواع المقوّاة بألياف الكربون والزجاج، ودعامات PVA وBVOH"
+        ],
+        [
+          "تنقية الهواء",
+          "HEPA H11"
+        ],
+        [
+          "الأبعاد",
+          "493 × 571 × 587 مم"
+        ],
+        [
+          "الوزن",
+          "36.28 كجم (مع AMS 3H)"
+        ],
+        [
+          "التوفر",
+          "قريبًا"
+        ]
+      ]
+    },
+    {
       "id": "bambu-lab-a1-mini",
       "name": "Bambu Lab A1 mini",
       "brand": "Bambu Lab",

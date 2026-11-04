@@ -168,8 +168,8 @@
     "ar": "بياناتك"
   },
   "announce_1": {
-    "en": "Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed",
-    "ar": "متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+    "en": "Coming soon: Bambu Lab H3C, the 9-tool tool changer => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "قريبًا: بامبو لاب H3C بتسع أدوات طباعة => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
   },
   "b3d_compare_printers": {
     "en": "Compare printers",
@@ -1287,6 +1287,10 @@
     "en": "In Stock",
     "ar": "متوفر"
   },
+  "js_key_features": {
+    "en": "Key features",
+    "ar": "أهم المميزات"
+  },
   "js_kit_colors": {
     "en": "Pick your filament colors in the order notes at checkout.",
     "ar": "اختر ألوان الفلمنت في ملاحظات الطلب عند الدفع."
@@ -1426,6 +1430,10 @@
   "js_sale_badge": {
     "en": "Sale",
     "ar": "خصم"
+  },
+  "js_see_in_action": {
+    "en": "See it in action",
+    "ar": "شاهدها أثناء العمل"
   },
   "js_shipping_desc": {
     "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
@@ -2027,6 +2035,18 @@
     "en": "Shop now",
     "ar": "تسوق الآن"
   },
+  "slide_cta_details": {
+    "en": "See the details",
+    "ar": "شاهد التفاصيل"
+  },
+  "slide_h3c_text": {
+    "en": "Bambu Lab’s first tool changer: nine PrintTools and a 6-second material switch.",
+    "ar": "أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة وتبديل المادة في 6 ثوانٍ."
+  },
+  "slide_h3c_title": {
+    "en": "Bambu Lab H3C",
+    "ar": "بامبو لاب H3C"
+  },
   "slide_kr_text": {
     "en": "New PLA and PETG colours, plus PETG HS high-speed filament.",
     "ar": "ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة."
@@ -2042,6 +2062,10 @@
   "slide_tag_now": {
     "en": "Now available",
     "ar": "متوفر الآن"
+  },
+  "slide_tag_soon": {
+    "en": "Coming soon",
+    "ar": "قريبًا"
   },
   "slide_u1_text": {
     "en": "4-toolhead multi-colour 3D printer, up to 500 mm/s. In stock now.",

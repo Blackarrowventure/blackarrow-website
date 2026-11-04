@@ -291,6 +291,29 @@ def guides_html(p, lang):
     )
 
 
+def features_html(p, lang):
+    items = L(p, 'features', lang) or []
+    if not items:
+        return ''
+    return ('<div class="b3d-pd__features"><h2>' + T('js_key_features', lang) + '</h2><ul>'
+            + ''.join('<li>' + esc(f) + '</li>' for f in items) + '</ul></div>')
+
+
+def videos_html(p, lang):
+    vids = p.get('videos') or []
+    if not vids:
+        return ''
+    out = '<div class="b3d-pd__videos"><h2>' + T('js_see_in_action', lang) + '</h2>'
+    for v in vids:
+        cap = (v.get('caption_ar') if lang == 'ar' and v.get('caption_ar') else v.get('caption')) or ''
+        out += ('<figure class="b3d-pd__video"><video src="' + esc(v['src']) + '"'
+                + (' poster="' + esc(v['poster']) + '"' if v.get('poster') else '')
+                + (' width="' + str(v['width']) + '" height="' + str(v['height']) + '"' if v.get('width') else '')
+                + ' controls muted loop playsinline preload="none"' + (' aria-label="' + esc(cap) + '"' if cap else '') + '></video>'
+                + ('<figcaption>' + esc(cap) + '</figcaption>' if cap else '') + '</figure>')
+    return out + '</div>'
+
+
 def product_detail_html(p, lang):
     name = L(p, 'name', lang)
     desc = L(p, 'description', lang) or ''
@@ -403,6 +426,7 @@ def product_detail_html(p, lang):
         + variant_selector_html
         + ('<div class="b3d-pd__stock" style="margin-bottom:16px;">' + status + '</div>' if status else '')
         + '<p class="b3d-pd__desc">' + esc(desc) + '</p>'
+        + features_html(p, lang)
         + bundle_pick_html
         + '<div class="b3d-pd__actions">'
         + '<div class="b3d-qty">'
@@ -417,6 +441,7 @@ def product_detail_html(p, lang):
         + '<div class="b3d-pd__contact-actions">'
         + '<a href="https://wa.me/966560224715?text=' + wa_msg.replace(' ', '%20') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp', lang) + '</a>'
         + '</div>'
+        + videos_html(p, lang)
         + ('<table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table>' if specs_html else '')
         + compat_html
         + ('<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading', lang) + '</h2><p>' + esc(L(p, 'warranty', lang)) + '</p></div>' if L(p, 'warranty', lang) else '')
@@ -640,7 +665,7 @@ def build_product_page(p, lang):
         '@type': 'Offer',
         'price': price_value,
         'priceCurrency': p.get('currency', 'SAR'),
-        'availability': ('https://schema.org/OutOfStock' if p.get('available') is False
+        'availability': ('https://schema.org/OutOfStock' if p.get('available') is False or p.get('comingSoon')
                          else 'https://schema.org/PreOrder' if p.get('preorder')
                          else 'https://schema.org/InStock'),
         'itemCondition': 'https://schema.org/NewCondition',
@@ -676,8 +701,19 @@ def build_product_page(p, lang):
         _pre = ('  <link rel="preload" as="image" href="' + _hero + '"'
                 + (' imagesrcset="' + _set + '" imagesizes="(max-width: 860px) 92vw, 560px"' if _set else '')
                 + ' fetchpriority="high">\n')
+    video_ld = ''
+    for v in (p.get('videos') or []):
+        cap = (v.get('caption_ar') if lang == 'ar' and v.get('caption_ar') else v.get('caption')) or name
+        video_ld += '  <script type="application/ld+json">' + json.dumps({
+            '@context': 'https://schema.org', '@type': 'VideoObject',
+            'name': name + ': ' + cap, 'description': cap,
+            'thumbnailUrl': abs_url(v['poster']) if v.get('poster') else None,
+            'contentUrl': abs_url(v['src']),
+            'uploadDate': v.get('uploadDate') or p.get('videoDate') or '2026-11-04',
+        }, ensure_ascii=False) + '</script>\n'
     html = html.replace('</head>',
                          _pre
+                         + video_ld
                          + '  <script type="application/ld+json">' + json.dumps(json_ld, ensure_ascii=False) + '</script>\n'
                          + '  <script type="application/ld+json">' + json.dumps(breadcrumb_ld, ensure_ascii=False) + '</script>\n'
                          + '</head>')

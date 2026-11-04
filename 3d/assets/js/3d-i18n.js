@@ -364,6 +364,8 @@
       account_name: 'Full name',
       account_phone: 'Phone',
       account_dob: 'Date of birth',
+      js_key_features: 'Key features',
+      js_see_in_action: 'See it in action',
       account_dob_hint: 'For your yearly birthday reward.',
       account_phone_invalid: 'Please enter a Saudi mobile number, e.g. 05XXXXXXXX.',
       account_dob_invalid: 'Please enter your date of birth.',
@@ -555,6 +557,10 @@
       js_best_seller_badge_2: 'Customer Favorite',
       js_best_seller_badge_n: 'Top Pick',
       js_vat_included: 'VAT included',
+      slide_tag_soon: 'Coming soon',
+      slide_h3c_title: 'Bambu Lab H3C',
+      slide_h3c_text: 'Bambu Lab’s first tool changer: nine PrintTools and a 6-second material switch.',
+      slide_cta_details: 'See the details',
       slide_tag_now: 'Now available',
       slide_tag_new: 'Just arrived',
       slide_u1_title: 'Snapmaker U1',
@@ -564,7 +570,7 @@
       slide_kr_title: 'New KINGROON filament',
       slide_kr_text: 'New PLA and PETG colours, plus PETG HS high-speed filament.',
       slide_cta: 'Shop now',
-      announce_1: 'Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Coming soon: Bambu Lab H3C, the 9-tool tool changer => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in 4 with Tabby · Online payments are also available · Nationwide Saudi delivery · Free delivery in Khobar & Dammam · Free delivery on every 3D printer · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -919,6 +925,8 @@
       account_name: 'الاسم الكامل',
       account_phone: 'رقم الجوال',
       account_dob: 'تاريخ الميلاد',
+      js_key_features: 'أهم المميزات',
+      js_see_in_action: 'شاهدها أثناء العمل',
       account_dob_hint: 'لهدية عيد ميلادك كل سنة.',
       account_phone_invalid: 'يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX.',
       account_dob_invalid: 'يرجى إدخال تاريخ ميلادك.',
@@ -1110,6 +1118,10 @@
       js_best_seller_badge_2: 'المفضل لدى العملاء',
       js_best_seller_badge_n: 'مُختار مميز',
       js_vat_included: 'شامل ضريبة القيمة المضافة',
+      slide_tag_soon: 'قريبًا',
+      slide_h3c_title: 'بامبو لاب H3C',
+      slide_h3c_text: 'أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة وتبديل المادة في 6 ثوانٍ.',
+      slide_cta_details: 'شاهد التفاصيل',
       slide_tag_now: 'متوفر الآن',
       slide_tag_new: 'وصل حديثًا',
       slide_u1_title: 'Snapmaker U1',
@@ -1119,7 +1131,7 @@
       slide_kr_title: 'فيلامنت KINGROON جديد',
       slide_kr_text: 'ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة.',
       slide_cta: 'تسوق الآن',
-      announce_1: 'متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'قريبًا: بامبو لاب H3C بتسع أدوات طباعة => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط على 4 دفعات عبر تابي · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل مجاني داخل الخبر والدمام · توصيل مجاني لكل طابعة ثلاثية الأبعاد · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 

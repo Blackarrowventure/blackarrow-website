@@ -3202,3 +3202,19 @@ main.b3d-light .b3d-series__label { color: #6b6658; }
 .b3d-qty__limit { display: block; margin-top: 6px; font-size: .78rem; font-weight: 700; color: #d97706; }
 .b3d-qty-wrap .b3d-qty__limit { margin-top: 0; }
 .b3d-qty button:disabled { opacity: .35; cursor: not-allowed; }
+
+/* Product page: key features and videos */
+.b3d-pd__features { margin: 0 0 22px; }
+.b3d-pd__features h2, .b3d-pd__videos h2 { font-size: 1.05rem; color: #fff; margin: 0 0 10px; }
+.b3d-pd__features ul { list-style: disc; margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; color: rgba(255,255,255,.82); line-height: 1.55; }
+.b3d-pd__features li::marker { color: var(--clr-accent); }
+.b3d-pd__videos { margin: 26px 0; display: grid; gap: 16px; }
+.b3d-pd__video { margin: 0; }
+.b3d-pd__video video { display: block; width: 100%; height: auto; border-radius: 14px; background: #0b0b0b; border: 1px solid rgba(255,255,255,.08); }
+.b3d-pd__video figcaption { margin-top: 8px; color: rgba(255,255,255,.65); font-size: .88rem; line-height: 1.5; }
+/* Light product pages */
+main.b3d-light .b3d-pd__features h2, main.b3d-light .b3d-pd__videos h2 { color: #111; }
+main.b3d-light .b3d-pd__features ul { color: #333; }
+main.b3d-light .b3d-pd__features li::marker { color: #b45309; }
+main.b3d-light .b3d-pd__video video { border-color: #e6e3dc; }
+main.b3d-light .b3d-pd__video figcaption { color: #555; }
