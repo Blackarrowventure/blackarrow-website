@@ -490,7 +490,7 @@
     var img = primaryImage(p);
     if (!img) return '<div class="b3d-card__visual-placeholder">' + T('js_product_image') + '</div>';
     var set = imgSrcset(img);
-    var srcsetAttr = set ? ' srcset="' + set + '" sizes="(max-width: 480px) 90vw, 300px"' : '';
+    var srcsetAttr = set ? ' srcset="' + set + '" sizes="(max-width: 600px) 46vw, 300px"' : '';
     return '<img src="' + img + '"' + srcsetAttr + ' alt="' + L(p, 'name') + '" loading="lazy" decoding="async" width="400" height="400">';
   }
 
@@ -503,6 +503,23 @@
     return 'in';
   }
   var STOCK_LABEL = { pre: 'js_pre_order', out: 'js_out_of_stock', in: 'js_in_stock', soon: 'cat_coming_soon' };
+  /* Live stock text in blog tables: <span data-b3d-stock="product-id|Option label">In stock</span>.
+     The text in the HTML is only the fallback; the catalog (with CRM stock applied) decides. Without an
+     option label, a product with options counts as in stock when any option is. */
+  function paintLiveStock(els) {
+    Array.prototype.forEach.call(els, function (el) {
+      var key = el.getAttribute('data-b3d-stock') || '', cut = key.indexOf('|');
+      var p = __b3dProductsById[cut < 0 ? key : key.slice(0, cut)];
+      if (!p) return;
+      var label = cut < 0 ? '' : key.slice(cut + 1).trim().toLowerCase();
+      var v = label ? (p.variants || []).filter(function (x) { return String(x.label || '').trim().toLowerCase() === label; })[0] : null;
+      if (label && !v) return;
+      var st = stockState(p, v);
+      if (!label && st === 'out' && !p.comingSoon && (p.variants || []).some(function (x) { return x.available !== false; })) st = 'in';
+      el.textContent = T(STOCK_LABEL[st]);
+      el.setAttribute('data-stock', st);
+    });
+  }
   // What an unorderable product's buttons say: Coming Soon for a product not launched yet.
   function outText(p) { return T(p && p.comingSoon ? 'cat_coming_soon' : 'js_out_of_stock'); }
   function statusBadge(p, v) {
@@ -890,7 +907,7 @@
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
           colorsHtml +
           pillsHtml +
-          '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span>' + (isArt ? '' : '<span>' + T('js_card_warranty') + '</span>') + '</div>' +
+          '<div class="b3d-card__meta-line"><span>' + T('js_card_delivery') + '</span></div>' +
         '</div>' +
         '<div class="b3d-card__footer">' +
           '<div class="b3d-price-wrap">' +
@@ -3289,7 +3306,9 @@
         zoomTarget.classList.add('is-zoomable');
         zoomTarget.setAttribute('role', 'button');
         zoomTarget.setAttribute('tabindex', '0');
-        zoomTarget.setAttribute('aria-label', T('js_zoom_image'));
+        // Name comes from the content (stock badge + photo alt) plus this hidden hint, so the
+        // spoken name always contains the visible text.
+        if (!zoomTarget.querySelector('.sr-only')) zoomTarget.insertAdjacentHTML('beforeend', '<span class="sr-only">' + T('js_zoom_image') + '</span>');
         var openZoom = function () { openImageZoom(mainImgEl.src, L(p, 'name')); };
         zoomTarget.addEventListener('click', openZoom);
         zoomTarget.addEventListener('keydown', function (e) {
@@ -3570,9 +3589,9 @@
     var st = window.__b3dReviewStats;
     if (!el || !st || !st.count) return;
     var full = Math.round(st.avg);
-    el.innerHTML = '<span class="b3d-pd__stars" aria-hidden="true">' + '★★★★★'.slice(0, full) + '<span>' + '★★★★★'.slice(full) + '</span></span>' +
+    // Labelled "Store rating": these are reviews of our service, not of this one product.
+    el.innerHTML = '<span class="b3d-pd__rating-label">' + T('js_store_rating') + '</span> <span class="b3d-pd__stars" aria-hidden="true">' + '★★★★★'.slice(0, full) + '<span>' + '★★★★★'.slice(full) + '</span></span>' +
       '<b>' + st.avg.toFixed(1) + '</b> · ' + st.count + ' ' + T('js_rating_reviews');
-    el.setAttribute('aria-label', st.avg.toFixed(1) + ' / 5 — ' + st.count + ' ' + T('js_rating_reviews'));
     el.hidden = false;
   }
 
@@ -4014,6 +4033,32 @@
     });
   }
 
+  /* Build a below-the-fold grid only when the visitor scrolls near it, so the first screen
+     paints without waiting for every product grid on the page. The prerendered links in the
+     HTML stay visible (and crawlable) until then. */
+  function whenNear(el, fn) {
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); fn(); }
+    }, { rootMargin: '700px 0px' });
+    io.observe(el);
+  }
+
+  // Home "Featured Products": pinned first, then new arrivals, then the rest (max 8).
+  // Coming-soon products stay visible here (marked "Coming Soon", not orderable).
+  function homeFeatured(products) {
+    var available = products.filter(function (p) { return p.available !== false || p.comingSoon; });
+    var pinned = available.filter(function (p) { return !!p.featured; });
+    var fresh = available.filter(function (p) { return !p.featured && p.newArrival; }).reverse();
+    var rest = available.filter(function (p) { return !p.featured && !p.newArrival; });
+    return pinned.concat(fresh, rest).slice(0, 8);
+  }
+  function homeFeaturedIds(products) {
+    var ids = {};
+    homeFeatured(products).forEach(function (p) { ids[p.id] = true; });
+    return ids;
+  }
+
   function autoInit() {
     updateCartBadges();
     initMotionToggle();
@@ -4025,39 +4070,46 @@
 
     var livePrices = document.querySelectorAll('[data-b3d-price]');
     if (livePrices.length) fetchProducts().then(function () { paintLivePrices(livePrices); });
+    var liveStock = document.querySelectorAll('[data-b3d-stock]');
+    if (liveStock.length) fetchProducts().then(function () { paintLiveStock(liveStock); });
 
     var pickerGrid = document.querySelector('[data-b3d-picker-grid]');
-    if (pickerGrid) renderPrinterPicker(pickerGrid);
+    if (pickerGrid) whenNear(pickerGrid, function () { renderPrinterPicker(pickerGrid); });
 
     var featuredGrid = document.querySelector('[data-b3d-featured-grid]');
     if (featuredGrid) {
-      fetchProducts().then(function (products) {
-        // Coming-soon products stay visible here (marked "Coming Soon", not orderable).
-        var available = products.filter(function (p) { return p.available !== false || p.comingSoon; });
-        var pinned = available.filter(function (p) { return !!p.featured; });
-        var fresh = available.filter(function (p) { return !p.featured && p.newArrival; }).reverse();
-        var rest = available.filter(function (p) { return !p.featured && !p.newArrival; });
-        var featured = pinned.concat(fresh, rest).slice(0, 8);
-        renderGrid(featured, featuredGrid);
-        injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
+      whenNear(featuredGrid, function () {
+        fetchProducts().then(function (products) {
+          var featured = homeFeatured(products);
+          renderGrid(featured, featuredGrid);
+          injectItemListSeo(featured, 'home-jsonld-featured', 'Featured Products');
+        });
       });
     }
 
+    // Printers and gifts skip anything already in Featured, so the home page never shows
+    // the same card twice.
     var printersGrid = document.querySelector('[data-b3d-printers-grid]');
     if (printersGrid) {
-      fetchProducts().then(function (products) {
-        var printers = products.filter(function (p) { return p.category === '3D Printers' && (p.available !== false || p.comingSoon); }).slice(0, 8);
-        renderGrid(printers, printersGrid);
+      whenNear(printersGrid, function () {
+        fetchProducts().then(function (products) {
+          var shown = homeFeaturedIds(products);
+          var printers = products.filter(function (p) { return p.category === '3D Printers' && (p.available !== false || p.comingSoon) && !shown[p.id]; }).slice(0, 8);
+          renderGrid(printers, printersGrid);
+        });
       });
     }
 
     var giftsGrid = document.querySelector('[data-b3d-gifts-grid]');
     if (giftsGrid) {
-      fetchProducts().then(function (products) {
-        var gifts = products.filter(function (p) {
-          return p.category === '3D Artwork' && p.available !== false && currentPrice(p) <= 50;
-        }).slice(0, 8);
-        renderGrid(gifts, giftsGrid);
+      whenNear(giftsGrid, function () {
+        fetchProducts().then(function (products) {
+          var shown = homeFeaturedIds(products);
+          var gifts = products.filter(function (p) {
+            return p.category === '3D Artwork' && p.available !== false && currentPrice(p) <= 50 && !shown[p.id];
+          }).slice(0, 8);
+          renderGrid(gifts, giftsGrid);
+        });
       });
     }
 
@@ -4066,22 +4118,28 @@
     // opening the product page — the links above stay in the initial HTML for SEO and no-JS.
     document.querySelectorAll('[data-b3d-cat-grid]').forEach(function (grid) {
       var cat = grid.getAttribute('data-b3d-cat-grid');
-      fetchProducts().then(function (products) {
-        renderGridWithChips(products.filter(function (p) { return p.category === cat; }), grid);
+      whenNear(grid, function () {
+        fetchProducts().then(function (products) {
+          renderGridWithChips(products.filter(function (p) { return p.category === cat; }), grid);
+        });
       });
     });
     document.querySelectorAll('[data-b3d-ids]').forEach(function (grid) {
       var ids = grid.getAttribute('data-b3d-ids').split(',');
-      fetchProducts().then(function (products) {
-        renderGrid(ids.map(function (id) {
-          return products.filter(function (p) { return p.id === id; })[0];
-        }).filter(Boolean), grid);
+      whenNear(grid, function () {
+        fetchProducts().then(function (products) {
+          renderGrid(ids.map(function (id) {
+            return products.filter(function (p) { return p.id === id; })[0];
+          }).filter(Boolean), grid);
+        });
       });
     });
     document.querySelectorAll('[data-b3d-brand-grid]').forEach(function (grid) {
       var brand = grid.getAttribute('data-b3d-brand-grid');
-      fetchProducts().then(function (products) {
-        renderGridWithChips(products.filter(function (p) { return p.brand === brand; }), grid);
+      whenNear(grid, function () {
+        fetchProducts().then(function (products) {
+          renderGridWithChips(products.filter(function (p) { return p.brand === brand; }), grid);
+        });
       });
     });
 

@@ -439,6 +439,30 @@
     "en": "Tabuk",
     "ar": "تبوك"
   },
+  "cmp_faq1_a": {
+    "en": "Press the ⇄ button on any product card in the shop. Up to four products are compared side by side; adding a fifth replaces the oldest one.",
+    "ar": "اضغط زر ⇄ على أي منتج في المتجر. تتم مقارنة حتى أربعة منتجات جنباً إلى جنب، وإضافة منتج خامس تستبدل أقدمها."
+  },
+  "cmp_faq1_q": {
+    "en": "How do I add products to compare?",
+    "ar": "كيف أضيف منتجات للمقارنة؟"
+  },
+  "cmp_faq2_a": {
+    "en": "Start with the Bambu Lab A1 mini and A1: both level the bed automatically and work with the AMS lite for multicolour printing. Then compare build volume against the size of the parts you want to print.",
+    "ar": "ابدأ بطابعتي Bambu Lab A1 mini وA1: كلتاهما تعاير السرير تلقائياً وتعمل مع AMS lite للطباعة متعددة الألوان. ثم قارن حجم الطباعة بحجم القطع التي تريد طباعتها."
+  },
+  "cmp_faq2_q": {
+    "en": "Which printers should a beginner compare first?",
+    "ar": "ما الطابعات التي يقارن بينها المبتدئ أولاً؟"
+  },
+  "cmp_faq3_a": {
+    "en": "Yes. Every price is in Saudi riyals and includes VAT. Delivery is calculated at checkout, and orders are delivered across Saudi Arabia.",
+    "ar": "نعم. جميع الأسعار بالريال السعودي وشاملة ضريبة القيمة المضافة. تُحسب تكلفة التوصيل عند إتمام الطلب، والتوصيل لكل مناطق المملكة."
+  },
+  "cmp_faq3_q": {
+    "en": "Do the prices include VAT?",
+    "ar": "هل الأسعار شاملة ضريبة القيمة المضافة؟"
+  },
   "cmp_help_1": {
     "en": "Build volume: the largest part you can print in one piece.",
     "ar": "حجم الطباعة: أكبر قطعة يمكنك طباعتها دفعة واحدة."
@@ -1442,6 +1466,10 @@
   "js_shipping_heading": {
     "en": "Shipping",
     "ar": "الشحن"
+  },
+  "js_store_rating": {
+    "en": "Store rating",
+    "ar": "تقييم المتجر"
   },
   "js_vat_included": {
     "en": "VAT included",

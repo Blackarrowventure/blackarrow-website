@@ -753,15 +753,15 @@ CATEGORY_SEO = {
     },
     'Filament': {
         'en': ('3D Printer Filament in Saudi Arabia | Black Arrow 3D',
-               'Buy 3D printer filament in Saudi Arabia, including PLA. Prices in SAR with delivery across the Kingdom.',
+               'Buy 3D printer filament in Saudi Arabia: Bambu Lab and KINGROON PLA, PLA Matte, PETG and PETG HS in 1 kg spools. Prices in SAR, delivered KSA-wide.',
                'Filament for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. Not sure which material to pick? Read our PLA vs PETG vs ABS filament guide.'),
         'ar': ('خيوط الطباعة ثلاثية الأبعاد في السعودية | Black Arrow 3D',
-               'اشترِ خيوط الطباعة ثلاثية الأبعاد في السعودية، بما فيها PLA. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
+               'اشترِ فلمنت الطباعة ثلاثية الأبعاد في السعودية: PLA وPLA Matte وPETG وPETG HS من Bambu Lab وKINGROON، بكرات 1 كجم. الأسعار بالريال مع التوصيل لكل المملكة.',
                'خيوط لطابعتك ثلاثية الأبعاد بالريال السعودي مع التوصيل لكل مناطق المملكة. لست متأكدًا من الخامة؟ اقرأ دليلنا للمقارنة بين PLA وPETG وABS.'),
     },
     'Accessories': {
         'en': ('3D Printer Accessories in Saudi Arabia | Black Arrow 3D',
-               'Buy 3D printer accessories and spare parts in Saudi Arabia: hotends, extruders and more for Bambu Lab A1 series printers. Prices in SAR.',
+               '3D printer accessories in Saudi Arabia: Bambu Lab AMS lite, AMS 2 Pro and AMS HT, plus A1 series hot ends and spare parts. Prices in SAR, delivered KSA-wide.',
                'Spare parts and upgrades for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. See our maintenance guide for when to replace a hotend or extruder.'),
         'ar': ('إكسسوارات الطابعات ثلاثية الأبعاد في السعودية | Black Arrow',
                'اشترِ إكسسوارات وقطع غيار الطابعات ثلاثية الأبعاد في السعودية: هوت إند ووحدات بثق وغيرها لطابعات Bambu Lab سلسلة A1. الأسعار بالريال.',
@@ -907,7 +907,7 @@ PRERENDER_RX = re.compile(r'(<div class="b3d-grid" data-b3d-(?:grid|featured-gri
 
 def featured_products():
     """Same pick as the homepage script: pinned, then new arrivals, then the rest (max 8)."""
-    avail = [p for p in PRODUCTS if p.get('available') is not False]
+    avail = [p for p in PRODUCTS if p.get('available') is not False or p.get('comingSoon')]
     pinned = [p for p in avail if p.get('featured')]
     fresh = [p for p in avail if not p.get('featured') and p.get('newArrival')][::-1]
     rest = [p for p in avail if not p.get('featured') and not p.get('newArrival')]
@@ -956,10 +956,11 @@ def prerender_grids(html, lang, kind):
     cards = ''.join(landing_card(p, lang) for p in items)
     html = PRERENDER_RX.sub(lambda m: m.group(1) + '<!--b3d-prerender-->' + cards + '<!--/b3d-prerender-->' + m.group(2), html, count=1)
     if kind == 'home':
-        printers = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Printers' and q.get('available') is not False][:8])
+        shown = {p['id'] for p in items}  # Featured cards; printers and gifts skip them (no duplicates)
+        printers = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Printers' and (q.get('available') is not False or q.get('comingSoon')) and q['id'] not in shown][:8])
         html = re.sub(r'(<div class="b3d-grid" data-b3d-printers-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)',
                       lambda m: m.group(1) + '<!--b3d-prerender-->' + printers + '<!--/b3d-prerender-->' + m.group(2), html, count=1, flags=re.S)
-        gifts = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Artwork' and q.get('available') is not False and current_price(q) <= 50][:8])
+        gifts = ''.join(landing_card(p, lang) for p in [q for q in PRODUCTS if q.get('category') == '3D Artwork' and q.get('available') is not False and current_price(q) <= 50 and q['id'] not in shown][:8])
         html = re.sub(r'(<div class="b3d-grid" data-b3d-gifts-grid>)(?:<!--b3d-prerender-->.*?<!--/b3d-prerender-->)?(</div>)',
                       lambda m: m.group(1) + '<!--b3d-prerender-->' + gifts + '<!--/b3d-prerender-->' + m.group(2), html, count=1, flags=re.S)
     if kind == 'home':
@@ -1254,6 +1255,84 @@ CATEGORY_GUIDE = {
             ],
             'vol': 'حجم الطباعة',
             'shop_link': 'قارن كل الطابعات في المتجر',
+        },
+    },
+    # Filament and Accessories (audit 4 Nov 2026: these pages had under 300 words).
+    # Only facts from the catalog: brands, materials, spool size, AMS drying temperatures, nozzle sizes.
+    'Filament': {
+        'en': {
+            'intro': [
+                "Shop 3D printer filament online in Saudi Arabia from Black Arrow 3D: Bambu Lab PLA Basic and PLA Matte, KINGROON PLA Basic, PETG Basic and PETG HS, and PLA+. The Bambu Lab and KINGROON spools are 1.75 mm and 1 kg, the size most desktop 3D printers use.",
+                "PLA is the easiest material to print and the usual choice for gifts, figures, toys and display pieces. PETG is tougher and copes with more heat, so it suits car parts, outdoor items and parts that have to flex a little. PETG HS is a PETG made for faster printing.",
+                "Bambu Lab spools carry an RFID tag that Bambu Lab AMS units read automatically, so the colour and material appear in the slicer without typing anything. Keep any opened spool in a sealed bag with desiccant: damp filament strings and prints weak parts.",
+                "Prices are in Saudi riyals and include VAT, and orders are delivered across Saudi Arabia. Not sure which one to choose? Read our PLA vs PETG guides on the blog or ask us on WhatsApp.",
+            ],
+            'sections': [
+                ('PLA Filament',
+                 "Easy to print with little warping and a wide choice of colours. Matte PLA hides layer lines for a smoother look.",
+                 ['bambu-lab-pla-basic-filament', 'bambu-lab-pla-matte-filament', 'kingroon-pla-basic-filament', 'filament-pla-1kg']),
+                ('PETG Filament',
+                 "Stronger and more heat-resistant than PLA, for functional parts. PETG HS is the high-speed version.",
+                 ['kingroon-petg-basic-filament', 'kingroon-petg-hs-filament']),
+            ],
+            'vol': 'build volume',
+            'shop_link': 'See all filament in the shop',
+        },
+        'ar': {
+            'intro': [
+                "تسوّق فلمنت الطابعات ثلاثية الأبعاد أونلاين في السعودية من Black Arrow 3D: Bambu Lab PLA Basic وPLA Matte، وKINGROON PLA Basic وPETG Basic وPETG HS، وPLA+. بكرات Bambu Lab وKINGROON بقطر 1.75 مم ووزن 1 كجم، وهو المقاس الذي تستخدمه معظم الطابعات المكتبية.",
+                "خامة PLA هي الأسهل في الطباعة والاختيار المعتاد للهدايا والمجسمات والألعاب وقطع العرض. أما PETG فهي أقوى وتتحمل حرارة أعلى، لذلك تناسب قطع السيارات والاستخدام الخارجي والقطع التي تحتاج إلى قليل من المرونة. وPETG HS نسخة من PETG مصممة للطباعة الأسرع.",
+                "تحمل بكرات Bambu Lab شريحة RFID تقرؤها وحدات AMS من Bambu Lab تلقائياً، فيظهر اللون والخامة في برنامج التقطيع دون إدخال يدوي. احفظ أي بكرة مفتوحة في كيس محكم مع مادة مجففة، لأن الفلمنت الرطب يسبب الخيوط ويضعف القطع.",
+                "الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة، والتوصيل لكل مناطق المملكة. لست متأكداً من الاختيار؟ اقرأ أدلة المقارنة بين PLA وPETG في المدونة أو راسلنا عبر واتساب.",
+            ],
+            'sections': [
+                ('فلمنت PLA',
+                 "سهل الطباعة وقليل الالتواء ومتوفر بألوان كثيرة. ويخفي PLA المطفي خطوط الطبقات لمظهر أنعم.",
+                 None),
+                ('فلمنت PETG',
+                 "أقوى من PLA وأكثر تحملاً للحرارة، للقطع العملية. وPETG HS هو النسخة عالية السرعة.",
+                 None),
+            ],
+            'vol': 'حجم الطباعة',
+            'shop_link': 'شاهد كل أنواع الفلمنت في المتجر',
+        },
+    },
+    'Accessories': {
+        'en': {
+            'intro': [
+                "Spare parts and add-ons for Bambu Lab 3D printers, sold in Saudi Arabia with prices in Saudi riyals including VAT and delivery across the Kingdom.",
+                "For multicolour printing, the AMS lite holds four spools and works with the Bambu Lab A1, A1 mini and A2L. The AMS 2 Pro holds four spools and also dries filament at up to 65 °C, and the AMS HT holds one spool and dries at up to 85 °C for materials that pick up moisture quickly.",
+                "For maintenance, the A1 series hot end comes in 0.2, 0.4, 0.6 and 0.8 mm nozzle sizes. 0.4 mm is the standard all-round size, 0.2 mm is for fine detail, and 0.6 or 0.8 mm lay thicker lines for faster, stronger prints. Our hot end guide on the blog explains when to replace one.",
+                "Not sure which part fits your printer? Send us your printer model on WhatsApp and we will confirm before you order.",
+            ],
+            'sections': [
+                ('AMS Multicolour and Filament Systems',
+                 "Automatic material systems that switch spools during a print, and on the AMS 2 Pro and AMS HT, dry filament too.",
+                 ['bambu-ams-lite', 'bambu-ams-2-pro', 'bambu-ams-ht']),
+                ('Hot Ends and Spare Parts for the A1 Series',
+                 "Replacement hot ends and parts for the Bambu Lab A1 and A1 mini.",
+                 ['bambu-hotend-a1-series', 'hotend-heating-assembly-a1-series', 'a1-series-extruder-unit', 'filament-cutter-lever']),
+            ],
+            'vol': 'build volume',
+            'shop_link': 'See all accessories in the shop',
+        },
+        'ar': {
+            'intro': [
+                "قطع غيار وإضافات لطابعات Bambu Lab ثلاثية الأبعاد، تُباع في السعودية بالريال السعودي شاملة ضريبة القيمة المضافة مع التوصيل لكل مناطق المملكة.",
+                "للطباعة متعددة الألوان، يحمل AMS lite أربع بكرات ويعمل مع Bambu Lab A1 وA1 mini وA2L. ويحمل AMS 2 Pro أربع بكرات ويجفف الفلمنت حتى 65 درجة مئوية، بينما يحمل AMS HT بكرة واحدة ويجفف حتى 85 درجة مئوية للخامات التي تمتص الرطوبة بسرعة.",
+                "للصيانة، يتوفر هوت إند سلسلة A1 بفوهات 0.2 و0.4 و0.6 و0.8 مم. الفوهة 0.4 مم هي المقاس القياسي لمعظم الطبعات، و0.2 مم للتفاصيل الدقيقة، و0.6 أو 0.8 مم لخطوط أسمك وطباعة أسرع وأقوى. ويشرح دليل الهوت إند في المدونة متى تستبدله.",
+                "لست متأكداً من القطعة المناسبة لطابعتك؟ أرسل لنا موديل الطابعة عبر واتساب وسنؤكد لك قبل الطلب.",
+            ],
+            'sections': [
+                ('أنظمة AMS للألوان المتعددة والفلمنت',
+                 "أنظمة مواد تلقائية تبدّل البكرات أثناء الطباعة، ويجفف AMS 2 Pro وAMS HT الفلمنت أيضاً.",
+                 None),
+                ('هوت إند وقطع غيار لسلسلة A1',
+                 "هوت إند بديل وقطع غيار لطابعات Bambu Lab A1 وA1 mini.",
+                 None),
+            ],
+            'vol': 'حجم الطباعة',
+            'shop_link': 'شاهد كل الإكسسوارات في المتجر',
         },
     },
 }
@@ -1712,6 +1791,14 @@ STATIC_PAGES = {
             'body': [
                 ('p', "Ordered from Black Arrow 3D? Tell us how it went and add photos of your order. Reviews appear on the site after we approve them."),
                 ('reviews', ''),
+                ('h2', 'How to leave a review'),
+                ('p', "Use the form on this page: enter your name, pick a rating from 1 to 5 stars and write up to 600 characters about your order, in English or Arabic. You can attach up to 3 photos of what you received. Only your name, rating, comment and photos are shown with the review."),
+                ('h2', 'How our reviews work'),
+                ('ul', ["Reviews describe the whole experience of buying from Black Arrow 3D: ordering, delivery, packaging and after-sales help.",
+                        "Every review is checked by our team before it is published, and you can add photos of what you received.",
+                        "The star rating shown on product pages is this store rating, made up of the same approved reviews."]),
+                ('h2', 'Shop and get help'),
+                ('links', [('/3d/shop/', 'Browse the shop'), ('/3d/shipping/', 'Shipping Policy'), ('/3d/returns/', 'Return & Exchange Policy'), ('/3d/rewards/', 'Black Arrow Rewards')]),
             ],
         },
         'ar': {
@@ -1722,6 +1809,14 @@ STATIC_PAGES = {
             'body': [
                 ('p', "طلبت من Black Arrow 3D؟ شاركنا تجربتك وأضف صور طلبك. تظهر التقييمات في الموقع بعد موافقتنا عليها."),
                 ('reviews', ''),
+                ('h2', 'كيف تكتب تقييمك'),
+                ('p', "استخدم النموذج في هذه الصفحة: اكتب اسمك، واختر تقييماً من نجمة إلى 5 نجوم، واكتب حتى 600 حرف عن طلبك بالعربية أو الإنجليزية. ويمكنك إرفاق حتى 3 صور لما استلمته. لا يظهر مع التقييم إلا اسمك وتقييمك وتعليقك وصورك."),
+                ('h2', 'كيف تعمل التقييمات'),
+                ('ul', ["تصف التقييمات تجربة الشراء من Black Arrow 3D كاملة: الطلب والتوصيل والتغليف والمساعدة بعد البيع.",
+                        "يراجع فريقنا كل تقييم قبل نشره، ويمكنك إضافة صور لما استلمته.",
+                        "تقييم النجوم الظاهر في صفحات المنتجات هو تقييم المتجر نفسه، ويتكوّن من التقييمات المعتمدة ذاتها."]),
+                ('h2', 'تسوّق واحصل على المساعدة'),
+                ('links', [('/3d/shop/', 'تصفح المتجر'), ('/3d/shipping/', 'سياسة الشحن'), ('/3d/returns/', 'سياسة الاسترجاع والاستبدال'), ('/3d/rewards/', 'مكافآت Black Arrow')]),
             ],
         },
     },
@@ -1824,7 +1919,7 @@ def build_static_page(slug, lang):
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
     if any(k == 'reviews' for k, _v in cfg['body']):
-        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20261104" defer></script>' + chr(10) + '</body>', 1)
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.min.js?v=20261110" defer></script>' + chr(10) + '</body>', 1)
     if any(k == 'quote' for k, _v in cfg['body']):
         html = html.replace('</body>', '  <script src="/3d/assets/js/3d-quote.js?v=20261021" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
@@ -1919,3 +2014,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    # The pages load the .min copies of the JS/CSS, so refresh them after every build.
+    import subprocess
+    subprocess.run(['node', os.path.join(ROOT, 'scripts', 'minify_assets.js')], check=True, cwd=ROOT)

@@ -85,7 +85,7 @@
     },
   }[lang];
 
-  const AVATAR_SRC = '/assets/images/arrow-ai-avatar.png';
+  const AVATAR_SRC = '/assets/images/arrow-ai-avatar.webp';
 
   function injectStyles() {
     const style = document.createElement('style');

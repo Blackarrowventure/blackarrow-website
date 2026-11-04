@@ -885,6 +885,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>Bambu Lab P2S Combo with free delivery across Saudi Arabia</p>
             <a href="/3d/product/bambu-lab-p2s/" class="btn btn-primary">See price and stock</a>
+            <a href="/3d/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">Browse all 3D printers</a>
           </div>
 
           <h2>Related</h2>
@@ -961,6 +962,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>بامبو لاب P2S كومبو مع توصيل مجاني لجميع مدن المملكة</p>
             <a href="/3d/ar/product/bambu-lab-p2s/" class="btn btn-primary">شاهد السعر والمخزون</a>
+            <a href="/3d/ar/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">تصفح كل الطابعات</a>
           </div>
 
           <h2>ذات صلة</h2>
@@ -1036,6 +1038,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>Bambu Lab A2L Combo with free delivery across Saudi Arabia</p>
             <a href="/3d/product/bambu-lab-a2l/" class="btn btn-primary">See price and stock</a>
+            <a href="/3d/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">Browse all 3D printers</a>
           </div>
 
           <h2>Related</h2>
@@ -1105,6 +1108,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>بامبو لاب A2L كومبو مع توصيل مجاني لجميع مدن المملكة</p>
             <a href="/3d/ar/product/bambu-lab-a2l/" class="btn btn-primary">شاهد السعر والمخزون</a>
+            <a href="/3d/ar/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">تصفح كل الطابعات</a>
           </div>
 
           <h2>ذات صلة</h2>
@@ -1190,6 +1194,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>Bambu Lab A1 Combo with free delivery across Saudi Arabia</p>
             <a href="/3d/product/bambu-lab-a1/" class="btn btn-primary">See price and stock</a>
+            <a href="/3d/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">Browse all 3D printers</a>
           </div>
 
           <h2>Related</h2>
@@ -1269,6 +1274,7 @@ POSTS = [
           <div class="b3d-article__cta">
             <p>بامبو لاب A1 كومبو مع توصيل مجاني لجميع مدن المملكة</p>
             <a href="/3d/ar/product/bambu-lab-a1/" class="btn btn-primary">شاهد السعر والمخزون</a>
+            <a href="/3d/ar/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">تصفح كل الطابعات</a>
           </div>
 
           <h2>ذات صلة</h2>

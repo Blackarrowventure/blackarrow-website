@@ -94,6 +94,7 @@ POSTS = {
           <div class="b3d-article__cta">
             <p>قارن الثلاث جنباً إلى جنب بمواصفات مباشرة</p>
             <a href="/3d/compare/" class="btn btn-primary">افتح أداة المقارنة</a>
+            <a href="/3d/ar/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">تصفح كل الطابعات</a>
           </div>
 
           <h2>منتجات ذات صلة</h2>

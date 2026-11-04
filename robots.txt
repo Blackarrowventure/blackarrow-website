@@ -1,22 +1,12 @@
 # Black Arrow Venture - robots.txt
+#
+# One group for every crawler. A crawler obeys only the most specific group that names it,
+# so a separate "User-agent: Googlebot / Allow: /" group used to make Google (and Bing and
+# the AI crawlers) ignore the Disallow lines below. Search engines and AI assistants are all
+# welcome; they just skip the same draft/internal pages.
 User-agent: *
-Allow: /
-Disallow: /assets/translations/
-
-# Draft/internal pages - keep out of search results
-Disallow: /PREVIEW_*.html
-Disallow: /COLOR_*.html
-Disallow: /business-card-*.html
-Disallow: /contacts/
-
-# Specific rules for search engines
 User-agent: Googlebot
-Allow: /
-
 User-agent: Bingbot
-Allow: /
-
-# AI assistants & answer engines - explicitly welcome
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -30,6 +20,12 @@ User-agent: Applebot-Extended
 User-agent: cohere-ai
 User-agent: meta-externalagent
 Allow: /
+Disallow: /assets/translations/
+# Draft/internal pages - keep out of search results
+Disallow: /PREVIEW_*.html
+Disallow: /COLOR_*.html
+Disallow: /business-card-*.html
+Disallow: /contacts/
 
 # Sitemap
 Sitemap: https://www.blackarrowksa.com/sitemap.xml

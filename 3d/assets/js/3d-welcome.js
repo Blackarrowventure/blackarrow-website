@@ -230,5 +230,19 @@
     clearTimeout(rt); rt = setTimeout(function () { lastW = canvas.clientWidth; start(); }, 200);
   });
   lastW = canvas.clientWidth;
-  start();
+  // Wait for the page to finish loading (and the band to be on screen) before slicing the
+  // text, so the animation never competes with the first paint of the page.
+  function whenLoaded(fn) {
+    if (document.readyState === 'complete') fn(); else window.addEventListener('load', fn, { once: true });
+  }
+  whenLoaded(function () {
+    var go = function () {
+      if (!('IntersectionObserver' in window)) { start(); return; }
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); start(); }
+      });
+      io.observe(band);
+    };
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 1500 }); else setTimeout(go, 200);
+  });
 })();

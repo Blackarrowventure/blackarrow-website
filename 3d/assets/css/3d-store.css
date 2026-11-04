@@ -3218,3 +3218,71 @@ main.b3d-light .b3d-pd__features ul { color: #333; }
 main.b3d-light .b3d-pd__features li::marker { color: #b45309; }
 main.b3d-light .b3d-pd__video video { border-color: #e6e3dc; }
 main.b3d-light .b3d-pd__video figcaption { color: #555; }
+
+/* ==============================================
+   AUDIT 4 Nov 2026: phone layout, contrast, links
+   (colours of the theme unchanged; only text that failed contrast is darker)
+   ============================================== */
+
+/* Phones: two product cards per row and shorter cards. The short description, spec rows,
+   delivery line and instalment row stay on the product page. */
+@media (max-width: 600px) {
+  .b3d-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .b3d-grid .b3d-card__body { padding: 12px 12px 4px; }
+  .b3d-grid .b3d-card__body h3 { font-size: .92rem; line-height: 1.3; margin-bottom: 4px; }
+  .b3d-grid .b3d-card__body > p:not(.b3d-card__color-label),
+  .b3d-grid .b3d-card__specs,
+  .b3d-grid .b3d-card__meta-line,
+  .b3d-grid [data-card-bnpl] { display: none; }
+  .b3d-grid .b3d-card__cat { font-size: 11px; }
+  .b3d-grid .b3d-card__color-label { margin: 6px 0 4px; font-size: 11px; }
+  .b3d-grid .b3d-card__footer { padding: 10px 12px 12px; gap: 8px; }
+  .b3d-grid .b3d-price-wrap { width: 100%; justify-content: space-between; gap: 6px; flex-wrap: nowrap; }
+  .b3d-grid .b3d-price { font-size: 1rem; }
+  /* Add to Cart gets the full card width; compare and wishlist sit on the row below it. */
+  .b3d-grid .b3d-card__actions { width: 100%; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+  .b3d-grid .b3d-card__actions .b3d-btn-add { flex: 1 1 100%; order: -1; padding: 8px 6px; font-size: .82rem; }
+  .b3d-grid .b3d-quick-pill { font-size: .72rem; padding: 6px 8px; }
+  /* Many options (e.g. 10 keychain designs): one row that scrolls sideways, so the card stays short. */
+  .b3d-grid > .b3d-card, .b3d-grid .b3d-card__body { min-width: 0; }
+  .b3d-grid .b3d-card__body { align-self: stretch; width: 100%; box-sizing: border-box; }
+  .b3d-grid .b3d-card__pills { max-width: 100%; gap: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+  .b3d-grid .b3d-card__pills .b3d-quick-pill { flex: 0 0 auto; white-space: nowrap; }
+}
+
+/* Bigger colour dots on touch screens (32px hit area; the dot itself stays the same size). */
+@media (max-width: 768px) {
+  .b3d-color-chip--dot { width: 32px; height: 32px; }
+}
+
+/* Contrast: out-of-stock option pills, VAT note, review dates, OTO badge, Coming Soon badge,
+   amber headings on light pages. */
+.b3d-quick-pill.is-out { opacity: 1; color: #6b6b6b; }
+.b3d-band--light .b3d-quick-pill.is-out, main.b3d-light .b3d-quick-pill.is-out,
+.b3d-band--light .b3d-grid > * .b3d-quick-pill.is-out, main.b3d-light .b3d-grid > * .b3d-quick-pill.is-out { color: #5c5c5c !important; }
+.b3d-quick-pill.is-out[aria-pressed="true"] { opacity: 1; }
+main.b3d-light .b3d-vat-note { color: #5c5b58; }
+.b3d-hub-reviews .b3d-review__date, .b3d-hub-reviews .b3d-review__tag { color: #5f5f5f; }
+.section .b3d-partners__hub .b3d-partners__oto { color: #1a1a1a; }
+.b3d-band--light .b3d-grid > * .b3d-stock-badge--soon,
+.b3d-band--light .b3d-grid > * .b3d-stock-badge--out { color: #fff !important; }
+main.b3d-light #b3d-pd-reviews .section-header h2 { color: #b45309; }
+
+/* Links inside running text are underlined, so they are not marked by colour alone. */
+.b3d-pd__shipreturn a, .b3d-pd__desc p a,
+.b3d-faq p a, .b3d-pd__warranty a { text-decoration: underline; text-underline-offset: 2px; }
+main.b3d-light .b3d-pd__shipreturn a { color: #b45309; }
+
+/* "Store rating" label in front of the stars on product pages. */
+.b3d-pd__rating-label { font-weight: 600; color: inherit; }
+
+/* Ad-cookie consent bar (3d-consent.js). Fixed, so it never shifts the page. */
+.b3d-consent { position: fixed; inset-inline: 12px; bottom: 12px; z-index: 1200; max-width: 560px; margin-inline: auto;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 14px; border-radius: 12px;
+  background: #1a1a1a; color: #f2f2f2; border: 1px solid rgba(245,158,11,.45); box-shadow: 0 8px 28px rgba(0,0,0,.35); font-size: .85rem; line-height: 1.5; }
+.b3d-consent p { flex: 1 1 260px; margin: 0; }
+.b3d-consent a { color: #fbbf24; text-decoration: underline; }
+.b3d-consent__btns { display: flex; gap: 8px; margin-inline-start: auto; }
+.b3d-consent button { min-height: 40px; padding: 8px 16px; border-radius: 8px; font: inherit; font-weight: 700; cursor: pointer; }
+.b3d-consent__no { background: transparent; color: #f2f2f2; border: 1px solid rgba(255,255,255,.35); }
+.b3d-consent__yes { background: var(--clr-accent, #f59e0b); color: #1a1a1a; border: 0; }

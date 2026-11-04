@@ -38,6 +38,15 @@
 /* ──────────────────────────────────────────────
    1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ────────────────────────────────────────────── */
+/* Metric-matched fallbacks (4 Nov 2026): while Noto Sans / Playfair Display download, text is
+   drawn in Arial / Georgia scaled to the same width and line height, so nothing jumps when the
+   web font arrives (this was the company home page's layout shift). Numbers measured from the
+   Google Fonts files with fontTools. */
+@font-face { font-family: 'Noto Sans Fallback'; src: local('Arial'), local('ArialMT'); font-weight: 400; size-adjust: 107.15%; ascent-override: 99.77%; descent-override: 27.35%; line-gap-override: 0%; }
+@font-face { font-family: 'Noto Sans Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'); font-weight: 600 900; size-adjust: 105.47%; ascent-override: 101.36%; descent-override: 27.78%; line-gap-override: 0%; }
+@font-face { font-family: 'Playfair Fallback'; src: local('Georgia'); font-weight: 400 500; size-adjust: 102.36%; ascent-override: 105.71%; descent-override: 24.52%; line-gap-override: 0%; }
+@font-face { font-family: 'Playfair Fallback'; src: local('Georgia Bold'), local('Georgia-Bold'); font-weight: 600 900; size-adjust: 89.95%; ascent-override: 120.3%; descent-override: 27.9%; line-gap-override: 0%; }
+
 :root {
   --clr-red:        #1a1a1a;
   --clr-red-dark:   #333333;
@@ -73,8 +82,8 @@
   --clr-secondary-light: #f5f5f5;
   --clr-whatsapp:   #075E54;
 
-  --ff-body:    'Noto Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --ff-heading: 'Playfair Display', serif;
+  --ff-body:    'Noto Sans', 'Noto Sans Fallback', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ff-heading: 'Playfair Display', 'Playfair Fallback', serif;
   --ff-ar:      'Noto Kufi Arabic', 'Noto Sans', 'Segoe UI', sans-serif;
 
   --fs-xs:   0.75rem;
