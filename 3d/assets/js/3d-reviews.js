@@ -35,7 +35,7 @@
       err_name: 'Please enter your name (2 to 40 characters).',
       err_rating: 'Please choose a star rating.',
       err_comment: 'Please write 10 to 600 characters.',
-      err_photo: 'One of the photos could not be read. Please choose JPG, PNG or WebP images.',
+      err_photo: 'One of the photos could not be read. Please choose a JPG, PNG, WebP or HEIC photo.',
       err_send: 'We could not send your review right now. Please try again later.',
       wait: 'Please wait a moment before sending another review.',
       photoOf: 'Photo from a customer review',
@@ -67,7 +67,7 @@
       err_name: 'يرجى إدخال اسمك (من 2 إلى 40 حرفًا).',
       err_rating: 'يرجى اختيار عدد النجوم.',
       err_comment: 'يرجى كتابة من 10 إلى 600 حرف.',
-      err_photo: 'تعذّرت قراءة إحدى الصور. يرجى اختيار صور بصيغة JPG أو PNG أو WebP.',
+      err_photo: 'تعذّرت قراءة إحدى الصور. يرجى اختيار صورة بصيغة JPG أو PNG أو WebP أو HEIC.',
       err_send: 'تعذّر إرسال تقييمك الآن. يرجى المحاولة لاحقًا.',
       wait: 'يرجى الانتظار قليلًا قبل إرسال تقييم آخر.',
       photoOf: 'صورة من تقييم عميل',
@@ -117,31 +117,55 @@
     return h.slice(0, 8) + '-' + h.slice(8, 12) + '-' + h.slice(12, 16) + '-' + h.slice(16, 20) + '-' + h.slice(20);
   }
 
-  // Shrink a chosen photo to a JPEG of at most 1400px, so uploads stay small and fast.
-  function compress(file) {
+  // Phone photos are often HEIC/HEIF (iPhone, many Android phones), which most browsers cannot
+  // open. Those are converted to JPEG in the browser first; the converter (heic-to, CSP build:
+  // no eval, runs in a blob: worker) is fetched only when such a photo is picked.
+  var HEIC_LIB = 'https://cdn.jsdelivr.net/npm/heic-to@1.6.5/dist/csp/heic-to.js';
+  var heicLib = null;
+  function heicToJpeg(file) {
+    if (!heicLib) heicLib = import(HEIC_LIB).catch(function (e) { heicLib = null; throw e; });
+    return heicLib.then(function (m) {
+      return m.isHeic(file).then(function (yes) {
+        if (!yes) throw new Error('photo');
+        return m.heicTo({ blob: file, type: 'image/jpeg', quality: 0.9 });
+      });
+    }).catch(function () { throw new Error('photo'); });
+  }
+
+  function loadImage(blob) {
     return new Promise(function (resolve, reject) {
-      var url = URL.createObjectURL(file);
+      var url = URL.createObjectURL(blob);
       var img = new Image();
-      img.onload = function () {
-        try {
-          var scale = Math.min(1, 1400 / Math.max(img.naturalWidth, img.naturalHeight));
-          var w = Math.max(1, Math.round(img.naturalWidth * scale));
-          var h = Math.max(1, Math.round(img.naturalHeight * scale));
-          var c = document.createElement('canvas');
-          c.width = w; c.height = h;
-          var ctx = c.getContext('2d');
-          ctx.fillStyle = '#fff';
-          ctx.fillRect(0, 0, w, h);
-          ctx.drawImage(img, 0, 0, w, h);
-          c.toBlob(function (blob) {
-            URL.revokeObjectURL(url);
-            if (blob) resolve(blob); else reject(new Error('photo'));
-          }, 'image/jpeg', 0.82);
-        } catch (e) { URL.revokeObjectURL(url); reject(e); }
-      };
+      img.onload = function () { resolve({ img: img, url: url }); };
       img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('photo')); };
       img.src = url;
     });
+  }
+
+  // Shrink a chosen photo to a JPEG of at most 1400px, so uploads stay small and fast.
+  function compress(file) {
+    return loadImage(file)
+      .catch(function () { return heicToJpeg(file).then(loadImage); })
+      .then(function (r) {
+        var img = r.img;
+        return new Promise(function (resolve, reject) {
+          try {
+            var scale = Math.min(1, 1400 / Math.max(img.naturalWidth, img.naturalHeight));
+            var w = Math.max(1, Math.round(img.naturalWidth * scale));
+            var h = Math.max(1, Math.round(img.naturalHeight * scale));
+            var c = document.createElement('canvas');
+            c.width = w; c.height = h;
+            var ctx = c.getContext('2d');
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, w, h);
+            ctx.drawImage(img, 0, 0, w, h);
+            c.toBlob(function (blob) {
+              URL.revokeObjectURL(r.url);
+              if (blob) resolve(blob); else reject(new Error('photo'));
+            }, 'image/jpeg', 0.82);
+          } catch (e) { URL.revokeObjectURL(r.url); reject(new Error('photo')); }
+        });
+      });
   }
 
   function uploadPhoto(blob) {
@@ -217,7 +241,7 @@
       '<textarea id="b3d-rv-comment" name="comment" rows="4" maxlength="600" dir="auto"></textarea>' +
       '<small>' + esc(S.commentHint) + '</small></div>' +
       '<div class="b3d-rv-field"><label for="b3d-rv-photos">' + esc(S.photos) + '</label>' +
-      '<input id="b3d-rv-photos" name="photos" type="file" accept="image/*" multiple>' +
+      '<input id="b3d-rv-photos" name="photos" type="file" accept="image/*,.heic,.heif" multiple>' +
       '<div class="b3d-rv-previews" data-rv-previews></div>' +
       '<small>' + esc(S.photosHint) + '</small></div>' +
       '<fieldset class="b3d-rv-field b3d-rv-lang"><legend>' + esc(S.lang) + '</legend>' +
@@ -262,16 +286,26 @@
     host.querySelector('[data-rv-cancel]').addEventListener('click', function () { setOpen(false); openBtn.focus(); });
     if (/[?&]review=1\b/.test(location.search)) { setOpen(true); host.scrollIntoView(); }
 
+    // Each photo is converted and shrunk as soon as it is picked, so the preview shows the
+    // real result and Submit only uploads.
     var chosen = [];
     fileInput.addEventListener('change', function () {
-      chosen = Array.prototype.slice.call(fileInput.files || [], 0, MAX_PHOTOS);
+      var files = Array.prototype.slice.call(fileInput.files || [], 0, MAX_PHOTOS);
       previews.innerHTML = '';
-      chosen.forEach(function (f) {
+      msg.setAttribute('hidden', '');
+      chosen = files.map(function (f) {
         var im = document.createElement('img');
         im.alt = '';
-        im.src = URL.createObjectURL(f);
-        im.onload = function () { URL.revokeObjectURL(im.src); };
         previews.appendChild(im);
+        var ready = compress(f);
+        ready.then(function (blob) {
+          im.src = URL.createObjectURL(blob);
+          im.onload = function () { URL.revokeObjectURL(im.src); };
+        }, function () {
+          im.remove();
+          showMsg(S.err_photo, false);
+        });
+        return ready;
       });
     });
 
@@ -294,7 +328,7 @@
       btn.disabled = true;
       btn.textContent = S.sending;
       function reset() { btn.textContent = S.submit; btn.disabled = false; }
-      Promise.all(chosen.map(function (f) { return compress(f).then(uploadPhoto); }))
+      Promise.all(chosen.map(function (ready) { return ready.then(uploadPhoto); }))
         .then(function (files) {
           return rpc('submit_review', { p_name: name, p_rating: rating, p_comment: comment, p_lang: rvlang, p_photos: files });
         })

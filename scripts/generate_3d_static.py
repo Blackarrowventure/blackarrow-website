@@ -1785,7 +1785,7 @@ def build_static_page(slug, lang):
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', lambda m: '<main id="main">' + main + '</main>', html, count=1, flags=re.DOTALL)
     if any(k == 'reviews' for k, _v in cfg['body']):
-        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20261022" defer></script>' + chr(10) + '</body>', 1)
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.js?v=20261104" defer></script>' + chr(10) + '</body>', 1)
     if any(k == 'quote' for k, _v in cfg['body']):
         html = html.replace('</body>', '  <script src="/3d/assets/js/3d-quote.js?v=20261021" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
