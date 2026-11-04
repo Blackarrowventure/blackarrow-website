@@ -633,10 +633,9 @@
     return T('js_best_seller_badge_n').replace('{n}', rank);
   }
 
-  /* Tabby "pay in 4": only shown where checkout really allows it (75–10,000 SAR,
-     the limits in api/tabby/create-session.js). */
-  var TABBY_MIN = 75, TABBY_MAX = 10000;
-  function bnplOk(price) { return price >= TABBY_MIN && price <= TABBY_MAX; }
+  /* Tabby / Tamara instalment line: shown for every price. There is no amount limit of our own;
+     Tabby and Tamara approve or decline each order themselves at checkout. */
+  function bnplOk(price) { return price > 0; }
   function bnplQuarter(price) { return Math.round(price / 4 * 100) / 100; }
   // Instalments always show two decimals when they have any (674.75, 1,387.50).
   function bnplMoney(price, currency) {
@@ -2614,6 +2613,10 @@
       });
     }).catch(function (err) {
       if (errorEl) {
+        if (err && err.message === 'tabby_rejected') {
+          errorEl.removeAttribute('data-i18n');
+          errorEl.textContent = T('js_tabby_rejected');
+        }
         if (err && err.message === 'not_enough_stock') {
           errorEl.removeAttribute('data-i18n');
           errorEl.textContent = T('js_cart_stock_changed');

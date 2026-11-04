@@ -9,9 +9,9 @@ const TABBY_API = 'https://api.tabby.ai/api/v2';
 const SITE = process.env.VERCEL_ENV === 'production' || !process.env.VERCEL_URL
   ? 'https://www.blackarrowksa.com'
   : 'https://' + process.env.VERCEL_URL;
-// Limits to confirm with Tabby for your account before going live.
-const MIN_SAR = 75;
-const MAX_SAR = 10000;
+// No order-amount limit of our own (5 Nov 2026): the 75-10,000 SAR range that used to be here was a
+// placeholder never confirmed with Tabby. Tabby decides per account and per customer, and a refusal
+// comes back as status "rejected", which is reported to the shopper as tabby_rejected below.
 
 function cleanBilling(b) {
   const s = (v, max) => String(v || '').trim().slice(0, max);
@@ -67,7 +67,7 @@ module.exports = async (req, res) => {
   const order = buildOrder(body.items, body.shipping, true, rw, products);
 
   const totalSar = order.totalCents / 100;
-  if (totalSar < MIN_SAR || totalSar > MAX_SAR) return res.status(400).json({ error: 'amount_out_of_range' });
+  if (!(totalSar > 0)) return res.status(400).json({ error: 'amount_out_of_range' });
 
   const buyer = cleanBilling(body.billing);
   if (!buyer) return res.status(400).json({ error: 'invalid_billing' });
@@ -146,6 +146,13 @@ module.exports = async (req, res) => {
       && data.configuration.available_products.installments
       && data.configuration.available_products.installments[0]
       && data.configuration.available_products.installments[0].web_url;
+    if (data && data.status === 'rejected') {
+      // Tabby declined this order (e.g. amount above/below what it allows, or the shopper is not eligible).
+      const reason = (data.configuration && data.configuration.products && data.configuration.products.installments
+        && data.configuration.products.installments.rejection_reason) || 'not_available';
+      console.warn('tabby rejected order', orderRef, reason);
+      return res.status(422).json({ error: 'tabby_rejected', reason });
+    }
     if (!r.ok || !data.payment || !data.payment.id || !webUrl) {
       console.error('tabby checkout rejected:', r.status, JSON.stringify(data).slice(0, 300));
       return res.status(502).json({ error: 'gateway_rejected' });
