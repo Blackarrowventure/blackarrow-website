@@ -21,7 +21,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles-3d.min.css?v=20261115">
-  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261114">
+  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261116">
 
   <style>
     :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:104px;}
@@ -244,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX" data-b3d-field="phone"></label>
                   <label><span data-i18n="checkout_email">Email Address</span><input type="email" name="email" required autocomplete="email" data-b3d-field="email"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_email_note">We'll send your order confirmation to this address.</small></label>
                   <label><span data-i18n="checkout_national_address">National Address (short code)</span><input type="text" name="customer_national_address" required maxlength="9" pattern="[A-Za-z]{4} ?[0-9]{4}" autocapitalize="characters" spellcheck="false" placeholder="e.g. RRRD2929" data-i18n-placeholder="checkout_national_placeholder" autocomplete="off" data-b3d-field="national_address"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_national_hint">4 letters + 4 numbers, from your National Address (Absher or the SPL app).</small></label>
-                  <label><span data-i18n="checkout_building">Building Number</span><input type="text" name="customer_building" required inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="e.g. 7584" data-i18n-placeholder="checkout_building_placeholder" autocomplete="address-line1" data-b3d-field="building"></label>
+                  <label><span data-i18n="checkout_building">Building Number</span><input type="text" name="customer_building" required maxlength="10" placeholder="e.g. 8 or 7584" data-i18n-placeholder="checkout_building_placeholder" autocomplete="address-line1" data-b3d-field="building"></label>
                   <label><span data-i18n="checkout_apartment">Apartment, suite, etc. (optional)</span><input type="text" name="customer_apartment" autocomplete="address-line2" data-b3d-field="apartment"></label>
                   <div class="b3d-field-row">
                     <label><span data-i18n="checkout_postal_code">Postal Code (optional)</span><input type="text" name="customer_postal_code" autocomplete="postal-code" data-b3d-field="postal_code"></label>
@@ -362,9 +362,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/3d/assets/js/3d-emailjs-config.js" defer></script>
   <script src="/assets/js/app.min.js?v=20261110" defer></script>
-  <script src="/3d/assets/js/3d-i18n.min.js?v=20261112" defer></script>
+  <script src="/3d/assets/js/3d-i18n.min.js?v=20261116" defer></script>
   <script src="/3d/assets/js/3d-brands.js?v=20261065" defer></script>
-  <script src="/3d/assets/js/3d-store.min.js?v=20261111" defer></script>
+  <script src="/3d/assets/js/3d-store.min.js?v=20261116" defer></script>
   <script src="/3d/assets/js/3d-auth.js?v=20261108" defer></script>
   <script src="/3d/assets/js/3d-rewards.js?v=20261107" defer></script>
 

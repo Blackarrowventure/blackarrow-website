@@ -1956,6 +1956,7 @@
     // even once the order qualifies, so the override is gated on the chosen method too.
     // Self pickup: the "add X more for free delivery" messages and bars don't apply (CSS hides them).
     document.body.classList.toggle('b3d-is-pickup', !!(checkedRadio && checkedRadio.value === 'pickup'));
+    syncPickupFields(checkout, !!(checkedRadio && checkedRadio.value === 'pickup'));
     var shipFree = checkedRadio && (checkedRadio.value === 'pickup' || (lastFreeShipping && checkedRadio.value === 'regular'));
     var price = shipFree ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
@@ -2022,6 +2023,30 @@
       }
     }
     updateOrderTotals();
+  }
+
+  // Self pickup needs only name + phone: the address fields are hidden and switched off (a
+  // disabled field is skipped by the browser's checks and not sent with a bank-transfer order).
+  // Email stays for card / Apple Pay / Tabby / Tamara, whose checkouts require one.
+  var PICKUP_HIDDEN = ['national_address', 'building', 'apartment', 'postal_code', 'city'];
+  function syncPickupFields(checkout, pickup) {
+    var form = checkout && checkout.querySelector('#b3d-checkout-form');
+    if (!form) return;
+    var hide = PICKUP_HIDDEN.slice();
+    if (currentPayMethod === 'bank') hide.push('email');
+    form.querySelectorAll('[data-b3d-field]').forEach(function (el) {
+      var key = el.getAttribute('data-b3d-field');
+      if (PICKUP_HIDDEN.indexOf(key) < 0 && key !== 'email') return;
+      var off = pickup && hide.indexOf(key) >= 0;
+      var label = el.closest('label');
+      if (label) label.hidden = off;
+      el.disabled = off;
+    });
+    form.querySelectorAll('.b3d-field-row').forEach(function (row) {
+      var labels = row.querySelectorAll('label');
+      if (!labels.length) return;
+      row.hidden = Array.prototype.every.call(labels, function (l) { return l.hidden; });
+    });
   }
 
   function initShippingMethods(root) {
@@ -2435,7 +2460,7 @@
     view.querySelector('[data-b3d-thanks-total]').textContent = grand;
     var lead = view.querySelector('[data-b3d-thanks-lead]');
     var emailEl = view.querySelector('[data-b3d-thanks-email]');
-    if (mailOn) {
+    if (mailOn && val('[name="email"]')) {
       lead.setAttribute('data-i18n', 'thanks_p_email');
       lead.textContent = T('thanks_p_email');
       emailEl.textContent = val('[name="email"]');
@@ -2499,7 +2524,7 @@
         var parsed = parseLineId(id);
         return { productId: parsed.productId, variantIndex: parsed.variantIndex, qty: cart[id] };
       });
-      var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
+      var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el && !el.disabled ? el.value : ''; };
       var shipping = form.querySelector('input[name="shipping_choice"]:checked');
       var shipFree = shipping && (shipping.value === 'pickup' || (lastFreeShipping && shipping.value === 'regular'));
       var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
@@ -2558,7 +2583,7 @@
       return item;
     });
     var shipping = form.querySelector('input[name="shipping_choice"]:checked');
-    var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el ? el.value : ''; };
+    var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el && !el.disabled ? el.value : ''; };
     var label = btn ? btn.textContent : '';
     if (btn) { btn.textContent = '...'; btn.disabled = true; }
     if (errorEl) errorEl.hidden = true;
@@ -2628,7 +2653,7 @@
     });
   }
 
-  // National Address short code (4 letters + 4 numbers, e.g. RRRD2929) and the 4-number building
+  // National Address short code (4 letters + 4 numbers, e.g. RRRD2929) and the building number (any number, e.g. 8 or 7584)
   // number: tidied as typed (capitals, no spaces; English digits) and checked with a clear message.
   function toLatinDigits(v) {
     return String(v || '').replace(/[\u0660-\u0669]/g, function (d) { return String(d.charCodeAt(0) - 0x0660); })
@@ -2637,7 +2662,7 @@
   function initAddressChecks(form) {
     var rules = [
       { name: 'customer_national_address', tidy: function (v) { return toLatinDigits(v).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8); }, ok: /^[A-Z]{4}[0-9]{4}$/, msg: 'checkout_national_invalid' },
-      { name: 'customer_building', tidy: function (v) { return toLatinDigits(v).replace(/[^0-9]/g, '').slice(0, 4); }, ok: /^[0-9]{4}$/, msg: 'checkout_building_invalid' }
+      { name: 'customer_building', tidy: function (v) { return toLatinDigits(v).replace(/[^0-9A-Za-z /-]/g, '').slice(0, 10); }, ok: /[0-9]/, msg: 'checkout_building_invalid' }
     ];
     rules.forEach(function (r) {
       var el = form.querySelector('[name="' + r.name + '"]');

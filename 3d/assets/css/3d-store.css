@@ -3339,3 +3339,4 @@ html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
   .b3d-trust-strip { flex-wrap: wrap; overflow: visible; gap: 6px 16px; }
   .b3d-trust-strip__item { flex: 1 1 44%; white-space: normal; }
 }
+.b3d-account__form [hidden], .b3d-account__form .b3d-field-row[hidden] { display: none !important; }

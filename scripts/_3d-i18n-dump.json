@@ -272,12 +272,12 @@
     "ar": "رقم المبنى"
   },
   "checkout_building_invalid": {
-    "en": "The building number is 4 numbers, e.g. 7584.",
-    "ar": "رقم المبنى 4 أرقام، مثل 7584."
+    "en": "Please enter your building number, e.g. 8 or 7584.",
+    "ar": "يرجى إدخال رقم المبنى، مثل 8 أو 7584."
   },
   "checkout_building_placeholder": {
-    "en": "e.g. 7584",
-    "ar": "مثال: 7584"
+    "en": "e.g. 8 or 7584",
+    "ar": "مثال: 8 أو 7584"
   },
   "checkout_city": {
     "en": "City",
@@ -1470,6 +1470,10 @@
   "js_store_rating": {
     "en": "Store rating",
     "ar": "تقييم المتجر"
+  },
+  "js_tabby_rejected": {
+    "en": "Tabby could not approve this order. Please choose another payment method, such as card or Tamara.",
+    "ar": "لم تتمكن Tabby من الموافقة على هذا الطلب. يرجى اختيار طريقة دفع أخرى مثل البطاقة أو تمارا."
   },
   "js_vat_included": {
     "en": "VAT included",
