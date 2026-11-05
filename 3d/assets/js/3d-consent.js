@@ -34,8 +34,14 @@
       '<div class="b3d-consent__btns"><button type="button" class="b3d-consent__no">' + txt.no + '</button>' +
       '<button type="button" class="b3d-consent__yes">' + txt.yes + '</button></div>';
     document.body.appendChild(bar);
-    bar.querySelector('.b3d-consent__yes').addEventListener('click', function () { set('yes'); bar.remove(); loadSnap(); });
-    bar.querySelector('.b3d-consent__no').addEventListener('click', function () { set('no'); bar.remove(); });
+    // Lift the floating WhatsApp button above the bar while it is showing, so the two never overlap
+    // (on phones the button used to sit right on top of "Accept").
+    var wa = document.querySelector('.wa-float');
+    var lift = function () { if (wa) wa.style.bottom = (bar.offsetHeight + 24) + 'px'; };
+    lift(); window.addEventListener('resize', lift);
+    var close = function () { bar.remove(); window.removeEventListener('resize', lift); if (wa) wa.style.bottom = ''; };
+    bar.querySelector('.b3d-consent__yes').addEventListener('click', function () { set('yes'); close(); loadSnap(); });
+    bar.querySelector('.b3d-consent__no').addEventListener('click', function () { set('no'); close(); });
   }
   // Shown after the page has loaded, so it never delays the first paint.
   if (document.readyState === 'complete') setTimeout(show, 1200);

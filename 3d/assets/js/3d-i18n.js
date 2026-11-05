@@ -1160,8 +1160,20 @@
      exists. Everywhere else (cart, account, compare, blog, etc., which
      don't have a separate Arabic URL yet) keeps the original
      localStorage-based toggle unchanged. */
+  /* 5 Nov 2026: any English page that has a real Arabic twin (it declares <link hreflang="ar">,
+     e.g. every blog post, gift collection, brand and policy page) is English by URL too, and so is
+     an English-only page with nothing to translate (returns, terms). Before, a visitor who had
+     opened any Arabic page saw those pages flipped right-to-left with the English text mirrored. */
+  function hasArabicTwin() {
+    return !!document.querySelector('link[rel="alternate"][hreflang="ar"]');
+  }
+  function nothingToTranslate() {
+    var main = document.querySelector('main');
+    return !!main && !main.querySelector('[data-i18n]');
+  }
   function isBilingualEnRoute(path) {
-    return path === '/3d/' || path === '/3d/index.html' ||
+    return hasArabicTwin() || nothingToTranslate() ||
+      path === '/3d/' || path === '/3d/index.html' ||
       path === '/3d/shop/' || path === '/3d/shop/index.html' ||
       path === '/3d/rewards/' || path === '/3d/rewards/index.html' ||
       /^\/3d\/shop\/[a-z0-9-]+\/$/.test(path) ||

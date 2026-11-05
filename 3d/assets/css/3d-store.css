@@ -3286,3 +3286,12 @@ main.b3d-light .b3d-pd__shipreturn a { color: #b45309; }
 .b3d-consent button { min-height: 40px; padding: 8px 16px; border-radius: 8px; font: inherit; font-weight: 700; cursor: pointer; }
 .b3d-consent__no { background: transparent; color: #f2f2f2; border: 1px solid rgba(255,255,255,.35); }
 .b3d-consent__yes { background: var(--clr-accent, #f59e0b); color: #1a1a1a; border: 0; }
+@media (max-width: 600px) {
+  .b3d-consent { inset-inline: 8px; bottom: 8px; padding: 10px 12px; gap: 8px 10px; font-size: .8rem; line-height: 1.45; }
+  .b3d-consent p { flex-basis: 100%; }
+  .b3d-consent__btns { margin-inline-start: auto; }
+  .b3d-consent button { min-height: 38px; padding: 6px 14px; }
+}
+.wa-float { transition: bottom .2s ease; }
+/* Mobile menu open: hide the floating WhatsApp button so it does not sit on top of the menu items. */
+body:has(.navbar__links.is-open) .wa-float { display: none !important; }
