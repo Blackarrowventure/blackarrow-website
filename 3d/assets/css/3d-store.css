@@ -3311,3 +3311,31 @@ html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
 .b3d-searchbar input { -webkit-appearance: none; appearance: none; height: 40px; padding: 0 4px; line-height: 40px; }
 .b3d-searchbar input::-webkit-search-decoration, .b3d-searchbar input::-webkit-search-cancel-button { -webkit-appearance: none; }
 .b3d-searchbar button { height: 40px; min-height: 40px; padding: 0 20px; margin: 0; align-self: center; display: inline-flex; align-items: center; line-height: 1; box-sizing: border-box; }
+/* Phones: the floating WhatsApp button covered the line totals and the order total on the cart
+   page, so it is hidden there (WhatsApp stays in the footer and on every product). Elsewhere it is
+   a little smaller and closer to the corner so it covers less of the page. */
+@media (max-width: 768px) {
+  body:has([data-b3d-cart-list]) .wa-float { display: none !important; }
+  a.wa-float { width: 52px; height: 52px; bottom: 16px; right: 16px; }
+  html[dir="rtl"] a.wa-float { right: auto; left: 16px; }
+  a.wa-float svg { width: 26px; height: 26px; }
+}
+/* Blog tables on phones: they scroll sideways inside the article instead of being cut off at the
+   right edge (the price table's Stock column was hidden). Cells keep a readable minimum width. */
+.b3d-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 700px) {
+  .b3d-article table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .b3d-article table th, .b3d-article table td { min-width: 92px; }
+  .b3d-article table th:first-child, .b3d-article table td:first-child { min-width: 72px; }
+}
+/* Readable small labels on phones: nothing under 12px (slide tags, VAT note, rewards labels,
+   payment notes were 10-11px). */
+.b3d-slide__cap-tag, .b3d-vat-note, .b3d-rwd-card__status, .b3d-rwd-tier__badge, .b3d-pm__note { font-size: 12px !important; }
+/* Blog filter counters: round for 1 digit, a pill for 2 (they were 21x24 ovals). */
+.b3d-blog-filter__count { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; }
+/* Shop trust strip on phones: wraps onto two lines instead of a hidden sideways scroller that
+   looked cut off ("Multiple s..."). */
+@media (max-width: 600px) {
+  .b3d-trust-strip { flex-wrap: wrap; overflow: visible; gap: 6px 16px; }
+  .b3d-trust-strip__item { flex: 1 1 44%; white-space: normal; }
+}

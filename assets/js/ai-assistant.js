@@ -100,6 +100,18 @@
         z-index: 9998;
       }
       .ba-ai-launcher-wrap[hidden] { display: none; }
+      /* Phones (5 Nov 2026): the WhatsApp float is replaced by the fixed Call / WhatsApp bar, and
+         the bot used to float over the page above it, covering headings, text and buttons. On
+         phones it sits inside the right end of that bar instead (the bar makes room for it). */
+      @media (max-width: 768px) {
+        body:has(.mobile-cta-sticky) .mobile-cta-sticky { padding-inline-end: 68px; }
+        body:has(.mobile-cta-sticky) .ba-ai-launcher-wrap {
+          ${isRtl ? 'left' : 'right'}: 8px;
+          bottom: calc(env(safe-area-inset-bottom, 0px) + (var(--cta-h, 72px) - 52px) / 2);
+        }
+        body:has(.mobile-cta-sticky) .ba-ai-launcher { width: 52px; height: 52px; box-shadow: none; }
+        body:has(.mobile-cta-sticky) .ba-ai-tooltip { display: none; }
+      }
       .ba-ai-launcher {
         position: relative;
         display: flex;

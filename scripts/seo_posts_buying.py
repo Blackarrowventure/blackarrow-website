@@ -518,7 +518,7 @@ POSTS = [
           <p><strong>Who it is for:</strong> studios and engineering users who print many colours or materials in one job and want less purge waste than a single-nozzle printer.</p>
 
           <h2>Combo vs standalone</h2>
-          <p>A <strong>standalone</strong> printer prints one filament at a time. A <strong>Combo</strong> bundles the printer with an AMS unit that holds several spools and switches between them automatically, so you can print in multiple colors or materials and swap spools without unloading by hand. On current prices the AMS lite adds 1,000&nbsp;SAR to the A1 mini (1,699 vs <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>) and the AMS 2 Pro adds 1,900&nbsp;SAR to the P2S (4,399 vs <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>). Right now only the Combo versions of the A1 mini, A1 and P2S are in stock, and the A2L is sold as a Combo.</p>
+          <p>A <strong>standalone</strong> printer prints one filament at a time. A <strong>Combo</strong> bundles the printer with an AMS unit that holds several spools and switches between them automatically, so you can print in multiple colors or materials and swap spools without unloading by hand. On current prices the A1 mini is <span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span>&nbsp;SAR on its own or <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR with the AMS lite, and the P2S is <span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span>&nbsp;SAR on its own or <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>&nbsp;SAR with the AMS 2 Pro. The table above shows which versions are in stock today.</p>
 
           <h2>AMS lite vs AMS 2 Pro</h2>
           <ul>
@@ -635,7 +635,7 @@ POSTS = [
           <p><strong>لمن تناسب:</strong> الاستوديوهات والمستخدمين الهندسيين الذين يطبعون ألواناً أو خامات كثيرة في مهمة واحدة ويريدون هدراً أقل من الطابعات أحادية الفوهة.</p>
 
           <h2>الكومبو أم المنفردة</h2>
-          <p>الطابعة <strong>المنفردة</strong> تطبع بفلمنت واحد في كل مرة. أما <strong>الكومبو</strong> فيضم الطابعة مع وحدة AMS تحمل عدة بكرات وتبدّل بينها تلقائيًا، فتطبع بعدة ألوان أو خامات وتغيّر البكرات دون فكها يدويًا. وفق الأسعار الحالية يضيف AMS lite مبلغ 1,000 ريال إلى A1 mini (1,699 مقابل <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>)، ويضيف AMS 2 Pro مبلغ 1,900 ريال إلى P2S (4,399 مقابل <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>). حاليًا تتوفر نسخ الكومبو فقط من A1 mini وA1 وP2S، وتُباع A2L ككومبو.</p>
+          <p>الطابعة <strong>المنفردة</strong> تطبع بفلمنت واحد في كل مرة. أما <strong>الكومبو</strong> فيضم الطابعة مع وحدة AMS تحمل عدة بكرات وتبدّل بينها تلقائيًا، فتطبع بعدة ألوان أو خامات وتغيّر البكرات دون فكها يدويًا. وفق الأسعار الحالية سعر A1 mini هو <span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span> ريالًا منفردة أو <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا مع AMS lite، وسعر P2S هو <span data-b3d-price="bambu-lab-p2s|Standalone (printer only)">4,399</span> ريالًا منفردة أو <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريالًا مع AMS 2 Pro. ويعرض الجدول أعلاه النسخ المتوفرة اليوم.</p>
 
           <h2>AMS lite أم AMS 2 Pro</h2>
           <ul>

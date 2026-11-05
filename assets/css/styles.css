@@ -1531,7 +1531,7 @@ article.svc-card:hover {
 
 .saudi-flag {
   width: 80px;
-  height: 60px;
+  height: auto; /* keeps the flag's own proportions (it was squeezed into 80x60) */
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,.3);
 }
@@ -4560,3 +4560,27 @@ header .navbar__logo img { width: 270px; height: auto; filter: none; }
 
 /* Centered page heroes: keep the CTA row centered under the centered text (rows placed directly in the hero container) */
 .page-hero > .container > div[style*="display:flex"], .page-hero__text > div[style*="display:flex"] { justify-content: center; }
+
+/* Phone fixes (5 Nov 2026) */
+/* iPhone Safari draws <select> with its own light-grey style and ignores the dark background, so
+   "Select a Service" showed white text on light grey. Own style with the same dark field + an arrow. */
+.form-group select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F59E0B' stroke-width='2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 12px 8px !important;
+  padding-inline-end: 40px !important;
+}
+[dir="rtl"] .form-group select { background-position: left 14px center !important; }
+/* Footer contact rows: icon and text on one line (the links are 44px tall on phones, so with
+   top alignment the emoji sat above the text). */
+.contact-item { align-items: center; }
+/* Breadcrumbs wrap as whole items, so "Black Arrow 3D" no longer breaks into one word per line. */
+.breadcrumb { flex-wrap: wrap; row-gap: 4px; }
+.breadcrumb > a, .breadcrumb > span { flex: 0 1 auto; }
+.breadcrumb > a { white-space: nowrap; }
+/* Form fields use the site font everywhere. Safari does not inherit it into inputs and selects, so
+   "Search products", "Sort: Featured", "ENTER CODE" and the newsletter box showed in a Times-style serif. */
+input, select, textarea { font-family: inherit; }

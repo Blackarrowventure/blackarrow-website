@@ -116,7 +116,7 @@ def head(url, title, desc, extra_ld):
             '  <link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
             '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">\n'
-            '  <link rel="stylesheet" href="/assets/css/styles.min.css?v=20261110">\n\n  %s\n%s\n</head>\n'
+            '  <link rel="stylesheet" href="/assets/css/styles.min.css?v=20261115">\n\n  %s\n%s\n</head>\n'
             % (H.escape(desc), canon, canon, ar, canon, H.escape(title), H.escape(title), H.escape(desc), canon, SITE,
                extra_ld[0], STYLES[0], STYLES[1], CSS_EXTRA))
 
