@@ -3295,3 +3295,19 @@ main.b3d-light .b3d-pd__shipreturn a { color: #b45309; }
 .wa-float { transition: bottom .2s ease; }
 /* Mobile menu open: hide the floating WhatsApp button so it does not sit on top of the menu items. */
 body:has(.navbar__links.is-open) .wa-float { display: none !important; }
+
+/* Header on phones (5 Nov 2026): AR, Profile and Cart are the same 40px circles. "AR" used to be
+   34px wide but 44px tall (the tap-size rule), so it showed as an oval next to two circles. */
+@media (max-width: 768px) {
+  .navbar__right .navbar__pill,
+  .navbar__right .navbar__pill--lang { width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  .navbar__right .navbar__pill--lang { font-size: .78rem; }
+}
+
+/* Search box: fixed heights so the green button sits centred with an even 4px white rim on every
+   browser (iPhone Safari gave the search field its own height and pushed the button off-centre). */
+.b3d-searchbar form { height: 48px; padding: 4px 4px 4px 16px; }
+html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
+.b3d-searchbar input { -webkit-appearance: none; appearance: none; height: 40px; padding: 0 4px; line-height: 40px; }
+.b3d-searchbar input::-webkit-search-decoration, .b3d-searchbar input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.b3d-searchbar button { height: 40px; min-height: 40px; padding: 0 20px; margin: 0; align-self: center; display: inline-flex; align-items: center; line-height: 1; box-sizing: border-box; }
