@@ -1525,8 +1525,8 @@ main.b3d-light .b3d-vat-note { color: rgba(0,0,0,.5); }
 .b3d-pd__thumb.is-active { border-color: var(--clr-accent); }
 .b3d-pd__thumb img { width: 100%; height: 100%; object-fit: contain; }
 
-.b3d-pd__compat, .b3d-pd__warranty, .b3d-pd__guides { margin-top: 20px; }
-.b3d-pd__compat h2, .b3d-pd__warranty h2, .b3d-pd__guides h2 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+.b3d-pd__specs, .b3d-pd__compat, .b3d-pd__warranty, .b3d-pd__guides { margin-top: 20px; }
+.b3d-pd__specs h2, .b3d-pd__compat h2, .b3d-pd__warranty h2, .b3d-pd__guides h2 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
 .b3d-pd__compat ul { color: rgba(255,255,255,.75); padding-left: 18px; font-size: .9rem; }
 .b3d-pd__warranty p { color: rgba(255,255,255,.75); font-size: .9rem; }
 .b3d-pd__guides ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -3368,3 +3368,93 @@ html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
   .b3d-hero--split p { font-size: .9rem; line-height: 1.55; }
   .b3d-welcome__print { height: 48px; }
 }
+
+/* ---- Header that stays on screen (6 Nov 2026 UX pass) ----
+   overflow-x:hidden on html/body made <body> a scroll container, which disabled sticky.
+   "clip" stops sideways scrolling the same way without breaking sticky. The whole <header>
+   sticks; the announcement bar and search bar above/below it scroll away. */
+html, body { overflow-x: clip !important; }
+header:has(> .navbar) { position: sticky; top: 0; z-index: 1000; }
+html { scroll-padding-top: 96px; }
+@media (max-width: 700px) {
+  .navbar { padding-block: 8px; }
+  .b3d-searchbar { padding-block: 6px; }
+  html { scroll-padding-top: 76px; }
+}
+/* One more menu item (Custom Printing): keep the desktop bar on one uncrowded line. */
+@media (min-width: 1366px) and (max-width: 1600px) {
+  .navbar__links { gap: 2px; }
+  .navbar__links > li > a { padding: 10px 9px; }
+  .navbar__links .navbar__dropdown summary { padding-inline: 12px; }
+  .navbar__inner { gap: 10px; }
+}
+
+/* ---- Hero slider: no cropping (6 Nov 2026 UX pass) ----
+   Product photos come in many shapes (3:4, 4:3, 1:1). Plain photo slides now show the whole
+   photo inside the square frame on a white backdrop instead of being cropped. Promo slides
+   (square artwork with a caption panel) keep their existing layout. */
+.b3d-slider--hero .b3d-slide--img-only:not(.b3d-slide--promo) { background: #fff; }
+.b3d-slider--hero .b3d-slide--img-only:not(.b3d-slide--promo) img { object-fit: contain; }
+
+/* ---- Product cards (6 Nov 2026 UX pass) ----
+   Equipment photos (printers, filament, parts) are shown whole on white instead of being
+   cropped; 3D Artwork keeps its full-bleed photos. The "Delivery: KSA-wide" line is dropped
+   from cards (it is the same on every product and is stated in the announcement bar and on
+   the product page). Compare, wishlist, WhatsApp and Add to Cart are unchanged. */
+.b3d-card:not(.b3d-card--art) .b3d-card__visual { background: #fff; }
+.b3d-card:not(.b3d-card--art) .b3d-card__visual img { object-fit: contain; padding: 10px; box-sizing: border-box; }
+.b3d-card .b3d-card__meta-line { display: none; }
+@media (min-width: 961px) { .b3d-card__visual { height: 250px; } }
+/* Very narrow phones (under 360px): one product per row so names, prices and buttons are readable. */
+@media (max-width: 359px) {
+  .b3d-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .b3d-card__visual { height: 220px; }
+}
+.b3d-bnpl__fee { display: block; font-size: .78rem; opacity: .8; margin-top: 2px; }
+
+/* ---- Compare table: scrolls sideways on its own, first column stays visible ---- */
+.b3d-compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.b3d-compare-wrap .b3d-compare-table th, .b3d-compare-wrap .b3d-compare-table td { min-width: 130px; vertical-align: top; }
+.b3d-compare-wrap .b3d-compare-table td:first-child, .b3d-compare-wrap .b3d-compare-table th:first-child { position: sticky; inset-inline-start: 0; z-index: 1; background: #1a1a1a; min-width: 120px; }
+.b3d-compare-all { margin-top: 16px; font-weight: 700; }
+.b3d-compare-all a { color: var(--clr-accent); }
+main.b3d-light .b3d-pd__specs h2 { color: #111; }
+
+/* ---- Mobile sticky Add to Cart bar (product pages, phones only) ---- */
+.b3d-sticky-atc { position: fixed; inset-inline: 0; bottom: 0; z-index: 950; display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: #1a1a1a; border-top: 2px solid var(--clr-accent);
+  box-shadow: 0 -6px 20px rgba(0,0,0,.35); }
+.b3d-sticky-atc[hidden] { display: none; }
+.b3d-sticky-atc__info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.b3d-sticky-atc__name { color: #fff; font-weight: 700; font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b3d-sticky-atc__price { color: var(--clr-accent); font-weight: 800; font-size: .95rem; }
+.b3d-sticky-atc__price .b3d-price { color: inherit; font-size: inherit; }
+.b3d-sticky-atc__btn { flex: 0 0 auto; padding: 10px 18px; min-height: 44px; }
+@media (min-width: 701px) { .b3d-sticky-atc { display: none !important; } }
+body.b3d-has-sticky-atc .wa-float { bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
+body.b3d-has-sticky-atc .b3d-consent ~ .b3d-sticky-atc, body:has(.b3d-consent:not([hidden])) .b3d-sticky-atc { display: none; }
+
+/* ---- Quote tool: MakerWorld link + notes (6 Nov 2026 UX pass) ---- */
+.b3d-quote__form .b3d-quote__wide { grid-column: 1 / -1; }
+.b3d-quote__form textarea, .b3d-quote__link input, .b3d-quote__link textarea { padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: #1d2023; color: #fff; font: inherit; font-size: .9rem; resize: vertical; }
+.b3d-quote__link { margin-top: 28px; padding: 20px; border: 1px solid rgba(245,158,11,.25); border-radius: 12px; display: grid; gap: 12px; }
+.b3d-quote__link h2 { color: #fff; font-size: 1.1rem; margin: 0; }
+.b3d-quote__link p { margin: 0; color: rgba(255,255,255,.75); font-size: .9rem; }
+.b3d-quote__link label { display: flex; flex-direction: column; gap: 4px; color: rgba(255,255,255,.75); font-size: .85rem; }
+.b3d-quote__link .btn { justify-self: start; }
+main.b3d-light .b3d-quote__link h2 { color: #111; }
+main.b3d-light .b3d-quote__link p, main.b3d-light .b3d-quote__link label { color: #444; }
+main.b3d-light .b3d-quote__link input, main.b3d-light .b3d-quote__link textarea, main.b3d-light .b3d-quote__form textarea { background: #fff; color: #111; border-color: #cfcabb; }
+
+/* ---- Home: how custom printing works (4 steps) ---- */
+.b3d-steps { margin-top: 32px; padding: 24px; border: 1px solid rgba(245,158,11,.25); border-radius: var(--radius-lg); }
+.b3d-steps h3 { margin: 0 0 16px; font-size: 1.15rem; }
+.b3d-steps__list { list-style: none; margin: 0 0 20px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+.b3d-steps__list li { counter-increment: step; display: flex; flex-direction: column; gap: 4px; padding-top: 44px; position: relative; font-size: .9rem; line-height: 1.5; }
+.b3d-steps__list li::before { content: counter(step); position: absolute; top: 0; inset-inline-start: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--clr-accent); color: #1a1a1a; font-weight: 800; display: grid; place-items: center; }
+.b3d-steps__list strong { font-size: .98rem; }
+@media (max-width: 900px) { .b3d-steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .b3d-steps { padding: 18px 16px; } .b3d-steps__list { grid-template-columns: minmax(0, 1fr); } .b3d-steps .btn { width: 100%; justify-content: center; } }
+.b3d-why-more { text-align: center; margin-top: 18px; } .b3d-why-more a { color: var(--clr-accent); font-weight: 700; }
+.b3d-slider { touch-action: pan-y; }
+.section--dark .b3d-why-more a { color: var(--clr-accent) !important; text-decoration: underline; text-underline-offset: 3px; }

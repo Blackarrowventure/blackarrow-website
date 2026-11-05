@@ -442,7 +442,7 @@ def product_detail_html(p, lang):
         + '<a href="https://wa.me/966560224715?text=' + wa_msg.replace(' ', '%20') + '" target="_blank" rel="noopener noreferrer" class="btn btn-outline">' + T('js_ask_whatsapp', lang) + '</a>'
         + '</div>'
         + videos_html(p, lang)
-        + ('<table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table>' if specs_html else '')
+        + ('<div class="b3d-pd__specs"><h2>' + T('js_specs_heading', lang) + '</h2><table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table></div>' if specs_html else '')
         + compat_html
         + ('<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading', lang) + '</h2><p>' + esc(L(p, 'warranty', lang)) + '</p></div>' if L(p, 'warranty', lang) else '')
         + guides_html(p, lang)

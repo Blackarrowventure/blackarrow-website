@@ -1019,6 +1019,22 @@
     "en": "Setup help and after-sales support from a real local team, in Arabic or English",
     "ar": "مساعدة في التركيب ودعم ما بعد البيع من فريق محلي حقيقي، بالعربية أو الإنجليزية"
   },
+  "hub_why_li4": {
+    "en": "1-year manufacturer warranty on every 3D printer, from every brand we sell",
+    "ar": "ضمان الشركة المصنّعة لمدة سنة على كل طابعة ثلاثية الأبعاد، من جميع العلامات التي نبيعها"
+  },
+  "hub_why_li5": {
+    "en": "Delivery across Saudi Arabia, with free standard delivery to Khobar and Dammam, on every 3D printer and on orders of 3,000 SAR or more",
+    "ar": "توصيل لجميع مناطق المملكة، مع توصيل عادي مجاني إلى الخبر والدمام، ولكل طابعة ثلاثية الأبعاد، وللطلبات من 3,000 ريال فأكثر"
+  },
+  "hub_why_li6": {
+    "en": "Pay by bank transfer, mada, Visa, Mastercard or Apple Pay, or in instalments with Tabby or Tamara (any pay-later fee is shown before you pay)",
+    "ar": "ادفع بالتحويل البنكي أو مدى أو فيزا أو ماستركارد أو Apple Pay، أو بالتقسيط عبر تابي أو تمارا (تظهر أي رسوم للدفع الآجل قبل الدفع)"
+  },
+  "hub_why_more": {
+    "en": "Delivery, payment and fees in full",
+    "ar": "تفاصيل التوصيل والدفع والرسوم كاملة"
+  },
   "hub_why_overline": {
     "en": "Why Buy From Black Arrow 3D",
     "ar": "لماذا تشتري من بلاك أرو 3D"
@@ -1131,6 +1147,10 @@
     "en": "4 payments of",
     "ar": "4 دفعات بقيمة"
   },
+  "js_bnpl_fee_incl": {
+    "en": "incl. {n} SAR pay-later fee",
+    "ar": "شاملة رسوم الدفع الآجل {n} ريال"
+  },
   "js_bnpl_prefix": {
     "en": "or 4 interest-free payments of",
     "ar": "أو 4 دفعات بدون فوائد بقيمة"
@@ -1184,8 +1204,8 @@
     "ar": "توصيل لكل المملكة"
   },
   "js_card_warranty": {
-    "en": "Manufacturer warranty, defective products only",
-    "ar": "الضمان حسب الشركة المصنّعة، للمنتجات المعيبة فقط"
+    "en": "1-year manufacturer warranty, defective products only",
+    "ar": "ضمان الشركة المصنّعة لمدة سنة، للمنتجات المعيبة فقط"
   },
   "js_cart_bundle_edit": {
     "en": "Edit selection",
@@ -1215,9 +1235,17 @@
     "en": "Price",
     "ar": "السعر"
   },
+  "js_cmp_tech": {
+    "en": "Printing technology",
+    "ar": "تقنية الطباعة"
+  },
   "js_colour": {
     "en": "Colour",
     "ar": "اللون"
+  },
+  "js_compare_all_printers": {
+    "en": "Compare all 3D printers",
+    "ar": "قارن جميع الطابعات ثلاثية الأبعاد"
   },
   "js_compare_btn": {
     "en": "Compare",
@@ -1476,12 +1504,16 @@
     "ar": "شاهدها أثناء العمل"
   },
   "js_shipping_desc": {
-    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia.",
-    "ar": "شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية."
+    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia. Standard shipping is free to Khobar and Dammam, on any order with a 3D printer, on 3D Artwork from 100 SAR and on orders of 3,000 SAR or more. Self pickup is free.",
+    "ar": "شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية. الشحن العادي مجاني إلى الخبر والدمام، ولأي طلب يتضمن طابعة ثلاثية الأبعاد، ولمنتجات الفن ثلاثي الأبعاد من 100 ريال، وللطلبات من 3,000 ريال فأكثر. الاستلام الذاتي مجاني."
   },
   "js_shipping_heading": {
     "en": "Shipping",
     "ar": "الشحن"
+  },
+  "js_specs_heading": {
+    "en": "Specifications",
+    "ar": "المواصفات"
   },
   "js_store_rating": {
     "en": "Store rating",
@@ -2127,6 +2159,46 @@
     "en": "Snapmaker U1",
     "ar": "Snapmaker U1"
   },
+  "step1_p": {
+    "en": "Upload an STL file for an instant estimate, or share a MakerWorld link.",
+    "ar": "ارفع ملف STL لتحصل على سعر تقديري فوري، أو شارك رابط MakerWorld."
+  },
+  "step1_t": {
+    "en": "Send your design",
+    "ar": "أرسل تصميمك"
+  },
+  "step2_p": {
+    "en": "We check your design and confirm the price with you on WhatsApp.",
+    "ar": "نراجع تصميمك ونؤكد السعر معك عبر واتساب."
+  },
+  "step2_t": {
+    "en": "Get your quote",
+    "ar": "استلم عرض السعر"
+  },
+  "step3_p": {
+    "en": "Nothing is printed until you confirm the details.",
+    "ar": "لا نبدأ الطباعة قبل أن تؤكد التفاصيل."
+  },
+  "step3_t": {
+    "en": "Approve production",
+    "ar": "وافق على التنفيذ"
+  },
+  "step4_p": {
+    "en": "We print your order and deliver it anywhere in Saudi Arabia.",
+    "ar": "نطبع طلبك ونوصله إلى أي مكان في المملكة."
+  },
+  "step4_t": {
+    "en": "Printing and delivery",
+    "ar": "الطباعة والتوصيل"
+  },
+  "steps_cta": {
+    "en": "Get an instant estimate",
+    "ar": "احصل على سعر تقديري فوري"
+  },
+  "steps_h3": {
+    "en": "How custom printing works",
+    "ar": "كيف تتم الطباعة حسب الطلب"
+  },
   "thanks_contact_note": {
     "en": "A member of our team will personally contact you shortly to confirm every detail of your order, so you can be sure everything is exactly right before it ships.",
     "ar": "سيتواصل معك أحد أعضاء فريقنا شخصيًا قريبًا لتأكيد جميع تفاصيل طلبك، لنضمن معًا أن كل شيء مطابق تمامًا لرغبتك قبل شحنه."
@@ -2200,7 +2272,7 @@
     "ar": "فاتورة ضريبية"
   },
   "trust_warranty": {
-    "en": "Manufacturer warranty",
-    "ar": "ضمان الشركة المصنّعة"
+    "en": "1-year manufacturer warranty",
+    "ar": "ضمان الشركة المصنّعة لمدة سنة"
   }
 }

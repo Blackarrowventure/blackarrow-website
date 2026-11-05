@@ -41,7 +41,14 @@
       attach: 'Please attach the STL file in the chat.',
       another: 'Choose another file',
       file: 'File', sar: 'SAR', mm: 'mm', cm3: 'cm³', g: 'g',
-      msgIntro: 'Hello! I would like a 3D printing quote:'
+      msgIntro: 'Hello! I would like a 3D printing quote:',
+      mw: 'MakerWorld link', mwLabel: 'MakerWorld link (optional)', mwPh: 'https://makerworld.com/…',
+      notes: 'Notes', notesLabel: 'Project notes (optional)', notesPh: 'Size, colours, deadline or anything else we should know',
+      linkTitle: 'No STL file? Send us a MakerWorld link',
+      linkHint: 'Paste the design link and tell us what you need. We reply on WhatsApp with a quote.',
+      linkSend: 'Send on WhatsApp for a quote',
+      linkNeed: 'Please paste a MakerWorld link or write a note first.',
+      msgLink: 'Hello! I would like a quote to 3D print this design:'
     },
     ar: {
       drop: 'اسحب ملف STL هنا أو اضغط لاختياره',
@@ -62,7 +69,14 @@
       attach: 'من فضلك أرفق ملف STL في المحادثة.',
       another: 'اختر ملفًا آخر',
       file: 'الملف', sar: 'ريال', mm: 'مم', cm3: 'سم³', g: 'جم',
-      msgIntro: 'مرحبًا! أريد عرض سعر لطباعة ثلاثية الأبعاد:'
+      msgIntro: 'مرحبًا! أريد عرض سعر لطباعة ثلاثية الأبعاد:',
+      mw: 'رابط MakerWorld', mwLabel: 'رابط MakerWorld (اختياري)', mwPh: 'https://makerworld.com/…',
+      notes: 'ملاحظات', notesLabel: 'ملاحظات المشروع (اختياري)', notesPh: 'المقاس أو الألوان أو الموعد المطلوب أو أي تفاصيل أخرى',
+      linkTitle: 'ليس لديك ملف STL؟ أرسل لنا رابط MakerWorld',
+      linkHint: 'الصق رابط التصميم واكتب ما تحتاجه، وسنرد عليك عبر واتساب بعرض السعر.',
+      linkSend: 'أرسل عبر واتساب لطلب السعر',
+      linkNeed: 'من فضلك الصق رابط MakerWorld أو اكتب ملاحظة أولًا.',
+      msgLink: 'مرحبًا! أريد عرض سعر لطباعة هذا التصميم:'
     }
   };
   var S = STR[lang];
@@ -205,6 +219,8 @@
             '<label>' + esc(S.infill) + select('infill', S.infillOpts, '25') + '</label>' +
             '<label>' + esc(S.scale) + ' (%)<input type="number" name="scale" min="10" max="400" step="5" value="100" inputmode="numeric"></label>' +
             '<label>' + esc(S.qty) + '<input type="number" name="qty" min="1" max="500" value="1" inputmode="numeric"></label>' +
+            '<label class="b3d-quote__wide">' + esc(S.mwLabel) + '<input type="url" name="makerworld" id="b3d-q-mw" maxlength="300" placeholder="' + esc(S.mwPh) + '" autocomplete="off"></label>' +
+            '<label class="b3d-quote__wide">' + esc(S.notesLabel) + '<textarea name="notes" id="b3d-q-notes" maxlength="600" rows="3" placeholder="' + esc(S.notesPh) + '"></textarea></label>' +
           '</form>' +
           '<div class="b3d-quote__price" data-q-price></div>' +
           '<p class="b3d-quote__warn" data-q-warn hidden>' + esc(S.tooLarge) + '</p>' +
@@ -213,7 +229,15 @@
           '<p class="b3d-quote__attach">' + esc(S.attach) + '</p>' +
           '<button type="button" class="b3d-quote__again" data-q-again>' + esc(S.another) + '</button>' +
         '</div>' +
-      '</div>';
+      '</div>' +
+      '<form class="b3d-quote__link" data-q-link>' +
+        '<h2>' + esc(S.linkTitle) + '</h2>' +
+        '<p>' + esc(S.linkHint) + '</p>' +
+        '<label>' + esc(S.mwLabel) + '<input type="url" name="makerworld" id="b3d-q-link-mw" maxlength="300" placeholder="' + esc(S.mwPh) + '" autocomplete="off"></label>' +
+        '<label>' + esc(S.notesLabel) + '<textarea name="notes" id="b3d-q-link-notes" maxlength="600" rows="3" placeholder="' + esc(S.notesPh) + '"></textarea></label>' +
+        '<p class="b3d-quote__warn" data-q-link-msg role="status" hidden></p>' +
+        '<button type="submit" class="btn btn-primary">' + esc(S.linkSend) + '</button>' +
+      '</form>';
 
     var fileIn = host.querySelector('[data-q-file]'), drop = host.querySelector('[data-q-drop]');
     var status = host.querySelector('[data-q-status]'), result = host.querySelector('[data-q-result]');
@@ -223,7 +247,8 @@
       var f = form.elements;
       return {
         material: f.material.value, color: f.color.value, infill: +f.infill.value,
-        scale: Math.min(400, Math.max(10, +f.scale.value || 100)), qty: Math.min(500, Math.max(1, Math.round(+f.qty.value) || 1))
+        scale: Math.min(400, Math.max(10, +f.scale.value || 100)), qty: Math.min(500, Math.max(1, Math.round(+f.qty.value) || 1)),
+        makerworld: cleanText(f.makerworld.value, 300), notes: cleanText(f.notes.value, 600)
       };
     }
 
@@ -249,8 +274,10 @@
         '• ' + S.infill + ': ' + o.infill + '%',
         '• ' + S.scale + ': ' + o.scale + '%',
         '• ' + S.qty + ': ' + fmt(o.qty),
-        '• ' + S.estimate + ': ' + money(e.low) + ' – ' + money(e.high),
-        '', S.attach].join('\n');
+        '• ' + S.estimate + ': ' + money(e.low) + ' – ' + money(e.high)]
+        .concat(o.makerworld ? ['• ' + S.mw + ': ' + o.makerworld] : [])
+        .concat(o.notes ? ['• ' + S.notes + ': ' + o.notes] : [])
+        .concat(['', S.attach]).join('\n');
       host.querySelector('[data-q-send]').href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
     }
 
@@ -293,7 +320,26 @@
       if (window.dataLayer) window.dataLayer.push({ event: 'quote_whatsapp_click' });
     });
     window.addEventListener('resize', function () { if (meas) draw(host.querySelector('[data-q-canvas]'), tris, meas); });
+
+    // No STL file: a MakerWorld link and/or notes go straight into a WhatsApp message.
+    var linkForm = host.querySelector('[data-q-link]');
+    linkForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var mw = cleanText(linkForm.elements.makerworld.value, 300);
+      var notes = cleanText(linkForm.elements.notes.value, 600);
+      var msgEl = linkForm.querySelector('[data-q-link-msg]');
+      if (!mw && !notes) { msgEl.textContent = S.linkNeed; msgEl.hidden = false; return; }
+      msgEl.hidden = true;
+      var text = [S.msgLink, '']
+        .concat(mw ? ['• ' + S.mw + ': ' + mw] : [])
+        .concat(notes ? ['• ' + S.notes + ': ' + notes] : []).join('\n');
+      if (window.dataLayer) window.dataLayer.push({ event: 'quote_link_whatsapp_click' });
+      window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    });
   }
+
+  // Free text for the WhatsApp message: trimmed, single-spaced, length-capped.
+  function cleanText(v, max) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, max); }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

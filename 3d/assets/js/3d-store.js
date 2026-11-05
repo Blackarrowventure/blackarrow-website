@@ -685,13 +685,20 @@
   }
   var TABBY_MARK = '<span class="b3d-bnpl__tabby"><img src="/3d/assets/images/payment/tabby.png" alt="" width="16" height="16">tabby</span>';
   var TAMARA_MARK = '<img class="b3d-bnpl__tamara" src="/3d/assets/images/payment/tamara.png" alt="tamara" width="62" height="20">';
-  function bnplHtml(price, currency) {
+  // The pay-later service fee checkout adds for this kind of product on its own (same rule as
+  // bnplFee() below and api/_lib/pricing.js): 100 SAR printers, 50 SAR filament, else none.
+  // The instalment shown includes it, and the fee is named next to it.
+  function bnplFeeFor(category) { return category === '3D Printers' ? 100 : category === 'Filament' ? 50 : 0; }
+  function bnplFeeText(fee) { return fee ? ' <span class="b3d-bnpl__fee">' + T('js_bnpl_fee_incl').replace('{n}', fee) + '</span>' : ''; }
+  function bnplHtml(price, currency, category) {
     if (!bnplOk(price)) return '';
-    return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price, currency) + '</b> ' + T('js_bnpl_with') + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span></p>';
+    var fee = bnplFeeFor(category);
+    return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price + fee, currency) + '</b> ' + T('js_bnpl_with') + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</p>';
   }
-  function bnplCardHtml(price, currency) {
+  function bnplCardHtml(price, currency, category) {
     if (!bnplOk(price)) return '';
-    return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price, currency) + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span></span>';
+    var fee = bnplFeeFor(category);
+    return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price + fee, currency) + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</span>';
   }
 
   /* Delivery estimate, counted in Saudi business days (Sun–Thu) in Riyadh time.
@@ -952,7 +959,7 @@
           '<div class="b3d-price-wrap">' +
             '<div class="b3d-price-col">' +
               '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' + vatNoteHtml(p) +
-              (p.category === '3D Printers' && !pillOut && !simpleOut ? '<div data-card-bnpl>' + bnplCardHtml(pillProduct ? p.variants[pillIdx].price : currentPrice(p), p.currency) + '</div>' : '') +
+              (p.category === '3D Printers' && !pillOut && !simpleOut ? '<div data-card-bnpl>' + bnplCardHtml(pillProduct ? p.variants[pillIdx].price : currentPrice(p), p.currency, p.category) + '</div>' : '') +
             '</div>' +
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
@@ -1018,7 +1025,7 @@
         var priceEl = pCard.querySelector('[data-card-price]');
         if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
         var bnplEl = pCard.querySelector('[data-card-bnpl]');
-        if (bnplEl && product) bnplEl.innerHTML = bnplCardHtml(product.variants[pIdx].price, product.currency);
+        if (bnplEl && product) bnplEl.innerHTML = bnplCardHtml(product.variants[pIdx].price, product.currency, product.category);
         var pv = product && product.variants[pIdx];
         var pImg = pCard.querySelector('.b3d-card__visual img');
         if (pv && pv.image && pImg) { pImg.removeAttribute('srcset'); pImg.removeAttribute('sizes'); pImg.src = pv.image; }
@@ -3344,7 +3351,7 @@
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
-          '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency)) + '</div>' +
+          '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency, p.category)) + '</div>' +
           variantSelectorHtml +
           trustRowHtml(p) +
           '<div data-pd-eta>' + (selectionOut() || p.preorder ? '' : etaHtml(p)) + '</div>' +
@@ -3369,8 +3376,8 @@
             (p.category === '3D Artwork' ? '' : '<button type="button" data-pd-compare="' + p.id + '">' + T('js_compare_btn') + '</button>') +
           '</div>' +
           videosHtml(p) +
+          (specsHtml ? '<div class="b3d-pd__specs"><h2>' + T('js_specs_heading') + '</h2><table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table></div>' : '') +
           fbtHtml +
-          (specsHtml ? '<table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table>' : '') +
           compatHtml +
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
           guidesHtml(p) +
@@ -3515,7 +3522,7 @@
             selectedVariant = picked.length - bundleMin;
             if (pdPriceEl) pdPriceEl.innerHTML = variantPriceHtml(p.variants[selectedVariant], p);
             var bnplWrapB = container.querySelector('[data-pd-bnpl]');
-            if (bnplWrapB) bnplWrapB.innerHTML = bnplHtml(p.variants[selectedVariant].price, p.currency);
+            if (bnplWrapB) bnplWrapB.innerHTML = bnplHtml(p.variants[selectedVariant].price, p.currency, p.category);
           }
         }
         container.querySelectorAll('[data-bundle-item]').forEach(function (btn) {
@@ -3563,7 +3570,7 @@
         var waBtn = container.querySelector('[data-pd-wa]');
         if (waBtn && hasVariants) waBtn.href = waHref(p, p.variants[selectedVariant]);
         var bnplWrap = container.querySelector('[data-pd-bnpl]');
-        if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency);
+        if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency, p.category);
         refreshFbt();
       }
       if (fbtEl) {
@@ -3614,6 +3621,7 @@
       document.addEventListener('b3d:reviews', function () { paintRatingBadge(container); });
 
       var addBtn = container.querySelector('[data-pd-add]');
+      initStickyAtc(container, p, addBtn);
       if (addBtn) {
         addBtn.addEventListener('click', function () {
           if (addBtn.disabled) return;
@@ -3793,12 +3801,18 @@
 
   function renderComparePage(container) {
     fetchProducts().then(function (products) {
+      // /3d/compare/?all=printers compares every 3D printer in the catalog; otherwise the
+      // visitor's own compare list is used.
+      var allPrinters = /[?&]all=printers(&|$)/.test(location.search);
       var ids = getCompareList();
-      var items = ids.map(function (id) { return products.filter(function (p) { return p.id === id; })[0]; }).filter(Boolean);
+      var items = allPrinters
+        ? products.filter(function (p) { return p.category === '3D Printers'; })
+        : ids.map(function (id) { return products.filter(function (p) { return p.id === id; })[0]; }).filter(Boolean);
       if (items.length < 2) {
         container.innerHTML = '<div class="b3d-empty"><h2 style="color:#fff;">' + T('js_nothing_to_compare_h2') + '</h2>' +
           '<p>' + T('js_nothing_to_compare_p') + '</p>' +
-          '<a href="/3d/shop/" class="btn btn-primary">' + T('cart_go_shop') + '</a></div>';
+          '<a href="/3d/compare/?all=printers" class="btn btn-primary">' + T('js_compare_all_printers') + '</a> ' +
+          '<a href="/3d/shop/" class="btn btn-outline">' + T('cart_go_shop') + '</a></div>';
         return;
       }
 
@@ -3832,13 +3846,25 @@
       html += '<tr><td>' + T('js_cmp_price') + '</td>' + items.map(function (p) { return '<td>' + money(currentPrice(p), p.currency) + '</td>'; }).join('') + '</tr>';
       html += '<tr><td>' + T('js_cmp_availability') + '</td>' + items.map(function (p) { return '<td>' + availabilityLabel(p) + '</td>'; }).join('') + '</tr>';
       html += '<tr><td>' + T('js_cmp_brand') + '</td>' + items.map(function (p) { return '<td>' + (p.brand || '—') + '</td>'; }).join('') + '</tr>';
+      // Printing technology, from each printer's own "printerType" field (not guessed).
+      if (items.some(function (p) { return p.printerType; })) {
+        html += '<tr><td>' + T('js_cmp_tech') + '</td>' + items.map(function (p) { return '<td>' + (p.printerType || '—') + '</td>'; }).join('') + '</tr>';
+      }
+      // With many products side by side, a spec only one of them lists adds a row of dashes;
+      // show it only when at least two of the compared products have it.
+      if (items.length > 4) {
+        specLabels = specLabels.filter(function (label) {
+          return items.filter(function (p) { return specLookup(p, label) !== '—'; }).length >= 2;
+        });
+      }
 
       specLabels.forEach(function (label) {
         html += '<tr><td>' + label + '</td>' + items.map(function (p) { return '<td>' + specLookup(p, label) + '</td>'; }).join('') + '</tr>';
       });
 
       html += '</tbody></table>';
-      container.innerHTML = html;
+      container.innerHTML = '<div class="b3d-compare-wrap">' + html + '</div>' +
+        (allPrinters ? '' : '<p class="b3d-compare-all"><a href="/3d/compare/?all=printers">' + T('js_compare_all_printers') + ' →</a></p>');
     });
   }
 
@@ -3865,10 +3891,14 @@
             var a = document.createElement('a');
             a.href = bits[1];
             a.textContent = bits[0];
+            // Only the first copy is reachable by keyboard / read by screen readers; the
+            // other 11 copies exist only so the ticker loops without a gap.
+            if (c > 0) a.tabIndex = -1;
             item.appendChild(a);
           } else {
             item.textContent = text;
           }
+          if (c > 0) item.setAttribute('aria-hidden', 'true');
           track.appendChild(item);
         });
       }
@@ -3902,6 +3932,55 @@
         bar.setAttribute('data-paused', motionEnabled() ? 'false' : 'true');
       }
     });
+  }
+
+  /* ---------------- Mobile sticky Add to Cart (product pages) ----------------
+     On phones, once the page's own Add to Cart button scrolls out of view, a slim bar with the
+     product name, the current price and an Add to Cart button stays at the bottom. Its button
+     simply clicks the real one, so options, quantity, stock limits and coming-soon / out-of-stock
+     rules are exactly the same. The WhatsApp button is lifted above it (CSS). */
+  function initStickyAtc(container, p, addBtn) {
+    if (!addBtn || p.bundlePick) return;
+    var bar = document.createElement('div');
+    bar.className = 'b3d-sticky-atc';
+    bar.hidden = true;
+    bar.innerHTML = '<div class="b3d-sticky-atc__info"><span class="b3d-sticky-atc__name"></span><span class="b3d-sticky-atc__price"></span></div>' +
+      '<button type="button" class="btn btn-primary b3d-sticky-atc__btn"></button>';
+    document.body.appendChild(bar);
+    var nameEl = bar.querySelector('.b3d-sticky-atc__name');
+    var priceEl = bar.querySelector('.b3d-sticky-atc__price');
+    var btn = bar.querySelector('.b3d-sticky-atc__btn');
+    nameEl.textContent = L(p, 'name');
+    function sync() {
+      btn.textContent = addBtn.textContent;
+      btn.disabled = addBtn.disabled;
+      var pr = container.querySelector('[data-pd-price] .b3d-price') || container.querySelector('[data-pd-price]');
+      priceEl.innerHTML = pr ? pr.innerHTML : '';
+    }
+    sync();
+    new MutationObserver(sync).observe(addBtn, { attributes: true, childList: true, characterData: true, subtree: true });
+    var priceBox = container.querySelector('[data-pd-price]');
+    if (priceBox) new MutationObserver(sync).observe(priceBox, { childList: true, characterData: true, subtree: true });
+    btn.addEventListener('click', function () { addBtn.click(); sync(); });
+    var mq = window.matchMedia('(max-width: 700px)');
+    var offScreen = false;
+    function show() {
+      var on = mq.matches && offScreen;
+      bar.hidden = !on;
+      document.body.classList.toggle('b3d-has-sticky-atc', on);
+      if (on) sync();
+    }
+    // Checked on scroll (throttled to one check per frame) rather than with an
+    // IntersectionObserver, which misses jumps that skip over the button entirely.
+    var ticking = false;
+    function check() {
+      ticking = false;
+      var now = addBtn.isConnected && addBtn.getBoundingClientRect().bottom < 0;
+      if (now !== offScreen) { offScreen = now; show(); }
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
+    if (mq.addEventListener) mq.addEventListener('change', show);
+    check();
   }
 
   /* ---------------- Promo slider ---------------- */
@@ -3946,9 +4025,21 @@
       return '<button class="b3d-slider__dot' + (i === 0 ? ' is-active' : '') + '" data-dot="' + i + '" aria-label="Go to slide ' + (i + 1) + '"></button>';
     }).join('');
 
+    // Only the visible slide's link can be tabbed to; off-screen slides are inert and hidden
+    // from screen readers, so keyboard users don't tab through 12 invisible slides.
+    function setSlideFocus() {
+      slides.forEach(function (s, si) {
+        var off = si !== index;
+        if (off) s.setAttribute('aria-hidden', 'true'); else s.removeAttribute('aria-hidden');
+        s.inert = off;
+        s.querySelectorAll('a, button').forEach(function (el) { if (off) el.setAttribute('tabindex', '-1'); else el.removeAttribute('tabindex'); });
+      });
+    }
+
     function go(i) {
       index = (i + slides.length) % slides.length;
       track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      setSlideFocus();
       dotsWrap.querySelectorAll('[data-dot]').forEach(function (d, di) {
         d.classList.toggle('is-active', di === index);
       });
@@ -3966,14 +4057,25 @@
       if (e.key === 'ArrowRight') { go(index + 1); resetTimer(); }
     });
 
-    var startX = null;
-    slider.addEventListener('pointerdown', function (e) { startX = e.clientX; });
-    slider.addEventListener('pointerup', function (e) {
+    // Swipe: touch events on phones (pointer events get cancelled by the browser's own
+    // scrolling there), pointer events for mouse/pen. A swipe never also opens the slide link.
+    var startX = null, startY = null, swiped = false;
+    function endSwipe(x, y) {
       if (startX == null) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 40) { go(dx < 0 ? index + 1 : index - 1); resetTimer(); }
-      startX = null;
-    });
+      var dx = x - startX, dy = y - startY;
+      startX = startY = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        swiped = true;
+        setTimeout(function () { swiped = false; }, 400);
+        go(dx < 0 ? index + 1 : index - 1); resetTimer();
+      }
+    }
+    slider.addEventListener('touchstart', function (e) { var t = e.touches[0]; startX = t.clientX; startY = t.clientY; }, { passive: true });
+    slider.addEventListener('touchend', function (e) { var t = e.changedTouches[0]; endSwipe(t.clientX, t.clientY); }, { passive: true });
+    slider.addEventListener('pointerdown', function (e) { if (e.pointerType === 'touch') return; startX = e.clientX; startY = e.clientY; });
+    slider.addEventListener('pointerup', function (e) { if (e.pointerType === 'touch') return; endSwipe(e.clientX, e.clientY); });
+    slider.addEventListener('dragstart', function (e) { e.preventDefault(); });
+    slider.addEventListener('click', function (e) { if (swiped) { e.preventDefault(); e.stopPropagation(); } }, true);
 
     var paused = false;
     var interacting = false;
@@ -3985,7 +4087,7 @@
          a working play button, they just don't get an unrequested start. */
       if (timer) clearInterval(timer);
       if (paused || interacting) return;
-      timer = setInterval(function () { go(index + 1); }, 3200);
+      timer = setInterval(function () { go(index + 1); }, 5500);
     }
 
     slider.addEventListener('mouseenter', function () { interacting = true; resetTimer(); });
@@ -4013,6 +4115,7 @@
       }
     }
 
+    setSlideFocus();
     resetTimer();
   }
 
@@ -4117,7 +4220,7 @@
         if (!items.length) return;
         var href;
         if (BRAND_PAGES[brand] && items.length >= BRAND_PAGE_MIN) href = base + '/brands/' + BRAND_PAGES[brand] + '/';
-        else if (items.length === 1) href = productUrl(items[0]);
+        // Brands without their own page always open the shop filtered to that brand (never a single product).
         else href = base + '/shop/?brand=' + encodeURIComponent(brand);
         var logo = BRAND_LOGOS[brand];
         html += '<a href="' + href + '">' + '<span>' + brand + '</span>' +
