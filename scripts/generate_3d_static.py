@@ -497,7 +497,7 @@ def localize_ar_hrefs(html, lang):
     html = re.sub(r'href="/3d/blog/([a-z0-9-]+)/"',
                   lambda m: 'href="/3d/ar/blog/' + m.group(1) + '/"'
                   if os.path.isfile(os.path.join(ROOT, '3d', 'ar', 'blog', m.group(1), 'index.html')) else m.group(0), html)
-    for _slug in ('3d-printing-service-saudi-arabia', 'shipping'):
+    for _slug in ('3d-printing-service-saudi-arabia', 'shipping', 'quote'):
         html = html.replace('href="/3d/' + _slug + '/"', 'href="/3d/ar/' + _slug + '/"')
     html = re.sub(r'href="/3d/product/([a-z0-9-]+)/"', r'href="/3d/ar/product/\1/"', html)
     html = html.replace('href="/3d/shop/"', 'href="/3d/ar/shop/"')

@@ -80,14 +80,21 @@ function bnplFeeCents(cats) {
 //   rewards: { discountCents, freeDelivery } from api/_lib/rewards.js
 //   products: the catalog with the CRM's stock and prices applied
 //   (crm-catalog.liveProducts); defaults to the plain catalog file.
-function buildOrder(items, shipping, payLater, rewards, products) {
+//   city: the customer's City field (Khobar / Dammam get free Standard delivery).
+// Free Standard delivery to Khobar and Dammam (owner's rule, 6 Nov 2026). Matched on the
+// customer's City field, English or Arabic; same test as isFreeCity() in 3d-store.js.
+function freeCity(city) {
+  return /khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''));
+}
+
+function buildOrder(items, shipping, payLater, rewards, products, city) {
   const priced = priceCart(items, products);
   if (!priced) return { error: 'invalid_cart' };
   if (shipping !== 'regular' && shipping !== 'fast' && shipping !== 'pickup') return { error: 'invalid_shipping' };
 
   // Free delivery only ever waives Regular shipping; Fast always stays paid. Self pickup is always free.
   const pickup = shipping === 'pickup';
-  const free = pickup || (shipping === 'regular' && (priced.freeShipping || !!(rewards && rewards.freeDelivery)));
+  const free = pickup || (shipping === 'regular' && (priced.freeShipping || !!(rewards && rewards.freeDelivery) || freeCity(city)));
   const shippingCents = free ? 0 : shipping === 'fast' ? 5000 : 3000;
   const shippingLabel = pickup ? 'Self pickup (Free)'
     : (shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (free ? ' (Free)' : '');
@@ -105,4 +112,4 @@ function buildOrder(items, shipping, payLater, rewards, products) {
   return Object.assign({}, priced, { shippingCents, shippingLabel, feeCents, discountCents, totalCents, summary });
 }
 
-module.exports = { buildOrder, stockProblem, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };
+module.exports = { buildOrder, stockProblem, freeCity, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };

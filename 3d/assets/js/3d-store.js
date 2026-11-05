@@ -113,6 +113,46 @@
     if (v.image && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = v.image; }
   }
 
+  /* ---------------- Store search (English + Arabic) ----------------
+     Matches English and Arabic names, short descriptions, brand and category, with
+     Arabic letter variants and spaces ignored, so "A1mini" = "A1 mini" and
+     "طابعة" finds the printers. */
+  var SEARCH_ALIASES = {
+    cat: {
+      '3D Printers': 'printer printers 3d printer طابعة طابعات طابعه ثلاثية الابعاد',
+      'Filament': 'filament filaments خيوط خيط فيلامنت فلمنت فلامنت',
+      'Accessories': 'accessories parts spare ملحقات اكسسوارات قطع غيار',
+      '3D Artwork': 'artwork gift gifts مجسمات هدايا هديه فن'
+    },
+    brand: {
+      'Bambu Lab': 'bambu بامبو لاب', 'Creality': 'كرياليتي كريالتي', 'Elegoo': 'ايليجو اليجو',
+      'Snapmaker': 'سنابميكر', 'Anycubic': 'انيكيوبك اني كيوبك', 'Flashforge': 'فلاش فورج فلاشفورج',
+      'KINGROON': 'كينجرون كنجرون', 'Black Arrow': 'بلاك ارو بلاك أرو'
+    }
+  };
+  function searchNorm(v) {
+    return String(v || '').toLowerCase()
+      .replace(/[ً-ْـ]/g, '')          // Arabic diacritics + tatweel
+      .replace(/[أإآٱ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي')
+      .replace(/[٠-٩]/g, function (d) { return String(d.charCodeAt(0) - 0x0660); })
+      .replace(/[-_/·,.()+]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  function searchHaystack(p) {
+    if (p.__search) return p.__search;
+    var parts = [p.name, p.name_ar, p.brand, p.category, p.shortDesc, p.shortDesc_ar,
+      SEARCH_ALIASES.cat[p.category] || '', SEARCH_ALIASES.brand[p.brand] || ''];
+    var h = searchNorm(parts.join(' '));
+    p.__search = { spaced: h, tight: h.replace(/ /g, '') };
+    return p.__search;
+  }
+  function searchMatches(p, q) {
+    var nq = searchNorm(q);
+    if (!nq) return true;
+    var h = searchHaystack(p);
+    if (h.tight.indexOf(nq.replace(/ /g, '')) !== -1) return true;
+    return nq.split(' ').every(function (w) { return h.tight.indexOf(w) !== -1; });
+  }
+
   function categoryLabel(cat) {
     if (cat === '3D Printers') return T('nav_3d_printers');
     if (cat === 'Filament') return T('nav_filaments');
@@ -1282,14 +1322,7 @@
       var list = products.slice();
       if (state.cat !== 'All') list = list.filter(function (p) { return p.category === state.cat; });
       if (state.brand !== 'All') list = list.filter(function (p) { return (p.brand || '').toLowerCase() === state.brand.toLowerCase(); });
-      if (state.q) {
-        var q = state.q.toLowerCase();
-        list = list.filter(function (p) {
-          return (p.name || '').toLowerCase().indexOf(q) !== -1 ||
-                 (p.brand || '').toLowerCase().indexOf(q) !== -1 ||
-                 (p.category || '').toLowerCase().indexOf(q) !== -1;
-        });
-      }
+      if (state.q) list = list.filter(function (p) { return searchMatches(p, state.q); });
       if (state.inStockOnly) list = list.filter(function (p) { return p.available !== false; });
       if (state.featuredOnly) list = list.filter(function (p) { return !!p.featured; });
       if (state.preorderOnly) list = list.filter(function (p) { return !!p.preorder; });
@@ -1718,13 +1751,24 @@
     box.hidden = false;
   }
 
+  // Free Standard delivery to Khobar and Dammam (owner's rule, 6 Nov 2026; same test as
+  // api/_lib/pricing.js freeCity). Read from the checkout's City field; Fast delivery stays paid.
+  function isFreeCity(city) {
+    return /khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''));
+  }
+  function freeCityNow() {
+    var el = document.querySelector('#b3d-checkout-form [name="customer_city"]');
+    return !!(el && !el.disabled && isFreeCity(el.value));
+  }
+  function regularFree() { return lastFreeShipping || freeCityNow(); }
+
   function updateFreeShippingUi(artworkSubtotal, orderSubtotal) {
     // The free-delivery threshold only ever waives Regular shipping — Fast
     // shipping always keeps its fee, so only that option's price gets overridden.
     var priceEls = document.querySelectorAll('[data-ship-price-display="regular"]');
     priceEls.forEach(function (el) {
       if (el.dataset.originalHtml === undefined) el.dataset.originalHtml = el.innerHTML;
-      el.innerHTML = lastFreeShipping ? T('js_free_ship_label') : el.dataset.originalHtml;
+      el.innerHTML = regularFree() ? T('js_free_ship_label') : el.dataset.originalHtml;
     });
     var noteEl = document.querySelector('[data-b3d-shipping-note]');
     if (!noteEl) noteEl = document.createElement('p');
@@ -1747,6 +1791,14 @@
       bar.setAttribute('aria-valuenow', String(pct));
       bar.classList.toggle('is-full', pct >= 100);
       bar.hidden = false;
+    }
+    if (!lastFreeShipping && freeCityNow()) {
+      noteEl.textContent = T('js_free_ship_city');
+      noteEl.className = 'b3d-shipping-note is-unlocked';
+      noteEl.hidden = false;
+      setBar(100);
+      renderCartShipProgress(T('js_free_ship_city'), 100, true);
+      return;
     }
     if (lastFreeShipping) {
       noteEl.textContent = T('js_free_ship_unlocked');
@@ -1957,7 +2009,10 @@
     // Self pickup: the "add X more for free delivery" messages and bars don't apply (CSS hides them).
     document.body.classList.toggle('b3d-is-pickup', !!(checkedRadio && checkedRadio.value === 'pickup'));
     syncPickupFields(checkout, !!(checkedRadio && checkedRadio.value === 'pickup'));
-    var shipFree = checkedRadio && (checkedRadio.value === 'pickup' || (lastFreeShipping && checkedRadio.value === 'regular'));
+    document.querySelectorAll('[data-ship-price-display="regular"]').forEach(function (el) {
+      if (el.dataset.originalHtml !== undefined) el.innerHTML = regularFree() ? T('js_free_ship_label') : el.dataset.originalHtml;
+    });
+    var shipFree = checkedRadio && (checkedRadio.value === 'pickup' || (regularFree() && checkedRadio.value === 'regular'));
     var price = shipFree ? 0 : (checkedRadio ? parseInt(checkedRadio.getAttribute('data-shipping-price'), 10) : 0);
     var label = checkedRadio ? checkedRadio.getAttribute('data-shipping-label') : '';
     if (shippingEl) shippingEl.innerHTML = shipFree ? T('js_free_ship_label') : money(price, 'SAR');
@@ -2054,6 +2109,17 @@
     root.querySelectorAll('input[name="shipping_choice"]').forEach(function (radio) {
       radio.addEventListener('change', updateOrderTotals);
     });
+    var cityEl = root.querySelector('[name="customer_city"]');
+    if (cityEl) {
+      var wasFree = null;
+      cityEl.addEventListener('input', function () {
+        var now = freeCityNow();
+        if (now === wasFree) return;
+        wasFree = now;
+        updateFreeShippingUi(lastArtworkSubtotal, lastSubtotal);
+        updateOrderTotals();
+      });
+    }
   }
 
   function initCheckoutAuth(root) {
@@ -2526,7 +2592,7 @@
       });
       var get = function (name) { var el = form.querySelector('[name="' + name + '"]'); return el && !el.disabled ? el.value : ''; };
       var shipping = form.querySelector('input[name="shipping_choice"]:checked');
-      var shipFree = shipping && (shipping.value === 'pickup' || (lastFreeShipping && shipping.value === 'regular'));
+      var shipFree = shipping && (shipping.value === 'pickup' || (regularFree() && shipping.value === 'regular'));
       var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
       // The server checks the coupon, rewards and member delivery itself (by account and redemption).
       var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth
@@ -3212,9 +3278,9 @@
       /* Back-in-stock alert: shown only while the current selection is out of stock. */
       var restockHtml = p.bundlePick ? '' :
         '<div class="b3d-restock" data-restock' + (selectionOut() ? '' : ' hidden') + '>' +
-          '<button type="button" class="b3d-restock__open" data-restock-open><span aria-hidden="true">&#128276;</span> ' + T('js_restock_btn') + '</button>' +
+          '<button type="button" class="b3d-restock__open" data-restock-open><span aria-hidden="true">&#128276;</span> ' + T(p.comingSoon ? 'js_restock_btn_soon' : 'js_restock_btn') + '</button>' +
           '<form class="b3d-restock__form" data-restock-form hidden novalidate>' +
-            '<label for="b3d-restock-contact">' + T('js_restock_title') + '</label>' +
+            '<label for="b3d-restock-contact">' + T(p.comingSoon ? 'js_restock_title_soon' : 'js_restock_title') + '</label>' +
             '<div class="b3d-restock__row">' +
               '<input id="b3d-restock-contact" type="text" inputmode="email" autocomplete="email" maxlength="80" placeholder="' + T('js_restock_placeholder') + '">' +
               '<button type="submit" class="btn btn-primary">' + T('js_restock_submit') + '</button>' +
@@ -3532,7 +3598,7 @@
           btn.disabled = true;
           submitRestockAlert(p.id, variantLabel, contact).then(function (ok) {
             if (ok) {
-              rsForm.innerHTML = '<p class="b3d-restock__msg is-done">' + T('js_restock_done') + '</p>';
+              rsForm.innerHTML = '<p class="b3d-restock__msg is-done">' + T(p.comingSoon ? 'js_restock_done_soon' : 'js_restock_done') + '</p>';
               if (window.dataLayer) window.dataLayer.push({ event: 'restock_alert', item_id: p.id });
               return;
             }

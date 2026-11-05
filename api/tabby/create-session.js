@@ -59,12 +59,12 @@ module.exports = async (req, res) => {
   } catch (e) {
     return res.status(503).json({ error: 'crm_unavailable' });
   }
-  const draft = buildOrder(body.items, body.shipping, true, null, products);
+  const draft = buildOrder(body.items, body.shipping, true, null, products, body.billing && body.billing.city);
   if (draft.error) return res.status(400).json({ error: draft.error });
   const short = stockProblem(body.items, products);
   if (short) return res.status(409).json({ error: 'not_enough_stock', item: short.name, max: short.max });
   const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
-  const order = buildOrder(body.items, body.shipping, true, rw, products);
+  const order = buildOrder(body.items, body.shipping, true, rw, products, body.billing && body.billing.city);
 
   const totalSar = order.totalCents / 100;
   if (!(totalSar > 0)) return res.status(400).json({ error: 'amount_out_of_range' });

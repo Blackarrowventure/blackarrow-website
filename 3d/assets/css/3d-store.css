@@ -3340,3 +3340,31 @@ html[dir="rtl"] .b3d-searchbar form { padding: 4px 16px 4px 4px; }
   .b3d-trust-strip__item { flex: 1 1 44%; white-space: normal; }
 }
 .b3d-account__form [hidden], .b3d-account__form .b3d-field-row[hidden] { display: none !important; }
+
+/* ---- Hero above the fold (6 Nov 2026 UX pass): both buttons on the first screen ---- */
+.b3d-welcome__print { height: 96px; }
+@media (max-width: 600px) { .b3d-welcome__print { height: 64px; } }
+.b3d-hero--split { padding: 28px 0 36px; }
+.b3d-hero--split h1 { line-height: 1.2; margin-bottom: 14px; }
+.b3d-hero--split p { margin-bottom: 22px; line-height: 1.65; }
+.b3d-hero--split .b3d-hero__eyebrow { margin-bottom: 10px; }
+@media (min-width: 961px) {
+  .b3d-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+  .b3d-hero--split .b3d-hero__media { width: min(100%, 500px, calc(100vh - 300px)); min-width: 340px; justify-self: end; }
+}
+@media (max-width: 960px) {
+  .b3d-hero--split { padding: 18px 0 28px; }
+  .b3d-hero--split h1 { font-size: clamp(1.45rem, 6.2vw, 1.9rem); }
+  .b3d-hero--split p { font-size: .95rem; margin-bottom: 16px; }
+  .b3d-hero__grid { gap: 22px; }
+}
+@media (max-width: 600px) {
+  .b3d-hero--split .b3d-hero__actions { gap: 10px; }
+  .b3d-hero--split .b3d-hero__actions .btn { flex: 1 1 140px; justify-content: center; text-align: center; padding-inline: 14px; }
+}
+@media (max-width: 360px) {
+  .b3d-hero--split .b3d-hero__eyebrow { display: none; }
+  .b3d-hero--split { padding-top: 12px; }
+  .b3d-hero--split p { font-size: .9rem; line-height: 1.55; }
+  .b3d-welcome__print { height: 48px; }
+}

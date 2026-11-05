@@ -58,7 +58,7 @@ module.exports = async (req, res) => {
   } catch (e) {
     return res.status(503).json({ error: 'crm_unavailable' });
   }
-  const order = buildOrder(body.items, body.shipping, false, member ? { freeDelivery: rewards.freeDelivery(member) } : null, products);
+  const order = buildOrder(body.items, body.shipping, false, member ? { freeDelivery: rewards.freeDelivery(member) } : null, products, b.city);
   if (order.error) return res.status(400).json({ error: order.error });
   // The order is already placed (bank transfer), so a short item is flagged for staff, not refused.
   const short = stockProblem(body.items, products);
