@@ -3519,3 +3519,8 @@ main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }
   .b3d-hero--split .b3d-hero__actions .btn { white-space: normal; line-height: 1.25; padding: 10px 10px !important; min-height: 48px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
 }
 @media (max-width: 370px) { .b3d-hero--split .b3d-hero__actions .btn { font-size: .88rem; padding: 10px 8px !important; } }
+
+/* Cart order summary (fix, 6 Nov 2026): the summary was always declared sticky, but it never
+   actually stuck until the page's overflow-x became clip (for the sticky header). Once it did, it
+   slid over the payment methods below it. Restore the original behaviour: it scrolls with the page. */
+.b3d-cart-summary { position: static; top: auto; }
