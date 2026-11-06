@@ -1308,7 +1308,22 @@
     document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
       btn.textContent = lang === 'ar' ? 'EN' : 'AR';
       btn.addEventListener('click', function () {
-        setLang(lang === 'ar' ? 'en' : 'ar');
+        var next = lang === 'ar' ? 'en' : 'ar';
+        setLang(next);
+        // Pages with a real twin in the other language (home, shop, categories, products, blog,
+        // rewards...) are English or Arabic by URL, so a reload would show the same language
+        // again: go to the twin instead. Single-copy pages (cart, account...) reload as before.
+        var twin = document.querySelector('link[rel="alternate"][hreflang="' + next + '"]');
+        var href = twin && twin.getAttribute('href');
+        if (href) {
+          try {
+            var u = new URL(href, location.href);
+            if (u.pathname !== location.pathname) {
+              location.href = u.pathname + location.search + location.hash;
+              return;
+            }
+          } catch (e) {}
+        }
         location.reload();
       });
     });
