@@ -3511,3 +3511,11 @@ main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }
   .b3d-card__cat-type { display: none; }
   .b3d-grid .b3d-card__visual { height: auto; aspect-ratio: 1 / 1; }
 }
+
+/* Hero buttons on phones (Nov 2026): a long label ("Get Your Design Printed") wraps onto two
+   centred lines inside its button instead of running into the border. */
+@media (max-width: 600px) {
+  .b3d-hero--split .b3d-hero__actions { align-items: stretch; }
+  .b3d-hero--split .b3d-hero__actions .btn { white-space: normal; line-height: 1.25; padding: 10px 10px !important; min-height: 48px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
+}
+@media (max-width: 370px) { .b3d-hero--split .b3d-hero__actions .btn { font-size: .88rem; padding: 10px 8px !important; } }
