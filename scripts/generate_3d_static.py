@@ -293,7 +293,7 @@ def in_the_box_html(p, lang):
 def product_faq_html(p, lang):
     own = L(p, 'faq', lang) or []
     printer = p.get('category') == '3D Printers'
-    store = [(T('pfaq_warranty_q', lang), T('pfaq_warranty_a_printer' if printer else 'pfaq_warranty_a_other', lang))]
+    store = [(T('pfaq_warranty_q', lang), T('pfaq_warranty_a_printer' if printer else ('pfaq_warranty_a_filament' if p.get('category') == 'Filament' else 'pfaq_warranty_a_other'), lang))]
     if p.get('category') != '3D Artwork':
         store.append((T('pfaq_delivery_q', lang), T('pfaq_delivery_a_printer' if printer else 'pfaq_delivery_a_other', lang)))
     if printer:

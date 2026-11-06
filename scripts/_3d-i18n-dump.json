@@ -1699,6 +1699,10 @@
     "en": "How much is delivery?",
     "ar": "كم تكلفة التوصيل؟"
   },
+  "pfaq_warranty_a_filament": {
+    "en": "No. The 1-year manufacturer warranty covers 3D printers only. Unused filament with its seal unopened, in its original packaging, can be returned or exchanged within 7 days of delivery. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.",
+    "ar": "لا. ضمان الشركة المصنّعة لمدة سنة يشمل الطابعات ثلاثية الأبعاد فقط. ويمكن إرجاع خيوط الطباعة غير المستخدمة أو استبدالها خلال 7 أيام من الاستلام، بشرط ألا يكون الختم مفتوحًا وأن تكون في عبوتها الأصلية. وإذا وصل طلبك تالفًا، أرسل لنا صورًا واضحة خلال 3 أيام من الاستلام وسنرتّب الإرجاع."
+  },
   "pfaq_warranty_a_other": {
     "en": "No. The 1-year manufacturer warranty covers 3D printers only. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.",
     "ar": "لا. ضمان الشركة المصنّعة لمدة سنة يشمل الطابعات ثلاثية الأبعاد فقط. وإذا وصل طلبك تالفًا، أرسل لنا صورًا واضحة خلال 3 أيام من الاستلام وسنرتّب الإرجاع."

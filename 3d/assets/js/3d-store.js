@@ -657,7 +657,7 @@
   function productFaqHtml(p) {
     var own = L(p, 'faq') || [];
     var printer = p.category === '3D Printers';
-    var store = [[T('pfaq_warranty_q'), T(printer ? 'pfaq_warranty_a_printer' : 'pfaq_warranty_a_other')]];
+    var store = [[T('pfaq_warranty_q'), T(printer ? 'pfaq_warranty_a_printer' : p.category === 'Filament' ? 'pfaq_warranty_a_filament' : 'pfaq_warranty_a_other')]];
     if (p.category !== '3D Artwork') store.push([T('pfaq_delivery_q'), T(printer ? 'pfaq_delivery_a_printer' : 'pfaq_delivery_a_other')]);
     if (printer) store.push([T('pfaq_bnpl_q'), T('pfaq_bnpl_a_printer')]);
     var item = function (qa) { return '<details class="b3d-pd__faq-item"><summary>' + pdEsc(qa[0]) + '</summary><p>' + pdEsc(qa[1]) + '</p></details>'; };
