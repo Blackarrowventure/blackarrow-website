@@ -665,6 +665,12 @@
       (own.length ? '<p class="b3d-pd__src">' + T('js_faq_source').replace('{brand}', pdEsc(p.brand)) + '</p>' : '') + '</div>';
   }
 
+  // Card option pills show the short name ("Standalone", "Combo"); the full label, e.g.
+  // "Combo (printer + AMS lite)", stays in the tooltip and on the product page.
+  function cardPillLabel(label) {
+    var short = String(label || '').replace(/\s*[(\uFF08][^)\uFF09]*[)\uFF09]\s*$/, '');
+    return short || label;
+  }
   function trustRowHtml(p) {
     var middle = p.category === '3D Printers'
       ? '<span>&#128737;&#65039; ' + T('trust_warranty') + '</span>'
@@ -941,7 +947,8 @@
         p.variants.map(function (v, i) {
           var out = v.available === false;
           return '<button type="button" class="b3d-quick-pill' + (out ? ' is-out' : '') + '" data-card-pill="' + i + '" aria-pressed="' + (i === pillIdx) + '"' +
-            (out ? ' data-out="1"' : '') + '>' + LVariant(v) + (out ? ' (' + outText(p) + ')' : '') + '</button>';
+            (out ? ' data-out="1"' : '') + ' title="' + LVariant(v) + (out ? ' (' + outText(p) + ')' : '') + '">' + cardPillLabel(LVariant(v)) +
+            (out ? '<span class="b3d-sr"> (' + outText(p) + ')</span>' : '') + '</button>';
         }).join('') + '</div>';
     }
     var pillOut = pillProduct && (p.available === false || p.variants[pillIdx].available === false);
@@ -971,7 +978,7 @@
           visual(p) +
         '</div>' +
         '<div class="b3d-card__body">' +
-          '<div class="b3d-card__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
+          '<div class="b3d-card__cat">' + (p.brand ? p.brand + '<span class="b3d-card__cat-type"> &middot; ' + categoryLabel(p.category) + '</span>' : categoryLabel(p.category)) + '</div>' +
           '<h3>' + L(p, 'name') + '</h3>' +
           (isArt ? '' : '<p>' + (L(p, 'shortDesc') || '') + '</p>') +
           (specs ? '<ul class="b3d-card__specs">' + specs + '</ul>' : '') +
