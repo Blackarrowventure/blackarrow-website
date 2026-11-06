@@ -592,8 +592,8 @@
     "ar": "نعم، سيتم تزويدك برقم تتبع بمجرد شحن طلبك لمتابعة حالته بسهولة."
   },
   "faq_a8": {
-    "en": "Unused printers and unused filament can be returned within 7 days of receiving the order. For any product, a return or exchange can be requested within 3 days if there is a manufacturing defect, you received the wrong product, or it was damaged during shipping. Accessories, 3D printed items and custom orders are not returnable for change of mind. See our Return & Exchange Policy for details.",
-    "ar": "يمكن إرجاع الطابعات غير المستخدمة وخيوط الطباعة غير المستخدمة خلال 7 أيام من استلام الطلب. ولأي منتج، يمكن طلب الاسترجاع أو الاستبدال خلال 3 أيام في حال وجود عيب تصنيع أو استلام منتج خاطئ أو تلفه أثناء الشحن. ولا تُقبل إعادة الإكسسوارات والمنتجات المطبوعة ثلاثية الأبعاد والطلبات المخصصة لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
+    "en": "Unused printers, filament and accessories, with the seal unopened and in their original packaging, can be returned or exchanged within 7 days of receiving the order. For any product, a return or exchange can be requested within 3 days if there is a manufacturing defect, you received the wrong product, or it was damaged during shipping. 3D printed items and custom orders are not returnable for change of mind. See our Return & Exchange Policy for details.",
+    "ar": "يمكن إرجاع الطابعات وخيوط الطباعة والإكسسوارات غير المستخدمة أو استبدالها خلال 7 أيام من استلام الطلب، بشرط ألا يكون الختم مفتوحًا وأن تكون في عبوتها الأصلية. ولأي منتج، يمكن طلب الاسترجاع أو الاستبدال خلال 3 أيام في حال وجود عيب تصنيع أو استلام منتج خاطئ أو تلفه أثناء الشحن. ولا تُقبل إعادة المنتجات المطبوعة ثلاثية الأبعاد والطلبات المخصصة لمجرد تغيير الرأي. راجع سياسة الاسترجاع والاستبدال لمزيد من التفاصيل."
   },
   "faq_a9": {
     "en": "For 3D printed items, cancellation is possible only before production begins; once production has started, it is not available. For other orders, contact us as soon as possible.",
@@ -1698,6 +1698,10 @@
   "pfaq_delivery_q": {
     "en": "How much is delivery?",
     "ar": "كم تكلفة التوصيل؟"
+  },
+  "pfaq_warranty_a_accessory": {
+    "en": "No. The 1-year manufacturer warranty covers 3D printers only. An unused accessory with its seal unopened, in its original packaging, can be returned or exchanged within 7 days of delivery. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.",
+    "ar": "لا. ضمان الشركة المصنّعة لمدة سنة يشمل الطابعات ثلاثية الأبعاد فقط. ويمكن إرجاع الإكسسوار غير المستخدم أو استبداله خلال 7 أيام من الاستلام، بشرط ألا يكون الختم مفتوحًا وأن يكون في عبوته الأصلية. وإذا وصل طلبك تالفًا، أرسل لنا صورًا واضحة خلال 3 أيام من الاستلام وسنرتّب الإرجاع."
   },
   "pfaq_warranty_a_filament": {
     "en": "No. The 1-year manufacturer warranty covers 3D printers only. Unused filament with its seal unopened, in its original packaging, can be returned or exchanged within 7 days of delivery. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.",
