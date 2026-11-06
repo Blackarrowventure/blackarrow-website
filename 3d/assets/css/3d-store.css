@@ -3478,3 +3478,23 @@ main.b3d-light .b3d-quote__link input, main.b3d-light .b3d-quote__link textarea,
   .b3d-steps__list li { padding-top: 0; padding-inline-start: 46px; min-height: 34px; }
   .b3d-steps__list li::before { width: 32px; height: 32px; }
 }
+
+/* Product page: official "In the box" list + FAQs (Nov 2026) */
+.b3d-pd__box, .b3d-pd__faq { margin-top: 20px; }
+.b3d-pd__box h2, .b3d-pd__faq h2 { color: #fff; font-size: 1rem; margin-bottom: 8px; }
+.b3d-pd__box h3 { color: #fff; font-size: .9rem; margin: 12px 0 6px; }
+.b3d-pd__box ul { list-style: disc; color: rgba(255,255,255,.78); font-size: .9rem; padding-inline-start: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 20px; }
+@media (max-width: 560px) { .b3d-pd__box ul { grid-template-columns: 1fr; } }
+.b3d-pd__src { color: rgba(255,255,255,.5); font-size: .78rem; margin-top: 8px; }
+.b3d-pd__faq-item { border-bottom: 1px solid rgba(255,255,255,.1); }
+.b3d-pd__faq-item summary { cursor: pointer; list-style: none; position: relative; padding: 12px 28px 12px 0; color: #fff; font-size: .92rem; font-weight: 600; }
+[dir="rtl"] .b3d-pd__faq-item summary { padding: 12px 0 12px 28px; }
+.b3d-pd__faq-item summary::-webkit-details-marker { display: none; }
+.b3d-pd__faq-item summary::after { content: '+'; position: absolute; inset-inline-end: 4px; top: 10px; font-size: 1.1rem; color: var(--clr-accent); }
+.b3d-pd__faq-item[open] summary::after { content: '\2212'; }
+.b3d-pd__faq-item summary:focus-visible { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.b3d-pd__faq-item p { color: rgba(255,255,255,.75); font-size: .88rem; line-height: 1.6; padding: 0 0 12px; }
+main.b3d-light .b3d-pd__box h2, main.b3d-light .b3d-pd__faq h2, main.b3d-light .b3d-pd__box h3, main.b3d-light .b3d-pd__faq-item summary { color: #111; }
+main.b3d-light .b3d-pd__box ul, main.b3d-light .b3d-pd__faq-item p { color: #444; }
+main.b3d-light .b3d-pd__src { color: #666; }
+main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }

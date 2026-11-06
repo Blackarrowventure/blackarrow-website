@@ -279,6 +279,30 @@ BAMBU_WIKI_URL = {
 BAMBU_YOUTUBE_URL = 'https://www.youtube.com/@bambulab'
 
 
+def in_the_box_html(p, lang):
+    box = L(p, 'inTheBox', lang)
+    if not box:
+        return ''
+    combo = L(p, 'inTheBoxCombo', lang)
+    return ('<div class="b3d-pd__box"><h2>' + T('js_box_heading', lang) + '</h2><ul>'
+            + ''.join('<li>' + esc(x) + '</li>' for x in box) + '</ul>'
+            + (('<h3>' + T('js_box_combo', lang) + '</h3><ul>' + ''.join('<li>' + esc(x) + '</li>' for x in combo) + '</ul>') if combo else '')
+            + '<p class="b3d-pd__src">' + T('js_box_source', lang).replace('{brand}', esc(p.get('brand'))) + '</p></div>')
+
+
+def product_faq_html(p, lang):
+    own = L(p, 'faq', lang) or []
+    printer = p.get('category') == '3D Printers'
+    store = [(T('pfaq_warranty_q', lang), T('pfaq_warranty_a_printer' if printer else 'pfaq_warranty_a_other', lang))]
+    if p.get('category') != '3D Artwork':
+        store.append((T('pfaq_delivery_q', lang), T('pfaq_delivery_a_printer' if printer else 'pfaq_delivery_a_other', lang)))
+    if printer:
+        store.append((T('pfaq_bnpl_q', lang), T('pfaq_bnpl_a_printer', lang)))
+    item = lambda qa: '<details class="b3d-pd__faq-item"><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>'
+    return ('<div class="b3d-pd__faq"><h2>' + T('js_faq_heading', lang) + '</h2>' + ''.join(item(x) for x in own) + ''.join(item(x) for x in store)
+            + (('<p class="b3d-pd__src">' + T('js_faq_source', lang).replace('{brand}', esc(p.get('brand'))) + '</p>') if own else '') + '</div>')
+
+
 def guides_html(p, lang):
     wiki_url = BAMBU_WIKI_URL.get(p.get('id'))
     if not wiki_url:
@@ -443,9 +467,11 @@ def product_detail_html(p, lang):
         + '</div>'
         + videos_html(p, lang)
         + ('<div class="b3d-pd__specs"><h2>' + T('js_specs_heading', lang) + '</h2><table class="b3d-spec-table"><tbody>' + specs_html + '</tbody></table></div>' if specs_html else '')
+        + in_the_box_html(p, lang)
         + compat_html
         + ('<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading', lang) + '</h2><p>' + esc(L(p, 'warranty', lang)) + '</p></div>' if L(p, 'warranty', lang) else '')
         + guides_html(p, lang)
+        + product_faq_html(p, lang)
         + '<div class="b3d-pd__shipreturn">'
         + '<div><strong>' + T('js_shipping_heading', lang) + '</strong><p>' + T('js_shipping_desc', lang) + '</p></div>'
         + '<div><strong>' + T('js_returns_heading', lang) + '</strong><p>' + T('js_returns_desc_prefix', lang)

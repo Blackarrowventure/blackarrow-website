@@ -83,8 +83,32 @@ function bnplFeeCents(cats) {
 //   city: the customer's City field (Khobar / Dammam get free Standard delivery).
 // Free Standard delivery to Khobar and Dammam (owner's rule, 6 Nov 2026). Matched on the
 // customer's City field, English or Arabic; same test as isFreeCity() in 3d-store.js.
+// Free Standard delivery to Khobar / Dammam. Same test as the checkout (3d-store.js isFreeCity):
+// the usual spellings, plus small typos ("Kobar", "Damam", "الدمامم") via edit distance.
+const FREE_CITY_NAMES = ['khobar', 'khubar', 'alkhobar', 'khober', 'dammam', 'damam', 'خبر', 'دمام'];
+function cityNorm(s) {
+  s = String(s || '').toLowerCase().trim()
+    .replace(/[\u064B-\u0652\u0640]/g, '').replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي')
+    .replace(/^(al|el|ad|ar|as|at|an|az)[\s-]+/, '').replace(/^ال/, '');
+  return s.replace(/[^a-z\u0621-\u064A]/g, '');
+}
+function cityDist(a, b, max) {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  let prev = [];
+  for (let j = 0; j <= b.length; j++) prev[j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length];
+}
 function freeCity(city) {
-  return /khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''));
+  if (/khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''))) return true;
+  const q = cityNorm(city);
+  if (q.length < 4) return false;
+  const max = q.length >= 7 ? 2 : 1;
+  return FREE_CITY_NAMES.some(n => cityDist(q, n, max) <= max);
 }
 
 function buildOrder(items, shipping, payLater, rewards, products, city) {

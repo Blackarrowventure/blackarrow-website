@@ -641,6 +641,30 @@
   // Real per-category fact, not a blanket claim: only the printers themselves carry a
   // manufacturer's factory warranty; everything Black Arrow prints or supplies otherwise
   // is replaced if it arrives damaged (see /3d/returns/), never described as "warrantied".
+  // Product page: the official "In the box" list and FAQs (from the brand's official website,
+  // stored per product in 3d-products.json), followed by the store's own answers on warranty,
+  // delivery and instalments for that product type.
+  function pdEsc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function inTheBoxHtml(p) {
+    var box = L(p, 'inTheBox');
+    if (!box || !box.length) return '';
+    var combo = L(p, 'inTheBoxCombo');
+    return '<div class="b3d-pd__box"><h2>' + T('js_box_heading') + '</h2><ul>' +
+      box.map(function (x) { return '<li>' + pdEsc(x) + '</li>'; }).join('') + '</ul>' +
+      (combo && combo.length ? '<h3>' + T('js_box_combo') + '</h3><ul>' + combo.map(function (x) { return '<li>' + pdEsc(x) + '</li>'; }).join('') + '</ul>' : '') +
+      '<p class="b3d-pd__src">' + T('js_box_source').replace('{brand}', pdEsc(p.brand)) + '</p></div>';
+  }
+  function productFaqHtml(p) {
+    var own = L(p, 'faq') || [];
+    var printer = p.category === '3D Printers';
+    var store = [[T('pfaq_warranty_q'), T(printer ? 'pfaq_warranty_a_printer' : 'pfaq_warranty_a_other')]];
+    if (p.category !== '3D Artwork') store.push([T('pfaq_delivery_q'), T(printer ? 'pfaq_delivery_a_printer' : 'pfaq_delivery_a_other')]);
+    if (printer) store.push([T('pfaq_bnpl_q'), T('pfaq_bnpl_a_printer')]);
+    var item = function (qa) { return '<details class="b3d-pd__faq-item"><summary>' + pdEsc(qa[0]) + '</summary><p>' + pdEsc(qa[1]) + '</p></details>'; };
+    return '<div class="b3d-pd__faq"><h2>' + T('js_faq_heading') + '</h2>' + own.map(item).join('') + store.map(item).join('') +
+      (own.length ? '<p class="b3d-pd__src">' + T('js_faq_source').replace('{brand}', pdEsc(p.brand)) + '</p>' : '') + '</div>';
+  }
+
   function trustRowHtml(p) {
     var middle = p.category === '3D Printers'
       ? '<span>&#128737;&#65039; ' + T('trust_warranty') + '</span>'
@@ -1761,13 +1785,87 @@
   // Free Standard delivery to Khobar and Dammam (owner's rule, 6 Nov 2026; same test as
   // api/_lib/pricing.js freeCity). Read from the checkout's City field; Fast delivery stays paid.
   function isFreeCity(city) {
-    return /khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''));
+    if (/khobar|khubar|dammam|damam|الخبر|خبر|الدمام|دمام/i.test(String(city || ''))) return true;
+    var c = matchKsaCity(city);
+    return !!c && (c[0] === 'Al Khobar' || c[0] === 'Dammam');
   }
   function freeCityNow() {
     var el = document.querySelector('#b3d-checkout-form [name="customer_city"]');
     return !!(el && !el.disabled && isFreeCity(el.value));
   }
   function regularFree() { return lastFreeShipping || freeCityNow(); }
+
+  // KSA city list for the checkout City field: dropdown suggestions while typing, plus
+  // auto-correction of spelling variants and small typos ("Kobar" -> "Al Khobar", "جده" -> "جدة")
+  // when the field loses focus. Free text that matches nothing is left exactly as typed.
+  var KSA_CITIES = [["Riyadh","الرياض","riyad,ryadh,riyadh city"],["Jeddah","جدة","jeddah,jidda,jiddah,jedda,jedah"],["Makkah","مكة المكرمة","mecca,makka,makkah al mukarramah,مكه,مكة"],["Madinah","المدينة المنورة","medina,madina,al madinah,المدينه,المدينة"],["Dammam","الدمام","damam,dammam city,دمام"],["Al Khobar","الخبر","khobar,khubar,alkhobar,al-khobar,khober,خبر"],["Dhahran","الظهران","dhahran,dahran,zahran"],["Qatif","القطيف","qatif,al qatif,katif"],["Saihat","سيهات","sayhat,seihat"],["Ras Tanura","رأس تنورة","ras tanurah,ras tannurah"],["Abqaiq","بقيق","buqayq,abqaiq"],["Jubail","الجبيل","al jubail,jubayl"],["Al Ahsa","الأحساء","al hasa,alahsa,hasa,ahsa,al-ahsa,الاحساء"],["Hofuf","الهفوف","al hofuf,hufuf"],["Al Mubarraz","المبرز","mubarraz,mubarraz"],["Khafji","الخفجي","al khafji"],["Hafar Al Batin","حفر الباطن","hafr al batin,hafar albatin"],["Al Nairyah","النعيرية","nairiyah,nuayriyah"],["Taif","الطائف","taif,at taif,الطايف"],["Tabuk","تبوك","tabouk,tabuk city"],["Buraidah","بريدة","buraydah,buraida,braidah"],["Unaizah","عنيزة","unayzah,onaizah"],["Al Rass","الرس","ar rass,rass"],["Al Bukayriyah","البكيرية","bukairiyah"],["Al Mithnab","المذنب","mithnab"],["Hail","حائل","hayil,haeel,حايل"],["Abha","أبها","abha city,ابها"],["Khamis Mushait","خميس مشيط","khamis mushayt,khamis"],["Najran","نجران","nejran"],["Sharurah","شرورة","sharura"],["Jazan","جازان","jizan,gizan,jaizan,جيزان"],["Sabya","صبيا","sabia"],["Abu Arish","أبو عريش","abu areesh"],["Al Baha","الباحة","baha,al bahah"],["Bisha","بيشة","bishah"],["Al Namas","النماص","namas,an nimas"],["Muhayil Asir","محايل عسير","muhayil,mahayel"],["Arar","عرعر","ar ar"],["Rafha","رفحاء","rafha"],["Turaif","طريف","turayf"],["Sakaka","سكاكا","skaka,al jouf,aljouf,الجوف"],["Dumat Al Jandal","دومة الجندل","dawmat al jandal"],["Al Qurayyat","القريات","qurayyat,gurayat"],["Yanbu","ينبع","yenbo,yanbu al bahr"],["Rabigh","رابغ","rabig"],["Thuwal","ثول","thuwal kaust,kaust"],["King Abdullah Economic City","مدينة الملك عبدالله الاقتصادية","kaec"],["Al Lith","الليث","lith"],["Al Qunfudhah","القنفذة","qunfudah,qunfudhah"],["Al Ula","العلا","alula,al-ula,ula"],["Duba","ضباء","dhuba"],["Al Wajh","الوجه","wajh"],["Umluj","أملج","umlej"],["Al Kharj","الخرج","kharj"],["Diriyah","الدرعية","ad diriyah,dariyah"],["Al Majmaah","المجمعة","majmaah,majmaa"],["Al Zulfi","الزلفي","zulfi"],["Shaqra","شقراء","shaqraa"],["Al Dawadmi","الدوادمي","dawadmi,duwadimi"],["Afif","عفيف","afeef"],["Al Quwayiyah","القويعية","quwayiyah"],["Wadi Al Dawasir","وادي الدواسر","wadi dawasir"],["Al Aflaj","الأفلاج","aflaj,layla"],["Hotat Bani Tamim","حوطة بني تميم","hotat bani tameem"],["Al Muzahimiyah","المزاحمية","muzahmiyah"],["Al Hariq","الحريق","hareeq"],["Badr","بدر","badr hunain"],["Khulais","خليص","khulays"],["Al Jumum","الجموم","jumum"],["Al Kamil","الكامل","kamil"],["Tathlith","تثليث","tathleeth"],["Ahad Rafidah","أحد رفيدة","ahad rufaidah"],["Sarat Abidah","سراة عبيدة","sarat ubaidah"],["Al Majardah","المجاردة","majardah"],["Baljurashi","بلجرشي","baljurshi"],["Al Mikhwah","المخواة","mikhwah"],["Samtah","صامطة","samitah"],["Baish","بيش","bish"],["Al Darb","الدرب","darb"],["Farasan","فرسان","farasan island"]];
+  function cityNorm(s) {
+    s = String(s || '').toLowerCase().trim()
+      .replace(/[\u064B-\u0652\u0640]/g, '').replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي')
+      .replace(/^(al|el|ad|ar|as|at|an|az)[\s-]+/, '').replace(/^ال/, '');
+    return s.replace(/[^a-z\u0621-\u064A]/g, '');
+  }
+  function cityDist(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    var prev = [], cur, i, j;
+    for (j = 0; j <= b.length; j++) prev[j] = j;
+    for (i = 1; i <= a.length; i++) {
+      cur = [i];
+      for (j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = cur;
+    }
+    return prev[b.length];
+  }
+  var cityIndex = null;
+  function matchKsaCity(input) {
+    var q = cityNorm(input);
+    if (q.length < 3) return null;
+    if (!cityIndex) {
+      cityIndex = [];
+      KSA_CITIES.forEach(function (c, k) {
+        [c[0], c[1]].concat(c[2].split(',')).forEach(function (n) { var v = cityNorm(n); if (v) cityIndex.push([v, k]); });
+      });
+    }
+    var best = null, bestD = 99, tie = false;
+    for (var i = 0; i < cityIndex.length; i++) {
+      if (cityIndex[i][0] === q) return KSA_CITIES[cityIndex[i][1]];
+    }
+    if (q.length < 4) return null;
+    var max = q.length >= 7 ? 2 : 1;
+    cityIndex.forEach(function (e) {
+      var d = cityDist(q, e[0], max);
+      if (d > max) return;
+      if (d < bestD) { bestD = d; best = e[1]; tie = false; } else if (d === bestD && e[1] !== best) tie = true;
+    });
+    return best === null || tie ? null : KSA_CITIES[best];
+  }
+  function initCityField(el) {
+    if (!el || el.dataset.cityReady) return;
+    el.dataset.cityReady = '1';
+    var ar = isAr();
+    var dl = document.createElement('datalist');
+    dl.id = 'b3d-ksa-cities';
+    KSA_CITIES.slice().sort(function (a, b) { return (ar ? a[1] : a[0]).localeCompare(ar ? b[1] : b[0], ar ? 'ar' : 'en'); }).forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = ar ? c[1] : c[0];
+      o.label = ar ? c[0] : c[1];
+      dl.appendChild(o);
+    });
+    el.parentNode.appendChild(dl);
+    el.setAttribute('list', dl.id);
+    el.addEventListener('change', function () { fixCityValue(el); });
+    el.addEventListener('blur', function () { fixCityValue(el); });
+  }
+  function fixCityValue(el) {
+    var c = matchKsaCity(el.value);
+    if (!c) return;
+    var arInput = /[\u0600-\u06FF]/.test(el.value);
+    var want = arInput ? c[1] : c[0];
+    if (el.value !== want) {
+      el.value = want;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
 
   function updateFreeShippingUi(artworkSubtotal, orderSubtotal) {
     // The free-delivery threshold only ever waives Regular shipping — Fast
@@ -2118,6 +2216,7 @@
     });
     var cityEl = root.querySelector('[name="customer_city"]');
     if (cityEl) {
+      initCityField(cityEl);
       var wasFree = null;
       cityEl.addEventListener('input', function () {
         var now = freeCityNow();
@@ -3377,10 +3476,12 @@
           '</div>' +
           videosHtml(p) +
           (specsHtml ? '<div class="b3d-pd__specs"><h2>' + T('js_specs_heading') + '</h2><table class="b3d-spec-table"><tbody>' + specsHtml + '</tbody></table></div>' : '') +
+          inTheBoxHtml(p) +
           fbtHtml +
           compatHtml +
           (L(p, 'warranty') ? '<div class="b3d-pd__warranty"><h2>' + T('js_warranty_heading') + '</h2><p>' + L(p, 'warranty') + '</p></div>' : '') +
           guidesHtml(p) +
+          productFaqHtml(p) +
           '<div class="b3d-pd__shipreturn">' +
             '<div><strong>' + T('js_shipping_heading') + '</strong><p>' + T('js_shipping_desc') + '</p></div>' +
             '<div><strong>' + T('js_returns_heading') + '</strong><p>' + T('js_returns_desc_prefix') + ' <a href="/3d/returns/">' + T('footer_returns') + '</a> ' + T('js_returns_desc_suffix') + '</p></div>' +

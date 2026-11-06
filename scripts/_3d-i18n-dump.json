@@ -1171,6 +1171,18 @@
     "en": "with",
     "ar": "مع"
   },
+  "js_box_combo": {
+    "en": "The Combo version also includes",
+    "ar": "وتتضمن نسخة الباقة (Combo) أيضًا"
+  },
+  "js_box_heading": {
+    "en": "In the box",
+    "ar": "محتويات العلبة"
+  },
+  "js_box_source": {
+    "en": "Source: official {brand} website. Contents can change with production batches.",
+    "ar": "المصدر: الموقع الرسمي لـ {brand}. قد تتغير المحتويات بحسب دفعات الإنتاج."
+  },
   "js_bundle_pick_cta": {
     "en": "Build Your Combo",
     "ar": "اصنع الكومبو"
@@ -1282,6 +1294,14 @@
   "js_eta_std": {
     "en": "with standard shipping. Faster delivery available at checkout.",
     "ar": "بالشحن العادي. يتوفر توصيل أسرع عند إتمام الطلب."
+  },
+  "js_faq_heading": {
+    "en": "Frequently asked questions",
+    "ar": "الأسئلة الشائعة"
+  },
+  "js_faq_source": {
+    "en": "Product answers are from the official {brand} website.",
+    "ar": "إجابات المنتج من الموقع الرسمي لـ {brand}."
   },
   "js_fbt_add": {
     "en": "Add selected to cart",
@@ -1658,6 +1678,38 @@
   "pd_loading": {
     "en": "Loading product…",
     "ar": "جارٍ تحميل المنتج…"
+  },
+  "pfaq_bnpl_a_printer": {
+    "en": "Yes, with Tabby or Tamara at checkout. Orders that include a 3D printer have a 100 SAR pay-later fee, which is already included in the instalment amount shown on this page.",
+    "ar": "نعم، عبر تابي أو تمارا عند إتمام الطلب. وتُضاف رسوم دفع لاحق بقيمة 100 ريال على الطلبات التي تتضمن طابعة ثلاثية الأبعاد، وهي مشمولة مسبقًا في مبلغ القسط المعروض في هذه الصفحة."
+  },
+  "pfaq_bnpl_q": {
+    "en": "Can I pay in instalments?",
+    "ar": "هل يمكنني الدفع بالتقسيط؟"
+  },
+  "pfaq_delivery_a_other": {
+    "en": "Standard delivery is free in Khobar and Dammam, on orders of 3,000 SAR or more, and on any order that includes a 3D printer. Self pickup is always free. Any other delivery fee is shown at checkout before you pay.",
+    "ar": "التوصيل العادي مجاني في الخبر والدمام، وللطلبات بقيمة 3,000 ريال فأكثر، ولأي طلب يتضمن طابعة ثلاثية الأبعاد. والاستلام الذاتي مجاني دائمًا. وتظهر أي رسوم توصيل أخرى عند إتمام الطلب قبل الدفع."
+  },
+  "pfaq_delivery_a_printer": {
+    "en": "Standard delivery is free on every 3D printer, anywhere in Saudi Arabia. Fast delivery is available for a fee, and self pickup is free.",
+    "ar": "التوصيل العادي مجاني لكل طابعة ثلاثية الأبعاد إلى أي مكان في المملكة. والتوصيل السريع متاح برسوم، والاستلام الذاتي مجاني."
+  },
+  "pfaq_delivery_q": {
+    "en": "How much is delivery?",
+    "ar": "كم تكلفة التوصيل؟"
+  },
+  "pfaq_warranty_a_other": {
+    "en": "No. The 1-year manufacturer warranty covers 3D printers only. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.",
+    "ar": "لا. ضمان الشركة المصنّعة لمدة سنة يشمل الطابعات ثلاثية الأبعاد فقط. وإذا وصل طلبك تالفًا، أرسل لنا صورًا واضحة خلال 3 أيام من الاستلام وسنرتّب الإرجاع."
+  },
+  "pfaq_warranty_a_printer": {
+    "en": "Yes. Every 3D printer we sell has a 1-year manufacturer warranty covering manufacturing defects. Contact us and we will guide you through the claim.",
+    "ar": "نعم. كل طابعة ثلاثية الأبعاد نبيعها تشمل ضمان الشركة المصنّعة لمدة سنة على عيوب التصنيع. تواصل معنا وسنرشدك خلال إجراءات المطالبة."
+  },
+  "pfaq_warranty_q": {
+    "en": "Does it come with a warranty?",
+    "ar": "هل يشمل المنتج ضمانًا؟"
   },
   "picker_tag_1": {
     "en": "New to 3D Printing",
