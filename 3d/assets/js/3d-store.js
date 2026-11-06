@@ -995,8 +995,8 @@
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
           '<div class="b3d-card__actions">' +
-            (p.category === '3D Artwork' ? '' : '<button class="b3d-btn-compare" data-compare-id="' + p.id + '" aria-label="' + T('js_compare_btn') + ' — ' + L(p, 'name') + '" title="' + T('js_compare_btn') + '">⇄</button>') +
-            '<button class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-label="' + (isWishlisted(p.id) ? 'Remove from wishlist' : 'Save to wishlist') + ' — ' + L(p, 'name') + '" title="Save">' + (isWishlisted(p.id) ? '♥' : '♡') + '</button>' +
+            (p.category === '3D Artwork' ? '' : '<button type="button" class="b3d-btn-compare' + (isCompared(p.id) ? ' is-active' : '') + '" data-compare-id="' + p.id + '" aria-pressed="' + isCompared(p.id) + '" aria-label="' + T('js_compare_btn') + ' — ' + L(p, 'name') + '" title="' + T('js_compare_btn') + '"><span aria-hidden="true">⇄</span></button>') +
+            '<button type="button" class="b3d-btn-wishlist' + (isWishlisted(p.id) ? ' is-active' : '') + '" data-wishlist-id="' + p.id + '" aria-pressed="' + isWishlisted(p.id) + '" aria-label="' + T('js_wishlist_save') + ' — ' + L(p, 'name') + '" title="' + T('js_wishlist_save') + '"><span aria-hidden="true">' + (isWishlisted(p.id) ? '♥' : '♡') + '</span></button>' +
             actionBtn +
           '</div>' +
         '</div>' +
@@ -1110,13 +1110,16 @@
       btn.addEventListener('click', function () {
         var nowSaved = toggleWishlist(btn.getAttribute('data-wishlist-id'));
         btn.classList.toggle('is-active', nowSaved);
-        btn.textContent = nowSaved ? '♥' : '♡';
+        btn.setAttribute('aria-pressed', String(nowSaved));
+        btn.innerHTML = '<span aria-hidden="true">' + (nowSaved ? '♥' : '♡') + '</span>';
       });
     });
     container.querySelectorAll('[data-compare-id]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         toggleCompare(btn.getAttribute('data-compare-id'));
-        btn.classList.toggle('is-active');
+        var on = isCompared(btn.getAttribute('data-compare-id'));
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-pressed', String(on));
       });
     });
   }
@@ -1152,6 +1155,8 @@
       return raw ? JSON.parse(raw) : [];
     } catch (e) { return []; }
   }
+
+  function isCompared(id) { return getCompareList().indexOf(id) !== -1; }
 
   function toggleCompare(id) {
     var list = getCompareList();
