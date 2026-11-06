@@ -918,6 +918,29 @@ BLOG_EN_INDEX = os.path.join(ROOT, '3d', 'blog', 'index.html')
 HOME_BLOG_RX = re.compile(r'(<div class="b3d-blog-grid">\n)(.*?)(\n      </div>\n      <div style="text-align:center;margin-top:24px;">)', re.S)
 
 
+# Home guide-card thumbnails (6 Nov 2026): an official product photo already on the site, matched
+# to each guide's topic. Guides not listed here simply show no picture.
+HOME_BLOG_THUMBS = {
+    'buy-3d-printer-saudi-arabia-price-guide': ('bambu-a1-01', 'Bambu Lab A1 3D printer', '\u0637\u0627\u0628\u0639\u0629 \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628 A1'),
+    'best-3d-printer-for-beginners-saudi-arabia': ('bambu-a1-mini-main', 'Bambu Lab A1 mini 3D printer', '\u0637\u0627\u0628\u0639\u0629 \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628 A1 \u0645\u064a\u0646\u064a'),
+    'pla-vs-petg-vs-abs-filament-guide': ('bambu-filament-with-spool-and-refill', 'Bambu Lab filament spool and refill', '\u0628\u0643\u0631\u0629 \u0641\u064a\u0644\u0627\u0645\u0646\u062a \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628'),
+    'bambu-lab-a1-vs-a1-mini-vs-a2l': ('bambu-a2l-01', 'Bambu Lab A2L 3D printer', '\u0637\u0627\u0628\u0639\u0629 \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628 A2L'),
+    'multi-color-3d-printing-explained': ('bambu-ams-2-pro-01', 'Bambu Lab AMS 2 Pro multi-colour unit', '\u0648\u062d\u062f\u0629 \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628 AMS 2 Pro \u0644\u0644\u0623\u0644\u0648\u0627\u0646 \u0627\u0644\u0645\u062a\u0639\u062f\u062f\u0629'),
+    '3d-printer-maintenance-guide': ('bambu-hotend-a1-01', 'Bambu Lab A1 series hotend', '\u0647\u0648\u062a \u0625\u0646\u062f \u0628\u0627\u0645\u0628\u0648 \u0644\u0627\u0628 \u0644\u0633\u0644\u0633\u0644\u0629 A1'),
+}
+
+
+def home_blog_thumb(slug, lang):
+    t = HOME_BLOG_THUMBS.get(slug)
+    if not t:
+        return ''
+    img, alt_en, alt_ar = t
+    base = '/3d/assets/images/products/' + img
+    return ('          <img class="b3d-blog-card__thumb" src="' + base + '-500w.webp" srcset="' + base + '-160w.webp 160w, '
+            + base + '-500w.webp 500w" sizes="(max-width: 600px) 90vw, 360px" alt="' + (alt_ar if lang == 'ar' else alt_en)
+            + '" width="500" height="281" loading="lazy" decoding="async">\n')
+
+
 def refresh_home_blog(html, lang):
     """All guides on the homepage (was three), with excerpts; Arabic cards use the Arabic copy."""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -941,6 +964,7 @@ def refresh_home_blog(html, lang):
             read, base = 'Read article &rarr;', '/3d/blog/'
         cards.append('        <article class="b3d-blog-card">\n'
                      '          <a href="' + base + slug + '/" class="b3d-card__stretched-link" aria-label="' + title + '"></a>\n'
+                     + home_blog_thumb(slug, lang) +
                      '          <span class="b3d-blog-card__meta">' + meta + '</span>\n'
                      '          <h3 class="b3d-blog-card__title">' + title + '</h3>\n'
                      '          <span class="b3d-blog-card__excerpt">' + exc + '</span>\n'
@@ -1921,7 +1945,7 @@ def build_static_page(slug, lang):
     if any(k == 'reviews' for k, _v in cfg['body']):
         html = html.replace('</body>', '  <script src="/3d/assets/js/3d-supabase-config.js" defer></script>' + chr(10) + '  <script src="/3d/assets/js/3d-reviews.min.js?v=20261110" defer></script>' + chr(10) + '</body>', 1)
     if any(k == 'quote' for k, _v in cfg['body']):
-        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-quote.js?v=20261021" defer></script>' + chr(10) + '</body>', 1)
+        html = html.replace('</body>', '  <script src="/3d/assets/js/3d-quote.js?v=20261117" defer></script>' + chr(10) + '</body>', 1)
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
 
 

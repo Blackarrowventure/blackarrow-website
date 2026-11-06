@@ -108,6 +108,8 @@
       hub_why_li5: 'Delivery across Saudi Arabia, with free standard delivery to Khobar and Dammam, on every 3D printer and on orders of 3,000 SAR or more',
       hub_why_li6: 'Pay by bank transfer, mada, Visa, Mastercard or Apple Pay, or in instalments with Tabby or Tamara (any pay-later fee is shown before you pay)',
       hub_why_more: 'Delivery, payment and fees in full',
+      hub_trust_5: '1-year manufacturer warranty on printers',
+      hub_trust_6: 'Delivery across Saudi Arabia',
 
       hub_cat_h2: 'Shop by Category',
       hub_trust_1: 'Genuine, authorized products',
@@ -700,6 +702,8 @@
       hub_why_li5: 'توصيل لجميع مناطق المملكة، مع توصيل عادي مجاني إلى الخبر والدمام، ولكل طابعة ثلاثية الأبعاد، وللطلبات من 3,000 ريال فأكثر',
       hub_why_li6: 'ادفع بالتحويل البنكي أو مدى أو فيزا أو ماستركارد أو Apple Pay، أو بالتقسيط عبر تابي أو تمارا (تظهر أي رسوم للدفع الآجل قبل الدفع)',
       hub_why_more: 'تفاصيل التوصيل والدفع والرسوم كاملة',
+      hub_trust_5: 'ضمان الشركة المصنّعة لمدة سنة على الطابعات',
+      hub_trust_6: 'توصيل لجميع مناطق المملكة',
 
       hub_cat_h2: 'تسوّق حسب الفئة',
       hub_trust_1: 'منتجات أصلية ومعتمدة',
