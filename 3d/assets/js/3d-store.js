@@ -3100,8 +3100,35 @@
       });
       updateCheckoutFields(method);
     }
+    // After a customer picks a method, take them straight to the next step instead of leaving
+    // them on the method list: the Delivery Details form (Bank Transfer: its bank-details box, which
+    // holds the IBAN, with the form right below it). The target lands just under the sticky header.
+    // On mouse/keyboard devices the first empty field is focused too; on touch devices it isn't,
+    // so the on-screen keyboard doesn't jump up over the form.
+    function goToNextStep(method) {
+      var target = (method === 'bank' && root.querySelector('[data-pm-detail="bank"]:not([hidden])')) ||
+        root.querySelector('[data-b3d-checkout]:not([hidden]) [data-i18n="checkout_h4"]') ||
+        root.querySelector('[data-b3d-checkout]:not([hidden])');
+      if (!target) return;
+      var header = document.querySelector('header');
+      var offset = (header && getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().height : 0) + 12;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      try { window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' }); } catch (e) { window.scrollTo(0, Math.max(0, top)); }
+      if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        var first = root.querySelector('#b3d-checkout-form input:not([type="hidden"]):not([type="checkbox"]):not([disabled]):not([readonly])');
+        var fields = root.querySelectorAll('#b3d-checkout-form input:not([type="hidden"]):not([type="checkbox"]):not([disabled]):not([readonly])');
+        for (var i = 0; i < fields.length; i++) { if (!fields[i].value && fields[i].offsetParent) { first = fields[i]; break; } }
+        if (first) setTimeout(function () { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }, reduce ? 0 : 450);
+      }
+    }
     methods.forEach(function (el) {
-      el.addEventListener('click', function () { select(el); });
+      el.addEventListener('click', function () {
+        if (el.hasAttribute('disabled')) return;
+        select(el);
+        var m = el.getAttribute('data-pm');
+        requestAnimationFrame(function () { requestAnimationFrame(function () { goToNextStep(m); }); });
+      });
     });
     // Bank Transfer is the only method now, so there's no real "choice" to
     // make — pre-select it instead of hiding the checkout form behind an
