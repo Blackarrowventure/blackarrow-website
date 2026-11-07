@@ -148,7 +148,7 @@ function groupedSummary(lines, sar) {
 
 // "Items: 10 filaments · 1 printer (11 in total)" — same wording as itemCountLine() in 3d-store.js.
 const COUNT_WORDS = [['3D Printers', 'printer', 'printers'], ['Filament', 'filament', 'filaments'],
-  ['Accessories', 'accessory', 'accessories'], ['3D Artwork', '3D print', '3D prints']];
+  ['Accessories', 'accessory', 'accessories'], ['3D Artwork', '3D print', '3D prints'], ['Other', 'other item', 'other items']];
 function itemCountLine(lines) {
   const by = {};
   let all = 0;
@@ -187,4 +187,4 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   return Object.assign({}, priced, { shippingCents, shippingLabel, feeCents, discountCents, totalCents, summary });
 }
 
-module.exports = { buildOrder, stockProblem, freeCity, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };
+module.exports = { buildOrder, groupedSummary, stockProblem, freeCity, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };

@@ -44,6 +44,75 @@ async function sendEmailJs(params, templateId) {
   if (!r.ok) throw new Error('emailjs_' + r.status + ': ' + (await r.text()).slice(0, 200));
 }
 
+// Wording of every order email. They all go through the one EmailJS order template, which
+// shows {{heading}} and {{message}} above the order details (the free plan allows 2 templates;
+// the other one is the birthday email). Bilingual, English first.
+//   received  - right after checkout: we got it, the team is checking it
+//   confirmed - the shop pressed Confirm in the CRM
+//   rejected  - the shop pressed Reject in the CRM, with the reason and what happens to the money
+//   shop      - the shop's own copy of a new order
+const REASONS_AR = {
+  'Out of stock': 'المنتج غير متوفر حاليًا',
+  'Duplicate order': 'طلب مكرر',
+  'Wrong or incomplete details': 'بيانات الطلب غير صحيحة أو غير مكتملة',
+  'Cancelled at your request': 'تم الإلغاء بناءً على طلبك',
+};
+// Rejections that never email the customer (the CRM's internal reasons).
+const SILENT_REASONS = ['Dummy / test order'];
+
+function emailCopy(kind, o) {
+  const ref = o.ref;
+  const hi = o.name ? ' ' + o.name.split(' ')[0] : '';
+  if (kind === 'received') {
+    return {
+      subject: 'Order received #' + ref + ' | Black Arrow 3D',
+      heading: 'We have received your order · استلمنا طلبك',
+      message: 'Thank you' + hi + '! We have received your order' + (o.paid ? ' and your payment' : '') + '. ' +
+        'Our team is checking it now, and you will get a confirmation email as soon as it is approved.\n\n' +
+        'شكرًا لك! استلمنا طلبك' + (o.paid ? ' ودفعتك' : '') + '، وفريقنا يراجعه الآن. ستصلك رسالة تأكيد فور اعتماد الطلب.',
+    };
+  }
+  if (kind === 'confirmed') {
+    const pickup = /pickup/i.test(o.delivery || '');
+    return {
+      subject: 'Order confirmed #' + ref + ' | Black Arrow 3D',
+      heading: 'Your order is confirmed · تم تأكيد طلبك',
+      message: 'Good news' + hi + '! Your order is confirmed and we are preparing it now. ' +
+        (pickup ? 'We will let you know when it is ready for pickup.' : 'We will contact you to arrange delivery.') + '\n\n' +
+        'خبر رائع! تم تأكيد طلبك ونقوم بتجهيزه الآن. ' +
+        (pickup ? 'سنبلغك عندما يصبح جاهزًا للاستلام.' : 'سنتواصل معك لترتيب التوصيل.'),
+    };
+  }
+  if (kind === 'rejected') {
+    const reasonAr = REASONS_AR[o.reason] || o.reason;
+    let refund = '';
+    let refundAr = '';
+    if (o.paid) {
+      refund = 'Your payment will be refunded in full to your original payment method within 24 to 48 hours.';
+      refundAr = 'سيتم استرداد المبلغ كاملًا إلى وسيلة الدفع الأصلية خلال 24 إلى 48 ساعة.';
+    } else if (o.cash) {
+      refund = 'No payment was taken.';
+      refundAr = 'لم يتم تحصيل أي مبلغ.';
+    } else {
+      refund = 'If you have already made the bank transfer, it will be refunded in full within 24 to 48 hours.';
+      refundAr = 'إذا كنت قد أجريت التحويل البنكي، فسيتم استرداد المبلغ كاملًا خلال 24 إلى 48 ساعة.';
+    }
+    return {
+      subject: 'Order cancelled #' + ref + ' | Black Arrow 3D',
+      heading: 'Your order has been cancelled · تم إلغاء طلبك',
+      message: 'Sorry' + hi + ', we could not accept your order.\nReason: ' + o.reason + '\n' + refund +
+        '\nIf you have any questions, just reply to this email or message us on WhatsApp.\n\n' +
+        'نعتذر، لم نتمكن من قبول طلبك.\nالسبب: ' + reasonAr + '\n' + refundAr +
+        '\nلأي استفسار، رد على هذه الرسالة أو تواصل معنا عبر واتساب.',
+    };
+  }
+  return {
+    subject: 'New order #' + ref + (o.paid ? ' (PAID)' : ''),
+    heading: 'New order: confirm or reject it in the CRM',
+    message: o.message || '',
+  };
+}
+
 async function sendConfirmedEmails(order) {
   const d = order.details || {};
   const b = d.billing || {};
@@ -54,22 +123,22 @@ async function sendConfirmedEmails(order) {
     .filter((v) => v && v !== 'NA').join(', ');
   const rewardsNote = d.rewards_note ? '\n\n' + d.rewards_note : '';
 
-  await sendEmailJs({
+  await sendEmailJs(Object.assign({
     to_email: process.env.SHOP_NOTIFY_EMAIL,
     to_name: 'Black Arrow 3D',
     order_id: order.order_ref,
-    order_summary: 'PAID - payment confirmed by ' + d.method + '. Ready to prepare and ship.\n\n' +
+    order_summary: 'PAID - payment confirmed by ' + d.method + '. Confirm or reject it in the CRM (Online Orders); the customer is emailed when you do.\n\n' +
       'Customer: ' + name + '\nPhone: ' + (b.phone || '') + '\nEmail: ' + (b.email || '') + '\nAddress: ' + address +
       '\n\n' + summary + rewardsNote,
     shipping_method: d.shipping_label || '',
     payment_method: d.method + ' (PAID)',
     order_total: total,
-  });
+  }, emailCopy('shop', { ref: order.order_ref, paid: true })));
 
   if (b.email && !isPlaceholderEmail(b.email)) {
     await sleep(1100); // EmailJS allows one request per second
     try {
-      await sendEmailJs({
+      await sendEmailJs(Object.assign({
         to_email: b.email,
         to_name: name,
         order_id: order.order_ref,
@@ -77,7 +146,7 @@ async function sendConfirmedEmails(order) {
         shipping_method: d.shipping_label || '',
         payment_method: d.method + ' (paid)',
         order_total: total,
-      });
+      }, emailCopy('received', { ref: order.order_ref, name, paid: true })));
     } catch (e) {
       console.error('customer confirmation email failed:', order.order_ref, e.message);
     }
@@ -141,4 +210,4 @@ async function afterPaid(table, ref) {
   }
 }
 
-module.exports = { afterPaid, emailsConfigured, sendEmailJs, isPlaceholderEmail };
+module.exports = { afterPaid, emailsConfigured, sendEmailJs, isPlaceholderEmail, emailCopy, SILENT_REASONS };

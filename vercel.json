@@ -366,6 +366,10 @@
       ]
     }
   ],
+  "rewrites": [
+    { "source": "/api/order-decision/", "destination": "/api/checkout-health?action=order-decision" },
+    { "source": "/api/order-decision", "destination": "/api/checkout-health?action=order-decision" }
+  ],
   "crons": [
     { "path": "/api/rewards/birthday/", "schedule": "0 5 * * *" },
     { "path": "/api/cron/indexnow/", "schedule": "30 1 * * *" }

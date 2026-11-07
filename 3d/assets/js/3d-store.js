@@ -2407,7 +2407,23 @@
       payment_method: payField ? payField.value : '',
       order_total: document.querySelector('[data-cart-total]') ? document.querySelector('[data-cart-total]').textContent : ''
     };
+    var copy = receivedCopy(params.order_id, params.to_name, false);
+    Object.keys(copy).forEach(function (k) { params[k] = copy[k]; });
     sendEmailJs(params);
+  }
+
+  // "We have received your order" wording for the customer's email right after checkout. The
+  // confirmation itself is emailed when the shop confirms the order in the CRM (same wording as
+  // emailCopy('received') in api/_lib/order-emails.js).
+  function receivedCopy(ref, name, paid) {
+    var hi = name ? ' ' + String(name).split(' ')[0] : '';
+    return {
+      subject: 'Order received #' + ref + ' | Black Arrow 3D',
+      heading: 'We have received your order · استلمنا طلبك',
+      message: 'Thank you' + hi + '! We have received your order' + (paid ? ' and your payment' : '') + '. ' +
+        'Our team is checking it now, and you will get a confirmation email as soon as it is approved.\n\n' +
+        'شكرًا لك! استلمنا طلبك' + (paid ? ' ودفعتك' : '') + '، وفريقنا يراجعه الآن. ستصلك رسالة تأكيد فور اعتماد الطلب.'
+    };
   }
 
   function sendEmailJs(params) {
@@ -2504,15 +2520,18 @@
         clearPendingOrder();
       });
 
-    if (!serverHandled) sendEmailJs({
-      to_email: f.email || '',
-      to_name: ((f.customer_first_name || '') + ' ' + (f.customer_last_name || '')).trim(),
-      order_id: ref,
-      order_summary: f.order_summary || '',
-      shipping_method: f.shipping_method || '',
-      payment_method: method + ' (paid)',
-      order_total: o.total != null ? o.total + ' SAR' : ''
-    });
+    if (!serverHandled) {
+      var mailName = ((f.customer_first_name || '') + ' ' + (f.customer_last_name || '')).trim();
+      var mail = receivedCopy(ref, mailName, true);
+      mail.to_email = f.email || '';
+      mail.to_name = mailName;
+      mail.order_id = ref;
+      mail.order_summary = f.order_summary || '';
+      mail.shipping_method = f.shipping_method || '';
+      mail.payment_method = method + ' (paid)';
+      mail.order_total = o.total != null ? o.total + ' SAR' : '';
+      sendEmailJs(mail);
+    }
   }
 
   function showOnlineThanks(view) {
@@ -2594,8 +2613,8 @@
       fetch(statusUrl).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
         if (d.status === 'paid') {
           lead.textContent = ar
-            ? 'تم تأكيد طلبك ودفعتك. أرسلنا تأكيد الطلب إلى بريدك الإلكتروني.'
-            : 'Your order is confirmed and your payment is received. We have emailed you the order confirmation.';
+            ? 'تم استلام طلبك ودفعتك. أرسلنا تفاصيل الطلب إلى بريدك الإلكتروني، وستصلك رسالة تأكيد فور اعتماد فريقنا للطلب.'
+            : 'We have received your order and your payment. We have emailed you the order details, and you will get a confirmation email once our team approves the order.';
           var snapPayload = snapCartPayload();
           snapPayload.transaction_id = ref;
           snapPayload.success = 1;
@@ -2668,7 +2687,8 @@
         confirmWhenServerDone(ref, 'Tabby (Pay in 4)', data.emailsSent, '/api/tabby/verify?ref=' + encodeURIComponent(ref));
       }
       lead.textContent = status === 'paid'
-        ? 'Thank you for your order. Your Tabby payment is confirmed. You will receive a confirmation email shortly.'
+        ? (isAr() ? 'شكرًا لطلبك. تمت عملية الدفع عبر تابي. أرسلنا تفاصيل الطلب إلى بريدك الإلكتروني، وستصلك رسالة تأكيد فور اعتماد فريقنا للطلب.'
+          : 'Thank you for your order. Your Tabby payment went through. We have emailed you the order details, and you will get a confirmation email once our team approves the order.')
         : 'Thank you for your order. We are confirming your Tabby payment and will email you once it is complete.';
       ['[data-b3d-cart-header]', '[data-b3d-cart-empty]'].forEach(function (sel) {
         var el = document.querySelector(sel);

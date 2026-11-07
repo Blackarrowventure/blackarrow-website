@@ -1,6 +1,14 @@
-// Yes/no for each setting the online checkout and its emails need. Shows
+// GET: yes/no for each setting the online checkout and its emails need. Shows
 // only whether a setting exists, never its value.
+// /api/order-decision/ is also served here (vercel.json rewrite): the CRM's
+// confirm/reject email, see api/_lib/order-decision.js. The Vercel Hobby plan
+// allows 12 functions and all 12 are in use.
+const orderDecision = require('./_lib/order-decision');
+
 module.exports = (req, res) => {
+  if ((req.query && req.query.action === 'order-decision') || req.method === 'POST' || req.method === 'OPTIONS') {
+    return orderDecision(req, res);
+  }
   res.setHeader('Cache-Control', 'no-store');
   const has = (k) => !!process.env[k];
   res.status(200).json({
