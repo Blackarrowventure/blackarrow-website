@@ -1565,6 +1565,48 @@
   /* ---------------- Cart page ---------------- */
 
   var lastOrderSummaryText = '';
+
+  // Order summary text for the order emails, grouped so the shop sees brand, product and colour
+  // at a glance (same layout as api/_lib/pricing.js):
+  //   KINGROON — PLA Basic Filament 1.75 mm (1 kg)
+  //      • Black ×1 — 65 SAR
+  //   Bambu Lab — A1 mini ×1 — 1,699 SAR
+  function groupedSummary(entries, nameOf) {
+    var groups = [], byKey = {};
+    entries.forEach(function (e) {
+      var k = e.p.id;
+      if (!byKey[k]) { byKey[k] = { p: e.p, items: [] }; groups.push(byKey[k]); }
+      byKey[k].items.push(e);
+    });
+    var brandOrder = [];
+    groups.forEach(function (g) { var b = g.p.brand || ''; if (brandOrder.indexOf(b) === -1) brandOrder.push(b); });
+    groups.sort(function (a, b) { return brandOrder.indexOf(a.p.brand || '') - brandOrder.indexOf(b.p.brand || ''); });
+    return groups.map(function (g) {
+      var brand = g.p.brand || '';
+      var name = nameOf(g.p);
+      if (brand && name.toLowerCase().indexOf(brand.toLowerCase() + ' ') === 0) name = name.slice(brand.length + 1);
+      var head = brand ? brand + ' — ' + name : name;
+      var cur = ' ' + (g.p.currency || 'SAR');
+      var lines = g.items.map(function (e) {
+        var picks = e.picks ? ' (' + e.picks.join(', ') + ')' : '';
+        return (e.variant ? '   • ' + e.variant + ' ' : '') + '×' + e.qty + ' — ' + e.total.toLocaleString('en-US') + cur + picks;
+      });
+      if (g.items.length === 1 && !g.items[0].variant) return head + ' ' + lines[0];
+      return head + '\n' + lines.join('\n');
+    }).join('\n\n') + '\n\n' + itemCountLine(entries.map(function (e) { return { category: e.p.category, qty: e.qty }; }));
+  }
+
+  // "Items: 10 filaments · 1 printer (11 in total)" — same wording as api/_lib/pricing.js.
+  var COUNT_WORDS = [['3D Printers', 'printer', 'printers'], ['Filament', 'filament', 'filaments'],
+    ['Accessories', 'accessory', 'accessories'], ['3D Artwork', '3D print', '3D prints']];
+  function itemCountLine(rows) {
+    var by = {}, all = 0;
+    rows.forEach(function (r) { by[r.category] = (by[r.category] || 0) + r.qty; all += r.qty; });
+    var parts = [];
+    COUNT_WORDS.forEach(function (w) { var n = by[w[0]]; if (n) { parts.push(n + ' ' + (n === 1 ? w[1] : w[2])); delete by[w[0]]; } });
+    Object.keys(by).forEach(function (k) { parts.push(by[k] + ' ' + k.toLowerCase()); });
+    return 'Items: ' + parts.join(' · ') + ' (' + all + ' in total)';
+  }
   var lastSubtotal = 0;
   var shippingPlaceholderText = null;
   // Free delivery thresholds: either qualifies the whole order.
@@ -3030,9 +3072,7 @@
           }
           bundleLineHtml += '<a class="b3d-cart-item__bundle-edit" href="' + productUrl(p) + '">' + T('js_cart_bundle_edit') + '</a>';
         }
-        var summaryLine = displayName + ' x' + qty + ' — ' + lineTotal.toLocaleString('en-US') + ' ' + (p.currency || 'SAR');
-        if (pickNames) summaryLine += ' (' + pickNames.join(', ') + ')';
-        summaryLines.push(summaryLine);
+        summaryLines.push({ p: p, variant: variant ? LVariant(variant) : '', qty: qty, total: lineTotal, picks: pickNames });
         return '' +
           '<div class="b3d-cart-item" data-line-id="' + id + '">' +
             '<div class="b3d-cart-item__visual">' + visual(p) + '</div>' +
@@ -3092,7 +3132,7 @@
       var hasPrinter = Object.keys(cart).some(function (id) { var pp = __b3dProductsById[parseLineId(id).productId]; return !!pp && pp.category === '3D Printers'; });
       lastFreeShipping = hasPrinter || artworkSubtotal >= FREE_SHIP_ARTWORK_MIN || subtotal >= FREE_SHIP_PRINTER_MIN || memberFreeDelivery();
       updateFreeShippingUi(artworkSubtotal, subtotal);
-      lastOrderSummaryText = summaryLines.join('\n') + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
+      lastOrderSummaryText = groupedSummary(summaryLines, function (p) { return L(p, 'name'); }) + '\nTotal: ' + subtotal.toLocaleString('en-US') + ' SAR';
       if (summaryEl._recheckCoupon) summaryEl._recheckCoupon(); else updateOrderTotals();
 
       listEl.querySelectorAll('[data-remove-id]').forEach(function (btn) {

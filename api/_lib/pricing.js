@@ -37,7 +37,7 @@ function priceCart(items, products) {
     const unitCents = Math.round(unit * 100);
     const variant = product.variants && product.variants.length ? product.variants[variantIndex] : null;
     const name = variant && variant.label ? product.name + ' - ' + variant.label : product.name;
-    lines.push({ id: product.id, name, productName: product.name, variantLabel: variant && variant.label ? variant.label : '', unitCents, qty });
+    lines.push({ id: product.id, name, productName: product.name, brand: product.brand || '', category: product.category, variantLabel: variant && variant.label ? variant.label : '', unitCents, qty });
     itemsCents += unitCents * qty;
     if (product.category === '3D Artwork') artworkCents += unitCents * qty;
     categories.add(product.category);
@@ -111,6 +111,57 @@ function freeCity(city) {
   return FREE_CITY_NAMES.some(n => cityDist(q, n, max) <= max);
 }
 
+// Order email lines grouped by brand, then product, one line per colour/option
+// (same layout as groupedSummary() in 3d/assets/js/3d-store.js):
+//   KINGROON — PLA Basic Filament 1.75 mm (1 kg)
+//      • Black ×1 — 65 SAR
+//   (blank line)
+//   Bambu Lab — A1 mini ×1 — 1,699 SAR
+function groupedSummary(lines, sar) {
+  const groups = [];
+  const byId = new Map();
+  for (const l of lines) {
+    if (!byId.has(l.id)) { const g = { l, items: [] }; byId.set(l.id, g); groups.push(g); }
+    byId.get(l.id).items.push(l);
+  }
+  const brandOrder = [];
+  for (const g of groups) if (!brandOrder.includes(g.l.brand)) brandOrder.push(g.l.brand);
+  groups.sort((a, b) => brandOrder.indexOf(a.l.brand) - brandOrder.indexOf(b.l.brand));
+  const out = [];
+  groups.forEach((g, i) => {
+    if (i) out.push('');
+    const brand = g.l.brand;
+    let name = g.l.productName;
+    if (brand && name.toLowerCase().startsWith(brand.toLowerCase() + ' ')) name = name.slice(brand.length + 1);
+    const head = brand ? brand + ' — ' + name : name;
+    if (g.items.length === 1 && !g.items[0].variantLabel) {
+      out.push(head + ' ×' + g.items[0].qty + ' — ' + sar(g.items[0].unitCents * g.items[0].qty));
+      return;
+    }
+    out.push(head);
+    for (const l of g.items) out.push('   • ' + (l.variantLabel ? l.variantLabel + ' ' : '') + '×' + l.qty + ' — ' + sar(l.unitCents * l.qty));
+  });
+  out.push('');
+  out.push(itemCountLine(lines));
+  return out;
+}
+
+// "Items: 10 filaments · 1 printer (11 in total)" — same wording as itemCountLine() in 3d-store.js.
+const COUNT_WORDS = [['3D Printers', 'printer', 'printers'], ['Filament', 'filament', 'filaments'],
+  ['Accessories', 'accessory', 'accessories'], ['3D Artwork', '3D print', '3D prints']];
+function itemCountLine(lines) {
+  const by = {};
+  let all = 0;
+  for (const l of lines) { by[l.category] = (by[l.category] || 0) + l.qty; all += l.qty; }
+  const parts = [];
+  for (const [cat, one, many] of COUNT_WORDS) {
+    const n = by[cat];
+    if (n) { parts.push(n + ' ' + (n === 1 ? one : many)); delete by[cat]; }
+  }
+  for (const k of Object.keys(by)) parts.push(by[k] + ' ' + String(k).toLowerCase());
+  return 'Items: ' + parts.join(' · ') + ' (' + all + ' in total)';
+}
+
 function buildOrder(items, shipping, payLater, rewards, products, city) {
   const priced = priceCart(items, products);
   if (!priced) return { error: 'invalid_cart' };
@@ -127,7 +178,7 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   const totalCents = priced.itemsCents - discountCents + shippingCents + feeCents;
 
   const sar = (c) => (c / 100).toLocaleString('en-US') + ' SAR';
-  const summary = priced.lines.map((l) => l.qty + ' x ' + l.name + ' — ' + sar(l.unitCents * l.qty));
+  const summary = groupedSummary(priced.lines, sar);
   if (discountCents) summary.push('Black Arrow Loyalty Rewards balance used: -' + sar(discountCents));
   if (feeCents) summary.push('Pay-later service fee: ' + sar(feeCents));
   summary.push('Shipping: ' + shippingLabel + ' — ' + (free ? 'Free' : sar(shippingCents)));
