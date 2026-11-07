@@ -21,7 +21,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles-3d.min.css?v=20261115">
-  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261128">
+  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261129">
 
   <style>
     :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:104px;}
@@ -232,6 +232,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <span><span data-i18n="checkout_signed_in_as">Signed in as</span> <strong data-b3d-checkout-email></strong></span>
                 </div>
 
+                <div class="b3d-checkout-rewards" data-b3d-checkout-rewards>
+                  <span class="b3d-checkout-rewards__icon" aria-hidden="true">&#127873;</span>
+                  <div class="b3d-checkout-rewards__text">
+                    <strong data-i18n="checkout_rewards_h">Get your Rewards account for more benefits</strong>
+                    <span data-i18n="checkout_rewards_p">Create a free account to join Black Arrow Loyalty Rewards: 5 SAR welcome credit, reward balance on every order, birthday rewards and free delivery at Gold and Platinum.</span>
+                  </div>
+                  <div class="b3d-checkout-rewards__actions">
+                    <a href="/3d/account/" class="b3d-checkout-rewards__cta" data-i18n="checkout_rewards_cta">Create free account</a>
+                    <a href="/3d/rewards/" class="b3d-checkout-rewards__more" data-b3d-rewards-more data-i18n="checkout_rewards_more">See benefits</a>
+                  </div>
+                </div>
+
                 <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="checkout_h4">Delivery Details</h3>
                 <form class="b3d-account__form" id="b3d-checkout-form" data-b3d-checkout-submit action="https://api.web3forms.com/submit" method="POST">
                   <input type="hidden" name="access_key" value="217e03f8-59ef-45c3-9cf8-048f27ba0586">
@@ -368,9 +380,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/3d/assets/js/3d-emailjs-config.js" defer></script>
   <script src="/assets/js/app.min.js?v=20261110" defer></script>
-  <script src="/3d/assets/js/3d-i18n.min.js?v=20261128" defer></script>
+  <script src="/3d/assets/js/3d-i18n.min.js?v=20261129" defer></script>
   <script src="/3d/assets/js/3d-brands.js?v=20261065" defer></script>
-  <script src="/3d/assets/js/3d-store.min.js?v=20261128" defer></script>
+  <script src="/3d/assets/js/3d-store.min.js?v=20261129" defer></script>
   <script src="/3d/assets/js/3d-auth.js?v=20261108" defer></script>
   <script src="/3d/assets/js/3d-rewards.js?v=20261107" defer></script>
 

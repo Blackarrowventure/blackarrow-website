@@ -3527,3 +3527,15 @@ main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }
 
 /* Hidden payment tiles (Apple Pay on devices without it) */
 .b3d-pm[hidden] { display: none; }
+
+/* Checkout: "Get your Rewards account" box above Delivery Details */
+.b3d-checkout-rewards { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 0 0 16px; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(212,175,55,.45); background: linear-gradient(135deg, rgba(212,175,55,.14), rgba(212,175,55,.04)); color: #fff; }
+.b3d-checkout-rewards[hidden] { display: none; }
+.b3d-checkout-rewards__icon { font-size: 1.4rem; line-height: 1; }
+.b3d-checkout-rewards__text { flex: 1 1 240px; min-width: 0; display: grid; gap: 2px; }
+.b3d-checkout-rewards__text strong { font-size: .92rem; }
+.b3d-checkout-rewards__text span { font-size: .8rem; color: rgba(255,255,255,.78); line-height: 1.45; }
+.b3d-checkout-rewards__actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.b3d-checkout-rewards__cta { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #d4af37; color: #1a1a1a; font-weight: 700; font-size: .82rem; text-decoration: none; }
+.b3d-checkout-rewards__more { color: #f0d27a; font-size: .82rem; text-decoration: underline; }
+.b3d-checkout-rewards__cta:focus-visible, .b3d-checkout-rewards__more:focus-visible { outline: 2px solid #f0d27a; outline-offset: 2px; }

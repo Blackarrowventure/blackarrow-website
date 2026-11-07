@@ -2264,6 +2264,10 @@
     if (!root || !window.BlackArrow3DAuth || !window.BlackArrow3DAuth.isConfigured()) return;
     var loginRow = root.querySelector('[data-b3d-checkout-login]');
     var signedInRow = root.querySelector('[data-b3d-checkout-signedin]');
+    // "Get your Rewards account" box above Delivery Details: for visitors who aren't signed in.
+    var rewardsPromo = root.querySelector('[data-b3d-checkout-rewards]');
+    var rewardsMore = root.querySelector('[data-b3d-rewards-more]');
+    if (rewardsMore && document.documentElement.lang === 'ar') rewardsMore.setAttribute('href', '/3d/ar/rewards/');
     var emailEl = root.querySelector('[data-b3d-checkout-email]');
     var saveCheckbox = root.querySelector('[data-b3d-save-info]');
     var form = root.querySelector('#b3d-checkout-form');
@@ -2276,6 +2280,7 @@
         if (user) loadCartRewards();
         else { rewardsState = null; updateOrderTotals(); }
         if (loginRow) loginRow.hidden = !!user;
+        if (rewardsPromo) rewardsPromo.hidden = !!user;
         if (signedInRow) signedInRow.hidden = !user;
         if (user && emailEl) emailEl.textContent = user.email;
         if (user) {

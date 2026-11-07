@@ -324,6 +324,10 @@
       pm_bank_iban_note: 'IBAN is all you need for a domestic transfer within Saudi Arabia.',
 
       checkout_login_prompt: 'Log in for faster checkout',
+      checkout_rewards_h: 'Get your Rewards account for more benefits',
+      checkout_rewards_p: 'Create a free account to join Black Arrow Loyalty Rewards: 5 SAR welcome credit, reward balance on every order, birthday rewards and free delivery at Gold and Platinum.',
+      checkout_rewards_cta: 'Create free account',
+      checkout_rewards_more: 'See benefits',
       checkout_signed_in_as: 'Signed in as',
       checkout_h4: 'Delivery Details',
       checkout_first_name: 'First Name',
@@ -938,6 +942,10 @@
       pm_bank_iban_note: 'رقم الآيبان وحده كافٍ لإتمام التحويل داخل المملكة العربية السعودية.',
 
       checkout_login_prompt: 'سجّل الدخول لإتمام أسرع',
+      checkout_rewards_h: 'أنشئ حساب المكافآت واحصل على مزايا أكثر',
+      checkout_rewards_p: 'أنشئ حسابًا مجانيًا وانضم إلى مكافآت بلاك أرو للولاء: رصيد ترحيبي 5 ريالات، ورصيد مكافآت مع كل طلب، ومكافأة عيد الميلاد، وتوصيل مجاني لفئتي الذهبية والبلاتينية.',
+      checkout_rewards_cta: 'أنشئ حسابًا مجانيًا',
+      checkout_rewards_more: 'تعرّف على المزايا',
       checkout_signed_in_as: 'مسجّل الدخول باسم',
       checkout_h4: 'تفاصيل التوصيل',
       checkout_first_name: 'الاسم الأول',
