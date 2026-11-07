@@ -312,6 +312,10 @@
 
       pm_soon: 'Coming Soon',
       pm_banktransfer: 'Bank Transfer',
+      pm_cash: 'Cash at Pickup',
+      pm_cash_note: 'Self pickup only',
+      pm_cash_h4: 'Pay Cash at Pickup',
+      pm_cash_p: "Pay in cash when you collect your order from our Al Khobar pickup point (self pickup only, no delivery with cash). We'll message you when your order is ready.",
       pm_bank_h4: 'Direct Bank Transfer',
       pm_bank_p: "Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.",
       pm_bank_bankname: 'Bank Name',
@@ -922,6 +926,10 @@
 
       pm_soon: 'قريباً',
       pm_banktransfer: 'تحويل بنكي',
+      pm_cash: 'الدفع نقدًا عند الاستلام',
+      pm_cash_note: 'للاستلام الذاتي فقط',
+      pm_cash_h4: 'الدفع نقدًا عند الاستلام',
+      pm_cash_p: 'ادفع نقدًا عند استلام طلبك من نقطة الاستلام في الخبر (للاستلام الذاتي فقط، ولا يتوفر التوصيل مع الدفع النقدي). سنرسل لك رسالة عندما يصبح طلبك جاهزًا.',
       pm_bank_h4: 'التحويل البنكي المباشر',
       pm_bank_p: 'حوّل إجمالي الطلب إلى الحساب أدناه، ثم أكمل النموذج وأضف رقم مرجع التحويل في الملاحظات — سنؤكد الطلب فور استلامه.',
       pm_bank_bankname: 'اسم البنك',

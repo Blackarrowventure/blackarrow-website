@@ -39,6 +39,9 @@ module.exports = async (req, res) => {
 
   const num = (v) => (Number.isFinite(Number(v)) && Number(v) > 0 ? Number(v) : 0);
   const checks = [];
+  // Cash is only for self pickup (paid when the customer collects); it gets the same saving.
+  const cash = body.payment === 'cash';
+  if (cash && body.shipping !== 'pickup') return res.status(400).json({ error: 'cash_pickup_only' });
 
   // Signed-in member: Gold / Platinum free Regular delivery comes from their account.
   let member = null;
@@ -99,7 +102,7 @@ module.exports = async (req, res) => {
   }
 
   const discountCents = Math.min(couponCents + rewardsCents, order.itemsCents);
-  // Bank transfer saving: 1% off the items after coupon / rewards (the cart shows the same).
+  // Bank transfer / cash-at-pickup saving: 1% off the items after coupon / rewards (the cart shows the same).
   const savingCents = Math.round((order.itemsCents - discountCents) * 0.01);
   const totalCents = order.itemsCents - discountCents - savingCents + shippingCents;
 
@@ -107,25 +110,36 @@ module.exports = async (req, res) => {
   const notes = [];
   if (couponCents) notes.push('Coupon ' + couponCode + ': -' + couponCents / 100 + ' SAR');
   if (rewardsCents) notes.push('Loyalty Rewards used: -' + rewardsCents / 100 + ' SAR');
-  if (savingCents) notes.push('Bank transfer saving (1%): -' + (savingCents / 100) + ' SAR');
+  if (savingCents) notes.push((cash ? 'Cash payment saving (1%): -' : 'Bank transfer saving (1%): -') + (savingCents / 100) + ' SAR');
   checks.forEach((c) => notes.push('CHECK: ' + c));
-  notes.push('Bank transfer: check the amount reached the bank before marking the invoice Paid.');
+  notes.push(cash
+    ? 'CASH AT PICKUP: collect ' + totalCents / 100 + ' SAR in cash when the customer picks up, then mark the invoice Paid.'
+    : 'Bank transfer: check the amount reached the bank before marking the invoice Paid.');
 
+  const order_ = Object.assign(details, {
+    order_ref: orderId,
+    source: 'bank',
+    method_label: cash ? 'Cash at Pickup' : 'Bank Transfer',
+    payment_method: cash ? 'Cash' : 'Bank transfer',
+    paid: false,
+    customer_name: name,
+    customer_phone: phone,
+    customer_email: s(b.email, 120),
+    customer_city: s(b.city, 60),
+    customer_address: [s(b.street, 120), s(b.building, 20), s(b.apartment, 40), s(b.postalCode, 20)].filter(Boolean).join(', '),
+    discount_note: discountCents + savingCents ? notes.slice(0, -1).join(' · ') : null,
+    notes: notes.join(' · '),
+  });
   try {
-    await sendBankOrder(Object.assign(details, {
-      order_ref: orderId,
-      source: 'bank',
-      method_label: 'Bank Transfer',
-      payment_method: 'Bank transfer',
-      paid: false,
-      customer_name: name,
-      customer_phone: phone,
-      customer_email: s(b.email, 120),
-      customer_city: s(b.city, 60),
-      customer_address: [s(b.street, 120), s(b.building, 20), s(b.apartment, 40), s(b.postalCode, 20)].filter(Boolean).join(', '),
-      discount_note: discountCents + savingCents ? notes.slice(0, -1).join(' · ') : null,
-      notes: notes.join(' · '),
-    }));
+    try {
+      await sendBankOrder(order_);
+    } catch (e) {
+      // Until the CRM accepts 'Cash' for website orders (bav-crm migration 0192), file it as an
+      // unpaid bank-style order with the cash instruction at the front of the notes.
+      if (!cash) throw e;
+      console.error('bank-order: CRM refused Cash, retrying as Bank transfer', orderId, e.message);
+      await sendBankOrder(Object.assign({}, order_, { payment_method: 'Bank transfer', notes: 'PAYMENT: CASH AT PICKUP · ' + order_.notes }));
+    }
   } catch (e) {
     console.error('bank-order: CRM inbox failed', orderId, e.message, e.detail || '');
     return res.status(502).json({ error: 'crm_unavailable' });

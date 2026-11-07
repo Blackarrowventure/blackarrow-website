@@ -3524,3 +3524,6 @@ main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }
    actually stuck until the page's overflow-x became clip (for the sticky header). Once it did, it
    slid over the payment methods below it. Restore the original behaviour: it scrolls with the page. */
 .b3d-cart-summary { position: static; top: auto; }
+
+/* Hidden payment tiles (Apple Pay on devices without it) */
+.b3d-pm[hidden] { display: none; }

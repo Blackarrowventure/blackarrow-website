@@ -1988,7 +1988,7 @@
         promo.addEventListener('click', function () { var b = document.querySelector('[data-pm="bank"]'); if (b) b.click(); });
         methods.parentNode.insertBefore(promo, methods);
       }
-      promo.hidden = !saving || currentPayMethod === 'bank';
+      promo.hidden = !saving || currentPayMethod === 'bank' || currentPayMethod === 'cash';
       promo.innerHTML = TAG_ICON + '<span>' + (ar
         ? 'ادفع بالتحويل البنكي واحصل على خصم ' + amount + ' فورًا'
         : 'Pay by bank transfer and get ' + amount + ' off instantly') + '</span>';
@@ -2098,7 +2098,7 @@
     discountLine += rewardsLine;
     var savingAmount = bankSaving();
     updateBankSaveUi(savingAmount);
-    var saving = currentPayMethod === 'bank' ? savingAmount : 0;
+    var saving = (currentPayMethod === 'bank' || currentPayMethod === 'cash') ? savingAmount : 0;
     var saveRow = summaryEl.querySelector('[data-b3d-bank-save-row]');
     if (!saveRow) {
       saveRow = document.createElement('div');
@@ -2108,9 +2108,11 @@
       summaryEl.insertBefore(saveRow, summaryEl.querySelector('.b3d-cart-summary__total'));
     }
     saveRow.hidden = !saving;
-    saveRow.firstChild.textContent = isAr() ? 'خصم التحويل البنكي' : 'Bank transfer discount';
+    saveRow.firstChild.textContent = currentPayMethod === 'cash'
+      ? (isAr() ? 'خصم الدفع النقدي' : 'Cash payment discount')
+      : (isAr() ? 'خصم التحويل البنكي' : 'Bank transfer discount');
     saveRow.lastChild.innerHTML = '−' + money(saving, 'SAR');
-    if (saving) discountLine += '\nBank transfer saving: -' + saving + ' SAR';
+    if (saving) discountLine += '\n' + (currentPayMethod === 'cash' ? 'Cash payment saving' : 'Bank transfer saving') + ': -' + saving + ' SAR';
     var after = Math.round((lastSubtotal - discount - rewardsUsed + fee - saving) * 100) / 100;
 
     var showShipping = checkout && !checkout.hidden;
@@ -2183,18 +2185,36 @@
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
-    var purchasable = method === 'bank' || method === 'card' || method === 'applepay' || method === 'tabby' || method === 'tamara';
+    var purchasable = method === 'bank' || method === 'cash' || method === 'card' || method === 'applepay' || method === 'tabby' || method === 'tamara';
     checkout.hidden = !purchasable;
     currentPayMethod = method;
+    syncCashOption(checkout);
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
-      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'applepay' ? 'Apple Pay (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : 'Bank Transfer';
+      if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'applepay' ? 'Apple Pay (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : method === 'cash' ? 'Cash at Pickup' : 'Bank Transfer';
       if (!__snapCheckoutFired) {
         __snapCheckoutFired = true;
         pushSnapEvent('START_CHECKOUT', snapCartPayload());
       }
     }
     updateOrderTotals();
+  }
+
+  // Cash is paid at Self pickup, with the same discount as bank transfer. Choosing Cash leaves
+  // Self pickup as the only delivery option (and selects it); any other method shows them all.
+  // The server (api/bank-order.js) refuses cash without pickup.
+  function syncCashOption(checkout) {
+    if (!checkout) return;
+    var cash = currentPayMethod === 'cash';
+    var pickup = checkout.querySelector('input[name="shipping_choice"][value="pickup"]');
+    if (!pickup) return;
+    checkout.querySelectorAll('input[name="shipping_choice"]').forEach(function (r) {
+      var label = r.closest('label');
+      if (r.value === 'pickup') return;
+      if (label) label.hidden = cash;
+      r.disabled = cash;
+    });
+    if (cash && !pickup.checked) pickup.checked = true;
   }
 
   // Self pickup needs only name + phone: the address fields are hidden and switched off (a
@@ -2205,7 +2225,7 @@
     var form = checkout && checkout.querySelector('#b3d-checkout-form');
     if (!form) return;
     var hide = PICKUP_HIDDEN.slice();
-    if (currentPayMethod === 'bank') hide.push('email');
+    if (currentPayMethod === 'bank' || currentPayMethod === 'cash') hide.push('email');
     form.querySelectorAll('[data-b3d-field]').forEach(function (el) {
       var key = el.getAttribute('data-b3d-field');
       if (PICKUP_HIDDEN.indexOf(key) < 0 && key !== 'email') return;
@@ -2730,6 +2750,7 @@
           couponDiscount: couponDiscount(),
           rewardsUsed: rewardsDiscount(),
           bankSaving: bankSaving(),
+          payment: currentPayMethod === 'cash' ? 'cash' : 'bank',
           billing: {
             firstName: get('customer_first_name'),
             lastName: get('customer_last_name'),
