@@ -3858,7 +3858,7 @@
         ["Diameter", "1.75mm +/- 0.03mm"],
         ["Weight", "1kg"],
         ["Compatibility", "All AMS Series Compatible"],
-        ["Colours", "Solar Breeze (10901, PLA Basic Gradient), Cyan (10603), Blue (10601), Purple (10700), Yellow (10400), Red (10200), Gray (10103), Silver (10102)"]
+        ["Colours", "Solar Breeze (10901, PLA Basic Gradient), Cyan (10603), Blue (10601), Purple (10700), Yellow (10400), Red (10200), Gray (10103), Silver (10102), Marble"]
       ],
       "name_ar": "فيلامنت بامبو لاب PLA Basic بقطر 1.75 مم (1 كغ)",
       "shortDesc_ar": "فيلامنت بامبو PLA Basic، الأسهل استخدامًا، يمنحك طباعة سلسة من البداية.",
@@ -3869,7 +3869,7 @@
         ["القطر", "1.75 مم ± 0.03 مم"],
         ["الوزن", "1 كغ"],
         ["التوافق", "متوافق مع جميع أنظمة AMS"],
-        ["الألوان", "Solar Breeze (10901، من فئة PLA Basic Gradient)، سماوي (10603)، أزرق (10601)، بنفسجي (10700)، أصفر (10400)، أحمر (10200)، رمادي (10103)، فضي (10102)"]
+        ["الألوان", "Solar Breeze (10901، من فئة PLA Basic Gradient)، سماوي (10603)، أزرق (10601)، بنفسجي (10700)، أصفر (10400)، أحمر (10200)، رمادي (10103)، فضي (10102)، رخامي"]
       ],
       "variants": [
         {"label": "Solar Breeze", "label_ar": "Solar Breeze (متدرّج)", "price": 140, "swatch": "linear-gradient(135deg, #FFFFFF, #E94B3C)", "image": "/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp", "color": "Solar Breeze", "option": "With spool", "option_ar": "مع بكرة"},
@@ -3880,6 +3880,7 @@
         {"label": "Red", "label_ar": "أحمر", "price": 140, "swatch": "#C12E1F", "image": "/3d/assets/images/products/bambu-pla-basic-red-10200.webp", "color": "Red", "option": "With spool", "option_ar": "مع بكرة"},
         {"label": "Gray", "label_ar": "رمادي", "price": 140, "swatch": "#8E9089", "image": "/3d/assets/images/products/bambu-pla-basic-gray-10103.webp", "color": "Gray", "option": "With spool", "option_ar": "مع بكرة"},
         {"label": "Silver", "label_ar": "فضي", "price": 140, "swatch": "#A6A9AA", "image": "/3d/assets/images/products/bambu-pla-basic-silver-10102.webp", "color": "Silver", "option": "With spool", "option_ar": "مع بكرة"},
+        {"label": "Marble", "label_ar": "رخامي", "price": 140, "swatch": "linear-gradient(135deg, #F2F0EA, #B8B2A8 50%, #3A3A3A)", "image": "/3d/assets/images/products/bambu-pla-basic-marble.png", "color": "Marble", "option": "With spool", "option_ar": "مع بكرة"},
         {"label": "Solar Breeze — Refill", "label_ar": "Solar Breeze (متدرّج) — تعبئة بدون بكرة", "price": 110, "swatch": "linear-gradient(135deg, #FFFFFF, #E94B3C)", "image": "/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp", "color": "Solar Breeze", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
         {"label": "Cyan — Refill", "label_ar": "سماوي — تعبئة بدون بكرة", "price": 110, "swatch": "#0086D6", "image": "/3d/assets/images/products/bambu-pla-basic-cyan-10603.webp", "color": "Cyan", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
         {"label": "Blue — Refill", "label_ar": "أزرق — تعبئة بدون بكرة", "price": 110, "swatch": "#0A2989", "image": "/3d/assets/images/products/bambu-pla-basic-blue-10601.webp", "color": "Blue", "option": "Refill", "option_ar": "تعبئة (بدون بكرة)", "available": false},
