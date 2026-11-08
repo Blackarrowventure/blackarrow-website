@@ -1,12 +1,16 @@
 // GET: yes/no for each setting the online checkout and its emails need. Shows
 // only whether a setting exists, never its value.
-// /api/order-decision/ is also served here (vercel.json rewrite): the CRM's
-// confirm/reject email, see api/_lib/order-decision.js. The Vercel Hobby plan
-// allows 12 functions and all 12 are in use.
+// Two more routes are served here through vercel.json rewrites, because the
+// Vercel Hobby plan allows 12 functions and all 12 are in use:
+//   /api/order-decision/  the CRM's confirm/reject email (api/_lib/order-decision.js)
+//   /api/invoice/         a customer's invoice by its signed link (api/_lib/invoice-link.js)
 const orderDecision = require('./_lib/order-decision');
+const invoice = require('./_lib/invoice-link');
 
 module.exports = (req, res) => {
-  if ((req.query && req.query.action === 'order-decision') || req.method === 'POST' || req.method === 'OPTIONS') {
+  const action = req.query && req.query.action;
+  if (action === 'invoice') return invoice.handler(req, res);
+  if (action === 'order-decision' || req.method === 'POST' || req.method === 'OPTIONS') {
     return orderDecision(req, res);
   }
   res.setHeader('Cache-Control', 'no-store');

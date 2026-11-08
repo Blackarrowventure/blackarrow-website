@@ -67,6 +67,14 @@
   ],
   "headers": [
     {
+      "source": "/3d/invoice/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "private, no-store" }
+      ]
+    },
+    {
       "source": "/3d/product/",
       "missing": [{ "type": "query", "key": "slug" }],
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
@@ -368,7 +376,9 @@
   ],
   "rewrites": [
     { "source": "/api/order-decision/", "destination": "/api/checkout-health?action=order-decision" },
-    { "source": "/api/order-decision", "destination": "/api/checkout-health?action=order-decision" }
+    { "source": "/api/order-decision", "destination": "/api/checkout-health?action=order-decision" },
+    { "source": "/api/invoice/", "destination": "/api/checkout-health?action=invoice" },
+    { "source": "/api/invoice", "destination": "/api/checkout-health?action=invoice" }
   ],
   "crons": [
     { "path": "/api/rewards/birthday/", "schedule": "0 5 * * *" },

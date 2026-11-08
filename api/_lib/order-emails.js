@@ -74,13 +74,20 @@ function emailCopy(kind, o) {
   }
   if (kind === 'confirmed') {
     const pickup = /pickup/i.test(o.delivery || '');
+    // Paid orders get their tax invoice as a link (api/_lib/invoice-link.js).
+    const invoice = o.invoiceUrl
+      ? '\n\nYour invoice (view, print or save as PDF):\n' + o.invoiceUrl
+      : '';
+    const invoiceAr = o.invoiceUrl
+      ? '\n\nفاتورتك (للعرض أو الطباعة أو الحفظ PDF):\n' + o.invoiceUrl
+      : '';
     return {
       subject: 'Order confirmed #' + ref + ' | Black Arrow 3D',
       heading: 'Your order is confirmed · تم تأكيد طلبك',
       message: 'Good news' + hi + '! Your order is confirmed and we are preparing it now. ' +
-        (pickup ? 'We will let you know when it is ready for pickup.' : 'We will contact you to arrange delivery.') + '\n\n' +
+        (pickup ? 'We will let you know when it is ready for pickup.' : 'We will contact you to arrange delivery.') + invoice + '\n\n' +
         'خبر رائع! تم تأكيد طلبك ونقوم بتجهيزه الآن. ' +
-        (pickup ? 'سنبلغك عندما يصبح جاهزًا للاستلام.' : 'سنتواصل معك لترتيب التوصيل.'),
+        (pickup ? 'سنبلغك عندما يصبح جاهزًا للاستلام.' : 'سنتواصل معك لترتيب التوصيل.') + invoiceAr,
     };
   }
   if (kind === 'rejected') {

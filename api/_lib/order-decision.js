@@ -12,6 +12,7 @@
 const catalog = require('../../3d/assets/data/3d-products.json');
 const { groupedSummary } = require('./pricing');
 const { sendEmailJs, isPlaceholderEmail, emailCopy, SILENT_REASONS } = require('./order-emails');
+const invoiceLink = require('./invoice-link');
 
 const CRM_URL = process.env.CRM_SUPABASE_URL || 'https://iorbuqljfxifgtrdniwq.supabase.co';
 const DECISION_WINDOW_MS = 60 * 60 * 1000;
@@ -89,9 +90,11 @@ module.exports = async (req, res) => {
     if (!email || isPlaceholderEmail(email)) return res.status(200).json({ sent: false, reason: 'no_email' });
 
     const cash = /cash/i.test([o.payment_method, o.method_label, o.notes].join(' '));
+    // A paid order's confirmation carries its invoice link.
+    const invoiceUrl = o.status === 'confirmed' && o.paid && o.invoice_id ? invoiceLink.invoiceUrl(o.invoice_id) : null;
     const copy = emailCopy(o.status, {
       ref, name: o.customer_name || '', paid: !!o.paid, cash,
-      reason: o.reject_reason || 'Order could not be accepted', delivery: o.delivery_label,
+      reason: o.reject_reason || 'Order could not be accepted', delivery: o.delivery_label, invoiceUrl,
     });
     await sendEmailJs(Object.assign({
       to_email: email,
@@ -102,7 +105,7 @@ module.exports = async (req, res) => {
       payment_method: (o.method_label || o.payment_method || '') + (o.paid ? ' (paid)' : ''),
       order_total: sar(o.total),
     }, copy));
-    return res.status(200).json({ sent: true, to: email, status: o.status });
+    return res.status(200).json({ sent: true, to: email, status: o.status, invoice: !!invoiceUrl });
   } catch (e) {
     console.error('order-decision:', ref, e.message);
     return res.status(502).json({ error: 'email_failed', detail: String(e.message || '').slice(0, 200) });
