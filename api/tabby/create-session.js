@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const { buildOrder, stockProblem } = require('../_lib/pricing');
-const { insertOrder, db } = require('../_lib/db');
+const { insertOrder, db, nextOrderId } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
 const { liveProducts } = require('../_lib/crm-catalog');
 const { crmDetails } = require('../_lib/crm-orders');
@@ -73,6 +73,9 @@ module.exports = async (req, res) => {
   if (!buyer) return res.status(400).json({ error: 'invalid_billing' });
 
   const orderRef = crypto.randomBytes(12).toString('hex');
+  // A friendly number for display only (emails, thank-you page, CRM) - the random orderRef above
+  // stays what Tabby, verify and the return URL use.
+  const orderNumber = await nextOrderId();
   const money = (c) => (c / 100).toFixed(2);
 
   const tabbyItems = order.lines.map((l) => ({ title: l.name, unit_price: money(l.unitCents), quantity: l.qty, reference_id: l.id }));
@@ -82,7 +85,7 @@ module.exports = async (req, res) => {
     payment: {
       amount: totalSar.toFixed(2),
       currency: 'SAR',
-      description: 'Black Arrow 3D order',
+      description: 'Black Arrow 3D order ' + orderNumber,
       buyer: { name: buyer.name, email: buyer.email, phone: buyer.phone },
       shipping_address: { city: buyer.city, address: buyer.address, zip: buyer.zip },
       order: {
@@ -112,6 +115,7 @@ module.exports = async (req, res) => {
     }, {
       details: {
         method: 'Tabby (Pay in 4)',
+        order_number: orderNumber,
         lang: body.lang === 'ar' ? 'ar' : 'en',
         billing: {
           first_name: buyer.firstName, last_name: buyer.lastName, email: buyer.email, phone: buyer.phone,
@@ -158,7 +162,7 @@ module.exports = async (req, res) => {
       return res.status(502).json({ error: 'gateway_rejected' });
     }
     await db('PATCH', 'tabby_orders?order_ref=eq.' + orderRef, { tabby_payment_id: data.payment.id }, 'return=minimal');
-    return res.status(200).json({ orderRef, amount_sar: totalSar, rewards_used_sar: order.discountCents / 100, checkoutUrl: webUrl });
+    return res.status(200).json({ orderRef, orderNumber, amount_sar: totalSar, rewards_used_sar: order.discountCents / 100, checkoutUrl: webUrl });
   } catch (e) {
     console.error('tabby checkout failed:', e.message);
     return res.status(502).json({ error: 'gateway_unreachable' });

@@ -116,6 +116,9 @@ function emailCopy(kind, o) {
 async function sendConfirmedEmails(order) {
   const d = order.details || {};
   const b = d.billing || {};
+  // The friendly number (emails, CRM) when the order has one; the random internal ref otherwise
+  // (older orders, before this shipped). order.order_ref itself stays the random payment ref.
+  const ref = d.order_number || order.order_ref;
   const total = (order.amount_cents / 100).toLocaleString('en-US') + ' SAR';
   const summary = (d.summary || []).join('\n');
   const name = ((b.first_name || '') + ' ' + (b.last_name || '')).trim();
@@ -126,14 +129,14 @@ async function sendConfirmedEmails(order) {
   await sendEmailJs(Object.assign({
     to_email: process.env.SHOP_NOTIFY_EMAIL,
     to_name: 'Black Arrow 3D',
-    order_id: order.order_ref,
+    order_id: ref,
     order_summary: 'PAID - payment confirmed by ' + d.method + '. Confirm or reject it in the CRM (Online Orders); the customer is emailed when you do.\n\n' +
       'Customer: ' + name + '\nPhone: ' + (b.phone || '') + '\nEmail: ' + (b.email || '') + '\nAddress: ' + address +
       '\n\n' + summary + rewardsNote,
     shipping_method: d.shipping_label || '',
     payment_method: d.method + ' (PAID)',
     order_total: total,
-  }, emailCopy('shop', { ref: order.order_ref, paid: true })));
+  }, emailCopy('shop', { ref, paid: true })));
 
   if (b.email && !isPlaceholderEmail(b.email)) {
     await sleep(1100); // EmailJS allows one request per second
@@ -141,12 +144,12 @@ async function sendConfirmedEmails(order) {
       await sendEmailJs(Object.assign({
         to_email: b.email,
         to_name: name,
-        order_id: order.order_ref,
+        order_id: ref,
         order_summary: summary,
         shipping_method: d.shipping_label || '',
         payment_method: d.method + ' (paid)',
         order_total: total,
-      }, emailCopy('received', { ref: order.order_ref, name, paid: true })));
+      }, emailCopy('received', { ref, name, paid: true })));
     } catch (e) {
       console.error('customer confirmation email failed:', order.order_ref, e.message);
     }

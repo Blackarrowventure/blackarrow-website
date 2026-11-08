@@ -2499,14 +2499,15 @@
       return;
     }
     var f = o.fields;
+    var display = o.orderNumber || ref;
     if (confirmOnlineOrder._busy) return;
     confirmOnlineOrder._busy = true;
 
     var fd = new FormData();
     Object.keys(f).forEach(function (k) { fd.append(k, f[k]); });
     fd.set('access_key', W3F_ACCESS_KEY);
-    fd.set('subject', 'Order CONFIRMED - paid by ' + method + ' - ' + ref);
-    fd.set('order_id', ref);
+    fd.set('subject', 'Order CONFIRMED - paid by ' + method + ' - ' + display);
+    fd.set('order_id', display);
     fd.set('payment_status', 'PAID - payment confirmed by ' + method + '. Amount: ' + o.total + ' SAR. Ready to prepare and ship.');
     // Only marked as sent once Web3Forms accepts it, so a failed send is retried
     // on the next visit (resumePendingOrder).
@@ -2522,10 +2523,10 @@
 
     if (!serverHandled) {
       var mailName = ((f.customer_first_name || '') + ' ' + (f.customer_last_name || '')).trim();
-      var mail = receivedCopy(ref, mailName, true);
+      var mail = receivedCopy(display, mailName, true);
       mail.to_email = f.email || '';
       mail.to_name = mailName;
-      mail.order_id = ref;
+      mail.order_id = display;
       mail.order_summary = f.order_summary || '';
       mail.shipping_method = f.shipping_method || '';
       mail.payment_method = method + ' (paid)';
@@ -2593,7 +2594,9 @@
     var method = isTamara ? 'Tamara (Pay Later)' : pm === 'applepay' ? 'Apple Pay (Paymob)' : 'Card (Paymob)';
     var view = document.querySelector('[data-b3d-thanks]');
     if (!view) return;
-    view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+    var pendingNow = readPendingOrder();
+    var orderIdEl = view.querySelector('[data-b3d-thanks-order-id]');
+    orderIdEl.textContent = (pendingNow && pendingNow.ref === ref && pendingNow.orderNumber) || ref;
     view.querySelector('[data-b3d-thanks-payment]').textContent = method;
     fillOnlineThanks(view, ref);
     var lead = view.querySelector('[data-b3d-thanks-lead]');
@@ -2611,6 +2614,7 @@
     var check = function () {
       tries++;
       fetch(statusUrl).then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+        if (d.orderNumber) orderIdEl.textContent = d.orderNumber;
         if (d.status === 'paid') {
           lead.textContent = ar
             ? 'تم استلام طلبك ودفعتك. أرسلنا تفاصيل الطلب إلى بريدك الإلكتروني، وستصلك رسالة تأكيد فور اعتماد فريقنا للطلب.'
@@ -2655,16 +2659,17 @@
       return res.json().catch(function () { return {}; });
     }).then(function (data) {
       var status = data.status;
+      var display = data.orderNumber || ref;
       if (status === 'failed') {
         lead.textContent = isAr()
           ? 'لم تكتمل عملية الدفع عبر تابي ولم يتم تقديم الطلب. ما زالت سلتك محفوظة، يرجى المحاولة مرة أخرى أو اختيار طريقة دفع أخرى.'
           : 'Your Tabby payment was not completed. Your order has not been placed. Your cart is still saved. Please try again or choose another payment method.';
-        view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+        view.querySelector('[data-b3d-thanks-order-id]').textContent = display;
         view.hidden = false;
         window.scrollTo(0, 0);
         return;
       }
-      view.querySelector('[data-b3d-thanks-order-id]').textContent = ref;
+      view.querySelector('[data-b3d-thanks-order-id]').textContent = display;
       view.querySelector('[data-b3d-thanks-payment]').textContent = 'Tabby (Pay in 4)';
       var snapPayload = snapCartPayload();
       try {
@@ -2903,8 +2908,8 @@
           var method = (form.querySelector('[data-b3d-order-payment]') || {}).value || 'Online payment';
           var keep = {};
           fd.forEach(function (v, k) { if (k !== 'access_key' && k !== 'botcheck' && typeof v === 'string') keep[k] = v; });
-          keep.order_id = data.orderRef;
-          savePendingOrder({ ref: data.orderRef, total: data.amount_sar, method: method, gateway: endpoint && endpoint.indexOf('tabby') !== -1 ? 'tabby' : 'paymob', at: Date.now(), fields: keep });
+          keep.order_id = data.orderNumber || data.orderRef;
+          savePendingOrder({ ref: data.orderRef, orderNumber: data.orderNumber || null, total: data.amount_sar, method: method, gateway: endpoint && endpoint.indexOf('tabby') !== -1 ? 'tabby' : 'paymob', at: Date.now(), fields: keep });
         } catch (e) {}
         window.location.href = data.checkoutUrl;
       });

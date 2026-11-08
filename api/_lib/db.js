@@ -62,4 +62,19 @@ function clientIp(req) {
   return String(h['x-real-ip'] || String(h['x-forwarded-for'] || '').split(',')[0] || '').trim() || 'unknown';
 }
 
-module.exports = { db, insertOrder, websiteUser, bearer, rateHit, clientIp };
+// A friendly order number (BAV-3D-5001, ...) from the same Supabase sequence the browser's own
+// nextOrderId() (3d-store.js) uses for bank/cash orders - so card/Tabby orders get one too. This
+// is purely a DISPLAY number: the real order_ref (random, unguessable) stays what gateways,
+// webhooks and the return URL use. Never blocks checkout - falls back to a timestamp id exactly
+// like the browser does if Supabase is unreachable.
+async function nextOrderId() {
+  try {
+    const n = await db('POST', 'rpc/next_order_id', {});
+    if (typeof n === 'string' && n) return n;
+  } catch (e) {
+    console.error('nextOrderId: rpc failed, using fallback', e.message);
+  }
+  return 'BAV-3D-' + Date.now();
+}
+
+module.exports = { db, insertOrder, websiteUser, bearer, rateHit, clientIp, nextOrderId };

@@ -29,15 +29,16 @@ module.exports = async (req, res) => {
 
   let rows;
   try {
-    rows = await supabase('GET', 'tabby_orders?order_ref=eq.' + ref + '&select=order_ref,status,amount_cents,tabby_payment_id');
+    rows = await supabase('GET', 'tabby_orders?order_ref=eq.' + ref + '&select=order_ref,status,amount_cents,tabby_payment_id,details');
   } catch (e) {
     return res.status(502).json({ error: 'order_store_unavailable' });
   }
   const order = rows[0];
   if (!order || !order.tabby_payment_id) return res.status(404).json({ error: 'order_not_found' });
+  const orderNumber = (order.details && order.details.order_number) || null;
   if (order.status === 'paid') {
     const done = await afterPaid('tabby_orders', ref);
-    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent });
+    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent, orderNumber });
   }
 
   const auth = { Authorization: 'Bearer ' + secret, 'Content-Type': 'application/json' };
@@ -63,9 +64,9 @@ module.exports = async (req, res) => {
       }
     } else if (payment.status === 'REJECTED' || payment.status === 'EXPIRED') {
       await supabase('PATCH', 'tabby_orders?order_ref=eq.' + ref, { status: 'failed' }, 'return=minimal');
-      return res.status(200).json({ status: 'failed' });
+      return res.status(200).json({ status: 'failed', orderNumber });
     } else if (payment.status !== 'CLOSED') {
-      return res.status(200).json({ status: 'pending' });
+      return res.status(200).json({ status: 'pending', orderNumber });
     }
 
     await supabase('PATCH', 'tabby_orders?order_ref=eq.' + ref + '&status=eq.pending', {
@@ -73,7 +74,7 @@ module.exports = async (req, res) => {
       paid_at: new Date().toISOString(),
     }, 'return=minimal');
     const done = await afterPaid('tabby_orders', ref);
-    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent });
+    return res.status(200).json({ status: 'paid', emailsSent: done.emailsSent, orderNumber });
   } catch (e) {
     console.error('tabby verify failed:', e.message);
     return res.status(502).json({ error: 'verify_failed' });

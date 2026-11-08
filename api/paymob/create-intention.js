@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const { buildOrder, stockProblem } = require('../_lib/pricing');
-const { insertOrder, db } = require('../_lib/db');
+const { insertOrder, db, nextOrderId } = require('../_lib/db');
 const rewards = require('../_lib/rewards');
 const { liveProducts } = require('../_lib/crm-catalog');
 const { crmDetails } = require('../_lib/crm-orders');
@@ -103,6 +103,9 @@ module.exports = async (req, res) => {
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });
 
   const orderRef = crypto.randomBytes(12).toString('hex');
+  // A friendly number for display only (emails, thank-you page, CRM) - the random orderRef above
+  // stays what Paymob, the webhook and the return URL use.
+  const orderNumber = await nextOrderId();
   const method = channel === 'tamara' ? 'Tamara (Pay Later)' : channel === 'applepay' ? 'Apple Pay (Paymob)' : 'Card (Paymob)';
 
   // Paymob wants the item lines to add up to the amount. With a rewards
@@ -110,7 +113,7 @@ module.exports = async (req, res) => {
   // line; the itemised order stays in our own records and emails.
   let paymobItems;
   if (order.discountCents) {
-    paymobItems = [{ name: 'Black Arrow 3D order ' + orderRef.slice(0, 8) + ' (rewards applied)', amount: order.totalCents, quantity: 1, description: 'Black Arrow 3D order' }];
+    paymobItems = [{ name: 'Black Arrow 3D order ' + orderNumber + ' (rewards applied)', amount: order.totalCents, quantity: 1, description: 'Black Arrow 3D order' }];
   } else {
     paymobItems = order.lines.map((l) => ({ name: l.name, amount: l.unitCents, quantity: l.qty, description: l.name }));
     paymobItems.push({ name: order.shippingLabel, amount: order.shippingCents, quantity: 1, description: order.shippingLabel });
@@ -141,6 +144,7 @@ module.exports = async (req, res) => {
     }, {
       details: {
         method,
+        order_number: orderNumber,
         lang: body.lang === 'ar' ? 'ar' : 'en',
         billing: {
           first_name: billing.first_name, last_name: billing.last_name, email: billing.email, phone: billing.phone_number,
@@ -184,6 +188,7 @@ module.exports = async (req, res) => {
 
   return res.status(200).json({
     orderRef,
+    orderNumber,
     amount_sar: order.totalCents / 100,
     rewards_used_sar: order.discountCents / 100,
     checkoutUrl: PAYMOB_BASE + '/unifiedcheckout/?publicKey=' + encodeURIComponent(publicKey) + '&clientSecret=' + encodeURIComponent(intention.client_secret),

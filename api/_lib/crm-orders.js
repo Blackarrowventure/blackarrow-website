@@ -60,7 +60,10 @@ async function sendPaidOrder(table, order) {
   const d = order.details || {};
   const payload = Object.assign(
     {
-      order_ref: order.order_ref,
+      // The CRM's own key for this order - the friendly number when the order has one (orders
+      // created after this shipped), the random internal ref otherwise (older orders). Either
+      // way it's independent of order.order_ref, which stays the random payment/webhook ref.
+      order_ref: d.order_number || order.order_ref,
       source: table,
       method_label: d.method || (table === 'tabby_orders' ? 'Tabby (Pay in 4)' : 'Paymob'),
       // The CRM groups pay-later together: Tabby and Tamara (Tamara runs through Paymob).
