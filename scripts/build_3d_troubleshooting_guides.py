@@ -614,7 +614,8 @@ def build_en(g):
     html = html.replace(old_desc, d['desc'])
     html = re.sub(r'<title>[^<]*</title>', '<title>' + d['title'] + '</title>', html, count=1)
     html = html.replace(old_headline, d['headline'])
-    html = re.sub(r'"datePublished": "[^"]*"', '"datePublished": "' + DATE + '"', html, count=1)
+    # A refreshed post keeps its first publish date ('published') and gets DATE as dateModified.
+    html = re.sub(r'"datePublished": "[^"]*"', '"datePublished": "' + g.get('published', DATE) + '"', html, count=1)
     html = re.sub(r'"dateModified": "[^"]*"', '"dateModified": "' + DATE + '"', html, count=1)
     html = re.sub(
         r'<div class="b3d-article__meta">[^<]*</div>\s*\n\s*<h1>[^<]*</h1>\s*\n\s*<p class="b3d-article__lead">[^<]*</p>',

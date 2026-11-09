@@ -707,7 +707,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td>Starter: small items, multi-color</td><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>6 x PLA at 65 = 390</td><td>3,089</td></tr>
-                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>4,850</td></tr>
+                <tr><td>Bigger prints and cosplay</td><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>4,950</td></tr>
                 <tr><td>Enclosed daily production</td><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a> <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>8 x PLA + 2 x PETG at 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
@@ -755,7 +755,7 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>How much does it cost to start a 3D printing business in Saudi Arabia?</h3>
-          <p>About 3,000–3,500&nbsp;SAR for a starter setup: a Bambu Lab A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR plus 5–10 spools of PLA at 65&nbsp;SAR each. A larger A2L Combo setup is about 4,850&nbsp;SAR with 10 spools.</p>
+          <p>About 3,000–3,500&nbsp;SAR for a starter setup: a Bambu Lab A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR plus 5–10 spools of PLA at 65&nbsp;SAR each. A larger A2L Combo setup is about 4,950&nbsp;SAR with 10 spools.</p>
           <h3>How much does one 3D print cost to make?</h3>
           <p>With PLA at 65&nbsp;SAR per kg, filament costs about 0.065&nbsp;SAR per gram: roughly 0.65&nbsp;SAR for a 10&nbsp;g keychain and 9.75&nbsp;SAR for a 150&nbsp;g stand, before failed prints, packaging, time and delivery.</p>
           <h3>Do I need a licence to sell 3D printed products in Saudi Arabia?</h3>
@@ -807,7 +807,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td>بداية: قطع صغيرة متعددة الألوان</td><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td>6 بكرات PLA × 65 = 390</td><td>3,089</td></tr>
-                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>4,850</td></tr>
+                <tr><td>مطبوعات أكبر وكوسبلاي</td><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a> <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>4,950</td></tr>
                 <tr><td>إنتاج يومي بطابعة مغلقة</td><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a> <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>8 PLA + 2 PETG × 65 = 650</td><td>6,949</td></tr>
               </tbody>
             </table>
@@ -855,7 +855,7 @@ POSTS = [
 
           <h2>الأسئلة الشائعة</h2>
           <h3>كم تكلفة بدء مشروع طباعة ثلاثية الأبعاد في السعودية؟</h3>
-          <p>نحو 3,000–3,500 ريال لتجهيز البداية: طابعة Bambu Lab A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا مع 5–10 بكرات PLA بسعر 65 ريالًا للبكرة. وتجهيز أكبر مع A2L كومبو يكلف نحو 4,850 ريال مع 10 بكرات.</p>
+          <p>نحو 3,000–3,500 ريال لتجهيز البداية: طابعة Bambu Lab A1 mini كومبو بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريالًا مع 5–10 بكرات PLA بسعر 65 ريالًا للبكرة. وتجهيز أكبر مع A2L كومبو يكلف نحو 4,950 ريال مع 10 بكرات.</p>
           <h3>كم تكلفة إنتاج مطبوعة ثلاثية الأبعاد واحدة؟</h3>
           <p>مع PLA بسعر 65 ريالًا للكيلوجرام، يكلف الفلمنت نحو 0.065 ريال للجرام: قرابة 0.65 ريال لميدالية 10 جرامات و9.75 ريال لحامل 150 جرامًا، قبل حساب الطباعات الفاشلة والتغليف والوقت والتوصيل.</p>
           <h3>هل أحتاج ترخيصًا لبيع المنتجات المطبوعة ثلاثية الأبعاد في السعودية؟</h3>

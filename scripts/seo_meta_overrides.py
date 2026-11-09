@@ -49,10 +49,10 @@ OVERRIDES = {
         'مقارنة A2L وA1 وA1 ميني جنباً إلى جنب: حجم الطباعة والسرعة وخيارات الألوان المتعددة AMS ولمن تناسب كل طابعة، لتختار طابعة بامبو لاب الصحيحة من أول مرة.'),
     '3d/blog/best-3d-printer-for-beginners-saudi-arabia/index.html': (
         'Best 3D Printer for Beginners in Saudi Arabia: 2026 Top Picks',
-        'Buying your first 3D printer in Saudi Arabia? Our top pick for complete beginners, the best value alternative, and when a combo bundle is worth the extra.'),
+        'The best first 3D printer in Saudi Arabia by budget: A1 mini Combo, SparkX i7, A2L or an enclosed printer. Prices in SAR and what else to buy.'),
     '3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/index.html': (
         'أفضل طابعة 3D للمبتدئين في السعودية 2026: اختياراتنا',
-        'تشتري أول طابعة ثلاثية الأبعاد في السعودية؟ أفضل طابعة للمبتدئين تماماً، والبديل الأوفر سعراً، ومتى تستحق باقة الكومبو الإضافة.'),
+        'أفضل طابعة ثلاثية الأبعاد أولى في السعودية حسب الميزانية: A1 ميني كومبو أو SparkX i7 أو A2L أو طابعة مغلقة، مع الأسعار بالريال وماذا تشتري معها.'),
     '3d/blog/bambu-lab-a1-mini-setup-guide/index.html': (
         'Bambu Lab A1 mini Setup: 7 Steps to Your First Print',
         'Set up a Bambu Lab A1 or A1 mini in 7 steps: unboxing, assembly, first calibration, Wi-Fi and the Bambu Handy app, loading filament and your first print.'),
