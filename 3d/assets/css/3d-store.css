@@ -3539,3 +3539,21 @@ main.b3d-light .b3d-pd__faq-item { border-color: #e6e3dc; }
 .b3d-checkout-rewards__cta { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #d4af37; color: #1a1a1a; font-weight: 700; font-size: .82rem; text-decoration: none; }
 .b3d-checkout-rewards__more { color: #f0d27a; font-size: .82rem; text-decoration: underline; }
 .b3d-checkout-rewards__cta:focus-visible, .b3d-checkout-rewards__more:focus-visible { outline: 2px solid #f0d27a; outline-offset: 2px; }
+
+/* ==============================================
+   Text that disappeared (10 Nov 2026)
+   ============================================== */
+/* Shop filters: a ticked option is a dark pill, but the light-theme rule
+   (main.b3d-light :is(... span ...)) kept its label dark, so it vanished. */
+main.b3d-light .b3d-filter-panel label:has(input:checked) > span { color: #fff; }
+
+/* Home: the city chips and the "at a glance" box are white cards inside the dark
+   delivery section, where .section--dark * (styles.css, !important) made every text white. */
+.section--dark .b3d-city-chip,
+.section--dark .b3d-glance,
+.section--dark .b3d-glance * { color: #1a1a1a !important; }
+.section--dark .b3d-glance dt { color: #555 !important; }
+
+/* Section titles on light pages: the bright accent (#f59e0b) is too faint on the cream
+   background (e.g. "What our customers say" on product pages). Dark sections keep it. */
+main.b3d-light .section-header:not(.section--dark .section-header) h2 { color: #b45309 !important; }
