@@ -24,7 +24,7 @@ MODULES = [('seo_posts_cities', '2026-10-15'), ('seo_posts_buying', '2026-10-15'
            ('seo_posts_products', '2026-10-22'), ('seo_posts_bambu_filament', '2026-11-01'),
            ('seo_posts_kingroon', '2026-11-04'), ('seo_posts_bambu_h3c', '2026-11-04'),
            ('seo_posts_refresh_2026_11', '2026-11-09'), ('seo_posts_refresh_2026_11b', '2026-11-10'),
-           ('seo_posts_refresh_2026_11c', '2026-11-10')]
+           ('seo_posts_refresh_2026_11c', '2026-11-10'), ('seo_posts_refresh_2026_11d', '2026-11-10')]
 
 
 def load_posts():
