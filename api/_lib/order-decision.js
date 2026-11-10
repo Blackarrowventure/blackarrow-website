@@ -7,7 +7,8 @@
 //
 // Nothing in the request decides what the email says: the order, its status and the reason are
 // read from the CRM's own bav3d_online_orders row. The caller must be signed in to the CRM and
-// must be the person who made that decision, within the last hour.
+// must be the person who made that decision, within the last hour - or, with { resend: true }
+// ("Email customer" on an already-decided order), any CRM user allowed to see that order.
 // Served from api/checkout-health.js (the Vercel Hobby plan allows 12 functions; all are used).
 const catalog = require('../../3d/assets/data/3d-products.json');
 const { groupedSummary } = require('./pricing');
@@ -33,6 +34,18 @@ async function onlineOrder(ref) {
   if (!r.ok) throw new Error('crm_' + r.status);
   const rows = await r.json();
   return rows && rows[0] ? rows[0] : null;
+}
+
+// Resend: may this CRM user see the order? Asked with the user's own token, so the CRM's row-level
+// security decides (the same rule that shows the order in Online Orders).
+async function userCanSee(ref, token) {
+  const key = process.env.CRM_SUPABASE_SERVICE_ROLE_KEY;
+  const r = await fetch(CRM_URL + '/rest/v1/bav3d_online_orders?order_ref=eq.' + encodeURIComponent(ref) + '&select=id', {
+    headers: { apikey: key, Authorization: 'Bearer ' + token },
+  });
+  if (!r.ok) return false;
+  const rows = await r.json().catch(() => []);
+  return Array.isArray(rows) && rows.length > 0;
 }
 
 const sar = (n) => (Math.round(Number(n || 0) * 100) / 100).toLocaleString('en-US') + ' SAR';
@@ -73,6 +86,7 @@ module.exports = async (req, res) => {
   const token = String(req.headers.authorization || '').replace(/^Bearer\s+/i, '');
   const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
   const ref = String(body.order_ref || '');
+  const resend = body.resend === true;
   if (!token) return res.status(401).json({ error: 'sign_in_required' });
   if (!/^[A-Za-z0-9_-]{4,64}$/.test(ref)) return res.status(400).json({ error: 'bad_order_ref' });
 
@@ -82,8 +96,13 @@ module.exports = async (req, res) => {
     const o = await onlineOrder(ref);
     if (!o) return res.status(404).json({ error: 'order_not_found' });
     if (o.status !== 'confirmed' && o.status !== 'rejected') return res.status(409).json({ error: 'not_decided' });
-    if (o.decided_by !== user.id) return res.status(403).json({ error: 'not_your_decision' });
-    if (!o.decided_at || Date.now() - new Date(o.decided_at).getTime() > DECISION_WINDOW_MS) return res.status(409).json({ error: 'decision_too_old' });
+    if (resend) {
+      // "Email customer" on an order decided earlier: any CRM user who can see the order.
+      if (!(await userCanSee(ref, token))) return res.status(403).json({ error: 'not_allowed' });
+    } else {
+      if (o.decided_by !== user.id) return res.status(403).json({ error: 'not_your_decision' });
+      if (!o.decided_at || Date.now() - new Date(o.decided_at).getTime() > DECISION_WINDOW_MS) return res.status(409).json({ error: 'decision_too_old' });
+    }
 
     if (o.status === 'rejected' && SILENT_REASONS.includes(o.reject_reason)) return res.status(200).json({ sent: false, reason: 'test_order' });
     const email = String(o.customer_email || '').trim();
@@ -105,6 +124,7 @@ module.exports = async (req, res) => {
       payment_method: (o.method_label || o.payment_method || '') + (o.paid ? ' (paid)' : ''),
       order_total: sar(o.total),
     }, copy));
+    console.log('order-decision: sent', ref, o.status, resend ? '(resend)' : '');
     return res.status(200).json({ sent: true, to: email, status: o.status, invoice: !!invoiceUrl });
   } catch (e) {
     console.error('order-decision:', ref, e.message);
