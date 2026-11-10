@@ -43,10 +43,10 @@ OVERRIDES = {
     # ---- Black Arrow 3D ----
     '3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/index.html': (
         'Bambu Lab A1 vs A1 mini vs A2L: Differences & Which to Buy',
-        'A2L vs A1 vs A1 mini side by side: build size, speed, multicolor AMS options and who each one suits, so you buy the right Bambu Lab printer the first time.'),
+        'Bambu Lab A1 mini vs A1 vs A2L side by side: build size, footprint, AMS lite Combos and prices in SAR, so you buy the right Bambu Lab printer the first time.'),
     '3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/index.html': (
         'بامبو لاب A1 أو A1 ميني أو A2L: ما الفرق وأيها تشتري؟',
-        'مقارنة A2L وA1 وA1 ميني جنباً إلى جنب: حجم الطباعة والسرعة وخيارات الألوان المتعددة AMS ولمن تناسب كل طابعة، لتختار طابعة بامبو لاب الصحيحة من أول مرة.'),
+        'مقارنة A1 ميني وA1 وA2L جنبًا إلى جنب: حجم الطباعة ومقاس الطابعة وباقات AMS lite والأسعار بالريال، لتختار طابعة بامبو لاب الصحيحة من أول مرة.'),
     '3d/blog/best-3d-printer-for-beginners-saudi-arabia/index.html': (
         'Best 3D Printer for Beginners in Saudi Arabia: 2026 Top Picks',
         'The best first 3D printer in Saudi Arabia by budget: A1 mini Combo, SparkX i7, A2L or an enclosed printer. Prices in SAR and what else to buy.'),
@@ -129,7 +129,7 @@ OVERRIDES = {
         'كم سعر فلمنت الطابعة ثلاثية الأبعاد في السعودية 2026: أسعار PLA وPLA+ وPETG للكيلو بالريال، وطريقة حساب تكلفة أي طبعة، وكيف تنفق أقل على الفلمنت.'),
     '3d/ar/blog/bambu-lab-a1-mini-combo-review/index.html': (
         'مراجعة Bambu Lab A1 Mini Combo وسعرها بالسعودية | Black Arrow 3D',
-        'مراجعة Bambu Lab A1 mini Combo: السعر في السعودية، ماذا تتضمن باقة AMS lite، المواصفات الكاملة، لمن تناسب، ومقارنتها بـ Snapmaker U1.'),
+        'مراجعة Bambu Lab A1 mini Combo: السعر في السعودية، محتويات الصندوق، الطباعة بأربعة ألوان مع AMS lite، المواصفات، الحدود، ومقارنتها مع SparkX i7 وA2L.'),
     '3d/ar/blog/buy-3d-printer-jubail/index.html': (
         'طابعات 3D في الجبيل: الأسعار والتوصيل | Black Arrow 3D',
         'طابعات ثلاثية الأبعاد في الجبيل والأحساء: طباعة أدوات التثبيت والنماذج في رطوبة الساحل، وطابعات مغلقة للخامات الهندسية، والأسعار الحالية والتوصيل.'),

@@ -64,47 +64,7 @@ POSTS = {
           </div>
         ''',
     },
-    'bambu-lab-a1-vs-a1-mini-vs-a2l': {
-        'meta_description': 'مقارنة حجم الطباعة والسعر وخيارات الباقات بين طابعات بامبو لاب A1 ميني وA1 وA2L لمساعدتك على اختيار الطابعة المناسبة لمشاريعك.',
-        'headline': 'بامبو لاب A1 مقابل A1 ميني مقابل A2L: أيهما يجب أن تشتري؟',
-        'meta_line': 'مقارنة &middot; 15 سبتمبر 2026 &middot; 6 دقائق قراءة',
-        'lead': 'الطابعات الثلاث تشترك في نفس منصة بامبو لاب سهلة الاستخدام. القرار الحقيقي يعتمد على حجم مطبوعاتك المطلوب وميزانيتك.',
-        'body': '''
-          <table>
-            <tr><th></th><th>A1 ميني</th><th>A1</th><th>A2L</th></tr>
-            <tr><td>حجم الطباعة</td><td>180 &times; 180 &times; 180&nbsp;مم</td><td>256 &times; 256 &times; 256&nbsp;مم</td><td>330 &times; 320 &times; 325&nbsp;مم</td></tr>
-            <tr><td>السرعة القصوى</td><td>500&nbsp;مم/ث</td><td>500&nbsp;مم/ث</td><td>500&nbsp;مم/ث</td></tr>
-            <tr><td>تعدد الألوان</td><td>AMS lite (باقة)</td><td>AMS Lite (باقة)</td><td>AMS / AMS Lite (باقة)</td></tr>
-            <tr><td>سعر الطابعة منفردة</td><td>1,699&nbsp;ريال</td><td>2,699&nbsp;ريال</td><td>3,699&nbsp;ريال</td></tr>
-            <tr><td>سعر الباقة</td><td>2,799&nbsp;ريال</td><td>3,530&nbsp;ريال</td><td>4,650&nbsp;ريال</td></tr>
-          </table>
-
-          <h2>بامبو لاب A1 ميني &mdash; أصغر مساحة على المكتب وأقل سعر</h2>
-          <p><a href="/3d/ar/product/bambu-lab-a1-mini/">A1 ميني</a> هو الخيار الأنسب إذا كانت مساحة مكتبك محدودة أو كنت تطبع غالباً قطعاً صغيرة &mdash; تماثيل، إكسسوارات هواتف، حوامل صغيرة. بحجم 180&nbsp;مم لكل ضلع، هي الأصغر بين الثلاث والأرخص للدخول إلى منظومة بامبو لاب.</p>
-
-          <h2>بامبو لاب A1 &mdash; الخيار المتوازن في المنتصف</h2>
-          <p><a href="/3d/ar/product/bambu-lab-a1/">A1</a> يقفز إلى حجم طباعة 256&nbsp;مم مكعب &mdash; كافٍ لمعظم إكسسوارات الكوسبلاي والقطع المنزلية الأكبر والمطبوعات متعددة الأجزاء دون تقسيم النموذج. نفس سرعة الطباعة مثل A1 ميني، ونفس خيار باقة AMS Lite، مع مساحة أكبر.</p>
-
-          <h2>بامبو لاب A2L &mdash; للمطبوعات كبيرة الحجم فعلاً</h2>
-          <p><a href="/3d/ar/product/bambu-lab-a2l/">A2L</a> مصممة للحجم الكبير: 330 &times; 320 &times; 325&nbsp;مم (حوالي 34.3&nbsp;لتر)، مناسبة للأغلفة الكبيرة والإنتاج بالدفعات، أو المطبوعات كبيرة الحجم التي لا تناسب أي طابعة أخرى في المجموعة. حالياً هي متاحة للطلب المسبق في كتالوجنا.</p>
-
-          <h2>الخلاصة</h2>
-          <p>اشترِ A1 ميني إذا كنت مبتدئاً أو مساحتك محدودة، وA1 إذا أردت طابعة متعددة الاستخدامات فعلاً للاستخدام اليومي، وA2L إذا كانت مشاريعك عادةً أكبر من مكعب 256&nbsp;مم.</p>
-
-          <div class="b3d-article__cta">
-            <p>قارن الثلاث جنباً إلى جنب بمواصفات مباشرة</p>
-            <a href="/3d/compare/" class="btn btn-primary">افتح أداة المقارنة</a>
-            <a href="/3d/ar/shop/3d-printers/" class="btn btn-outline" style="margin-inline-start:8px;">تصفح كل الطابعات</a>
-          </div>
-
-          <h2>منتجات ذات صلة</h2>
-          <div class="b3d-article__related">
-            <a href="/3d/ar/product/bambu-lab-a1-mini/">بامبو لاب A1 ميني</a>
-            <a href="/3d/ar/product/bambu-lab-a1/">بامبو لاب A1</a>
-            <a href="/3d/ar/product/bambu-lab-a2l/">بامبو لاب A2L</a>
-          </div>
-        ''',
-    },
+    # 'bambu-lab-a1-vs-a1-mini-vs-a2l' moved to scripts/seo_posts_refresh_2026_11c.py (Nov 2026 refresh).
     # 'best-3d-printer-for-beginners-saudi-arabia' moved to scripts/seo_posts_refresh_2026_11.py (Nov 2026 refresh).
     'buy-3d-printer-saudi-arabia-price-guide': {
         'meta_description': 'كل طابعة ثلاثية الأبعاد نوفرها في السعودية، مع أسعار حالية بالريال، وما يجب فحصه قبل الشراء محلياً مقابل الاستيراد &mdash; الضمان، مدة التوصيل، وخدمة ما بعد البيع.',

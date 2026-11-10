@@ -38,10 +38,10 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Bambu Lab A1 and A1 mini Setup Guide: Your First Day",
-    "description": "Set up a Bambu Lab A1 or A1 mini step by step: unboxing, calibration, Wi-Fi and the Bambu Handy app, loading filament and your first print.",
+    "description": "Set up a Bambu Lab A1 or A1 mini step by step: unboxing, transport screws, calibration, Wi-Fi and the Bambu Handy app, loading the AMS lite, your first print and first-day fixes.",
     "image": "https://www.blackarrowksa.com/assets/images/black-arrow-og.png",
     "datePublished": "2026-10-13",
-    "dateModified": "2026-10-13",
+    "dateModified": "2026-11-10",
     "author": { "@type": "Organization", "name": "Black Arrow 3D" },
     "publisher": {
       "@type": "Organization",
@@ -65,6 +65,8 @@
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-accent);}
   </style>
 <script src="/3d/assets/js/3d-consent.min.js?v=20261112" defer></script>
+
+  <script type="application/ld+json" id="b3d-faq-jsonld">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does it take to set up a Bambu Lab A1 mini?", "acceptedAnswer": {"@type": "Answer", "text": "About 45 to 60 minutes from opening the box to your first print. Most of that time is the automatic calibration."}}, {"@type": "Question", "name": "Do I need a computer to use the A1 mini?", "acceptedAnswer": {"@type": "Answer", "text": "No. You can print models from MakerWorld with the Bambu Handy app on your phone. A computer with Bambu Studio is useful when you want to slice your own models."}}, {"@type": "Question", "name": "Which filament should I start with?", "acceptedAnswer": {"@type": "Answer", "text": "PLA. It is the easiest to print and right for most first projects. See which filament for which print."}}, {"@type": "Question", "name": "Does this guide work for the A1 as well?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The A1 and A1 mini set up the same way; the A1 is simply bigger."}}]}</script>
 </head>
 <body class="b3d-layer-bg">
 <!-- Google Tag Manager (noscript) -->
@@ -134,57 +136,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </nav>
 
         <article class="b3d-article">
-          <div class="b3d-article__meta">Getting Started &middot; October 13, 2026 &middot; 6 min read</div>
+          <div class="b3d-article__meta">Getting Started &middot; Updated November 10, 2026 &middot; 8 min read</div>
           <h1>Bambu Lab A1 and A1 mini Setup Guide: Your First Day</h1>
-          <p class="b3d-article__lead">Just got your A1 or A1 mini? Follow these steps in order and you will have your first print running in under an hour.</p>
+          <p class="b3d-article__lead">Just got your A1 or A1 mini? Follow these 7 steps in order and you will have your first print running in under an hour. At the end are fixes for the problems new owners hit most on day one.</p>
+
+          <h2>Before you start</h2>
+          <ul>
+            <li>About 45 to 60 minutes, most of it the printer calibrating itself.</li>
+            <li>A phone with the <b>Bambu Handy</b> app, and your Wi-Fi name and password.</li>
+            <li>A sturdy table: about 50&nbsp;cm deep for the A1 mini, more for the A1, because the bed moves front to back.</li>
+            <li>At least one spool of PLA. The box only has small samples.</li>
+          </ul>
 
           <h2>1. Pick a good spot</h2>
-          <p>Put the printer on a sturdy, level table with space around it, because the bed moves back and forth while printing. Keep it away from AC vents, direct sun and dust. You need a normal wall socket and a Wi-Fi signal.</p>
+          <p>Put the printer on a sturdy, level table with space around it, because the bed moves back and forth while printing. Keep it away from AC vents, direct sun and dust. Cold air blowing across the bed is a common cause of warped corners. You need a normal wall socket and a Wi-Fi signal.</p>
 
           <h2>2. Unbox and remove the packaging</h2>
-          <p>Take out all the foam, cable ties and tape, and remove any transport fixings shown in the Quick Start Guide that comes in the box. Do not skip this: a locked axis will make the calibration fail. Keep the box for a few weeks in case you need to move or return the printer.</p>
+          <p>Take out all the foam, cable ties and tape, and remove the transport screws and fixings shown in the Quick Start Guide that comes in the box. Do not skip this: a locked axis will make the calibration fail. Keep the box for a few weeks in case you need to move or return the printer.</p>
 
           <h2>3. Assemble and connect</h2>
           <ul>
-            <li>Fit the spool holder, or the AMS lite if you have the Combo, as shown in the Quick Start Guide.</li>
+            <li>Fit the spool holder, or the AMS lite if you have the Combo, as shown in the Quick Start Guide. Connect the AMS lite PTFE tubes and cable before the first start.</li>
             <li>Make sure the build plate sits flat and lined up on the bed.</li>
             <li>Connect the power cable and switch the printer on.</li>
           </ul>
 
           <h2>4. Run the first calibration</h2>
-          <p>On first start the screen walks you through setup. Let the printer run its full automatic calibration (bed leveling, vibration compensation and motor checks). It is noisy and takes a while; this is normal. Do not touch the bed while it runs.</p>
+          <p>On first start the screen walks you through setup. Let the printer run its full automatic calibration (bed leveling, vibration compensation and motor checks). It is noisy and takes a while; this is normal. Do not touch the bed or table while it runs.</p>
 
           <h2>5. Connect Wi-Fi and the app</h2>
           <ul>
             <li>Install the <b>Bambu Handy</b> app on your phone and create a Bambu Lab account.</li>
-            <li>Connect the printer to your Wi-Fi from the screen, then bind it to your account in the app.</li>
-            <li>Install a firmware update if the printer offers one.</li>
+            <li>Connect the printer to your Wi-Fi from the screen, then bind it to your account in the app. If the printer cannot see your network, check that your router&#39;s 2.4&nbsp;GHz band is switched on.</li>
+            <li>Install a firmware update if the printer offers one, and do not switch it off during the update.</li>
             <li>On a computer, install <b>Bambu Studio</b> to slice your own models.</li>
           </ul>
 
           <h2>6. Load filament</h2>
-          <p>Start with PLA or PLA+: it is the easiest material to print. Cut the filament end at an angle, feed it in, and use the load option on the screen. With an AMS lite, place up to four spools and load each one. Set the correct material type and color so the printer uses the right temperatures.</p>
+          <p>Start with PLA or PLA+: it is the easiest material to print. Cut the filament end at an angle, feed it in, and use the load option on the screen. With an AMS lite, place up to four spools and load each one. Set the correct material type and color for each slot so the printer uses the right temperatures. Bambu Lab spools with RFID tags are detected automatically; for other brands, pick the material in the app.</p>
 
           <h2>7. Your first print</h2>
-          <p>Print one of the models stored on the printer, or pick a popular model on MakerWorld from the Bambu Handy app and send it to the printer. Watch the first layer: it should be flat, even and well stuck to the plate.</p>
+          <p>Print one of the models stored on the printer, or pick a popular model on MakerWorld from the Bambu Handy app and send it to the printer. Watch the first layer: it should be flat, even and well stuck to the plate. When it finishes, let the plate cool for a minute, then flex it gently to release the print.</p>
+
+          <h2>First-day problems and quick fixes</h2>
+          <div class="b3d-table-wrap">
+            <table>
+              <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+              <tbody>
+                <tr><td>Calibration stops with an error</td><td>Check that every transport screw, tie and piece of foam is removed, then run calibration again.</td></tr>
+                <tr><td>Printer cannot find your Wi-Fi</td><td>Switch on the router&#39;s 2.4&nbsp;GHz band, move closer to the router, and check the password.</td></tr>
+                <tr><td>Filament will not load</td><td>Cut a clean, angled tip, straighten the first 10&nbsp;cm, and push until the extruder grips it.</td></tr>
+                <tr><td>First layer not sticking</td><td>Wash the plate with dish soap and water, do not touch the print surface, and keep AC air off the bed. See <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">first layer not sticking</a>.</td></tr>
+                <tr><td>Thin strings between parts</td><td>Usually damp filament. Dry the spool and see <a href="/3d/blog/3d-print-stringing-fix/">how to fix stringing</a>.</td></tr>
+                <tr><td>Nothing comes out of the nozzle</td><td>See <a href="/3d/blog/clogged-3d-printer-nozzle-fix/">how to clear a clogged nozzle</a>.</td></tr>
+              </tbody>
+            </table>
+          </div>
 
           <h2>Tips for the first week</h2>
           <ul>
             <li>Keep the build plate clean: wash it with dish soap and water and hold it by the edges.</li>
-            <li>Store filament sealed with desiccant, especially in humid cities.</li>
-            <li>If something goes wrong, see our guides on stringing, clogged nozzles and first-layer adhesion.</li>
+            <li>Store filament sealed with desiccant, especially in humid cities like Jeddah, Dammam and Khobar. The AMS lite is open to room air.</li>
+            <li>Keep a spare nozzle: the <a href="/3d/product/bambu-hotend-a1-series/">A1-series hotend</a> swaps in under a minute, with a hardened-steel option for abrasive filaments.</li>
           </ul>
+
+          <h2>FAQ</h2>
+          <h3>How long does it take to set up a Bambu Lab A1 mini?</h3>
+          <p>About 45 to 60 minutes from opening the box to your first print. Most of that time is the automatic calibration.</p>
+          <h3>Do I need a computer to use the A1 mini?</h3>
+          <p>No. You can print models from MakerWorld with the Bambu Handy app on your phone. A computer with Bambu Studio is useful when you want to slice your own models.</p>
+          <h3>Which filament should I start with?</h3>
+          <p>PLA. It is the easiest to print and right for most first projects. See <a href="/3d/blog/which-filament-for-which-print/">which filament for which print</a>.</p>
+          <h3>Does this guide work for the A1 as well?</h3>
+          <p>Yes. The A1 and A1 mini set up the same way; the A1 is simply bigger.</p>
 
           <div class="b3d-article__cta">
             <p>Need filament or a spare hotend?</p>
-            <a href="/3d/shop/filament/" class="btn btn-primary">Shop Filament</a>
+            <a href="/3d/shop/filament/" class="btn btn-primary">Shop filament</a>
           </div>
 
           <h2>Related</h2>
           <div class="b3d-article__related">
+            <a href="/3d/blog/bambu-lab-a1-mini-combo-review/">A1 mini Combo review</a>
             <a href="/3d/product/bambu-hotend-a1-series/">Bambu Hotend &mdash; A1 Series</a>
-            <a href="/3d/blog/3d-print-bed-adhesion-first-layer/">First layer not sticking?</a>
-            <a href="/3d/blog/which-filament-for-which-print/">Which filament for which print</a>
+            <a href="/3d/blog/best-filament-for-bambu-lab-a1-ams-lite/">Best filament for the A1 and AMS lite</a>
           </div>
 
 
