@@ -628,7 +628,7 @@
       slide_kr_title: 'New KINGROON filament',
       slide_kr_text: 'New PLA and PETG colours, plus PETG HS high-speed filament.',
       slide_cta: 'Shop now',
-      announce_1: 'Coming soon: Bambu Lab H3C, the 9-tool tool changer => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Online payments are also available · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 3,000 SAR or more · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Coming soon: Bambu Lab H3C, the 9-tool tool changer => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 3,000 SAR or more · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -1247,7 +1247,7 @@
       slide_kr_title: 'فيلامنت KINGROON جديد',
       slide_kr_text: 'ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة.',
       slide_cta: 'تسوق الآن',
-      announce_1: 'قريبًا: بامبو لاب H3C بتسع أدوات طباعة => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 3,000 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'قريبًا: بامبو لاب H3C بتسع أدوات طباعة => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 3,000 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 
