@@ -106,7 +106,27 @@ function normalizePhone(p) {
   return d;
 }
 
-// { user, phone, member } | { user, needsPhone: true, phoneTaken? } | null (not signed in)
+// The phone is typed by the customer and not verified by SMS, so an EXISTING card (a shop customer
+// with points, created before this account) is linked only when the CRM customer's email matches
+// this account's confirmed email. Otherwise the customer is asked to contact the shop; staff add
+// the email to the customer in the CRM and the next attempt links. A phone with no card yet is fine.
+async function mayClaimExistingCard(user, phone) {
+  const rows = await crmRpc('bav3d_loyalty_get', { p_phone: phone });
+  if (!(rows && rows[0] && rows[0].found)) return true;
+  const mine = String(user.email || '').trim().toLowerCase();
+  if (!mine || !user.email_confirmed_at) return false;
+  let crmEmail = '';
+  try {
+    const r = await crmRpc('bav3d_loyalty_card_email', { p_phone: phone });
+    crmEmail = String((r && r[0] && r[0].email) || '').trim().toLowerCase();
+  } catch (e) {
+    console.error('rewards: card email check failed:', e.message); // fail closed: ask the shop
+    return false;
+  }
+  return !!crmEmail && crmEmail === mine;
+}
+
+// { user, phone, member } | { user, needsPhone: true, phoneTaken?, cardNeedsVerify? } | null (not signed in)
 //
 // A card belongs to the website account that claimed its phone first. The claim
 // happens only on enrolment (Rewards page / cart, opts.enroll); every other
@@ -123,6 +143,7 @@ async function memberForToken(token, opts) {
     const phone = normalizePhone(acct.phone);
     if (!phone) return { user, needsPhone: true };
     if (await phoneClaimedByOther(user.id, phone)) return { user, needsPhone: true, phoneTaken: true };
+    if (!(await mayClaimExistingCard(user, phone))) return { user, needsPhone: true, cardNeedsVerify: true };
     if (!(await lockPhone(user.id, phone))) return { user, needsPhone: true, phoneTaken: true };
     acct.phone = phone;
     acct.locked = true;

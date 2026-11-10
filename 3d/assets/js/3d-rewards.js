@@ -170,6 +170,8 @@
           show(panelNeedsPhone);
           var taken = document.getElementById('rwd-join-taken');
           if (taken) taken.hidden = !me.phoneTaken;
+          var verify = document.getElementById('rwd-join-verify');
+          if (verify) verify.hidden = !me.cardNeedsVerify;
           return;
         }
         if (me.member) { renderCard(me.member); return; }
