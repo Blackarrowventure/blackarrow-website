@@ -1,0 +1,126 @@
+{
+  "slug": "commercial-hvac-maintenance-checklist-saudi-arabia",
+  "date": "2026-11-10",
+  "image": "/assets/images/services/hvac-solutions.jpg",
+  "wa_topic": "HVAC maintenance for a commercial building",
+  "related": [
+    {
+      "href": "/services/hvac-solutions/",
+      "i18n": "service_hvac",
+      "label": "HVAC Solutions"
+    },
+    {
+      "href": "/resources/blog/vrf-vrv-hvac-saudi-commercial-buildings/",
+      "i18n": "post_vrf_vrv_hvac_card_title",
+      "label": "VRF vs VRV: Choosing the Right Commercial HVAC System"
+    },
+    {
+      "href": "/solutions/commercial/",
+      "i18n": "sector_commercial",
+      "label": "Commercial"
+    }
+  ],
+  "en": {
+    "title": "Commercial HVAC Maintenance Checklist for Saudi Buildings",
+    "description": "A monthly, quarterly and yearly HVAC maintenance checklist for Saudi commercial buildings: filters, coils, drains, refrigerant and controls in the heat.",
+    "og_description": "What to check on commercial HVAC in Saudi Arabia every month, quarter and year, why heat and dust change the schedule, and what a maintenance contract should cover.",
+    "excerpt": "Air conditioning in Saudi Arabia runs most of the year in heat and dust. A maintenance plan built for a mild climate leaves it short on capacity just when summer peaks.",
+    "breadcrumb": "Commercial HVAC Maintenance Checklist",
+    "subhead": "Monthly, quarterly and yearly tasks for split, VRF, packaged and chilled-water systems, and why heat and dust change the schedule",
+    "lead": "In most of the world, air conditioning works hard for a few months a year. In Saudi Arabia it runs for most of the year, at outdoor temperatures near 50 °C, in air that carries fine dust. That changes what maintenance has to do. A schedule written for a mild climate leaves coils clogged and systems short on capacity just when the summer peak arrives. This checklist sets out what to check, and how often, for commercial buildings.",
+    "sections": [
+      {
+        "h2": "Why Heat and Dust Change the Schedule",
+        "p": [
+          "An air-cooled condenser rejects heat to the outside air. The hotter that air, the harder the compressor works and the less cooling it delivers; a layer of dust on the condenser coil makes it worse by blocking airflow. Units on roofs and in enclosed plant areas, where hot air recirculates, are hit hardest.",
+          "Dust also loads filters and evaporator coils quickly, especially after sandstorms, and long running hours wear contactors, capacitors, fan motors and belts faster. The result is that tasks done yearly elsewhere often need doing quarterly here, and filter checks monthly or more often in dusty seasons."
+        ]
+      },
+      {
+        "h2": "Monthly Checks",
+        "p": [
+          "Inspect and clean or replace air filters; after dust storms, check them again within days. Check that condensate drains, traps and pumps flow freely, since a blocked drain is the most common cause of water damage from indoor units. Confirm thermostats and controllers show sensible set points and schedules.",
+          "Walk the plant: listen for unusual noise or vibration, check belts for wear and tension, look for oil stains that can signal a refrigerant leak, and record any alarm or error codes, especially on VRF systems, where the controller log is the earliest warning of a problem."
+        ]
+      },
+      {
+        "h2": "Quarterly Checks",
+        "p": [
+          "Clean condenser coils, more often in dusty locations or after storms, using low-pressure water or a coil cleaner rather than high-pressure jets that bend the fins. Inspect evaporator coils and blower wheels. Tighten electrical terminals and check contactors and capacitors, since heat-related electrical faults are a leading cause of summer breakdowns.",
+          "Have a qualified technician check refrigerant operating pressures, superheat and subcooling, and the supply and return air temperature difference. These numbers show whether a unit is still delivering its rated cooling or slowly losing charge or airflow."
+        ]
+      },
+      {
+        "h2": "Yearly Checks",
+        "p": [
+          "Before summer, do a full service: deep-clean coils, check fan motors and bearings, test safety controls and high-pressure cut-outs, leak-test the refrigerant circuit, and inspect ductwork and insulation for damage and condensation. Calibrate sensors and review building management system schedules so plant is not running for empty floors.",
+          "Chilled-water plants add their own tasks: chiller performance checks, pump and valve servicing, and above all cooling tower water treatment and cleaning to control scale and Legionella. Keep a written record of every visit; the standard ASHRAE 180 for inspection and maintenance of commercial HVAC systems is a useful framework for what to record."
+        ]
+      },
+      {
+        "h2": "What a Maintenance Contract Should Cover",
+        "p": [
+          "A planned maintenance contract should list every asset by location and model, the tasks and frequency for each, response times for breakdowns by priority, what is included versus charged separately (refrigerant, parts, coil chemical cleaning), and the reports you receive after each visit.",
+          "Ask for measured readings, not just ticks: filter condition, refrigerant pressures, temperature differences and electrical readings over time. Trends in those numbers let you fix a failing unit in spring rather than replace it in August. For new installations, see our article on VRF and VRV systems for Saudi commercial buildings."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Need HVAC installed or maintained in a commercial building?",
+      "text": "We supply, install and maintain HVAC systems for commercial, healthcare and industrial buildings across Saudi Arabia.",
+      "href": "/services/hvac-solutions/",
+      "label": "Full HVAC Details & Specifications",
+      "label_i18n": "hvac_full_details"
+    }
+  },
+  "ar": {
+    "title": "قائمة صيانة التكييف التجاري للمباني في السعودية",
+    "description": "قائمة صيانة شهرية وربع سنوية وسنوية للتكييف في المباني التجارية بالسعودية: الفلاتر والملفات والتصريف ووسيط التبريد والتحكم في الحرارة والغبار.",
+    "og_description": "ما الذي يجب فحصه في أنظمة التكييف التجارية بالسعودية كل شهر وربع سنة وسنة، ولماذا تغير الحرارة والغبار الجدول، وما الذي يجب أن يشمله عقد الصيانة.",
+    "excerpt": "يعمل التكييف في السعودية معظم أيام السنة في الحرارة والغبار. وخطة الصيانة المصممة لمناخ معتدل تتركه بسعة ناقصة تمامًا عند ذروة الصيف.",
+    "breadcrumb": "قائمة صيانة التكييف التجاري",
+    "subhead": "مهام شهرية وربع سنوية وسنوية لأنظمة السبليت وVRF والوحدات المجمعة والمياه المبردة، ولماذا تغير الحرارة والغبار الجدول",
+    "lead": "في معظم أنحاء العالم يعمل التكييف بجهد لبضعة أشهر في السنة. أما في السعودية فيعمل معظم أيام السنة، في حرارة خارجية تقارب 50 °م، وفي هواء يحمل غبارًا ناعمًا. وهذا يغير ما يجب أن تفعله الصيانة. فالجدول المكتوب لمناخ معتدل يترك الملفات مسدودة والأنظمة بسعة ناقصة تمامًا عند ذروة الصيف. تحدد هذه القائمة ما يجب فحصه وكم مرة في المباني التجارية.",
+    "sections": [
+      {
+        "h2": "لماذا تغير الحرارة والغبار جدول الصيانة",
+        "p": [
+          "يطرد المكثف المبرد بالهواء الحرارة إلى الهواء الخارجي. وكلما كان هذا الهواء أسخن عمل الضاغط بجهد أكبر وقدم تبريدًا أقل، وطبقة الغبار على ملف المكثف تزيد الأمر سوءًا بإعاقة تدفق الهواء. والوحدات على الأسطح وفي مناطق المعدات المغلقة، حيث يعاد تدوير الهواء الساخن، هي الأكثر تأثرًا.",
+          "كما يحمّل الغبار الفلاتر وملفات المبخر بسرعة، خصوصًا بعد العواصف الرملية، وتؤدي ساعات التشغيل الطويلة إلى تآكل الكونتاكتورات والمكثفات الكهربائية ومحركات المراوح والسيور أسرع. والنتيجة أن المهام التي تُجرى سنويًا في أماكن أخرى تحتاج غالبًا هنا إلى إجرائها كل ربع سنة، وفحص الفلاتر شهريًا أو أكثر في مواسم الغبار."
+        ]
+      },
+      {
+        "h2": "الفحوصات الشهرية",
+        "p": [
+          "افحص فلاتر الهواء ونظفها أو استبدلها، وبعد العواصف الرملية افحصها مجددًا خلال أيام. تأكد من أن مصارف التكثيف ومصائدها ومضخاتها تعمل بحرية، فالمصرف المسدود هو السبب الأكثر شيوعًا لأضرار المياه من الوحدات الداخلية. وتأكد من أن الثرموستات ووحدات التحكم تعرض نقاط ضبط وجداول منطقية.",
+          "تجوّل بين المعدات: استمع لأي ضجيج أو اهتزاز غير عادي، وافحص السيور من حيث التآكل والشد، وابحث عن بقع الزيت التي قد تشير إلى تسرب وسيط التبريد، وسجل أي إنذارات أو رموز أعطال، خصوصًا في أنظمة VRF حيث يكون سجل وحدة التحكم أول إنذار مبكر بالمشكلة."
+        ]
+      },
+      {
+        "h2": "الفحوصات ربع السنوية",
+        "p": [
+          "نظف ملفات المكثف، وبوتيرة أعلى في المواقع المغبرة أو بعد العواصف، باستخدام ماء منخفض الضغط أو منظف ملفات بدل الرشاشات عالية الضغط التي تثني الزعانف. وافحص ملفات المبخر وعجلات المراوح. وأحكم شد الأطراف الكهربائية وافحص الكونتاكتورات والمكثفات الكهربائية، فالأعطال الكهربائية المرتبطة بالحرارة من أهم أسباب الأعطال في الصيف.",
+          "اطلب من فني مؤهل فحص ضغوط التشغيل لوسيط التبريد ودرجات التحميص الزائد والتبريد الدوني والفرق بين حرارة هواء الإمداد والراجع. تبين هذه الأرقام ما إذا كانت الوحدة ما زالت تقدم تبريدها المقنن أم تفقد شحنتها أو تدفق هوائها تدريجيًا."
+        ]
+      },
+      {
+        "h2": "الفحوصات السنوية",
+        "p": [
+          "قبل الصيف أجرِ صيانة كاملة: تنظيف عميق للملفات، وفحص محركات المراوح والمحامل، واختبار أجهزة الأمان وقواطع الضغط العالي، واختبار تسرب دائرة وسيط التبريد، وفحص مجاري الهواء والعزل من حيث التلف والتكثف. وعاير الحساسات وراجع جداول نظام إدارة المبنى حتى لا تعمل المعدات لطوابق فارغة.",
+          "تضيف محطات المياه المبردة مهامها الخاصة: فحوصات أداء المبردات، وصيانة المضخات والصمامات، وقبل كل شيء معالجة مياه أبراج التبريد وتنظيفها للحد من الترسبات وبكتيريا الليجيونيلا. واحتفظ بسجل مكتوب لكل زيارة، ومعيار ASHRAE 180 لفحص وصيانة أنظمة التكييف التجارية إطار مفيد لما يجب تسجيله."
+        ]
+      },
+      {
+        "h2": "ما الذي يجب أن يشمله عقد الصيانة",
+        "p": [
+          "يجب أن يسرد عقد الصيانة المخططة كل معدة بموقعها وطرازها، والمهام وتكرارها لكل منها، وأزمنة الاستجابة للأعطال حسب الأولوية، وما هو مشمول مقابل ما يُحاسب عليه منفصلًا (وسيط التبريد والقطع والتنظيف الكيميائي للملفات)، والتقارير التي تستلمها بعد كل زيارة.",
+          "اطلب قراءات مقاسة لا مجرد علامات: حالة الفلاتر، وضغوط وسيط التبريد، وفروق الحرارة، والقراءات الكهربائية عبر الزمن. فاتجاهات هذه الأرقام تتيح لك إصلاح وحدة متعثرة في الربيع بدل استبدالها في أغسطس. وللتركيبات الجديدة راجع مقالنا عن أنظمة VRF وVRV للمباني التجارية في السعودية."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "تحتاج إلى تركيب أو صيانة التكييف في مبنى تجاري؟",
+      "text": "نوفر ونركب ونصون أنظمة التكييف للمباني التجارية والصحية والصناعية في جميع أنحاء المملكة."
+    }
+  }
+}

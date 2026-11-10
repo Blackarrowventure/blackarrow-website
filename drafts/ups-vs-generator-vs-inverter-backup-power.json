@@ -1,0 +1,126 @@
+{
+  "slug": "ups-vs-generator-vs-inverter-backup-power",
+  "date": "2026-11-10",
+  "image": "/assets/images/services/ups-solutions.jpg",
+  "wa_topic": "Backup power: UPS, generator or inverter",
+  "related": [
+    {
+      "href": "/services/ups-power-backup/",
+      "i18n": "service_ups",
+      "label": "UPS Solutions"
+    },
+    {
+      "href": "/resources/blog/why-ups-batteries-die-early-saudi-heat/",
+      "i18n": "post_why_ups_batteries_die_early_saudi_heat_card_title",
+      "label": "Why Your UPS Batteries Died in Three Years, Not Ten"
+    },
+    {
+      "href": "/solutions/industrial/",
+      "i18n": "sector_industrial",
+      "label": "Industrial"
+    }
+  ],
+  "en": {
+    "title": "UPS vs Generator vs Inverter: Choosing Backup Power",
+    "description": "UPS, generator or inverter for backup power in Saudi Arabia? Transfer time, runtime, online vs line-interactive UPS, and using a UPS with a generator.",
+    "og_description": "How to choose backup power in Saudi Arabia: UPS types, generators and inverters compared on transfer time, runtime and use, and why many sites need a UPS and a generator.",
+    "excerpt": "A UPS, a generator and an inverter all keep the lights on, but they solve different problems. Most commercial and industrial sites end up needing two of them.",
+    "breadcrumb": "UPS vs Generator vs Inverter",
+    "subhead": "Transfer time, runtime and the UPS types explained, and why most commercial and industrial sites need a UPS and a generator working together",
+    "lead": "When the power goes out, three different machines can keep a building running: a UPS, a standby generator and a battery inverter. They are often discussed as alternatives, but they answer different questions. A UPS answers \"how do I avoid even a flicker?\", a generator answers \"how do I run for hours?\", and an inverter answers \"how do I keep a few loads on at low cost?\". Choosing well starts with knowing which question your loads are asking.",
+    "sections": [
+      {
+        "h2": "Transfer Time and Runtime: The Two Numbers That Decide",
+        "p": [
+          "Transfer time is how long the load is without power when the supply fails. An online UPS has none, because the load always runs from its inverter. A standby generator typically needs around ten seconds to start and take the load through an automatic transfer switch (ATS). Servers, medical equipment, PLCs and network gear will reset or lose data in far less time than that.",
+          "Runtime is how long backup lasts. A UPS usually supports minutes to an hour, limited by battery size and cost. A generator runs for as long as it has fuel. That is why the two are usually combined: the UPS covers the gap and short outages, and the generator covers long ones."
+        ]
+      },
+      {
+        "h2": "The Three UPS Types",
+        "p": [
+          "The international UPS standard IEC 62040-3 groups UPS designs into three classes. Offline or standby UPS (VFD) passes mains straight through and switches to battery when it fails, with a short break; it suits single PCs. Line-interactive UPS (VI) adds automatic voltage regulation and suits small offices, network cabinets and point-of-sale.",
+          "Online double-conversion UPS (VFI) converts all incoming power to DC and back to clean AC, so the load is isolated from spikes, sags and frequency changes and sees no transfer at all. It is the standard choice for data rooms, hospitals, laboratories and industrial control, and for sites with unstable supply."
+        ]
+      },
+      {
+        "h2": "Where Generators and Inverters Fit",
+        "p": [
+          "A diesel standby generator is the answer for long outages and large loads such as HVAC, pumps and lifts. It needs an ATS, fuel storage, regular exercise under load and maintenance. In Saudi summers, check the generator output at the real site temperature, since generators are derated at high ambient temperatures and altitude.",
+          "A battery inverter is closer to a large, simple UPS: it charges batteries from mains and runs selected loads during an outage, usually with a short transfer break. It suits homes, shops and small offices with modest loads. It is not a substitute for an online UPS on sensitive equipment, or for a generator on large plant."
+        ]
+      },
+      {
+        "h2": "Using a UPS and a Generator Together",
+        "p": [
+          "In most commercial, healthcare and industrial buildings the right answer is both. The UPS carries critical loads through the generator start and through short dips, and the generator then supplies the UPS for the rest of the outage. This needs the two to be designed as one system: the generator must be sized for the UPS input, including battery recharge current, and the UPS must accept the generator frequency and voltage variation.",
+          "UPS manufacturers publish a recommended generator-to-UPS sizing ratio for each model; follow it rather than a rule of thumb. Test the full sequence, mains failure, generator start, transfer and return to mains, under real load during commissioning and then periodically."
+        ]
+      },
+      {
+        "h2": "Batteries in Saudi Heat",
+        "p": [
+          "Battery temperature has a large effect on life. VRLA batteries are designed for about 25 °C, and their life falls sharply as temperature rises, commonly by about half for every 8 to 10 °C above that. A UPS room without reliable cooling can turn a five-year battery into a two-year one. Read more in our article on why UPS batteries die early in Saudi heat.",
+          "Lithium-ion UPS batteries tolerate heat better, last longer and take less space, at a higher upfront cost. Whichever you choose, include battery monitoring and a replacement plan in the design, because the battery is the part of a UPS most likely to fail when it is needed."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Choosing backup power for a business, hospital or factory?",
+      "text": "We supply, install and maintain online and modular UPS systems and batteries across Saudi Arabia, and coordinate them with your generator and distribution.",
+      "href": "/services/ups-power-backup/",
+      "label": "Full UPS Details & Specifications",
+      "label_i18n": "ups_full_details"
+    }
+  },
+  "ar": {
+    "title": "UPS أم مولد أم إنفرتر: كيف تختار الطاقة الاحتياطية",
+    "description": "UPS أم مولد أم إنفرتر للطاقة الاحتياطية في السعودية؟ زمن التحويل ومدة التشغيل والفرق بين UPS الأونلاين والتفاعلي، وكيف يعمل UPS مع المولد.",
+    "og_description": "كيف تختار الطاقة الاحتياطية في السعودية: مقارنة أنواع UPS والمولدات والإنفرتر من حيث زمن التحويل ومدة التشغيل والاستخدام، ولماذا تحتاج مواقع كثيرة إلى UPS ومولد معًا.",
+    "excerpt": "يحافظ UPS والمولد والإنفرتر جميعًا على استمرار الكهرباء، لكنها تحل مشكلات مختلفة. ومعظم المواقع التجارية والصناعية تحتاج في النهاية إلى اثنين منها.",
+    "breadcrumb": "UPS مقابل المولد مقابل الإنفرتر",
+    "subhead": "زمن التحويل ومدة التشغيل وشرح أنواع UPS، ولماذا تحتاج معظم المواقع التجارية والصناعية إلى UPS ومولد يعملان معًا",
+    "lead": "عند انقطاع الكهرباء يمكن لثلاثة أجهزة مختلفة أن تُبقي المبنى يعمل: UPS ومولد احتياطي وإنفرتر بالبطاريات. كثيرًا ما تُناقش كبدائل لبعضها، لكنها تجيب عن أسئلة مختلفة. يجيب UPS عن سؤال \"كيف أتجنب حتى الوميض؟\"، ويجيب المولد عن \"كيف أعمل لساعات؟\"، ويجيب الإنفرتر عن \"كيف أُبقي بعض الأحمال تعمل بتكلفة منخفضة؟\". والاختيار الصحيح يبدأ بمعرفة السؤال الذي تطرحه أحمالك.",
+    "sections": [
+      {
+        "h2": "زمن التحويل ومدة التشغيل: الرقمان الحاسمان",
+        "p": [
+          "زمن التحويل هو المدة التي يبقى فيها الحمل دون كهرباء عند انقطاع المصدر. لا يوجد زمن تحويل في UPS الأونلاين لأن الحمل يعمل دائمًا من الإنفرتر الخاص به. أما المولد الاحتياطي فيحتاج عادة إلى نحو عشر ثوانٍ ليبدأ ويستلم الحمل عبر مفتاح التحويل التلقائي (ATS). والخوادم والأجهزة الطبية ووحدات PLC ومعدات الشبكات تُعيد التشغيل أو تفقد البيانات في وقت أقل بكثير من ذلك.",
+          "مدة التشغيل هي المدة التي تستمر فيها الطاقة الاحتياطية. يدعم UPS عادة من دقائق إلى ساعة، وتحدها سعة البطاريات وتكلفتها. أما المولد فيعمل ما دام لديه وقود. لهذا يُجمع بينهما عادة: يغطي UPS الفجوة والانقطاعات القصيرة، ويغطي المولد الانقطاعات الطويلة."
+        ]
+      },
+      {
+        "h2": "أنواع UPS الثلاثة",
+        "p": [
+          "يصنف المعيار الدولي IEC 62040-3 تصاميم UPS في ثلاث فئات. UPS الأوفلاين أو الاحتياطي (VFD) يمرر كهرباء الشبكة مباشرة ويتحول إلى البطارية عند انقطاعها مع انقطاع قصير، ويناسب أجهزة الكمبيوتر المفردة. وUPS التفاعلي (VI) يضيف تنظيمًا تلقائيًا للجهد ويناسب المكاتب الصغيرة وخزائن الشبكات وأجهزة نقاط البيع.",
+          "أما UPS الأونلاين مزدوج التحويل (VFI) فيحول كل الكهرباء الداخلة إلى تيار مستمر ثم إلى تيار متردد نظيف، فيُعزل الحمل عن الارتفاعات والانخفاضات وتغيرات التردد ولا يمر بأي زمن تحويل. وهو الخيار المعتاد لغرف البيانات والمستشفيات والمختبرات والتحكم الصناعي، وللمواقع ذات الكهرباء غير المستقرة."
+        ]
+      },
+      {
+        "h2": "أين يناسب المولد والإنفرتر",
+        "p": [
+          "المولد الاحتياطي بالديزل هو الحل للانقطاعات الطويلة والأحمال الكبيرة مثل التكييف والمضخات والمصاعد. يحتاج إلى مفتاح تحويل تلقائي وتخزين للوقود وتشغيل دوري تحت الحمل وصيانة. وفي صيف السعودية تحقق من قدرة المولد عند حرارة الموقع الفعلية، لأن قدرة المولدات تنخفض مع ارتفاع الحرارة المحيطة والارتفاع عن سطح البحر.",
+          "أما الإنفرتر بالبطاريات فأقرب إلى UPS كبير وبسيط: يشحن البطاريات من الشبكة ويشغّل أحمالًا مختارة أثناء الانقطاع، عادة مع انقطاع تحويل قصير. يناسب المنازل والمحلات والمكاتب الصغيرة ذات الأحمال المتواضعة، وليس بديلًا عن UPS الأونلاين للمعدات الحساسة ولا عن المولد للمعدات الكبيرة."
+        ]
+      },
+      {
+        "h2": "استخدام UPS والمولد معًا",
+        "p": [
+          "في معظم المباني التجارية والصحية والصناعية الحل الصحيح هو الاثنان معًا. يحمل UPS الأحمال الحرجة أثناء بدء المولد وأثناء الانخفاضات القصيرة، ثم يغذي المولد UPS لبقية مدة الانقطاع. وهذا يتطلب تصميمهما كنظام واحد: يجب أن يُحجَّم المولد لمدخل UPS بما في ذلك تيار إعادة شحن البطاريات، ويجب أن يتقبل UPS تغيرات تردد المولد وجهده.",
+          "ينشر مصنعو UPS نسبة موصى بها بين قدرة المولد وقدرة UPS لكل طراز، فاتبعها بدل القواعد التقريبية. واختبر التسلسل الكامل، أي انقطاع الشبكة وبدء المولد والتحويل والعودة إلى الشبكة، تحت حمل فعلي أثناء التشغيل التجريبي ثم بشكل دوري."
+        ]
+      },
+      {
+        "h2": "البطاريات في حرارة السعودية",
+        "p": [
+          "لحرارة البطارية أثر كبير في عمرها. صُممت بطاريات VRLA للعمل عند نحو 25 °م، وينخفض عمرها بشدة مع ارتفاع الحرارة، وغالبًا إلى النصف تقريبًا مع كل 8 إلى 10 °م فوق ذلك. وغرفة UPS دون تبريد موثوق قد تحول بطارية عمرها خمس سنوات إلى سنتين. اقرأ المزيد في مقالنا عن سبب تلف بطاريات UPS مبكرًا في حرارة السعودية.",
+          "تتحمل بطاريات الليثيوم أيون الحرارة أفضل، وتعيش أطول، وتشغل مساحة أقل، مقابل تكلفة أولية أعلى. وأيًا كان اختيارك، أدرج مراقبة البطاريات وخطة الاستبدال في التصميم، لأن البطارية هي الجزء الأكثر احتمالًا للتعطل في UPS عندما تحتاج إليه."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "تختار الطاقة الاحتياطية لمنشأة تجارية أو مستشفى أو مصنع؟",
+      "text": "نوفر ونركب ونصون أنظمة UPS الأونلاين والمعيارية وبطارياتها في جميع أنحاء المملكة، وننسقها مع المولد ولوحات التوزيع لديك."
+    }
+  }
+}

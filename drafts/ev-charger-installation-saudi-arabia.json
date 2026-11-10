@@ -1,0 +1,126 @@
+{
+  "slug": "ev-charger-installation-saudi-arabia",
+  "date": "2026-11-10",
+  "image": "/assets/images/services/ev-solutions.jpg",
+  "wa_topic": "EV charger installation",
+  "related": [
+    {
+      "href": "/services/ev-charging-solutions/",
+      "i18n": "service_ev",
+      "label": "EV Solutions"
+    },
+    {
+      "href": "/resources/blog/saso-requirements-ev-chargers-saudi-arabia/",
+      "i18n": "post_saso_requirements_ev_chargers_saudi_arabia_card_title",
+      "label": "SASO Requirements for EV Chargers in Saudi Arabia"
+    },
+    {
+      "href": "/solutions/commercial/",
+      "i18n": "sector_commercial",
+      "label": "Commercial"
+    }
+  ],
+  "en": {
+    "title": "EV Charger Installation in Saudi Arabia: Home & Commercial",
+    "description": "What EV charger installation in Saudi Arabia involves: AC vs DC, 7.4, 11 and 22 kW chargers, supply checks, protection, load management and SASO rules.",
+    "og_description": "A practical guide to EV charger installation in Saudi Arabia for villas, buildings and commercial sites: charger types, electrical supply, protection, load management and compliance.",
+    "excerpt": "The charger is the easy part. What decides cost and timeline is the electrical supply behind it, the cable route, the protection and, on commercial sites, how many cars charge at once.",
+    "breadcrumb": "EV Charger Installation in Saudi Arabia",
+    "subhead": "Charger types and power levels, the supply check, protection and load management, from a single villa wallbox to a commercial charging site",
+    "lead": "Installing an EV charger looks simple: a box on a wall and a cable. In practice the charger is the easy part. What decides cost, timeline and safety is the electrical supply behind it, the route and size of the cable, the protection devices, and, on commercial sites, how many cars will charge at the same time. This guide walks through each step for homes and for commercial and public sites in Saudi Arabia.",
+    "sections": [
+      {
+        "h2": "AC or DC: Choosing the Charger",
+        "p": [
+          "AC chargers (wallboxes) send alternating current to the car, which converts it on board. A single-phase 32 A charger delivers about 7.4 kW; three-phase chargers deliver 11 kW at 16 A or 22 kW at 32 A, although many cars accept only 11 kW on AC. AC charging suits homes, offices, hotels and anywhere cars park for several hours. The standard connector in Saudi Arabia is Type 2 for AC.",
+          "DC fast chargers convert power inside the charger and feed the battery directly, typically from about 30 kW to well over 150 kW, through the CCS2 connector. They suit highways, fuel stations, fleet depots and retail sites where cars stop for minutes, not hours, and they need a much larger supply, often with its own transformer."
+        ]
+      },
+      {
+        "h2": "The Supply Check Comes First",
+        "p": [
+          "Before choosing a charger, confirm what the building can supply. New installations in Saudi Arabia use 230/400 V at 60 Hz, but some older buildings still run on the legacy 127/220 V system, which changes the charger choice and often means an upgrade. A load assessment then checks whether the main board and the distribution board feeding the charger have spare capacity for a load that may run at full current for hours.",
+          "If the existing supply is not enough, the options are a supply upgrade through the Saudi Electricity Company, a smaller charger, or load management that limits charging when the building is busy. Our article on MDB, SMDB and DB panels explains how this capacity is laid out in a building."
+        ]
+      },
+      {
+        "h2": "What the Installation Involves",
+        "p": [
+          "Each charging point should have its own dedicated circuit from the distribution board, with a cable sized for continuous full-load current and for the length of the run, as international wiring rules for EV charging (IEC 60364-7-722) require. Protection normally includes a circuit breaker and a residual current device: a Type B RCD, or a Type A RCD with DC fault detection built into the charger.",
+          "Outdoor chargers need a suitable ingress rating, protection from direct sun where possible, and a mounting position that keeps the cable off the ground. Good earthing, correct labeling and a commissioning test that records insulation, earth loop and RCD trip results complete the job and form part of the handover file."
+        ]
+      },
+      {
+        "h2": "Commercial and Multi-Charger Sites",
+        "p": [
+          "Once there is more than one charger, load management becomes the key design decision. Dynamic load balancing shares the available capacity between cars and against the building load, so ten chargers can run on a supply that could not feed all of them at full power. Chargers that support OCPP can connect to a back-office platform for user access, payment and energy reports.",
+          "Parking layout matters too: cable reach, bollards against vehicle impact, accessible bays, cable trenching across car parks, lighting and signage. For DC charging hubs the transformer, LV switchboard and civil works often cost more than the chargers themselves, so they should be planned first."
+        ]
+      },
+      {
+        "h2": "Compliance and Product Conformity",
+        "p": [
+          "EV chargers sold and installed in Saudi Arabia must meet the SASO technical regulation for EV charging equipment, with conformity shown through the SABER platform. Ask for the certificate of conformity for the exact model before buying. Our article on SASO requirements for EV chargers in Saudi Arabia covers the details.",
+          "The main cost drivers are the charger power and quantity, the cable distance from the board, whether a supply upgrade is needed, civil works such as trenching and foundations, and any network platform. A short site survey answers most of these questions and turns a rough budget into a firm one."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Planning EV charging for a villa, building or commercial site?",
+      "text": "We specify, supply and install compliant AC and DC charging infrastructure across Saudi Arabia, and handle the conformity documentation and grid coordination with it.",
+      "href": "/services/ev-charging-solutions/",
+      "label": "Full EV Details & Specifications",
+      "label_i18n": "ev_full_details"
+    }
+  },
+  "ar": {
+    "title": "تركيب شواحن السيارات الكهربائية في السعودية: منازل ومنشآت",
+    "description": "ما الذي يتضمنه تركيب شاحن سيارة كهربائية في السعودية: شواحن AC وDC، وقدرات 7.4 و11 و22 كيلوواط، وفحص المصدر، والحماية، وإدارة الأحمال، ومطابقة ساسو.",
+    "og_description": "دليل عملي لتركيب شواحن السيارات الكهربائية في السعودية للفلل والمباني والمواقع التجارية: أنواع الشواحن والتغذية الكهربائية والحماية وإدارة الأحمال والامتثال.",
+    "excerpt": "الشاحن هو الجزء السهل. ما يحدد التكلفة والمدة هو التغذية الكهربائية خلفه، ومسار الكابل، والحماية، وفي المواقع التجارية عدد السيارات التي تشحن في وقت واحد.",
+    "breadcrumb": "تركيب شواحن السيارات الكهربائية في السعودية",
+    "subhead": "أنواع الشواحن وقدراتها، وفحص المصدر، والحماية وإدارة الأحمال، من شاحن جداري في فيلا إلى موقع شحن تجاري",
+    "lead": "يبدو تركيب شاحن السيارة الكهربائية بسيطًا: صندوق على الجدار وكابل. لكن عمليًا الشاحن هو الجزء السهل. ما يحدد التكلفة والمدة والسلامة هو التغذية الكهربائية خلفه، ومسار الكابل ومقاسه، وأجهزة الحماية، وفي المواقع التجارية عدد السيارات التي ستشحن في الوقت نفسه. يشرح هذا الدليل كل خطوة للمنازل وللمواقع التجارية والعامة في السعودية.",
+    "sections": [
+      {
+        "h2": "AC أم DC: اختيار الشاحن",
+        "p": [
+          "ترسل شواحن AC (الشواحن الجدارية) تيارًا مترددًا إلى السيارة التي تحوله داخليًا. يقدم الشاحن أحادي الطور بتيار 32 أمبير نحو 7.4 كيلوواط، وتقدم الشواحن ثلاثية الطور 11 كيلوواط عند 16 أمبير أو 22 كيلوواط عند 32 أمبير، مع أن كثيرًا من السيارات لا تقبل أكثر من 11 كيلوواط بالتيار المتردد. يناسب شحن AC المنازل والمكاتب والفنادق وأي مكان تقف فيه السيارات لعدة ساعات. والموصل القياسي في السعودية للتيار المتردد هو Type 2.",
+          "أما شواحن DC السريعة فتحول الكهرباء داخل الشاحن وتغذي البطارية مباشرة، عادة من نحو 30 كيلوواط إلى أكثر من 150 كيلوواط، عبر موصل CCS2. تناسب الطرق السريعة ومحطات الوقود ومواقف الأساطيل والمواقع التجارية التي تتوقف فيها السيارات دقائق لا ساعات، وتحتاج إلى تغذية أكبر بكثير، غالبًا بمحول خاص."
+        ]
+      },
+      {
+        "h2": "فحص التغذية يأتي أولًا",
+        "p": [
+          "قبل اختيار الشاحن تأكد مما يستطيع المبنى توفيره. تستخدم التمديدات الجديدة في السعودية جهد 230/400 فولت بتردد 60 هرتز، لكن بعض المباني القديمة ما زالت على نظام 127/220 فولت القديم، وهذا يغير اختيار الشاحن وغالبًا يعني ترقية. ثم يتحقق تقييم الأحمال مما إذا كانت اللوحة الرئيسية ولوحة التوزيع المغذية للشاحن تملكان سعة كافية لحمل قد يعمل بكامل تياره لساعات.",
+          "إذا لم تكف التغذية الحالية فالخيارات هي ترقية التغذية عبر الشركة السعودية للكهرباء، أو شاحن أصغر، أو إدارة أحمال تحد من الشحن عندما يكون المبنى في ذروة استهلاكه. ويشرح مقالنا عن لوحات MDB وSMDB وDB كيف تتوزع هذه السعة في المبنى."
+        ]
+      },
+      {
+        "h2": "ما الذي يتضمنه التركيب",
+        "p": [
+          "يجب أن يكون لكل نقطة شحن دائرة مخصصة من لوحة التوزيع، بكابل محسوب لتيار الحمل الكامل المستمر ولطول المسار، كما تشترط قواعد التمديدات الدولية لشحن السيارات الكهربائية (IEC 60364-7-722). وتشمل الحماية عادة قاطعًا وجهاز تيار متبقٍ: قاطع RCD من النوع B، أو من النوع A مع كشف أعطال التيار المستمر مدمجًا في الشاحن.",
+          "تحتاج الشواحن الخارجية إلى درجة حماية مناسبة، وحماية من الشمس المباشرة قدر الإمكان، وموقع تركيب يُبقي الكابل بعيدًا عن الأرض. ويكتمل العمل بتأريض جيد وملصقات صحيحة واختبار تشغيل يسجل نتائج العزل وحلقة التأريض وفصل قاطع RCD، وتصبح جزءًا من ملف التسليم."
+        ]
+      },
+      {
+        "h2": "المواقع التجارية ومتعددة الشواحن",
+        "p": [
+          "عندما يزيد عدد الشواحن على واحد تصبح إدارة الأحمال قرار التصميم الأساسي. توزع موازنة الأحمال الديناميكية السعة المتاحة بين السيارات وبالمقارنة مع حمل المبنى، فتعمل عشرة شواحن على تغذية لا تكفي لتشغيلها جميعًا بكامل قدرتها. والشواحن التي تدعم بروتوكول OCPP يمكن ربطها بمنصة إدارة للوصول والدفع وتقارير الطاقة.",
+          "ويهم تخطيط المواقف أيضًا: مدى وصول الكابل، وحواجز ضد اصطدام السيارات، ومواقف لذوي الإعاقة، وحفر مسارات الكابلات عبر المواقف، والإنارة واللوحات الإرشادية. وفي مراكز الشحن السريع DC كثيرًا ما تكلف المحولات ولوحات الجهد المنخفض والأعمال المدنية أكثر من الشواحن نفسها، لذا يجب التخطيط لها أولًا."
+        ]
+      },
+      {
+        "h2": "الامتثال ومطابقة المنتجات",
+        "p": [
+          "يجب أن تستوفي شواحن السيارات الكهربائية المباعة والمركبة في السعودية اللائحة الفنية لهيئة المواصفات (ساسو) لمعدات شحن السيارات الكهربائية، مع إثبات المطابقة عبر منصة سابر. اطلب شهادة المطابقة للطراز المحدد قبل الشراء. ويشرح مقالنا عن متطلبات ساسو لشواحن السيارات الكهربائية في السعودية التفاصيل.",
+          "أهم عوامل التكلفة هي قدرة الشواحن وعددها، ومسافة الكابل من اللوحة، والحاجة إلى ترقية التغذية، والأعمال المدنية مثل الحفر والقواعد، وأي منصة إدارة. وزيارة موقع قصيرة تجيب عن معظم هذه الأسئلة وتحول الميزانية التقريبية إلى ميزانية دقيقة."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "تخطط لشحن السيارات الكهربائية في فيلا أو مبنى أو موقع تجاري؟",
+      "text": "نحدد ونوفر ونركب بنية شحن AC وDC مطابقة في جميع أنحاء المملكة، ونتولى معها مستندات المطابقة والتنسيق مع الشبكة."
+    }
+  }
+}

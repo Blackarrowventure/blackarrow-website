@@ -225,6 +225,26 @@
       "ar": true
     },
     {
+      "src": "resources/blog/lighting-design-saudi-arabia-commercial-facade/index.html",
+      "url": "/resources/blog/lighting-design-saudi-arabia-commercial-facade/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/ups-vs-generator-vs-inverter-backup-power/index.html",
+      "url": "/resources/blog/ups-vs-generator-vs-inverter-backup-power/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/ev-charger-installation-saudi-arabia/index.html",
+      "url": "/resources/blog/ev-charger-installation-saudi-arabia/",
+      "ar": true
+    },
+    {
+      "src": "resources/blog/commercial-hvac-maintenance-checklist-saudi-arabia/index.html",
+      "url": "/resources/blog/commercial-hvac-maintenance-checklist-saudi-arabia/",
+      "ar": true
+    },
+    {
       "_note": "Case studies now have hand-written Arabic: every content element was tagged with data-i18n on 8 Aug 2026 and the Arabic was authored, not machine-translated. Client names stay withheld in both languages.",
       "src": "resources/case-studies/index.html",
       "url": "/resources/case-studies/",

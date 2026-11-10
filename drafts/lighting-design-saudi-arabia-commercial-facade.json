@@ -1,0 +1,126 @@
+{
+  "slug": "lighting-design-saudi-arabia-commercial-facade",
+  "date": "2026-11-10",
+  "image": "/assets/images/services/lighting-solutions.jpg",
+  "wa_topic": "Lighting design for a commercial or facade project",
+  "related": [
+    {
+      "href": "/services/lighting-solutions/",
+      "i18n": "service_lighting",
+      "label": "Lighting Solutions"
+    },
+    {
+      "href": "/resources/blog/dali-lighting-control-facility-managers/",
+      "i18n": "post_dali_lighting_control_card_title",
+      "label": "DALI Lighting Control: What It Actually Changes"
+    },
+    {
+      "href": "/solutions/commercial/",
+      "i18n": "sector_commercial",
+      "label": "Commercial"
+    }
+  ],
+  "en": {
+    "title": "Lighting Design in Saudi Arabia: Commercial & Facade Guide",
+    "description": "How commercial and facade lighting is designed in Saudi Arabia: light levels, color temperature, IP ratings for 50 °C heat and dust, controls and SBC 601.",
+    "og_description": "A practical guide to commercial and facade lighting design in Saudi Arabia: lux levels, color temperature, outdoor ratings for heat and dust, controls and energy code.",
+    "excerpt": "Good lighting design starts with numbers, not fixtures: target light levels, glare limits, color quality and a fixture that survives 50 °C and sand.",
+    "breadcrumb": "Lighting Design in Saudi Arabia",
+    "subhead": "Light levels, color quality, fixtures that survive the climate, controls and the energy code, for offices, retail, hospitality and building facades",
+    "lead": "Lighting is often specified late, by picking fixtures from a catalogue. A proper lighting design works the other way round: it starts from how a space is used, sets the light levels and glare limits that use needs, and only then chooses fixtures, positions and controls. In Saudi Arabia there is a second test every outdoor fixture must pass: years of 50 °C summers, dust and strong sun.",
+    "sections": [
+      {
+        "h2": "What a Lighting Design Actually Delivers",
+        "p": [
+          "A complete lighting design is a set of documents, not a mood board. It includes lighting calculations for each space, usually done in software such as DIALux or Relux, a layout drawing showing every fixture, a fixture schedule with the exact product, wattage, color temperature and optics, and a control narrative that explains how each area switches and dims.",
+          "It also coordinates with the rest of the building: ceiling grids and access panels, emergency and exit lighting, the electrical distribution boards that feed each circuit, and the building management system if one exists. Skipping this coordination is the usual reason fixtures end up clashing with ducts and sprinklers on site."
+        ]
+      },
+      {
+        "h2": "Light Levels: Designing to the Task",
+        "p": [
+          "Every space has a target maintained illuminance, measured in lux, for the task done there. The European standard EN 12464-1, widely used on Saudi projects, sets for example 500 lux for office desks, 300 lux for general retail sales areas and 100 lux for corridors. Designing to these figures avoids both dim, tiring spaces and over-lit ones that waste energy.",
+          "Glare matters as much as brightness. Offices are normally designed to a Unified Glare Rating (UGR) of 19 or lower, which affects the choice of optic and how fixtures are spaced. Uniformity, the ratio between the darkest and average light on a surface, is the third number a good design reports."
+        ]
+      },
+      {
+        "h2": "Color Temperature and Color Quality",
+        "p": [
+          "Color temperature sets the mood. Around 3000 K reads as warm and suits hotels, restaurants and residential lobbies. Around 4000 K is neutral and is the common choice for offices, schools and healthcare. Mixing color temperatures in one space by accident is one of the most visible signs of an unplanned scheme.",
+          "Color rendering (CRI or Ra) describes how true colors look under the light. A CRI of 80 is the usual minimum for general spaces; retail, showrooms and clinical areas normally specify 90 or higher so products, finishes and skin tones look correct."
+        ]
+      },
+      {
+        "h2": "Facade and Outdoor Lighting in Saudi Heat and Dust",
+        "p": [
+          "Outdoor fixtures in Saudi Arabia need a higher bar than catalogue defaults. Check the ingress protection rating (IP65 or IP66 for facades and landscape, IP67 or IP68 for in-ground and underwater fittings), the impact rating (IK) where fixtures can be reached, and above all the rated ambient temperature: an LED driver rated for 35 °C will fail early on a sun-facing wall that reaches far higher.",
+          "Facade schemes also need control over light spill and glare toward neighbors and roads, UV-stable lenses and finishes, and access for cleaning, because dust on a lens cuts light output quickly. Dynamic facades with color change are usually controlled over DMX or DALI. Check early whether your project needs approvals from the municipality or the building owner for the facade lighting."
+        ]
+      },
+      {
+        "h2": "Controls and the Saudi Energy Code",
+        "p": [
+          "The Saudi Building Code includes energy conservation requirements (SBC 601 for non-residential buildings) that limit lighting power and require controls such as occupancy sensing and daylight dimming in many spaces. LED fixtures alone rarely meet the intent without controls.",
+          "Addressable systems such as DALI let facility teams group, dim and schedule fixtures without rewiring and report failed drivers. For a deeper look, see our article on DALI lighting control for facility managers. Emergency and exit lighting is a separate life-safety system under the Saudi Fire Code (SBC 801) and is approved through Civil Defense, so it should be designed alongside the main scheme, not added later."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "Planning lighting for a commercial building or facade?",
+      "text": "We design, supply and install interior, facade and outdoor lighting across Saudi Arabia, including controls and emergency lighting.",
+      "href": "/services/lighting-solutions/",
+      "label": "Full Lighting Details & Specifications",
+      "label_i18n": "light_full_details"
+    }
+  },
+  "ar": {
+    "title": "تصميم الإضاءة في السعودية: دليل المباني التجارية والواجهات",
+    "description": "كيف تُصمم الإضاءة التجارية وإضاءة الواجهات في السعودية: مستويات الإضاءة، ودرجة حرارة اللون، وتصنيفات IP لحرارة 50 °م والغبار، وأنظمة التحكم وSBC 601.",
+    "og_description": "دليل عملي لتصميم الإضاءة التجارية والواجهات في السعودية: مستويات اللوكس، ودرجة حرارة اللون، وتصنيفات التركيبات الخارجية للحرارة والغبار، والتحكم وكود الطاقة.",
+    "excerpt": "يبدأ تصميم الإضاءة الجيد بالأرقام لا بالتركيبات: مستويات الإضاءة المستهدفة وحدود الوهج وجودة اللون وتركيبة تتحمل 50 °م والرمال.",
+    "breadcrumb": "تصميم الإضاءة في السعودية",
+    "subhead": "مستويات الإضاءة وجودة اللون وتركيبات تتحمل المناخ وأنظمة التحكم وكود الطاقة، للمكاتب والمحلات والفنادق وواجهات المباني",
+    "lead": "كثيرًا ما تُحدَّد الإضاءة متأخرًا باختيار تركيبات من كتالوج. أما تصميم الإضاءة الصحيح فيسير بالعكس: يبدأ من طريقة استخدام المكان، ويحدد مستويات الإضاءة وحدود الوهج التي يحتاجها هذا الاستخدام، ثم يختار التركيبات ومواقعها وأنظمة التحكم. وفي السعودية هناك اختبار ثانٍ يجب أن تجتازه كل تركيبة خارجية: سنوات من صيف يبلغ 50 °م والغبار والشمس القوية.",
+    "sections": [
+      {
+        "h2": "ما الذي يقدمه تصميم الإضاءة فعلًا",
+        "p": [
+          "تصميم الإضاءة الكامل مجموعة مستندات وليس لوحة أفكار. يشمل حسابات الإضاءة لكل مساحة، وتُعد عادة ببرامج مثل DIALux أو Relux، ومخطط توزيع يوضح كل تركيبة، وجدول تركيبات بالمنتج الدقيق والقدرة ودرجة حرارة اللون والعدسات، ووصفًا لنظام التحكم يشرح كيف تُشغَّل وتُخفَّت كل منطقة.",
+          "كما ينسق مع بقية المبنى: شبكات الأسقف وفتحات الصيانة، وإضاءة الطوارئ والمخارج، ولوحات التوزيع الكهربائي التي تغذي كل دائرة، ونظام إدارة المبنى إن وجد. وتجاهل هذا التنسيق هو السبب المعتاد لتعارض التركيبات مع مجاري الهواء ورشاشات الإطفاء في الموقع."
+        ]
+      },
+      {
+        "h2": "مستويات الإضاءة: التصميم حسب المهمة",
+        "p": [
+          "لكل مساحة مستوى إضاءة مستهدف يُقاس باللوكس حسب المهمة التي تُؤدى فيها. يحدد المعيار الأوروبي EN 12464-1، المستخدم على نطاق واسع في المشاريع السعودية، مثلًا 500 لوكس لمكاتب العمل، و300 لوكس لمناطق البيع العامة، و100 لوكس للممرات. والتصميم وفق هذه الأرقام يتجنب المساحات المعتمة المرهقة والمساحات المفرطة الإضاءة التي تهدر الطاقة.",
+          "والوهج لا يقل أهمية عن السطوع. تُصمم المكاتب عادة بمؤشر وهج موحد (UGR) قدره 19 أو أقل، وهذا يؤثر في اختيار العدسة والمسافات بين التركيبات. أما التجانس، وهو النسبة بين أقل إضاءة ومتوسطها على السطح، فهو الرقم الثالث الذي يذكره التصميم الجيد."
+        ]
+      },
+      {
+        "h2": "درجة حرارة اللون وجودة اللون",
+        "p": [
+          "تحدد درجة حرارة اللون الأجواء. نحو 3000 كلفن يبدو دافئًا ويناسب الفنادق والمطاعم وردهات المباني السكنية. ونحو 4000 كلفن محايد وهو الخيار الشائع للمكاتب والمدارس والمنشآت الصحية. والخلط غير المقصود بين درجات الحرارة في مساحة واحدة من أوضح علامات المخطط غير المدروس.",
+          "يصف مؤشر تجسيد اللون (CRI أو Ra) مدى صدق الألوان تحت الإضاءة. مؤشر 80 هو الحد الأدنى المعتاد للمساحات العامة، بينما تحدد المحلات وصالات العرض والمناطق السريرية عادة 90 أو أكثر لتظهر المنتجات والتشطيبات ولون البشرة بشكل صحيح."
+        ]
+      },
+      {
+        "h2": "إضاءة الواجهات والمساحات الخارجية في حرارة السعودية وغبارها",
+        "p": [
+          "تحتاج التركيبات الخارجية في السعودية إلى معيار أعلى من الإعدادات الافتراضية في الكتالوجات. تحقق من درجة الحماية من الدخول (IP65 أو IP66 للواجهات وتنسيق المواقع، وIP67 أو IP68 للتركيبات المدفونة وتحت الماء)، ومن مقاومة الصدمات (IK) حيث يمكن الوصول إلى التركيبات، وقبل كل شيء من درجة حرارة التشغيل المحيطة المقننة: فمشغل LED المقنن لـ 35 °م سيتعطل مبكرًا على جدار يواجه الشمس ويصل إلى حرارة أعلى بكثير.",
+          "كما تحتاج مخططات الواجهات إلى التحكم في تسرب الضوء والوهج نحو الجيران والطرق، وعدسات وتشطيبات مقاومة للأشعة فوق البنفسجية، وإمكانية الوصول للتنظيف لأن الغبار على العدسة يخفض الإضاءة بسرعة. وتُدار الواجهات الديناميكية متغيرة الألوان عادة عبر DMX أو DALI. وتحقق مبكرًا مما إذا كان مشروعك يحتاج إلى موافقات من البلدية أو مالك المبنى لإضاءة الواجهة."
+        ]
+      },
+      {
+        "h2": "أنظمة التحكم وكود الطاقة السعودي",
+        "p": [
+          "يتضمن كود البناء السعودي متطلبات لترشيد الطاقة (SBC 601 للمباني غير السكنية) تحد من قدرة الإضاءة وتشترط أنظمة تحكم مثل حساسات الإشغال وخفض الإضاءة حسب ضوء النهار في كثير من المساحات. ونادرًا ما تحقق تركيبات LED وحدها الهدف دون أنظمة تحكم.",
+          "تتيح الأنظمة القابلة للعنونة مثل DALI لفرق إدارة المرافق تجميع التركيبات وتخفيتها وجدولتها دون إعادة تمديد، والإبلاغ عن المشغلات المعطلة. وللتعمق راجع مقالنا عن التحكم في الإضاءة بنظام DALI لمديري المرافق. أما إضاءة الطوارئ والمخارج فنظام سلامة مستقل يخضع لكود الحماية من الحريق السعودي (SBC 801) ويُعتمد عبر الدفاع المدني، لذا يجب تصميمه مع المخطط الرئيسي لا إضافته لاحقًا."
+        ]
+      }
+    ],
+    "cta": {
+      "lead": "تخطط لإضاءة مبنى تجاري أو واجهة؟",
+      "text": "نصمم ونوفر ونركب الإضاءة الداخلية وإضاءة الواجهات والمساحات الخارجية في جميع أنحاء المملكة، بما في ذلك أنظمة التحكم وإضاءة الطوارئ."
+    }
+  }
+}
