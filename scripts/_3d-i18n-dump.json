@@ -51,6 +51,30 @@
     "en": "Email",
     "ar": "البريد الإلكتروني"
   },
+  "account_err_email": {
+    "en": "Please enter a valid email address.",
+    "ar": "يرجى إدخال بريد إلكتروني صحيح."
+  },
+  "account_err_exists": {
+    "en": "An account with this email already exists. Sign in instead, or use Forgot password.",
+    "ar": "يوجد حساب بهذا البريد الإلكتروني. سجّل الدخول بدلًا من ذلك، أو استخدم «نسيت كلمة المرور؟»."
+  },
+  "account_err_generic": {
+    "en": "Something went wrong. Please try again.",
+    "ar": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+  },
+  "account_err_invalid": {
+    "en": "The email or password is not correct. Check both and try again. New here? Choose Create Account. Forgot your password? Use Forgot password below.",
+    "ar": "البريد الإلكتروني أو كلمة المرور غير صحيحة. تحقق منهما وحاول مرة أخرى. عميل جديد؟ اختر «إنشاء حساب». نسيت كلمة المرور؟ استخدم «نسيت كلمة المرور؟» بالأسفل."
+  },
+  "account_err_password_short": {
+    "en": "Please choose a password of at least 6 characters.",
+    "ar": "يرجى اختيار كلمة مرور من 6 أحرف على الأقل."
+  },
+  "account_err_unconfirmed": {
+    "en": "Please confirm your email first: open the link we emailed you (check your Junk or Spam folder too). No email? Use \"Didn't get the confirmation email?\" below.",
+    "ar": "يرجى تأكيد بريدك الإلكتروني أولًا: افتح الرابط الذي أرسلناه إليك (تحقق أيضًا من مجلد Junk أو Spam). لم تصلك الرسالة؟ استخدم «لم تصلك رسالة التأكيد؟» بالأسفل."
+  },
   "account_forgot_password": {
     "en": "Forgot password?",
     "ar": "نسيت كلمة المرور؟"
@@ -119,6 +143,18 @@
     "en": "Please enter a Saudi mobile number, e.g. 05XXXXXXXX.",
     "ar": "يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX."
   },
+  "account_resend_done": {
+    "en": "If an account is waiting for confirmation, we have emailed a new link. Check your inbox and the Junk or Spam folder.",
+    "ar": "إذا كان هناك حساب بانتظار التأكيد، فقد أرسلنا رابطًا جديدًا. تحقق من صندوق الوارد ومجلد Junk أو Spam."
+  },
+  "account_resend_link": {
+    "en": "Didn't get the confirmation email?",
+    "ar": "لم تصلك رسالة التأكيد؟"
+  },
+  "account_resend_need_email": {
+    "en": "Type your email address above first, then tap this again.",
+    "ar": "اكتب بريدك الإلكتروني في الأعلى أولًا، ثم اضغط هنا مرة أخرى."
+  },
   "account_reset_hint": {
     "en": "Enter your email and we'll send you a password reset link. It may take a minute to arrive — check your spam folder too.",
     "ar": "أدخل بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور. قد يستغرق وصوله دقيقة — تحقق من مجلد الرسائل غير المرغوب فيها أيضاً."
@@ -152,8 +188,8 @@
     "ar": "تسجيل الخروج"
   },
   "account_signup_confirm_email": {
-    "en": "Account created — check your email to confirm it before signing in.",
-    "ar": "تم إنشاء الحساب — تحقق من بريدك الإلكتروني لتفعيله قبل تسجيل الدخول."
+    "en": "Account created — check your email to confirm it before signing in. If you don't see it within a few minutes, check your Junk or Spam folder.",
+    "ar": "تم إنشاء الحساب — تحقق من بريدك الإلكتروني لتفعيله قبل تسجيل الدخول. إذا لم تجد الرسالة خلال دقائق، فتحقق من مجلد البريد غير الهام (Junk) أو المزعج (Spam)."
   },
   "account_signup_tab": {
     "en": "Create Account",

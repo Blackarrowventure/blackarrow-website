@@ -153,6 +153,14 @@
     });
   }
 
+  // Sends the sign-up confirmation email again (for customers who never got it or lost it).
+  function resendConfirmation(email) {
+    return client.auth.resend({ type: 'signup', email: email, options: { emailRedirectTo: window.location.origin + '/3d/account/' } }).then(function (res) {
+      if (res.error) throw res.error;
+      return res;
+    });
+  }
+
   function updatePassword(newPassword) {
     return client.auth.updateUser({ password: newPassword }).then(function (res) {
       if (res.error) throw res.error;
@@ -208,6 +216,7 @@
     signIn: signIn,
     signOut: signOut,
     resetPassword: resetPassword,
+    resendConfirmation: resendConfirmation,
     updatePassword: updatePassword,
     getAccessToken: getAccessToken,
     getProfile: getProfile,

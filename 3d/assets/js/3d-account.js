@@ -23,8 +23,25 @@
     return m ? parseInt(m[1], 10) : 30;
   }
 
+  function t(key, fallback) {
+    var I = window.BlackArrow3DI18n;
+    var v = I && I.t ? I.t(key) : '';
+    return v && v !== key ? v : fallback;
+  }
+
+  // The account system answers in technical English ("Invalid login credentials"); customers
+  // get a plain message in their language that says what to do next.
+  function friendlyMessage(message) {
+    if (/invalid login credentials/i.test(message)) return t('account_err_invalid', 'The email or password is not correct. Check both and try again. New here? Choose Create Account. Forgot your password? Use Forgot password below.');
+    if (/email not confirmed/i.test(message)) return t('account_err_unconfirmed', 'Please confirm your email first: open the link we emailed you (check your Junk or Spam folder too).');
+    if (/already registered|already exists/i.test(message)) return t('account_err_exists', 'An account with this email already exists. Sign in instead, or use Forgot password.');
+    if (/password should be at least|weak password/i.test(message)) return t('account_err_password_short', 'Please choose a password of at least 6 characters.');
+    if (/invalid email|unable to validate email/i.test(message)) return t('account_err_email', 'Please enter a valid email address.');
+    return message;
+  }
+
   function showError(errEl, error) {
-    var message = (error && error.message) || 'Something went wrong. Please try again.';
+    var message = (error && error.message) || t('account_err_generic', 'Something went wrong. Please try again.');
     // The confirmation / reset email couldn't be sent (the email service's hourly limit).
     // Waiting 30 seconds doesn't help, so say what does.
     if ((error && error.code === 'over_email_send_rate_limit') || /email rate limit/i.test(message)) {
@@ -36,7 +53,7 @@
       return;
     }
     if (!isRateLimitMessage(message)) {
-      errEl.textContent = message;
+      errEl.textContent = friendlyMessage(message);
       errEl.hidden = false;
       return;
     }
@@ -236,6 +253,28 @@
           }
         }).catch(function (error) { showError(err, error); throw error; });
       });
+
+      // "Didn't get the confirmation email?": resend it to the address typed in Sign In.
+      var resendLink = document.getElementById('b3d-resend-link');
+      if (resendLink) {
+        resendLink.addEventListener('click', function () {
+          var err = document.getElementById('signin-error');
+          var msg = document.getElementById('resend-msg');
+          var email = (document.getElementById('signin-email').value || '').trim();
+          err.hidden = true;
+          msg.hidden = true;
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            err.textContent = t('account_resend_need_email', 'Type your email address above first, then tap this again.');
+            err.hidden = false;
+            return;
+          }
+          resendLink.disabled = true;
+          window.BlackArrow3DAuth.resendConfirmation(email).then(function () {
+            msg.textContent = t('account_resend_done', 'If an account is waiting for confirmation, we have emailed a new link. Check your inbox and the Junk or Spam folder.');
+            msg.hidden = false;
+          }).catch(function (error) { showError(err, error); }).then(function () { resendLink.disabled = false; });
+        });
+      }
 
       var forgotLink = document.getElementById('b3d-forgot-link');
       if (forgotLink) {
