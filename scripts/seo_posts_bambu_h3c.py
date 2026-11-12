@@ -1,4 +1,4 @@
-"""Bilingual (EN + AR) post on the Bambu Lab H3C (November 2026), coming soon at Black Arrow 3D.
+"""Bilingual (EN + AR) post on the Bambu Lab H3C (November 2026), on pre-order at Black Arrow 3D (delivery expected first week of December 2026).
 
 Data only, same schema as scripts/seo_posts_products.py. H3C facts are Bambu Lab's own, from its launch
 announcement and H3C technical specification (blog.bambulab.com, 3 Nov 2026). Comparison rows for the H2C,
@@ -80,7 +80,7 @@ POSTS = [
                 <tr><td>Max nozzle temperature</td><td>350&nbsp;°C</td><td>350&nbsp;°C</td><td>350&nbsp;°C</td><td>300&nbsp;°C</td></tr>
                 <tr><td>Max speed</td><td>1,400&nbsp;mm/s</td><td>1,000&nbsp;mm/s</td><td>1,000&nbsp;mm/s</td><td>500&nbsp;mm/s</td></tr>
                 <tr><td>Heated chamber</td><td>up to 65&nbsp;°C</td><td>up to 65&nbsp;°C</td><td>up to 65&nbsp;°C</td><td>not listed</td></tr>
-                <tr><td>Price at Black Arrow 3D</td><td>17,899&nbsp;SAR (coming soon)</td><td>15,990&nbsp;SAR</td><td>13,999&nbsp;SAR</td><td>5,699&nbsp;SAR</td></tr>
+                <tr><td>Price at Black Arrow 3D</td><td>17,899&nbsp;SAR (pre-order)</td><td>15,990&nbsp;SAR</td><td>13,999&nbsp;SAR</td><td>5,699&nbsp;SAR</td></tr>
               </tbody>
             </table>
           </div>
@@ -95,7 +95,7 @@ POSTS = [
           <p>For a first printer, start with our <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">beginner's guide</a> instead; the H3C is a lot of machine.</p>
 
           <h2>Price and availability in Saudi Arabia</h2>
-          <p>Bambu Lab's international price for the H3C with AMS 3H is US$2,499 before tax. At Black Arrow 3D the <a href="''' + H3C + '''">Bambu Lab H3C with AMS 3H</a> will be <strong>17,899&nbsp;SAR including VAT</strong>, with delivery across Saudi Arabia and payment by card, bank transfer, Tabby or Tamara. It is listed as <strong>coming soon</strong>: <a href="''' + WA + '''" target="_blank" rel="noopener noreferrer">message us on WhatsApp</a> to reserve one from the first shipment.</p>
+          <p>Bambu Lab's international price for the H3C with AMS 3H is US$2,499 before tax. At Black Arrow 3D the <a href="''' + H3C + '''">Bambu Lab H3C with AMS 3H</a> is <strong>17,899&nbsp;SAR including VAT</strong>, with delivery across Saudi Arabia. It is <strong>on pre-order now</strong>, with delivery expected in the <strong>first week of December 2026</strong>. Pre-orders are paid by bank transfer, card (mada, Visa, Mastercard) or Apple Pay; Tabby and Tamara are not available for this pre-order. Questions? <a href="''' + WA + '''" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>.</p>
 
           <h2>FAQ</h2>
           <h3>What is the Bambu Lab H3C?</h3>
@@ -107,12 +107,12 @@ POSTS = [
           <h3>Does the H3C print TPU?</h3>
           <p>Yes. Its FlexFeed extruder takes 1.75&nbsp;mm and 2.85&nbsp;mm filament, and Bambu Lab says it prints TPU as soft as 75A.</p>
           <h3>How much is the Bambu Lab H3C in Saudi Arabia?</h3>
-          <p>17,899&nbsp;SAR including VAT for the H3C with AMS 3H at Black Arrow 3D, coming soon, with delivery across Saudi Arabia.</p>
+          <p>17,899&nbsp;SAR including VAT for the H3C with AMS 3H at Black Arrow 3D, on pre-order now with delivery across Saudi Arabia expected in the first week of December 2026.</p>
           <h3>Is the H3C better than the H2C?</h3>
           <p>It is faster (1,400 vs 1,000&nbsp;mm/s) and changes whole tools rather than nozzles, with nine tools and built-in drying. Both share the same 330 × 320 × 325&nbsp;mm build volume, 350&nbsp;°C nozzles and 65&nbsp;°C heated chamber. The H2C is available now and costs less.</p>
 
           <div class="b3d-article__cta">
-            <p>Bambu Lab H3C with AMS 3H, coming soon at 17,899 SAR.</p>
+            <p>Pre-order the Bambu Lab H3C with AMS 3H: 17,899 SAR, delivery first week of December.</p>
             <a href="''' + H3C + '''" class="btn btn-primary">See the H3C</a>
           </div>
 
@@ -184,7 +184,7 @@ POSTS = [
                 <tr><td>أقصى حرارة للفوهة</td><td>350 درجة</td><td>350 درجة</td><td>350 درجة</td><td>300 درجة</td></tr>
                 <tr><td>أقصى سرعة</td><td>1,400 مم/ث</td><td>1,000 مم/ث</td><td>1,000 مم/ث</td><td>500 مم/ث</td></tr>
                 <tr><td>حجرة مسخّنة</td><td>حتى 65 درجة</td><td>حتى 65 درجة</td><td>حتى 65 درجة</td><td>غير مذكور</td></tr>
-                <tr><td>السعر في Black Arrow 3D</td><td>17,899 ريالًا (قريبًا)</td><td>15,990 ريالًا</td><td>13,999 ريالًا</td><td>5,699 ريالًا</td></tr>
+                <tr><td>السعر في Black Arrow 3D</td><td>17,899 ريالًا (طلب مسبق)</td><td>15,990 ريالًا</td><td>13,999 ريالًا</td><td>5,699 ريالًا</td></tr>
               </tbody>
             </table>
           </div>
@@ -199,7 +199,7 @@ POSTS = [
           <p>أما لأول طابعة فابدأ بـ <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">دليل المبتدئين</a>؛ فطابعة H3C إمكاناتها كبيرة جدًا.</p>
 
           <h2>السعر والتوفر في السعودية</h2>
-          <p>السعر الدولي من بامبو لاب لطابعة H3C مع AMS 3H هو 2,499 دولارًا قبل الضريبة. وفي Black Arrow 3D سيكون سعر <a href="''' + H3C_AR + '''">بامبو لاب H3C مع AMS 3H</a> <strong>17,899 ريالًا شامل الضريبة</strong>، مع التوصيل لجميع مناطق السعودية والدفع بالبطاقة أو التحويل البنكي أو تابي أو تمارا. وهي معروضة بحالة <strong>قريبًا</strong>: <a href="''' + WA + '''" target="_blank" rel="noopener noreferrer">راسلنا عبر واتساب</a> لحجز طابعتك من أول شحنة.</p>
+          <p>السعر الدولي من بامبو لاب لطابعة H3C مع AMS 3H هو 2,499 دولارًا قبل الضريبة. وفي Black Arrow 3D سعر <a href="''' + H3C_AR + '''">بامبو لاب H3C مع AMS 3H</a> <strong>17,899 ريالًا شامل الضريبة</strong>، مع التوصيل لجميع مناطق السعودية. وهي <strong>متاحة الآن للطلب المسبق</strong>، والتسليم المتوقع في <strong>الأسبوع الأول من ديسمبر 2026</strong>. يُدفع الطلب المسبق بالتحويل البنكي أو البطاقة (مدى، فيزا، ماستركارد) أو Apple Pay، ولا يتوفر تابي أو تمارا لهذا الطلب. لديك سؤال؟ <a href="''' + WA + '''" target="_blank" rel="noopener noreferrer">راسلنا عبر واتساب</a>.</p>
 
           <h2>الأسئلة الشائعة</h2>
           <h3>ما هي طابعة بامبو لاب H3C؟</h3>
@@ -211,12 +211,12 @@ POSTS = [
           <h3>هل تطبع H3C مادة TPU؟</h3>
           <p>نعم. يقبل طارد FlexFeed فيلامنت 1.75 مم و2.85 مم، وتقول بامبو لاب إنه يطبع TPU بمرونة تصل إلى 75A.</p>
           <h3>كم سعر بامبو لاب H3C في السعودية؟</h3>
-          <p>17,899 ريالًا شامل الضريبة لطابعة H3C مع AMS 3H في Black Arrow 3D، قريبًا، مع التوصيل لجميع مناطق السعودية.</p>
+          <p>17,899 ريالًا شامل الضريبة لطابعة H3C مع AMS 3H في Black Arrow 3D، متاحة للطلب المسبق مع التوصيل لجميع مناطق السعودية المتوقع في الأسبوع الأول من ديسمبر 2026.</p>
           <h3>هل H3C أفضل من H2C؟</h3>
           <p>هي أسرع (1,400 مقابل 1,000 مم/ث) وتبدّل الأدوات كاملة لا الفوهات، بتسع أدوات وتجفيف مدمج. وتشترك الاثنتان في حجم الطباعة 330 × 320 × 325 مم وفوهات 350 درجة وحجرة مسخّنة حتى 65 درجة. أما H2C فمتوفرة الآن وسعرها أقل.</p>
 
           <div class="b3d-article__cta">
-            <p>بامبو لاب H3C مع AMS 3H، قريبًا بسعر 17,899 ريالًا.</p>
+            <p>اطلب بامبو لاب H3C مع AMS 3H مسبقًا: 17,899 ريالًا، والتسليم في الأسبوع الأول من ديسمبر.</p>
             <a href="''' + H3C_AR + '''" class="btn btn-primary">شاهد H3C</a>
           </div>
 

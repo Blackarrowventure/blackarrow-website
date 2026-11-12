@@ -13,6 +13,8 @@
     "currency": "SAR",
     "available": "boolean",
     "preorder": "boolean, optional",
+    "noPayLater": "boolean, optional: bank transfer, card and Apple Pay only (no Tabby, Tamara or Cash at Pickup); enforced by api/_lib/pricing.js and api/bank-order.js",
+    "preorderEta": "string, optional: expected delivery shown on a pre-order product page (preorderEta_ar for Arabic)",
     "stockQty": "number, optional",
     "featured": "boolean, optional — pins the product to the front of the homepage's Featured Products grid (top 4 slots)",
     "onSale": "boolean, optional",
@@ -54,7 +56,10 @@
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
-      "comingSoon": true,
+      "preorder": true,
+      "noPayLater": true,
+      "preorderEta": "Pre-order now: expected delivery in the first week of December 2026",
+      "preorderEta_ar": "اطلبها الآن بالحجز المسبق: التسليم المتوقع في الأسبوع الأول من ديسمبر 2026",
       "featured": true,
       "boughtTogether": [
         "bambu-lab-pla-basic-filament",
@@ -102,8 +107,8 @@
           "caption_ar": "تسع أدوات طباعة في محطاتها، ورأس طباعة ومحور X أخف بنسبة 40%"
         }
       ],
-      "shortDesc": "Bambu Lab's first tool changer: nine PrintTools, a 6-second material switch and the AMS 3H with built-in drying. Coming soon.",
-      "description": "The Bambu Lab H3C is Bambu Lab's first third-generation printer and its first true tool changer. Instead of one nozzle that purges between colours, it has nine independent PrintTools on the Swaptek system, each with its own filament path and heating, so it switches material in about 6 seconds with very little waste. The integrated AMS 3H keeps nine spools in a sealed chamber, reads them by RFID and dries two at a time at up to 85 °C, and the FlexFeed extruder takes both 1.75 mm and 2.85 mm filament, including soft TPU down to 75A. With a 330 × 320 × 325 mm build volume, 350 °C tools, a 120 °C bed and active chamber heating to 65 °C, it prints everything from multi-colour PLA to carbon-fibre nylon. Coming soon to Black Arrow 3D with delivery across Saudi Arabia; message us on WhatsApp to reserve yours.",
+      "shortDesc": "Bambu Lab's first tool changer: nine PrintTools, a 6-second material switch and the AMS 3H with built-in drying. Pre-order now, delivery expected in the first week of December 2026.",
+      "description": "The Bambu Lab H3C is Bambu Lab's first third-generation printer and its first true tool changer. Instead of one nozzle that purges between colours, it has nine independent PrintTools on the Swaptek system, each with its own filament path and heating, so it switches material in about 6 seconds with very little waste. The integrated AMS 3H keeps nine spools in a sealed chamber, reads them by RFID and dries two at a time at up to 85 °C, and the FlexFeed extruder takes both 1.75 mm and 2.85 mm filament, including soft TPU down to 75A. With a 330 × 320 × 325 mm build volume, 350 °C tools, a 120 °C bed and active chamber heating to 65 °C, it prints everything from multi-colour PLA to carbon-fibre nylon. Now on pre-order at Black Arrow 3D, with delivery across Saudi Arabia expected in the first week of December 2026. Pay by bank transfer, card (mada, Visa, Mastercard) or Apple Pay.",
       "features": [
         "Swaptek tool changer with nine independent PrintTools, each with its own filament path and heating",
         "Material switch in about 6 seconds with very little purge, according to Bambu Lab",
@@ -179,14 +184,14 @@
         ],
         [
           "Availability",
-          "Coming soon"
+          "Pre-order: expected delivery in the first week of December 2026"
         ]
       ],
-      "seoTitle": "Bambu Lab H3C 9-Tool 3D Printer in Saudi Arabia (Coming Soon)",
-      "seoDescription": "Bambu Lab H3C with AMS 3H coming soon to Saudi Arabia: 9-tool Swaptek tool changer, 6-second material switch, 85 °C filament drying, TPU 75A. 17,899 SAR.",
+      "seoTitle": "Bambu Lab H3C 9-Tool 3D Printer in Saudi Arabia (Pre-Order)",
+      "seoDescription": "Pre-order the Bambu Lab H3C with AMS 3H in Saudi Arabia, delivery first week of December: 9-tool Swaptek tool changer, 6-second material switch, 85 °C filament drying, TPU 75A. 17,899 SAR.",
       "name_ar": "بامبو لاب H3C مع AMS 3H",
-      "shortDesc_ar": "أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة، وتبديل المادة في 6 ثوانٍ، ونظام AMS 3H مع تجفيف مدمج. قريبًا.",
-      "description_ar": "بامبو لاب H3C هي أول طابعة من الجيل الثالث لدى بامبو لاب وأول طابعة لديها بتغيير الأدوات الحقيقي. فبدلًا من فوهة واحدة تُفرغ المادة بين كل لون وآخر، تضم تسع أدوات طباعة مستقلة على نظام Swaptek، لكل منها مسار فيلامنت وتسخين خاص، فتبدّل المادة في نحو 6 ثوانٍ بهدر قليل جدًا. ويحفظ نظام AMS 3H المدمج تسع بكرات في حجرة محكمة الإغلاق، ويتعرف عليها عبر RFID، ويجفف بكرتين في الوقت نفسه على حرارة تصل إلى 85 درجة، بينما يقبل طارد FlexFeed فيلامنت 1.75 مم و2.85 مم، ومنه TPU المرن حتى 75A. وبمساحة طباعة 330 × 320 × 325 مم وأدوات تصل إلى 350 درجة وسرير حتى 120 درجة وتسخين نشط للحجرة حتى 65 درجة، تطبع كل شيء من PLA متعدد الألوان إلى النايلون المقوّى بألياف الكربون. قريبًا في Black Arrow 3D مع التوصيل لجميع مناطق السعودية؛ راسلنا عبر واتساب لحجز طابعتك.",
+      "shortDesc_ar": "أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة، وتبديل المادة في 6 ثوانٍ، ونظام AMS 3H مع تجفيف مدمج. متاحة للطلب المسبق، والتسليم المتوقع في الأسبوع الأول من ديسمبر 2026.",
+      "description_ar": "بامبو لاب H3C هي أول طابعة من الجيل الثالث لدى بامبو لاب وأول طابعة لديها بتغيير الأدوات الحقيقي. فبدلًا من فوهة واحدة تُفرغ المادة بين كل لون وآخر، تضم تسع أدوات طباعة مستقلة على نظام Swaptek، لكل منها مسار فيلامنت وتسخين خاص، فتبدّل المادة في نحو 6 ثوانٍ بهدر قليل جدًا. ويحفظ نظام AMS 3H المدمج تسع بكرات في حجرة محكمة الإغلاق، ويتعرف عليها عبر RFID، ويجفف بكرتين في الوقت نفسه على حرارة تصل إلى 85 درجة، بينما يقبل طارد FlexFeed فيلامنت 1.75 مم و2.85 مم، ومنه TPU المرن حتى 75A. وبمساحة طباعة 330 × 320 × 325 مم وأدوات تصل إلى 350 درجة وسرير حتى 120 درجة وتسخين نشط للحجرة حتى 65 درجة، تطبع كل شيء من PLA متعدد الألوان إلى النايلون المقوّى بألياف الكربون. متاحة الآن للطلب المسبق في Black Arrow 3D، والتسليم لجميع مناطق السعودية متوقع في الأسبوع الأول من ديسمبر 2026. الدفع بالتحويل البنكي أو البطاقة (مدى، فيزا، ماستركارد) أو Apple Pay.",
       "features_ar": [
         "نظام Swaptek لتغيير الأدوات مع تسع أدوات طباعة مستقلة، لكل منها مسار فيلامنت وتسخين خاص",
         "تبديل المادة في نحو 6 ثوانٍ بهدر قليل جدًا، حسب بامبو لاب",
@@ -262,7 +267,7 @@
         ],
         [
           "التوفر",
-          "قريبًا"
+          "طلب مسبق: التسليم المتوقع في الأسبوع الأول من ديسمبر 2026"
         ]
       ]
     },

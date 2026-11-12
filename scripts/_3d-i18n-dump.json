@@ -168,8 +168,8 @@
     "ar": "بياناتك"
   },
   "announce_1": {
-    "en": "Coming soon: Bambu Lab H3C, the 9-tool tool changer => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Online payments are also available · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 3,000 SAR or more · Send your custom design or a MakerWorld design to get it printed",
-    "ar": "قريبًا: بامبو لاب H3C بتسع أدوات طباعة => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · الدفع الإلكتروني متاح أيضًا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 3,000 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
+    "en": "Pre-order now: Bambu Lab H3C, the 9-tool tool changer, delivery first week of December => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 3,000 SAR or more · Send your custom design or a MakerWorld design to get it printed",
+    "ar": "اطلبها الآن مسبقًا: بامبو لاب H3C بتسع أدوات طباعة، والتسليم في الأسبوع الأول من ديسمبر => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 3,000 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته"
   },
   "b3d_compare_printers": {
     "en": "Compare printers",
@@ -226,6 +226,10 @@
   "cart_h1": {
     "en": "Shopping Cart",
     "ar": "عربة التسوق"
+  },
+  "cart_no_paylater_note": {
+    "en": "Pre-orders are paid by bank transfer, card (mada, Visa, Mastercard) or Apple Pay. Tabby, Tamara and Cash at Pickup are not available for this order.",
+    "ar": "يُدفع الطلب المسبق بالتحويل البنكي أو البطاقة (مدى، فيزا، ماستركارد) أو Apple Pay. لا يتوفر تابي أو تمارا أو الدفع النقدي عند الاستلام لهذا الطلب."
   },
   "cart_overline": {
     "en": "Your Selection",
@@ -343,6 +347,22 @@
     "en": "Postal Code (optional)",
     "ar": "الرمز البريدي (اختياري)"
   },
+  "checkout_rewards_cta": {
+    "en": "Create free account",
+    "ar": "أنشئ حسابًا مجانيًا"
+  },
+  "checkout_rewards_h": {
+    "en": "Get your Rewards account for more benefits",
+    "ar": "أنشئ حساب المكافآت واحصل على مزايا أكثر"
+  },
+  "checkout_rewards_more": {
+    "en": "See benefits",
+    "ar": "تعرّف على المزايا"
+  },
+  "checkout_rewards_p": {
+    "en": "Create a free account to join Black Arrow Loyalty Rewards: 5 SAR welcome credit, reward balance on every order, birthday rewards and free delivery at Gold and Platinum.",
+    "ar": "أنشئ حسابًا مجانيًا وانضم إلى مكافآت بلاك أرو للولاء: رصيد ترحيبي 5 ريالات، ورصيد مكافآت مع كل طلب، ومكافأة عيد الميلاد، وتوصيل مجاني لفئتي الذهبية والبلاتينية."
+  },
   "checkout_save_info": {
     "en": "Save this information for next time",
     "ar": "احفظ هذه المعلومات للمرة القادمة"
@@ -388,8 +408,8 @@
     "ar": "تم استلام طلبك — سنتواصل معك قريباً للتأكيد."
   },
   "checkout_success_email": {
-    "en": "Order received — check your email for confirmation, and we'll contact you shortly to arrange delivery.",
-    "ar": "تم استلام طلبك — تحقق من بريدك الإلكتروني للتأكيد، وسنتواصل معك قريباً لترتيب التوصيل."
+    "en": "Order received — we've emailed you the details, and you'll get a confirmation email once our team approves it.",
+    "ar": "تم استلام طلبك — أرسلنا التفاصيل إلى بريدك الإلكتروني، وستصلك رسالة تأكيد فور اعتماد فريقنا للطلب."
   },
   "cities_guides": {
     "en": "City guides",
@@ -1827,6 +1847,22 @@
     "en": "After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.",
     "ar": "بعد تعبئة بيانات التوصيل أدناه، ستنتقل إلى صفحة الدفع الآمنة من Paymob للدفع بمدى أو فيزا أو ماستركارد، ثم تعود إلى هنا."
   },
+  "pm_cash": {
+    "en": "Cash at Pickup",
+    "ar": "الدفع نقدًا عند الاستلام"
+  },
+  "pm_cash_h4": {
+    "en": "Pay Cash at Pickup",
+    "ar": "الدفع نقدًا عند الاستلام"
+  },
+  "pm_cash_note": {
+    "en": "Self pickup only",
+    "ar": "للاستلام الذاتي فقط"
+  },
+  "pm_cash_p": {
+    "en": "Pay in cash when you collect your order from our Al Khobar pickup point (self pickup only, no delivery with cash). We'll message you when your order is ready.",
+    "ar": "ادفع نقدًا عند استلام طلبك من نقطة الاستلام في الخبر (للاستلام الذاتي فقط، ولا يتوفر التوصيل مع الدفع النقدي). سنرسل لك رسالة عندما يصبح طلبك جاهزًا."
+  },
   "pm_soon": {
     "en": "Coming Soon",
     "ar": "قريباً"
@@ -1974,6 +2010,10 @@
   "rwd_join_taken": {
     "en": "This phone number is already linked to another Black Arrow account. Sign in with that account, or message us on WhatsApp if the number is yours.",
     "ar": "رقم الجوال هذا مرتبط بحساب آخر في Black Arrow. سجّل الدخول بذلك الحساب، أو راسلنا عبر واتساب إذا كان الرقم لك."
+  },
+  "rwd_join_verify": {
+    "en": "This number already has a Black Arrow card from our shop. To protect your points, message us on WhatsApp and we will link it to this account.",
+    "ar": "هذا الرقم لديه بطاقة Black Arrow من متجرنا. لحماية نقاطك، راسلنا عبر واتساب وسنربطها بهذا الحساب."
   },
   "rwd_live_bday": {
     "en": "Birthday",
@@ -2300,8 +2340,8 @@
     "ar": "رقم الطلب"
   },
   "thanks_p_email": {
-    "en": "We have received your order. A confirmation email is on its way to",
-    "ar": "لقد استلمنا طلبك. تم إرسال رسالة تأكيد إلى"
+    "en": "We have received your order. We will email you a confirmation once our team approves it. Order details sent to",
+    "ar": "لقد استلمنا طلبك، وستصلك رسالة تأكيد فور اعتماد فريقنا له. أرسلنا تفاصيل الطلب إلى"
   },
   "thanks_p_plain": {
     "en": "We have received your order and will contact you shortly to confirm and arrange delivery.",

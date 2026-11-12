@@ -5,7 +5,7 @@
 // spent on this order; member free delivery by the signed-in account. Anything that cannot be
 // checked is flagged in the order notes. The order waits in the CRM until it is confirmed (as an
 // Unpaid invoice) or rejected.
-const { buildOrder, stockProblem } = require('./_lib/pricing');
+const { buildOrder, stockProblem, hasNoPayLater } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
 const rewards = require('./_lib/rewards');
@@ -42,6 +42,7 @@ module.exports = async (req, res) => {
   // Cash is only for self pickup (paid when the customer collects); it gets the same saving.
   const cash = body.payment === 'cash';
   if (cash && body.shipping !== 'pickup') return res.status(400).json({ error: 'cash_pickup_only' });
+  if (cash && hasNoPayLater(body.items)) return res.status(400).json({ error: 'cash_not_available' });
 
   // Signed-in member: Gold / Platinum free Regular delivery comes from their account.
   let member = null;

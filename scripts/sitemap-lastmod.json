@@ -4,19 +4,19 @@
 "h": "df3a04f6307136ef"
 },
 "https://www.blackarrowksa.com/3d/": {
-"d": "2026-11-06",
-"h": "685c0c0bbfcaf360"
+"d": "2026-11-12",
+"h": "7673650546dbf574"
 },
 "https://www.blackarrowksa.com/3d/3d-printing-service-saudi-arabia/": {
-"d": "2026-11-06",
+"d": "2026-11-12",
 "h": "3ea476a13c9dfec5"
 },
 "https://www.blackarrowksa.com/3d/ar/": {
-"d": "2026-11-06",
-"h": "eea2e16ef883d4fe"
+"d": "2026-11-12",
+"h": "b6be6ce68686d8b9"
 },
 "https://www.blackarrowksa.com/3d/ar/3d-printing-service-saudi-arabia/": {
-"d": "2026-11-06",
+"d": "2026-11-12",
 "h": "67b20e783896d885"
 },
 "https://www.blackarrowksa.com/3d/ar/blog/": {
@@ -100,8 +100,8 @@
 "h": "8b9ac99c5b95179a"
 },
 "https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-h3c-tool-changer-saudi-arabia/": {
-"d": "2026-11-05",
-"h": "f28742a2da2df6ab"
+"d": "2026-11-12",
+"h": "31011b6bc5433808"
 },
 "https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-p1s-vs-p2s-saudi-arabia/": {
 "d": "2026-11-10",
@@ -116,8 +116,8 @@
 "h": "455663e1e03bed99"
 },
 "https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-printers-saudi-arabia-prices/": {
-"d": "2026-11-05",
-"h": "d0c9b7398afc214b"
+"d": "2026-11-12",
+"h": "8e00096f815734b1"
 },
 "https://www.blackarrowksa.com/3d/ar/blog/bambu-lab-vs-creality-vs-snapmaker/": {
 "d": "2026-11-09",
@@ -316,8 +316,8 @@
 "h": "c19ae45ce0f4ed93"
 },
 "https://www.blackarrowksa.com/3d/ar/product/bambu-lab-h3c/": {
-"d": "2026-11-06",
-"h": "82e2c613711bcc09"
+"d": "2026-11-12",
+"h": "81c03c0157714e5b"
 },
 "https://www.blackarrowksa.com/3d/ar/product/bambu-lab-p1s/": {
 "d": "2026-11-06",
@@ -672,8 +672,8 @@
 "h": "e17c4893c64f9f5a"
 },
 "https://www.blackarrowksa.com/3d/blog/bambu-lab-h3c-tool-changer-saudi-arabia/": {
-"d": "2026-11-05",
-"h": "66d89d91ce22867e"
+"d": "2026-11-12",
+"h": "b77a0f56e9aa4d36"
 },
 "https://www.blackarrowksa.com/3d/blog/bambu-lab-p1s-vs-p2s-saudi-arabia/": {
 "d": "2026-11-10",
@@ -688,8 +688,8 @@
 "h": "1b4c42f2e0b295f8"
 },
 "https://www.blackarrowksa.com/3d/blog/bambu-lab-printers-saudi-arabia-prices/": {
-"d": "2026-11-05",
-"h": "1d0375123da60855"
+"d": "2026-11-12",
+"h": "b0b76e29a0218742"
 },
 "https://www.blackarrowksa.com/3d/blog/bambu-lab-vs-creality-vs-snapmaker/": {
 "d": "2026-11-09",
@@ -812,7 +812,7 @@
 "h": "a4e5d54502968b3d"
 },
 "https://www.blackarrowksa.com/3d/business/": {
-"d": "2026-11-06",
+"d": "2026-11-12",
 "h": "fb859a077ce1b65b"
 },
 "https://www.blackarrowksa.com/3d/compare/": {
@@ -892,8 +892,8 @@
 "h": "716995d5dea659fc"
 },
 "https://www.blackarrowksa.com/3d/product/bambu-lab-h3c/": {
-"d": "2026-11-06",
-"h": "28d482e13f71fe36"
+"d": "2026-11-12",
+"h": "ddb9bfc3ec9e9f66"
 },
 "https://www.blackarrowksa.com/3d/product/bambu-lab-p1s/": {
 "d": "2026-11-06",
@@ -1216,12 +1216,16 @@
 "h": "52190123b50e6222"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/": {
-"d": "2026-11-05",
-"h": "1044cedb4e11e3ac"
+"d": "2026-11-12",
+"h": "0e16c6f1bc74ba8a"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/bender-vs-pg-lifelink-isolated-power-panels/": {
 "d": "2026-11-05",
 "h": "35684abc351cf6ce"
+},
+"https://www.blackarrowksa.com/ar/resources/blog/commercial-hvac-maintenance-checklist-saudi-arabia/": {
+"d": "2026-11-12",
+"h": "4d23f1fdc3f4bd11"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/commissioning-isolated-power-panel-checklist/": {
 "d": "2026-11-05",
@@ -1230,6 +1234,10 @@
 "https://www.blackarrowksa.com/ar/resources/blog/dali-lighting-control-facility-managers/": {
 "d": "2026-11-05",
 "h": "2785a34c792ac55a"
+},
+"https://www.blackarrowksa.com/ar/resources/blog/ev-charger-installation-saudi-arabia/": {
+"d": "2026-11-12",
+"h": "1212b8f4279b7a55"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/fm200-vs-water-mist-suppression-saudi-arabia/": {
 "d": "2026-11-05",
@@ -1251,9 +1259,13 @@
 "d": "2026-11-05",
 "h": "13974925f8bf1620"
 },
+"https://www.blackarrowksa.com/ar/resources/blog/lighting-design-saudi-arabia-commercial-facade/": {
+"d": "2026-11-12",
+"h": "1f922c49f35dcfde"
+},
 "https://www.blackarrowksa.com/ar/resources/blog/mdb-smdb-db-electrical-distribution-explained/": {
-"d": "2026-11-05",
-"h": "56c4ab7615cb6857"
+"d": "2026-11-12",
+"h": "3b7d1036732b446e"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/modular-vs-conventional-operating-room-construction/": {
 "d": "2026-11-05",
@@ -1278,6 +1290,10 @@
 "https://www.blackarrowksa.com/ar/resources/blog/sizing-ups-hospital-critical-branch/": {
 "d": "2026-11-05",
 "h": "e9b8f5eb0f79d033"
+},
+"https://www.blackarrowksa.com/ar/resources/blog/ups-vs-generator-vs-inverter-backup-power/": {
+"d": "2026-11-12",
+"h": "d5268f6074c384c7"
 },
 "https://www.blackarrowksa.com/ar/resources/blog/vrf-vrv-hvac-saudi-commercial-buildings/": {
 "d": "2026-11-05",
@@ -1480,12 +1496,16 @@
 "h": "c88dc29de29968cb"
 },
 "https://www.blackarrowksa.com/resources/blog/": {
-"d": "2026-11-05",
-"h": "51bf324fac0b19d1"
+"d": "2026-11-12",
+"h": "f2b9a82e9594f0d4"
 },
 "https://www.blackarrowksa.com/resources/blog/bender-vs-pg-lifelink-isolated-power-panels/": {
 "d": "2026-11-05",
 "h": "ead123526ff7bbf1"
+},
+"https://www.blackarrowksa.com/resources/blog/commercial-hvac-maintenance-checklist-saudi-arabia/": {
+"d": "2026-11-12",
+"h": "143375e9ca178077"
 },
 "https://www.blackarrowksa.com/resources/blog/commissioning-isolated-power-panel-checklist/": {
 "d": "2026-11-05",
@@ -1494,6 +1514,10 @@
 "https://www.blackarrowksa.com/resources/blog/dali-lighting-control-facility-managers/": {
 "d": "2026-11-05",
 "h": "8e34b395860cada0"
+},
+"https://www.blackarrowksa.com/resources/blog/ev-charger-installation-saudi-arabia/": {
+"d": "2026-11-12",
+"h": "02357289f387c7d1"
 },
 "https://www.blackarrowksa.com/resources/blog/fm200-vs-water-mist-suppression-saudi-arabia/": {
 "d": "2026-11-05",
@@ -1515,9 +1539,13 @@
 "d": "2026-11-05",
 "h": "b669d390ed2ae0ee"
 },
+"https://www.blackarrowksa.com/resources/blog/lighting-design-saudi-arabia-commercial-facade/": {
+"d": "2026-11-12",
+"h": "c306568e9787e4f0"
+},
 "https://www.blackarrowksa.com/resources/blog/mdb-smdb-db-electrical-distribution-explained/": {
-"d": "2026-11-05",
-"h": "a7abd9d117c0e5f1"
+"d": "2026-11-12",
+"h": "44cd12455540cd67"
 },
 "https://www.blackarrowksa.com/resources/blog/modular-vs-conventional-operating-room-construction/": {
 "d": "2026-11-05",
@@ -1542,6 +1570,10 @@
 "https://www.blackarrowksa.com/resources/blog/sizing-ups-hospital-critical-branch/": {
 "d": "2026-11-05",
 "h": "49252e03c1feae32"
+},
+"https://www.blackarrowksa.com/resources/blog/ups-vs-generator-vs-inverter-backup-power/": {
+"d": "2026-11-12",
+"h": "9e0ce409c0bb87ae"
 },
 "https://www.blackarrowksa.com/resources/blog/vrf-vrv-hvac-saudi-commercial-buildings/": {
 "d": "2026-11-05",

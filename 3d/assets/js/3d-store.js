@@ -720,13 +720,13 @@
   // The instalment shown includes it, and the fee is named next to it.
   function bnplFeeFor(category) { return category === '3D Printers' ? 100 : category === 'Filament' ? 50 : 0; }
   function bnplFeeText(fee) { return fee ? ' <span class="b3d-bnpl__fee">' + T('js_bnpl_fee_incl').replace('{n}', fee) + '</span>' : ''; }
-  function bnplHtml(price, currency, category) {
-    if (!bnplOk(price)) return '';
+  function bnplHtml(price, currency, category, p) {
+    if (!bnplOk(price) || (p && p.noPayLater)) return '';
     var fee = bnplFeeFor(category);
     return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price + fee, currency) + '</b> ' + T('js_bnpl_with') + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</p>';
   }
-  function bnplCardHtml(price, currency, category) {
-    if (!bnplOk(price)) return '';
+  function bnplCardHtml(price, currency, category, p) {
+    if (!bnplOk(price) || (p && p.noPayLater)) return '';
     var fee = bnplFeeFor(category);
     return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price + fee, currency) + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</span>';
   }
@@ -762,6 +762,11 @@
     var loc = isAr() ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB';
     try { return d.toLocaleDateString(loc, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }); }
     catch (e) { return d.toISOString().slice(0, 10); }
+  }
+  // A pre-order shows its expected delivery from the catalog ("preorderEta"), not the stock estimate.
+  function preorderEtaHtml(p) {
+    var t = L(p, 'preorderEta');
+    return t ? '<p class="b3d-eta"><span aria-hidden="true">&#128230;</span> <span>' + t + '</span></p>' : '';
   }
   function etaHtml(p) {
     var art = p.category === '3D Artwork';
@@ -990,7 +995,7 @@
           '<div class="b3d-price-wrap">' +
             '<div class="b3d-price-col">' +
               '<div class="b3d-price-block" data-card-price="' + p.id + '">' + priceHtml + '</div>' + vatNoteHtml(p) +
-              (p.category === '3D Printers' && !pillOut && !simpleOut ? '<div data-card-bnpl>' + bnplCardHtml(pillProduct ? p.variants[pillIdx].price : currentPrice(p), p.currency, p.category) + '</div>' : '') +
+              (p.category === '3D Printers' && !pillOut && !simpleOut ? '<div data-card-bnpl>' + bnplCardHtml(pillProduct ? p.variants[pillIdx].price : currentPrice(p), p.currency, p.category, p) + '</div>' : '') +
             '</div>' +
             '<a href="' + whatsappCardLink(p) + '" target="_blank" rel="noopener noreferrer" class="b3d-card__whatsapp" aria-label="' + T('js_ask_whatsapp') + ' — ' + L(p, 'name') + '" title="' + T('js_ask_whatsapp') + '">' + WHATSAPP_SVG + '</a>' +
           '</div>' +
@@ -1056,7 +1061,7 @@
         var priceEl = pCard.querySelector('[data-card-price]');
         if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
         var bnplEl = pCard.querySelector('[data-card-bnpl]');
-        if (bnplEl && product) bnplEl.innerHTML = bnplCardHtml(product.variants[pIdx].price, product.currency, product.category);
+        if (bnplEl && product) bnplEl.innerHTML = bnplCardHtml(product.variants[pIdx].price, product.currency, product.category, product);
         var pv = product && product.variants[pIdx];
         var pImg = pCard.querySelector('.b3d-card__visual img');
         if (pv && pv.image && pImg) { pImg.removeAttribute('srcset'); pImg.removeAttribute('sizes'); pImg.src = pv.image; }
@@ -2223,6 +2228,35 @@
     recap.innerHTML = html;
   }
 
+  // Some products (e.g. a high-value pre-order) are sold with bank transfer, card and Apple Pay
+  // only: no Tabby, Tamara or Cash at Pickup. The server refuses those methods for them too
+  // (api/_lib/pricing.js buildOrder, api/bank-order.js).
+  function syncRestrictedPayments(restricted) {
+    var picked = null;
+    ['tabby', 'tamara', 'cash'].forEach(function (m) {
+      var btn = document.querySelector('[data-pm="' + m + '"]');
+      if (!btn) return;
+      btn.hidden = restricted;
+      if (restricted && btn.getAttribute('aria-pressed') === 'true') picked = btn;
+    });
+    if (picked) {
+      picked.setAttribute('aria-pressed', 'false');
+      document.querySelectorAll('[data-pm-detail]').forEach(function (d) { d.hidden = true; });
+      updateCheckoutFields(null);
+    }
+    var note = document.querySelector('[data-b3d-paylater-note]');
+    if (!note) {
+      var notice = document.querySelector('[data-b3d-preorder-notice]');
+      if (!notice) return;
+      note = document.createElement('p');
+      note.setAttribute('data-b3d-paylater-note', '');
+      note.className = 'b3d-paylater-note';
+      notice.appendChild(note);
+    }
+    note.hidden = !restricted;
+    note.textContent = T('cart_no_paylater_note');
+  }
+
   var __snapCheckoutFired = false;
   function updateCheckoutFields(method) {
     var checkout = document.querySelector('[data-b3d-checkout]');
@@ -3072,6 +3106,7 @@
       var artworkSubtotal = 0;
       var summaryLines = [];
       var hasPreorder = false;
+      var noPayLater = false;
       listEl.innerHTML = ids.map(function (id) {
         var parsed = parseLineId(id);
         var p = byId[parsed.productId];
@@ -3083,6 +3118,7 @@
         subtotal += lineTotal;
         if (p.category === '3D Artwork') artworkSubtotal += lineTotal;
         if (p.preorder) hasPreorder = true;
+        if (p.noPayLater) noPayLater = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
         var bundleLineHtml = '';
         var pickNames = null;
@@ -3121,6 +3157,7 @@
 
       var preorderNotice = document.querySelector('[data-b3d-preorder-notice]');
       if (preorderNotice) preorderNotice.hidden = !hasPreorder;
+      syncRestrictedPayments(noPayLater);
 
       var crosssell = document.querySelector('[data-b3d-cart-crosssell]');
       if (crosssell) {
@@ -3580,10 +3617,10 @@
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
-          '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency, p.category)) + '</div>' +
+          '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency, p.category, p)) + '</div>' +
           variantSelectorHtml +
           trustRowHtml(p) +
-          '<div data-pd-eta>' + (selectionOut() || p.preorder ? '' : etaHtml(p)) + '</div>' +
+          '<div data-pd-eta>' + (p.preorder ? preorderEtaHtml(p) : selectionOut() ? '' : etaHtml(p)) + '</div>' +
           '<p class="b3d-pd__desc">' + (L(p, 'description') || '') + '</p>' +
           featuresHtml(p) +
           kitBoxHtml(p) +
@@ -3753,7 +3790,7 @@
             selectedVariant = picked.length - bundleMin;
             if (pdPriceEl) pdPriceEl.innerHTML = variantPriceHtml(p.variants[selectedVariant], p);
             var bnplWrapB = container.querySelector('[data-pd-bnpl]');
-            if (bnplWrapB) bnplWrapB.innerHTML = bnplHtml(p.variants[selectedVariant].price, p.currency, p.category);
+            if (bnplWrapB) bnplWrapB.innerHTML = bnplHtml(p.variants[selectedVariant].price, p.currency, p.category, p);
           }
         }
         container.querySelectorAll('[data-bundle-item]').forEach(function (btn) {
@@ -3797,11 +3834,11 @@
         syncStockBadge(container.querySelector('.b3d-pd__visual'), p, hasVariants ? p.variants[selectedVariant] : null);
         if (restockEl) restockEl.hidden = !selectionOut();
         var etaWrap = container.querySelector('[data-pd-eta]');
-        if (etaWrap) etaWrap.innerHTML = (selectionOut() || p.preorder) ? '' : etaHtml(p);
+        if (etaWrap) etaWrap.innerHTML = p.preorder ? preorderEtaHtml(p) : selectionOut() ? '' : etaHtml(p);
         var waBtn = container.querySelector('[data-pd-wa]');
         if (waBtn && hasVariants) waBtn.href = waHref(p, p.variants[selectedVariant]);
         var bnplWrap = container.querySelector('[data-pd-bnpl]');
-        if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency, p.category);
+        if (bnplWrap) bnplWrap.innerHTML = selectionOut() ? '' : bnplHtml(mainPrice(), p.currency, p.category, p);
         refreshFbt();
       }
       if (fbtEl) {

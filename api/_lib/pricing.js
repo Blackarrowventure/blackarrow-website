@@ -162,9 +162,17 @@ function itemCountLine(lines) {
   return 'Items: ' + parts.join(' · ') + ' (' + all + ' in total)';
 }
 
+// True when the cart holds a product that may only be paid by bank transfer, card or Apple Pay.
+function hasNoPayLater(items, products) {
+  const byId = new Map((products || catalog.products).map((p) => [p.id, p]));
+  return (Array.isArray(items) ? items : []).some((i) => { const p = byId.get(i && i.productId); return !!(p && p.noPayLater); });
+}
+
 function buildOrder(items, shipping, payLater, rewards, products, city) {
   const priced = priceCart(items, products);
   if (!priced) return { error: 'invalid_cart' };
+  // Products sold without pay-later (catalog "noPayLater", e.g. a high-value pre-order): no Tabby / Tamara.
+  if (payLater && hasNoPayLater(items, products)) return { error: 'pay_later_not_available' };
   if (shipping !== 'regular' && shipping !== 'fast' && shipping !== 'pickup') return { error: 'invalid_shipping' };
 
   // Free delivery only ever waives Regular shipping; Fast always stays paid. Self pickup is always free.
@@ -187,4 +195,4 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   return Object.assign({}, priced, { shippingCents, shippingLabel, feeCents, discountCents, totalCents, summary });
 }
 
-module.exports = { buildOrder, groupedSummary, stockProblem, freeCity, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };
+module.exports = { buildOrder, hasNoPayLater, groupedSummary, stockProblem, freeCity, FREE_SHIP_ARTWORK_MIN, FREE_SHIP_ORDER_MIN };

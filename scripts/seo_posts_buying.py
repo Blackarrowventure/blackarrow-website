@@ -442,7 +442,7 @@ POSTS = [
             'title': 'Bambu Lab Printer Prices in Saudi Arabia | Black Arrow 3D',
             'desc': 'Bambu Lab printer prices in Saudi Arabia, from the A1 mini to the H2C and the new H3C: current SAR prices, stock, who each suits, and combo vs standalone.',
             'meta_line': 'Buying guide &middot; Updated November 5, 2026 &middot; 9 min read',
-            'lead': 'Black Arrow 3D sells eleven Bambu Lab printers in Saudi Arabia, from the compact A1 mini to the professional H2C, with the H3C tool changer coming soon. Here are the current SAR prices, what is in stock, and which one fits which kind of maker.',
+            'lead': 'Black Arrow 3D sells eleven Bambu Lab printers in Saudi Arabia, from the compact A1 mini to the professional H2C, with the H3C tool changer now on pre-order. Here are the current SAR prices, what is in stock, and which one fits which kind of maker.',
             'card': ('Buying guide', '8 min read', 'All eleven Bambu Lab printers we sell in Saudi Arabia, including the H3C, with current SAR prices, stock and who each one is for.'),
             'body': '''
           <h2>Quick answer</h2>
@@ -467,7 +467,7 @@ POSTS = [
                 <tr><td><a href="/3d/product/bambu-lab-x1e-combo/">X1E</a></td><td>256 x 256 x 256 mm</td><td>Combo (AMS)</td><td><span data-b3d-price="bambu-lab-x1e-combo">11,999</span></td><td><span data-b3d-stock="bambu-lab-x1e-combo">In stock</span></td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-h2d-combo/">H2D</a></td><td>350 x 320 x 325 mm (dual nozzle)</td><td>AMS Combo (AMS 2 Pro)</td><td><span data-b3d-price="bambu-lab-h2d-combo">13,999</span></td><td><span data-b3d-stock="bambu-lab-h2d-combo">Pre-order</span></td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-h2c-combo/">H2C</a></td><td>330 x 320 x 325 mm</td><td>Combo</td><td><span data-b3d-price="bambu-lab-h2c-combo">15,990</span></td><td><span data-b3d-stock="bambu-lab-h2c-combo">In stock</span></td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-h3c/">H3C</a></td><td>330 x 320 x 325 mm (tool changer)</td><td>With AMS 3H</td><td><span data-b3d-price="bambu-lab-h3c">17,899</span></td><td><span data-b3d-stock="bambu-lab-h3c">Coming Soon</span></td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-h3c/">H3C</a></td><td>330 x 320 x 325 mm (tool changer)</td><td>With AMS 3H</td><td><span data-b3d-price="bambu-lab-h3c">17,899</span></td><td><span data-b3d-stock="bambu-lab-h3c">Pre-order</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -513,8 +513,8 @@ POSTS = [
           <p>The H2C is a professional-tier, enclosed printer with a 330 x 320 x 325&nbsp;mm build volume, a 350&nbsp;°C hot end, chamber temperatures up to 65&nbsp;°C and a top speed of 1,000&nbsp;mm/s. It handles PLA, PETG, TPU, ABS, ASA, PA and similar materials depending on settings, and weighs 32.5&nbsp;kg. Multi-color and multi-material capability depends on configuration.</p>
           <p><strong>Who it is for:</strong> workshops, retailers and engineering users who need higher output and advanced materials. It is listed at 15,990&nbsp;SAR; check the product page for availability.</p>
 
-          <h2>Bambu Lab H3C: the tool changer (coming soon)</h2>
-          <p>The <a href="/3d/product/bambu-lab-h3c/">H3C</a> is Bambu Lab’s tool-changing printer: 9 PrintTools on a Swaptek tool changer, a material switch of about 6 seconds (Bambu Lab figure), a 330 x 320 x 325&nbsp;mm build volume, a 350&nbsp;°C hot end, a 120&nbsp;°C bed and active chamber heating up to 65&nbsp;°C. It comes with the AMS 3H, which holds 9 spools and dries filament at up to 85&nbsp;°C. It is coming soon at <span data-b3d-price="bambu-lab-h3c">17,899</span>&nbsp;SAR; read the full <a href="/3d/blog/bambu-lab-h3c-tool-changer-saudi-arabia/">H3C guide</a>.</p>
+          <h2>Bambu Lab H3C: the tool changer (pre-order)</h2>
+          <p>The <a href="/3d/product/bambu-lab-h3c/">H3C</a> is Bambu Lab’s tool-changing printer: 9 PrintTools on a Swaptek tool changer, a material switch of about 6 seconds (Bambu Lab figure), a 330 x 320 x 325&nbsp;mm build volume, a 350&nbsp;°C hot end, a 120&nbsp;°C bed and active chamber heating up to 65&nbsp;°C. It comes with the AMS 3H, which holds 9 spools and dries filament at up to 85&nbsp;°C. It is on pre-order at <span data-b3d-price="bambu-lab-h3c">17,899</span>&nbsp;SAR, with delivery expected in the first week of December 2026; read the full <a href="/3d/blog/bambu-lab-h3c-tool-changer-saudi-arabia/">H3C guide</a>.</p>
           <p><strong>Who it is for:</strong> studios and engineering users who print many colours or materials in one job and want less purge waste than a single-nozzle printer.</p>
 
           <h2>Combo vs standalone</h2>
@@ -559,7 +559,7 @@ POSTS = [
             'title': 'أسعار طابعات Bambu Lab في السعودية | Black Arrow 3D',
             'desc': 'أسعار طابعات Bambu Lab في السعودية من A1 mini إلى H2C وH3C الجديدة: الأسعار الحالية بالريال والمخزون، ولمن تناسب كل طابعة، والكومبو أم المنفردة.',
             'meta_line': 'دليل شراء &middot; تحديث 5 نوفمبر 2026 &middot; 9 دقائق قراءة',
-            'lead': 'يبيع Black Arrow 3D إحدى عشرة طابعة من Bambu Lab في السعودية، من A1 mini المدمجة إلى H2C الاحترافية، مع طابعة تغيير الأدوات H3C قريباً. إليك الأسعار الحالية بالريال، والمتوفر منها، وأي طابعة تناسب أي نوع من المستخدمين.',
+            'lead': 'يبيع Black Arrow 3D إحدى عشرة طابعة من Bambu Lab في السعودية، من A1 mini المدمجة إلى H2C الاحترافية، مع طابعة تغيير الأدوات H3C المتاحة الآن للطلب المسبق. إليك الأسعار الحالية بالريال، والمتوفر منها، وأي طابعة تناسب أي نوع من المستخدمين.',
             'card': ('دليل شراء', '8 دقائق قراءة', 'طابعات Bambu Lab الإحدى عشرة التي نبيعها في السعودية ومنها H3C، بالأسعار الحالية والمخزون ولمن تناسب كل واحدة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
@@ -584,7 +584,7 @@ POSTS = [
                 <tr><td><a href="/3d/ar/product/bambu-lab-x1e-combo/">X1E</a></td><td>256 x 256 x 256 مم</td><td>كومبو (AMS)</td><td><span data-b3d-price="bambu-lab-x1e-combo">11,999</span></td><td><span data-b3d-stock="bambu-lab-x1e-combo">متوفرة</span></td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-h2d-combo/">H2D</a></td><td>350 x 320 x 325 مم (فوهتان)</td><td>AMS كومبو (AMS 2 Pro)</td><td><span data-b3d-price="bambu-lab-h2d-combo">13,999</span></td><td><span data-b3d-stock="bambu-lab-h2d-combo">طلب مسبق</span></td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-h2c-combo/">H2C</a></td><td>330 x 320 x 325 مم</td><td>كومبو</td><td><span data-b3d-price="bambu-lab-h2c-combo">15,990</span></td><td><span data-b3d-stock="bambu-lab-h2c-combo">متوفرة</span></td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-h3c/">H3C</a></td><td>330 x 320 x 325 مم (تغيير أدوات)</td><td>مع AMS 3H</td><td><span data-b3d-price="bambu-lab-h3c">17,899</span></td><td><span data-b3d-stock="bambu-lab-h3c">قريباً</span></td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-h3c/">H3C</a></td><td>330 x 320 x 325 مم (تغيير أدوات)</td><td>مع AMS 3H</td><td><span data-b3d-price="bambu-lab-h3c">17,899</span></td><td><span data-b3d-stock="bambu-lab-h3c">طلب مسبق</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -630,8 +630,8 @@ POSTS = [
           <p>H2C طابعة احترافية مغلقة بحجم طباعة 330 x 320 x 325 مم، وهوت إند حتى 350 °م، وحرارة حجرة تصل إلى 65 °م، وسرعة قصوى 1,000 مم/ث. تتعامل مع PLA وPETG وTPU وABS وASA وPA وخامات مشابهة بحسب الإعدادات، ووزنها 32.5 كجم. قدرات الألوان والخامات المتعددة تعتمد على الإعداد.</p>
           <p><strong>لمن تناسب:</strong> الورش وتجار التجزئة والمستخدمون الهندسيون الذين يحتاجون إنتاجًا أعلى وخامات متقدمة. سعرها 15,990 ريالًا، وتحقق من التوفر في صفحة المنتج.</p>
 
-          <h2>Bambu Lab H3C: طابعة تغيير الأدوات (قريباً)</h2>
-          <p><a href="/3d/ar/product/bambu-lab-h3c/">H3C</a> هي طابعة تغيير الأدوات من Bambu Lab: تسع أدوات طباعة بنظام Swaptek، وتبديل المادة في نحو 6 ثوانٍ (بحسب Bambu Lab)، وحجم طباعة 330 x 320 x 325 مم، وهوت إند حتى 350 °م، وسرير حتى 120 °م، وتسخين نشط للحجرة حتى 65 °م. وتأتي مع AMS 3H الذي يحمل 9 بكرات ويجفف الفلمنت حتى 85 °م. تتوفر قريباً بسعر <span data-b3d-price="bambu-lab-h3c">17,899</span> ريالًا، واقرأ <a href="/3d/ar/blog/bambu-lab-h3c-tool-changer-saudi-arabia/">دليل H3C</a> الكامل.</p>
+          <h2>Bambu Lab H3C: طابعة تغيير الأدوات (طلب مسبق)</h2>
+          <p><a href="/3d/ar/product/bambu-lab-h3c/">H3C</a> هي طابعة تغيير الأدوات من Bambu Lab: تسع أدوات طباعة بنظام Swaptek، وتبديل المادة في نحو 6 ثوانٍ (بحسب Bambu Lab)، وحجم طباعة 330 x 320 x 325 مم، وهوت إند حتى 350 °م، وسرير حتى 120 °م، وتسخين نشط للحجرة حتى 65 °م. وتأتي مع AMS 3H الذي يحمل 9 بكرات ويجفف الفلمنت حتى 85 °م. متاحة للطلب المسبق بسعر <span data-b3d-price="bambu-lab-h3c">17,899</span> ريالًا، والتسليم المتوقع في الأسبوع الأول من ديسمبر 2026، واقرأ <a href="/3d/ar/blog/bambu-lab-h3c-tool-changer-saudi-arabia/">دليل H3C</a> الكامل.</p>
           <p><strong>لمن تناسب:</strong> الاستوديوهات والمستخدمين الهندسيين الذين يطبعون ألواناً أو خامات كثيرة في مهمة واحدة ويريدون هدراً أقل من الطابعات أحادية الفوهة.</p>
 
           <h2>الكومبو أم المنفردة</h2>
