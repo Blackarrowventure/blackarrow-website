@@ -25,6 +25,16 @@
 
   function showError(errEl, error) {
     var message = (error && error.message) || 'Something went wrong. Please try again.';
+    // The confirmation / reset email couldn't be sent (the email service's hourly limit).
+    // Waiting 30 seconds doesn't help, so say what does.
+    if ((error && error.code === 'over_email_send_rate_limit') || /email rate limit/i.test(message)) {
+      var ar = document.documentElement.lang === 'ar';
+      errEl.textContent = ar
+        ? 'لم نتمكن من إرسال بريد التأكيد الآن بسبب ضغط مؤقت. يرجى المحاولة بعد قليل، أو راسلنا عبر واتساب على ‎+966 56 022 4715 وسننشئ حسابك.'
+        : "We couldn't send your confirmation email right now (our email service is busy). Please try again a little later, or message us on WhatsApp at +966 56 022 4715 and we'll set up your account.";
+      errEl.hidden = false;
+      return;
+    }
     if (!isRateLimitMessage(message)) {
       errEl.textContent = message;
       errEl.hidden = false;
