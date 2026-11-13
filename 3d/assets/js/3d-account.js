@@ -66,6 +66,50 @@
     })();
   }
 
+  /* The account system can only send a few emails per hour for the WHOLE site, so a customer
+     pressing "Create Account", "resend" or "Forgot password" again and again would use them up for
+     everyone. This browser therefore sends at most one email per address every 10 minutes, and at
+     most 3 emails per hour in total. (Stored in this browser only; the email service's own limit
+     still applies on top.) */
+  var MAIL_KEY = 'b3d_mail_sent_v1';
+  var MAIL_SAME_ADDRESS_MS = 10 * 60 * 1000;
+  var MAIL_PER_HOUR = 3;
+
+  function mailLog() {
+    try {
+      var log = JSON.parse(localStorage.getItem(MAIL_KEY) || '[]');
+      var cutoff = Date.now() - 60 * 60 * 1000;
+      return Array.isArray(log) ? log.filter(function (e) { return e && e.at > cutoff; }) : [];
+    } catch (e) { return []; }
+  }
+
+  function recordMailSent(email) {
+    var log = mailLog();
+    log.push({ email: String(email || '').trim().toLowerCase(), at: Date.now() });
+    try { localStorage.setItem(MAIL_KEY, JSON.stringify(log)); } catch (e) {}
+  }
+
+  // Returns a message to show instead of sending, or '' when an email may be sent.
+  function mailBlockedMessage(email) {
+    var ar = document.documentElement.lang === 'ar';
+    var addr = String(email || '').trim().toLowerCase();
+    var log = mailLog();
+    var now = Date.now();
+    var last = log.filter(function (e) { return e.email === addr; }).pop();
+    if (last && now - last.at < MAIL_SAME_ADDRESS_MS) {
+      var mins = Math.max(1, Math.ceil((MAIL_SAME_ADDRESS_MS - (now - last.at)) / 60000));
+      return ar
+        ? 'أرسلنا رسالة إلى هذا البريد قبل قليل. يرجى التحقق من صندوق الوارد ومجلد Junk أو Spam (قد تستغرق بضع دقائق). يمكنك طلب رسالة جديدة بعد ' + mins + ' دقيقة.'
+        : 'We already sent an email to this address a few minutes ago. Please check your inbox and the Junk or Spam folder (it can take a few minutes). You can ask for another one in ' + mins + ' min.';
+    }
+    if (log.length >= MAIL_PER_HOUR) {
+      return ar
+        ? 'تم إرسال عدة رسائل من هذا الجهاز خلال الساعة الماضية. يرجى التحقق من بريدك (ومجلد Junk أو Spam) والمحاولة لاحقًا، أو راسلنا عبر واتساب على ‎+966 56 022 4715.'
+        : 'Several emails were already sent from this device in the last hour. Please check your email (and the Junk or Spam folder) and try again later, or message us on WhatsApp at +966 56 022 4715.';
+    }
+    return '';
+  }
+
   /* Wraps a form's submit handler so a second submit (double-click,
      double-tap, Enter held down, slow network + impatient retry) is
      ignored outright instead of firing a second real request, and
@@ -233,8 +277,15 @@
           err.hidden = false;
           return Promise.reject(new Error('dob'));
         }
+        var signupEmail = document.getElementById('signup-email').value;
+        var blocked = mailBlockedMessage(signupEmail);
+        if (blocked) {
+          err.textContent = blocked;
+          err.hidden = false;
+          return Promise.reject(new Error('mail_guard'));
+        }
         return window.BlackArrow3DAuth.signUp(
-          document.getElementById('signup-email').value,
+          signupEmail,
           document.getElementById('signup-password').value,
           {
             name: document.getElementById('signup-name').value.trim(),
@@ -248,6 +299,7 @@
           var user = res && res.data && res.data.user;
           var session = res && res.data && res.data.session;
           if (user && !session) {
+            recordMailSent(signupEmail);
             signupForm.reset();
             success.hidden = false;
           }
@@ -268,8 +320,15 @@
             err.hidden = false;
             return;
           }
+          var blocked = mailBlockedMessage(email);
+          if (blocked) {
+            err.textContent = blocked;
+            err.hidden = false;
+            return;
+          }
           resendLink.disabled = true;
           window.BlackArrow3DAuth.resendConfirmation(email).then(function () {
+            recordMailSent(email);
             msg.textContent = t('account_resend_done', 'If an account is waiting for confirmation, we have emailed a new link. Check your inbox and the Junk or Spam folder.');
             msg.hidden = false;
           }).catch(function (error) { showError(err, error); }).then(function () { resendLink.disabled = false; });
@@ -296,7 +355,15 @@
         var success = document.getElementById('reset-success');
         err.hidden = true;
         success.hidden = true;
-        return window.BlackArrow3DAuth.resetPassword(document.getElementById('reset-email').value).then(function () {
+        var resetEmail = document.getElementById('reset-email').value;
+        var blocked = mailBlockedMessage(resetEmail);
+        if (blocked) {
+          err.textContent = blocked;
+          err.hidden = false;
+          return Promise.resolve();
+        }
+        return window.BlackArrow3DAuth.resetPassword(resetEmail).then(function () {
+          recordMailSent(resetEmail);
           success.hidden = false;
         }).catch(function (error) { showError(err, error); throw error; });
       });
