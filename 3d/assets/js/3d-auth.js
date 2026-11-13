@@ -126,6 +126,11 @@
     return client.auth.signUp({ email: email, password: password, options: { data: meta } }).then(function (res) {
       if (res.error) throw res.error;
       var user = res.data && res.data.user;
+      // Supabase hides "this email already has an account": it answers with a user that has no
+      // identities and sends no email. Say so, instead of "check your email" for a mail that never comes.
+      if (user && !res.data.session && Array.isArray(user.identities) && user.identities.length === 0) {
+        throw new Error('User already registered');
+      }
       // Only possible when there is already a session (email confirmation off);
       // otherwise finishSignupProfile() writes the record on the first sign-in.
       if (user && res.data.session) return upsertCustomerRow(user, extra).then(function () { return res; });
