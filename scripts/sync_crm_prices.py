@@ -159,7 +159,7 @@ def save_stock(rows):
 def main():
     api = sys.argv[sys.argv.index('--api') + 1] if '--api' in sys.argv else API
     rows = fetch_rows(api)
-    raw = read(CATALOG)
+    raw = read(CATALOG).replace('\r\n', '\n')  # a Windows checkout has CRLF; block_span expects LF
     products = json.loads(raw)['products']
     raw, prices_changed = apply_crm_prices(raw, products, rows)
     if prices_changed:

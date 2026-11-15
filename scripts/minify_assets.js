@@ -68,6 +68,11 @@ const cfgSrc = `module.exports = {
 `;
 fs.writeFileSync(path.join(tmp, 'purgecss.config.js'), cfgSrc);
 run(`npx -y purgecss@6.0.0 --config ${q(path.join(tmp, 'purgecss.config.js'))}`);
-run(`npx -y lightningcss-cli@1.28.2 --minify --targets ">= 0.25%" ${q(path.join(tmp, 'assets', 'css', 'styles.css'))} -o ${q('assets/css/styles-3d.min.css')}`);
+// purgecss keeps the source's folder path on Windows (tmp/assets/css/styles.css) but writes
+// tmp/styles.css on Linux (the nightly GitHub price sync), so look in both. The nightly sync
+// failed on this from 5 Nov 2026 and pages kept stale prices.
+const purged = [path.join(tmp, 'assets', 'css', 'styles.css'), path.join(tmp, 'styles.css')].find((f) => fs.existsSync(f));
+if (!purged) throw new Error('purgecss output not found in ' + tmp);
+run(`npx -y lightningcss-cli@1.28.2 --minify --targets ">= 0.25%" ${q(purged)} -o ${q('assets/css/styles-3d.min.css')}`);
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log('assets/css/styles.css (3D subset)'.padEnd(34), kb('assets/css/styles.css').padStart(7), '->', kb('assets/css/styles-3d.min.css'));

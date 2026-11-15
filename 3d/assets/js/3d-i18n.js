@@ -105,7 +105,7 @@
       hub_why_li2: 'Genuine spare parts and consumables kept in stock — not a one-time drop-ship',
       hub_why_li3: 'Setup help and after-sales support from a real local team, in Arabic or English',
       hub_why_li4: '1-year manufacturer warranty on every 3D printer, from every brand we sell',
-      hub_why_li5: 'Delivery across Saudi Arabia, with free standard delivery to Khobar and Dammam, on every 3D printer and on orders of 3,000 SAR or more',
+      hub_why_li5: 'Delivery across Saudi Arabia, with free standard delivery to Khobar and Dammam, on every 3D printer and on orders of 500 SAR or more',
       hub_why_li6: 'Pay by bank transfer, mada, Visa, Mastercard or Apple Pay, or in instalments with Tabby or Tamara (any pay-later fee is shown before you pay)',
       hub_why_more: 'Delivery, payment and fees in full',
       hub_trust_5: '1-year manufacturer warranty on printers',
@@ -532,7 +532,7 @@
       pfaq_warranty_a_accessory: 'No. The 1-year manufacturer warranty covers 3D printers only. An unused accessory with its seal unopened, in its original packaging, can be returned or exchanged within 7 days of delivery. If your order arrives damaged, send us clear photos within 3 days of delivery and we will arrange a return.',
       pfaq_delivery_q: 'How much is delivery?',
       pfaq_delivery_a_printer: 'Standard delivery is free on every 3D printer, anywhere in Saudi Arabia. Fast delivery is available for a fee, and self pickup is free.',
-      pfaq_delivery_a_other: 'Standard delivery is free in Khobar and Dammam, on orders of 3,000 SAR or more, and on any order that includes a 3D printer. Self pickup is always free. Any other delivery fee is shown at checkout before you pay.',
+      pfaq_delivery_a_other: 'Standard delivery is free in Khobar and Dammam, on orders of 500 SAR or more, and on any order that includes a 3D printer. Self pickup is always free. Any other delivery fee is shown at checkout before you pay.',
       pfaq_bnpl_q: 'Can I pay in instalments?',
       pfaq_bnpl_a_printer: 'Yes, with Tabby or Tamara at checkout. Orders that include a 3D printer have a 100 SAR pay-later fee, which is already included in the instalment amount shown on this page.',
       js_compare_all_printers: 'Compare all 3D printers',
@@ -592,7 +592,7 @@
       js_product_not_found_desc: 'That product isn’t in the catalog yet.',
       js_back_to_shop: 'Back to shop',
       js_shipping_heading: 'Shipping',
-      js_shipping_desc: 'Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia. Standard shipping is free to Khobar and Dammam, on any order with a 3D printer, on 3D Artwork from 100 SAR and on orders of 3,000 SAR or more. Self pickup is free.',
+      js_shipping_desc: 'Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia. Standard shipping is free to Khobar and Dammam, on any order with a 3D printer, on 3D Artwork from 100 SAR and on orders of 500 SAR or more. Self pickup is free.',
       js_returns_heading: 'Returns & Exchanges',
       js_returns_desc_prefix: 'See our',
       js_returns_desc_suffix: 'for the return policy.',
@@ -626,6 +626,8 @@
       js_best_seller_badge_n: 'Top Pick',
       js_vat_included: 'VAT included',
       slide_tag_soon: 'Coming soon',
+      slide_tag_preorder: 'Pre-order now · delivery first week of December',
+      slide_cta_preorder: 'Reserve yours',
       slide_h3c_title: 'Bambu Lab H3C',
       slide_h3c_text: 'Bambu Lab’s first tool changer: nine PrintTools and a 6-second material switch.',
       slide_cta_details: 'See the details',
@@ -638,7 +640,7 @@
       slide_kr_title: 'New KINGROON filament',
       slide_kr_text: 'New PLA and PETG colours, plus PETG HS high-speed filament.',
       slide_cta: 'Shop now',
-      announce_1: 'Pre-order now: Bambu Lab H3C, the 9-tool tool changer, delivery first week of December => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 3,000 SAR or more · Send your custom design or a MakerWorld design to get it printed'
+      announce_1: 'Pre-order now: Bambu Lab H3C, the 9-tool tool changer, delivery first week of December => /3d/product/bambu-lab-h3c/ · Now available: Bambu Lab PLA Basic & PLA Matte filament, limited stock => /3d/shop/filament/ · New KINGROON colours and PETG HS high-speed filament just arrived => /3d/product/kingroon-petg-hs-filament/ · Your favorite 3D items, your way: buy now and pay in instalments with Tabby or Tamara · Nationwide Saudi delivery · Free standard delivery in Khobar & Dammam · Free standard delivery on every 3D printer and on orders of 500 SAR or more · Send your custom design or a MakerWorld design to get it printed'
     },
     ar: {
       nav_home: 'الرئيسية',
@@ -734,7 +736,7 @@
       hub_why_li2: 'قطع غيار ومستهلكات أصلية متوفرة باستمرار، وليست بنظام الشحن المباشر لمرة واحدة',
       hub_why_li3: 'مساعدة في التركيب ودعم ما بعد البيع من فريق محلي حقيقي، بالعربية أو الإنجليزية',
       hub_why_li4: 'ضمان الشركة المصنّعة لمدة سنة على كل طابعة ثلاثية الأبعاد، من جميع العلامات التي نبيعها',
-      hub_why_li5: 'توصيل لجميع مناطق المملكة، مع توصيل عادي مجاني إلى الخبر والدمام، ولكل طابعة ثلاثية الأبعاد، وللطلبات من 3,000 ريال فأكثر',
+      hub_why_li5: 'توصيل لجميع مناطق المملكة، مع توصيل عادي مجاني إلى الخبر والدمام، ولكل طابعة ثلاثية الأبعاد، وللطلبات من 500 ريال فأكثر',
       hub_why_li6: 'ادفع بالتحويل البنكي أو مدى أو فيزا أو ماستركارد أو Apple Pay، أو بالتقسيط عبر تابي أو تمارا (تظهر أي رسوم للدفع الآجل قبل الدفع)',
       hub_why_more: 'تفاصيل التوصيل والدفع والرسوم كاملة',
       hub_trust_5: 'ضمان الشركة المصنّعة لمدة سنة على الطابعات',
@@ -1161,7 +1163,7 @@
       pfaq_warranty_a_accessory: 'لا. ضمان الشركة المصنّعة لمدة سنة يشمل الطابعات ثلاثية الأبعاد فقط. ويمكن إرجاع الإكسسوار غير المستخدم أو استبداله خلال 7 أيام من الاستلام، بشرط ألا يكون الختم مفتوحًا وأن يكون في عبوته الأصلية. وإذا وصل طلبك تالفًا، أرسل لنا صورًا واضحة خلال 3 أيام من الاستلام وسنرتّب الإرجاع.',
       pfaq_delivery_q: 'كم تكلفة التوصيل؟',
       pfaq_delivery_a_printer: 'التوصيل العادي مجاني لكل طابعة ثلاثية الأبعاد إلى أي مكان في المملكة. والتوصيل السريع متاح برسوم، والاستلام الذاتي مجاني.',
-      pfaq_delivery_a_other: 'التوصيل العادي مجاني في الخبر والدمام، وللطلبات بقيمة 3,000 ريال فأكثر، ولأي طلب يتضمن طابعة ثلاثية الأبعاد. والاستلام الذاتي مجاني دائمًا. وتظهر أي رسوم توصيل أخرى عند إتمام الطلب قبل الدفع.',
+      pfaq_delivery_a_other: 'التوصيل العادي مجاني في الخبر والدمام، وللطلبات بقيمة 500 ريال فأكثر، ولأي طلب يتضمن طابعة ثلاثية الأبعاد. والاستلام الذاتي مجاني دائمًا. وتظهر أي رسوم توصيل أخرى عند إتمام الطلب قبل الدفع.',
       pfaq_bnpl_q: 'هل يمكنني الدفع بالتقسيط؟',
       pfaq_bnpl_a_printer: 'نعم، عبر تابي أو تمارا عند إتمام الطلب. وتُضاف رسوم دفع لاحق بقيمة 100 ريال على الطلبات التي تتضمن طابعة ثلاثية الأبعاد، وهي مشمولة مسبقًا في مبلغ القسط المعروض في هذه الصفحة.',
       js_compare_all_printers: 'قارن جميع الطابعات ثلاثية الأبعاد',
@@ -1221,7 +1223,7 @@
       js_product_not_found_desc: 'هذا المنتج غير متوفر في الكتالوج بعد.',
       js_back_to_shop: 'العودة إلى المتجر',
       js_shipping_heading: 'الشحن',
-      js_shipping_desc: 'شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية. الشحن العادي مجاني إلى الخبر والدمام، ولأي طلب يتضمن طابعة ثلاثية الأبعاد، ولمنتجات الفن ثلاثي الأبعاد من 100 ريال، وللطلبات من 3,000 ريال فأكثر. الاستلام الذاتي مجاني.',
+      js_shipping_desc: 'شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية. الشحن العادي مجاني إلى الخبر والدمام، ولأي طلب يتضمن طابعة ثلاثية الأبعاد، ولمنتجات الفن ثلاثي الأبعاد من 100 ريال، وللطلبات من 500 ريال فأكثر. الاستلام الذاتي مجاني.',
       js_returns_heading: 'الإرجاع والاستبدال',
       js_returns_desc_prefix: 'راجع',
       js_returns_desc_suffix: 'لمعرفة سياسة الإرجاع.',
@@ -1255,6 +1257,8 @@
       js_best_seller_badge_n: 'مُختار مميز',
       js_vat_included: 'شامل ضريبة القيمة المضافة',
       slide_tag_soon: 'قريبًا',
+      slide_tag_preorder: 'اطلبها مسبقًا · التسليم في الأسبوع الأول من ديسمبر',
+      slide_cta_preorder: 'احجز طابعتك',
       slide_h3c_title: 'بامبو لاب H3C',
       slide_h3c_text: 'أول طابعة من بامبو لاب بتغيير الأدوات: تسع أدوات طباعة وتبديل المادة في 6 ثوانٍ.',
       slide_cta_details: 'شاهد التفاصيل',
@@ -1267,7 +1271,7 @@
       slide_kr_title: 'فيلامنت KINGROON جديد',
       slide_kr_text: 'ألوان PLA و PETG جديدة، وفيلامنت PETG HS عالي السرعة.',
       slide_cta: 'تسوق الآن',
-      announce_1: 'اطلبها الآن مسبقًا: بامبو لاب H3C بتسع أدوات طباعة، والتسليم في الأسبوع الأول من ديسمبر => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 3,000 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
+      announce_1: 'اطلبها الآن مسبقًا: بامبو لاب H3C بتسع أدوات طباعة، والتسليم في الأسبوع الأول من ديسمبر => /3d/ar/product/bambu-lab-h3c/ · متوفر الآن: فيلامنت Bambu Lab PLA Basic و PLA Matte، الكمية محدودة => /3d/ar/shop/filament/ · وصلت ألوان KINGROON جديدة وفيلامنت PETG HS عالي السرعة => /3d/ar/product/kingroon-petg-hs-filament/ · منتجاتك المفضلة بالتقسيط عبر تابي أو تمارا · توصيل لجميع مناطق المملكة · توصيل عادي مجاني داخل الخبر والدمام · توصيل عادي مجاني لكل طابعة ثلاثية الأبعاد وللطلبات من 500 ريال فأكثر · أرسل تصميمك الخاص أو تصميمًا من MakerWorld ليتم طباعته'
     }
   };
 

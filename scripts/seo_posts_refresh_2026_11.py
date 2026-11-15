@@ -25,7 +25,7 @@ POSTS = [
             'card': ('Buyer&#39;s guide', '9 min read', 'The best first 3D printer in Saudi Arabia for 2026, by budget, with prices in SAR and what to check before you buy.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>For most beginners in Saudi Arabia, the best first 3D printer is the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR). It calibrates itself, prints PLA and PETG reliably out of the box, and the included AMS lite gives you 4-color printing from day one. If you need bigger prints, choose the <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L</a>; if budget comes first, the <a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a>; and if you want to print ABS or ASA for car parts, start with an enclosed printer.</p>
+          <p>For most beginners in Saudi Arabia, the best first 3D printer is the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span>&nbsp;SAR). It calibrates itself, prints PLA and PETG reliably out of the box, and the included AMS lite gives you 4-color printing from day one. If you need bigger prints, choose the <a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L</a>; if budget comes first, the <a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a>; and if you want to print ABS or ASA for car parts, start with an enclosed printer.</p>
 
           <h2>The 4 things that matter in a first printer</h2>
           <ul>
@@ -42,7 +42,7 @@ POSTS = [
                 <tr><th>Printer</th><th>Build volume</th><th>Multi-color</th><th>Best for</th><th>Price (SAR)</th><th>Stock</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td>180 x 180 x 180 mm</td><td>AMS lite, 4 colors (included)</td><td>Most beginners, gifts, desks with little space</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td>180 x 180 x 180 mm</td><td>AMS lite, 4 colors (included)</td><td>Most beginners, gifts, desks with little space</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></td></tr>
                 <tr><td><a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td>260 x 260 x 255 mm</td><td>CFS Lite, up to 4 (Combo)</td><td>Tight budget, larger plate</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> / Combo <span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-stock="creality-sparkx-i7">Pre-order</span></td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L</a></td><td>330 x 320 x 325 mm</td><td>AMS lite, 4 colors (Combo)</td><td>Big prints, cosplay, helmets</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> / Combo <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td><span data-b3d-stock="bambu-lab-a2l">In stock</span></td></tr>
                 <tr><td><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td>256 x 256 x 256 mm</td><td>CANVAS, up to 4</td><td>Enclosed: ABS, ASA, carbon-fiber blends</td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span></td><td><span data-b3d-stock="elegoo-centauri-carbon-2">In stock</span></td></tr>
@@ -109,7 +109,7 @@ POSTS = [
             'card': ('دليل الشراء', '9 دقائق قراءة', 'أفضل طابعة ثلاثية الأبعاد أولى في السعودية لعام 2026 حسب الميزانية، مع الأسعار بالريال وما يجب التحقق منه قبل الشراء.'),
             'body': '''
           <h2>الإجابة السريعة</h2>
-          <p>لمعظم المبتدئين في السعودية، أفضل طابعة أولى هي <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال). تضبط نفسها تلقائيًا، وتطبع PLA وPETG بثبات من أول يوم، ووحدة AMS lite المرفقة تعطيك طباعة بأربعة ألوان مباشرة. إذا احتجت مطبوعات أكبر فاختر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L</a>، وإذا كانت الميزانية أولويتك فاختر <a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a>، وإذا أردت طباعة ABS أو ASA لقطع السيارة فابدأ بطابعة مغلقة.</p>
+          <p>لمعظم المبتدئين في السعودية، أفضل طابعة أولى هي <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال). تضبط نفسها تلقائيًا، وتطبع PLA وPETG بثبات من أول يوم، ووحدة AMS lite المرفقة تعطيك طباعة بأربعة ألوان مباشرة. إذا احتجت مطبوعات أكبر فاختر <a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L</a>، وإذا كانت الميزانية أولويتك فاختر <a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a>، وإذا أردت طباعة ABS أو ASA لقطع السيارة فابدأ بطابعة مغلقة.</p>
 
           <h2>4 أشياء تهم في الطابعة الأولى</h2>
           <ul>
@@ -126,7 +126,7 @@ POSTS = [
                 <tr><th>الطابعة</th><th>حجم الطباعة</th><th>الألوان المتعددة</th><th>الأنسب لـ</th><th>السعر (ريال)</th><th>التوفر</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td>180×180×180 ملم</td><td>AMS lite، 4 ألوان (مرفقة)</td><td>معظم المبتدئين والهدايا والمساحات الصغيرة</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td>180×180×180 ملم</td><td>AMS lite، 4 ألوان (مرفقة)</td><td>معظم المبتدئين والهدايا والمساحات الصغيرة</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></td></tr>
                 <tr><td><a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td>260×260×255 ملم</td><td>CFS Lite، حتى 4 (كومبو)</td><td>ميزانية محدودة ولوح أكبر</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> / كومبو <span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-stock="creality-sparkx-i7">طلب مسبق</span></td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L</a></td><td>330×320×325 ملم</td><td>AMS lite، 4 ألوان (كومبو)</td><td>المطبوعات الكبيرة والكوسبلاي والخوذ</td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> / كومبو <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td><span data-b3d-stock="bambu-lab-a2l">متوفر</span></td></tr>
                 <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td>256×256×256 ملم</td><td>CANVAS، حتى 4</td><td>مغلقة: ABS وASA وخامات ألياف الكربون</td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span></td><td><span data-b3d-stock="elegoo-centauri-carbon-2">متوفر</span></td></tr>
@@ -252,7 +252,7 @@ POSTS = [
             <table>
               <thead><tr><th></th><th>SparkX i7 Combo</th><th>A1 mini Combo</th></tr></thead>
               <tbody>
-                <tr><td>Price (SAR)</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td></tr>
+                <tr><td>Price (SAR)</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td></tr>
                 <tr><td>Build volume</td><td>260 x 260 x 255 mm</td><td>180 x 180 x 180 mm</td></tr>
                 <tr><td>Bed temperature</td><td>Up to 100 &deg;C</td><td>Up to 80 &deg;C</td></tr>
                 <tr><td>Multi-color</td><td>CFS Lite, 4 filaments</td><td>AMS lite, 4 colors</td></tr>
@@ -347,7 +347,7 @@ POSTS = [
             <table>
               <thead><tr><th></th><th>SparkX i7 كومبو</th><th>A1 mini كومبو</th></tr></thead>
               <tbody>
-                <tr><td>السعر (ريال)</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td></tr>
+                <tr><td>السعر (ريال)</td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td></tr>
                 <tr><td>حجم الطباعة</td><td>260×260×255 ملم</td><td>180×180×180 ملم</td></tr>
                 <tr><td>حرارة السرير</td><td>حتى 100 °م</td><td>حتى 80 °م</td></tr>
                 <tr><td>الألوان المتعددة</td><td>CFS Lite، 4 خامات</td><td>AMS lite، 4 ألوان</td></tr>

@@ -87,7 +87,7 @@ POSTS = [
 
           <h2>Do you need an enclosure?</h2>
           <p>For PLA, no: open printers handle PLA well, and on an enclosed printer you usually open the door or lid for PLA so heat does not build up. For PETG an enclosure is optional. For ABS and ASA it is essential, together with ventilation for fumes. In Saudi homes an enclosure has two extra benefits: it shields the print from AC drafts and keeps dust out. If you mainly print decor and gifts in PLA, an open printer is fine; if you want heat-resistant car and outdoor parts, plan for an enclosed one. The <a href="/3d/blog/pla-vs-petg-vs-abs-filament-guide/">PLA vs PETG vs ABS guide</a> compares the materials in more detail.</p>
-          <p>The filament we currently list at <a href="/3d/">Black Arrow 3D</a> is PLA+ (<span data-b3d-price="filament-pla-1kg">75</span> SAR per kg), KINGROON PLA Basic (<span data-b3d-price="kingroon-pla-basic-filament">65</span> SAR per kg) and KINGROON PETG Basic (<span data-b3d-price="kingroon-petg-basic-filament">65</span> SAR per kg), with in-stock orders placed before 4 pm Saudi time, Sunday to Thursday, dispatched the same day from Dammam.</p>
+          <p>The filament we currently list at <a href="/3d/">Black Arrow 3D</a> is PLA+ (<span data-b3d-price="filament-pla-1kg">65</span> SAR per kg), KINGROON PLA Basic (<span data-b3d-price="kingroon-pla-basic-filament">65</span> SAR per kg) and KINGROON PETG Basic (<span data-b3d-price="kingroon-petg-basic-filament">65</span> SAR per kg), with in-stock orders placed before 4 pm Saudi time, Sunday to Thursday, dispatched the same day from Dammam.</p>
 
           <h2>Frequently asked questions</h2>
           <h3>How do I know if my filament has absorbed moisture?</h3>
@@ -194,7 +194,7 @@ POSTS = [
 
           <h2>هل تحتاج إلى طابعة مغلقة؟</h2>
           <p>مع PLA لا تحتاج؛ فالطابعات المفتوحة تتعامل معه جيدًا، وفي الطابعات المغلقة يُفتح الباب أو الغطاء عادة عند طباعة PLA حتى لا تتراكم الحرارة. ومع PETG يكون الإغلاق اختياريًا، أما مع ABS وASA فهو ضروري مع تهوية للأبخرة. وفي البيوت السعودية للطابعة المغلقة فائدتان إضافيتان: تحمي المطبوعة من تيار المكيف وتمنع دخول الغبار. إذا كنت تطبع الديكور والهدايا من PLA غالبًا فالطابعة المفتوحة تكفي، وإذا أردت قطعًا تتحمل حرارة السيارة والأماكن الخارجية فخطط لطابعة مغلقة. ويقارن <a href="/3d/ar/blog/pla-vs-petg-vs-abs-filament-guide/">دليل PLA وPETG وABS</a> بين الخامات بتفصيل أكبر.</p>
-          <p>الفلمنت المعروض حاليًا في <a href="/3d/ar/">Black Arrow 3D</a> هو PLA+ (<span data-b3d-price="filament-pla-1kg">75</span> ريالًا للكيلو) وKINGROON PLA Basic (<span data-b3d-price="kingroon-pla-basic-filament">65</span> ريالًا للكيلو) وKINGROON PETG Basic (<span data-b3d-price="kingroon-petg-basic-filament">65</span> ريالًا للكيلو)، وتُشحن الطلبات المتوفرة في المخزون في اليوم نفسه من الدمام إذا تمت قبل الساعة 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس.</p>
+          <p>الفلمنت المعروض حاليًا في <a href="/3d/ar/">Black Arrow 3D</a> هو PLA+ (<span data-b3d-price="filament-pla-1kg">65</span> ريالًا للكيلو) وKINGROON PLA Basic (<span data-b3d-price="kingroon-pla-basic-filament">65</span> ريالًا للكيلو) وKINGROON PETG Basic (<span data-b3d-price="kingroon-petg-basic-filament">65</span> ريالًا للكيلو)، وتُشحن الطلبات المتوفرة في المخزون في اليوم نفسه من الدمام إذا تمت قبل الساعة 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس.</p>
 
           <h2>الأسئلة الشائعة</h2>
           <h3>كيف أعرف أن الفلمنت امتص الرطوبة؟</h3>
@@ -232,7 +232,7 @@ POSTS = [
             'lead': "From graduation projects to robotics and architecture models, 3D printing turns a CAD file into a real part in hours. Here is when to buy a printer, when to order prints instead, and which free tools to use.",
             'card': ('Guide', '8 min read', "Graduation projects, prototypes and models: buy a budget printer or order prints, plus file formats and free software."),
             'body': '''
-          <p><strong>Quick answer:</strong> Most students in Saudi Arabia do not need to buy a 3D printer for a single project. Upload your STL to the <a href="/3d/quote/">instant 3D printing quote</a>, confirm on WhatsApp, and the part is printed in 3–5 business days and delivered anywhere in the Kingdom. If you print every week (a robotics team, an architecture studio, a final-year project with many design iterations), a budget printer pays off: the Creality SparkX i7 is currently <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR and the Bambu Lab A1 mini Combo <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR. Design in Tinkercad or Fusion, slice in Bambu Studio, OrcaSlicer or Cura, all free.</p>
+          <p><strong>Quick answer:</strong> Most students in Saudi Arabia do not need to buy a 3D printer for a single project. Upload your STL to the <a href="/3d/quote/">instant 3D printing quote</a>, confirm on WhatsApp, and the part is printed in 3–5 business days and delivered anywhere in the Kingdom. If you print every week (a robotics team, an architecture studio, a final-year project with many design iterations), a budget printer pays off: the Creality SparkX i7 is currently <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR and the Bambu Lab A1 mini Combo <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> SAR. Design in Tinkercad or Fusion, slice in Bambu Studio, OrcaSlicer or Cura, all free.</p>
 
           <h2>What students and engineers print</h2>
           <ul>
@@ -269,7 +269,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td><a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR (Combo <span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span> SAR)</td><td>260 x 260 x 255 mm</td><td>Lowest entry price, general projects</td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR</td><td>180 x 180 x 180 mm</td><td>Small parts and multicolor with the AMS lite; very easy setup</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> SAR</td><td>180 x 180 x 180 mm</td><td>Small parts and multicolor with the AMS lite; very easy setup</td></tr>
                 <tr><td><a href="/3d/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span> SAR</td><td>420 x 420 x 500 mm</td><td>Large architecture models and big parts in one piece</td></tr>
                 <tr><td><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR</td><td>256 x 256 x 256 mm</td><td>Enclosed; engineering materials such as ABS, ASA and PA</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> SAR</td><td>330 x 320 x 325 mm</td><td>Large, easy multicolor printing</td></tr>
@@ -319,7 +319,7 @@ POSTS = [
           <h3>Which file format should I send?</h3>
           <p>STL for the instant quote. 3MF works well if you have colors or several parts. STEP, OBJ and 3MF files are quoted by hand on WhatsApp.</p>
           <h3>What is the cheapest 3D printer for a student in Saudi Arabia?</h3>
-          <p>In our current catalog, the Creality SparkX i7 at <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR is the lowest-priced printer listed. The Bambu Lab A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR is the easiest to set up and adds multicolor printing.</p>
+          <p>In our current catalog, the Creality SparkX i7 at <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR is the lowest-priced printer listed. The Bambu Lab A1 mini Combo at <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> SAR is the easiest to set up and adds multicolor printing.</p>
           <h3>Is Fusion free for students?</h3>
           <p>Autodesk offers a free personal-use license for non-commercial projects, and eligible students and educators can apply for education access. Check Autodesk's current terms before you start a project.</p>
           <h3>How long does delivery take?</h3>
@@ -348,7 +348,7 @@ POSTS = [
             'lead': "من مشاريع التخرج إلى الروبوتات والمجسمات المعمارية، تحوّل الطباعة ثلاثية الأبعاد ملف التصميم إلى قطعة حقيقية خلال ساعات. إليك متى تشتري طابعة، ومتى تطلب الطباعة بدلًا من ذلك، وما البرامج المجانية التي تستخدمها.",
             'card': ('دليل', '8 دقائق قراءة', "مشاريع التخرج والنماذج الأولية والمجسمات: طابعة اقتصادية أم خدمة طباعة، مع صيغ الملفات والبرامج المجانية."),
             'body': '''
-          <p><strong>الإجابة المختصرة:</strong> معظم الطلاب في السعودية لا يحتاجون إلى شراء طابعة ثلاثية الأبعاد من أجل مشروع واحد. ارفع ملف STL في <a href="/3d/ar/quote/">عرض السعر الفوري للطباعة</a>، وأكّد الطلب عبر واتساب، فتُطبع القطعة خلال 3–5 أيام عمل وتصلك في أي مكان في المملكة. أما إذا كنت تطبع كل أسبوع (فريق روبوتات، أو مرسم عمارة، أو مشروع تخرج بتعديلات كثيرة)، فالطابعة الاقتصادية تستحق ثمنها: سعر Creality SparkX i7 حاليًا <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال، وBambu Lab A1 mini Combo بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال. صمّم في Tinkercad أو Fusion، وقطّع الملف في Bambu Studio أو OrcaSlicer أو Cura، وكلها مجانية.</p>
+          <p><strong>الإجابة المختصرة:</strong> معظم الطلاب في السعودية لا يحتاجون إلى شراء طابعة ثلاثية الأبعاد من أجل مشروع واحد. ارفع ملف STL في <a href="/3d/ar/quote/">عرض السعر الفوري للطباعة</a>، وأكّد الطلب عبر واتساب، فتُطبع القطعة خلال 3–5 أيام عمل وتصلك في أي مكان في المملكة. أما إذا كنت تطبع كل أسبوع (فريق روبوتات، أو مرسم عمارة، أو مشروع تخرج بتعديلات كثيرة)، فالطابعة الاقتصادية تستحق ثمنها: سعر Creality SparkX i7 حاليًا <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال، وBambu Lab A1 mini Combo بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال. صمّم في Tinkercad أو Fusion، وقطّع الملف في Bambu Studio أو OrcaSlicer أو Cura، وكلها مجانية.</p>
 
           <h2>ماذا يطبع الطلاب والمهندسون</h2>
           <ul>
@@ -385,7 +385,7 @@ POSTS = [
               </thead>
               <tbody>
                 <tr><td><a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال (الكومبو <span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span> ريال)</td><td>260 x 260 x 255 مم</td><td>أقل سعر للبداية، ومشاريع عامة</td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال</td><td>180 x 180 x 180 مم</td><td>القطع الصغيرة والطباعة متعددة الألوان مع AMS lite، وإعداد سهل جدًا</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال</td><td>180 x 180 x 180 مم</td><td>القطع الصغيرة والطباعة متعددة الألوان مع AMS lite، وإعداد سهل جدًا</td></tr>
                 <tr><td><a href="/3d/ar/product/anycubic-kobra-3-max/">Anycubic Kobra 3 Max</a></td><td><span data-b3d-price="anycubic-kobra-3-max|Anycubic Kobra 3 Max">2,999</span> ريال</td><td>420 x 420 x 500 مم</td><td>مجسمات معمارية كبيرة وقطع ضخمة بقطعة واحدة</td></tr>
                 <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريال</td><td>256 x 256 x 256 مم</td><td>مغلقة، وتدعم خامات هندسية مثل ABS وASA وPA</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال</td><td>330 x 320 x 325 مم</td><td>طباعة كبيرة ومتعددة الألوان بسهولة</td></tr>
@@ -435,7 +435,7 @@ POSTS = [
           <h3>ما صيغة الملف التي أرسلها؟</h3>
           <p>STL لعرض السعر الفوري. و3MF مناسب إذا كان التصميم ملونًا أو من عدة أجزاء. أما ملفات STEP وOBJ و3MF فنسعّرها يدويًا عبر واتساب.</p>
           <h3>ما أرخص طابعة ثلاثية الأبعاد لطالب في السعودية؟</h3>
-          <p>في الكتالوج الحالي، طابعة Creality SparkX i7 بسعر <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال هي الأقل سعرًا بين الطابعات المعروضة. وBambu Lab A1 mini Combo بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال هي الأسهل في الإعداد وتضيف الطباعة متعددة الألوان.</p>
+          <p>في الكتالوج الحالي، طابعة Creality SparkX i7 بسعر <span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال هي الأقل سعرًا بين الطابعات المعروضة. وBambu Lab A1 mini Combo بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال هي الأسهل في الإعداد وتضيف الطباعة متعددة الألوان.</p>
           <h3>هل برنامج Fusion مجاني للطلاب؟</h3>
           <p>توفر Autodesk ترخيصًا مجانيًا للاستخدام الشخصي في المشاريع غير التجارية، ويمكن للطلاب والمعلمين المؤهلين التقدم للنسخة التعليمية. راجع شروط Autodesk الحالية قبل بدء مشروعك.</p>
           <h3>كم تستغرق مدة التوصيل؟</h3>
@@ -467,7 +467,7 @@ POSTS = [
             'lead': "A 3D printer can turn a child’s drawing into a real object by the evening, but hot nozzles and moving parts need a sensible setup. Here is how to choose a safe, easy printer for home or the classroom.",
             'card': ('Guide', '8 min read', "Safety, enclosed vs open printers, recommended models with current prices, and project ideas for kids and classrooms."),
             'body': '''
-          <p><strong>Quick answer:</strong> For kids and classrooms in Saudi Arabia, choose a printer with automatic calibration and a simple touchscreen, print only PLA, and keep an adult in charge of the machine. If children will be close to the printer, an enclosed model is the safer choice: the <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> is currently <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR and in stock. For a family on a tighter budget, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR) is compact and very easy to use, but it is an open-frame printer, so place it out of reach and supervise every print.</p>
+          <p><strong>Quick answer:</strong> For kids and classrooms in Saudi Arabia, choose a printer with automatic calibration and a simple touchscreen, print only PLA, and keep an adult in charge of the machine. If children will be close to the printer, an enclosed model is the safer choice: the <a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> is currently <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR and in stock. For a family on a tighter budget, the <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (currently <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> SAR) is compact and very easy to use, but it is an open-frame printer, so place it out of reach and supervise every print.</p>
 
           <h2>Safety first</h2>
           <p>Home 3D printers are designed for consumers, but they still have hot and moving parts. A few simple rules make them suitable for a family or a school.</p>
@@ -512,7 +512,7 @@ POSTS = [
                 <tr><th>Printer</th><th>Current price</th><th>Type</th><th>Why it fits</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> SAR</td><td>Open, 180 x 180 x 180 mm</td><td>Family pick: compact, very easy, four-color printing with the AMS lite</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> SAR</td><td>Open, 180 x 180 x 180 mm</td><td>Family pick: compact, very easy, four-color printing with the AMS lite</td></tr>
                 <tr><td><a href="/3d/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> SAR</td><td>Build volume 260 x 260 x 255 mm</td><td>Lowest entry price, automatic bed leveling</td></tr>
                 <tr><td><a href="/3d/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> SAR</td><td>Enclosed CoreXY</td><td>Classroom pick: parts behind a door, 5-inch touchscreen, multicolor with CANVAS</td></tr>
                 <tr><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> SAR</td><td>Enclosed</td><td>School lab: fast, enclosed, multicolor with AMS 2 Pro</td></tr>
@@ -520,7 +520,7 @@ POSTS = [
             </table>
           </div>
           <p>Stock notes: the A1 mini printer-only version and the P2S printer-only version are currently out of stock, so the Combo versions above are the ones available now. The Bambu Lab A1 is also currently out of stock. Every printer order ships with free regular delivery anywhere in Saudi Arabia. For a deeper comparison of entry-level models, read the <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">best 3D printer for beginners</a> and the <a href="/3d/blog/bambu-lab-a1-mini-combo-review/">Bambu Lab A1 mini Combo review</a>.</p>
-          <p>For filament, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is currently <span data-b3d-price="kingroon-pla-basic-filament">65</span> SAR per 1&nbsp;kg spool in many bright colors, and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <span data-b3d-price="filament-pla-1kg">75</span> SAR, currently in stock in black, gray and white.</p>
+          <p>For filament, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> is currently <span data-b3d-price="kingroon-pla-basic-filament">65</span> SAR per 1&nbsp;kg spool in many bright colors, and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <span data-b3d-price="filament-pla-1kg">65</span> SAR, currently in stock in black, gray and white.</p>
 
           <h2>Project ideas for kids</h2>
           <ul>
@@ -578,7 +578,7 @@ POSTS = [
             'lead': "يمكن للطابعة ثلاثية الأبعاد أن تحوّل رسمة طفلك إلى مجسم حقيقي قبل المساء، لكن الفوهة الساخنة والأجزاء المتحركة تحتاج إلى إعداد مدروس. إليك كيف تختار طابعة آمنة وسهلة للبيت أو الفصل.",
             'card': ('دليل', '8 دقائق قراءة', "السلامة، والطابعة المغلقة أو المفتوحة، وطرازات مقترحة بأسعارها الحالية، وأفكار مشاريع للأطفال والفصول."),
             'body': '''
-          <p><strong>الإجابة المختصرة:</strong> للأطفال والفصول الدراسية في السعودية، اختر طابعة بمعايرة تلقائية وشاشة لمس بسيطة، واطبع بخامة PLA فقط، واجعل شخصًا بالغًا مسؤولًا عن الجهاز. وإذا كان الأطفال سيقتربون من الطابعة فالطراز المغلق هو الخيار الأكثر أمانًا: طابعة <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> سعرها حاليًا <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريال ومتوفرة. ولعائلة بميزانية أقل، طابعة <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال حاليًا) صغيرة وسهلة جدًا، لكنها مفتوحة الهيكل، فضعها بعيدًا عن متناول الصغار وراقب كل طباعة.</p>
+          <p><strong>الإجابة المختصرة:</strong> للأطفال والفصول الدراسية في السعودية، اختر طابعة بمعايرة تلقائية وشاشة لمس بسيطة، واطبع بخامة PLA فقط، واجعل شخصًا بالغًا مسؤولًا عن الجهاز. وإذا كان الأطفال سيقتربون من الطابعة فالطراز المغلق هو الخيار الأكثر أمانًا: طابعة <a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a> سعرها حاليًا <span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريال ومتوفرة. ولعائلة بميزانية أقل، طابعة <a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> (<span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال حاليًا) صغيرة وسهلة جدًا، لكنها مفتوحة الهيكل، فضعها بعيدًا عن متناول الصغار وراقب كل طباعة.</p>
 
           <h2>السلامة أولًا</h2>
           <p>الطابعات المنزلية مصممة للمستهلكين، لكنها تحتوي على أجزاء ساخنة ومتحركة. وبعض القواعد البسيطة تجعلها مناسبة للعائلة أو المدرسة.</p>
@@ -623,7 +623,7 @@ POSTS = [
                 <tr><th>الطابعة</th><th>السعر الحالي</th><th>النوع</th><th>لماذا تناسب</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال</td><td>مفتوحة، 180 x 180 x 180 مم</td><td>اختيار العائلة: صغيرة وسهلة جدًا، وطباعة بأربعة ألوان مع AMS lite</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال</td><td>مفتوحة، 180 x 180 x 180 مم</td><td>اختيار العائلة: صغيرة وسهلة جدًا، وطباعة بأربعة ألوان مع AMS lite</td></tr>
                 <tr><td><a href="/3d/ar/product/creality-sparkx-i7/">Creality SparkX i7</a></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7">2,090</span> ريال</td><td>حجم الطباعة 260 x 260 x 255 مم</td><td>أقل سعر للبداية، وتسوية تلقائية للسطح</td></tr>
                 <tr><td><a href="/3d/ar/product/elegoo-centauri-carbon-2/">Elegoo Centauri Carbon 2</a></td><td><span data-b3d-price="elegoo-centauri-carbon-2">3,050</span> ريال</td><td>مغلقة CoreXY</td><td>اختيار الفصل: الأجزاء خلف باب، وشاشة لمس 5 بوصات، وطباعة ملونة بنظام CANVAS</td></tr>
                 <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريال</td><td>مغلقة</td><td>معمل المدرسة: سريعة ومغلقة وملونة مع AMS 2 Pro</td></tr>
@@ -631,7 +631,7 @@ POSTS = [
             </table>
           </div>
           <p>ملاحظات التوفر: نسخة A1 mini دون AMS ونسخة P2S دون AMS غير متوفرتين حاليًا، لذلك نسخ الكومبو أعلاه هي المتاحة الآن. وطابعة Bambu Lab A1 غير متوفرة حاليًا أيضًا. وكل طلب طابعة يُشحن بتوصيل عادي مجاني إلى أي مكان في السعودية. ولمقارنة أعمق بين طرازات البداية، اقرأ <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين</a> و<a href="/3d/ar/blog/bambu-lab-a1-mini-combo-review/">مراجعة Bambu Lab A1 mini Combo</a>.</p>
-          <p>أما الفلمنت، فسعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> حاليًا <span data-b3d-price="kingroon-pla-basic-filament">65</span> ريالًا للبكرة بوزن 1 كجم بألوان زاهية كثيرة، و<a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a> بسعر <span data-b3d-price="filament-pla-1kg">75</span> ريالًا، ومتوفر حاليًا بالأسود والرمادي والأبيض.</p>
+          <p>أما الفلمنت، فسعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> حاليًا <span data-b3d-price="kingroon-pla-basic-filament">65</span> ريالًا للبكرة بوزن 1 كجم بألوان زاهية كثيرة، و<a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a> بسعر <span data-b3d-price="filament-pla-1kg">65</span> ريالًا، ومتوفر حاليًا بالأسود والرمادي والأبيض.</p>
 
           <h2>أفكار مشاريع للأطفال</h2>
           <ul>

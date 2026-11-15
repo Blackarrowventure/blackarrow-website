@@ -5,9 +5,9 @@ const catalog = require('../../3d/assets/data/3d-products.json');
 
 const MAX_LINES = 20;
 const MAX_QTY = 10;
-// Free Regular delivery: 3D Artwork worth 100+ SAR, or a whole order of 3,000+ SAR.
+// Free Regular delivery: 3D Artwork worth 100+ SAR, or a whole order of 500+ SAR (was 3,000 until 15 Nov 2026).
 const FREE_SHIP_ARTWORK_MIN = 100;
-const FREE_SHIP_ORDER_MIN = 3000;
+const FREE_SHIP_ORDER_MIN = 500;
 
 function unitPrice(product, variantIndex) {
   if (product.variants && product.variants.length) {
@@ -42,7 +42,7 @@ function priceCart(items, products) {
     if (product.category === '3D Artwork') artworkCents += unitCents * qty;
     categories.add(product.category);
   }
-  // Free Regular delivery: any order with a 3D printer, 3D artwork from 100 SAR, anything from 3,000 SAR.
+  // Free Regular delivery: any order with a 3D printer, 3D artwork from 100 SAR, anything from 500 SAR.
   const freeShipping = categories.has('3D Printers') || artworkCents >= FREE_SHIP_ARTWORK_MIN * 100 || itemsCents >= FREE_SHIP_ORDER_MIN * 100;
   return { lines, itemsCents, freeShipping, categories };
 }

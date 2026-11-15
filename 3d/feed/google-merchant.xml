@@ -5,6 +5,34 @@
     <link>https://www.blackarrowksa.com/3d/</link>
     <description>3D printers, filament, parts and 3D printed gifts - delivered across Saudi Arabia.</description>
     <item>
+      <g:id>bambu-lab-h3c</g:id>
+      <g:title>Bambu Lab H3C with AMS 3H</g:title>
+      <g:description>The Bambu Lab H3C is Bambu Lab's first third-generation printer and its first true tool changer. Instead of one nozzle that purges between colours, it has nine independent PrintTools on the Swaptek system, each with its own filament path and heating, so it switches material in about 6 seconds with very little waste. The integrated AMS 3H keeps nine spools in a sealed chamber, reads them by RFID and dries two at a time at up to 85 °C, and the FlexFeed extruder takes both 1.75 mm and 2.85 mm filament, including soft TPU down to 75A. With a 330 × 320 × 325 mm build volume, 350 °C tools, a 120 °C bed and active chamber heating to 65 °C, it prints everything from multi-colour PLA to carbon-fibre nylon. Now on pre-order at Black Arrow 3D, with delivery across Saudi Arabia expected in the first week of December 2026. Pay by bank transfer, card (mada, Visa, Mastercard) or Apple Pay.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/bambu-lab-h3c/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-01.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-02.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-03.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-04.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-05.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-06.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-07.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-08.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-09.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-10.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-h3c-11.webp</g:additional_image_link>
+      <g:availability>preorder</g:availability>
+      <g:price>17899.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; 3D Printers</g:product_type>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>bambu-lab-a1-mini-standalone-printer-only</g:id>
       <g:title>Bambu Lab A1 mini - Standalone (printer only)</g:title>
       <g:description>The Bambu Lab A1 mini is a compact FDM 3D printer built for speed and reliability, with an all-metal hot end, hardened steel extruder gears, and a stainless steel nozzle rated to 300°C. It supports automatic bed leveling, a filament run-out sensor, filament odometry, power-loss recovery, and filament tangle detection. Available on its own or as a combo bundled with the AMS lite unit for multi-color and multi-material printing.</g:description>
@@ -24,7 +52,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -38,7 +66,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-mini-nozzle-light.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-mini-screen.webp</g:additional_image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>2699.00 SAR</g:price>
+      <g:price>2670.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -47,7 +75,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -71,7 +99,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -85,7 +113,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-04.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-05.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a1-06.jpg</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>3449.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -111,7 +139,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-06.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-07.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-a2l-08.jpg</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>4300.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -254,6 +282,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-x2d-08.jpg</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>7899.00 SAR</g:price>
+      <g:sale_price>7800.00 SAR</g:sale_price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -356,7 +385,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -381,7 +410,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -398,7 +427,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-07.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-08.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/elegoo-cc2-09.jpg</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>3050.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Elegoo</g:brand>
@@ -461,7 +490,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -505,7 +534,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -696,7 +725,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/flmnt-pla-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/flmnt-pla-red.jpg</g:additional_image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>75.00 SAR</g:price>
+      <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Generic</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -735,8 +764,8 @@
       </g:shipping>
     </item>
     <item>
-      <g:id>BAMBU-A1-HOTEND-02</g:id>
-      <g:title>Bambu Hotend — A1 Series - 0.2mm</g:title>
+      <g:id>BAMBU-A1-HOTEND-02-SS</g:id>
+      <g:title>Bambu Hotend — A1 Series - 0.2mm Stainless Steel</g:title>
       <g:description>A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.</g:description>
       <g:link>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</g:link>
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-01.jpg</g:image_link>
@@ -746,8 +775,8 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-05.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-06.jpg</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-07.jpg</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>110.00 SAR</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:price>100.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -760,8 +789,8 @@
       </g:shipping>
     </item>
     <item>
-      <g:id>BAMBU-A1-HOTEND-04</g:id>
-      <g:title>Bambu Hotend — A1 Series - 0.4mm</g:title>
+      <g:id>BAMBU-A1-HOTEND-04-SS</g:id>
+      <g:title>Bambu Hotend — A1 Series - 0.4mm Stainless Steel</g:title>
       <g:description>A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.</g:description>
       <g:link>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</g:link>
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-02.jpg</g:image_link>
@@ -785,8 +814,8 @@
       </g:shipping>
     </item>
     <item>
-      <g:id>BAMBU-A1-HOTEND-06</g:id>
-      <g:title>Bambu Hotend — A1 Series - 0.6mm</g:title>
+      <g:id>BAMBU-A1-HOTEND-06-SS</g:id>
+      <g:title>Bambu Hotend — A1 Series - 0.6mm Stainless Steel</g:title>
       <g:description>A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.</g:description>
       <g:link>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</g:link>
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-03.jpg</g:image_link>
@@ -810,8 +839,8 @@
       </g:shipping>
     </item>
     <item>
-      <g:id>BAMBU-A1-HOTEND-08</g:id>
-      <g:title>Bambu Hotend — A1 Series - 0.8mm</g:title>
+      <g:id>BAMBU-A1-HOTEND-08-SS</g:id>
+      <g:title>Bambu Hotend — A1 Series - 0.8mm Stainless Steel</g:title>
       <g:description>A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.</g:description>
       <g:link>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</g:link>
       <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-04.jpg</g:image_link>
@@ -823,6 +852,32 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-07.jpg</g:additional_image_link>
       <g:availability>out_of_stock</g:availability>
       <g:price>110.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Printer Parts &amp; Accessories</g:product_type>
+      <g:item_group_id>bambu-hotend-a1-series</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>BAMBU-A1-HOTEND-04-HS</g:id>
+      <g:title>Bambu Hotend — A1 Series - 0.4mm Hardened Steel</g:title>
+      <g:description>A hot end made for the Bambu Lab A1 series, designed for a quick and easy swap when you need to change nozzle size or replace a worn hot end. Helps you maintain print quality and reduce maintenance time between jobs. Why you need it: quick replacement when swapping nozzle sizes or replacing the part, consistent print quality from stable filament flow for cleaner results, a practical maintenance option when there's clogging, wear, or weak nozzle performance, and available in several sizes depending on what's in stock.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/bambu-hotend-a1-series/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-04mm-hardened-steel.png</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-01.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-02.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-03.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-04.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-05.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-06.jpg</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-hotend-a1-07.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>100.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
@@ -909,7 +964,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -930,7 +985,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -950,7 +1005,7 @@
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>
-        <g:price>30.00 SAR</g:price>
+        <g:price>0.00 SAR</g:price>
       </g:shipping>
     </item>
     <item>
@@ -2462,7 +2517,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-pink.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -2520,7 +2575,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-pink.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -2839,7 +2894,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-dark-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -2868,7 +2923,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-dark-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-fluorescent-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3175,7 +3230,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-orange.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3198,7 +3253,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-orange.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3221,7 +3276,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-brown.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-orange.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3244,7 +3299,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-brown.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-yellow.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3267,7 +3322,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-brown.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-petg-hs-orange.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3557,7 +3612,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-purple.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3586,7 +3641,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-sky-blue.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3615,7 +3670,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-sky-blue.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -3818,7 +3873,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-green.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-blue.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/kingroon-pla-sky-blue.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>65.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>KINGROON</g:brand>
@@ -4186,6 +4241,34 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>140.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>Bambu Lab</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>bambu-lab-pla-basic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>bambu-lab-pla-basic-filament-marble</g:id>
+      <g:title>Bambu Lab PLA Basic Filament 1.75 mm (1 kg) - Marble</g:title>
+      <g:description>With a palette of up to 30 colors, Bambu PLA Basic lets you find the perfect shade to bring flair to your projects. The colors remain consistent across prints, ensuring a stunning and uniform finish every time. Bambu PLA Basic, the easiest-to-use filament, delivers smooth printing right from the start. No complicated setups or calibrations needed. Ideal for both hobbyists and professionals seeking reliable, hassle-free results. With Bambu’s exclusive fine-turned formulation based on 3D printing expertise and fine-turned settings, Bambu PLA Basic delivers stronger layer adhesion, enhanced impact resistance, and long-lasting durability compared to other standard PLA filaments on the market. Additionally, it reaches a print speed up to 258mm/s*, cutting your printing time without compromising quality. All printing parameters are embedded in RFID, which can be read through our AMS (Automatic Material System). PLA Basic is certified to UL GREENGUARD (UL 2904), the recognized standard for 3D printer emissions. The particles and VOCs released measure below the levels of an average kitchen, living room, or office—cleaner than the air you’re already breathing. * 0.4mm nozzle, 0.4mm line width, 0.2mm layer height</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/bambu-lab-pla-basic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-marble.png</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gradient-solar-breeze-10901.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-filament-with-spool-and-refill.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-cyan-10603.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-blue-10601.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-purple-10700.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-yellow-10400.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>

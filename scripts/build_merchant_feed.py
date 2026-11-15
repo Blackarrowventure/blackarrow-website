@@ -23,8 +23,8 @@ from crm_stock import ROOT, load_products  # noqa: E402
 SITE = 'https://www.blackarrowksa.com'
 OUT = os.path.join(ROOT, '3d', 'feed', 'google-merchant.xml')
 
-# Same free-delivery rules as the cart (3d-store.js): orders from 3,000 SAR, artwork from 100 SAR.
-FREE_SHIP_PRINTER_MIN = 3000
+# Same free-delivery rules as the cart (3d-store.js): orders from 500 SAR, artwork from 100 SAR.
+FREE_SHIP_PRINTER_MIN = 500
 FREE_SHIP_ARTWORK_MIN = 100
 SHIPPING_FEE = 30
 

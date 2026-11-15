@@ -24,7 +24,7 @@ POSTS = [
             'body': '''
           <h2>Quick answer</h2>
           <ul>
-            <li><b>A1 mini</b> if most of what you print fits in an 18&nbsp;cm cube, or desk space is tight. The <a href="/3d/product/bambu-lab-a1-mini/">A1 mini Combo</a> is <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR.</li>
+            <li><b>A1 mini</b> if most of what you print fits in an 18&nbsp;cm cube, or desk space is tight. The <a href="/3d/product/bambu-lab-a1-mini/">A1 mini Combo</a> is <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span>&nbsp;SAR.</li>
             <li><b>A2L</b> if you print helmets, cosplay parts, storage boxes or several items per plate. The <a href="/3d/product/bambu-lab-a2l/">A2L</a> is <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span>&nbsp;SAR, or <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR as a Combo.</li>
             <li><b>A1</b> sits in between at 256&nbsp;mm per side. Check its stock line below: when it is out of stock, the A2L is the next size up.</li>
           </ul>
@@ -41,7 +41,7 @@ POSTS = [
                 <tr><td>Hot end / bed</td><td>300 &deg;C / 80 &deg;C</td><td>300 &deg;C / 100 &deg;C</td><td>300 &deg;C / 80 &deg;C</td></tr>
                 <tr><td>Multi-color</td><td>AMS lite, 4 colors (Combo)</td><td>AMS lite, 4 colors (Combo)</td><td>AMS lite, 4 colors (Combo)</td></tr>
                 <tr><td>Printer only (SAR)</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Standalone (printer only)">Out of stock</span></small></td><td><span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span><br><small><span data-b3d-stock="bambu-lab-a1|Standalone (printer only)">Out of stock</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span><br><small><span data-b3d-stock="bambu-lab-a2l|Standalone (printer only)">In stock</span></small></td></tr>
-                <tr><td>Combo with AMS lite (SAR)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></small></td><td><span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span><br><small><span data-b3d-stock="bambu-lab-a1|Combo (printer + AMS Lite)">Out of stock</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span><br><small><span data-b3d-stock="bambu-lab-a2l|Combo (printer + AMS lite)">In stock</span></small></td></tr>
+                <tr><td>Combo with AMS lite (SAR)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></small></td><td><span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span><br><small><span data-b3d-stock="bambu-lab-a1|Combo (printer + AMS Lite)">Out of stock</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span><br><small><span data-b3d-stock="bambu-lab-a2l|Combo (printer + AMS lite)">In stock</span></small></td></tr>
               </tbody>
             </table>
           </div>
@@ -100,7 +100,7 @@ POSTS = [
             'body': '''
           <h2>الإجابة السريعة</h2>
           <ul>
-            <li><b>A1 ميني</b> إذا كانت معظم مطبوعاتك ضمن مكعب 18 سم أو كانت مساحة مكتبك محدودة. سعر <a href="/3d/ar/product/bambu-lab-a1-mini/">A1 ميني كومبو</a> هو <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال.</li>
+            <li><b>A1 ميني</b> إذا كانت معظم مطبوعاتك ضمن مكعب 18 سم أو كانت مساحة مكتبك محدودة. سعر <a href="/3d/ar/product/bambu-lab-a1-mini/">A1 ميني كومبو</a> هو <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال.</li>
             <li><b>A2L</b> إذا كنت تطبع خوذات أو قطع كوسبلاي أو صناديق تخزين أو عدة قطع في لوح واحد. سعر <a href="/3d/ar/product/bambu-lab-a2l/">A2L</a> هو <span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span> ريال، أو <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال كباقة كومبو.</li>
             <li><b>A1</b> في المنتصف بحجم 256 ملم لكل جهة. راجع سطر التوفر أدناه: عندما تكون غير متوفرة، فإن A2L هي الحجم التالي.</li>
           </ul>
@@ -117,7 +117,7 @@ POSTS = [
                 <tr><td>رأس الطباعة / السرير</td><td>300 °م / 80 °م</td><td>300 °م / 100 °م</td><td>300 °م / 80 °م</td></tr>
                 <tr><td>الألوان المتعددة</td><td>AMS lite، 4 ألوان (كومبو)</td><td>AMS lite، 4 ألوان (كومبو)</td><td>AMS lite، 4 ألوان (كومبو)</td></tr>
                 <tr><td>الطابعة فقط (ريال)</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Standalone (printer only)">غير متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a1|Standalone (printer only)">2,700</span><br><small><span data-b3d-stock="bambu-lab-a1|Standalone (printer only)">غير متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Standalone (printer only)">3,350</span><br><small><span data-b3d-stock="bambu-lab-a2l|Standalone (printer only)">متوفر</span></small></td></tr>
-                <tr><td>كومبو مع AMS lite (ريال)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span><br><small><span data-b3d-stock="bambu-lab-a1|Combo (printer + AMS Lite)">غير متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span><br><small><span data-b3d-stock="bambu-lab-a2l|Combo (printer + AMS lite)">متوفر</span></small></td></tr>
+                <tr><td>كومبو مع AMS lite (ريال)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span><br><small><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a1|Combo (printer + AMS Lite)">3,449</span><br><small><span data-b3d-stock="bambu-lab-a1|Combo (printer + AMS Lite)">غير متوفر</span></small></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span><br><small><span data-b3d-stock="bambu-lab-a2l|Combo (printer + AMS lite)">متوفر</span></small></td></tr>
               </tbody>
             </table>
           </div>
@@ -183,14 +183,14 @@ POSTS = [
             'card': ('Review', '8 min read', 'Bambu Lab A1 mini Combo in Saudi Arabia: price, what is in the box, AMS lite, specs, limits and alternatives.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>The <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> is our top pick for a first 3D printer. At <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR you get a printer that calibrates itself, prints PLA, PETG and TPU reliably, and switches between 4 spools for multi-color prints. Its limits are the 180&nbsp;mm build size and the open frame, which rules out ABS and ASA.</p>
+          <p>The <a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> is our top pick for a first 3D printer. At <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span>&nbsp;SAR you get a printer that calibrates itself, prints PLA, PETG and TPU reliably, and switches between 4 spools for multi-color prints. Its limits are the 180&nbsp;mm build size and the open frame, which rules out ABS and ASA.</p>
 
           <h2>Price in Saudi Arabia</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>Option</th><th>Price (SAR)</th><th>Stock</th></tr></thead>
               <tbody>
-                <tr><td>A1 mini Combo (printer + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></td></tr>
+                <tr><td>A1 mini Combo (printer + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">In stock</span></td></tr>
                 <tr><td>A1 mini (printer only)</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Standalone (printer only)">Out of stock</span></td></tr>
               </tbody>
             </table>
@@ -246,7 +246,7 @@ POSTS = [
             <table>
               <thead><tr><th></th><th>A1 mini Combo</th><th>SparkX i7 Combo</th><th>A2L Combo</th></tr></thead>
               <tbody>
-                <tr><td>Price (SAR)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
+                <tr><td>Price (SAR)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
                 <tr><td>Build volume</td><td>180 x 180 x 180 mm</td><td>260 x 260 x 255 mm</td><td>330 x 320 x 325 mm</td></tr>
                 <tr><td>Multi-color</td><td>AMS lite, 4</td><td>CFS Lite, 4</td><td>AMS lite, 4</td></tr>
                 <tr><td>Weight</td><td>5.5 kg</td><td>9.12 kg</td><td>12.8 kg</td></tr>
@@ -264,7 +264,7 @@ POSTS = [
 
           <h2>FAQ</h2>
           <h3>How much is the Bambu Lab A1 mini Combo in Saudi Arabia?</h3>
-          <p>At Black Arrow 3D it is <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span>&nbsp;SAR including VAT, with free delivery.</p>
+          <p>At Black Arrow 3D it is <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span>&nbsp;SAR including VAT, with free delivery.</p>
           <h3>What does the AMS lite do?</h3>
           <p>It holds 4 spools and feeds them into the printer automatically, so one print can use up to 4 colors or materials.</p>
           <h3>Is the A1 mini good for beginners?</h3>
@@ -294,14 +294,14 @@ POSTS = [
             'card': ('مراجعة', '8 دقائق قراءة', 'Bambu Lab A1 mini Combo في السعودية: السعر ومحتويات الصندوق وAMS lite والمواصفات والحدود والبدائل.'),
             'body': '''
           <h2>الإجابة السريعة</h2>
-          <p>‏<a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> هي اختيارنا الأول كأول طابعة ثلاثية الأبعاد. بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال تحصل على طابعة تعاير نفسها، وتطبع PLA وPETG وTPU بثبات، وتبدّل بين 4 بكرات للطباعة متعددة الألوان. حدودها هي حجم الطباعة 180 ملم والهيكل المفتوح الذي لا يناسب ABS وASA.</p>
+          <p>‏<a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a> هي اختيارنا الأول كأول طابعة ثلاثية الأبعاد. بسعر <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال تحصل على طابعة تعاير نفسها، وتطبع PLA وPETG وTPU بثبات، وتبدّل بين 4 بكرات للطباعة متعددة الألوان. حدودها هي حجم الطباعة 180 ملم والهيكل المفتوح الذي لا يناسب ABS وASA.</p>
 
           <h2>السعر في السعودية</h2>
           <div class="b3d-table-wrap">
             <table>
               <thead><tr><th>الخيار</th><th>السعر (ريال)</th><th>التوفر</th></tr></thead>
               <tbody>
-                <tr><td>A1 mini كومبو (الطابعة + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></td></tr>
+                <tr><td>A1 mini كومبو (الطابعة + AMS lite)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Combo (printer + AMS lite)">متوفر</span></td></tr>
                 <tr><td>A1 mini (الطابعة فقط)</td><td><span data-b3d-price="bambu-lab-a1-mini|Standalone (printer only)">1,799</span></td><td><span data-b3d-stock="bambu-lab-a1-mini|Standalone (printer only)">غير متوفر</span></td></tr>
               </tbody>
             </table>
@@ -357,7 +357,7 @@ POSTS = [
             <table>
               <thead><tr><th></th><th>A1 mini كومبو</th><th>SparkX i7 كومبو</th><th>A2L كومبو</th></tr></thead>
               <tbody>
-                <tr><td>السعر (ريال)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
+                <tr><td>السعر (ريال)</td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td><span data-b3d-price="creality-sparkx-i7|SparkX i7 Combo">2,650</span></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td></tr>
                 <tr><td>حجم الطباعة</td><td>180×180×180 ملم</td><td>260×260×255 ملم</td><td>330×320×325 ملم</td></tr>
                 <tr><td>الألوان المتعددة</td><td>AMS lite، 4</td><td>CFS Lite، 4</td><td>AMS lite، 4</td></tr>
                 <tr><td>الوزن</td><td>5.5 كجم</td><td>9.12 كجم</td><td>12.8 كجم</td></tr>
@@ -375,7 +375,7 @@ POSTS = [
 
           <h2>أسئلة شائعة</h2>
           <h3>كم سعر Bambu Lab A1 mini Combo في السعودية؟</h3>
-          <p>لدى بلاك آرو 3D سعرها <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,699</span> ريال شاملة الضريبة، مع توصيل مجاني.</p>
+          <p>لدى بلاك آرو 3D سعرها <span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span> ريال شاملة الضريبة، مع توصيل مجاني.</p>
           <h3>ماذا تفعل وحدة AMS lite؟</h3>
           <p>تحمل 4 بكرات وتغذي الطابعة بها تلقائيًا، فتستخدم الطبعة الواحدة حتى 4 ألوان أو خامات.</p>
           <h3>هل A1 mini مناسبة للمبتدئين؟</h3>

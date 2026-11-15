@@ -21,14 +21,26 @@
   },
   {
    "id": "bambu-hotend-a1-series",
-   "variant": "0.4mm",
+   "variant": "0.2mm Stainless Steel",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-hotend-a1-series",
+   "variant": "0.4mm Hardened Steel",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-hotend-a1-series",
+   "variant": "0.4mm Stainless Steel",
    "available": true,
    "preorder": false
   },
   {
    "id": "bambu-lab-a1",
    "variant": "Combo (printer + AMS Lite)",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -46,7 +58,7 @@
   {
    "id": "bambu-lab-a2l",
    "variant": "Combo (printer + AMS lite)",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -69,6 +81,12 @@
   },
   {
    "id": "bambu-lab-h2s-combo",
+   "variant": "",
+   "available": true,
+   "preorder": true
+  },
+  {
+   "id": "bambu-lab-h3c",
    "variant": "",
    "available": true,
    "preorder": true
@@ -100,6 +118,12 @@
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Gray",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-pla-basic-filament",
+   "variant": "Marble",
    "available": true,
    "preorder": false
   },
@@ -160,12 +184,18 @@
   {
    "id": "elegoo-centauri-carbon-2",
    "variant": "",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
    "id": "filament-pla-1kg",
    "variant": "Turquoise Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
+   "variant": "Black",
    "available": true,
    "preorder": false
   },
@@ -184,13 +214,13 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Gray",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Green",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -207,8 +237,44 @@
   },
   {
    "id": "kingroon-petg-basic-filament",
+   "variant": "White",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-basic-filament",
    "variant": "Yellow",
    "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Brown",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Orange",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Silver",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Yellow",
+   "available": true,
    "preorder": false
   },
   {
@@ -243,6 +309,12 @@
   },
   {
    "id": "kingroon-pla-basic-filament",
+   "variant": "Midnight Brown",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
    "variant": "Orange",
    "available": true,
    "preorder": false
@@ -250,13 +322,13 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Pink",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Purple",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -267,13 +339,31 @@
   },
   {
    "id": "kingroon-pla-basic-filament",
+   "variant": "Retro Red",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Silver",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
    "variant": "Sky Blue",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Transparent",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
+   "variant": "Vibrant Orange",
    "available": true,
    "preorder": false
   },
@@ -285,7 +375,19 @@
   },
   {
    "id": "kingroon-pla-basic-filament",
+   "variant": "Wood",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-basic-filament",
    "variant": "Yellow",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-to-be-deided",
+   "variant": "",
    "available": true,
    "preorder": false
   },

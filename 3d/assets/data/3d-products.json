@@ -292,7 +292,7 @@
       "bestSeller": 1,
       "variants": [
         { "label": "Standalone (printer only)", "label_ar": "منفردة (الطابعة فقط)", "price": 1799, "available": false, "image": "/3d/assets/images/products/bambu-a1-mini-main.webp" },
-        { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 2699, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
+        { "label": "Combo (printer + AMS lite)", "label_ar": "باقة (الطابعة + AMS lite)", "price": 2670, "image": "/3d/assets/images/products/bambu-a1-mini-ams-combo.webp" }
       ],
       "images": [
         "/3d/assets/images/products/bambu-a1-mini-main.webp",
@@ -659,6 +659,8 @@
       "printerType": "FDM",
       "sku": "BAMBU-X2D-COMBO",
       "price": 7899,
+      "salePrice": 7800,
+      "onSale": true,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
@@ -1287,7 +1289,7 @@
         { "label": "Orange", "label_ar": "برتقالي", "price": 75, "swatch": "#ef7d1a", "image": "/3d/assets/images/products/flmnt-pla-orange.webp", "sku": "PLA-ORANGE-1", "available": false },
         { "label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/flmnt-pla-white.webp", "sku": "PLA-WHITE-1" },
         { "label": "Sky Blue", "label_ar": "سماوي", "price": 75, "swatch": "#38b6e6", "image": "/3d/assets/images/products/flmnt-pla-blue.webp", "sku": "PLA-BLUE-1", "available": false },
-        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 75, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.webp", "sku": "PLA-GREEN-1" },
+        { "label": "Turquoise Green", "label_ar": "أخضر فيروزي", "price": 65, "swatch": "#17a789", "image": "/3d/assets/images/products/flmnt-pla-green.webp", "sku": "PLA-GREEN-1" },
         { "label": "Red", "label_ar": "أحمر", "price": 75, "swatch": "#d92b2b", "image": "/3d/assets/images/products/flmnt-pla-red.webp", "sku": "PLA-RED-1" }
       ],
       "images": [
@@ -1329,7 +1331,7 @@
       "vatIncluded": true,
       "available": true,
       "variants": [
-        { "label": "0.2mm Stainless Steel", "label_ar": "0.2 مم ستانلس ستيل", "price": 110, "sku": "BAMBU-A1-HOTEND-02-SS",
+        { "label": "0.2mm Stainless Steel", "label_ar": "0.2 مم ستانلس ستيل", "price": 100, "sku": "BAMBU-A1-HOTEND-02-SS",
           "image": "/3d/assets/images/products/bambu-hotend-a1-01.webp" },
         { "label": "0.4mm Stainless Steel", "label_ar": "0.4 مم ستانلس ستيل", "price": 100, "sku": "BAMBU-A1-HOTEND-04-SS",
           "image": "/3d/assets/images/products/bambu-hotend-a1-02.webp" },
@@ -1337,7 +1339,7 @@
           "image": "/3d/assets/images/products/bambu-hotend-a1-03.webp" },
         { "label": "0.8mm Stainless Steel", "label_ar": "0.8 مم ستانلس ستيل", "price": 110, "sku": "BAMBU-A1-HOTEND-08-SS",
           "image": "/3d/assets/images/products/bambu-hotend-a1-04.webp" },
-        { "label": "0.4mm Hardened Steel", "label_ar": "0.4 مم هاردند ستيل", "price": 120, "sku": "BAMBU-A1-HOTEND-04-HS",
+        { "label": "0.4mm Hardened Steel", "label_ar": "0.4 مم هاردند ستيل", "price": 100, "sku": "BAMBU-A1-HOTEND-04-HS",
           "image": "/3d/assets/images/products/bambu-hotend-a1-04mm-hardened-steel.png" }
       ],
       "images": [

@@ -23,7 +23,7 @@ DELIVERY_EN = ('Black Arrow 3D ships from Dammam to every city in Saudi Arabia: 
                'includes a 3D printer, and on any order from 3,000&nbsp;SAR.')
 DELIVERY_AR = ('يشحن Black Arrow 3D من الدمام إلى جميع مدن المملكة: التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) '
                'والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني لكل طلب يحتوي على طابعة ثلاثية الأبعاد، '
-               'ولأي طلب من 3,000 ريال.')
+               'ولأي طلب من 500 ريال.')
 
 POSTS = [
     # ------------------------------------------------------------------
@@ -664,7 +664,7 @@ POSTS = [
             'card': ('Price guide', '6 min read', 'PLA, PLA+ and PETG prices per kg in SAR, and how to work out the cost of any print.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span>&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong><span data-b3d-price="filament-pla-1kg">75</span>&nbsp;SAR</strong>, VAT included. At 65&nbsp;SAR a kilo, filament costs about <strong>6.5 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
+          <p>In Saudi Arabia, everyday 1 kg spools of PLA and PETG cost roughly <strong>55–100&nbsp;SAR</strong>, with branded and speciality filaments higher. On our store, <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> and <a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> are <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span>&nbsp;SAR per 1 kg</strong> and <a href="/3d/product/filament-pla-1kg/">PLA+</a> is <strong><span data-b3d-price="filament-pla-1kg">65</span>&nbsp;SAR</strong>, VAT included. At 65&nbsp;SAR a kilo, filament costs about <strong>6.5 halalas per gram</strong>, so most small prints cost less than a cup of coffee in material.</p>
 
           <h2>Prices on our store</h2>
           <div class="b3d-table-wrap">
@@ -673,7 +673,7 @@ POSTS = [
               <tbody>
                 <tr><td><a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="kingroon-pla-basic-filament">65</span></td><td>0.065</td></tr>
                 <tr><td><a href="/3d/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="kingroon-petg-basic-filament">65</span></td><td>0.065</td></tr>
-                <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="filament-pla-1kg">75</span></td><td>0.075</td></tr>
+                <tr><td><a href="/3d/product/filament-pla-1kg/">PLA+ Filament</a></td><td>1 kg, 1.75 mm</td><td><span data-b3d-price="filament-pla-1kg">65</span></td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>
@@ -743,7 +743,7 @@ POSTS = [
             'card': ('دليل أسعار', '6 دقائق قراءة', 'أسعار PLA وPLA+ وPETG للكيلو بالريال، وكيف تحسب تكلفة أي طبعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span> ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong><span data-b3d-price="filament-pla-1kg">75</span> ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 65 ريالًا للكيلو يكلّف الغرام حوالي <strong>6.5 هللة</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
+          <p>في السعودية تكلّف بكرات PLA وPETG اليومية بوزن 1 كجم حوالي <strong>55–100 ريال</strong>، وأسعار العلامات المعروفة والأنواع الخاصة أعلى. في متجرنا سعر <a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a> و<a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a> هو <strong><span data-b3d-price="kingroon-petg-basic-filament">65</span> ريالًا للكيلو</strong>، و<a href="/3d/ar/product/filament-pla-1kg/">PLA+</a> بسعر <strong><span data-b3d-price="filament-pla-1kg">65</span> ريالًا</strong>، شاملة ضريبة القيمة المضافة. وبسعر 65 ريالًا للكيلو يكلّف الغرام حوالي <strong>6.5 هللة</strong>، أي أن مادة معظم الطبعات الصغيرة أرخص من كوب قهوة.</p>
 
           <h2>الأسعار في متجرنا</h2>
           <div class="b3d-table-wrap">
@@ -752,7 +752,7 @@ POSTS = [
               <tbody>
                 <tr><td><a href="/3d/ar/product/kingroon-pla-basic-filament/">KINGROON PLA Basic</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="kingroon-pla-basic-filament">65</span></td><td>0.065</td></tr>
                 <tr><td><a href="/3d/ar/product/kingroon-petg-basic-filament/">KINGROON PETG Basic</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="kingroon-petg-basic-filament">65</span></td><td>0.065</td></tr>
-                <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="filament-pla-1kg">75</span></td><td>0.075</td></tr>
+                <tr><td><a href="/3d/ar/product/filament-pla-1kg/">فلمنت PLA+</a></td><td>1 كجم، 1.75 مم</td><td><span data-b3d-price="filament-pla-1kg">65</span></td><td>0.075</td></tr>
               </tbody>
             </table>
           </div>

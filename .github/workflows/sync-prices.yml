@@ -29,6 +29,7 @@ jobs:
       - name: Copy CRM prices into the site
         id: sync
         run: |
+          set -o pipefail   # without this, a failing sync still showed a green tick (5-15 Nov 2026)
           python scripts/sync_crm_prices.py | tee sync.log
           if tail -n 1 sync.log | grep -qx changed; then echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 

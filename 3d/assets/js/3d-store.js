@@ -1616,7 +1616,7 @@
   var shippingPlaceholderText = null;
   // Free delivery thresholds: either qualifies the whole order.
   var FREE_SHIP_ARTWORK_MIN = 100;
-  var FREE_SHIP_PRINTER_MIN = 3000;
+  var FREE_SHIP_PRINTER_MIN = 500;
   var lastFreeShipping = false;
 
   var COUPON_KEY = 'b3d_coupon';
@@ -2838,6 +2838,15 @@
       var shipping = form.querySelector('input[name="shipping_choice"]:checked');
       var shipFree = shipping && (shipping.value === 'pickup' || (regularFree() && shipping.value === 'regular'));
       var shipPrice = shipFree ? 0 : (shipping ? parseInt(shipping.getAttribute('data-shipping-price'), 10) || 0 : 0);
+      // Captured now, synchronously - the caller clears rewardsState.redeemed and deducts the
+      // balance right after calling this function (same tick), so by the time the token promise
+      // below resolves and this body is actually built, rewardsDiscount() would already read the
+      // post-redeem, post-clear state and silently return 0 (balance now under the usable minimum).
+      // That dropped real 5 SAR redemptions off the order with no trace. Reading it here, before
+      // any of that happens, is what fixes it.
+      var rewardsUsedAmount = rewardsDiscount();
+      var couponDiscountAmount = couponDiscount();
+      var bankSavingAmount = bankSaving();
       // The server checks the coupon, rewards and member delivery itself (by account and redemption).
       var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth
         ? Promise.resolve(window.BlackArrow3DAuth.getAccessToken()).catch(function () { return null; }) : Promise.resolve(null);
@@ -2853,9 +2862,9 @@
           shipping: shipping ? shipping.value : 'regular',
           shippingPrice: shipPrice,
           couponCode: appliedCoupon ? appliedCoupon.code : '',
-          couponDiscount: couponDiscount(),
-          rewardsUsed: rewardsDiscount(),
-          bankSaving: bankSaving(),
+          couponDiscount: couponDiscountAmount,
+          rewardsUsed: rewardsUsedAmount,
+          bankSaving: bankSavingAmount,
           payment: currentPayMethod === 'cash' ? 'cash' : 'bank',
           billing: {
             firstName: get('customer_first_name'),
