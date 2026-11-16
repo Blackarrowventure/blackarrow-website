@@ -307,6 +307,22 @@
     "en": "Apartment, suite, etc. (optional)",
     "ar": "شقة، وحدة، إلخ (اختياري)"
   },
+  "checkout_bh_pay_note": {
+    "en": "Bahrain orders are paid by bank transfer, card (mada, Visa, Mastercard) or Apple Pay. Tabby and Tamara are not available for delivery to Bahrain.",
+    "ar": "تُدفع طلبات البحرين بالتحويل البنكي أو البطاقة (مدى، فيزا، ماستركارد) أو Apple Pay. لا يتوفر تابي أو تمارا للتوصيل إلى البحرين."
+  },
+  "checkout_bh_pay_pick": {
+    "en": "Please choose bank transfer, card or Apple Pay above to place this order.",
+    "ar": "يرجى اختيار التحويل البنكي أو البطاقة أو Apple Pay في الأعلى لإتمام هذا الطلب."
+  },
+  "checkout_bh_road_block": {
+    "en": "Road and Block",
+    "ar": "الطريق والمجمع"
+  },
+  "checkout_bh_road_block_placeholder": {
+    "en": "e.g. Road 2803, Block 428",
+    "ar": "مثال: طريق 2803، مجمع 428"
+  },
   "checkout_building": {
     "en": "Building Number",
     "ar": "رقم المبنى"
@@ -402,6 +418,14 @@
   "checkout_save_info": {
     "en": "Save this information for next time",
     "ar": "احفظ هذه المعلومات للمرة القادمة"
+  },
+  "checkout_shipping_bahrain": {
+    "en": "Bahrain delivery",
+    "ar": "توصيل إلى البحرين"
+  },
+  "checkout_shipping_bahrain_eta": {
+    "en": "Contact our team for the delivery time",
+    "ar": "تواصل مع فريقنا لمعرفة مدة التوصيل"
   },
   "checkout_shipping_fast": {
     "en": "Fast shipping",
@@ -1588,8 +1612,8 @@
     "ar": "شاهدها أثناء العمل"
   },
   "js_shipping_desc": {
-    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia. Standard shipping is free to Khobar and Dammam, on any order with a 3D printer, on 3D Artwork from 100 SAR and on orders of 500 SAR or more. Self pickup is free.",
-    "ar": "شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية. الشحن العادي مجاني إلى الخبر والدمام، ولأي طلب يتضمن طابعة ثلاثية الأبعاد، ولمنتجات الفن ثلاثي الأبعاد من 100 ريال، وللطلبات من 500 ريال فأكثر. الاستلام الذاتي مجاني."
+    "en": "Standard shipping 30 SAR (4–5 business days) or fast shipping 50 SAR (2–3 business days), across Saudi Arabia. Standard shipping is free to Khobar and Dammam, on any order with a 3D printer, on 3D Artwork from 100 SAR and on orders of 500 SAR or more. Self pickup is free. Delivery to Bahrain: 200 SAR.",
+    "ar": "شحن عادي 30 ريال (من 4 إلى 5 أيام عمل) أو شحن سريع 50 ريال (من 2 إلى 3 أيام عمل)، لجميع مناطق المملكة العربية السعودية. الشحن العادي مجاني إلى الخبر والدمام، ولأي طلب يتضمن طابعة ثلاثية الأبعاد، ولمنتجات الفن ثلاثي الأبعاد من 100 ريال، وللطلبات من 500 ريال فأكثر. الاستلام الذاتي مجاني. التوصيل إلى البحرين: 200 ريال."
   },
   "js_shipping_heading": {
     "en": "Shipping",

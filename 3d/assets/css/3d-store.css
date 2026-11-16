@@ -3196,6 +3196,7 @@ main.b3d-light .b3d-series__label { color: #6b6658; }
 
 /* Self pickup chosen at checkout: free-delivery progress does not apply */
 .b3d-is-pickup [data-b3d-shipping-note], .b3d-is-pickup [data-b3d-ship-bar], .b3d-is-pickup [data-b3d-ship-progress] { display: none !important; }
+.b3d-is-bahrain [data-b3d-shipping-note], .b3d-is-bahrain [data-b3d-ship-bar], .b3d-is-bahrain [data-b3d-ship-progress] { display: none !important; }
 
 /* Stock limit next to a quantity stepper (product page and cart) */
 .b3d-qty-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
@@ -3557,3 +3558,6 @@ main.b3d-light .b3d-filter-panel label:has(input:checked) > span { color: #fff; 
 /* Section titles on light pages: the bright accent (#f59e0b) is too faint on the cream
    background (e.g. "What our customers say" on product pages). Dark sections keep it. */
 main.b3d-light .section-header:not(.section--dark .section-header) h2 { color: #b45309 !important; }
+
+/* Bahrain delivery: Tabby / Tamara chosen - ask for another payment method */
+.b3d-paylater-note.is-error { color: #ffb4b4; font-weight: 600; }

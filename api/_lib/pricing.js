@@ -76,7 +76,7 @@ function bnplFeeCents(cats) {
 }
 
 // Everything that decides the final amount, in one place.
-//   shipping: 'regular' | 'fast' | 'pickup'; payLater: add the BNPL fee;
+//   shipping: 'regular' | 'fast' | 'pickup' | 'bahrain' (flat 200 SAR, never free); payLater: add the BNPL fee;
 //   rewards: { discountCents, freeDelivery } from api/_lib/rewards.js
 //   products: the catalog with the CRM's stock and prices applied
 //   (crm-catalog.liveProducts); defaults to the plain catalog file.
@@ -173,13 +173,16 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   if (!priced) return { error: 'invalid_cart' };
   // Products sold without pay-later (catalog "noPayLater", e.g. a high-value pre-order): no Tabby / Tamara.
   if (payLater && hasNoPayLater(items, products)) return { error: 'pay_later_not_available' };
-  if (shipping !== 'regular' && shipping !== 'fast' && shipping !== 'pickup') return { error: 'invalid_shipping' };
+  // Delivery to Bahrain: no Tabby / Tamara.
+  if (payLater && shipping === 'bahrain') return { error: 'pay_later_not_available' };
+  if (['regular', 'fast', 'pickup', 'bahrain'].indexOf(shipping) < 0) return { error: 'invalid_shipping' };
 
   // Free delivery only ever waives Regular shipping; Fast always stays paid. Self pickup is always free.
   const pickup = shipping === 'pickup';
   const free = pickup || (shipping === 'regular' && (priced.freeShipping || !!(rewards && rewards.freeDelivery) || freeCity(city)));
-  const shippingCents = free ? 0 : shipping === 'fast' ? 5000 : 3000;
+  const shippingCents = free ? 0 : shipping === 'bahrain' ? 20000 : shipping === 'fast' ? 5000 : 3000;
   const shippingLabel = pickup ? 'Self pickup (Free)'
+    : shipping === 'bahrain' ? 'Bahrain delivery'
     : (shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (free ? ' (Free)' : '');
   const feeCents = payLater ? bnplFeeCents(priced.categories) : 0;
   const discountCents = Math.min((rewards && rewards.discountCents) || 0, priced.itemsCents);
