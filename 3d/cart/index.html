@@ -21,16 +21,15 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="/assets/css/styles-3d.min.css?v=20261115">
-  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261140">
+  <link rel="stylesheet" href="/3d/assets/css/3d-store.min.css?v=20261150">
 
   <style>
     :root{--clr-red:#1a1a1a;--clr-navy:#1a1a1a;--clr-navy-dark:#1a1a1a;--nav-h:104px;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{font-family:'Noto Sans','Noto Sans Fallback','Segoe UI',system-ui,sans-serif;overflow-x:hidden;}
     .navbar{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);height:var(--nav-h);border-bottom:3px solid var(--clr-accent);}
-    .b3d-cart-layout{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:start;}
-    @media (max-width:860px){.b3d-cart-layout{grid-template-columns:1fr;}}
-    .b3d-cart-layout > .b3d-payment{grid-column:1 / -1;max-width:820px;width:100%;}
+    .b3d-cart-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start;}
+    .b3d-cart-layout > *{grid-column:1;grid-row:auto;min-width:0;}
   </style>
 <script src="/3d/assets/js/3d-consent.min.js?v=20261112" defer></script>
 </head>
@@ -145,6 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="b3d-grid" data-b3d-cart-crosssell-grid></div>
           </div>
 
+            <div class="b3d-co" data-b3d-co>
           <aside class="b3d-cart-summary" data-b3d-cart-summary>
             <h2 data-i18n="cart_summary_h2">Order Summary</h2>
             <div class="b3d-cart-summary__row">
@@ -172,132 +172,155 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span data-cart-total>0</span>
             </div>
           </aside>
-            <div class="b3d-payment" data-b3d-payment style="margin-top:26px;">
-              <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="cart_payment_h4">Payment Method</h3>
-              <div class="b3d-payment-methods">
-                <button type="button" class="b3d-pm" data-pm="bank" aria-pressed="false"><span data-i18n="pm_banktransfer">Bank Transfer</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-                <button type="button" class="b3d-pm" data-pm="cash" aria-pressed="false" data-b3d-cash-pm><span data-i18n="pm_cash">Cash at Pickup</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_cash_note">Self pickup only</span></button>
-                <button type="button" class="b3d-pm" data-pm="card" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/visa.png" alt="Visa" width="36" height="24"><img src="/3d/assets/images/payment/mastercard.svg" alt="Mastercard" width="36" height="24"><img src="/3d/assets/images/payment/mada.png" alt="mada" width="36" height="24"></span><span data-i18n="pm_card_label">Card (mada, Visa, Mastercard)</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-                <button type="button" class="b3d-pm" data-pm="applepay" data-b3d-applepay aria-pressed="false" hidden><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/applepay.png" alt="Apple Pay" width="36" height="24"></span><span>Apple Pay</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-                <button type="button" class="b3d-pm" data-pm="tabby" aria-pressed="false"><span class="b3d-pm__brands"><img class="b3d-pm__tabby" src="/3d/assets/images/payment/tabby.png" alt="Tabby" width="56" height="56"></span><span data-i18n="pm_tabby_label">Pay in 4 with Tabby</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-                <button type="button" class="b3d-pm" data-pm="tamara" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/tamara.png" alt="Tamara" width="56" height="30"></span><span data-i18n="pm_tamara_label">Pay Later with Tamara</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="card" hidden>
-                <h4 data-i18n="pm_card_h4">Card payment</h4>
-                <p data-i18n="pm_card_p">After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.</p>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="applepay" hidden>
-                <h4>Apple Pay</h4>
-                <p data-i18n="pm_applepay_p">After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay with Apple Pay, then returned here.</p>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="tabby" hidden>
-                <h4 data-i18n="pm_tabby_label">Pay in 4 with Tabby</h4>
-                <p data-i18n="pm_tabby_p">After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.</p>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="tamara" hidden>
-                <h4 data-i18n="pm_tamara_label">Pay Later with Tamara</h4>
-                <p data-i18n="pm_tamara_p">After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.</p>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="cash" hidden>
-                <h4 data-i18n="pm_cash_h4">Pay Cash at Pickup</h4>
-                <p data-i18n="pm_cash_p">Pay in cash when you collect your order from our Al Khobar pickup point (self pickup only, no delivery with cash). We'll message you when your order is ready.</p>
-              </div>
-
-              <div class="b3d-pm-detail" data-pm-detail="bank" hidden>
-                <h4 data-i18n="pm_bank_h4">Direct Bank Transfer</h4>
-                <p data-i18n="pm_bank_p">Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.</p>
-                <div class="b3d-bank-details" data-b3d-bank-details>
-                  <div class="b3d-bank-details__row"><span data-i18n="pm_bank_bankname">Bank Name</span><span>Al Rajhi Bank</span></div>
-                  <div class="b3d-bank-details__row"><span data-i18n="pm_bank_beneficiary">Beneficiary Name</span><span>Black Arrow Venture Co</span></div>
-                  <div class="b3d-bank-details__row"><span data-i18n="pm_bank_iban">IBAN</span><span>SA6980000513608016313082</span></div>
+              <div class="b3d-payment b3d-co__main" data-b3d-payment>
+                <div class="b3d-checkout" data-b3d-checkout>
+                  <div class="b3d-checkout__login" data-b3d-checkout-login>
+                    <a href="/3d/account/" data-i18n="checkout_login_prompt">Log in for faster checkout</a>
+                  </div>
+                  <div class="b3d-checkout__login b3d-checkout__signedin" data-b3d-checkout-signedin hidden>
+                    <span><span data-i18n="checkout_signed_in_as">Signed in as</span> <strong data-b3d-checkout-email></strong></span>
+                  </div>
+  
+                  <div class="b3d-checkout-rewards" data-b3d-checkout-rewards>
+                    <span class="b3d-checkout-rewards__icon" aria-hidden="true">&#127873;</span>
+                    <div class="b3d-checkout-rewards__text">
+                      <strong data-i18n="checkout_rewards_h">Get your Rewards account for more benefits</strong>
+                      <span data-i18n="checkout_rewards_p">Create a free account to join Black Arrow Loyalty Rewards: 5 SAR welcome credit, reward balance on every order, birthday rewards and free delivery at Gold and Platinum.</span>
+                    </div>
+                    <div class="b3d-checkout-rewards__actions">
+                      <a href="/3d/account/" class="b3d-checkout-rewards__cta" data-i18n="checkout_rewards_cta">Create free account</a>
+                      <a href="/3d/rewards/" class="b3d-checkout-rewards__more" data-b3d-rewards-more data-i18n="checkout_rewards_more">See benefits</a>
+                    </div>
+                  </div>
+                  <form class="b3d-account__form b3d-co__form" id="b3d-checkout-form" data-b3d-checkout-submit action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="217e03f8-59ef-45c3-9cf8-048f27ba0586">
+                    <input type="hidden" name="subject" value="New Black Arrow 3D order">
+                    <input type="hidden" name="from_name" value="Black Arrow 3D Shop">
+                    <input type="hidden" name="payment_method" data-b3d-order-payment value="">
+                    <input type="hidden" name="order_summary" data-b3d-order-summary value="">
+                    <input type="hidden" name="coupon_code" data-b3d-coupon-field value="">
+                    <input type="hidden" name="order_id" data-b3d-order-id value="">
+                    <input type="checkbox" name="botcheck" aria-label="Leave this box empty" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+                  <section class="b3d-step" data-b3d-step="1">
+                    <h3 class="b3d-step__h"><span class="b3d-step__n" aria-hidden="true">1</span><span data-i18n="co_step1">Where should we send your order?</span></h3>
+                    <div class="b3d-co-countries" role="radiogroup">
+                      <label class="b3d-co-country"><input type="radio" name="customer_country" value="Saudi Arabia" data-b3d-country="sa" checked><svg class="b3d-co-country__flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#006C35"/><rect x="7" y="12.6" width="16" height="1.3" rx=".6" fill="#fff"/><path d="M8 8.5h14M9 10h12" stroke="#fff" stroke-width=".9" stroke-linecap="round" opacity=".85"/></svg><span><b data-i18n="co_country_sa">Saudi Arabia</b><small data-i18n="co_country_sub">Delivery or pickup</small></span></label>
+                      <label class="b3d-co-country"><input type="radio" name="customer_country" value="Bahrain" data-b3d-country="bh"><svg class="b3d-co-country__flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#CE1126"/><path d="M0 0h8l3 2-3 2 3 2-3 2 3 2-3 2 3 2-3 2 3 2-3 2H0z" fill="#fff"/></svg><span><b data-i18n="co_country_bh">Bahrain</b><small data-i18n="co_country_sub">Delivery or pickup</small></span></label>
+                    </div>
+                  </section>
+                  <section class="b3d-step" data-b3d-step="2">
+                    <h3 class="b3d-step__h"><span class="b3d-step__n" aria-hidden="true">2</span><span data-i18n="co_step2">Delivery</span></h3>
+                    <p class="b3d-shipping-note" data-b3d-shipping-note hidden></p>
+                    <input type="hidden" name="shipping_method" data-b3d-shipping-field value="">
+                      <div class="b3d-shipping-methods" data-b3d-shipping-methods>
+                        <label class="b3d-shipping-option">
+                          <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="regular" data-co="sa" data-shipping-price="30" data-shipping-label="Regular shipping" checked><span><span data-i18n="checkout_shipping_regular">Regular shipping</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_regular_eta">4–5 business days</small></span></span>
+                          <span class="b3d-shipping-option__price" data-ship-price-display="regular">30 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
+                        </label>
+                        <label class="b3d-shipping-option">
+                          <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="fast" data-co="sa" data-shipping-price="50" data-shipping-label="Fast shipping"><span><span data-i18n="checkout_shipping_fast">Fast shipping</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_fast_eta">2–3 business days</small></span></span>
+                          <span class="b3d-shipping-option__price" data-ship-price-display="fast">50 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
+                        </label>
+                        <label class="b3d-shipping-option">
+                          <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="bahrain" data-co="bh" data-shipping-price="200" data-shipping-label="Bahrain delivery"><span><span data-i18n="checkout_shipping_bahrain">Bahrain delivery</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_bahrain_eta">Contact our team for the delivery time</small></span></span>
+                          <span class="b3d-shipping-option__price" data-ship-price-display="bahrain">200 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
+                        </label>
+                        <label class="b3d-shipping-option">
+                          <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="pickup" data-shipping-price="0" data-shipping-label="Self pickup"><span><span data-i18n="checkout_shipping_pickup">Self pickup</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_pickup_eta">We'll message you the pickup location when your order is ready</small></span></span>
+                          <span class="b3d-shipping-option__price" data-ship-price-display="pickup" data-i18n="js_free_ship_label">Free</span>
+                        </label>
+                      </div>
+                  </section>
+                  <section class="b3d-step" data-b3d-step="3">
+                    <h3 class="b3d-step__h"><span class="b3d-step__n" aria-hidden="true">3</span><span data-i18n="co_step3">Your details</span></h3>
+                    <div class="b3d-co__grid">
+                      <label><span data-i18n="checkout_first_name">First Name</span><input type="text" name="customer_first_name" required autocomplete="given-name" data-b3d-field="first_name"></label>
+                      <label><span data-i18n="checkout_last_name">Last Name</span><input type="text" name="customer_last_name" required autocomplete="family-name" data-b3d-field="last_name"></label>
+                      <label><span class="b3d-sa-only" data-i18n="checkout_phone">Phone</span><span class="b3d-bh-only" data-i18n="co_phone_bh">Bahrain mobile</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="05XXXXXXXX" data-b3d-field="phone"></label>
+                      <label><span data-i18n="co_phone_sa_opt">Saudi mobile (optional)</span><input type="tel" name="customer_phone_sa" autocomplete="off" placeholder="05XXXXXXXX" data-b3d-field="phone_sa"><small class="b3d-co__hint" data-i18n="co_phone_sa_hint">If you also have a Saudi number</small></label>
+                      <label class="b3d-co__full"><span data-i18n="checkout_email">Email Address</span><input type="email" name="email" required autocomplete="email" data-b3d-field="email"><small class="b3d-co__hint" data-i18n="checkout_email_note">We'll send your order confirmation to this address.</small></label>
+                    </div>
+                    <div class="b3d-co__addr" data-b3d-co-addr>
+                      <p class="b3d-co__subh"><span class="b3d-sa-only" data-i18n="co_addr_sa">Delivery address</span><span class="b3d-bh-only" data-i18n="co_addr_bh">Bahrain address</span></p>
+                      <div class="b3d-co__grid">
+                        <label class="b3d-co__full"><span data-i18n="checkout_national_address">National Address (short code)</span><input type="text" name="customer_national_address" required maxlength="9" pattern="[A-Za-z]{4} ?[0-9]{4}" autocapitalize="characters" spellcheck="false" placeholder="e.g. RRRD2929" data-i18n-placeholder="checkout_national_placeholder" autocomplete="off" data-b3d-field="national_address"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_national_hint">4 letters + 4 numbers, from your National Address (Absher or the SPL app).</small></label>
+                        <label><span data-i18n="checkout_building">Building Number</span><input type="text" name="customer_building" required maxlength="10" placeholder="e.g. 8 or 7584" data-i18n-placeholder="checkout_building_placeholder" autocomplete="address-line1" data-b3d-field="building"></label>
+                        <label><span data-i18n="checkout_apartment">Apartment, suite, etc. (optional)</span><input type="text" name="customer_apartment" autocomplete="address-line2" data-b3d-field="apartment"></label>
+                        <label><span data-i18n="co_bh_flat">Flat / House no. (optional)</span><input type="text" name="customer_bh_flat" maxlength="30" placeholder="e.g. 12" autocomplete="address-line2" data-b3d-field="bh_flat"></label>
+                        <label><span data-i18n="co_bh_building">Building</span><input type="text" name="customer_bh_building" required maxlength="20" placeholder="e.g. 1450" autocomplete="off" data-b3d-field="bh_building"></label>
+                        <label><span data-i18n="co_bh_road">Road</span><input type="text" name="customer_bh_road" required maxlength="20" placeholder="e.g. 2803" autocomplete="off" data-b3d-field="bh_road"></label>
+                        <label><span data-i18n="co_bh_block">Block</span><input type="text" name="customer_bh_block" required maxlength="20" placeholder="e.g. 428" autocomplete="off" data-b3d-field="bh_block"></label>
+                        <label><span class="b3d-sa-only" data-i18n="checkout_city">City</span><span class="b3d-bh-only" data-i18n="co_bh_area">Area / City</span><input type="text" name="customer_city" required autocomplete="address-level2" data-b3d-field="city"></label>
+                        <label><span data-i18n="checkout_postal_code">Postal Code (optional)</span><input type="text" name="customer_postal_code" autocomplete="postal-code" data-b3d-field="postal_code"></label>
+                      </div>
+                    </div>
+                    <p class="b3d-co__pickup" data-b3d-co-pickup hidden data-i18n="co_pickup_box">No address needed. Collect your order from our pickup point in Al Khobar, Saudi Arabia. We'll message you when it's ready.</p>
+                    <label class="b3d-co__notes"><span data-i18n="checkout_notes">Notes (optional)</span><textarea name="customer_notes" placeholder="Transfer reference, delivery instructions, etc." data-i18n-placeholder="checkout_notes_placeholder"></textarea></label>
+                    <label class="b3d-checkout__save"><input type="checkbox" data-b3d-save-info><span data-i18n="checkout_save_info">Save this information for next time</span></label>
+                  </section>
+                  <section class="b3d-step" data-b3d-step="4">
+                    <h3 class="b3d-step__h"><span class="b3d-step__n" aria-hidden="true">4</span><span data-i18n="co_step4">Payment</span></h3>
+                  <div class="b3d-payment-methods">
+                    <button type="button" class="b3d-pm" data-pm="bank" aria-pressed="false"><span data-i18n="pm_banktransfer">Bank Transfer</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
+                    <button type="button" class="b3d-pm" data-pm="cash" aria-pressed="false" data-b3d-cash-pm><span data-i18n="pm_cash">Cash at Pickup</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_cash_note">Self pickup only</span></button>
+                    <button type="button" class="b3d-pm" data-pm="card" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/visa.png" alt="Visa" width="36" height="24"><img src="/3d/assets/images/payment/mastercard.svg" alt="Mastercard" width="36" height="24"><img src="/3d/assets/images/payment/mada.png" alt="mada" width="36" height="24"></span><span data-i18n="pm_card_label">Card (mada, Visa, Mastercard)</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
+                    <button type="button" class="b3d-pm" data-pm="applepay" data-b3d-applepay aria-pressed="false" hidden><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/applepay.png" alt="Apple Pay" width="36" height="24"></span><span>Apple Pay</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
+                    <button type="button" class="b3d-pm" data-pm="tabby" aria-pressed="false"><span class="b3d-pm__brands"><img class="b3d-pm__tabby" src="/3d/assets/images/payment/tabby.png" alt="Tabby" width="56" height="56"></span><span data-i18n="pm_tabby_label">Pay in 4 with Tabby</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
+                    <button type="button" class="b3d-pm" data-pm="tamara" aria-pressed="false"><span class="b3d-pm__brands"><img src="/3d/assets/images/payment/tamara.png" alt="Tamara" width="56" height="30"></span><span data-i18n="pm_tamara_label">Pay Later with Tamara</span><span class="b3d-pm__note b3d-pm__note--active" data-i18n="pm_active_now">Available Now</span></button>
+                  </div>
+                    <p class="b3d-paylater-note b3d-bh-only" data-i18n="co_bh_paynote">Tabby and Tamara are not available for Bahrain orders.</p>
+                  <div class="b3d-pm-detail" data-pm-detail="card" hidden>
+                    <h4 data-i18n="pm_card_h4">Card payment</h4>
+                    <p data-i18n="pm_card_p">After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay by mada, Visa or Mastercard, then returned here.</p>
+                  </div>
+    
+                  <div class="b3d-pm-detail" data-pm-detail="applepay" hidden>
+                    <h4>Apple Pay</h4>
+                    <p data-i18n="pm_applepay_p">After you fill in the delivery details below, you'll be taken to Paymob's secure payment page to pay with Apple Pay, then returned here.</p>
+                  </div>
+    
+                  <div class="b3d-pm-detail" data-pm-detail="tabby" hidden>
+                    <h4 data-i18n="pm_tabby_label">Pay in 4 with Tabby</h4>
+                    <p data-i18n="pm_tabby_p">After you fill in the delivery details below, you'll be taken to Tabby's secure page to split your payment, then returned here.</p>
+                  </div>
+    
+                  <div class="b3d-pm-detail" data-pm-detail="tamara" hidden>
+                    <h4 data-i18n="pm_tamara_label">Pay Later with Tamara</h4>
+                    <p data-i18n="pm_tamara_p">After you fill in the delivery details below, you'll be taken to Tamara's secure page to arrange your payment, then returned here.</p>
+                  </div>
+    
+                  <div class="b3d-pm-detail" data-pm-detail="cash" hidden>
+                    <h4 data-i18n="pm_cash_h4">Pay Cash at Pickup</h4>
+                    <p data-i18n="pm_cash_p">Pay in cash when you collect your order from our Al Khobar pickup point (self pickup only, no delivery with cash). We'll message you when your order is ready.</p>
+                  </div>
+    
+                  <div class="b3d-pm-detail" data-pm-detail="bank" hidden>
+                    <h4 data-i18n="pm_bank_h4">Direct Bank Transfer</h4>
+                    <p data-i18n="pm_bank_p">Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.</p>
+                    <div class="b3d-bank-details" data-b3d-bank-details>
+                      <div class="b3d-bank-details__row"><span data-i18n="pm_bank_bankname">Bank Name</span><span>Al Rajhi Bank</span></div>
+                      <div class="b3d-bank-details__row"><span data-i18n="pm_bank_beneficiary">Beneficiary Name</span><span>Black Arrow Venture Co</span></div>
+                      <div class="b3d-bank-details__row"><span data-i18n="pm_bank_iban">IBAN</span><span>SA6980000513608016313082</span></div>
+                      <div class="b3d-bank-details__row b3d-bh-only"><span data-i18n="pm_bank_swift">SWIFT / BIC</span><span>RJHISARI</span></div>
+                    </div>
+                    <p class="b3d-sa-only" style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:2px;" data-i18n="pm_bank_iban_note">IBAN is all you need for a domestic transfer within Saudi Arabia.</p>
+                    <p class="b3d-bh-only" style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:2px;" data-i18n="pm_bank_bh_note">From Bahrain, send an international transfer in SAR using the IBAN and SWIFT code.</p>
+                  </div>
+                  <div class="b3d-preorder-notice" data-b3d-preorder-notice hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <p data-i18n="cart_preorder_notice">This order includes a pre-order item. Pre-order items are confirmed with you about one week before delivery.</p>
+                  </div>
+                    <p class="b3d-checkout__error" data-b3d-pay-required hidden role="alert" data-i18n="co_pick_payment">Please choose a payment method above.</p>
+                    <button type="submit" class="btn btn-primary b3d-co__submit" data-i18n="checkout_submit">Place Order</button>
+                    <p class="b3d-checkout__success" id="b3d-checkout-success" hidden data-i18n="checkout_success">Order received — we'll contact you shortly to confirm.</p>
+                    <p class="b3d-checkout__error" id="b3d-checkout-error" hidden data-i18n="checkout_error">Sorry, the order could not be sent. Please WhatsApp us instead.</p>
+                  </section>
+                  </form>
                 </div>
-                <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:2px;" data-i18n="pm_bank_iban_note">IBAN is all you need for a domestic transfer within Saudi Arabia.</p>
               </div>
-
-              <div class="b3d-preorder-notice" data-b3d-preorder-notice hidden>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <p data-i18n="cart_preorder_notice">This order includes a pre-order item. Pre-order items are confirmed with you about one week before delivery.</p>
-              </div>
-
-              <div class="b3d-checkout" data-b3d-checkout hidden>
-                <div class="b3d-checkout__login" data-b3d-checkout-login>
-                  <a href="/3d/account/" data-i18n="checkout_login_prompt">Log in for faster checkout</a>
-                </div>
-                <div class="b3d-checkout__login b3d-checkout__signedin" data-b3d-checkout-signedin hidden>
-                  <span><span data-i18n="checkout_signed_in_as">Signed in as</span> <strong data-b3d-checkout-email></strong></span>
-                </div>
-
-                <div class="b3d-checkout-rewards" data-b3d-checkout-rewards>
-                  <span class="b3d-checkout-rewards__icon" aria-hidden="true">&#127873;</span>
-                  <div class="b3d-checkout-rewards__text">
-                    <strong data-i18n="checkout_rewards_h">Get your Rewards account for more benefits</strong>
-                    <span data-i18n="checkout_rewards_p">Create a free account to join Black Arrow Loyalty Rewards: 5 SAR welcome credit, reward balance on every order, birthday rewards and free delivery at Gold and Platinum.</span>
-                  </div>
-                  <div class="b3d-checkout-rewards__actions">
-                    <a href="/3d/account/" class="b3d-checkout-rewards__cta" data-i18n="checkout_rewards_cta">Create free account</a>
-                    <a href="/3d/rewards/" class="b3d-checkout-rewards__more" data-b3d-rewards-more data-i18n="checkout_rewards_more">See benefits</a>
-                  </div>
-                </div>
-
-                <h3 style="color:#fff;font-size:.95rem;margin-bottom:10px;" data-i18n="checkout_h4">Delivery Details</h3>
-                <form class="b3d-account__form" id="b3d-checkout-form" data-b3d-checkout-submit action="https://api.web3forms.com/submit" method="POST">
-                  <input type="hidden" name="access_key" value="217e03f8-59ef-45c3-9cf8-048f27ba0586">
-                  <input type="hidden" name="subject" value="New Black Arrow 3D order">
-                  <input type="hidden" name="from_name" value="Black Arrow 3D Shop">
-                  <input type="hidden" name="payment_method" data-b3d-order-payment value="">
-                  <input type="hidden" name="order_summary" data-b3d-order-summary value="">
-                  <input type="hidden" name="coupon_code" data-b3d-coupon-field value="">
-                  <input type="hidden" name="order_id" data-b3d-order-id value="">
-                  <input type="checkbox" name="botcheck" aria-label="Leave this box empty" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
-
-                  <div class="b3d-field-row">
-                    <label><span data-i18n="checkout_first_name">First Name</span><input type="text" name="customer_first_name" required autocomplete="given-name" data-b3d-field="first_name"></label>
-                    <label><span data-i18n="checkout_last_name">Last Name</span><input type="text" name="customer_last_name" required autocomplete="family-name" data-b3d-field="last_name"></label>
-                  </div>
-                  <label><span data-i18n="checkout_phone">Phone</span><input type="tel" name="customer_phone" required autocomplete="tel" placeholder="+966 5XX XXX XXX" data-b3d-field="phone"></label>
-                  <label><span data-i18n="checkout_email">Email Address</span><input type="email" name="email" required autocomplete="email" data-b3d-field="email"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_email_note">We'll send your order confirmation to this address.</small></label>
-                  <label><span data-i18n="checkout_national_address">National Address (short code)</span><input type="text" name="customer_national_address" required maxlength="9" pattern="[A-Za-z]{4} ?[0-9]{4}" autocapitalize="characters" spellcheck="false" placeholder="e.g. RRRD2929" data-i18n-placeholder="checkout_national_placeholder" autocomplete="off" data-b3d-field="national_address"><small style="color:rgba(255,255,255,.45);font-size:.78rem;" data-i18n="checkout_national_hint">4 letters + 4 numbers, from your National Address (Absher or the SPL app).</small></label>
-                  <label><span data-i18n="checkout_building">Building Number</span><input type="text" name="customer_building" required maxlength="10" placeholder="e.g. 8 or 7584" data-i18n-placeholder="checkout_building_placeholder" autocomplete="address-line1" data-b3d-field="building"></label>
-                  <label><span data-i18n="checkout_apartment">Apartment, suite, etc. (optional)</span><input type="text" name="customer_apartment" autocomplete="address-line2" data-b3d-field="apartment"></label>
-                  <div class="b3d-field-row">
-                    <label><span data-i18n="checkout_postal_code">Postal Code (optional)</span><input type="text" name="customer_postal_code" autocomplete="postal-code" data-b3d-field="postal_code"></label>
-                    <label><span data-i18n="checkout_city">City</span><input type="text" name="customer_city" required autocomplete="address-level2" data-b3d-field="city"></label>
-                  </div>
-                  <label><span data-i18n="checkout_notes">Notes (optional)</span><textarea name="customer_notes" placeholder="Transfer reference, delivery instructions, etc." data-i18n-placeholder="checkout_notes_placeholder"></textarea></label>
-
-                  <label class="b3d-checkout__save"><input type="checkbox" data-b3d-save-info><span data-i18n="checkout_save_info">Save this information for next time</span></label>
-
-                  <h4 style="color:#fff;font-size:.95rem;margin:6px 0 2px;" data-i18n="checkout_shipping_h4">Shipping Method</h4>
-                  <p class="b3d-shipping-note" data-b3d-shipping-note hidden></p>
-                  <input type="hidden" name="shipping_method" data-b3d-shipping-field value="">
-                  <div class="b3d-shipping-methods" data-b3d-shipping-methods>
-                    <label class="b3d-shipping-option">
-                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="regular" data-shipping-price="30" data-shipping-label="Regular shipping" checked><span><span data-i18n="checkout_shipping_regular">Regular shipping</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_regular_eta">4–5 business days</small></span></span>
-                      <span class="b3d-shipping-option__price" data-ship-price-display="regular">30 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
-                    </label>
-                    <label class="b3d-shipping-option">
-                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="fast" data-shipping-price="50" data-shipping-label="Fast shipping"><span><span data-i18n="checkout_shipping_fast">Fast shipping</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_fast_eta">2–3 business days</small></span></span>
-                      <span class="b3d-shipping-option__price" data-ship-price-display="fast">50 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
-                    </label>
-                    <label class="b3d-shipping-option">
-                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="bahrain" data-shipping-price="200" data-shipping-label="Bahrain delivery"><span><span data-i18n="checkout_shipping_bahrain">Bahrain delivery</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_bahrain_eta">Contact our team for the delivery time</small></span></span>
-                      <span class="b3d-shipping-option__price" data-ship-price-display="bahrain">200 <small class="b3d-riyal" aria-hidden="true"><svg viewBox="0 0 395 432" xmlns="http://www.w3.org/2000/svg"><path d="M240.555 382.706C233.658 398 229.098 414.597 227.352 432.003L373.316 400.974C380.214 385.684 384.769 369.083 386.52 351.678L240.555 382.706Z"/><path d="M373.316 308.014C380.213 292.723 384.772 276.123 386.519 258.717L272.817 282.9V236.412L373.312 215.056C380.21 199.765 384.769 183.165 386.516 165.759L272.814 189.921V22.7383C255.391 32.5206 239.918 45.5419 227.341 60.9013V199.59L181.868 209.256V0C164.445 9.77887 148.972 22.8036 136.394 38.1631V218.917L34.6481 240.538C27.7506 255.829 23.1878 272.43 21.4376 289.835L136.394 265.405V323.948L13.1957 350.128C6.29825 365.418 1.73891 382.019 -0.0078125 399.424L128.947 372.02C139.444 369.837 148.467 363.63 154.333 355.089L177.982 320.028V320.021C180.437 316.393 181.868 312.02 181.868 307.309V255.74L227.341 246.074V339.049L373.312 308.007L373.316 308.014Z"/></svg></small><span class="sr-only"> SAR</span></span>
-                    </label>
-                    <label class="b3d-shipping-option">
-                      <span class="b3d-shipping-option__label"><input type="radio" name="shipping_choice" value="pickup" data-shipping-price="0" data-shipping-label="Self pickup"><span><span data-i18n="checkout_shipping_pickup">Self pickup</span><small class="b3d-shipping-option__eta" data-i18n="checkout_shipping_pickup_eta">We'll message you the pickup location when your order is ready</small></span></span>
-                      <span class="b3d-shipping-option__price" data-ship-price-display="pickup" data-i18n="js_free_ship_label">Free</span>
-                    </label>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary" style="margin-top:8px;" data-i18n="checkout_submit">Place Order</button>
-                  <p class="b3d-checkout__success" id="b3d-checkout-success" hidden data-i18n="checkout_success">Order received — we'll contact you shortly to confirm.</p>
-                  <p class="b3d-checkout__error" id="b3d-checkout-error" hidden data-i18n="checkout_error">Sorry, the order could not be sent. Please WhatsApp us instead.</p>
-                </form>
+              <div class="b3d-co-bar" data-b3d-co-bar>
+                <div class="b3d-co-bar__total"><small data-i18n="cart_total_label">Total</small><b data-b3d-co-bar-total></b></div>
+                <button type="submit" form="b3d-checkout-form" class="btn btn-primary" data-i18n="checkout_submit">Place Order</button>
               </div>
             </div>
         </div>
@@ -384,9 +407,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/3d/assets/js/3d-supabase-config.js" defer></script>
   <script src="/3d/assets/js/3d-emailjs-config.js" defer></script>
   <script src="/assets/js/app.min.js?v=20261110" defer></script>
-  <script src="/3d/assets/js/3d-i18n.min.js?v=20261141" defer></script>
+  <script src="/3d/assets/js/3d-i18n.min.js?v=20261151" defer></script>
   <script src="/3d/assets/js/3d-brands.js?v=20261065" defer></script>
-  <script src="/3d/assets/js/3d-store.min.js?v=20261140" defer></script>
+  <script src="/3d/assets/js/3d-store.min.js?v=20261150" defer></script>
   <script src="/3d/assets/js/3d-auth.js?v=20261115" defer></script>
   <script src="/3d/assets/js/3d-rewards.js?v=20261110" defer></script>
 

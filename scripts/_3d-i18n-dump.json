@@ -591,6 +591,86 @@
     "en": "Use the compare button on any printer in the shop to see printers side by side. These are the specifications that matter most:",
     "ar": "استخدم زر المقارنة في أي طابعة داخل المتجر لعرض الطابعات جنبًا إلى جنب. هذه أهم المواصفات:"
   },
+  "co_addr_bh": {
+    "en": "Bahrain address",
+    "ar": "العنوان في البحرين"
+  },
+  "co_addr_sa": {
+    "en": "Delivery address",
+    "ar": "عنوان التوصيل"
+  },
+  "co_bh_area": {
+    "en": "Area / City",
+    "ar": "المنطقة / المدينة"
+  },
+  "co_bh_block": {
+    "en": "Block",
+    "ar": "المجمع"
+  },
+  "co_bh_building": {
+    "en": "Building",
+    "ar": "المبنى"
+  },
+  "co_bh_flat": {
+    "en": "Flat / House no. (optional)",
+    "ar": "رقم الشقة / المنزل (اختياري)"
+  },
+  "co_bh_paynote": {
+    "en": "Tabby and Tamara are not available for Bahrain orders.",
+    "ar": "تابي وتمارا غير متاحين لطلبات البحرين."
+  },
+  "co_bh_road": {
+    "en": "Road",
+    "ar": "الطريق"
+  },
+  "co_country_bh": {
+    "en": "Bahrain",
+    "ar": "البحرين"
+  },
+  "co_country_sa": {
+    "en": "Saudi Arabia",
+    "ar": "السعودية"
+  },
+  "co_country_sub": {
+    "en": "Delivery or pickup",
+    "ar": "توصيل أو استلام"
+  },
+  "co_phone_bh": {
+    "en": "Bahrain mobile",
+    "ar": "جوال البحرين"
+  },
+  "co_phone_sa_hint": {
+    "en": "If you also have a Saudi number",
+    "ar": "إن كان لديك رقم سعودي أيضًا"
+  },
+  "co_phone_sa_opt": {
+    "en": "Saudi mobile (optional)",
+    "ar": "جوال سعودي (اختياري)"
+  },
+  "co_pick_payment": {
+    "en": "Please choose a payment method above.",
+    "ar": "يرجى اختيار طريقة الدفع في الأعلى."
+  },
+  "co_pickup_box": {
+    "en": "No address needed. Collect your order from our pickup point in Al Khobar, Saudi Arabia. We'll message you when it's ready.",
+    "ar": "لا حاجة لعنوان. استلم طلبك من نقطة الاستلام في الخبر، السعودية، وسنراسلك عندما يكون جاهزًا."
+  },
+  "co_step1": {
+    "en": "Where should we send your order?",
+    "ar": "إلى أين نرسل طلبك؟"
+  },
+  "co_step2": {
+    "en": "Delivery",
+    "ar": "التوصيل"
+  },
+  "co_step3": {
+    "en": "Your details",
+    "ar": "بياناتك"
+  },
+  "co_step4": {
+    "en": "Payment",
+    "ar": "الدفع"
+  },
   "compare_h1": {
     "en": "Compare Products",
     "ar": "مقارنة المنتجات"
@@ -1879,6 +1959,10 @@
     "en": "Beneficiary Name",
     "ar": "اسم المستفيد"
   },
+  "pm_bank_bh_note": {
+    "en": "From Bahrain, send an international transfer in SAR using the IBAN and SWIFT code.",
+    "ar": "من البحرين، أرسل حوالة دولية بالريال السعودي باستخدام رقم الآيبان ورمز SWIFT."
+  },
   "pm_bank_h4": {
     "en": "Direct Bank Transfer",
     "ar": "التحويل البنكي المباشر"
@@ -1894,6 +1978,10 @@
   "pm_bank_p": {
     "en": "Transfer the order total to the account below, then complete the form and attach your transfer reference in the notes — we'll confirm once it's received.",
     "ar": "حوّل إجمالي الطلب إلى الحساب أدناه، ثم أكمل النموذج وأضف رقم مرجع التحويل في الملاحظات — سنؤكد الطلب فور استلامه."
+  },
+  "pm_bank_swift": {
+    "en": "SWIFT / BIC",
+    "ar": "رمز SWIFT"
   },
   "pm_banktransfer": {
     "en": "Bank Transfer",

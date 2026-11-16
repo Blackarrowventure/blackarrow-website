@@ -3561,3 +3561,55 @@ main.b3d-light .section-header:not(.section--dark .section-header) h2 { color: #
 
 /* Bahrain delivery: Tabby / Tamara chosen - ask for another payment method */
 .b3d-paylater-note.is-error { color: #ffb4b4; font-weight: 600; }
+
+/* ---------- Checkout: 4 steps (country, delivery, details, payment) with the summary beside them ---------- */
+body:not(.b3d-is-bahrain) .b3d-bh-only, body.b3d-is-bahrain .b3d-sa-only { display: none !important; }
+.b3d-co { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; margin-top: 24px; }
+.b3d-co[hidden] { display: none; }
+.b3d-co > .b3d-cart-summary { grid-column: 2; grid-row: 1; position: sticky; top: 100px; padding: 22px; }
+.b3d-co > .b3d-co__main { grid-column: 1; grid-row: 1; min-width: 0; }
+.b3d-co .b3d-checkout { margin-top: 0; padding-top: 0; border-top: 0; }
+.b3d-checkout .b3d-account__form.b3d-co__form { display: flex; flex-direction: column; gap: 14px; }
+.b3d-step { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.b3d-step__h { display: flex; align-items: center; gap: 10px; color: #fff; font-family: var(--ff-body); font-size: 1.02rem; font-weight: 700; margin: 0; }
+.b3d-step__n { width: 28px; height: 28px; border-radius: 50%; background: var(--clr-accent); color: #1a1a1a; display: grid; place-items: center; font-size: .82rem; font-weight: 800; flex: none; }
+.b3d-co-countries { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.b3d-account__form .b3d-co-country { position: relative; display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 14px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,.12); background: rgba(255,255,255,.02); cursor: pointer; color: #fff; font-size: .9rem; }
+.b3d-account__form .b3d-co-country input { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; margin: 0; }
+.b3d-account__form .b3d-co-country:has(input:checked) { border-color: var(--clr-accent); background: rgba(245,158,11,.1); }
+.b3d-account__form .b3d-co-country:has(input:focus-visible) { outline: 2px solid var(--clr-accent); outline-offset: 2px; }
+.b3d-co-country b { display: block; font-size: .95rem; }
+.b3d-co-country small { display: block; color: rgba(255,255,255,.55); font-size: .75rem; font-weight: 400; }
+.b3d-co-country__flag { width: 40px; height: 27px; border-radius: 4px; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.15); }
+@media (max-width: 380px) { .b3d-account__form .b3d-co-country { padding: 12px 10px; gap: 8px; } .b3d-co-country__flag { width: 30px; height: 20px; } }
+.b3d-co__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.b3d-co__grid > .b3d-co__full { grid-column: 1 / -1; }
+@media (max-width: 560px) { .b3d-co__grid { grid-template-columns: minmax(0, 1fr); } }
+.b3d-co__addr { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 14px; }
+.b3d-co__subh { color: var(--clr-accent); font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+.b3d-co__hint { color: rgba(255,255,255,.45); font-size: .75rem; }
+.b3d-co__pickup { background: rgba(245,158,11,.08); border: 1px dashed rgba(245,158,11,.35); border-radius: 10px; padding: 12px 14px; color: rgba(255,255,255,.82); font-size: .85rem; line-height: 1.5; margin: 0; }
+.b3d-co .b3d-payment-methods { margin-bottom: 0; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.b3d-co .b3d-pm-detail, .b3d-co .b3d-preorder-notice { margin-bottom: 0; }
+.b3d-co .b3d-paylater-note { margin: 0; }
+.b3d-co__submit { width: 100%; padding: 15px; font-size: 1rem; }
+.b3d-co-bar { display: none; }
+@media (max-width: 960px) {
+  .b3d-co { grid-template-columns: minmax(0, 1fr); padding-bottom: 72px; }
+  .b3d-co > .b3d-cart-summary { grid-column: 1; grid-row: auto; position: static; }
+  .b3d-co > .b3d-co__main { grid-row: auto; }
+  .b3d-co-bar { display: flex; align-items: center; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    background: rgba(8,8,9,.97); border-top: 1px solid rgba(245,158,11,.3);
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    transition: transform .2s ease; }
+  .b3d-co-bar.is-away { transform: translateY(110%); }
+  .b3d-co-bar__total { flex: 1; min-width: 0; }
+  .b3d-co-bar__total small { display: block; color: rgba(255,255,255,.55); font-size: .72rem; }
+  .b3d-co-bar__total b { color: #fff; font-size: 1.1rem; font-variant-numeric: tabular-nums; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+  .b3d-co-bar .btn { padding: 12px 20px; white-space: nowrap; margin: 0; }
+  body:has(.b3d-co:not([hidden]) .b3d-co-bar:not(.is-away)) .whatsapp-float { bottom: 86px; }
+}
+@media (prefers-reduced-motion: reduce) { .b3d-co-bar { transition: none; } }
+
+/* One sign-in prompt is enough: the order summary already links to sign in, so the extra strip is hidden. */
+.b3d-co .b3d-checkout__login[data-b3d-checkout-login] { display: none; }

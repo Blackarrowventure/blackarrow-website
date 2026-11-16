@@ -2170,17 +2170,15 @@
       return;
     }
 
+    syncCountry(checkout);
     var checkedRadio = checkout.querySelector('input[name="shipping_choice"]:checked');
     // Free delivery only ever waives Regular shipping — Fast shipping keeps its fee
     // even once the order qualifies, so the override is gated on the chosen method too.
     // Self pickup: the "add X more for free delivery" messages and bars don't apply (CSS hides them).
     document.body.classList.toggle('b3d-is-pickup', !!(checkedRadio && checkedRadio.value === 'pickup'));
     syncPickupFields(checkout, !!(checkedRadio && checkedRadio.value === 'pickup'));
-    // Bahrain delivery: flat 200 SAR, never free; Bahraini address and phone instead of the Saudi ones.
-    var toBahrain = !!(checkedRadio && checkedRadio.value === 'bahrain');
-    document.body.classList.toggle('b3d-is-bahrain', toBahrain);
-    syncBahrainFields(checkout, toBahrain);
-    syncBahrainPayments(toBahrain);
+    // Tabby / Tamara: not for Bahrain; Cash: self pickup only (see syncPayButtons).
+    syncPayButtons();
     document.querySelectorAll('[data-ship-price-display="regular"]').forEach(function (el) {
       if (el.dataset.originalHtml !== undefined) el.innerHTML = regularFree() ? T('js_free_ship_label') : el.dataset.originalHtml;
     });
@@ -2199,6 +2197,8 @@
         '\nGrand Total: ' + (after + price).toLocaleString('en-US') + ' SAR';
     }
     renderCheckoutRecap(summaryEl, checkout);
+    var barTotal = document.querySelector('[data-b3d-co-bar-total]');
+    if (barTotal && totalEl) barTotal.innerHTML = totalEl.innerHTML;
   }
 
   // A copy of the order summary right above "Place Order", so after filling in the address and
@@ -2240,18 +2240,7 @@
   var lastNoPayLater = false;
   function syncRestrictedPayments(restricted) {
     lastNoPayLater = restricted;
-    var picked = null;
-    ['tabby', 'tamara', 'cash'].forEach(function (m) {
-      var btn = document.querySelector('[data-pm="' + m + '"]');
-      if (!btn) return;
-      btn.hidden = restricted;
-      if (restricted && btn.getAttribute('aria-pressed') === 'true') picked = btn;
-    });
-    if (picked) {
-      picked.setAttribute('aria-pressed', 'false');
-      document.querySelectorAll('[data-pm-detail]').forEach(function (d) { d.hidden = true; });
-      updateCheckoutFields(null);
-    }
+    syncPayButtons();
     var note = document.querySelector('[data-b3d-paylater-note]');
     if (!note) {
       var notice = document.querySelector('[data-b3d-preorder-notice]');
@@ -2270,9 +2259,12 @@
     var checkout = document.querySelector('[data-b3d-checkout]');
     if (!checkout) return;
     var purchasable = method === 'bank' || method === 'cash' || method === 'card' || method === 'applepay' || method === 'tabby' || method === 'tamara';
-    checkout.hidden = !purchasable;
-    currentPayMethod = method;
-    syncCashOption(checkout);
+    // The form is always shown: payment is the last of the 4 steps, so no method may be picked yet.
+    currentPayMethod = purchasable ? method : '';
+    var payRequired = document.querySelector('[data-b3d-pay-required]');
+    if (payRequired && purchasable) payRequired.hidden = true;
+    var payFieldNone = checkout.querySelector('[data-b3d-order-payment]');
+    if (payFieldNone && !purchasable) payFieldNone.value = '';
     if (purchasable) {
       var payField = checkout.querySelector('[data-b3d-order-payment]');
       if (payField) payField.value = method === 'card' ? 'Card (Paymob)' : method === 'applepay' ? 'Apple Pay (Paymob)' : method === 'tabby' ? 'Tabby (Pay in 4)' : method === 'tamara' ? 'Tamara (Pay Later)' : method === 'cash' ? 'Cash at Pickup' : 'Bank Transfer';
@@ -2284,113 +2276,135 @@
     updateOrderTotals();
   }
 
-  // Cash is paid at Self pickup, with the same discount as bank transfer. Choosing Cash leaves
-  // Self pickup as the only delivery option (and selects it); any other method shows them all.
-  // The server (api/bank-order.js) refuses cash without pickup.
-  function syncCashOption(checkout) {
+  // Step 1 of checkout: Saudi Arabia or Bahrain. It decides the delivery options (Saudi: regular,
+  // fast, pickup; Bahrain: Bahrain delivery 200 SAR, pickup), the address fields, the phone hint and
+  // the payment methods (no Tabby / Tamara for Bahrain; the server refuses them for Bahrain delivery).
+  // The choice is remembered on this device.
+  var COUNTRY_KEY = 'b3d_country_v1';
+  function isBahrainOrder() {
+    var r = document.querySelector('input[name="customer_country"]:checked');
+    return !!(r && r.getAttribute('data-b3d-country') === 'bh');
+  }
+  function syncCountry(checkout) {
     if (!checkout) return;
-    var cash = currentPayMethod === 'cash';
-    var pickup = checkout.querySelector('input[name="shipping_choice"][value="pickup"]');
-    if (!pickup) return;
+    var bh = isBahrainOrder();
+    document.body.classList.toggle('b3d-is-bahrain', bh);
+    var want = bh ? 'bh' : 'sa';
+    var checked = null, first = null;
     checkout.querySelectorAll('input[name="shipping_choice"]').forEach(function (r) {
+      var co = r.getAttribute('data-co');
+      var show = !co || co === want;
       var label = r.closest('label');
-      if (r.value === 'pickup') return;
-      if (label) label.hidden = cash;
-      r.disabled = cash;
+      if (label) label.hidden = !show;
+      r.disabled = !show;
+      if (show && !first && r.value !== 'pickup') first = r;
+      if (show && r.checked) checked = r;
     });
-    if (cash && !pickup.checked) pickup.checked = true;
+    if (!checked && first) first.checked = true;
+    var phone = checkout.querySelector('[name="customer_phone"]');
+    if (phone) phone.placeholder = bh ? '+973 3XXX XXXX' : '05XXXXXXXX';
   }
 
-  // Self pickup needs only name + phone: the address fields are hidden and switched off (a
-  // disabled field is skipped by the browser's checks and not sent with a bank-transfer order).
-  // Email stays for card / Apple Pay / Tabby / Tamara, whose checkouts require one.
-  var PICKUP_HIDDEN = ['national_address', 'building', 'apartment', 'postal_code', 'city'];
+  // Which payment buttons show: Tabby and Tamara not for Bahrain, Cash at Pickup only with self
+  // pickup, none of the three for pay-later-restricted products. A hidden method that was picked
+  // is unpicked, so the customer chooses again.
+  function syncPayButtons() {
+    var bh = isBahrainOrder();
+    var ship = document.querySelector('input[name="shipping_choice"]:checked');
+    var pickup = !!(ship && ship.value === 'pickup');
+    var dropped = false;
+    ['tabby', 'tamara', 'cash'].forEach(function (m) {
+      var btn = document.querySelector('[data-pm="' + m + '"]');
+      if (!btn) return;
+      var hide = lastNoPayLater || (m === 'cash' ? !pickup : bh);
+      btn.hidden = hide;
+      if (hide && btn.getAttribute('aria-pressed') === 'true') { btn.setAttribute('aria-pressed', 'false'); dropped = true; }
+    });
+    if (dropped) {
+      document.querySelectorAll('[data-pm-detail]').forEach(function (d) { d.hidden = true; });
+      updateCheckoutFields(null);
+    }
+  }
+
+  // Address fields: Saudi (National Address short code, building, apartment) or Bahrain (flat,
+  // building, road, block); city and postal code for both. Self pickup needs no address at all.
+  // Hidden fields are also switched off, so the browser skips their checks and they aren't sent.
+  // Email is hidden too for a bank-transfer or cash pickup order (card, Apple Pay, Tabby and
+  // Tamara need one). The optional Saudi number only shows for Bahrain.
+  var ADDR_SA = ['national_address', 'building', 'apartment'];
+  var ADDR_BH = ['bh_flat', 'bh_building', 'bh_road', 'bh_block'];
+  var ADDR_ANY = ['city', 'postal_code'];
   function syncPickupFields(checkout, pickup) {
     var form = checkout && checkout.querySelector('#b3d-checkout-form');
     if (!form) return;
-    var hide = PICKUP_HIDDEN.slice();
-    if (currentPayMethod === 'bank' || currentPayMethod === 'cash') hide.push('email');
+    var bh = isBahrainOrder();
     form.querySelectorAll('[data-b3d-field]').forEach(function (el) {
       var key = el.getAttribute('data-b3d-field');
-      if (PICKUP_HIDDEN.indexOf(key) < 0 && key !== 'email') return;
-      var off = pickup && hide.indexOf(key) >= 0;
+      var off;
+      if (ADDR_SA.indexOf(key) >= 0) off = pickup || bh;
+      else if (ADDR_BH.indexOf(key) >= 0) off = pickup || !bh;
+      else if (ADDR_ANY.indexOf(key) >= 0) off = pickup;
+      else if (key === 'phone_sa') off = !bh;
+      else if (key === 'email') off = pickup && (currentPayMethod === 'bank' || currentPayMethod === 'cash');
+      else return;
       var label = el.closest('label');
       if (label) label.hidden = off;
       el.disabled = off;
     });
-    form.querySelectorAll('.b3d-field-row').forEach(function (row) {
-      var labels = row.querySelectorAll('label');
-      if (!labels.length) return;
-      row.hidden = Array.prototype.every.call(labels, function (l) { return l.hidden; });
-    });
+    var addr = form.querySelector('[data-b3d-co-addr]');
+    if (addr) addr.hidden = pickup;
+    var pickupBox = form.querySelector('[data-b3d-co-pickup]');
+    if (pickupBox) pickupBox.hidden = !pickup;
   }
 
-  // Bahrain delivery: no Tabby / Tamara. Their buttons are hidden while Bahrain is picked; if one was
-  // already chosen, a note under the delivery options asks for another method and the order can't be sent.
   function bahrainPayBlocked() {
-    return document.body.classList.contains('b3d-is-bahrain') && (currentPayMethod === 'tabby' || currentPayMethod === 'tamara');
+    return isBahrainOrder() && (currentPayMethod === 'tabby' || currentPayMethod === 'tamara');
   }
-  function syncBahrainPayments(on) {
-    ['tabby', 'tamara'].forEach(function (m) {
-      var btn = document.querySelector('[data-pm="' + m + '"]');
-      if (btn) btn.hidden = on || lastNoPayLater;
-    });
-    var methods = document.querySelector('[data-b3d-shipping-methods]');
-    if (!methods) return;
-    var note = document.querySelector('[data-b3d-bahrain-pay-note]');
-    if (!note) {
-      note = document.createElement('p');
-      note.setAttribute('data-b3d-bahrain-pay-note', '');
-      note.className = 'b3d-paylater-note';
-      note.setAttribute('role', 'status');
-      methods.parentNode.insertBefore(note, methods.nextSibling);
-    }
-    note.hidden = !on;
-    var blocked = bahrainPayBlocked();
-    note.textContent = T('checkout_bh_pay_note') + (blocked ? ' ' + T('checkout_bh_pay_pick') : '');
-    note.classList.toggle('is-error', blocked);
-  }
+  function syncBahrainPayments() { syncPayButtons(); }
 
-  // Bahrain has no Saudi National Address: the short-code box becomes "Road and Block" (free text)
-  // and the phone hint shows +973. Everything is put back when another delivery option is picked.
-  function syncBahrainFields(checkout, on) {
-    var form = checkout && checkout.querySelector('#b3d-checkout-form');
-    if (!form) return;
-    var na = form.querySelector('[name="customer_national_address"]');
-    if (na) {
-      var span = na.closest('label') && na.closest('label').querySelector('span');
-      if (na.dataset.saSaved === undefined) {
-        na.dataset.saSaved = '1';
-        na.dataset.saPattern = na.getAttribute('pattern') || '';
-        na.dataset.saMax = na.getAttribute('maxlength') || '';
-        na.dataset.saPh = na.getAttribute('placeholder') || '';
-        if (span) span.dataset.saText = span.textContent;
-      }
-      var was = na.dataset.bahrain === '1';
-      if (on && !was) {
-        na.removeAttribute('pattern');
-        na.setAttribute('maxlength', '60');
-        na.placeholder = T('checkout_bh_road_block_placeholder');
-        if (span) span.textContent = T('checkout_bh_road_block');
-        na.value = '';
-        na.setCustomValidity('');
-      } else if (!on && was) {
-        if (na.dataset.saPattern) na.setAttribute('pattern', na.dataset.saPattern);
-        if (na.dataset.saMax) na.setAttribute('maxlength', na.dataset.saMax);
-        na.placeholder = na.dataset.saPh;
-        if (span) span.textContent = span.dataset.saText;
-        na.value = '';
-      }
-      na.dataset.bahrain = on ? '1' : '';
-    }
-    var ph = form.querySelector('[name="customer_phone"]');
-    if (ph) ph.placeholder = on ? '+973 3XXX XXXX' : '+966 5XX XXX XXX';
+  // What the CRM and the payment pages get as the customer's address. Bahrain: "Road 2803, Block 428"
+  // (plus the optional Saudi mobile) as the street, flat and building, and the area with ", Bahrain".
+  function checkoutBilling(get) {
+    var b = {
+      firstName: get('customer_first_name'),
+      lastName: get('customer_last_name'),
+      email: get('email'),
+      phone: get('customer_phone'),
+      city: get('customer_city'),
+      street: get('customer_national_address'),
+      building: get('customer_building'),
+      apartment: get('customer_apartment'),
+      postalCode: get('customer_postal_code')
+    };
+    if (!isBahrainOrder()) return b;
+    var parts = [];
+    if (get('customer_bh_road')) parts.push('Road ' + get('customer_bh_road'));
+    if (get('customer_bh_block')) parts.push('Block ' + get('customer_bh_block'));
+    if (get('customer_phone_sa')) parts.push('Saudi mobile ' + get('customer_phone_sa'));
+    b.street = parts.join(', ');
+    b.building = get('customer_bh_building');
+    b.apartment = get('customer_bh_flat');
+    b.city = (b.city ? b.city + ', ' : '') + 'Bahrain';
+    return b;
   }
 
   function initShippingMethods(root) {
     if (!root) return;
     root.querySelectorAll('input[name="shipping_choice"]').forEach(function (radio) {
       radio.addEventListener('change', updateOrderTotals);
+    });
+    try {
+      if (localStorage.getItem(COUNTRY_KEY) === 'bh') {
+        var savedBh = root.querySelector('[data-b3d-country="bh"]');
+        if (savedBh) savedBh.checked = true;
+      }
+    } catch (e) {}
+    root.querySelectorAll('input[name="customer_country"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        try { localStorage.setItem(COUNTRY_KEY, radio.getAttribute('data-b3d-country')); } catch (e) {}
+        updateOrderTotals();
+        updateFreeShippingUi(lastArtworkSubtotal, lastSubtotal);
+      });
     });
     var cityEl = root.querySelector('[name="customer_city"]');
     if (cityEl) {
@@ -2936,17 +2950,7 @@
           rewardsUsed: rewardsUsedAmount,
           bankSaving: bankSavingAmount,
           payment: currentPayMethod === 'cash' ? 'cash' : 'bank',
-          billing: {
-            firstName: get('customer_first_name'),
-            lastName: get('customer_last_name'),
-            email: get('email'),
-            phone: get('customer_phone'),
-            city: get('customer_city'),
-            street: get('customer_national_address'),
-            building: get('customer_building'),
-            apartment: get('customer_apartment'),
-            postalCode: get('customer_postal_code')
-          }
+          billing: checkoutBilling(get)
         })
       }); }).catch(function () {});
     } catch (e) { /* never block the order */ }
@@ -2981,17 +2985,7 @@
       items: items,
       shipping: shipping ? shipping.value : 'regular',
       lang: document.documentElement.lang === 'ar' ? 'ar' : 'en',
-      billing: {
-        firstName: get('customer_first_name'),
-        lastName: get('customer_last_name'),
-        email: get('email'),
-        phone: get('customer_phone'),
-        city: get('customer_city'),
-        street: get('customer_national_address'),
-        building: get('customer_building'),
-        apartment: get('customer_apartment'),
-        postalCode: get('customer_postal_code')
-      }
+      billing: checkoutBilling(get)
     };
     if (extraBody) { for (var k in extraBody) { payload[k] = extraBody[k]; } }
     // Members: the server checks the account itself and applies their balance
@@ -3076,11 +3070,28 @@
     var successEl = document.getElementById('b3d-checkout-success');
     var errorEl = document.getElementById('b3d-checkout-error');
     var submitBtn = form.querySelector('[type="submit"]');
+    // Phones: the total and a Place Order button stay pinned at the bottom of the screen, and slide
+    // away while the real Place Order button is on screen.
+    var coBar = document.querySelector('[data-b3d-co-bar]');
+    if (coBar && submitBtn && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        coBar.classList.toggle('is-away', entries[0].isIntersecting);
+      }).observe(submitBtn);
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       checkAddress();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (!currentPayMethod) {
+        var payRequired = form.querySelector('[data-b3d-pay-required]');
+        if (payRequired) {
+          payRequired.hidden = false;
+          var pmList = form.querySelector('.b3d-payment-methods') || payRequired;
+          pmList.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
       if (bahrainPayBlocked()) {
         syncBahrainPayments(true);
         var bnote = document.querySelector('[data-b3d-bahrain-pay-note]');
@@ -3179,11 +3190,15 @@
         listEl.hidden = true;
         summaryEl.hidden = true;
         emptyEl.hidden = false;
+        var coEmpty = document.querySelector('[data-b3d-co]');
+        if (coEmpty) coEmpty.hidden = true;
         return;
       }
       emptyEl.hidden = true;
       listEl.hidden = false;
       summaryEl.hidden = false;
+      var coShow = document.querySelector('[data-b3d-co]');
+      if (coShow) coShow.hidden = false;
 
       var byId = {};
       products.forEach(function (p) { byId[p.id] = p; });
@@ -3345,8 +3360,6 @@
       el.addEventListener('click', function () {
         if (el.hasAttribute('disabled')) return;
         select(el);
-        var m = el.getAttribute('data-pm');
-        requestAnimationFrame(function () { requestAnimationFrame(function () { goToNextStep(m); }); });
       });
     });
     // Bank Transfer is the only method now, so there's no real "choice" to
