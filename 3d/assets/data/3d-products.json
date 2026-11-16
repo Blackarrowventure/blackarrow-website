@@ -3188,6 +3188,43 @@
       ]
     },
     {
+      "id": "gta-vi-relief-controller-stand",
+      "name": "GTA VI Relief PS5 Controller Stand",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 49,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/gta-vi-relief-controller-stand-front.webp",
+        "/3d/assets/images/products/gta-vi-relief-controller-stand-controller.webp",
+        "/3d/assets/images/products/gta-vi-relief-controller-stand-angle.webp",
+        "/3d/assets/images/products/gta-vi-relief-controller-stand-side.webp"
+      ],
+      "shortDesc": "PS5 controller stand with a raised GTA VI logo and palm trees on the front. Printed in-house, choose your colour.",
+      "description": "A curved PS5 DualSense controller stand with the GTA VI logo standing out in deep relief on the front, palm trees and all. The controller rests in a shaped cradle at a display angle, so it stays off the desk and is ready to pick up. The logo is printed as part of the stand, in one colour, so there is no paint or sticker to wear off. Shown in red; tell us your favourite colour in the order notes and we'll print it in that colour at the same price. Designed and 3D printed in-house at Black Arrow 3D.",
+      "specs": [
+        ["Material", "PLA"],
+        ["Design", "Raised GTA VI logo with palm trees, printed in-house"],
+        ["Colour", "Red as shown, or any colour you ask for in the order notes (same price)"],
+        ["Compatibility", "PS5 DualSense controller"],
+        ["Use", "Desk stand and display cradle for a game controller"]
+      ],
+      "compatibility": ["PS5 DualSense"],
+      "name_ar": "حامل يد تحكم PS5 بشعار GTA VI البارز",
+      "shortDesc_ar": "حامل ليد تحكم PS5 بشعار GTA VI وأشجار النخيل بارزة من الأمام. مطبوع داخليًا، واختر اللون الذي تحبه.",
+      "description_ar": "حامل منحني ليد تحكم PS5 DualSense يبرز عليه شعار GTA VI بعمق من الأمام مع أشجار النخيل. تستقر يد التحكم في تجويف مصمم بزاوية عرض، فتبقى بعيدة عن سطح المكتب وجاهزة للاستخدام. الشعار مطبوع كجزء من الحامل بلون واحد، فلا يوجد طلاء أو ملصق يتقشر. يظهر في الصور باللون الأحمر؛ اكتب لونك المفضل في ملاحظات الطلب وسنطبعه به بنفس السعر. صُمم وطُبع بتقنية الطباعة ثلاثية الأبعاد داخليًا في Black Arrow 3D.",
+      "specs_ar": [
+        ["الخامة", "PLA"],
+        ["التصميم", "شعار GTA VI بارز مع أشجار النخيل، طباعة داخلية"],
+        ["اللون", "أحمر كما في الصور، أو أي لون تطلبه في ملاحظات الطلب (بنفس السعر)"],
+        ["التوافق", "يد تحكم PS5 DualSense"],
+        ["الاستخدام", "حامل مكتبي وقاعدة عرض ليد التحكم"]
+      ]
+    },
+    {
       "id": "gta-vi-duo-statue",
       "name": "GTA VI Duo Display Statue",
       "brand": "Black Arrow",

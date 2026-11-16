@@ -1063,7 +1063,7 @@ ART_SUBCATEGORIES = [
     ('ps5-stands', {'en': 'PS5 Controller Stands', 'ar': 'حوامل يد PS5'}, '#eef0f7', 'controller', [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand', 'button-symbols-controller-stand',
-        'pillow-controller-stand', 'gta-vi-ps5-controller-stand']),
+        'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-relief-controller-stand']),
     ('models-figures', {'en': 'Display Models & Figures', 'ar': 'نماذج عرض ومجسمات'}, '#e9f3ea', 'figure', [
         'f1-2027-calendar-plaque', 'leonidas-kick-edge-display', 'f1-car-3d-model', 'green-knit-cap', 'knitted-mario-cap-figure', 'overthing', 'gta-vi-duo-statue', 'toji-edge-sitter-figure']),
     ('desk-lighting', {'en': 'Desk & Lighting', 'ar': 'مكتب وإضاءة'}, '#fbf3e0', 'desk', [
@@ -1097,7 +1097,7 @@ COLLECTIONS = [
     ('gamers', {'ids': [
         'oni-mask-ps5-controller-stand', 'oni-mask-v2-ps5-controller-stand', 'straw-hat-ps5-controller-stand',
         'question-block-ps5-controller-stand', 'ps5-dual-football-stand', 'man-push-ps5-controller-stand',
-        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain', 'gta-phrase-keychains', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-phone-stand',
+        'button-symbols-controller-stand', 'pillow-controller-stand', 'gta-vi-ps5-controller-stand', 'gta-vi-relief-controller-stand', 'gta-vi-duo-statue', 'gta-vi-logo-keychain', 'gta-phrase-keychains', 'rockstar-logo-keycap-clicker-keychain', 'gta-vi-phone-stand',
         'knitted-mario-cap-figure', 'green-knit-cap', 'synapse-usb-lamp']}, {
         'en': ('3D Printed Gifts for Gamers', 'Gifts for Gamers',
                'Gifts for gamers in Saudi Arabia: PS5 controller stands, Mario and Luigi cap figures, GTA VI pieces and desk lamps, 3D printed by Black Arrow 3D.',
