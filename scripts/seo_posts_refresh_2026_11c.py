@@ -256,7 +256,7 @@ POSTS = [
           <ul>
             <li><b><a href="/3d/blog/creality-sparkx-i7-review-saudi-arabia/">Creality SparkX i7</a></b>: a bigger plate for similar money, with less mature software. Sold on pre-order.</li>
             <li><b><a href="/3d/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">Bambu Lab A2L</a></b>: the same Bambu Lab experience with almost twice the size per side, for more money and more desk space.</li>
-            <li><b><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a></b> (<span data-b3d-price="snapmaker-u1">5,699</span>&nbsp;SAR): 4 separate toolheads instead of one, so far less purge waste on color-heavy work. Worth it if you print in many colors every day. See <a href="/3d/blog/multi-color-3d-printing-explained/">AMS vs CANVAS vs SnapSwap</a>.</li>
+            <li><b><a href="/3d/product/snapmaker-u1/">Snapmaker U1</a></b> (<span data-b3d-price="snapmaker-u1">5,599</span>&nbsp;SAR): 4 separate toolheads instead of one, so far less purge waste on color-heavy work. Worth it if you print in many colors every day. See <a href="/3d/blog/multi-color-3d-printing-explained/">AMS vs CANVAS vs SnapSwap</a>.</li>
           </ul>
 
           <h2>Verdict</h2>
@@ -367,7 +367,7 @@ POSTS = [
           <ul>
             <li><b><a href="/3d/ar/blog/creality-sparkx-i7-review-saudi-arabia/">Creality SparkX i7</a></b>: لوح أكبر بسعر مقارب، مع برامج أقل نضجًا. تُباع بالطلب المسبق.</li>
             <li><b><a href="/3d/ar/blog/bambu-lab-a1-vs-a1-mini-vs-a2l/">Bambu Lab A2L</a></b>: تجربة بامبو لاب نفسها بحجم يقارب الضعف لكل جهة، بسعر أعلى ومساحة أكبر.</li>
-            <li><b><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a></b> (<span data-b3d-price="snapmaker-u1">5,699</span> ريال): 4 رؤوس طباعة منفصلة بدل رأس واحد، فهدر أقل بكثير في المطبوعات كثيرة الألوان. تستحق إذا كنت تطبع بألوان كثيرة يوميًا. راجع <a href="/3d/ar/blog/multi-color-3d-printing-explained/">AMS مقابل CANVAS مقابل SnapSwap</a>.</li>
+            <li><b><a href="/3d/ar/product/snapmaker-u1/">Snapmaker U1</a></b> (<span data-b3d-price="snapmaker-u1">5,599</span> ريال): 4 رؤوس طباعة منفصلة بدل رأس واحد، فهدر أقل بكثير في المطبوعات كثيرة الألوان. تستحق إذا كنت تطبع بألوان كثيرة يوميًا. راجع <a href="/3d/ar/blog/multi-color-3d-printing-explained/">AMS مقابل CANVAS مقابل SnapSwap</a>.</li>
           </ul>
 
           <h2>الخلاصة</h2>
