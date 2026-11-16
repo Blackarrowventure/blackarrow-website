@@ -173,8 +173,9 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   if (!priced) return { error: 'invalid_cart' };
   // Products sold without pay-later (catalog "noPayLater", e.g. a high-value pre-order): no Tabby / Tamara.
   if (payLater && hasNoPayLater(items, products)) return { error: 'pay_later_not_available' };
-  // Delivery to Bahrain: no Tabby / Tamara.
-  if (payLater && shipping === 'bahrain') return { error: 'pay_later_not_available' };
+  // Bahrain orders: no Tabby / Tamara, for Bahrain delivery and for a Bahrain customer's self pickup
+  // (the checkout sends a Bahrain order's city as "<area>, Bahrain", or just "Bahrain" for pickup).
+  if (payLater && (shipping === 'bahrain' || /(^|[\s,])bahrain\s*$/i.test(String(city || '')))) return { error: 'pay_later_not_available' };
   if (['regular', 'fast', 'pickup', 'bahrain'].indexOf(shipping) < 0) return { error: 'invalid_shipping' };
 
   // Free delivery only ever waives Regular shipping; Fast always stays paid. Self pickup is always free.
