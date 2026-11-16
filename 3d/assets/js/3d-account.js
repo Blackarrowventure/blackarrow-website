@@ -267,8 +267,8 @@
         success.hidden = true;
         var phone = document.getElementById('signup-phone').value.trim();
         var dob = dobInput ? dobInput.value : '';
-        if (!window.BlackArrow3DAuth.validSaudiMobile(phone)) {
-          err.textContent = tr('account_phone_invalid', 'Please enter a Saudi mobile number, e.g. 05XXXXXXXX.');
+        if (!window.BlackArrow3DAuth.validPhone(phone)) {
+          err.textContent = tr('account_phone_invalid', 'Please enter a Saudi mobile number (05XXXXXXXX), or a number from another country with its country code, e.g. +973 3XXX XXXX.');
           err.hidden = false;
           return Promise.reject(new Error('phone'));
         }
@@ -380,6 +380,13 @@
       var detailsForm = document.getElementById('b3d-details-form');
       guardedSubmit(detailsForm, function () {
         if (!currentUser) return Promise.resolve();
+        var detailsPhone = document.getElementById('details-phone');
+        if (detailsPhone.value.trim() && !window.BlackArrow3DAuth.validPhone(detailsPhone.value)) {
+          detailsPhone.setCustomValidity(t('account_phone_invalid', 'Please enter a Saudi mobile number (05XXXXXXXX), or a number from another country with its country code, e.g. +973 3XXX XXXX.'));
+          detailsPhone.reportValidity();
+          detailsPhone.addEventListener('input', function () { detailsPhone.setCustomValidity(''); }, { once: true });
+          return Promise.resolve();
+        }
         return window.BlackArrow3DAuth.saveProfile(currentUser.id, {
           name: document.getElementById('details-name').value,
           phone: document.getElementById('details-phone').value

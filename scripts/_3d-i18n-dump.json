@@ -139,9 +139,13 @@
     "en": "Phone",
     "ar": "رقم الجوال"
   },
+  "account_phone_hint": {
+    "en": "Outside Saudi Arabia? Add your country code, e.g. +973.",
+    "ar": "من خارج السعودية؟ أضف رمز الدولة، مثل ‎+973."
+  },
   "account_phone_invalid": {
-    "en": "Please enter a Saudi mobile number, e.g. 05XXXXXXXX.",
-    "ar": "يرجى إدخال رقم جوال سعودي، مثل 05XXXXXXXX."
+    "en": "Please enter a Saudi mobile number (05XXXXXXXX), or a number from another country with its country code, e.g. +973 3XXX XXXX.",
+    "ar": "يرجى إدخال رقم جوال سعودي (05XXXXXXXX)، أو رقم من دولة أخرى مع رمز الدولة، مثل ‎+973 3XXX XXXX."
   },
   "account_resend_done": {
     "en": "If an account is waiting for confirmation, we have emailed a new link. Check your inbox and the Junk or Spam folder.",

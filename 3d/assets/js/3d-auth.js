@@ -66,6 +66,20 @@
     return /^9665[0-9]{8}$/.test(d);
   }
 
+  // Any country: a Saudi mobile as above, or another country's number written with + or 00 and its
+  // country code (e.g. +973 3XXX XXXX), 8-15 digits. Without the code a number like 33334444 could be
+  // from anywhere, and the CRM / Rewards store it as typed, so the code is required. +966 numbers must
+  // still be a Saudi mobile.
+  function validPhone(p) {
+    var raw = String(p || '').trim();
+    if (validSaudiMobile(raw)) return true;
+    if (!/^(\+|00)/.test(raw.replace(/[\s‎‏]/g, ''))) return false;
+    var d = raw.replace(/[^0-9]/g, '');
+    if (d.indexOf('00') === 0) d = d.slice(2);
+    if (d.indexOf('966') === 0) return false;
+    return d.length >= 8 && d.length <= 15 && d.charAt(0) !== '0';
+  }
+
   // Sign-up details (name, phone, date of birth) travel on the account itself
   // (user_metadata), because with email confirmation there is no session at
   // sign-up and the customer row can't be written yet. On the first signed-in
@@ -227,6 +241,7 @@
     getProfile: getProfile,
     saveProfile: saveProfile,
     reviewAdminInfo: reviewAdminInfo,
-    validSaudiMobile: validSaudiMobile
+    validSaudiMobile: validSaudiMobile,
+    validPhone: validPhone
   };
 })();
