@@ -432,11 +432,21 @@
     }
   }
 
+  // The catalog and the CRM stock are downloaded once per page and shared: many parts of a page
+  // call fetchProducts(), and each used to download both again. Every call still gets its own
+  // freshly parsed copy, so callers can sort or change it without affecting each other.
+  var __b3dDownloads = null;
   function fetchProducts() {
-    return Promise.all([
-      fetch(DATA_URL).then(function (r) { return r.json(); }),
-      fetchCrmStock()
-    ]).then(function (res) {
+    if (!__b3dDownloads) {
+      __b3dDownloads = Promise.all([
+        fetch(DATA_URL).then(function (r) { return r.text(); }),
+        fetchCrmStock()
+      ]);
+      __b3dDownloads.catch(function () { __b3dDownloads = null; });
+    }
+    return __b3dDownloads.then(function (raw) {
+      return [JSON.parse(raw[0]), JSON.parse(JSON.stringify(raw[1]))];
+    }).then(function (res) {
       var data = res[0];
       var list = data.products || [];
       list.forEach(function (p) { __b3dProductsById[p.id] = p; });
