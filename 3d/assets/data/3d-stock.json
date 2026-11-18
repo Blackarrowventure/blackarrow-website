@@ -220,7 +220,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Green",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -244,7 +244,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Yellow",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -267,7 +267,19 @@
   },
   {
    "id": "kingroon-petg-hs-filament",
+   "variant": "Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
    "variant": "Silver",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-petg-hs-filament",
+   "variant": "Sky Blue",
    "available": true,
    "preorder": false
   },
