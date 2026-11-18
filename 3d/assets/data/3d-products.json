@@ -3441,8 +3441,8 @@
           "label": "Sky Blue",
           "label_ar": "أزرق فاتح",
           "price": 65,
-          "swatch": "#4fc3f7",
-          "image": "/3d/assets/images/products/kingroon-petg-hs-sky-blue.webp"
+          "swatch": "#6ec6e8",
+          "image": "/3d/assets/images/products/kingroon-petg-sky-blue.webp"
         }
       ],
       "images": [
@@ -3452,7 +3452,7 @@
         "/3d/assets/images/products/kingroon-petg-hs-orange.webp",
         "/3d/assets/images/products/kingroon-petg-hs-yellow.webp",
         "/3d/assets/images/products/kingroon-petg-hs-red.webp",
-        "/3d/assets/images/products/kingroon-petg-hs-sky-blue.webp"
+        "/3d/assets/images/products/kingroon-petg-sky-blue.webp"
       ],
       "shortDesc": "KINGROON PETG HS high-speed filament, 1.75 mm, 1 kg spool — up to twice the default speed of standard PETG, with a matte finish.",
       "description": "KINGROON PETG HS is a PETG filament engineered specifically for high-speed 3D printing. With a default printing speed up to twice as fast as standard PETG, it boosts printing efficiency while keeping performance stable. The upgraded formulation minimises common PETG issues such as oozing, stringing and clumping, for smoother, cleaner prints even at higher speeds. Its matte finish avoids uneven gloss shifts during speed changes, giving a uniform surface. Stronger and tougher than PLA, it suits durable, long-lasting functional parts. Prints at 230–260°C on a 65–75°C smooth or textured PEI plate with glue, at up to 300 mm/s. Dry at 65°C for 8 hours before printing, and store sealed with desiccant below 20% humidity.",
