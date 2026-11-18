@@ -1847,6 +1847,10 @@
     "en": "Loading product…",
     "ar": "جارٍ تحميل المنتج…"
   },
+  "pfaq_bnpl_a_nopaylater": {
+    "en": "Not for this item. It is sold by bank transfer, card (mada, Visa, Mastercard) or Apple Pay; Tabby and Tamara are not available for it.",
+    "ar": "لا، هذا المنتج غير متاح بالتقسيط. يُباع بالتحويل البنكي أو البطاقة (مدى وفيزا وماستركارد) أو Apple Pay، ولا يتوفر الدفع عبر تابي أو تمارا."
+  },
   "pfaq_bnpl_a_printer": {
     "en": "Yes, with Tabby or Tamara at checkout. Orders that include a 3D printer have a 100 SAR pay-later fee, which is already included in the instalment amount shown on this page.",
     "ar": "نعم، عبر تابي أو تمارا عند إتمام الطلب. وتُضاف رسوم دفع لاحق بقيمة 100 ريال على الطلبات التي تتضمن طابعة ثلاثية الأبعاد، وهي مشمولة مسبقًا في مبلغ القسط المعروض في هذه الصفحة."

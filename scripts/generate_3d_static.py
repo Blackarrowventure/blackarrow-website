@@ -297,7 +297,7 @@ def product_faq_html(p, lang):
     if p.get('category') != '3D Artwork':
         store.append((T('pfaq_delivery_q', lang), T('pfaq_delivery_a_printer' if printer else 'pfaq_delivery_a_other', lang)))
     if printer:
-        store.append((T('pfaq_bnpl_q', lang), T('pfaq_bnpl_a_printer', lang)))
+        store.append((T('pfaq_bnpl_q', lang), T('pfaq_bnpl_a_nopaylater' if p.get('noPayLater') else 'pfaq_bnpl_a_printer', lang)))
     item = lambda qa: '<details class="b3d-pd__faq-item"><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>'
     return ('<div class="b3d-pd__faq"><h2>' + T('js_faq_heading', lang) + '</h2>' + ''.join(item(x) for x in own) + ''.join(item(x) for x in store)
             + (('<p class="b3d-pd__src">' + T('js_faq_source', lang).replace('{brand}', esc(p.get('brand'))) + '</p>') if own else '') + '</div>')
@@ -641,7 +641,8 @@ def build_product_page(p, lang):
             fem = 'ة' if printer else ''
             stock = '، متوفر' + fem + ' الآن' if available and not preorder else ('، متاح' + fem + ' للطلب المسبق' if preorder else '')
             head = name + ' بسعر ' + price_ar + ' شامل الضريبة' + stock + '. '
-            tail = (' توصيل مجاني لكل مناطق السعودية وتقسيط مع تابي وتمارا.' if printer
+            tail = (' توصيل مجاني لكل مناطق السعودية.' if printer and p.get('noPayLater')
+                    else ' توصيل مجاني لكل مناطق السعودية وتقسيط مع تابي وتمارا.' if printer
                     else ' توصيل سريع لكل مناطق السعودية.')
     else:
         price_en = ('from ' if from_price else '') + price_txt + ' SAR'
@@ -655,7 +656,8 @@ def build_product_page(p, lang):
                              lead + ' in Saudi Arabia | Black Arrow 3D', name + ' | Black Arrow 3D', name)
             stock = ', in stock' if available and not preorder else (', available to pre-order' if preorder else '')
             head = name + ': ' + price_en + ' incl. VAT' + stock + '. '
-            tail = (' Free delivery across Saudi Arabia, or split it with Tabby or Tamara.' if printer
+            tail = (' Free delivery across Saudi Arabia.' if printer and p.get('noPayLater')
+                    else ' Free delivery across Saudi Arabia, or split it with Tabby or Tamara.' if printer
                     else ' Fast delivery across Saudi Arabia.')
     hook = _clip(desc, LIMIT - len(head) - len(tail) - 1)
     seo_desc = head + ((hook if hook.endswith('…') else hook + '.') if len(hook) > 25 else '') + tail
