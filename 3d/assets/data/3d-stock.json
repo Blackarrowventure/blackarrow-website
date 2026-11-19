@@ -292,7 +292,7 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Black",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -370,7 +370,7 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Transparent",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
