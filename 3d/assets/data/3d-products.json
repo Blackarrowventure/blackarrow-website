@@ -3956,6 +3956,51 @@
       ]
     },
     {
+      "id": "bambu-lab-tpu-95a-hf-filament",
+      "name": "Bambu Lab TPU 95A HF Filament 1.75 mm (1 kg)",
+      "brand": "Bambu Lab",
+      "category": "Filament",
+      "boughtTogether": [
+        "bambu-lab-pla-basic-filament"
+      ],
+      "price": 220,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/bambu-tpu-95a-hf-white-51102.webp"
+      ],
+      "shortDesc": "Bambu TPU 95A HF is a flexible, high-flow TPU built for fast printing - soft, durable parts without slowing down.",
+      "description": "Bambu TPU 95A HF is a Shore 95A flexible filament engineered for high-flow, high-speed printing, so flexible parts no longer mean long print times. It keeps the durability and elasticity expected of TPU - resistant to abrasion, impact and repeated bending - while its high-flow formulation supports fast printing speeds other flexible filaments can't match. Note: TPU 95A HF is a direct-feed filament and is not compatible with the AMS or AMS Lite - feed it directly from the spool holder. Prints at 220-260°C on a 30-36°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.",
+      "specs": [
+        ["Material", "TPU (Shore 95A, High Flow)"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Weight", "1 kg"],
+        ["Density", "1.22 g/cm³"],
+        ["Nozzle Temperature", "220-260°C"],
+        ["Bed Temperature", "30-36°C"],
+        ["Compatibility", "Direct feed only - not compatible with AMS/AMS Lite"],
+        ["Colours", "White"]
+      ],
+      "name_ar": "فيلامنت بامبو لاب TPU 95A HF بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت بامبو TPU 95A HF مرن وعالي التدفق لطباعة سريعة - قطع ناعمة ومتينة دون إبطاء الطباعة.",
+      "description_ar": "فيلامنت بامبو TPU 95A HF بصلابة Shore 95A مصمم للطباعة عالية التدفق والسرعة، فلم تعد القطع المرنة تعني وقت طباعة طويل. يحافظ على المتانة والمرونة المعروفة في TPU - مقاوم للتآكل والصدمات والانحناء المتكرر - بينما تتيح تركيبته عالية التدفق سرعات طباعة لا تضاهيها فيلامنتات مرنة أخرى. ملاحظة: TPU 95A HF فيلامنت تغذية مباشرة وغير متوافق مع AMS أو AMS Lite - غذّه مباشرة من حامل البكرة. يُطبع عند 220–260°C على سرير بدرجة حرارة 30–36°C. جففه قبل الاستخدام واحفظه مغلقًا مع مادة مجففة للحفاظ على جودة الطباعة.",
+      "specs_ar": [
+        ["الخامة", "TPU (صلابة Shore 95A، عالي التدفق)"],
+        ["قطر الفيلامنت", "1.75 مم"],
+        ["الوزن", "1 كغ"],
+        ["الكثافة", "1.22 غ/سم³"],
+        ["درجة حرارة الفوهة", "220–260°C"],
+        ["درجة حرارة السرير", "30–36°C"],
+        ["التوافق", "تغذية مباشرة فقط - غير متوافق مع AMS/AMS Lite"],
+        ["الألوان", "أبيض"]
+      ],
+      "variants": [
+        {"label": "White", "label_ar": "أبيض", "price": 220, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/bambu-tpu-95a-hf-white-51102.webp", "color": "White", "option": "With spool", "option_ar": "مع بكرة"}
+      ]
+    },
+    {
       "id": "rockstar-logo-keycap-clicker-keychain",
       "name": "Rockstar Logo Keycap Clicker Keychain",
       "brand": "Black Arrow",
