@@ -23,6 +23,7 @@ const JS = [
   '3d/assets/js/3d-reviews.js',
   '3d/assets/js/3d-welcome.js',
   '3d/assets/js/3d-consent.js',
+  '3d/assets/js/3d-announce.js',
   'assets/js/app.js',
 ];
 const CSS = [
