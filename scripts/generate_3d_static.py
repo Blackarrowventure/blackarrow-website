@@ -443,7 +443,7 @@ def product_detail_html(p, lang):
         + corner_badges(p, lang) + main_visual + '</div>'
         + thumbs_html + '</div>'
         + '<div>'
-        + '<div class="b3d-pd__cat">' + (esc(p['brand']) + ' &middot; ' if p.get('brand') else '') + category_label(p.get('category'), lang) + '</div>'
+        + '<div class="b3d-pd__cat">' + (('<a href="' + brand_url(p['brand'], lang) + '" style="color:inherit">' + esc(p['brand']) + '</a>' if p['brand'] in BRAND_SLUGS else esc(p['brand'])) + ' &middot; ' if p.get('brand') else '') + category_label(p.get('category'), lang) + '</div>'
         + '<h1 class="b3d-pd__title">' + esc(name) + '</h1>'
         + '<div class="b3d-pd__price" data-pd-price>' + initial_price_html + '</div>'
         + vat_note_html(p, lang)
@@ -637,7 +637,9 @@ def build_product_page(p, lang):
             head = name + ' بسعر ' + price_ar + '. '
             tail = ' نطبعها في السعودية، والتوصيل مجاني للطلبات فوق 100 ريال.'
         else:
-            seo_title = _fit('سعر ' + lead + ' في السعودية | Black Arrow 3D', lead + ' في السعودية | Black Arrow 3D', lead + ' | Black Arrow 3D', name)
+            short = re.sub(r'\s*بقطر 1\.75 مم \(1 كغ\)', '', lead)  # filament: keep "في السعودية" inside 60 characters
+            seo_title = _fit('سعر ' + lead + ' في السعودية | Black Arrow 3D', lead + ' في السعودية | Black Arrow 3D',
+                             'سعر ' + short + ' في السعودية | Black Arrow 3D', 'سعر ' + short + ' في السعودية', lead + ' | Black Arrow 3D', name)
             fem = 'ة' if printer else ''
             stock = '، متوفر' + fem + ' الآن' if available and not preorder else ('، متاح' + fem + ' للطلب المسبق' if preorder else '')
             head = name + ' بسعر ' + price_ar + ' شامل الضريبة' + stock + '. '
@@ -652,8 +654,10 @@ def build_product_page(p, lang):
             head = name + ', ' + price_en + '. '
             tail = ' Made in Saudi Arabia. Free delivery on gift orders over 100 SAR.'
         else:
+            short = name.replace(' 1.75 mm (1 kg)', ' 1kg')  # filament: keep "Saudi Arabia" inside 60 characters
             seo_title = _fit(name + ' Price in Saudi Arabia | Black Arrow 3D', name + ' Price in Saudi Arabia',
-                             lead + ' in Saudi Arabia | Black Arrow 3D', name + ' | Black Arrow 3D', name)
+                             lead + ' in Saudi Arabia | Black Arrow 3D', short + ' Price in Saudi Arabia',
+                             short + ' in Saudi Arabia', short + ' in KSA', name + ' | Black Arrow 3D', name)
             stock = ', in stock' if available and not preorder else (', available to pre-order' if preorder else '')
             head = name + ': ' + price_en + ' incl. VAT' + stock + '. '
             tail = (' Free delivery across Saudi Arabia.' if printer and p.get('noPayLater')
@@ -772,19 +776,19 @@ def build_product_page(p, lang):
 
 CATEGORY_SEO = {
     '3D Printers': {
-        'en': ('3D Printers in Saudi Arabia | Bambu Lab, Creality & More',
-               'Buy 3D printers online in Saudi Arabia: Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge. Prices in SAR with delivery across the Kingdom.',
+        'en': ('3D Printers in KSA & Saudi Arabia | Bambu Lab, Creality & More',
+               'Buy 3D printers online in KSA: Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge. Prices in SAR with delivery across Saudi Arabia.',
                'Browse 3D printers for beginners, hobbyists, students and professionals. Every price is in Saudi riyals and orders are delivered across Saudi Arabia. Compare models by price and build volume in the shop, or read our buying guides before you choose.'),
-        'ar': ('طابعات ثلاثية الأبعاد في السعودية | Black Arrow 3D',
-               'اشترِ طابعات ثلاثية الأبعاد أونلاين في السعودية: Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
+        'ar': ('طابعات 3D ثلاثية الأبعاد في السعودية | Black Arrow 3D',
+               'اشترِ طابعات 3D ثلاثية الأبعاد أونلاين في السعودية: بامبو لاب Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
                'تصفّح الطابعات ثلاثية الأبعاد للمبتدئين والهواة والطلاب والمحترفين. جميع الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة. قارن الطرازات حسب السعر وحجم الطباعة في المتجر، أو اقرأ أدلة الشراء قبل الاختيار.'),
     },
     'Filament': {
-        'en': ('3D Printer Filament in Saudi Arabia | Black Arrow 3D',
-               'Buy 3D printer filament in Saudi Arabia: Bambu Lab and KINGROON PLA, PLA Matte, PETG and PETG HS in 1 kg spools. Prices in SAR, delivered KSA-wide.',
+        'en': ('3D Printer Filament in KSA | PLA & PETG | Black Arrow 3D',
+               'Buy 3D printer filament in Saudi Arabia: Bambu Lab, SUNLU and KINGROON PLA, PLA Matte, PETG and PETG HS in 1 kg spools. Prices in SAR, delivered KSA-wide.',
                'Filament for your 3D printer, priced in Saudi riyals and delivered across Saudi Arabia. Not sure which material to pick? Read our PLA vs PETG vs ABS filament guide.'),
-        'ar': ('خيوط الطباعة ثلاثية الأبعاد في السعودية | Black Arrow 3D',
-               'اشترِ فلمنت الطباعة ثلاثية الأبعاد في السعودية: PLA وPLA Matte وPETG وPETG HS من Bambu Lab وKINGROON، بكرات 1 كجم. الأسعار بالريال مع التوصيل لكل المملكة.',
+        'ar': ('فلمنت وخيوط الطباعة 3D في السعودية | Black Arrow 3D',
+               'اشترِ فلمنت الطباعة ثلاثية الأبعاد في السعودية: PLA وPLA Matte وPETG وPETG HS من Bambu Lab وSUNLU وKINGROON، بكرات 1 كجم. الأسعار بالريال مع التوصيل لكل المملكة.',
                'خيوط لطابعتك ثلاثية الأبعاد بالريال السعودي مع التوصيل لكل مناطق المملكة. لست متأكدًا من الخامة؟ اقرأ دليلنا للمقارنة بين PLA وPETG وABS.'),
     },
     'Accessories': {
@@ -812,11 +816,11 @@ BRAND_SLUGS = {'Bambu Lab': 'bambu-lab'}
 BRAND_MIN_PRODUCTS = 3
 BRAND_SEO = {
     'Bambu Lab': {
-        'en': ('Bambu Lab 3D Printers & Parts in Saudi Arabia | Black Arrow 3D',
-               'Buy Bambu Lab 3D printers and spare parts in Saudi Arabia from Black Arrow 3D. Prices in SAR with delivery across the Kingdom.',
+        'en': ('Bambu Lab in KSA: 3D Printers, AMS & Filament | Black Arrow 3D',
+               'Buy Bambu Lab 3D printers in KSA: A1 mini, P1S, P2S, H2 series, AMS units, filament and spare parts. Prices in SAR with delivery across Saudi Arabia.',
                'Bambu Lab 3D printers and spare parts, priced in Saudi riyals and delivered across Saudi Arabia. Compare models by price and build volume in the shop.'),
-        'ar': ('طابعات Bambu Lab وقطع الغيار في السعودية | Black Arrow 3D',
-               'اشترِ طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار في السعودية من Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
+        'ar': ('بامبو لاب Bambu Lab في السعودية: طابعات 3D وفلمنت | Black Arrow 3D',
+               'اشترِ طابعات بامبو لاب Bambu Lab ثلاثية الأبعاد ووحدات AMS والفلمنت وقطع الغيار في السعودية من Black Arrow 3D. الأسعار بالريال مع التوصيل لكل مناطق المملكة.',
                'طابعات Bambu Lab ثلاثية الأبعاد وقطع الغيار بالريال السعودي مع التوصيل لكل مناطق المملكة. قارن الموديلات بالسعر وحجم الطباعة في المتجر.'),
     },
 }
@@ -1043,7 +1047,9 @@ def prerender_english_pages():
 # enclosure, listed materials) - nothing here is a new business claim.
 # Arabic is DRAFT machine-assisted copy, flagged for review like the rest.
 CATEGORY_H1 = {
-    '3D Printers': {'en': '3D Printers in Saudi Arabia'},
+    '3D Printers': {'en': '3D Printers in Saudi Arabia (KSA)', 'ar': 'طابعات 3D ثلاثية الأبعاد في السعودية'},
+    'Filament': {'en': '3D Printer Filament in Saudi Arabia', 'ar': 'فلمنت الطباعة 3D في السعودية'},
+    'brand:Bambu Lab': {'en': 'Bambu Lab 3D Printers in Saudi Arabia', 'ar': 'طابعات بامبو لاب Bambu Lab في السعودية'},
 }
 
 ART_ICON_PATHS = {
@@ -1264,7 +1270,7 @@ CATEGORY_GUIDE = {
     '3D Printers': {
         'en': {
             'intro': [
-                "Shop desktop 3D printers online in Saudi Arabia from Black Arrow 3D. We offer printers from Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge, from compact, beginner-friendly models to enclosed printers for professional use and large-format machines with far more build room.",
+                "Shop desktop 3D printers online in Saudi Arabia (KSA) from Black Arrow 3D. We offer printers from Bambu Lab, Creality, Elegoo, Anycubic, Snapmaker and Flashforge, from compact, beginner-friendly models to enclosed printers for professional use and large-format machines with far more build room.",
                 "Many models can print in several colors: Bambu Lab's AMS lite, Creality's CFS Lite and Elegoo's CANVAS system each handle up to four filaments, and the Snapmaker U1 uses four independent toolheads. Every price is in Saudi riyals (SAR) and orders are delivered across Saudi Arabia.",
                 "Not sure which one to pick? Use the guides below, compare build volume and price in the shop, or ask us on WhatsApp and we will help you choose.",
             ],
@@ -1287,7 +1293,7 @@ CATEGORY_GUIDE = {
         },
         'ar': {
             'intro': [
-                "تسوّق الطابعات ثلاثية الأبعاد المكتبية أونلاين في السعودية من Black Arrow 3D. نوفّر طابعات Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge، من الموديلات الصغيرة المناسبة للمبتدئين إلى الطابعات المغلقة للاستخدام المهني والطابعات كبيرة الحجم ذات مساحة الطباعة الأوسع.",
+                "تسوّق طابعات 3D ثلاثية الأبعاد المكتبية أونلاين في السعودية من Black Arrow 3D. نوفّر طابعات بامبو لاب Bambu Lab وCreality وElegoo وAnycubic وSnapmaker وFlashforge، من الموديلات الصغيرة المناسبة للمبتدئين إلى الطابعات المغلقة للاستخدام المهني والطابعات كبيرة الحجم ذات مساحة الطباعة الأوسع.",
                 "كثير من الموديلات تطبع بعدة ألوان: نظام AMS Lite من Bambu Lab ونظام CFS Lite من Creality ونظام CANVAS من Elegoo يتعامل كلٌّ منها مع ما يصل إلى أربعة خيوط، وتستخدم Snapmaker U1 أربعة رؤوس طباعة مستقلة. جميع الأسعار بالريال السعودي والتوصيل لكل مناطق المملكة.",
                 "لست متأكدًا من الطابعة المناسبة؟ استعن بالأدلة أدناه، وقارن حجم الطباعة والسعر في المتجر، أو راسلنا عبر واتساب لنساعدك في الاختيار.",
             ],
@@ -1314,7 +1320,8 @@ CATEGORY_GUIDE = {
     'Filament': {
         'en': {
             'intro': [
-                "Shop 3D printer filament online in Saudi Arabia from Black Arrow 3D: Bambu Lab PLA Basic and PLA Matte, KINGROON PLA Basic, PETG Basic and PETG HS, and PLA+. The Bambu Lab and KINGROON spools are 1.75 mm and 1 kg, the size most desktop 3D printers use.",
+                "Shop 3D printer filament online in Saudi Arabia (KSA) from Black Arrow 3D: Bambu Lab PLA Basic, PLA Matte and TPU 95A HF, SUNLU PLA Classic, KINGROON PLA Basic, PETG Basic and PETG HS, and PLA+. The Bambu Lab, SUNLU and KINGROON spools are 1.75 mm and 1 kg, the size most desktop 3D printers use.",
+                "SUNLU PLA Classic is a matte PLA rated for printing at up to 300 mm/s, in seven colours: White, Black, Grey, Mint Green, Cherry Red, Sakura Pink and Sky Blue.",
                 "PLA is the easiest material to print and the usual choice for gifts, figures, toys and display pieces. PETG is tougher and copes with more heat, so it suits car parts, outdoor items and parts that have to flex a little. PETG HS is a PETG made for faster printing.",
                 "Bambu Lab spools carry an RFID tag that Bambu Lab AMS units read automatically, so the colour and material appear in the slicer without typing anything. Keep any opened spool in a sealed bag with desiccant: damp filament strings and prints weak parts.",
                 "Prices are in Saudi riyals and include VAT, and orders are delivered across Saudi Arabia. Not sure which one to choose? Read our PLA vs PETG guides on the blog or ask us on WhatsApp.",
@@ -1322,7 +1329,7 @@ CATEGORY_GUIDE = {
             'sections': [
                 ('PLA Filament',
                  "Easy to print with little warping and a wide choice of colours. Matte PLA hides layer lines for a smoother look.",
-                 ['bambu-lab-pla-basic-filament', 'bambu-lab-pla-matte-filament', 'kingroon-pla-basic-filament', 'filament-pla-1kg']),
+                 ['bambu-lab-pla-basic-filament', 'bambu-lab-pla-matte-filament', 'sunlu-pla-classic-filament', 'kingroon-pla-basic-filament', 'filament-pla-1kg']),
                 ('PETG Filament',
                  "Stronger and more heat-resistant than PLA, for functional parts. PETG HS is the high-speed version.",
                  ['kingroon-petg-basic-filament', 'kingroon-petg-hs-filament']),
@@ -1332,7 +1339,8 @@ CATEGORY_GUIDE = {
         },
         'ar': {
             'intro': [
-                "تسوّق فلمنت الطابعات ثلاثية الأبعاد أونلاين في السعودية من Black Arrow 3D: Bambu Lab PLA Basic وPLA Matte، وKINGROON PLA Basic وPETG Basic وPETG HS، وPLA+. بكرات Bambu Lab وKINGROON بقطر 1.75 مم ووزن 1 كجم، وهو المقاس الذي تستخدمه معظم الطابعات المكتبية.",
+                "تسوّق فلمنت الطابعات 3D ثلاثية الأبعاد أونلاين في السعودية من Black Arrow 3D: Bambu Lab PLA Basic وPLA Matte وTPU 95A HF، وSUNLU PLA Classic، وKINGROON PLA Basic وPETG Basic وPETG HS، وPLA+. بكرات Bambu Lab وSUNLU وKINGROON بقطر 1.75 مم ووزن 1 كجم، وهو المقاس الذي تستخدمه معظم الطابعات المكتبية.",
+                "فلمنت SUNLU PLA Classic خامة PLA مطفية تتحمل الطباعة بسرعة تصل إلى 300 مم/ث، وتتوفر بسبعة ألوان: أبيض وأسود ورمادي وأخضر نعناعي وأحمر كرزي ووردي ساكورا وأزرق سماوي.",
                 "خامة PLA هي الأسهل في الطباعة والاختيار المعتاد للهدايا والمجسمات والألعاب وقطع العرض. أما PETG فهي أقوى وتتحمل حرارة أعلى، لذلك تناسب قطع السيارات والاستخدام الخارجي والقطع التي تحتاج إلى قليل من المرونة. وPETG HS نسخة من PETG مصممة للطباعة الأسرع.",
                 "تحمل بكرات Bambu Lab شريحة RFID تقرؤها وحدات AMS من Bambu Lab تلقائياً، فيظهر اللون والخامة في برنامج التقطيع دون إدخال يدوي. احفظ أي بكرة مفتوحة في كيس محكم مع مادة مجففة، لأن الفلمنت الرطب يسبب الخيوط ويضعف القطع.",
                 "الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة، والتوصيل لكل مناطق المملكة. لست متأكداً من الاختيار؟ اقرأ أدلة المقارنة بين PLA وPETG في المدونة أو راسلنا عبر واتساب.",
@@ -1386,6 +1394,54 @@ CATEGORY_GUIDE = {
             'vol': 'حجم الطباعة',
             'shop_link': 'شاهد كل الإكسسوارات في المتجر',
         },
+    },
+}
+
+
+# Brand landing guides (key 'brand:<name>'), same shape as CATEGORY_GUIDE. Facts only from the
+# catalog and the existing category copy; sold-out products drop out of the cards automatically.
+CATEGORY_GUIDE['brand:Bambu Lab'] = {
+    'en': {
+        'intro': [
+            "Buy Bambu Lab 3D printers in KSA from Black Arrow 3D, from the compact A1 mini to the enclosed P series and the large H2 series, together with AMS multicolour units, Bambu Lab filament and spare parts. Every price is in Saudi riyals including VAT, and orders are delivered across Saudi Arabia.",
+            "For multicolour printing, the AMS lite holds four spools and works with the A1, A1 mini and A2L. The AMS 2 Pro holds four spools and also dries filament at up to 65 °C, and the AMS HT holds one spool and dries at up to 85 °C.",
+            "Bambu Lab spools carry an RFID tag that AMS units read automatically, so the colour and material appear in Bambu Studio without typing anything. Not sure which model fits your work? Compare them below, read our Bambu Lab guides on the blog, or ask us on WhatsApp.",
+        ],
+        'sections': [
+            ('Bambu Lab Printers for Beginners',
+             "Compact printers with automatic calibration and a simple setup, a good first printer at home or school.",
+             ['bambu-lab-a1-mini', 'bambu-lab-a1', 'bambu-lab-p1s']),
+            ('Step-Up Bambu Lab Printers',
+             "For heavier everyday use. Compare build volume, price and the materials each one lists on its product page.",
+             ['bambu-lab-p2s', 'bambu-lab-x2d-combo', 'bambu-lab-x1e-combo']),
+            ('Large-Format and Multi-Nozzle Printers',
+             "More build room and more than one nozzle or toolhead for big parts and multi-material jobs.",
+             ['bambu-lab-a2l', 'bambu-lab-h2s-combo', 'bambu-lab-h2d-combo', 'bambu-lab-h2c-combo', 'bambu-lab-h3c']),
+            ('AMS Multicolour Units',
+             "Switch spools during a print; the AMS 2 Pro and AMS HT dry filament as well.",
+             ['bambu-ams-lite', 'bambu-ams-2-pro', 'bambu-ams-ht']),
+            ('Bambu Lab Filament and Spare Parts',
+             "Original Bambu Lab spools with RFID tags, plus hot ends for the A1 series.",
+             ['bambu-lab-pla-basic-filament', 'bambu-lab-pla-matte-filament', 'bambu-lab-tpu-95a-hf-filament', 'bambu-hotend-a1-series', 'hotend-heating-assembly-a1-series']),
+        ],
+        'vol': 'build volume',
+        'shop_link': 'Compare all products in the shop',
+    },
+    'ar': {
+        'intro': [
+            "اشترِ طابعات بامبو لاب Bambu Lab ثلاثية الأبعاد في السعودية من Black Arrow 3D، من A1 mini الصغيرة إلى سلسلة P المغلقة وسلسلة H2 الكبيرة، مع وحدات AMS للألوان المتعددة وفلمنت Bambu Lab وقطع الغيار. جميع الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة، والتوصيل لكل مناطق المملكة.",
+            "للطباعة متعددة الألوان، يحمل AMS lite أربع بكرات ويعمل مع A1 وA1 mini وA2L. ويحمل AMS 2 Pro أربع بكرات ويجفف الفلمنت حتى 65 درجة مئوية، بينما يحمل AMS HT بكرة واحدة ويجفف حتى 85 درجة مئوية.",
+            "تحمل بكرات Bambu Lab شريحة RFID تقرؤها وحدات AMS تلقائياً، فيظهر اللون والخامة في Bambu Studio دون إدخال يدوي. لست متأكداً من الموديل المناسب؟ قارن الموديلات أدناه، أو اقرأ أدلة Bambu Lab في المدونة، أو راسلنا عبر واتساب.",
+        ],
+        'sections': [
+            ('طابعات بامبو لاب للمبتدئين', "طابعات صغيرة بمعايرة تلقائية وإعداد بسيط، خيار جيد كأول طابعة في البيت أو المدرسة.", None),
+            ('طابعات بامبو لاب للاستخدام الأكثر', "للاستخدام اليومي الأكثف. قارن حجم الطباعة والسعر والخامات المذكورة في صفحة كل منتج.", None),
+            ('طابعات كبيرة ومتعددة الفوهات', "مساحة طباعة أكبر وأكثر من فوهة أو رأس طباعة للقطع الكبيرة والطباعة بعدة خامات.", None),
+            ('وحدات AMS للألوان المتعددة', "تبديل البكرات أثناء الطباعة، ويجفف AMS 2 Pro وAMS HT الفلمنت أيضاً.", None),
+            ('فلمنت بامبو لاب وقطع الغيار', "بكرات Bambu Lab الأصلية بشريحة RFID، مع هوت إند لسلسلة A1.", None),
+        ],
+        'vol': 'حجم الطباعة',
+        'shop_link': 'قارن كل المنتجات في المتجر',
     },
 }
 
@@ -1491,7 +1547,8 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
     html = _a + _b + _c.replace('<h3', '<h2').replace('</h3>', '</h2>')
     html = lang_toggle_link(html, lang, _url('ar' if lang == 'en' else 'en'))
 
-    guide_copy = None if brand else CATEGORY_GUIDE.get(cat, {}).get(lang)
+    guide_key = ('brand:' + brand) if brand else cat
+    guide_copy = CATEGORY_GUIDE.get(guide_key, {}).get(lang)
     live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + ('/shop/?brand=' + brand.replace(' ', '+') if brand else '/shop/?cat=' + cat.replace(' ', '+'))
     landing_block = (
         '<section class="section" style="padding-top:20px;">'
@@ -1501,12 +1558,12 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
         + '<a href="' + shop_url(lang) + '">' + esc(T('nav_shop', lang)) + '</a><span>›</span>'
         + '<span>' + esc(label) + '</span>'
         + '</nav>'
-        + '<h1>' + esc(CATEGORY_H1.get(cat, {}).get(lang, label) if not brand else label) + '</h1>'
+        + '<h1>' + esc(CATEGORY_H1.get(guide_key, {}).get(lang, label)) + '</h1>'
         + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
         + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
         + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
            else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
-        + category_guide_html(cat, lang, {x['id']: x for x in PRODUCTS})
+        + category_guide_html(guide_key, lang, {x['id']: x for x in PRODUCTS})
         + '</div></section>'
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', '<main id="main" class="b3d-light">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
@@ -1525,9 +1582,9 @@ nothing here is a new business claim, just an Arabic rendering of
 strings that already exist in English on the same pages."""
 AR_HOME_META = {
     'description': 'بلاك أرو 3D: طابعات ثلاثية الأبعاد وفلمنت وقطع غيار وهدايا مطبوعة مع التوصيل لكل مدن السعودية، منها الرياض وجدة ومكة والمدينة والدمام.',
-    'og_title': 'بلاك أرو 3D | متجر الطابعات ثلاثية الأبعاد في السعودية',
+    'og_title': 'بلاك أرو Black Arrow 3D | متجر طابعات 3D في السعودية',
     'og_description': 'Bambu Lab وCreality وElegoo وSnapmaker وAnycubic وFlashforge — طابعات ثلاثية الأبعاد وخيوط وإكسسوارات لصناع المحتوى والطلاب والاستخدام المنزلي. مع التوصيل لكل مدن السعودية والمساعدة في مطالبات ضمان الشركة المصنّعة.',
-    'title': 'بلاك أرو 3D | متجر الطابعات ثلاثية الأبعاد في السعودية',
+    'title': 'بلاك أرو Black Arrow 3D | متجر طابعات 3D في السعودية',
 }
 AR_SHOP_META = {
     'description': 'تصفّح كل منتجات بلاك أرو 3D: طابعات ثلاثية الأبعاد وفلمنت وإكسسوارات وهدايا مطبوعة. فلترة حسب العلامة التجارية والفئة والسعر، والأسعار بالريال.',
@@ -1977,6 +2034,25 @@ def build_static_page(slug, lang):
     write(os.path.join(ROOT, '3d', 'ar' if lang == 'ar' else '', slug, 'index.html'), html)
 
 
+def _kw_col(h, links):
+    return ('<div><h3 style="font-size:1.05rem;margin:0 0 10px">' + h + '</h3><ul style="margin:0;padding-inline-start:18px;display:grid;gap:6px">'
+            + ''.join('<li><a href="' + u + '">' + t + '</a></li>' for u, t in links) + '</ul></div>')
+
+
+# Arabic twin of the <!--b3d-kw--> link section in 3d/index.html (hrefs are localised to /3d/ar/ afterwards).
+AR_HOME_KW_HTML = (
+    '<!--b3d-kw--><section class="container b3d-hub-section b3d-kw">\n      <div class="section-header">\n'
+    '        <h2>طابعات 3D وفلمنت وبامبو لاب Bambu Lab في السعودية</h2>\n      </div>\n'
+    '      <p style="max-width:75ch;margin:0 auto 24px">بلاك أرو Black Arrow 3D متجر أونلاين للطابعات ثلاثية الأبعاد في السعودية. نبيع طابعات 3D من بامبو لاب Bambu Lab وكرياليتي Creality وإليجو Elegoo وأنيكيوبك Anycubic وسنابميكر Snapmaker وفلاش فورج Flashforge، وفلمنت الطباعة ثلاثية الأبعاد من Bambu Lab وSUNLU وKINGROON، ووحدات AMS وقطع الغيار، بالأسعار بالريال مع التوصيل لكل مناطق المملكة، منها الرياض وجدة والدمام والخبر. ونقدّم أيضاً خدمة الطباعة ثلاثية الأبعاد: أرسل لنا تصميمك ونطبعه لك.</p>\n'
+    '      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">'
+    + _kw_col('بامبو لاب في السعودية', [('/3d/brands/bambu-lab/', 'كل طابعات بامبو لاب Bambu Lab'), ('/3d/product/bambu-lab-a1-mini/', 'Bambu Lab A1 mini'), ('/3d/product/bambu-lab-p1s/', 'Bambu Lab P1S'), ('/3d/product/bambu-lab-p2s/', 'Bambu Lab P2S'), ('/3d/product/bambu-lab-h2d-combo/', 'Bambu Lab H2D'), ('/3d/product/bambu-ams-2-pro/', 'Bambu Lab AMS 2 Pro')])
+    + _kw_col('علامات تجارية أخرى للطابعات', [('/3d/shop/3d-printers/', 'كل طابعات 3D في السعودية'), ('/3d/product/creality-sparkx-i7/', 'كرياليتي Creality SparkX i7'), ('/3d/product/elegoo-centauri-carbon-2/', 'إليجو Elegoo Centauri Carbon 2'), ('/3d/product/anycubic-kobra-3-max/', 'أنيكيوبك Anycubic Kobra 3 Max'), ('/3d/product/snapmaker-u1/', 'سنابميكر Snapmaker U1'), ('/3d/product/flashforge-adventurer-5m/', 'فلاش فورج Flashforge Adventurer 5M')])
+    + _kw_col('فلمنت الطباعة 3D', [('/3d/shop/filament/', 'كل أنواع الفلمنت'), ('/3d/product/sunlu-pla-classic-filament/', 'فلمنت SUNLU PLA Classic'), ('/3d/product/bambu-lab-pla-basic-filament/', 'فلمنت Bambu Lab PLA Basic'), ('/3d/product/kingroon-pla-basic-filament/', 'فلمنت KINGROON PLA'), ('/3d/product/kingroon-petg-hs-filament/', 'فلمنت KINGROON PETG HS'), ('/3d/blog/3d-printer-filament-price-saudi-arabia/', 'أسعار الفلمنت في السعودية')])
+    + _kw_col('أدلة وخدمة الطباعة', [('/3d/blog/where-to-buy-3d-printer-saudi-arabia/', 'من أين تشتري طابعة 3D في السعودية'), ('/3d/blog/best-3d-printer-for-beginners-saudi-arabia/', 'أفضل طابعة 3D للمبتدئين'), ('/3d/blog/bambu-lab-printers-saudi-arabia-prices/', 'أسعار بامبو لاب في السعودية'), ('/3d/blog/buy-3d-printer-riyadh/', 'طابعات 3D في الرياض'), ('/3d/blog/buy-3d-printer-jeddah/', 'طابعات 3D في جدة'), ('/3d/3d-printing-service-saudi-arabia/', 'خدمة الطباعة ثلاثية الأبعاد في السعودية')])
+    + '</div>\n    </section><!--/b3d-kw-->'
+)
+
+
 def build_ar_home():
     with open(HOME_TEMPLATE, encoding='utf-8') as f:
         html = strip_hreflang(f.read())
@@ -1990,6 +2066,7 @@ def build_ar_home():
     html = re.sub(r'<meta property="og:url" content="[^"]*">',
                   '<meta property="og:url" content="' + SITE + '/3d/ar/">', html, count=1)
     html = apply_ar_meta(html, AR_HOME_META)
+    html = re.sub(r'<!--b3d-kw-->.*?<!--/b3d-kw-->', lambda m: AR_HOME_KW_HTML, html, count=1, flags=re.DOTALL)
     html = prerender_grids(html, 'ar', 'home')
     html = translate_static_chrome(html, 'ar')
     html = translate_faq_schema(html, 'ar')

@@ -118,13 +118,13 @@
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Cyan",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Gray",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -154,7 +154,7 @@
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Solar Breeze",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -430,6 +430,48 @@
   {
    "id": "snapmaker-u1",
    "variant": "",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Black",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Cherry Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Grey",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Mint Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Sakura Pink",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "Sky Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "sunlu-pla-classic-filament",
+   "variant": "White",
    "available": true,
    "preorder": false
   }

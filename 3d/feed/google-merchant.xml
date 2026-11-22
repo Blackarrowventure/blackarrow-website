@@ -4113,7 +4113,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-black-10101.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -4141,7 +4141,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-gray-10103.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-black-10101.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -4281,7 +4281,7 @@
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-red-10200.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-silver-10102.webp</g:additional_image_link>
       <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/bambu-pla-basic-black-10101.webp</g:additional_image_link>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>140.00 SAR</g:price>
       <g:condition>new</g:condition>
       <g:brand>Bambu Lab</g:brand>
@@ -4615,6 +4615,181 @@
       <g:brand>Bambu Lab</g:brand>
       <g:identifier_exists>no</g:identifier_exists>
       <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-white</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - White</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-black</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Black</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-grey</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Grey</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-mint-green</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Mint Green</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-cherry-red</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Cherry Red</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-sakura-pink</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Sakura Pink</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
+      <g:shipping>
+        <g:country>SA</g:country>
+        <g:service>Standard</g:service>
+        <g:price>30.00 SAR</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>sunlu-pla-classic-filament-sky-blue</g:id>
+      <g:title>SUNLU PLA Classic Filament 1.75 mm (1 kg) - Sky Blue</g:title>
+      <g:description>SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.</g:description>
+      <g:link>https://www.blackarrowksa.com/3d/product/sunlu-pla-classic-filament/</g:link>
+      <g:image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp</g:image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-white.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-black.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-grey.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-mint-green.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp</g:additional_image_link>
+      <g:additional_image_link>https://www.blackarrowksa.com/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>75.00 SAR</g:price>
+      <g:condition>new</g:condition>
+      <g:brand>SUNLU</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:product_type>3D Printing &gt; Filament</g:product_type>
+      <g:item_group_id>sunlu-pla-classic-filament</g:item_group_id>
       <g:shipping>
         <g:country>SA</g:country>
         <g:service>Standard</g:service>

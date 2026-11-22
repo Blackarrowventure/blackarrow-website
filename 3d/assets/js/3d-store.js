@@ -3722,7 +3722,8 @@
           thumbsHtml +
         '</div>' +
         '<div>' +
-          '<div class="b3d-pd__cat">' + (p.brand ? p.brand + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
+          '<div class="b3d-pd__cat">' + (p.brand ? (BRAND_PAGES[p.brand]
+            ? '<a href="' + (isArPage() ? '/3d/ar' : '/3d') + '/brands/' + BRAND_PAGES[p.brand] + '/" style="color:inherit">' + p.brand + '</a>' : p.brand) + ' &middot; ' : '') + categoryLabel(p.category) + '</div>' +
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
@@ -4589,6 +4590,8 @@
     if (!menu) return;
     var base = isArPage() ? '/3d/ar' : '/3d';
     fetchProducts().then(function (products) {
+      // Static brand-page links in the HTML are for crawlers; the list below rebuilds them with logos.
+      [].forEach.call(menu.querySelectorAll('[data-b3d-brand-static]'), function (a) { a.remove(); });
       var html = menu.innerHTML;
       brandList().forEach(function (brand) {
         if (brand === 'Black Arrow' || brand === 'Generic') return;
