@@ -4001,6 +4001,61 @@
       ]
     },
     {
+      "id": "sunlu-pla-classic-filament",
+      "name": "SUNLU PLA Classic Filament 1.75 mm (1 kg)",
+      "brand": "SUNLU",
+      "category": "Filament",
+      "boughtTogether": ["kingroon-pla-basic-filament", "bambu-lab-pla-basic-filament"],
+      "price": 75,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/sunlu-pla-classic-white.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-black.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-grey.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-mint-green.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp",
+        "/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp"
+      ],
+      "shortDesc": "SUNLU PLA Classic is a high-speed matte-finish PLA, 1.75 mm, 1 kg spool — easy to print with crisp, consistent color.",
+      "description": "SUNLU PLA Classic is a high-performance PLA built for fast, reliable printing with a smooth matte finish. It prints cleanly at high speed with minimal stringing or warping, making it a great everyday filament for both beginners and high-volume printing. Prints at 190-230°C on a 45-60°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.",
+      "specs": [
+        ["Material", "PLA (Classic, matte finish)"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Weight", "1 kg"],
+        ["Finish", "Matte"],
+        ["Nozzle Temperature", "190-230°C"],
+        ["Bed Temperature", "45-60°C"],
+        ["Printing Speed", "Up to 300 mm/s"],
+        ["Colours", "White, Black, Grey, Mint Green, Cherry Red, Sakura Pink, Sky Blue - pick one"]
+      ],
+      "name_ar": "فيلامنت SUNLU PLA Classic بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت SUNLU PLA Classic عالي السرعة بلمسة مطفية، بقطر 1.75 مم، بكرة 1 كغ - طباعة سهلة بلون متجانس وواضح.",
+      "description_ar": "فيلامنت SUNLU PLA Classic مصمم للطباعة السريعة والموثوقة بلمسة مطفية ناعمة. يُطبع بنظافة وسرعة عالية مع أقل قدر من الخيوط أو الالتواء، فيلامنت ممتاز للاستخدام اليومي للمبتدئين وللطباعة بكميات كبيرة. يُطبع عند 190-230°C على سرير 45-60°C. جففه قبل الاستخدام واحفظه مغلقًا مع مادة مجففة للحفاظ على جودة الطباعة.",
+      "specs_ar": [
+        ["الخامة", "PLA (كلاسيك، لمسة مطفية)"],
+        ["قطر الفيلامنت", "1.75 مم"],
+        ["الوزن", "1 كغ"],
+        ["اللمسة", "مطفية"],
+        ["درجة حرارة الفوهة", "190-230°C"],
+        ["درجة حرارة السرير", "45-60°C"],
+        ["سرعة الطباعة", "حتى 300 مم/ث"],
+        ["الألوان", "أبيض، أسود، رمادي، أخضر نعناعي، أحمر كرزي، وردي ساكورا، أزرق سماوي - اختر واحدًا"]
+      ],
+      "variants": [
+        {"label": "White", "label_ar": "أبيض", "price": 75, "swatch": "#f2f2ec", "image": "/3d/assets/images/products/sunlu-pla-classic-white.webp"},
+        {"label": "Black", "label_ar": "أسود", "price": 75, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/sunlu-pla-classic-black.webp"},
+        {"label": "Grey", "label_ar": "رمادي", "price": 75, "swatch": "#8a8d90", "image": "/3d/assets/images/products/sunlu-pla-classic-grey.webp"},
+        {"label": "Mint Green", "label_ar": "أخضر نعناعي", "price": 75, "swatch": "#3fcf9e", "image": "/3d/assets/images/products/sunlu-pla-classic-mint-green.webp"},
+        {"label": "Cherry Red", "label_ar": "أحمر كرزي", "price": 75, "swatch": "#e4564f", "image": "/3d/assets/images/products/sunlu-pla-classic-cherry-red.webp"},
+        {"label": "Sakura Pink", "label_ar": "وردي ساكورا", "price": 75, "swatch": "#f3c9d4", "image": "/3d/assets/images/products/sunlu-pla-classic-sakura-pink.webp"},
+        {"label": "Sky Blue", "label_ar": "أزرق سماوي", "price": 75, "swatch": "#8fd3ea", "image": "/3d/assets/images/products/sunlu-pla-classic-sky-blue.webp"}
+      ]
+    },
+    {
       "id": "rockstar-logo-keycap-clicker-keychain",
       "name": "Rockstar Logo Keycap Clicker Keychain",
       "brand": "Black Arrow",
