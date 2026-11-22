@@ -1484,7 +1484,9 @@ def category_guide_html(cat, lang, by_id):
 # column on the right; on phones the copy follows the products.
 CAT_SIDE_CSS = (
     '<style>.b3d-cat-top{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:start}'
-    '.b3d-cat-top h1{margin:0 0 14px}'
+    '.b3d-cat-titlerow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin:0 0 16px}'
+    '.b3d-cat-titlerow h1{margin:0}.b3d-cat-titlerow p{margin:0}'
+    '.b3d-cat-titlerow .btn{box-shadow:0 8px 20px rgba(11,122,85,.25)}'
     'main.b3d-light .b3d-cat-side{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto;scrollbar-width:thin;background:#fff;border:1px solid #eadfc8;border-radius:20px;box-shadow:0 18px 40px rgba(120,80,0,.10)}'
     'main.b3d-light .b3d-cat-side__head{background:linear-gradient(135deg,#111 0%,#26211a 100%);padding:18px 22px 16px;border-bottom:3px solid #f0a500}'
     'main.b3d-light .b3d-cat-side__head .b3d-cat-side__eyebrow{display:block;color:#fbbf24;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}'
@@ -1602,9 +1604,9 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
     side = ('<aside class="b3d-cat-side" aria-label="' + ('عن هذه الفئة' if ar else 'About this range') + '">'
             + '<div class="b3d-cat-side__head"><span class="b3d-cat-side__eyebrow">' + ('عن هذه الفئة' if ar else 'About this range') + '</span>'
             + '<span class="b3d-cat-side__name">' + esc(label) + '</span></div>'
-            + '<div class="b3d-cat-side__body">' + side_intro + filters_btn
+            + '<div class="b3d-cat-side__body">' + side_intro
             + '<ul class="b3d-cat-side__trust">' + ''.join('<li>' + esc(t) + '</li>' for t in trust) + '</ul></div></aside>')
-    top = CAT_SIDE_CSS + '<div class="b3d-cat-top"><div class="b3d-cat-main">' + h1 + grid + '</div>' + side + '</div>'
+    top = CAT_SIDE_CSS + '<div class="b3d-cat-top"><div class="b3d-cat-main"><div class="b3d-cat-titlerow">' + h1 + filters_btn + '</div>' + grid + '</div>' + side + '</div>'
     landing_block = (
         '<section class="section" style="padding-top:20px;">'
         + '<div class="container">'
