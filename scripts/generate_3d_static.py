@@ -1480,6 +1480,36 @@ def category_guide_html(cat, lang, by_id):
 
 
 
+# Landing-page layout (22 Nov 2026, Afzal): products start at the top, the intro copy sits in a
+# column on the right; on phones the copy follows the products.
+CAT_SIDE_CSS = (
+    '<style>.b3d-cat-top{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:40px;align-items:start}'
+    '.b3d-cat-top h1{margin:0 0 14px}'
+    'main.b3d-light .b3d-cat-side{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow:auto;scrollbar-width:thin;background:#fff;border:1px solid #eadfc8;border-radius:20px;box-shadow:0 18px 40px rgba(120,80,0,.10)}'
+    'main.b3d-light .b3d-cat-side__head{background:linear-gradient(135deg,#111 0%,#26211a 100%);padding:18px 22px 16px;border-bottom:3px solid #f0a500}'
+    'main.b3d-light .b3d-cat-side__head .b3d-cat-side__eyebrow{display:block;color:#fbbf24;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}'
+    'main.b3d-light .b3d-cat-side__head .b3d-cat-side__name{display:block;color:#fff;font-size:1.35rem;font-weight:800;line-height:1.2}'
+    'main.b3d-light .b3d-cat-side__body{padding:18px 22px 20px}'
+    'main.b3d-light .b3d-cat-side .b3d-shop-head__intro{max-width:none;text-align:start;font-size:.95rem;line-height:1.75;font-weight:500;color:#2b2722;margin:0 0 14px}'
+    'main.b3d-light .b3d-cat-side .b3d-shop-head__intro:first-child{font-size:1rem;font-weight:600;color:#1a1a1a;background:#fff7e6;border-inline-start:4px solid #f0a500;border-radius:12px;padding:12px 14px}'
+    'main.b3d-light .b3d-cat-side .b3d-hl{color:#b45309;font-weight:800}'
+    'main.b3d-light .b3d-cat-side .b3d-hl-m{color:#0b7a55;font-weight:800}'
+    'main.b3d-light .b3d-cat-side .btn{display:flex;justify-content:center;width:100%}'
+    'main.b3d-light .b3d-cat-side__trust{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}'
+    'main.b3d-light .b3d-cat-side__trust li{display:flex;align-items:center;gap:10px;background:#ecf7f1;border-radius:12px;padding:9px 12px;font-size:.9rem;font-weight:700;color:#0f3d2c}'
+    'main.b3d-light .b3d-cat-side__trust li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:#0b7a55;color:#fff;font-size:.8rem;display:flex;align-items:center;justify-content:center}'
+    '@media (max-width:960px){.b3d-cat-top{grid-template-columns:minmax(0,1fr)}main.b3d-light .b3d-cat-side{position:static;max-height:none}}</style>'
+)
+
+_HL_RX = re.compile(r'(Bambu Lab|بامبو لاب|SUNLU|KINGROON|Creality|Elegoo|Anycubic|Snapmaker|Flashforge|Black Arrow 3D)'
+                    r'|(?<![A-Za-z0-9])(PETG HS|PLA\+|PLA Matte|PLA Basic|PLA Classic|PLA|PETG|TPU 95A HF|TPU|ABS|ASA)(?![A-Za-z0-9+])')
+
+
+def highlight_terms(text):
+    """Escaped text with brand names (amber) and materials (green) wrapped for the side card."""
+    return _HL_RX.sub(lambda m: '<strong class="' + ('b3d-hl' if m.group(1) else 'b3d-hl-m') + '">' + m.group(0) + '</strong>', esc(text))
+
+
 def build_category_page(cat, lang, products_in_cat, brand=None):
     """Static landing page for a category, or (brand=...) for a brand."""
     def _url(l):
@@ -1550,20 +1580,36 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
     guide_key = ('brand:' + brand) if brand else cat
     guide_copy = CATEGORY_GUIDE.get(guide_key, {}).get(lang)
     live_shop_href = ('/3d/ar' if lang == 'ar' else '/3d') + ('/shop/?brand=' + brand.replace(' ', '+') if brand else '/shop/?cat=' + cat.replace(' ', '+'))
+    ar = lang == 'ar'
+    by_id = {x['id']: x for x in PRODUCTS}
+    h1 = '<h1>' + esc(CATEGORY_H1.get(guide_key, {}).get(lang, label)) + '</h1>'
+    intro_html = (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy
+                  else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
+    side_intro = (''.join('<p class="b3d-shop-head__intro">' + highlight_terms(x) + '</p>' for x in guide_copy['intro']) if guide_copy
+                  else '<p class="b3d-shop-head__intro">' + highlight_terms(intro) + '</p>')
+    filters_btn = '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
+    crumbs = ('<nav class="breadcrumb" aria-label="Breadcrumb">'
+              + '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span>'
+              + '<a href="' + shop_url(lang) + '">' + esc(T('nav_shop', lang)) + '</a><span>›</span>'
+              + '<span>' + esc(label) + '</span></nav>')
+    if cat == '3D Artwork' and not brand:
+        grid = collections_strip_html(lang) + art_subcategories_html(lang, by_id)
+    else:
+        grid = ('<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"')
+                + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
+    trust = (['توصيل لجميع مدن المملكة', 'توصيل مجاني للخبر والدمام', 'ادفع بالتقسيط مع تابي وتمارا'] if ar
+             else ['Delivery across Saudi Arabia', 'Free delivery in Khobar & Dammam', 'Pay in instalments with Tabby or Tamara'])
+    side = ('<aside class="b3d-cat-side" aria-label="' + ('عن هذه الفئة' if ar else 'About this range') + '">'
+            + '<div class="b3d-cat-side__head"><span class="b3d-cat-side__eyebrow">' + ('عن هذه الفئة' if ar else 'About this range') + '</span>'
+            + '<span class="b3d-cat-side__name">' + esc(label) + '</span></div>'
+            + '<div class="b3d-cat-side__body">' + side_intro + filters_btn
+            + '<ul class="b3d-cat-side__trust">' + ''.join('<li>' + esc(t) + '</li>' for t in trust) + '</ul></div></aside>')
+    top = CAT_SIDE_CSS + '<div class="b3d-cat-top"><div class="b3d-cat-main">' + h1 + grid + '</div>' + side + '</div>'
     landing_block = (
         '<section class="section" style="padding-top:20px;">'
         + '<div class="container">'
-        + '<nav class="breadcrumb" aria-label="Breadcrumb">'
-        + '<a href="' + home_url(lang) + '">' + esc(T('nav_black_arrow_3d_full', lang)) + '</a><span>›</span>'
-        + '<a href="' + shop_url(lang) + '">' + esc(T('nav_shop', lang)) + '</a><span>›</span>'
-        + '<span>' + esc(label) + '</span>'
-        + '</nav>'
-        + '<h1>' + esc(CATEGORY_H1.get(guide_key, {}).get(lang, label)) + '</h1>'
-        + (''.join('<p class="b3d-shop-head__intro">' + esc(x) + '</p>' for x in guide_copy['intro']) if guide_copy else '<p class="b3d-shop-head__intro">' + esc(intro) + '</p>')
-        + '<p><a class="btn btn-primary" href="' + live_shop_href + '">' + esc(T('shop_filters_btn', lang)) + ' →</a></p>'
-        + (collections_strip_html(lang) + art_subcategories_html(lang, {x['id']: x for x in PRODUCTS}) if cat == '3D Artwork' and not brand
-           else '<div class="b3d-grid" ' + ('data-b3d-brand-grid="' + esc(brand) + '"' if brand else 'data-b3d-cat-grid="' + esc(cat) + '"') + '><!--b3d-prerender-->' + ''.join(cards) + '<!--/b3d-prerender--></div>')
-        + category_guide_html(guide_key, lang, {x['id']: x for x in PRODUCTS})
+        + crumbs + top
+        + category_guide_html(guide_key, lang, by_id)
         + '</div></section>'
     )
     html = re.sub(r'<main id="main"[^>]*>.*?</main>', '<main id="main" class="b3d-light">' + landing_block + '</main>', html, count=1, flags=re.DOTALL)
