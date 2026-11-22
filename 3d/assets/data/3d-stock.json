@@ -105,20 +105,26 @@
   },
   {
    "id": "bambu-lab-pla-basic-filament",
-   "variant": "Blue",
+   "variant": "Black",
    "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-pla-basic-filament",
+   "variant": "Blue",
+   "available": false,
    "preorder": false
   },
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Cyan",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Gray",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -136,7 +142,7 @@
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Red",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -148,7 +154,7 @@
   {
    "id": "bambu-lab-pla-basic-filament",
    "variant": "Solar Breeze",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -166,7 +172,13 @@
   {
    "id": "bambu-lab-pla-matte-filament",
    "variant": "Sakura Pink",
-   "available": false,
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "bambu-lab-tpu-95a-hf-filament",
+   "variant": "White",
+   "available": true,
    "preorder": false
   },
   {
@@ -196,7 +208,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "Black",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -238,7 +250,7 @@
   {
    "id": "kingroon-petg-basic-filament",
    "variant": "White",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -395,6 +407,18 @@
    "id": "kingroon-pla-basic-filament",
    "variant": "Yellow",
    "available": true,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-pla-black-filament-1-75-mm-1-kg",
+   "variant": "Black",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-bambu-lab-tpu-filament",
+   "variant": "White 95HF",
+   "available": false,
    "preorder": false
   },
   {

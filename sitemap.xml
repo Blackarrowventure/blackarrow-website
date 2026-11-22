@@ -1300,7 +1300,7 @@
   <!-- BEGIN /3d/ store URLs (managed by scripts/update_sitemap_3d.py) -->
   <url>
     <loc>https://www.blackarrowksa.com/3d/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/"/>
@@ -1308,7 +1308,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/"/>
@@ -1316,7 +1316,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/</loc>
-    <lastmod>2026-11-17</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shop/"/>
@@ -1324,7 +1324,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/</loc>
-    <lastmod>2026-11-17</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shop/"/>
@@ -1369,7 +1369,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/shop/filament/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/filament/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shop/filament/"/>
@@ -1377,7 +1377,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/shop/filament/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/shop/filament/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/shop/filament/"/>
@@ -1417,7 +1417,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/brands/bambu-lab/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/brands/bambu-lab/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/brands/bambu-lab/"/>
@@ -1425,7 +1425,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/brands/bambu-lab/</loc>
-    <lastmod>2026-11-15</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/brands/bambu-lab/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/brands/bambu-lab/"/>
@@ -2585,7 +2585,7 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-pla-basic-filament/</loc>
-    <lastmod>2026-11-16</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-pla-basic-filament/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/product/bambu-lab-pla-basic-filament/"/>
@@ -2593,11 +2593,27 @@
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-pla-basic-filament/</loc>
-    <lastmod>2026-11-16</lastmod>    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-pla-basic-filament/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/product/bambu-lab-pla-basic-filament/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/product/bambu-lab-pla-basic-filament/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/product/bambu-lab-tpu-95a-hf-filament/</loc>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-tpu-95a-hf-filament/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/product/bambu-lab-tpu-95a-hf-filament/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/product/bambu-lab-tpu-95a-hf-filament/"/>
+  </url>
+  <url>
+    <loc>https://www.blackarrowksa.com/3d/ar/product/bambu-lab-tpu-95a-hf-filament/</loc>
+    <lastmod>2026-11-22</lastmod>    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.blackarrowksa.com/3d/product/bambu-lab-tpu-95a-hf-filament/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.blackarrowksa.com/3d/ar/product/bambu-lab-tpu-95a-hf-filament/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.blackarrowksa.com/3d/product/bambu-lab-tpu-95a-hf-filament/"/>
   </url>
   <url>
     <loc>https://www.blackarrowksa.com/3d/product/rockstar-logo-keycap-clicker-keychain/</loc>
