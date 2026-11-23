@@ -346,13 +346,13 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Pink",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Purple",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -376,13 +376,13 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Sky Blue",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Transparent",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -410,6 +410,12 @@
    "preorder": false
   },
   {
+   "id": "manual-3d-filament-storage-bag-vacuum-kit",
+   "variant": "10/pc",
+   "available": true,
+   "preorder": false
+  },
+  {
    "id": "manual-bambu-lab-pla-black-filament-1-75-mm-1-kg",
    "variant": "Black",
    "available": false,
@@ -422,9 +428,21 @@
    "preorder": false
   },
   {
+   "id": "manual-kingroon-petg-hs-filament-1-75mm-1kg-red",
+   "variant": "RED",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-kingroon-petg-hs-filament-1-75mm-1kg-sky-blue",
+   "variant": "SKY BLUE",
+   "available": false,
+   "preorder": false
+  },
+  {
    "id": "manual-to-be-deided",
    "variant": "",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
