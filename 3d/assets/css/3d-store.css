@@ -1604,6 +1604,19 @@ main.b3d-light .b3d-vat-note { color: rgba(0,0,0,.5); }
 .b3d-account__form .b3d-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .b3d-account__form label small { display: block; margin-top: 5px; }
 @media (max-width: 500px) { .b3d-account__form .b3d-field-row { grid-template-columns: 1fr; } }
+/* Red dot after the label of every compulsory field (sign-up, sign-in, checkout).
+   Driven by the input's own `required`, so it never disagrees with what the form enforces. */
+.b3d-account__form label:has(> input[required]:not([type="checkbox"]):not([type="radio"]), > textarea[required], > select[required]) > span::after,
+.b3d-co__grid label:has(> input[required]:not([type="checkbox"]):not([type="radio"]), > textarea[required], > select[required]) > span::after {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  margin-inline-start: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  vertical-align: middle;
+  position: relative; top: -1px;
+}
 /* Checkout form: two columns on desktop, one on phones. Full-width rows span both. */
 .b3d-checkout .b3d-account__form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .b3d-checkout .b3d-account__form > .b3d-field-row,
