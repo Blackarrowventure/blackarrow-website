@@ -3640,6 +3640,65 @@
       ]
     },
     {
+      "id": "kingroon-pla-matte-filament",
+      "name": "KINGROON Matte PLA Filament 1.75 mm (1 kg)",
+      "brand": "KINGROON",
+      "category": "Filament",
+      "boughtTogether": ["kingroon-pla-basic-filament", "kingroon-petg-basic-filament"],
+      "price": 65,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/kingroon-pla-matte-black.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-blue.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-brown.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-grass-green.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-gray.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-orange.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-purple.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-red.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-white.webp",
+        "/3d/assets/images/products/kingroon-pla-matte-yellow.webp"
+      ],
+      "shortDesc": "KINGROON Matte PLA, 1.75 mm, 1 kg spool - a smooth, low-gloss matte finish with the same easy printing as standard PLA.",
+      "description": "KINGROON Matte PLA keeps PLA's easy, reliable printing while swapping the usual glossy shell for a smooth, low-gloss matte finish that hides layer lines and fingerprints well - popular for display models, props and everyday prints where a satin surface looks better than shiny plastic. Prints at 190-230°C on a 45-66°C bed. Dry before use and store sealed with desiccant to keep print quality consistent.",
+      "specs": [
+        ["Material", "PLA (Matte finish)"],
+        ["Filament Diameter", "1.75 mm"],
+        ["Weight", "1 kg"],
+        ["Finish", "Matte"],
+        ["Nozzle Temperature", "190-230°C"],
+        ["Bed Temperature", "45-66°C"],
+        ["Colours", "Black, Blue, Brown, Grass Green, Gray, Orange, Purple, Red, White, Yellow - pick one"]
+      ],
+      "name_ar": "فيلامنت KINGROON Matte PLA بقطر 1.75 مم (1 كغ)",
+      "shortDesc_ar": "فيلامنت KINGROON Matte PLA بقطر 1.75 مم، بكرة 1 كغ - لمسة مطفية ناعمة منخفضة اللمعان مع سهولة طباعة PLA المعتادة.",
+      "description_ar": "فيلامنت KINGROON Matte PLA يحافظ على سهولة طباعة PLA الموثوقة مع استبدال اللمعان المعتاد بلمسة مطفية ناعمة منخفضة اللمعان تخفي خطوط الطبقات وبصمات الأصابع بشكل جيد - خيار شائع للمجسمات والدعائم والطباعة اليومية حيث يبدو السطح الساتان أفضل من البلاستيك اللامع. يُطبع عند 190-230°C على سرير 45-66°C. جففه قبل الاستخدام واحفظه مغلقًا مع مادة مجففة للحفاظ على جودة الطباعة.",
+      "specs_ar": [
+        ["الخامة", "PLA (لمسة مطفية)"],
+        ["قطر الفيلامنت", "1.75 مم"],
+        ["الوزن", "1 كغ"],
+        ["اللمسة", "مطفية"],
+        ["درجة حرارة الفوهة", "190-230°C"],
+        ["درجة حرارة السرير", "45-66°C"],
+        ["الألوان", "أسود، أزرق، بني، أخضر عشبي، رمادي، برتقالي، بنفسجي، أحمر، أبيض، أصفر — اختر واحدًا"]
+      ],
+      "variants": [
+        {"label": "Black", "label_ar": "أسود", "price": 65, "swatch": "#1a1a1a", "image": "/3d/assets/images/products/kingroon-pla-matte-black.webp"},
+        {"label": "Blue", "label_ar": "أزرق", "price": 65, "swatch": "#2c4a63", "image": "/3d/assets/images/products/kingroon-pla-matte-blue.webp"},
+        {"label": "Brown", "label_ar": "بني", "price": 65, "swatch": "#a9672f", "image": "/3d/assets/images/products/kingroon-pla-matte-brown.webp"},
+        {"label": "Grass Green", "label_ar": "أخضر عشبي", "price": 65, "swatch": "#c3e4bd", "image": "/3d/assets/images/products/kingroon-pla-matte-grass-green.webp"},
+        {"label": "Gray", "label_ar": "رمادي", "price": 65, "swatch": "#9aabae", "image": "/3d/assets/images/products/kingroon-pla-matte-gray.webp"},
+        {"label": "Orange", "label_ar": "برتقالي", "price": 65, "swatch": "#f0932e", "image": "/3d/assets/images/products/kingroon-pla-matte-orange.webp"},
+        {"label": "Purple", "label_ar": "بنفسجي", "price": 65, "swatch": "#b299e8", "image": "/3d/assets/images/products/kingroon-pla-matte-purple.webp"},
+        {"label": "Red", "label_ar": "أحمر", "price": 65, "swatch": "#e8402f", "image": "/3d/assets/images/products/kingroon-pla-matte-red.webp"},
+        {"label": "White", "label_ar": "أبيض", "price": 65, "swatch": "#f4f3ef", "image": "/3d/assets/images/products/kingroon-pla-matte-white.webp"},
+        {"label": "Yellow", "label_ar": "أصفر", "price": 65, "swatch": "#f3d535", "image": "/3d/assets/images/products/kingroon-pla-matte-yellow.webp"}
+      ]
+    },
+    {
       "id": "sports-duffel-bag-keychain",
       "name": "Mini Sports Duffel Bag Keychain",
       "brand": "Black Arrow",
