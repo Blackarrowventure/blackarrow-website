@@ -440,6 +440,48 @@
    "preorder": false
   },
   {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Black",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Cherry Red",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Grey",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Mint Green",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Sakura Pink",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "Sky Blue",
+   "available": false,
+   "preorder": false
+  },
+  {
+   "id": "manual-sunlu-pla-filament",
+   "variant": "White",
+   "available": false,
+   "preorder": false
+  },
+  {
    "id": "manual-to-be-deided",
    "variant": "",
    "available": false,
