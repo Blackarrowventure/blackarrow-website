@@ -262,7 +262,7 @@
   {
    "id": "kingroon-petg-hs-filament",
    "variant": "Brown",
-   "available": true,
+   "available": false,
    "preorder": false
   },
   {
@@ -304,7 +304,7 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Black",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -370,7 +370,7 @@
   {
    "id": "kingroon-pla-basic-filament",
    "variant": "Silver",
-   "available": false,
+   "available": true,
    "preorder": false
   },
   {
@@ -405,6 +405,66 @@
   },
   {
    "id": "kingroon-pla-basic-filament",
+   "variant": "Yellow",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Black",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Blue",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Brown",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Grass Green",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Gray",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Orange",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Purple",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "Red",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
+   "variant": "White",
+   "available": true,
+   "preorder": false
+  },
+  {
+   "id": "kingroon-pla-matte-filament",
    "variant": "Yellow",
    "available": true,
    "preorder": false
