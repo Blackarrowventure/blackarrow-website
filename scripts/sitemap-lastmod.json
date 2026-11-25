@@ -256,8 +256,8 @@
 "h": "7423495c311d4b92"
 },
 "https://www.blackarrowksa.com/3d/ar/gifts/under-50/": {
-"d": "2026-11-17",
-"h": "a70e463f0a7c06ac"
+"d": "2026-11-25",
+"h": "a50fea187935b9a9"
 },
 "https://www.blackarrowksa.com/3d/ar/product/a1-series-extruder-unit/": {
 "d": "2026-11-16",
@@ -380,8 +380,8 @@
 "h": "3ca2e7d80904d022"
 },
 "https://www.blackarrowksa.com/3d/ar/product/filament-pla-1kg/": {
-"d": "2026-11-16",
-"h": "8197a053fcae18a2"
+"d": "2026-11-25",
+"h": "42a877d07333a9e2"
 },
 "https://www.blackarrowksa.com/3d/ar/product/flashforge-adventurer-5m/": {
 "d": "2026-11-16",
@@ -390,6 +390,10 @@
 "https://www.blackarrowksa.com/3d/ar/product/flashforge-creator-5-pro/": {
 "d": "2026-11-16",
 "h": "023720852f8e416a"
+},
+"https://www.blackarrowksa.com/3d/ar/product/football-clicker/": {
+"d": "2026-11-25",
+"h": "3d3d02e179d59f20"
 },
 "https://www.blackarrowksa.com/3d/ar/product/gear-fidget-spinner/": {
 "d": "2026-11-16",
@@ -436,16 +440,20 @@
 "h": "d63439a97a9222b2"
 },
 "https://www.blackarrowksa.com/3d/ar/product/kingroon-petg-basic-filament/": {
-"d": "2026-11-22",
-"h": "ce153ce4866f800f"
+"d": "2026-11-25",
+"h": "a633f81e15ea36b5"
 },
 "https://www.blackarrowksa.com/3d/ar/product/kingroon-petg-hs-filament/": {
-"d": "2026-11-22",
-"h": "697b77ed103b5794"
+"d": "2026-11-25",
+"h": "eca9941ae7cd3ef6"
 },
 "https://www.blackarrowksa.com/3d/ar/product/kingroon-pla-basic-filament/": {
-"d": "2026-11-22",
-"h": "e1e773860e66ab62"
+"d": "2026-11-25",
+"h": "70b275f160643773"
+},
+"https://www.blackarrowksa.com/3d/ar/product/kingroon-pla-matte-filament/": {
+"d": "2026-11-25",
+"h": "2e296e9b349b88f7"
 },
 "https://www.blackarrowksa.com/3d/ar/product/knitted-mario-cap-figure/": {
 "d": "2026-11-16",
@@ -519,6 +527,10 @@
 "d": "2026-11-16",
 "h": "a982cf3c4bdd68da"
 },
+"https://www.blackarrowksa.com/3d/ar/product/santa-hat-clicker-keychain/": {
+"d": "2026-11-25",
+"h": "1716fb1d89786321"
+},
 "https://www.blackarrowksa.com/3d/ar/product/saudi-map-hanging-decor/": {
 "d": "2026-11-16",
 "h": "86aee94c95e1687c"
@@ -584,12 +596,12 @@
 "h": "1d1dd1d8d8b959b1"
 },
 "https://www.blackarrowksa.com/3d/ar/shop/": {
-"d": "2026-11-22",
-"h": "69ac939388a73772"
+"d": "2026-11-25",
+"h": "16605cd6b574e762"
 },
 "https://www.blackarrowksa.com/3d/ar/shop/3d-artwork/": {
-"d": "2026-11-22",
-"h": "12f4924e4097b298"
+"d": "2026-11-25",
+"h": "0f71a4f1844feb9e"
 },
 "https://www.blackarrowksa.com/3d/ar/shop/3d-printers/": {
 "d": "2026-11-22",
@@ -600,8 +612,8 @@
 "h": "40dc1a05a49f47ce"
 },
 "https://www.blackarrowksa.com/3d/ar/shop/filament/": {
-"d": "2026-11-22",
-"h": "812103348684fc45"
+"d": "2026-11-25",
+"h": "402e7941dde8087b"
 },
 "https://www.blackarrowksa.com/3d/blog/": {
 "d": "2026-11-10",
@@ -844,8 +856,8 @@
 "h": "d390ed033b1b018c"
 },
 "https://www.blackarrowksa.com/3d/gifts/under-50/": {
-"d": "2026-11-17",
-"h": "87bff9308f7f1a1e"
+"d": "2026-11-25",
+"h": "f48847ecfce09c75"
 },
 "https://www.blackarrowksa.com/3d/product/a1-series-extruder-unit/": {
 "d": "2026-11-16",
@@ -968,8 +980,8 @@
 "h": "9cf1e7f9a50d1588"
 },
 "https://www.blackarrowksa.com/3d/product/filament-pla-1kg/": {
-"d": "2026-11-16",
-"h": "ae61aa62dd82cb63"
+"d": "2026-11-25",
+"h": "66ad7c5210cd33e1"
 },
 "https://www.blackarrowksa.com/3d/product/flashforge-adventurer-5m/": {
 "d": "2026-11-16",
@@ -978,6 +990,10 @@
 "https://www.blackarrowksa.com/3d/product/flashforge-creator-5-pro/": {
 "d": "2026-11-16",
 "h": "6b8587f34f1292b6"
+},
+"https://www.blackarrowksa.com/3d/product/football-clicker/": {
+"d": "2026-11-25",
+"h": "c1209cebed3f3949"
 },
 "https://www.blackarrowksa.com/3d/product/gear-fidget-spinner/": {
 "d": "2026-11-16",
@@ -1024,16 +1040,20 @@
 "h": "668ddb0390ee95d6"
 },
 "https://www.blackarrowksa.com/3d/product/kingroon-petg-basic-filament/": {
-"d": "2026-11-22",
-"h": "dadb88c37e43d801"
+"d": "2026-11-25",
+"h": "9496cb5aed866cce"
 },
 "https://www.blackarrowksa.com/3d/product/kingroon-petg-hs-filament/": {
-"d": "2026-11-22",
-"h": "94e8b9fcfa2890b4"
+"d": "2026-11-25",
+"h": "cf2f22e5ca98ae5b"
 },
 "https://www.blackarrowksa.com/3d/product/kingroon-pla-basic-filament/": {
-"d": "2026-11-22",
-"h": "484b8b763b8e682e"
+"d": "2026-11-25",
+"h": "6690aec6a29e1e3c"
+},
+"https://www.blackarrowksa.com/3d/product/kingroon-pla-matte-filament/": {
+"d": "2026-11-25",
+"h": "abf553489b65a597"
 },
 "https://www.blackarrowksa.com/3d/product/knitted-mario-cap-figure/": {
 "d": "2026-11-16",
@@ -1107,6 +1127,10 @@
 "d": "2026-11-16",
 "h": "9850bd86ef44f249"
 },
+"https://www.blackarrowksa.com/3d/product/santa-hat-clicker-keychain/": {
+"d": "2026-11-25",
+"h": "c43b947c25976792"
+},
 "https://www.blackarrowksa.com/3d/product/saudi-map-hanging-decor/": {
 "d": "2026-11-16",
 "h": "ceabb4a171df8f48"
@@ -1176,12 +1200,12 @@
 "h": "3b60ded76d7c11f5"
 },
 "https://www.blackarrowksa.com/3d/shop/": {
-"d": "2026-11-22",
-"h": "a438edc113ba3a00"
+"d": "2026-11-25",
+"h": "9fd08c7729482d00"
 },
 "https://www.blackarrowksa.com/3d/shop/3d-artwork/": {
-"d": "2026-11-22",
-"h": "23e1c295466eb6ac"
+"d": "2026-11-25",
+"h": "edb83e5fb0514eb8"
 },
 "https://www.blackarrowksa.com/3d/shop/3d-printers/": {
 "d": "2026-11-22",
@@ -1192,8 +1216,8 @@
 "h": "7463a3c3face0dd1"
 },
 "https://www.blackarrowksa.com/3d/shop/filament/": {
-"d": "2026-11-22",
-"h": "7084b11cdaaa1fc3"
+"d": "2026-11-25",
+"h": "ea2ffdca94354a11"
 },
 "https://www.blackarrowksa.com/3d/terms/": {
 "d": "2026-11-05",

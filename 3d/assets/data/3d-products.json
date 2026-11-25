@@ -2183,6 +2183,70 @@
       ]
     },
     {
+      "id": "santa-hat-clicker-keychain",
+      "name": "Santa Hat Clicker | Christmas Fidget Keychain",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/santa-hat-clicker-keychain-01.webp",
+        "/3d/assets/images/products/santa-hat-clicker-keychain-02.webp"
+      ],
+      "shortDesc": "3D printed Santa hat clicker keychain with a mechanical switch inside for a satisfying click.",
+      "description": "A Christmas fidget keychain shaped like a Santa hat. The red, white and black hat sits on a white base with a mechanical keyboard switch inside, so every press gives a crisp, satisfying click. A built-in loop on the base lets you hang it on your keys or bag. A fun little gift for the holidays and a handy fidget for busy hands. Printed in-house at Black Arrow 3D in PLA.",
+      "specs": [
+        ["Design", "Santa hat in red, white and black"],
+        ["Mechanism", "Mechanical keyboard switch (click)"],
+        ["Size", "About 50 x 49 mm"],
+        ["Material", "PLA"]
+      ],
+      "name_ar": "ميدالية قبعة سانتا بزر نقر | ميدالية تحريك الكريسماس",
+      "shortDesc_ar": "ميدالية مفاتيح بشكل قبعة سانتا مطبوعة ثلاثية الأبعاد، بداخلها زر ميكانيكي لنقرة ممتعة.",
+      "description_ar": "ميدالية تحريك بشكل قبعة سانتا لموسم الكريسماس. القبعة بالألوان الأحمر والأبيض والأسود مثبتة على قاعدة بيضاء بداخلها زر كيبورد ميكانيكي، فتعطيك كل ضغطة نقرة واضحة وممتعة. في القاعدة حلقة مدمجة لتعليقها على المفاتيح أو الحقيبة. هدية صغيرة ممتعة للأعياد ولعبة تحريك مفيدة لليدين. مطبوعة داخليًا لدى Black Arrow 3D من خامة PLA.",
+      "specs_ar": [
+        ["التصميم", "قبعة سانتا بالأحمر والأبيض والأسود"],
+        ["الآلية", "زر كيبورد ميكانيكي (نقرة)"],
+        ["المقاس", "حوالي 50 × 49 مم"],
+        ["الخامة", "PLA"]
+      ]
+    },
+    {
+      "id": "football-clicker",
+      "name": "Football Clicker | Fidget Toy",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 20,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/football-clicker-01.webp",
+        "/3d/assets/images/products/football-clicker-02.webp"
+      ],
+      "shortDesc": "3D printed football clicker with a mechanical switch inside for a satisfying click.",
+      "description": "A fidget clicker shaped like a classic black and white football. The half-ball sits in a round white base with a mechanical keyboard switch inside, so every press gives a crisp, satisfying click. Small enough for a desk or a pocket, it keeps busy hands happy while studying, working or watching the match. A fun gift for football fans of any age. Printed in-house at Black Arrow 3D in PLA.",
+      "specs": [
+        ["Design", "Black and white football"],
+        ["Mechanism", "Mechanical keyboard switch (click)"],
+        ["Size", "About 41 mm wide"],
+        ["Material", "PLA"]
+      ],
+      "name_ar": "كليكر كرة القدم | لعبة تحريك",
+      "shortDesc_ar": "كليكر بشكل كرة قدم مطبوع ثلاثي الأبعاد، بداخله زر ميكانيكي لنقرة ممتعة.",
+      "description_ar": "كليكر للتحريك بشكل كرة قدم كلاسيكية بالأبيض والأسود. نصف الكرة مثبت على قاعدة دائرية بيضاء بداخلها زر كيبورد ميكانيكي، فتعطيك كل ضغطة نقرة واضحة وممتعة. صغير يناسب المكتب أو الجيب، ويُشغل اليدين أثناء المذاكرة أو العمل أو مشاهدة المباراة. هدية ممتعة لعشاق كرة القدم من كل الأعمار. مطبوع داخليًا لدى Black Arrow 3D من خامة PLA.",
+      "specs_ar": [
+        ["التصميم", "كرة قدم بالأبيض والأسود"],
+        ["الآلية", "زر كيبورد ميكانيكي (نقرة)"],
+        ["المقاس", "عرض حوالي 41 مم"],
+        ["الخامة", "PLA"]
+      ]
+    },
+    {
       "id": "national-day-key-holder",
       "name": "Saudi National Day Key Holder",
       "brand": "Black Arrow",
