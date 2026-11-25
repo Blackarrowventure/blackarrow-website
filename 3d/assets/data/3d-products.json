@@ -2277,6 +2277,38 @@
       ]
     },
     {
+      "id": "ps5-dualsense-controller-stand",
+      "name": "Controller Stand for PS5 DualSense | Gaming Logo Design",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 59,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/ps5-dualsense-controller-stand-01.webp",
+        "/3d/assets/images/products/ps5-dualsense-controller-stand-02.webp"
+      ],
+      "shortDesc": "3D printed controller stand in white and black that holds a PS5 DualSense controller upright on your desk.",
+      "description": "A two-tone 3D printed stand that holds your PS5 DualSense controller upright, so it stays off the desk and on display between sessions. The bold white and black gaming logo design sits in front, with a solid black base behind that cradles the controller securely. It suits a gaming desk, a TV unit or a streaming setup and makes a great gift for gamers. Printed in-house at Black Arrow 3D in PLA. Controller not included.",
+      "specs": [
+        ["Fits", "PS5 DualSense controller"],
+        ["Colours", "White and black"],
+        ["Material", "PLA"],
+        ["In the box", "Stand only (controller not included)"]
+      ],
+      "name_ar": "ستاند يد تحكم PS5 DualSense | تصميم شعار ألعاب",
+      "shortDesc_ar": "ستاند مطبوع ثلاثي الأبعاد بالأبيض والأسود يحمل يد تحكم PS5 DualSense بشكل قائم على مكتبك.",
+      "description_ar": "ستاند بلونين مطبوع ثلاثي الأبعاد يحمل يد تحكم PS5 DualSense بشكل قائم، لتبقى بعيدة عن سطح المكتب ومعروضة بين جلسات اللعب. تصميم شعار الألعاب بالأبيض والأسود في الأمام، مع قاعدة سوداء متينة في الخلف تحتضن اليد بثبات. يناسب مكتب الألعاب أو طاولة التلفاز أو إعداد البث، وهدية رائعة لعشاق الألعاب. مطبوع داخليًا لدى Black Arrow 3D من خامة PLA. يد التحكم غير مشمولة.",
+      "specs_ar": [
+        ["متوافق مع", "يد تحكم PS5 DualSense"],
+        ["الألوان", "أبيض وأسود"],
+        ["الخامة", "PLA"],
+        ["المحتويات", "الستاند فقط (يد التحكم غير مشمولة)"]
+      ]
+    },
+    {
       "id": "national-day-key-holder",
       "name": "Saudi National Day Key Holder",
       "brand": "Black Arrow",
