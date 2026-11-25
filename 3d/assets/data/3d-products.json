@@ -2247,6 +2247,36 @@
       ]
     },
     {
+      "id": "crumpled-paper-bag-pen-holder",
+      "name": "Crumpled Paper Bag Pen Holder | Desk Organizer",
+      "brand": "Black Arrow",
+      "category": "3D Artwork",
+      "price": 39,
+      "currency": "SAR",
+      "vatIncluded": true,
+      "available": true,
+      "newArrival": true,
+      "images": [
+        "/3d/assets/images/products/crumpled-paper-bag-pen-holder-01.webp",
+        "/3d/assets/images/products/crumpled-paper-bag-pen-holder-02.webp"
+      ],
+      "shortDesc": "3D printed pen holder that looks like a crumpled paper bag, with a zigzag cut top edge.",
+      "description": "A desk organizer that looks just like a crumpled paper bag, with deep folds on every side and a zigzag cut edge along the top, but made from sturdy 3D printed PLA. It holds pens, pencils, markers and small stationery, and also works as a makeup brush cup or a small plant pot cover. A playful, modern touch for a home office, study desk or reception counter, and an easy gift for coworkers and students. Printed in-house at Black Arrow 3D. Shown in beige.",
+      "specs": [
+        ["Design", "Crumpled paper bag with zigzag top edge"],
+        ["Use", "Pens, pencils, markers, brushes"],
+        ["Material", "PLA"]
+      ],
+      "name_ar": "حامل أقلام بشكل كيس ورق مجعّد | منظم مكتب",
+      "shortDesc_ar": "حامل أقلام مطبوع ثلاثي الأبعاد يشبه كيس ورق مجعّد، بحافة علوية متعرجة.",
+      "description_ar": "منظم مكتب يشبه تمامًا كيس ورق مجعّد، بثنيات عميقة على كل جانب وحافة علوية مقصوصة بشكل متعرج، لكنه مصنوع من خامة PLA متينة بالطباعة ثلاثية الأبعاد. يتسع للأقلام وأقلام الرصاص والألوان والأدوات المكتبية الصغيرة، ويصلح أيضًا لفرش المكياج أو غطاء لأصيص نبتة صغيرة. لمسة عصرية مرحة لمكتب المنزل أو طاولة المذاكرة أو الاستقبال، وهدية سهلة للزملاء والطلاب. مطبوع داخليًا لدى Black Arrow 3D. اللون المعروض بيج.",
+      "specs_ar": [
+        ["التصميم", "كيس ورق مجعّد بحافة علوية متعرجة"],
+        ["الاستخدام", "أقلام، أقلام رصاص، ألوان، فرش"],
+        ["الخامة", "PLA"]
+      ]
+    },
+    {
       "id": "national-day-key-holder",
       "name": "Saudi National Day Key Holder",
       "brand": "Black Arrow",
