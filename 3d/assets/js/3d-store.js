@@ -1693,6 +1693,68 @@
     return !!(rewardsState && rewardsState.freeDelivery);
   }
 
+  /* Cashback onto the rewards card (credited by the CRM when the order is paid; CRM migration
+     0206 bav3d_cashback_for_items is the real rule - keep these numbers in step with it):
+       filament        per spool      Silver 1 / Gold 2 / Platinum 4 SAR
+       printers, acc.  per 1,000 SAR  Silver 1 / Gold 2 / Platinum 5 SAR
+       3D prints       per 100 SAR    10 SAR for every tier
+     Counted on every riyal, after any coupon / rewards discount. Tabby and Tamara earn none. */
+  var CASHBACK = {
+    filament: { perUnit: true, Silver: 1, Gold: 2, Platinum: 4 },
+    printer: { Silver: 0.001, Gold: 0.002, Platinum: 0.005 },
+    accessory: { Silver: 0.001, Gold: 0.002, Platinum: 0.005 },
+    print: { Silver: 0.10, Gold: 0.10, Platinum: 0.10 }
+  };
+  var CASHBACK_TIERS = ['Silver', 'Gold', 'Platinum'];
+  var lastCashbackLines = []; // [{ kind, amount, qty }] from the cart
+  function cashbackKind(p) {
+    if (!p) return 'print';
+    if (p.category === 'Filament') return 'filament';
+    if (p.category === '3D Printers') return 'printer';
+    if (p.category === 'Accessories') return 'accessory';
+    return 'print';
+  }
+  function cashbackFor(kind, amount, qty, tier) {
+    var r = CASHBACK[kind] || CASHBACK.print;
+    var rate = r[tier] != null ? r[tier] : r.Silver;
+    return Math.round((r.perUnit ? rate * qty : amount * rate) * 100) / 100;
+  }
+  // Customers only ever see rewards as POINTS (100 points = 1 SAR); the CRM keeps SAR.
+  var POINTS_PER_SAR = 100;
+  function toPoints(sar) { return Math.round((Number(sar) || 0) * POINTS_PER_SAR); }
+  function pointsText(n) {
+    var s = Number(n || 0).toLocaleString('en-US');
+    return isAr() ? s + ' نقطة' : s + ' points';
+  }
+  function memberTier() {
+    var t = rewardsState && rewardsState.member && rewardsState.member.tier;
+    return CASHBACK_TIERS.indexOf(t) !== -1 ? t : 'Silver';
+  }
+  function orderCashback(tier) {
+    if (!lastSubtotal) return 0;
+    var scale = Math.max(0, Math.min(1, (lastSubtotal - couponDiscount() - rewardsDiscount()) / lastSubtotal));
+    var sum = lastCashbackLines.reduce(function (s, l) { return s + cashbackFor(l.kind, l.amount * scale, l.qty, tier); }, 0);
+    return Math.round(sum * 100) / 100;
+  }
+  // One short line for a product page: the reward points this item earns for each tier.
+  function productCashbackHtml(p, unitPrice) {
+    if (!p || !(unitPrice > 0)) return '';
+    var kind = cashbackKind(p);
+    var ar = isAr();
+    var pts = CASHBACK_TIERS.map(function (t) { return toPoints(cashbackFor(kind, unitPrice, 1, t)); });
+    if (!pts[2]) return '';
+    var text;
+    if (pts[0] === pts[2]) {
+      text = ar ? 'اكسب ' + pointsText(pts[0]) + ' مكافآت مع هذا المنتج'
+                : 'Earn ' + pointsText(pts[0]) + ' with this item';
+    } else {
+      text = ar
+        ? 'اكسب نقاط مكافآت: ' + pointsText(pts[0]) + ' فضي · ' + pointsText(pts[1]) + ' ذهبي · ' + pointsText(pts[2]) + ' بلاتيني'
+        : 'Earn reward points: ' + pointsText(pts[0]) + ' Silver · ' + pointsText(pts[1]) + ' Gold · ' + pointsText(pts[2]) + ' Platinum';
+    }
+    return '<p class="b3d-pd__cashback" data-pd-cashback><a href="' + (ar ? '/3d/ar/rewards/' : '/3d/rewards/') + '">' + text + '</a></p>';
+  }
+
   function renderRewardsRow(summaryEl) {
     var row = summaryEl.querySelector('[data-b3d-rewards-row]');
     if (!row) {
@@ -1723,24 +1785,24 @@
       return;
     }
     var m = rewardsState.member;
-    var bal = m.balance.toFixed(2);
+    var bal = pointsText(toPoints(m.balance));
     row.hidden = false;
     if (!rewardsUsable()) {
       box.hidden = true;
       amount.textContent = '';
       text.textContent = ar
-        ? 'رصيد مكافآت ولاء بلاك آرو: ' + bal + ' ريال (يُستخدم من 4 ريال)'
-        : 'Black Arrow Loyalty Rewards: ' + bal + ' SAR (usable from 4 SAR)';
+        ? 'نقاط مكافآت بلاك آرو: ' + bal + ' (تُستخدم من ' + pointsText(toPoints(REWARDS_MIN)) + ')'
+        : 'Black Arrow Rewards: ' + bal + ' (usable from ' + pointsText(toPoints(REWARDS_MIN)) + ')';
       return;
     }
     box.hidden = false;
     box.checked = !!rewardsState.use || !!rewardsState.redeemed;
     box.disabled = !!rewardsState.redeemed;
     text.textContent = ar
-      ? 'استخدم رصيد مكافآت ولاء بلاك آرو (' + bal + ' ريال)'
-      : 'Use my Black Arrow Loyalty Rewards balance (' + bal + ' SAR)';
+      ? 'استخدم نقاط مكافآت بلاك آرو (' + bal + ')'
+      : 'Use my Black Arrow Rewards points (' + bal + ')';
     var d = rewardsDiscount();
-    amount.innerHTML = d ? '−' + money(d, 'SAR') : '';
+    amount.textContent = d ? '−' + pointsText(toPoints(d)) : '';
   }
 
   function loadCartRewards() {
@@ -2020,12 +2082,19 @@
     return 0;
   }
 
-  // Bank transfer saving: 1% off the items (after coupon / rewards, before delivery). Shown to
-  // the customer only as the amount saved. The server (api/bank-order.js) works out the same.
+  // Bank transfer / cash saving: 1% off the items (after coupon / rewards, before delivery), with
+  // the result rounded to the NEAREST even whole riyal. Every order gets a discount: if that would
+  // leave the total unchanged (already even), it goes to the next even riyal down
+  // (130 -> 128, 75 -> 74, 20 -> 18, 100 -> 98). Delivery fees are all even, so the total stays even.
+  // Shown to the customer only as the amount saved. The server (api/bank-order.js) works out the same.
   var BANK_SAVE_RATE = 0.01;
   function bankSaving() {
-    var base = lastSubtotal - couponDiscount() - rewardsDiscount();
-    return base > 0 ? Math.round(base * BANK_SAVE_RATE * 100) / 100 : 0;
+    var cents = Math.round((lastSubtotal - couponDiscount() - rewardsDiscount()) * 100);
+    if (cents <= 0) return 0;
+    var pay = Math.round((cents - cents * BANK_SAVE_RATE) / 200) * 200;
+    if (pay >= cents) pay = Math.ceil(cents / 200) * 200 - 200;
+    if (pay <= 0) return 0;
+    return (cents - pay) / 100;
   }
 
   var TAG_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>';
@@ -2171,7 +2240,26 @@
       : (isAr() ? 'خصم التحويل البنكي' : 'Bank transfer discount');
     saveRow.lastChild.innerHTML = '−' + money(saving, 'SAR');
     if (saving) discountLine += '\n' + (currentPayMethod === 'cash' ? 'Cash payment saving' : 'Bank transfer saving') + ': -' + saving + ' SAR';
-    var after = Math.round((lastSubtotal - discount - rewardsUsed + fee - saving) * 100) / 100;
+    // Cashback this order puts on the rewards card (display only; the CRM credits it when paid).
+    var cbRow = summaryEl.querySelector('[data-b3d-cashback-row]');
+    if (!cbRow) {
+      cbRow = document.createElement('div');
+      cbRow.className = 'b3d-cart-summary__row b3d-cashback-row';
+      cbRow.setAttribute('data-b3d-cashback-row', '');
+      cbRow.innerHTML = '<span></span><span></span>';
+      summaryEl.insertBefore(cbRow, summaryEl.querySelector('.b3d-cart-summary__total'));
+    }
+    var cbAmount = orderCashback(memberTier());
+    var cbPayLater = currentPayMethod === 'tabby' || currentPayMethod === 'tamara';
+    var cbMember = !!(rewardsState && rewardsState.member);
+    cbRow.hidden = !cbAmount;
+    cbRow.firstChild.textContent = isAr()
+      ? (cbMember ? 'نقاط المكافآت التي ستكسبها' : 'نقاط المكافآت (انضم إلى المكافآت)')
+      : (cbMember ? 'Reward points you’ll earn' : 'Reward points (join Rewards to get them)');
+    cbRow.lastChild.textContent = cbPayLater
+      ? (isAr() ? 'لا نقاط مع تابي / تمارا' : 'No points with Tabby / Tamara')
+      : '+' + pointsText(toPoints(cbAmount));
+    var after =Math.round((lastSubtotal - discount - rewardsUsed + fee - saving) * 100) / 100;
 
     var showShipping = checkout && !checkout.hidden;
     if (!showShipping) {
@@ -3215,6 +3303,7 @@
 
       var subtotal = 0;
       var artworkSubtotal = 0;
+      lastCashbackLines = [];
       var summaryLines = [];
       var hasPreorder = false;
       var noPayLater = false;
@@ -3228,6 +3317,7 @@
         var lineTotal = unit * qty;
         subtotal += lineTotal;
         if (p.category === '3D Artwork') artworkSubtotal += lineTotal;
+        lastCashbackLines.push({ kind: cashbackKind(p), amount: lineTotal, qty: qty });
         if (p.preorder) hasPreorder = true;
         if (p.noPayLater) noPayLater = true;
         var displayName = L(p, 'name') + (variant ? ' — ' + LVariant(variant) : '');
@@ -3727,6 +3817,7 @@
           '<h1 class="b3d-pd__title">' + L(p, 'name') + '</h1>' +
           '<a class="b3d-pd__rating" href="#b3d-pd-reviews" data-pd-rating hidden></a>' +
           '<div class="b3d-pd__price-row"><div class="b3d-pd__price" data-pd-price>' + initialPriceHtml + '</div><span data-pd-save>' + initialSaveHtml + '</span></div>' + vatNoteHtml(p) +
+          productCashbackHtml(p, hasVariants ? initV.price : currentPrice(p)) +
           '<div data-pd-bnpl>' + (selectionOut() ? '' : bnplHtml(hasVariants ? initV.price : currentPrice(p), p.currency, p.category, p)) + '</div>' +
           variantSelectorHtml +
           trustRowHtml(p) +
@@ -3867,6 +3958,8 @@
             container.querySelector('[data-pd-price]').innerHTML = variantPriceHtml(v, p);
             var saveEl = container.querySelector('[data-pd-save]');
             if (saveEl) saveEl.innerHTML = v.oldPrice ? saveAmountHtml(v.oldPrice, v.price, p.currency) : '';
+            var cbEl = container.querySelector('[data-pd-cashback]');
+            if (cbEl) cbEl.outerHTML = productCashbackHtml(p, v.price);
             var swatchLabel = container.querySelector('[data-pd-swatch-label]');
             if (swatchLabel) swatchLabel.textContent = LVariant(v) + (v.available === false ? ' (' + outText(p) + ')' : '');
             var buyBtn = container.querySelector('[data-pd-add]');

@@ -73,6 +73,10 @@ module.exports = async (req, res) => {
         to_name: name,
         amount: amount.toFixed(0),
         balance: balance.toFixed(2),
+        // Customers see rewards as points (100 points = 1 SAR). The EmailJS template should use
+        // {{amount_points}} / {{balance_points}}; amount / balance stay for the old wording.
+        amount_points: Math.round(amount * 100).toLocaleString('en-US'),
+        balance_points: Math.round(balance * 100).toLocaleString('en-US'),
         tier: m.tier,
         tier_ar: TIER_AR[m.tier] || m.tier,
         rewards_url: 'https://www.blackarrowksa.com/3d/rewards/',

@@ -74,7 +74,7 @@
     var isAr = document.documentElement.lang === 'ar';
     var TIER_AR = { Silver: 'فضي', Gold: 'ذهبي', Platinum: 'بلاتيني' };
     // Lifetime spend (SAR) that unlocks each next tier; tiers never drop.
-    var NEXT = { Silver: { at: 5000, from: 0, name: 'Gold' }, Gold: { at: 8000, from: 5000, name: 'Platinum' } };
+    var NEXT = { Silver: { at: 10000, from: 0, name: 'Gold' }, Gold: { at: 25000, from: 10000, name: 'Platinum' } };
 
     function sar(n) { return Math.round(n).toLocaleString('en-US'); }
 
@@ -112,7 +112,8 @@
       liveSection.querySelector('[data-rwd-since]').textContent = since
         ? since.toLocaleDateString(isAr ? 'ar-SA' : 'en-GB', { year: 'numeric', month: 'short' })
         : '';
-      liveSection.querySelector('[data-rwd-balance]').textContent = Number(member.balance || 0).toFixed(2);
+      // Shown as points only (100 points = 1 SAR); the CRM stores SAR.
+      liveSection.querySelector('[data-rwd-balance]').textContent = Math.round(Number(member.balance || 0) * 100).toLocaleString('en-US');
       show(liveSection);
       renderProgress(member);
       renderBirthday(member);

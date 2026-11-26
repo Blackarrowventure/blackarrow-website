@@ -103,15 +103,21 @@ module.exports = async (req, res) => {
   }
 
   const discountCents = Math.min(couponCents + rewardsCents, order.itemsCents);
-  // Bank transfer / cash-at-pickup saving: 1% off the items after coupon / rewards (the cart shows the same).
-  const savingCents = Math.round((order.itemsCents - discountCents) * 0.01);
+  // Bank transfer / cash-at-pickup saving: 1% off the items after coupon / rewards, with the result
+  // rounded to the NEAREST even whole riyal; an order that is already even goes to the next even
+  // riyal down, so every order gets a discount (130 -> 128, 20 -> 18). Delivery fees are even, so
+  // the total is too. The cart (3d-store.js bankSaving) shows the same.
+  const savingBase = order.itemsCents - discountCents;
+  let evenPay = Math.round((savingBase - savingBase * 0.01) / 200) * 200;
+  if (evenPay >= savingBase) evenPay = Math.ceil(savingBase / 200) * 200 - 200;
+  const savingCents = savingBase <= 0 || evenPay <= 0 ? 0 : savingBase - evenPay;
   const totalCents = order.itemsCents - discountCents - savingCents + shippingCents;
 
   const details = crmDetails(Object.assign({}, order, { discountCents: discountCents + savingCents, shippingCents, totalCents, feeCents: 0 }));
   const notes = [];
   if (couponCents) notes.push('Coupon ' + couponCode + ': -' + couponCents / 100 + ' SAR');
   if (rewardsCents) notes.push('Loyalty Rewards used: -' + rewardsCents / 100 + ' SAR');
-  if (savingCents) notes.push((cash ? 'Cash payment saving (1%): -' : 'Bank transfer saving (1%): -') + (savingCents / 100) + ' SAR');
+  if (savingCents) notes.push((cash ? 'Cash payment saving (about 1%, rounded to an even total): -' : 'Bank transfer saving (about 1%, rounded to an even total): -') + (savingCents / 100) + ' SAR');
   checks.forEach((c) => notes.push('CHECK: ' + c));
   notes.push(cash
     ? 'CASH AT PICKUP: collect ' + totalCents / 100 + ' SAR in cash when the customer picks up, then mark the invoice Paid.'
