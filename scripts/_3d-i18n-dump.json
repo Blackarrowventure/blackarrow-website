@@ -1383,6 +1383,10 @@
     "en": "Combo price",
     "ar": "سعر الكومبو"
   },
+  "js_card_all_in_cart": {
+    "en": "Only {n} in stock, and all {n} are already in your cart.",
+    "ar": "متوفر {n} فقط، وجميعها موجودة في سلتك بالفعل."
+  },
   "js_card_delivery": {
     "en": "Delivery: KSA-wide",
     "ar": "توصيل لكل المملكة"

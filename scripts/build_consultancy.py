@@ -113,9 +113,7 @@ def head(url, title, desc, extra_ld):
             '  <meta property="og:type" content="website">\n  <meta property="og:url" content="%s">\n'
             '  <meta property="og:image" content="%s/assets/images/black-arrow-og.png">\n'
             '  <meta name="twitter:card" content="summary_large_image">\n\n%s\n\n  %s\n'
-            '  <link rel="preconnect" href="https://fonts.googleapis.com">\n'
-            '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-            '  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">\n'
+            '  <link rel="stylesheet" href="/assets/fonts/fonts.css?v=20261126">\n'
             '  <link rel="stylesheet" href="/assets/css/styles.min.css?v=20261115">\n\n  %s\n%s\n</head>\n'
             % (H.escape(desc), canon, canon, ar, canon, H.escape(title), H.escape(title), H.escape(desc), canon, SITE,
                extra_ld[0], STYLES[0], STYLES[1], CSS_EXTRA))

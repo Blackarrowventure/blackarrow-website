@@ -3633,3 +3633,6 @@ body:not(.b3d-is-bahrain) .b3d-bh-only, body.b3d-is-bahrain .b3d-sa-only { displ
 
 /* One sign-in prompt is enough: the order summary already links to sign in, so the extra strip is hidden. */
 .b3d-co .b3d-checkout__login[data-b3d-checkout-login] { display: none; }
+
+/* Shop card: shown when the shopper tries to add more than is in stock (3d-store.js showCardLimit). */
+.b3d-card__limit { margin: 10px 0 0; padding: 8px 10px; border-radius: 10px; background: #fff4dc; border: 1px solid #f3d38a; color: #7a4a00; font-size: .82rem; font-weight: 600; line-height: 1.45; }

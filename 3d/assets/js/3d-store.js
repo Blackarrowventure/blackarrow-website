@@ -109,6 +109,7 @@
     if (priceEl) priceEl.innerHTML = variantPriceHtml(v, p);
     var btn = card.querySelector('[data-card-add]');
     if (btn) { btn.setAttribute('data-variant-idx', idx); btn.disabled = out; btn.textContent = out ? outText(p) : T('js_add_to_cart'); }
+    clearCardLimit(card);
     var img = card.querySelector('.b3d-card__visual img');
     if (v.image && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = v.image; }
   }
@@ -1071,6 +1072,7 @@
           btn.disabled = out;
           btn.textContent = out ? outText(cProduct) : T('js_add_to_cart');
         }
+        clearCardLimit(card);
         var src = chip.getAttribute('data-img');
         var img = card.querySelector('.b3d-card__visual img');
         if (src && img) { img.removeAttribute('srcset'); img.removeAttribute('sizes'); img.src = src; }
@@ -1091,6 +1093,7 @@
           pBtn.disabled = pOut && !(product && product.preorder);
           pBtn.textContent = product ? cardActionLabel(product, pOut) : (pOut ? T('js_out_of_stock') : T('js_add_to_cart'));
         }
+        clearCardLimit(pCard);
         var priceEl = pCard.querySelector('[data-card-price]');
         if (priceEl && product) priceEl.innerHTML = variantPriceHtml(product.variants[pIdx], product);
         var bnplEl = pCard.querySelector('[data-card-bnpl]');
@@ -1103,12 +1106,41 @@
       var add = e.target.closest && e.target.closest('[data-card-add]');
       if (add && !add.disabled) {
         var viRaw = add.getAttribute('data-variant-idx');
-        addToCart(lineId(add.getAttribute('data-card-add'), viRaw === null ? null : parseInt(viRaw, 10)), 1);
+        var addId = lineId(add.getAttribute('data-card-add'), viRaw === null ? null : parseInt(viRaw, 10));
+        var added = addToCart(addId, 1);
         var label = add.textContent;
+        if (!added) {
+          // Stock limit reached: say so on the card instead of silently doing nothing.
+          var max = maxQtyOf(addId);
+          add.textContent = T('js_only_n_in_stock').replace('{n}', max);
+          setTimeout(function () { if (!add.disabled) add.textContent = label; }, 2200);
+          showCardLimit(add, max);
+          return;
+        }
         add.textContent = T('js_added');
         setTimeout(function () { if (!add.disabled) add.textContent = label; }, 1200);
       }
     });
+  }
+
+  // Note under a card's buttons when the shopper already has every unit in stock in the cart.
+  // It goes away when another colour / option is picked (clearCardLimit in the card sync).
+  function showCardLimit(btn, max) {
+    var card = btn.closest('.b3d-card') || btn.parentNode;
+    var note = card.querySelector('[data-card-limit]');
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'b3d-card__limit';
+      note.setAttribute('data-card-limit', '');
+      note.setAttribute('role', 'status');
+      var host = btn.parentNode;
+      host.parentNode.insertBefore(note, host.nextSibling);
+    }
+    note.textContent = T('js_card_all_in_cart').replace(/\{n\}/g, max);
+  }
+  function clearCardLimit(card) {
+    var note = card && card.querySelector('[data-card-limit]');
+    if (note) note.remove();
   }
 
   /* Lead tracking (GTM / GA4) — delegated, so it works site-wide without
