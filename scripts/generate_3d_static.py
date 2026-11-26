@@ -1475,8 +1475,109 @@ def category_guide_html(cat, lang, by_id):
                          + '<span class="b3d-guide-card__price"><bdi dir="ltr">' + price + '</bdi></span></a></li>')
         out.append('<section class="b3d-guide-sec"><h2>' + esc(heading) + '</h2><p>' + esc(para) + '</p><ul class="b3d-guide-grid">' + ''.join(items) + '</ul></section>')
     out.append('<p><a class="btn btn-outline" href="' + shop_url(lang) + '">' + esc(g['shop_link']) + '</a></p>')
+    guides = CATEGORY_LINKS.get(cat)
+    if guides:
+        base = '/3d/ar/blog/' if lang == 'ar' else '/3d/blog/'
+        out.append('<section class="b3d-guide-sec"><h2>' + esc(guides['title'][lang]) + '</h2><ul class="b3d-cat-links">'
+                   + ''.join('<li><a href="' + base + slug + '/">' + esc(names[lang]) + '</a></li>' for slug, names in guides['posts'])
+                   + '</ul></section>')
+    faq = category_faq(cat, lang, by_id)
+    if faq:
+        out.append('<section class="b3d-guide-sec b3d-cat-faq"><h2>' + ('الأسئلة الشائعة' if lang == 'ar' else 'Frequently asked questions') + '</h2>'
+                   + ''.join('<details><summary>' + esc(q) + '</summary><p>' + esc(a) + '</p></details>' for q, a in faq) + '</section>')
     out.append('</div>')
     return ''.join(out)
+
+
+# Keyword-to-page map (SEO, 26 Nov 2026): each category page is the one page for its buying keyword
+# ("3D printers Saudi Arabia / KSA", "3D printer filament Saudi Arabia"). It links down to the guides,
+# and the guides link back up to it, so Google stops ranking a blog post in its place.
+CATEGORY_LINKS = {
+    '3D Printers': {
+        'title': {'en': '3D printer buying guides', 'ar': 'أدلة شراء الطابعات ثلاثية الأبعاد'},
+        'posts': [
+            ('where-to-buy-3d-printer-saudi-arabia', {'en': 'Where to buy a 3D printer in Saudi Arabia: delivery to every city', 'ar': 'أين تشتري طابعة ثلاثية الأبعاد في السعودية: التوصيل لكل مدينة'}),
+            ('best-3d-printer-for-beginners-saudi-arabia', {'en': 'Best 3D printer for beginners in Saudi Arabia', 'ar': 'أفضل طابعة ثلاثية الأبعاد للمبتدئين في السعودية'}),
+            ('3d-printer-buying-checklist-saudi-arabia', {'en': '3D printer buying checklist', 'ar': 'قائمة التحقق قبل شراء طابعة ثلاثية الأبعاد'}),
+            ('buy-3d-printer-saudi-arabia-price-guide', {'en': '3D printer prices in Saudi Arabia', 'ar': 'أسعار الطابعات ثلاثية الأبعاد في السعودية'}),
+            ('3d-printer-installments-tabby-tamara-saudi', {'en': 'Buying a 3D printer in instalments with Tabby or Tamara', 'ar': 'شراء طابعة ثلاثية الأبعاد بالتقسيط مع تابي وتمارا'}),
+        ],
+    },
+    'Filament': {
+        'title': {'en': 'Filament guides', 'ar': 'أدلة الفلمنت'},
+        'posts': [
+            ('which-filament-for-which-print', {'en': 'Which filament for which print', 'ar': 'أي فلمنت لأي طباعة'}),
+            ('pla-vs-petg-vs-abs-filament-guide', {'en': 'PLA vs PETG vs ABS', 'ar': 'مقارنة PLA وPETG وABS'}),
+            ('3d-printer-filament-price-saudi-arabia', {'en': '3D printer filament prices in Saudi Arabia', 'ar': 'أسعار فلمنت الطباعة ثلاثية الأبعاد في السعودية'}),
+            ('3d-printing-filament-saudi-heat-humidity', {'en': 'Storing filament in Saudi heat and humidity', 'ar': 'حفظ الفلمنت في حرارة السعودية ورطوبتها'}),
+            ('best-filament-for-bambu-lab-a1-ams-lite', {'en': 'Best filament for the Bambu Lab A1 and AMS lite', 'ar': 'أفضل فلمنت لطابعة Bambu Lab A1 ووحدة AMS lite'}),
+        ],
+    },
+}
+
+
+def _price_range(cat, by_id):
+    prices = [current_price(p) for p in by_id.values()
+              if p.get('category') == cat and p.get('available') is not False and current_price(p)]
+    return (min(prices), max(prices)) if prices else (None, None)
+
+
+def category_faq(cat, lang, by_id):
+    """FAQ for a category page. Prices come from the catalog at build time; the rest repeats the
+    shipping, returns, warranty and payment rules already published on the site."""
+    ar = lang == 'ar'
+    lo, hi = _price_range(cat, by_id)
+    def sar(v):
+        return '{:,.0f}'.format(v) + (' ريال' if ar else ' SAR')
+    if cat == '3D Printers':
+        rows = [
+            (("How much does a 3D printer cost in Saudi Arabia?",
+              "Our 3D printers currently range from " + sar(lo) + " to " + sar(hi) + ", VAT included. Beginner printers sit at the low end; enclosed, multicolour and large-format printers cost more."),
+             ("كم سعر الطابعة ثلاثية الأبعاد في السعودية؟",
+              "تتراوح أسعار طابعاتنا حالياً بين " + sar(lo) + " و" + sar(hi) + " شاملة ضريبة القيمة المضافة. طابعات المبتدئين في أدنى السلم، والطابعات المغلقة ومتعددة الألوان وكبيرة الحجم أعلى سعراً.")) if lo else None,
+            (("Do you deliver 3D printers across Saudi Arabia?",
+              "Yes, to every city in the Kingdom from our base in Dammam. Regular delivery is free on any order with a 3D printer. In-stock printers ordered before 4 pm (Saudi time), Sunday to Thursday, are dispatched the same day, with a tracking number."),
+             ("هل توصلون الطابعات ثلاثية الأبعاد لكل مناطق السعودية؟",
+              "نعم، إلى كل مدن المملكة من مقرنا في الدمام. التوصيل العادي مجاني لأي طلب يحتوي على طابعة ثلاثية الأبعاد. وتُشحن الطابعات المتوفرة في اليوم نفسه إذا طُلبت قبل الساعة 4 مساءً بتوقيت السعودية من الأحد إلى الخميس، مع رقم تتبع.")),
+            (("Is there a warranty on 3D printers?",
+              "Yes. Every 3D printer comes with a 1-year warranty."),
+             ("هل على الطابعات ثلاثية الأبعاد ضمان؟",
+              "نعم. كل طابعة ثلاثية الأبعاد عليها ضمان لمدة سنة.")),
+            (("Can I pay for a 3D printer in instalments?",
+              "Yes. Choose Tabby or Tamara at checkout to split the price into instalments. A 3.5% fee applies to pay-later orders. You can also pay by card (mada, Visa, Mastercard, Apple Pay) or bank transfer."),
+             ("هل يمكنني شراء الطابعة بالتقسيط؟",
+              "نعم. اختر تابي أو تمارا عند إتمام الطلب لتقسيط المبلغ. تُضاف رسوم 3.5% على طلبات الدفع اللاحق. ويمكنك أيضاً الدفع بالبطاقة (مدى، فيزا، ماستركارد، Apple Pay) أو بالتحويل البنكي.")),
+            (("Which 3D printer is best for a beginner?",
+              "For most first-time buyers we suggest the Bambu Lab A1 mini or A1: automatic calibration, simple setup and optional multicolour printing with the AMS lite. Our beginner's guide compares them."),
+             ("ما أفضل طابعة ثلاثية الأبعاد للمبتدئين؟",
+              "لمعظم المشترين لأول مرة ننصح بطابعة Bambu Lab A1 mini أو A1: معايرة تلقائية وإعداد بسيط وطباعة متعددة الألوان اختيارية مع AMS lite. ويقارن بينهما دليل المبتدئين.")),
+        ]
+    elif cat == 'Filament':
+        rows = [
+            (("How much is 3D printer filament in Saudi Arabia?",
+              "Our 1 kg spools currently cost from " + sar(lo) + " to " + sar(hi) + ", VAT included, depending on the brand and material."),
+             ("كم سعر فلمنت الطباعة ثلاثية الأبعاد في السعودية؟",
+              "تبدأ أسعار بكرات 1 كجم لدينا حالياً من " + sar(lo) + " وتصل إلى " + sar(hi) + " شاملة ضريبة القيمة المضافة، حسب العلامة والخامة.")) if lo else None,
+            (("Which filament diameter do I need?",
+              "The Bambu Lab, SUNLU and KINGROON spools we sell are 1.75 mm, the size most desktop 3D printers use. Check your printer's manual if you are not sure."),
+             ("ما قطر الفلمنت الذي أحتاجه؟",
+              "بكرات Bambu Lab وSUNLU وKINGROON التي نبيعها بقطر 1.75 مم، وهو المقاس الذي تستخدمه معظم الطابعات المكتبية. راجع دليل طابعتك إذا لم تكن متأكداً.")),
+            (("Should I buy PLA or PETG?",
+              "PLA for gifts, figures, toys and display pieces: it is the easiest to print. PETG for parts that need to be tougher or cope with more heat, such as car parts and outdoor items."),
+             ("هل أشتري PLA أم PETG؟",
+              "اختر PLA للهدايا والمجسمات والألعاب وقطع العرض لأنها الأسهل في الطباعة، واختر PETG للقطع التي تحتاج إلى قوة أكبر أو تحمّل حرارة أعلى مثل قطع السيارات والاستخدام الخارجي.")),
+            (("How should I store filament in Saudi Arabia?",
+              "Keep opened spools in a sealed bag with desiccant, away from direct sun and out of hot cars. Damp filament strings and prints weak parts."),
+             ("كيف أحفظ الفلمنت في السعودية؟",
+              "احفظ البكرات المفتوحة في كيس محكم مع مادة مجففة، بعيداً عن الشمس المباشرة وعن السيارات الحارة. الفلمنت الرطب يسبب الخيوط ويضعف القطع.")),
+            (("Can I return filament?",
+              "An unused spool with its seal unopened can be returned within 7 days. Opened filament can only be returned if it arrived damaged or faulty."),
+             ("هل يمكنني إرجاع الفلمنت؟",
+              "يمكن إرجاع البكرة غير المستخدمة وغلافها مغلق خلال 7 أيام. أما الفلمنت المفتوح فيُرجع فقط إذا وصل تالفاً أو معيباً.")),
+        ]
+    else:
+        return []
+    return [pair[1] if ar else pair[0] for pair in rows if pair]
 
 
 
@@ -1500,6 +1601,12 @@ CAT_SIDE_CSS = (
     'main.b3d-light .b3d-cat-side__trust{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}'
     'main.b3d-light .b3d-cat-side__trust li{display:flex;align-items:center;gap:10px;background:#ecf7f1;border-radius:12px;padding:9px 12px;font-size:.9rem;font-weight:700;color:#0f3d2c}'
     'main.b3d-light .b3d-cat-side__trust li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:#0b7a55;color:#fff;font-size:.8rem;display:flex;align-items:center;justify-content:center}'
+    '.b3d-cat-links{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}'
+    '.b3d-cat-links a{text-decoration:none!important;display:block;height:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #eadfc8;border-radius:12px;background:#fff;color:#1a1a1a;font-weight:700;text-decoration:none}'
+    '.b3d-cat-links a:hover,.b3d-cat-links a:focus-visible{border-color:#f0a500;color:#b45309}'
+    '.b3d-cat-faq details{border:1px solid #eadfc8;border-radius:12px;background:#fff;margin:0 0 10px;padding:0 16px}'
+    '.b3d-cat-faq summary{cursor:pointer;padding:14px 0;font-weight:700;color:#1a1a1a}'
+    '.b3d-cat-faq details p{margin:0 0 14px;line-height:1.7;color:#2b2722}'
     '@media (max-width:960px){.b3d-cat-top{grid-template-columns:minmax(0,1fr)}main.b3d-light .b3d-cat-side{position:static;max-height:none}}</style>'
 )
 
@@ -1567,9 +1674,15 @@ def build_category_page(cat, lang, products_in_cat, brand=None):
             for i, p in enumerate(products_in_cat)
         ],
     }
+    faq_rows = [] if brand else category_faq(cat, lang, {x['id']: x for x in PRODUCTS})
+    faq_ld = ('  <script type="application/ld+json">' + json.dumps({
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in faq_rows],
+    }, ensure_ascii=False) + '</script>\n') if faq_rows else ''
     html = html.replace('</head>',
                          '  <script type="application/ld+json">' + json.dumps(breadcrumb_ld, ensure_ascii=False) + '</script>\n'
                          + '  <script type="application/ld+json">' + json.dumps(item_list_ld, ensure_ascii=False) + '</script>\n'
+                         + faq_ld
                          + '</head>')
 
     html = translate_static_chrome(html, lang)
@@ -1677,6 +1790,29 @@ STATIC_PAGES = {
                 ('ul', ["Your own design file", "A MakerWorld link", "A sketch or an idea, and we will discuss it with you", "A photo or reference of what you want"]),
                 ('h2', 'What we print'),
                 ('ul', ["Custom gifts and personalized products", "Prototypes and rapid prototyping", "Decor and artwork", "Customized parts", "Small-batch production"]),
+                # Expanded 26 Nov 2026 (SEO: the page had 459 words). Prices, materials, size and file types are the
+                # ones the instant quote tool uses (3d-quote.js PRICING) and the quote / business pages state.
+                ('h2', 'Materials and prices'),
+                ('table', (['Material', 'Best for', 'Instant estimate'], [
+                    ['PLA+', 'Detailed decor, figures and gifts', '0.5 SAR per gram'],
+                    ['PETG', 'Tougher, heat-resistant parts', '0.6 SAR per gram'],
+                    ['TPU', 'Flexible parts', '0.9 SAR per gram'],
+                ])),
+                ('html', '<p>The price depends on how much filament your model needs (its volume, walls and infill). Instant estimates start at 15 SAR per piece, plus a 15 SAR setup fee per order for slicing, preparation and plate removal. Upload an STL to the <a href="/3d/quote/">instant 3D printing quote</a> to see the estimate for your file. We check every file before printing and confirm the final price on WhatsApp, usually within the hour during working hours.</p>'),
+                ('h2', 'Size, files and design help'),
+                ('ul', [
+                    "Size: our build plate is about 32 cm. Larger models can be scaled down or printed in parts.",
+                    "Files: the instant quote reads STL files. Send OBJ, 3MF or STEP files on WhatsApp and we will quote them by hand.",
+                    "No file? Send us a photo, drawing or idea and we will design it for you.",
+                    "Your file is read on your own device by the instant quote tool and is not uploaded. Nothing reaches us until you send it on WhatsApp.",
+                ]),
+                ('h2', 'Who we print for'),
+                ('ul', [
+                    "Students and universities: graduation and engineering projects, prototypes and architecture models.",
+                    "Businesses and government entities: logo keychains, corporate gifts, trophies, event items and National Day giveaways.",
+                    "Makers and home users: replacement and custom parts, organisers, decor and personalised gifts.",
+                ]),
+                ('html', '<p>Ordering in quantity for a company or event? See <a href="/3d/business/">business and bulk orders</a>: the price per piece drops as the quantity goes up, we show you a digital mock-up first, and we issue a VAT invoice in your company\'s name.</p>'),
                 ('h2', 'How it works'),
                 ('ol', [
                     "Send us your design, MakerWorld link or idea on WhatsApp and ask for a quote.",
@@ -1701,6 +1837,11 @@ STATIC_PAGES = {
                 ("How long does a custom order take?", "3D printed items are typically prepared within 3 to 5 business days, then shipped: standard shipping takes 4-5 business days and fast shipping 2-3 business days."),
                 ("Do you deliver outside Saudi Arabia?", "No. We deliver across Saudi Arabia only."),
                 ("Can I cancel a custom order?", "Only before production begins. Once production has started, cancellation is not available."),
+                ("How much does 3D printing cost in Saudi Arabia?", "With us it depends on the filament your model uses: about 0.5 SAR per gram for PLA+, 0.6 for PETG and 0.9 for TPU, with a minimum of 15 SAR per piece and a 15 SAR setup fee per order. Upload an STL to the instant quote for an estimate; we confirm the final price on WhatsApp."),
+                ("What is the largest size you can print?", "Our build plate is about 32 cm. Larger models can be scaled down or printed in parts."),
+                ("Which file types do you accept?", "STL for the instant quote. OBJ, 3MF and STEP files are quoted by hand on WhatsApp, and you can also send a photo, drawing or idea."),
+                ("Do you print in Riyadh and Jeddah?", "We print in-house in Dammam and deliver to Riyadh, Jeddah and every other city in Saudi Arabia: standard delivery 4-5 business days, fast delivery 2-3."),
+                ("Do you provide a VAT invoice?", "Yes. Business and bulk orders get a VAT invoice in your company's name."),
             ],
             'service_name': '3D Printing Service',
         },
@@ -1717,6 +1858,27 @@ STATIC_PAGES = {
                 ('ul', ["ملف تصميمك الخاص", "رابط من MakerWorld", "رسمة أو فكرة، ونناقشها معك", "صورة أو مرجع لما تريده"]),
                 ('h2', 'ما الذي نطبعه'),
                 ('ul', ["الهدايا المخصصة والمنتجات الشخصية", "النماذج الأولية والنماذج الأولية السريعة", "الديكور والأعمال الفنية", "القطع المخصصة", "الإنتاج بدفعات صغيرة"]),
+                ('h2', 'الخامات والأسعار'),
+                ('table', (['الخامة', 'الأنسب لـ', 'السعر التقديري الفوري'], [
+                    ['PLA+‎', 'الديكور الدقيق والمجسمات والهدايا', '0.5 ريال لكل جرام'],
+                    ['PETG', 'القطع الأقوى والمقاومة للحرارة', '0.6 ريال لكل جرام'],
+                    ['TPU', 'القطع المرنة', '0.9 ريال لكل جرام'],
+                ])),
+                ('html', '<p>يعتمد السعر على كمية الفلمنت التي يحتاجها نموذجك (حجمه وجدرانه ونسبة الحشو). يبدأ السعر التقديري الفوري من 15 ريال للقطعة، مع رسوم تجهيز 15 ريال لكل طلب تشمل التقطيع والتحضير وفك القطع من السرير. ارفع ملف STL في <a href="/3d/quote/">عرض السعر الفوري للطباعة ثلاثية الأبعاد</a> لترى تقدير ملفك. نراجع كل ملف قبل الطباعة ونؤكد السعر النهائي عبر واتساب، غالباً خلال ساعة في أوقات العمل.</p>'),
+                ('h2', 'المقاس والملفات والمساعدة في التصميم'),
+                ('ul', [
+                    "المقاس: سرير الطباعة لدينا حوالي 32 سم. ويمكن تصغير النماذج الأكبر أو طباعتها على أجزاء.",
+                    "الملفات: عرض السعر الفوري يقرأ ملفات STL. أرسل ملفات OBJ أو 3MF أو STEP عبر واتساب ونسعّرها يدوياً.",
+                    "ليس لديك ملف؟ أرسل لنا صورة أو رسمة أو فكرة ونصممها لك.",
+                    "تقرأ أداة عرض السعر الفوري ملفك على جهازك ولا ترفعه. لا يصلنا شيء حتى ترسله عبر واتساب.",
+                ]),
+                ('h2', 'لمن نطبع'),
+                ('ul', [
+                    "الطلاب والجامعات: مشاريع التخرج والمشاريع الهندسية والنماذج الأولية والمجسمات المعمارية.",
+                    "الشركات والجهات الحكومية: ميداليات مفاتيح بالشعار وهدايا الشركات والدروع وقطع الفعاليات وهدايا اليوم الوطني.",
+                    "الهواة والمنازل: قطع بديلة ومخصصة ومنظمات وديكور وهدايا شخصية.",
+                ]),
+                ('html', '<p>تطلب كميات لشركة أو فعالية؟ اطّلع على <a href="/3d/business/">طلبات الشركات والجملة</a>: ينخفض سعر القطعة كلما زادت الكمية، ونرسل لك تصميماً تجريبياً رقمياً أولاً، ونصدر فاتورة ضريبية باسم شركتك.</p>'),
                 ('h2', 'كيف تتم الخدمة'),
                 ('ol', [
                     "أرسل لنا تصميمك أو رابط MakerWorld أو فكرتك عبر واتساب واطلب عرض سعر.",
@@ -1741,6 +1903,11 @@ STATIC_PAGES = {
                 ("كم يستغرق الطلب المخصص؟", "تُجهَّز المنتجات المطبوعة ثلاثية الأبعاد عادةً خلال 3 إلى 5 أيام عمل ثم تُشحن: الشحن العادي 4-5 أيام عمل والسريع 2-3 أيام عمل."),
                 ("هل تشحنون خارج السعودية؟", "لا. نوصّل داخل المملكة العربية السعودية فقط."),
                 ("هل يمكنني إلغاء طلب مخصص؟", "فقط قبل بدء الإنتاج. وبعد بدئه لا يتوفر الإلغاء."),
+                ("كم تكلفة الطباعة ثلاثية الأبعاد في السعودية؟", "لدينا تعتمد على الفلمنت الذي يستهلكه نموذجك: حوالي 0.5 ريال لكل جرام لخامة PLA+ و0.6 لـ PETG و0.9 لـ TPU، بحد أدنى 15 ريال للقطعة ورسوم تجهيز 15 ريال لكل طلب. ارفع ملف STL في عرض السعر الفوري للحصول على تقدير، ونؤكد السعر النهائي عبر واتساب."),
+                ("ما أكبر مقاس يمكنكم طباعته؟", "سرير الطباعة لدينا حوالي 32 سم. ويمكن تصغير النماذج الأكبر أو طباعتها على أجزاء."),
+                ("ما أنواع الملفات التي تقبلونها؟", "ملفات STL لعرض السعر الفوري. أما ملفات OBJ و3MF وSTEP فنسعّرها يدوياً عبر واتساب، ويمكنك أيضاً إرسال صورة أو رسمة أو فكرة."),
+                ("هل تطبعون في الرياض وجدة؟", "نطبع داخلياً في الدمام ونوصّل إلى الرياض وجدة وكل مدن السعودية: التوصيل العادي 4-5 أيام عمل والسريع 2-3 أيام."),
+                ("هل تصدرون فاتورة ضريبية؟", "نعم. تحصل طلبات الشركات والجملة على فاتورة ضريبية باسم شركتك."),
             ],
             'service_name': 'خدمة الطباعة ثلاثية الأبعاد',
         },
@@ -2042,6 +2209,14 @@ def build_static_page(slug, lang):
             out.append('<ul>' + ''.join('<li>' + esc(x) + '</li>' for x in val) + '</ul>')
         elif kind == 'ol':
             out.append('<ol>' + ''.join('<li>' + esc(x) + '</li>' for x in val) + '</ol>')
+        elif kind == 'html':
+            # Trusted copy written in this file (inline links). Internal /3d/ links get the /3d/ar prefix on AR pages.
+            out.append(val.replace('href="/3d/', 'href="/3d/ar/') if lang == 'ar' else val)
+        elif kind == 'table':
+            head, rows = val
+            out.append('<div class="b3d-table-wrap"><table><thead><tr>' + ''.join('<th>' + esc(h) + '</th>' for h in head)
+                       + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join('<td>' + esc(c) + '</td>' for c in r) + '</tr>' for r in rows)
+                       + '</tbody></table></div>')
         elif kind == 'cta':
             out.append('<p><a class="btn btn-primary" href="' + WA_QUOTE + '" target="_blank" rel="noopener noreferrer">' + esc(val) + '</a></p>')
         elif kind == 'contact':
@@ -2096,7 +2271,7 @@ AR_HOME_KW_HTML = (
     + _kw_col('بامبو لاب في السعودية', [('/3d/brands/bambu-lab/', 'كل طابعات بامبو لاب Bambu Lab'), ('/3d/product/bambu-lab-a1-mini/', 'Bambu Lab A1 mini'), ('/3d/product/bambu-lab-p1s/', 'Bambu Lab P1S'), ('/3d/product/bambu-lab-p2s/', 'Bambu Lab P2S'), ('/3d/product/bambu-lab-h2d-combo/', 'Bambu Lab H2D'), ('/3d/product/bambu-ams-2-pro/', 'Bambu Lab AMS 2 Pro')])
     + _kw_col('علامات تجارية أخرى للطابعات', [('/3d/shop/3d-printers/', 'كل طابعات 3D في السعودية'), ('/3d/product/creality-sparkx-i7/', 'كرياليتي Creality SparkX i7'), ('/3d/product/elegoo-centauri-carbon-2/', 'إليجو Elegoo Centauri Carbon 2'), ('/3d/product/anycubic-kobra-3-max/', 'أنيكيوبك Anycubic Kobra 3 Max'), ('/3d/product/snapmaker-u1/', 'سنابميكر Snapmaker U1'), ('/3d/product/flashforge-adventurer-5m/', 'فلاش فورج Flashforge Adventurer 5M')])
     + _kw_col('فلمنت الطباعة 3D', [('/3d/shop/filament/', 'كل أنواع الفلمنت'), ('/3d/product/sunlu-pla-classic-filament/', 'فلمنت SUNLU PLA Classic'), ('/3d/product/bambu-lab-pla-basic-filament/', 'فلمنت Bambu Lab PLA Basic'), ('/3d/product/kingroon-pla-basic-filament/', 'فلمنت KINGROON PLA'), ('/3d/product/kingroon-petg-hs-filament/', 'فلمنت KINGROON PETG HS'), ('/3d/blog/3d-printer-filament-price-saudi-arabia/', 'أسعار الفلمنت في السعودية')])
-    + _kw_col('أدلة وخدمة الطباعة', [('/3d/blog/where-to-buy-3d-printer-saudi-arabia/', 'من أين تشتري طابعة 3D في السعودية'), ('/3d/blog/best-3d-printer-for-beginners-saudi-arabia/', 'أفضل طابعة 3D للمبتدئين'), ('/3d/blog/bambu-lab-printers-saudi-arabia-prices/', 'أسعار بامبو لاب في السعودية'), ('/3d/blog/buy-3d-printer-riyadh/', 'طابعات 3D في الرياض'), ('/3d/blog/buy-3d-printer-jeddah/', 'طابعات 3D في جدة'), ('/3d/3d-printing-service-saudi-arabia/', 'خدمة الطباعة ثلاثية الأبعاد في السعودية')])
+    + _kw_col('أدلة وخدمة الطباعة', [('/3d/blog/where-to-buy-3d-printer-saudi-arabia/', 'من أين تشتري طابعة 3D في السعودية'), ('/3d/blog/best-3d-printer-for-beginners-saudi-arabia/', 'أفضل طابعة 3D للمبتدئين'), ('/3d/blog/bambu-lab-printers-saudi-arabia-prices/', 'أسعار بامبو لاب في السعودية'), ('/3d/blog/where-to-buy-3d-printer-saudi-arabia/#city-riyadh', 'طابعات 3D في الرياض'), ('/3d/blog/where-to-buy-3d-printer-saudi-arabia/#city-jeddah', 'طابعات 3D في جدة'), ('/3d/3d-printing-service-saudi-arabia/', 'خدمة الطباعة ثلاثية الأبعاد في السعودية')])
     + '</div>\n    </section><!--/b3d-kw-->'
 )
 
@@ -2187,6 +2362,37 @@ def main():
     build_ar_home()
     build_ar_shop_index()
     print('generated AR home + shop index')
+
+    write_lite_catalog()
+
+
+# Fields only the product page and the compare page show. Every other page (home, shop, categories,
+# cart, blog) loads 3d-products-lite.json without them: about a third of the size (PageSpeed, 26 Nov 2026).
+LITE_DROP = ('description', 'description_ar', 'faq', 'faq_ar', 'inTheBox', 'inTheBox_ar',
+             'features', 'features_ar', 'videos', 'officialSource')
+LITE_SPEC_RX = re.compile(r'^(build volume|material)$', re.I)
+
+
+def write_lite_catalog():
+    """3d-products-lite.json: the catalog minus long copy. Rebuilt on every run (the nightly price sync
+    runs this script too), so its prices and stock flags always match 3d-products.json. Product cards show
+    the first three spec rows; build volume and material are kept for the shop filters."""
+    with open(PRODUCTS_JSON, encoding='utf-8') as f:
+        data = json.load(f)
+    lite = []
+    for p in data.get('products', []):
+        q = {k: v for k, v in p.items() if k not in LITE_DROP}
+        for key in ('specs', 'specs_ar'):
+            rows = p.get(key) or []
+            if rows:
+                q[key] = [r for i, r in enumerate(rows) if i < 3 or (key == 'specs' and LITE_SPEC_RX.match(str(r[0])))]
+        lite.append(q)
+    out = os.path.join(os.path.dirname(PRODUCTS_JSON), '3d-products-lite.json')
+    text = json.dumps({'_note': 'Generated by scripts/generate_3d_static.py from 3d-products.json. Do not edit.', 'products': lite},
+                      ensure_ascii=False, separators=(',', ':'))
+    with open(out, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(text)
+    print('lite catalog:', len(text.encode('utf-8')) // 1024, 'KB (full', os.path.getsize(PRODUCTS_JSON) // 1024, 'KB)')
 
 
 if __name__ == '__main__':

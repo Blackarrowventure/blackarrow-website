@@ -109,8 +109,8 @@ POSTS = [
           <div class="b3d-article__related">
             <a href="/3d/blog/3d-printer-buying-checklist-saudi-arabia/">12-point 3D printer buying checklist</a>
             <a href="/3d/blog/best-3d-printer-for-beginners-saudi-arabia/">Best 3D printer for beginners in Saudi Arabia</a>
-            <a href="/3d/blog/buy-3d-printer-riyadh/">Buying a 3D printer in Riyadh</a>
-            <a href="/3d/blog/buy-3d-printer-jeddah/">Buying a 3D printer in Jeddah</a>
+            <a href="/3d/blog/where-to-buy-3d-printer-saudi-arabia/#city-riyadh">Buying a 3D printer in Riyadh</a>
+            <a href="/3d/blog/where-to-buy-3d-printer-saudi-arabia/#city-jeddah">Buying a 3D printer in Jeddah</a>
           </div>
 ''',
         },
@@ -212,8 +212,8 @@ POSTS = [
           <div class="b3d-article__related">
             <a href="/3d/ar/blog/3d-printer-buying-checklist-saudi-arabia/">قائمة من 12 نقطة قبل شراء طابعتك</a>
             <a href="/3d/ar/blog/best-3d-printer-for-beginners-saudi-arabia/">أفضل طابعة ثلاثية الأبعاد للمبتدئين في السعودية</a>
-            <a href="/3d/ar/blog/buy-3d-printer-riyadh/">شراء طابعة ثلاثية الأبعاد في الرياض</a>
-            <a href="/3d/ar/blog/buy-3d-printer-jeddah/">شراء طابعة ثلاثية الأبعاد في جدة</a>
+            <a href="/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/#city-riyadh">شراء طابعة ثلاثية الأبعاد في الرياض</a>
+            <a href="/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/#city-jeddah">شراء طابعة ثلاثية الأبعاد في جدة</a>
           </div>
 ''',
         },

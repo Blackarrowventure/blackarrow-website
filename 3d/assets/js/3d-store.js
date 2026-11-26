@@ -8,7 +8,10 @@
 
   var CART_KEY = 'b3d_cart_v1';
   var MOTION_KEY = 'b3d_motion_v1';
-  var DATA_URL = '/3d/assets/data/3d-products.json';
+  // Product and compare pages need the full catalog (descriptions, FAQ, every spec row); every other
+  // page loads the lite copy that scripts/generate_3d_static.py writes on each build (PageSpeed, 26 Nov 2026).
+  var DATA_URL = document.querySelector('[data-b3d-product],[data-b3d-compare]')
+    ? '/3d/assets/data/3d-products.json' : '/3d/assets/data/3d-products-lite.json';
   var PAGE_SIZE = 12;
 
   var ICONS = {

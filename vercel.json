@@ -4,6 +4,186 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/3d/blog/buy-3d-printer-riyadh/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-riyadh",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-riyadh/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-riyadh",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-jeddah/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-jeddah",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-jeddah/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-jeddah",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-dammam-khobar/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-dammam-khobar",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-dammam-khobar/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-dammam-khobar",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-jubail/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-jubail",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-jubail/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-jubail",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-makkah/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-makkah",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-makkah/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-makkah",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-madinah/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-madinah",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-madinah/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-madinah",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-qassim/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-qassim",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-qassim/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-qassim",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-abha-khamis-mushait/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-abha-khamis-mushait",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-abha-khamis-mushait/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-abha-khamis-mushait",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-tabuk/",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/blog/buy-3d-printer-tabuk",
+      "destination": "/3d/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-tabuk/",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
+      "source": "/3d/ar/blog/buy-3d-printer-tabuk",
+      "destination": "/3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/",
+      "permanent": true
+    },
+    {
       "source": "/contacts/zayn.html",
       "destination": "/contacts/zain.html",
       "permanent": true

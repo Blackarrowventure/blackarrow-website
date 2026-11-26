@@ -20,7 +20,9 @@ import build_3d_troubleshooting_guides as guides  # noqa: E402
 import generate_3d_blog_ar as ar_blog  # noqa: E402
 
 # (module, publish date). seo_posts_products: filament and product posts added 2026-10-22.
-MODULES = [('seo_posts_cities', '2026-10-15'), ('seo_posts_buying', '2026-10-15'), ('seo_posts_local', '2026-10-15'),
+# seo_posts_cities is no longer built: its nine city guides were merged into the where-to-buy guide on
+# 26 Nov 2026 (scripts/seo_merge_city_posts_2026_11.py) and their URLs redirect there.
+MODULES = [('seo_posts_buying', '2026-10-15'), ('seo_posts_local', '2026-10-15'),
            ('seo_posts_products', '2026-10-22'), ('seo_posts_bambu_filament', '2026-11-01'),
            ('seo_posts_kingroon', '2026-11-04'), ('seo_posts_bambu_h3c', '2026-11-04'),
            ('seo_posts_refresh_2026_11', '2026-11-09'), ('seo_posts_refresh_2026_11b', '2026-11-10'),

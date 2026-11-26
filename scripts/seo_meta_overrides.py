@@ -60,8 +60,11 @@ OVERRIDES = {
         'تشغيل بامبو لاب A1 ميني: 7 خطوات لأول طباعة',
         'جهّز طابعة بامبو لاب A1 أو A1 ميني في 7 خطوات: فتح الصندوق والتركيب والمعايرة الأولى والواي فاي وتطبيق Bambu Handy وتركيب الفلمنت وأول طباعة.'),
     '3d/blog/where-to-buy-3d-printer-saudi-arabia/index.html': (
-        'Where to Buy a 3D Printer in KSA: Local, Online or Import?',
-        'Local store, Amazon/Noon or overseas? Where to buy a 3D printer in Saudi Arabia, and what to check on stock, plug, warranty and delivery before you pay.'),
+        'Where to Buy a 3D Printer in KSA: Riyadh, Jeddah & More',
+        'Local store, Amazon/Noon or import? Where to buy a 3D printer in Saudi Arabia, with delivery and climate tips for Riyadh, Jeddah, Dammam, Makkah and more.'),
+    '3d/ar/blog/where-to-buy-3d-printer-saudi-arabia/index.html': (
+        'أين تشتري طابعة 3D في السعودية: الرياض وجدة والدمام',
+        'متجر محلي أم أمازون ونون أم الاستيراد؟ أين تشتري طابعة ثلاثية الأبعاد في السعودية، مع التوصيل ونصائح المناخ للرياض وجدة والدمام ومكة وباقي المدن.'),
     '3d/3d-printing-service-saudi-arabia/index.html': (
         '3D Printing Service in Saudi Arabia: Riyadh, Jeddah, Dammam',
         'Custom 3D printing anywhere in Saudi Arabia: send a file, a MakerWorld link or just an idea. Get a quote online or on WhatsApp, delivered to your door.'),
