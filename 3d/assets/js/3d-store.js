@@ -622,6 +622,22 @@
     return (p.onSale && p.salePrice != null) ? p.salePrice : p.price;
   }
 
+  // Blog instalment tables: <span data-b3d-bnpl="product-id|Option|fee|total|each"> shows the
+  // pay-later fee (3.5%), the total with it, or one of 4 payments, worked out from the live price
+  // (printer orders ship free on regular delivery, so delivery adds nothing).
+  function paintLiveBnpl(els) {
+    Array.prototype.forEach.call(els, function (el) {
+      var parts = (el.getAttribute('data-b3d-bnpl') || '').split('|');
+      var what = parts.pop();
+      var n = livePriceOf(parts.join('|'));
+      if (typeof n !== 'number' || !isFinite(n)) return;
+      var fee = bnplFeeFor(n);
+      var total = Math.round((n + fee) * 100) / 100;
+      var v = what === 'fee' ? fee : what === 'each' ? Math.round(total * 100 / 4) / 100 : total;
+      el.textContent = v % 1 ? v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : v.toLocaleString('en-US');
+    });
+  }
+
   function paintLivePrices(els) {
     Array.prototype.forEach.call(els, function (el) {
       var n = livePriceOf(el.getAttribute('data-b3d-price') || '');
@@ -725,19 +741,26 @@
   }
   var TABBY_MARK = '<span class="b3d-bnpl__tabby"><img src="/3d/assets/images/payment/tabby.png" alt="" width="16" height="16">tabby</span>';
   var TAMARA_MARK = '<img class="b3d-bnpl__tamara" src="/3d/assets/images/payment/tamara.png" alt="tamara" width="62" height="20">';
-  // The pay-later service fee checkout adds for this kind of product on its own (same rule as
-  // bnplFee() below and api/_lib/pricing.js): 100 SAR printers, 50 SAR filament, else none.
-  // The instalment shown includes it, and the fee is named next to it.
-  function bnplFeeFor(category) { return category === '3D Printers' ? 100 : category === 'Filament' ? 50 : 0; }
-  function bnplFeeText(fee) { return fee ? ' <span class="b3d-bnpl__fee">' + T('js_bnpl_fee_incl').replace('{n}', fee) + '</span>' : ''; }
+  // Pay-later (Tabby / Tamara) service fee: 3.5% of the order (items less rewards, plus delivery),
+  // rounded to the halala; same rule as bnplFee() below and api/_lib/pricing.js. On product pages
+  // and cards it is worked out on the price alone (delivery is not known yet); the instalment
+  // shown includes it, and the fee is named next to it.
+  var BNPL_FEE_RATE = 0.035;
+  function bnplFeeFor(amount) {
+    var cents = Math.round((Number(amount) || 0) * 100);
+    return cents > 0 ? Math.round(cents * BNPL_FEE_RATE) / 100 : 0;
+  }
+  // Fee amounts read as money: 150.5 -> "150.50", 70 -> "70".
+  function bnplFeeStr(fee) { return fee % 1 ? fee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : fee.toLocaleString('en-US'); }
+  function bnplFeeText(fee) { return fee ? ' <span class="b3d-bnpl__fee">' + T('js_bnpl_fee_incl').replace('{n}', bnplFeeStr(fee)) + '</span>' : ''; }
   function bnplHtml(price, currency, category, p) {
     if (!bnplOk(price) || (p && p.noPayLater)) return '';
-    var fee = bnplFeeFor(category);
+    var fee = bnplFeeFor(price);
     return '<p class="b3d-bnpl">' + T('js_bnpl_prefix') + ' <b>' + bnplMoney(price + fee, currency) + '</b> ' + T('js_bnpl_with') + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</p>';
   }
   function bnplCardHtml(price, currency, category, p) {
     if (!bnplOk(price) || (p && p.noPayLater)) return '';
-    var fee = bnplFeeFor(category);
+    var fee = bnplFeeFor(price);
     return '<span class="b3d-bnpl-card">' + T('js_bnpl_card') + ' ' + bnplMoney(price + fee, currency) + ' <span class="b3d-bnpl__marks">' + TABBY_MARK + TAMARA_MARK + '</span>' + bnplFeeText(fee) + '</span>';
   }
 
@@ -2066,20 +2089,18 @@
     }
   }
 
-  // Pay-later (Tabby / Tamara) service fee, per order: 100 SAR with a printer,
-  // 50 SAR for filament with no printed items, otherwise none. The server
-  // (api/paymob/create-intention.js, api/tabby/create-session.js) charges the same.
+  // Pay-later (Tabby / Tamara) service fee, per order: 3.5% of the items (less rewards) plus
+  // delivery. The server (api/_lib/pricing.js, used by api/paymob/create-intention.js and
+  // api/tabby/create-session.js) charges the same.
   var currentPayMethod = '';
-  function bnplFee() {
-    var cart = getCart();
-    var cats = {};
-    Object.keys(cart).forEach(function (id) {
-      var p = __b3dProductsById[parseLineId(id).productId];
-      if (p) cats[p.category] = true;
-    });
-    if (cats['3D Printers']) return 100;
-    if (cats['Filament'] && !cats['3D Artwork']) return 50;
-    return 0;
+  function bnplFee(base) { return bnplFeeFor(base); }
+
+  // Delivery price of the option picked at checkout (0 while the checkout is not open or delivery is free).
+  function chosenShippingPrice(checkout) {
+    if (!checkout || checkout.hidden) return 0;
+    var r = checkout.querySelector('input[name="shipping_choice"]:checked');
+    if (!r || r.value === 'pickup' || (r.value === 'regular' && regularFree())) return 0;
+    return parseInt(r.getAttribute('data-shipping-price'), 10) || 0;
   }
 
   // Bank transfer / cash saving: 1% off the items (after coupon / rewards, before delivery), with
@@ -2163,8 +2184,8 @@
       }
       note.hidden = !fee;
       note.textContent = ar
-        ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + fee + ' ريال على هذا الطلب. لا تُضاف هذه الرسوم عند الدفع بالبطاقة أو Apple Pay أو التحويل البنكي.'
-        : 'A pay-later service fee of ' + fee + ' SAR is added to this order. Card, Apple Pay and bank transfer have no extra fee.';
+        ? 'تُضاف رسوم خدمة الدفع لاحقًا بقيمة ' + bnplFeeStr(fee) + ' ريال (3.5% من الطلب) على هذا الطلب. لا تُضاف هذه الرسوم عند الدفع بالبطاقة أو Apple Pay أو التحويل البنكي.'
+        : 'A pay-later service fee of ' + bnplFeeStr(fee) + ' SAR (3.5% of the order) is added to this order. Card, Apple Pay and bank transfer have no extra fee.';
     });
     ['card', 'applepay'].forEach(function (m) {
       var btn = document.querySelector('[data-pm="' + m + '"]');
@@ -2203,7 +2224,10 @@
     var couponField = document.querySelector('[data-b3d-coupon-field]');
     if (couponField) couponField.value = discount ? appliedCoupon.code + (appliedCoupon.redemption ? ' / ' + appliedCoupon.redemption : '') : '';
     var discountLine = discount ? '\nDiscount (' + appliedCoupon.code + (appliedCoupon.redemption ? ', redemption ' + appliedCoupon.redemption : '') + '): -' + discount + ' SAR' : '';
-    var feeAmount = bnplFee();
+    renderRewardsRow(summaryEl);
+    var rewardsUsed = rewardsDiscount();
+    // 3.5% of what the order costs before the fee: items less discounts, plus the delivery picked.
+    var feeAmount = bnplFee(lastSubtotal - discount - rewardsUsed + chosenShippingPrice(checkout));
     updateBnplUi(feeAmount);
     var fee = (currentPayMethod === 'tabby' || currentPayMethod === 'tamara') ? feeAmount : 0;
     var feeRow = summaryEl.querySelector('[data-b3d-bnpl-row]');
@@ -2219,8 +2243,6 @@
     feeRow.firstChild.textContent = isAr() ? 'رسوم خدمة الدفع لاحقًا' : 'Pay-later service fee';
     feeRow.lastChild.innerHTML = money(fee, 'SAR');
     var feeLine = fee ? '\nPay-later service fee: ' + fee + ' SAR' : '';
-    renderRewardsRow(summaryEl);
-    var rewardsUsed = rewardsDiscount();
     var rewardsLine = rewardsUsed ? '\nBlack Arrow Loyalty Rewards balance used: -' + rewardsUsed + ' SAR' : '';
     discountLine += rewardsLine;
     var savingAmount = bankSaving();
@@ -4740,6 +4762,8 @@
 
     var livePrices = document.querySelectorAll('[data-b3d-price]');
     if (livePrices.length) fetchProducts().then(function () { paintLivePrices(livePrices); });
+    var liveBnpl = document.querySelectorAll('[data-b3d-bnpl]');
+    if (liveBnpl.length) fetchProducts().then(function () { paintLiveBnpl(liveBnpl); });
     var liveStock = document.querySelectorAll('[data-b3d-stock]');
     if (liveStock.length) fetchProducts().then(function () { paintLiveStock(liveStock); });
 

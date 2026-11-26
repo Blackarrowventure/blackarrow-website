@@ -1852,8 +1852,8 @@
     "ar": "لا، هذا المنتج غير متاح بالتقسيط. يُباع بالتحويل البنكي أو البطاقة (مدى وفيزا وماستركارد) أو Apple Pay، ولا يتوفر الدفع عبر تابي أو تمارا."
   },
   "pfaq_bnpl_a_printer": {
-    "en": "Yes, with Tabby or Tamara at checkout. A small, clearly-shown pay-later fee (3.5% of your order) applies to printer orders, and it is already included in the instalment amount shown on this page - no surprises at payment.",
-    "ar": "نعم، عبر تابي أو تمارا عند إتمام الطلب. وتُضاف رسوم دفع لاحق بسيطة وواضحة (3.5% من قيمة الطلب) على طلبات الطابعات، وهي مشمولة مسبقًا في مبلغ القسط المعروض في هذه الصفحة - بلا أي مفاجآت عند الدفع."
+    "en": "Yes, with Tabby or Tamara at checkout. A small, clearly-shown pay-later fee (3.5% of your order) applies to every Tabby or Tamara order, and it is already included in the instalment amount shown on this page - no surprises at payment.",
+    "ar": "نعم، عبر تابي أو تمارا عند إتمام الطلب. وتُضاف رسوم دفع لاحق بسيطة وواضحة (3.5% من قيمة الطلب) على كل طلب عبر تابي أو تمارا، وهي مشمولة مسبقًا في مبلغ القسط المعروض في هذه الصفحة - بلا أي مفاجآت عند الدفع."
   },
   "pfaq_bnpl_q": {
     "en": "Can I pay in instalments?",

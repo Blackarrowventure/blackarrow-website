@@ -67,12 +67,12 @@ function stockProblem(items, products) {
   return null;
 }
 
-// Pay-later (Tabby / Tamara) service fee: 100 SAR with a printer, 50 SAR for
-// filament with no printed items, otherwise none.
-function bnplFeeCents(cats) {
-  if (cats.has('3D Printers')) return 10000;
-  if (cats.has('Filament') && !cats.has('3D Artwork')) return 5000;
-  return 0;
+// Pay-later (Tabby / Tamara) service fee (26 Nov 2026, Afzal): 3.5% of the whole order
+// (items less rewards, plus delivery) on every pay-later order, rounded to the halala.
+// The cart (3d-store.js bnplFee / bnplFeeFor) shows the same.
+const BNPL_FEE_RATE = 0.035;
+function bnplFeeCents(baseCents) {
+  return baseCents > 0 ? Math.round(baseCents * BNPL_FEE_RATE) : 0;
 }
 
 // Everything that decides the final amount, in one place.
@@ -185,8 +185,8 @@ function buildOrder(items, shipping, payLater, rewards, products, city) {
   const shippingLabel = pickup ? 'Self pickup (Free)'
     : shipping === 'bahrain' ? 'Bahrain delivery'
     : (shipping === 'fast' ? 'Fast shipping' : 'Regular shipping') + (free ? ' (Free)' : '');
-  const feeCents = payLater ? bnplFeeCents(priced.categories) : 0;
   const discountCents = Math.min((rewards && rewards.discountCents) || 0, priced.itemsCents);
+  const feeCents = payLater ? bnplFeeCents(priced.itemsCents - discountCents + shippingCents) : 0;
   const totalCents = priced.itemsCents - discountCents + shippingCents + feeCents;
 
   const sar = (c) => (c / 100).toLocaleString('en-US') + ' SAR';

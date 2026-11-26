@@ -83,7 +83,7 @@ POSTS = [
           <h3>Is the A1 mini too small?</h3>
           <p>Not for most first projects: 180&nbsp;mm per side fits phone stands, keychains, organisers and figurines. If you plan helmets, masks or large models, choose the A2L instead.</p>
           <h3>Can I pay in instalments?</h3>
-          <p>Yes. You can choose Tabby or Tamara at checkout. A pay-later service fee applies (100&nbsp;SAR on orders with a printer). See <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">3D printers in instalments</a>.</p>
+          <p>Yes. You can choose Tabby or Tamara at checkout. A pay-later service fee applies (3.5% of the order). See <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">3D printers in instalments</a>.</p>
           <h3>Is there a warranty?</h3>
           <p>Yes. Every 3D printer from Black Arrow 3D comes with a 1-year warranty.</p>
 
@@ -167,7 +167,7 @@ POSTS = [
           <h3>هل A1 mini صغيرة جدًا؟</h3>
           <p>ليست كذلك لمعظم المشاريع الأولى: 180 ملم لكل جهة تكفي لحوامل الجوال والميداليات والمنظمات والمجسمات. إذا كنت تخطط لخوذ أو أقنعة أو مجسمات كبيرة فاختر A2L.</p>
           <h3>هل يمكنني الدفع بالتقسيط؟</h3>
-          <p>نعم، يمكنك اختيار تابي أو تمارا عند الدفع. تُطبّق رسوم خدمة الدفع لاحقًا (100 ريال على الطلبات التي تحتوي على طابعة). راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">الطابعات ثلاثية الأبعاد بالتقسيط</a>.</p>
+          <p>نعم، يمكنك اختيار تابي أو تمارا عند الدفع. تُطبّق رسوم خدمة الدفع لاحقًا (3.5% من قيمة الطلب). راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">الطابعات ثلاثية الأبعاد بالتقسيط</a>.</p>
           <h3>هل يوجد ضمان؟</h3>
           <p>نعم. كل طابعة ثلاثية الأبعاد من بلاك آرو 3D تأتي بضمان لمدة سنة.</p>
 

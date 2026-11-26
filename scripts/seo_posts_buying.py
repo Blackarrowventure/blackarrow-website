@@ -98,7 +98,7 @@ POSTS = [
           <h3>Do 3D printers sold in Saudi Arabia have a warranty?</h3>
           <p>Printers carry the manufacturer’s warranty for defects. Buying locally means the seller can help you with the claim; at Black Arrow 3D the team assists with warranty claims in Arabic or English.</p>
           <h3>Can I pay for a 3D printer in instalments in Saudi Arabia?</h3>
-          <p>Yes, through Tabby or Tamara at checkout, subject to the provider’s approval. At Black Arrow 3D a pay-later service fee of 100&nbsp;SAR applies to orders that include a printer. See our <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">instalments guide</a>.</p>
+          <p>Yes, through Tabby or Tamara at checkout, subject to the provider’s approval. At Black Arrow 3D a pay-later service fee of 3.5% of the order applies. See our <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">instalments guide</a>.</p>
 
           <div class="b3d-article__cta">
             <p>See every printer with live stock and SAR prices</p>
@@ -201,7 +201,7 @@ POSTS = [
           <h3>هل الطابعات المبيعة في السعودية عليها ضمان؟</h3>
           <p>الطابعات مشمولة بضمان الشركة المصنّعة ضد العيوب. الشراء محليًا يعني أن البائع يستطيع مساعدتك في المطالبة، وفي Black Arrow 3D يساعدك الفريق في مطالبات الضمان بالعربية أو الإنجليزية.</p>
           <h3>هل يمكن شراء طابعة ثلاثية الأبعاد بالتقسيط في السعودية؟</h3>
-          <p>نعم، عبر تابي أو تمارا عند إتمام الطلب، بشرط موافقة مزود الخدمة. في Black Arrow 3D تُضاف رسوم خدمة دفع آجل قدرها 100 ريال على الطلبات التي تحتوي على طابعة. راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">دليل التقسيط</a>.</p>
+          <p>نعم، عبر تابي أو تمارا عند إتمام الطلب، بشرط موافقة مزود الخدمة. في Black Arrow 3D تُضاف رسوم خدمة دفع آجل قدرها 3.5% من قيمة الطلب. راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">دليل التقسيط</a>.</p>
 
           <div class="b3d-article__cta">
             <p>شاهد كل الطابعات مع المخزون والأسعار بالريال</p>
@@ -232,7 +232,7 @@ POSTS = [
             'card': ('Buying guide', '8 min read', 'How Tabby and Tamara instalments work for a 3D printer in Saudi Arabia, with a real 4-payment example and the fees to expect.'),
             'body': '''
           <h2>Quick answer</h2>
-          <p>Yes, you can buy a 3D printer in instalments in Saudi Arabia using Tabby or Tamara. You choose the provider at checkout, the provider checks your eligibility in a minute or two, and you pay the first instalment immediately. The number of payments, your spending limit and any provider fees depend on the provider and on you as a customer. At Black Arrow 3D, pay-later orders carry a <strong>service fee of 100&nbsp;SAR on orders that include a printer</strong>, 50&nbsp;SAR on filament-only orders and no fee on 3D printed items; the fee is shown at checkout before you confirm. Example: the Bambu Lab A2L Combo at <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR becomes 4,300&nbsp;SAR with the fee, or <strong>4 payments of 1,075&nbsp;SAR</strong>. If you can pay in full by card, mada, Apple Pay or bank transfer, you save the 100&nbsp;SAR.</p>
+          <p>Yes, you can buy a 3D printer in instalments in Saudi Arabia using Tabby or Tamara. You choose the provider at checkout, the provider checks your eligibility in a minute or two, and you pay the first instalment immediately. The number of payments, your spending limit and any provider fees depend on the provider and on you as a customer. At Black Arrow 3D, every pay-later order carries a <strong>service fee of 3.5% of the order</strong> (products plus delivery); the fee is shown at checkout before you confirm. Example: the Bambu Lab A2L Combo at <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span>&nbsp;SAR has a fee of <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|fee">150.50</span>&nbsp;SAR, so it becomes <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|total">4,450.50</span>&nbsp;SAR, or <strong>4 payments of <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|each">1,112.63</span>&nbsp;SAR</strong>. If you can pay in full by card, mada, Apple Pay or bank transfer, you save the fee.</p>
 
           <h2>How Tabby and Tamara work</h2>
           <p>Tabby and Tamara are “buy now, pay later” (BNPL) services widely used by Saudi online shoppers. They pay the store on your behalf and you repay them in scheduled instalments, usually every month, from a card you link to your account.</p>
@@ -265,9 +265,9 @@ POSTS = [
                 <tr><th>Order</th><th>Price</th><th>Delivery</th><th>Pay-later fee</th><th>Total</th><th>Each of 4 payments</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>Free (regular)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td>Free (regular)</td><td>100</td><td>2,849</td><td>712.25</td></tr>
-                <tr><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>Free (regular)</td><td>100</td><td>6,399</td><td>1,599.75</td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a2l/">Bambu Lab A2L Combo</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>Free (regular)</td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|fee">150.50</span></td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|total">4,450.50</span></td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|each">1,112.63</span></td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-a1-mini/">Bambu Lab A1 mini Combo</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td>Free (regular)</td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|fee">93.45</span></td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|total">2,763.45</span></td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|each">690.86</span></td></tr>
+                <tr><td><a href="/3d/product/bambu-lab-p2s/">Bambu Lab P2S Combo</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>Free (regular)</td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|fee">220.47</span></td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|total">6,519.47</span></td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|each">1,629.87</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -277,12 +277,11 @@ POSTS = [
           <div class="b3d-table-wrap">
             <table>
               <thead>
-                <tr><th>What is in the order</th><th>Pay-later service fee</th></tr>
+                <tr><th>How you pay</th><th>Pay-later service fee</th></tr>
               </thead>
               <tbody>
-                <tr><td>Includes a 3D printer</td><td>100&nbsp;SAR</td></tr>
-                <tr><td>Filament only</td><td>50&nbsp;SAR</td></tr>
-                <tr><td>3D printed items (gifts, decor, keychains)</td><td>No fee</td></tr>
+                <tr><td>Any order paid with Tabby or Tamara</td><td>3.5% of the order (products + delivery)</td></tr>
+                <tr><td>Card, mada, Apple Pay or bank transfer</td><td>No fee</td></tr>
               </tbody>
             </table>
           </div>
@@ -290,8 +289,8 @@ POSTS = [
 
           <h2>When paying in full is cheaper</h2>
           <ul>
-            <li><strong>Whenever you can afford it upfront.</strong> Paying by card (Visa, Mastercard, mada), Apple Pay or bank transfer avoids the 100&nbsp;SAR pay-later fee on a printer order. That alone covers a spool of filament, which costs from 65&nbsp;SAR.</li>
-            <li><strong>On small add-on orders.</strong> A filament-only order paid later adds 50&nbsp;SAR, which is close to the price of a whole 1&nbsp;kg spool of <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> (<span data-b3d-price="kingroon-pla-basic-filament">65</span>&nbsp;SAR). Buying filament together with the printer, or paying for it in full, is better value.</li>
+            <li><strong>Whenever you can afford it upfront.</strong> Paying by card (Visa, Mastercard, mada), Apple Pay or bank transfer avoids the 3.5% pay-later fee. On a 2,000&nbsp;SAR printer that is 70&nbsp;SAR saved, more than a spool of filament, which costs from 65&nbsp;SAR.</li>
+            <li><strong>On small add-on orders.</strong> Pay-later adds 3.5% to every order, so a small filament order costs a little more than paying in full. A whole 1&nbsp;kg spool of <a href="/3d/product/kingroon-pla-basic-filament/">KINGROON PLA</a> costs <span data-b3d-price="kingroon-pla-basic-filament">65</span>&nbsp;SAR. Buying filament together with the printer, or paying for it in full, is better value.</li>
             <li><strong>If you might miss a payment.</strong> Providers can charge late fees under their own terms. Read the provider’s terms and set up reminders.</li>
           </ul>
           <p>Instalments make the most sense when spreading the cost lets you buy the right printer now instead of a cheaper one you will outgrow, for example choosing the A2L Combo for its 330 x 320 x 325&nbsp;mm build volume instead of a smaller machine.</p>
@@ -305,9 +304,9 @@ POSTS = [
 
           <h2>Frequently asked questions</h2>
           <h3>Can I buy a 3D printer with Tabby in Saudi Arabia?</h3>
-          <p>Yes. Choose Tabby at checkout on Black Arrow 3D; if Tabby approves the purchase, you pay in 4 instalments. A 100&nbsp;SAR pay-later service fee applies to orders that include a printer and is shown at checkout.</p>
+          <p>Yes. Choose Tabby at checkout on Black Arrow 3D; if Tabby approves the purchase, you pay in 4 instalments. A pay-later service fee of 3.5% of the order applies and is shown at checkout.</p>
           <h3>Is buying a 3D printer with Tamara free of fees?</h3>
-          <p>Not at Black Arrow 3D: a pay-later service fee applies (100&nbsp;SAR with a printer, 50&nbsp;SAR for filament only, none for 3D printed items). Tamara may also have its own terms, such as late fees, so check them in the app.</p>
+          <p>Not at Black Arrow 3D: a pay-later service fee of 3.5% of the order applies to every Tabby or Tamara order. Tamara may also have its own terms, such as late fees, so check them in the app.</p>
           <h3>What is the maximum amount I can pay in instalments?</h3>
           <p>It depends on the provider and on your account. Each customer gets an individual limit, which you can see in the Tabby or Tamara app. If a printer is above your limit, try the other provider or pay by card or bank transfer.</p>
           <h3>Does the printer ship later if I pay in instalments?</h3>
@@ -336,7 +335,7 @@ POSTS = [
             'card': ('دليل شراء', '8 دقائق قراءة', 'كيف يعمل التقسيط عبر تابي وتمارا عند شراء طابعة ثلاثية الأبعاد في السعودية، مع مثال حقيقي على 4 دفعات والرسوم المتوقعة.'),
             'body': '''
           <h2>الإجابة المختصرة</h2>
-          <p>نعم، يمكنك شراء طابعة ثلاثية الأبعاد بالتقسيط في السعودية عبر تابي أو تمارا. تختار مزود الخدمة عند إتمام الطلب، فيتحقق من أهليتك خلال دقيقة أو دقيقتين، ثم تدفع القسط الأول فورًا. عدد الدفعات وحد الإنفاق وأي رسوم لدى المزود تعتمد على المزود وعليك كعميل. في Black Arrow 3D تُضاف على طلبات الدفع الآجل <strong>رسوم خدمة 100 ريال على الطلبات التي تحتوي على طابعة</strong>، و50 ريالًا على طلبات الفلمنت فقط، ولا رسوم على المنتجات المطبوعة ثلاثية الأبعاد، وتظهر الرسوم عند إتمام الطلب قبل التأكيد. مثال: طابعة Bambu Lab A2L كومبو بسعر <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال تصبح 4,300 ريال مع الرسوم، أي <strong>4 دفعات قيمة كل منها 1,075 ريالًا</strong>. وإذا استطعت الدفع كاملًا بالبطاقة أو مدى أو Apple Pay أو التحويل البنكي، توفّر 100 ريال.</p>
+          <p>نعم، يمكنك شراء طابعة ثلاثية الأبعاد بالتقسيط في السعودية عبر تابي أو تمارا. تختار مزود الخدمة عند إتمام الطلب، فيتحقق من أهليتك خلال دقيقة أو دقيقتين، ثم تدفع القسط الأول فورًا. عدد الدفعات وحد الإنفاق وأي رسوم لدى المزود تعتمد على المزود وعليك كعميل. في Black Arrow 3D تُضاف على كل طلب دفع آجل <strong>رسوم خدمة بنسبة 3.5% من قيمة الطلب</strong> (المنتجات مع التوصيل)، وتظهر الرسوم عند إتمام الطلب قبل التأكيد. مثال: طابعة Bambu Lab A2L كومبو بسعر <span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span> ريال رسومها <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|fee">150.50</span> ريال، فتصبح <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|total">4,450.50</span> ريال، أي <strong>4 دفعات قيمة كل منها <span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|each">1,112.63</span> ريال</strong>. وإذا استطعت الدفع كاملًا بالبطاقة أو مدى أو Apple Pay أو التحويل البنكي، توفّر هذه الرسوم.</p>
 
           <h2>كيف تعمل تابي وتمارا</h2>
           <p>تابي وتمارا خدمتا «اشترِ الآن وادفع لاحقًا» يستخدمهما كثير من المتسوقين في السعودية. تدفع الخدمة للمتجر نيابة عنك، ثم تسددها أنت على أقساط مجدولة، شهرية في الغالب، من بطاقة تربطها بحسابك.</p>
@@ -369,9 +368,9 @@ POSTS = [
                 <tr><th>الطلب</th><th>السعر</th><th>التوصيل</th><th>رسوم الدفع الآجل</th><th>الإجمالي</th><th>كل دفعة من 4</th></tr>
               </thead>
               <tbody>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>مجاني (عادي)</td><td>100</td><td>4,300</td><td>1,075</td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td>مجاني (عادي)</td><td>100</td><td>2,849</td><td>712.25</td></tr>
-                <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>مجاني (عادي)</td><td>100</td><td>6,399</td><td>1,599.75</td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a2l/">Bambu Lab A2L كومبو</a></td><td><span data-b3d-price="bambu-lab-a2l|Combo (printer + AMS lite)">4,300</span></td><td>مجاني (عادي)</td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|fee">150.50</span></td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|total">4,450.50</span></td><td><span data-b3d-bnpl="bambu-lab-a2l|Combo (printer + AMS lite)|each">1,112.63</span></td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-a1-mini/">Bambu Lab A1 mini كومبو</a></td><td><span data-b3d-price="bambu-lab-a1-mini|Combo (printer + AMS lite)">2,670</span></td><td>مجاني (عادي)</td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|fee">93.45</span></td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|total">2,763.45</span></td><td><span data-b3d-bnpl="bambu-lab-a1-mini|Combo (printer + AMS lite)|each">690.86</span></td></tr>
+                <tr><td><a href="/3d/ar/product/bambu-lab-p2s/">Bambu Lab P2S كومبو</a></td><td><span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span></td><td>مجاني (عادي)</td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|fee">220.47</span></td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|total">6,519.47</span></td><td><span data-b3d-bnpl="bambu-lab-p2s|Combo (printer + AMS 2 Pro)|each">1,629.87</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -381,12 +380,11 @@ POSTS = [
           <div class="b3d-table-wrap">
             <table>
               <thead>
-                <tr><th>محتوى الطلب</th><th>رسوم خدمة الدفع الآجل</th></tr>
+                <tr><th>طريقة الدفع</th><th>رسوم خدمة الدفع الآجل</th></tr>
               </thead>
               <tbody>
-                <tr><td>يحتوي على طابعة ثلاثية الأبعاد</td><td>100 ريال</td></tr>
-                <tr><td>فلمنت فقط</td><td>50 ريالًا</td></tr>
-                <tr><td>منتجات مطبوعة ثلاثية الأبعاد (هدايا وديكور وميداليات مفاتيح)</td><td>بدون رسوم</td></tr>
+                <tr><td>أي طلب يُدفع عبر تابي أو تمارا</td><td>3.5% من قيمة الطلب (المنتجات مع التوصيل)</td></tr>
+                <tr><td>البطاقة أو مدى أو Apple Pay أو التحويل البنكي</td><td>بدون رسوم</td></tr>
               </tbody>
             </table>
           </div>
@@ -394,8 +392,8 @@ POSTS = [
 
           <h2>متى يكون الدفع كاملًا أوفر</h2>
           <ul>
-            <li><strong>كلما استطعت الدفع مقدمًا.</strong> الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي يجنبك رسوم 100 ريال على طلب الطابعة، وهذا المبلغ وحده يغطي بكرة فلمنت يبدأ سعرها من 65 ريالًا.</li>
-            <li><strong>في الطلبات الإضافية الصغيرة.</strong> طلب الفلمنت فقط بالدفع الآجل يضيف 50 ريالًا، وهو قريب من سعر بكرة كاملة 1 كجم من <a href="/3d/ar/product/kingroon-pla-basic-filament/">فلمنت KINGROON PLA</a> (<span data-b3d-price="kingroon-pla-basic-filament">65</span> ريالًا). شراء الفلمنت مع الطابعة أو دفع ثمنه كاملًا أوفر.</li>
+            <li><strong>كلما استطعت الدفع مقدمًا.</strong> الدفع بالبطاقة (Visa وMastercard ومدى) أو Apple Pay أو التحويل البنكي يجنبك رسوم الدفع الآجل البالغة 3.5%، أي 70 ريالًا على طابعة بسعر 2,000 ريال، وهذا أكثر من سعر بكرة فلمنت يبدأ من 65 ريالًا.</li>
+            <li><strong>في الطلبات الإضافية الصغيرة.</strong> الدفع الآجل يضيف 3.5% إلى كل طلب، فيكلّف طلب الفلمنت الصغير أكثر قليلًا من الدفع الكامل.  سعرها . شراء الفلمنت مع الطابعة أو دفع ثمنه كاملًا أوفر.</li>
             <li><strong>إذا كنت قد تتأخر في السداد.</strong> قد يفرض المزودون رسوم تأخير بحسب شروطهم، فاقرأ الشروط وفعّل التذكيرات.</li>
           </ul>
           <p>يكون التقسيط منطقيًا أكثر عندما يتيح لك شراء الطابعة المناسبة الآن بدل طابعة أرخص ستتجاوزها قريبًا، مثل اختيار A2L كومبو بحجم طباعة 330 x 320 x 325 مم بدل طابعة أصغر.</p>
@@ -409,9 +407,9 @@ POSTS = [
 
           <h2>الأسئلة الشائعة</h2>
           <h3>هل يمكن شراء طابعة ثلاثية الأبعاد عبر تابي في السعودية؟</h3>
-          <p>نعم. اختر تابي عند إتمام الطلب في Black Arrow 3D، وإذا وافقت تابي على الشراء تدفع على 4 أقساط. تُضاف رسوم خدمة دفع آجل قدرها 100 ريال على الطلبات التي تحتوي على طابعة، وتظهر عند إتمام الطلب.</p>
+          <p>نعم. اختر تابي عند إتمام الطلب في Black Arrow 3D، وإذا وافقت تابي على الشراء تدفع على 4 أقساط. تُضاف رسوم خدمة دفع آجل قدرها 3.5% من قيمة الطلب، وتظهر عند إتمام الطلب.</p>
           <h3>هل الشراء عبر تمارا بدون أي رسوم؟</h3>
-          <p>ليس في Black Arrow 3D، إذ تُضاف رسوم خدمة الدفع الآجل (100 ريال مع الطابعة، و50 ريالًا للفلمنت فقط، ولا شيء للمنتجات المطبوعة). وقد يكون لدى تمارا شروطها الخاصة مثل رسوم التأخير، فراجعها في التطبيق.</p>
+          <p>ليس في Black Arrow 3D، إذ تُضاف رسوم خدمة الدفع الآجل بنسبة 3.5% من قيمة الطلب على كل طلب عبر تابي أو تمارا. وقد يكون لدى تمارا شروطها الخاصة مثل رسوم التأخير، فراجعها في التطبيق.</p>
           <h3>ما أقصى مبلغ يمكن تقسيطه؟</h3>
           <p>يعتمد على المزود وعلى حسابك. لكل عميل حد خاص يظهر في تطبيق تابي أو تمارا، وإذا كان سعر الطابعة أعلى من حدك جرّب المزود الآخر أو ادفع بالبطاقة أو التحويل البنكي.</p>
           <h3>هل تتأخر الطابعة في الشحن إذا اشتريتها بالتقسيط؟</h3>
@@ -538,7 +536,7 @@ POSTS = [
           <h3>Is the Bambu Lab P2S enclosed?</h3>
           <p>Yes. The P2S is an enclosed printer with a 256 x 256 x 256&nbsp;mm build volume and a 110&nbsp;°C bed, currently <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span>&nbsp;SAR as a Combo with the AMS 2 Pro.</p>
           <h3>Can I buy a Bambu Lab printer in instalments?</h3>
-          <p>Yes, with Tabby or Tamara at checkout, subject to approval. A 100&nbsp;SAR pay-later service fee applies to printer orders. See the <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">instalments guide</a>.</p>
+          <p>Yes, with Tabby or Tamara at checkout, subject to approval. A pay-later service fee of 3.5% of the order applies. See the <a href="/3d/blog/3d-printer-installments-tabby-tamara-saudi/">instalments guide</a>.</p>
 
           <div class="b3d-article__cta">
             <p>See live stock for every Bambu Lab printer</p>
@@ -655,7 +653,7 @@ POSTS = [
           <h3>هل طابعة Bambu Lab P2S مغلقة؟</h3>
           <p>نعم. P2S طابعة مغلقة بحجم طباعة 256 x 256 x 256 مم وسرير حتى 110 °م، وسعرها الحالي <span data-b3d-price="bambu-lab-p2s|Combo (printer + AMS 2 Pro)">6,299</span> ريالًا ككومبو مع AMS 2 Pro.</p>
           <h3>هل يمكن شراء طابعة Bambu Lab بالتقسيط؟</h3>
-          <p>نعم، عبر تابي أو تمارا عند إتمام الطلب بشرط الموافقة، وتُضاف رسوم خدمة دفع آجل قدرها 100 ريال على طلبات الطابعات. راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">دليل التقسيط</a>.</p>
+          <p>نعم، عبر تابي أو تمارا عند إتمام الطلب بشرط الموافقة، وتُضاف رسوم خدمة دفع آجل قدرها 3.5% من قيمة الطلب. راجع <a href="/3d/ar/blog/3d-printer-installments-tabby-tamara-saudi/">دليل التقسيط</a>.</p>
 
           <div class="b3d-article__cta">
             <p>شاهد المخزون الحالي لكل طابعات Bambu Lab</p>
@@ -897,7 +895,7 @@ POSTS = [
           <h2>The 12-point checklist</h2>
 
           <h3>1. Budget, including filament</h3>
-          <p>Do not spend your whole budget on the printer. Plan for 3–5 spools of filament at 65–75&nbsp;SAR each (about 195–375&nbsp;SAR), delivery (30&nbsp;SAR Standard or 50&nbsp;SAR Fast, free on every printer order) and, later, a spare nozzle or hot end. If you plan to pay with Tabby or Tamara, add the 100&nbsp;SAR pay-later service fee on printer orders.</p>
+          <p>Do not spend your whole budget on the printer. Plan for 3–5 spools of filament at 65–75&nbsp;SAR each (about 195–375&nbsp;SAR), delivery (30&nbsp;SAR Standard or 50&nbsp;SAR Fast, free on every printer order) and, later, a spare nozzle or hot end. If you plan to pay with Tabby or Tamara, add the pay-later service fee of 3.5% of the order.</p>
 
           <h3>2. Build size</h3>
           <p>Build volume decides the largest single piece you can print. As a guide, using current catalog sizes:</p>
@@ -983,7 +981,7 @@ POSTS = [
           <h2>قائمة التحقق من 12 نقطة</h2>
 
           <h3>1. الميزانية مع الفلمنت</h3>
-          <p>لا تصرف ميزانيتك كلها على الطابعة. خطط لـ3–5 بكرات فلمنت بسعر 65–75 ريالًا للبكرة (نحو 195–375 ريالًا)، والتوصيل (30 ريالًا عادي أو 50 ريالًا سريع، ومجاني لكل طلب طابعة)، ولاحقًا فوهة أو هوت إند احتياطي. وإذا كنت ستدفع عبر تابي أو تمارا، فأضف رسوم خدمة الدفع الآجل البالغة 100 ريال على طلبات الطابعات.</p>
+          <p>لا تصرف ميزانيتك كلها على الطابعة. خطط لـ3–5 بكرات فلمنت بسعر 65–75 ريالًا للبكرة (نحو 195–375 ريالًا)، والتوصيل (30 ريالًا عادي أو 50 ريالًا سريع، ومجاني لكل طلب طابعة)، ولاحقًا فوهة أو هوت إند احتياطي. وإذا كنت ستدفع عبر تابي أو تمارا، فأضف رسوم خدمة الدفع الآجل البالغة 3.5% من قيمة الطلب.</p>
 
           <h3>2. حجم الطباعة</h3>
           <p>حجم الطباعة يحدد أكبر قطعة واحدة يمكنك طباعتها. كدليل، وفق المقاسات الحالية في الكتالوج:</p>

@@ -58,7 +58,7 @@ POSTS = [
           </ul>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, card (Visa, Mastercard, mada) or Apple Pay, or split the cost with Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout before you confirm. Printers are covered by the manufacturer’s warranty against defects, and our team helps you with any warranty claim.</p>
+          <p>Pay by bank transfer, card (Visa, Mastercard, mada) or Apple Pay, or split the cost with Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout before you confirm. Printers are covered by the manufacturer’s warranty against defects, and our team helps you with any warranty claim.</p>
 
           <h2>Prefer to have it printed for you?</h2>
           <p>If you only need a few parts, use our <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a>: upload an STL file for an <a href="/3d/quote/">instant online quote</a>. Companies ordering in volume can use our <a href="/3d/business/">business and bulk orders</a> page.</p>
@@ -131,7 +131,7 @@ POSTS = [
           </ul>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو بالبطاقة (Visa وMastercard ومدى) أو Apple Pay، أو قسّط المبلغ عبر تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر لك في صفحة الدفع قبل التأكيد. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، وفريقنا يساعدك في أي مطالبة بالضمان.</p>
+          <p>ادفع بالتحويل البنكي أو بالبطاقة (Visa وMastercard ومدى) أو Apple Pay، أو قسّط المبلغ عبر تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر لك في صفحة الدفع قبل التأكيد. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، وفريقنا يساعدك في أي مطالبة بالضمان.</p>
 
           <h2>تفضّل أن نطبع لك؟</h2>
           <p>إذا كنت تحتاج قطعًا قليلة فقط، فاستخدم <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a>: ارفع ملف STL واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a>. وللشركات التي تطلب كميات كبيرة صفحة <a href="/3d/ar/business/">طلبات الأعمال والجملة</a>.</p>
@@ -204,7 +204,7 @@ POSTS = [
           <p>We ship from Dammam to every part of Jeddah, including Obhur and the southern districts. In-stock items ordered before 4&nbsp;pm (Saudi time), Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment and warranty</h2>
-          <p>We accept bank transfer, Visa, Mastercard, mada and Apple Pay, plus pay later with Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, including printers and filament-only orders, and you see it at checkout. Printers carry the manufacturer’s warranty for defective products, and we help you with the claim.</p>
+          <p>We accept bank transfer, Visa, Mastercard, mada and Apple Pay, plus pay later with Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders, and you see it at checkout. Printers carry the manufacturer’s warranty for defective products, and we help you with the claim.</p>
 
           <h2>Just need a part printed?</h2>
           <p>Upload your STL for an <a href="/3d/quote/">instant quote</a> through our <a href="/3d/3d-printing-service-saudi-arabia/">custom 3D printing service</a>, or browse ready-made <a href="/3d/shop/3d-artwork/">3D printed gifts</a>.</p>
@@ -271,7 +271,7 @@ POSTS = [
           <p>نشحن من الدمام إلى جميع أنحاء جدة، ومنها أبحر والأحياء الجنوبية. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>نقبل التحويل البنكي وVisa وMastercard ومدى وApple Pay، والدفع الآجل عبر تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل، منها الطابعات وطلبات الفلمنت فقط، وتظهر لك في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في إجراءات المطالبة.</p>
+          <p>نقبل التحويل البنكي وVisa وMastercard ومدى وApple Pay، والدفع الآجل عبر تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر لك في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في إجراءات المطالبة.</p>
 
           <h2>تحتاج قطعة مطبوعة فقط؟</h2>
           <p>ارفع ملف STL واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a> عبر <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد حسب الطلب</a>، أو تصفح <a href="/3d/ar/shop/3d-artwork/">الهدايا المطبوعة الجاهزة</a>.</p>
@@ -342,7 +342,7 @@ POSTS = [
           <p>We deliver to all districts of Makkah from our base in Dammam. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; later orders go out the next business day. Choose standard delivery (4–5 business days, 30 SAR) or fast delivery (2–3 business days, 50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping. Pre-order items follow the timing shown on their product page.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Defective products are covered by the manufacturer’s warranty, and we help you through the claim.</p>
+          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Defective products are covered by the manufacturer’s warranty, and we help you through the claim.</p>
 
           <h2>No printer? We can print it</h2>
           <p>For a one-off architecture model or a batch of gifts, send us the file through the <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a> and get an <a href="/3d/quote/">instant online quote</a> for STL files.</p>
@@ -409,7 +409,7 @@ POSTS = [
           <p>نوصل إلى جميع أحياء مكة من مقرنا في الدمام. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وما بعد ذلك في يوم العمل التالي. اختر التوصيل العادي (4–5 أيام عمل، 30 ريالًا) أو السريع (2–3 أيام عمل، 50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. المطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن، أما منتجات الطلب المسبق فتتبع المدة الموضحة في صفحة كل منتج.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. المنتجات المعيبة مشمولة بضمان الشركة المصنعة، ونساعدك في إجراءات المطالبة.</p>
+          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. المنتجات المعيبة مشمولة بضمان الشركة المصنعة، ونساعدك في إجراءات المطالبة.</p>
 
           <h2>لا تملك طابعة؟ نطبعها لك</h2>
           <p>لمجسم معماري واحد أو دفعة من الهدايا، أرسل الملف عبر <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a> واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a> لملفات STL.</p>
@@ -482,7 +482,7 @@ POSTS = [
           <p>Orders are shipped from Dammam to any address in Madinah. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery: 4–5 business days for 30 SAR. Fast delivery: 2–3 business days for 50 SAR. Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Choose bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Printers come with the manufacturer’s warranty against defects, and our team helps you with any claim, in Arabic or English.</p>
+          <p>Choose bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Printers come with the manufacturer’s warranty against defects, and our team helps you with any claim, in Arabic or English.</p>
 
           <h2>Order prints instead</h2>
           <p>Shops that need a batch of signs or displays can order through our <a href="/3d/business/">business and bulk orders</a> service or our <a href="/3d/3d-printing-service-saudi-arabia/">custom 3D printing service</a>, with an <a href="/3d/quote/">instant quote</a> for STL files.</p>
@@ -551,7 +551,7 @@ POSTS = [
           <p>نشحن الطلبات من الدمام إلى أي عنوان في المدينة المنورة. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل بتكلفة 30 ريالًا. التوصيل السريع: 2–3 أيام عمل بتكلفة 50 ريالًا. التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>اختر التحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، وفريقنا يساعدك في أي مطالبة بالعربية أو الإنجليزية.</p>
+          <p>اختر التحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، وفريقنا يساعدك في أي مطالبة بالعربية أو الإنجليزية.</p>
 
           <h2>اطلب المطبوعات بدلًا من الطابعة</h2>
           <p>المحلات التي تحتاج دفعة من اللوحات أو حوامل العرض يمكنها الطلب عبر <a href="/3d/ar/business/">طلبات الأعمال والجملة</a> أو <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد حسب الطلب</a>، مع <a href="/3d/ar/quote/">عرض سعر فوري</a> لملفات STL.</p>
@@ -625,7 +625,7 @@ POSTS = [
           <p>Delivery terms are the same across Saudi Arabia. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Printers carry the manufacturer’s warranty for defective products, and we help you with the claim process.</p>
+          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Printers carry the manufacturer’s warranty for defective products, and we help you with the claim process.</p>
 
           <h2>Prototyping without buying a printer</h2>
           <p>Need a few prototypes or a production batch? Upload an STL for an <a href="/3d/quote/">instant quote</a>, use our <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a>, or contact us through <a href="/3d/business/">business and bulk orders</a> for company purchases.</p>
@@ -697,7 +697,7 @@ POSTS = [
           <p>شروط التوصيل واحدة في جميع أنحاء المملكة. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في إجراءات المطالبة.</p>
+          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في إجراءات المطالبة.</p>
 
           <h2>نماذج أولية دون شراء طابعة</h2>
           <p>تحتاج بضعة نماذج أولية أو دفعة إنتاج؟ ارفع ملف STL واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a>، أو استخدم <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a>، أو تواصل معنا عبر <a href="/3d/ar/business/">طلبات الأعمال والجملة</a> لمشتريات الشركات.</p>
@@ -769,7 +769,7 @@ POSTS = [
           <p>We ship from Dammam to Jubail, Al Ahsa and every other city in Saudi Arabia on the same terms. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery: 4–5 business days (30 SAR). Fast delivery: 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment, invoices and warranty</h2>
-          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. For company purchases, see <a href="/3d/business/">business and bulk orders</a>. Printers carry the manufacturer’s warranty for defects, and we help you with claims.</p>
+          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. For company purchases, see <a href="/3d/business/">business and bulk orders</a>. Printers carry the manufacturer’s warranty for defects, and we help you with claims.</p>
 
           <h2>Need parts, not a printer?</h2>
           <p>Send us your CAD export as an STL for an <a href="/3d/quote/">instant quote</a> through our <a href="/3d/3d-printing-service-saudi-arabia/">custom 3D printing service</a>.</p>
@@ -835,7 +835,7 @@ POSTS = [
           <p>نشحن من الدمام إلى الجبيل والأحساء وكل مدن المملكة بالشروط نفسها. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل (30 ريالًا). التوصيل السريع: 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والفواتير والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. ولمشتريات الشركات راجع <a href="/3d/ar/business/">طلبات الأعمال والجملة</a>. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في المطالبات.</p>
+          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. ولمشتريات الشركات راجع <a href="/3d/ar/business/">طلبات الأعمال والجملة</a>. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في المطالبات.</p>
 
           <h2>تحتاج قطعًا لا طابعة؟</h2>
           <p>أرسل ملف التصميم بصيغة STL واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a> عبر <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد حسب الطلب</a>.</p>
@@ -907,7 +907,7 @@ POSTS = [
           <p>We ship from Dammam to addresses across the Qassim region. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery: 4–5 business days (30 SAR). Fast delivery: 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping. Pre-order items follow the timing shown on their product page.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Printers come with the manufacturer’s warranty for defective products, and we help you through any claim.</p>
+          <p>Pay by bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Printers come with the manufacturer’s warranty for defective products, and we help you through any claim.</p>
 
           <h2>Prefer us to print it?</h2>
           <p>Get an <a href="/3d/quote/">instant quote</a> for your STL file through our <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a>, or send a bulk enquiry through <a href="/3d/business/">business orders</a>.</p>
@@ -975,7 +975,7 @@ POSTS = [
           <p>نشحن من الدمام إلى العناوين في جميع أنحاء منطقة القصيم. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي: 4–5 أيام عمل (30 ريالًا). التوصيل السريع: 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن، أما منتجات الطلب المسبق فتتبع المدة الموضحة في صفحة كل منتج.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في أي مطالبة.</p>
+          <p>ادفع بالتحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة للمنتجات المعيبة، ونساعدك في أي مطالبة.</p>
 
           <h2>تفضّل أن نطبعها لك؟</h2>
           <p>احصل على <a href="/3d/ar/quote/">عرض سعر فوري</a> لملف STL عبر <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a>، أو أرسل طلب كميات عبر <a href="/3d/ar/business/">طلبات الأعمال</a>.</p>
@@ -1044,7 +1044,7 @@ POSTS = [
           <p>We deliver from Dammam to Abha, Khamis Mushait and the surrounding Asir towns. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day; otherwise on the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Printers are covered by the manufacturer’s warranty against defects, and we help you with the claim.</p>
+          <p>Pay by bank transfer, card (Visa, Mastercard, mada), Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Printers are covered by the manufacturer’s warranty against defects, and we help you with the claim.</p>
 
           <h2>Have it printed for you</h2>
           <p>For souvenir batches or a single model, use our <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a> with an <a href="/3d/quote/">instant STL quote</a>, or browse ready-made <a href="/3d/gifts/under-50/">gifts under 50 SAR</a>.</p>
@@ -1109,7 +1109,7 @@ POSTS = [
           <p>نوصل من الدمام إلى أبها وخميس مشيط والبلدات المحيطة في عسير. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في إجراءات المطالبة.</p>
+          <p>ادفع بالتحويل البنكي أو البطاقة (Visa وMastercard ومدى) أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في إجراءات المطالبة.</p>
 
           <h2>دعنا نطبعها لك</h2>
           <p>لدفعات التذكارات أو لمجسم واحد، استخدم <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a> مع <a href="/3d/ar/quote/">عرض سعر فوري لملفات STL</a>، أو تصفح <a href="/3d/ar/gifts/under-50/">هدايا أقل من 50 ريالًا</a> الجاهزة.</p>
@@ -1178,7 +1178,7 @@ POSTS = [
           <p>We ship from Dammam to Tabuk city and the surrounding region. In-stock items ordered before 4&nbsp;pm Saudi time, Sunday to Thursday, are dispatched the same day, otherwise the next business day. Standard delivery takes 4–5 business days (30 SAR) and fast delivery 2–3 business days (50 SAR). Regular delivery is free on every order with a 3D printer, on orders with 100 SAR or more of 3D printed items, and on any order from 500 SAR. 3D printed items are made to order in 3–5 business days before shipping.</p>
 
           <h2>Payment and warranty</h2>
-          <p>Pay by bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee applies to some orders, such as printers and filament-only orders, and is shown at checkout. Printers carry the manufacturer’s warranty against defects, and we help you with the claim.</p>
+          <p>Pay by bank transfer, Visa, Mastercard, mada, Apple Pay, Tabby (4 payments) or Tamara. A pay-later service fee of 3.5% of the order applies to Tabby and Tamara orders and is shown at checkout. Printers carry the manufacturer’s warranty against defects, and we help you with the claim.</p>
 
           <h2>Printing service and business orders</h2>
           <p>Need a model for a presentation next week and no printer yet? Upload an STL for an <a href="/3d/quote/">instant quote</a> through our <a href="/3d/3d-printing-service-saudi-arabia/">3D printing service</a>. Teams and companies can use <a href="/3d/business/">business and bulk orders</a>.</p>
@@ -1243,7 +1243,7 @@ POSTS = [
           <p>نشحن من الدمام إلى مدينة تبوك والمنطقة المحيطة بها. الطلبات المتوفرة في المخزون قبل 4 عصرًا بتوقيت السعودية من الأحد إلى الخميس تُشحن في اليوم نفسه، وإلا ففي يوم العمل التالي. التوصيل العادي خلال 4–5 أيام عمل (30 ريالًا) والسريع خلال 2–3 أيام عمل (50 ريالًا). التوصيل العادي مجاني للطلبات التي تشمل مطبوعات ثلاثية الأبعاد بقيمة 100 ريال فأكثر ولكل طلب يحتوي على طابعة، ولأي طلب من 500 ريال. والمطبوعات ثلاثية الأبعاد تُصنع حسب الطلب خلال 3–5 أيام عمل قبل الشحن.</p>
 
           <h2>الدفع والضمان</h2>
-          <p>ادفع بالتحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة على بعض طلبات الدفع الآجل مثل الطابعات وطلبات الفلمنت فقط، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في إجراءات المطالبة.</p>
+          <p>ادفع بالتحويل البنكي أو Visa أو Mastercard أو مدى أو Apple Pay أو تابي (4 دفعات) أو تمارا. تُطبق رسوم خدمة بنسبة 3.5% من قيمة الطلب على طلبات الدفع الآجل عبر تابي وتمارا، وتظهر في صفحة الدفع. الطابعات مشمولة بضمان الشركة المصنعة ضد العيوب، ونساعدك في إجراءات المطالبة.</p>
 
           <h2>خدمة الطباعة وطلبات الأعمال</h2>
           <p>تحتاج مجسمًا لعرض تقديمي الأسبوع القادم ولا تملك طابعة بعد؟ ارفع ملف STL واحصل على <a href="/3d/ar/quote/">عرض سعر فوري</a> عبر <a href="/3d/ar/3d-printing-service-saudi-arabia/">خدمة الطباعة ثلاثية الأبعاد</a>. ويمكن للفرق والشركات استخدام <a href="/3d/ar/business/">طلبات الأعمال والجملة</a>.</p>
