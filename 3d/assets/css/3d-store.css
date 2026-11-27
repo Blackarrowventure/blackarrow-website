@@ -3641,9 +3641,10 @@ body:not(.b3d-is-bahrain) .b3d-bh-only, body.b3d-is-bahrain .b3d-sa-only { displ
 .b3d-ord { border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(255,255,255,.035); margin: 0 0 12px; }
 .b3d-ord--track { padding: 14px 16px 12px; }
 .b3d-ord__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; list-style: none; }
-details.b3d-ord > .b3d-ord__head { cursor: pointer; padding: 14px 16px; }
+details.b3d-ord > .b3d-ord__head { cursor: pointer; padding: 14px 40px 14px 16px; position: relative; }
+html[dir="rtl"] details.b3d-ord > .b3d-ord__head { padding: 14px 16px 14px 40px; }
 details.b3d-ord > .b3d-ord__head::-webkit-details-marker { display: none; }
-details.b3d-ord > .b3d-ord__head::after { content: "▾"; margin-inline-start: 4px; color: rgba(255,255,255,.5); transition: transform .2s; }
+details.b3d-ord > .b3d-ord__head::after { content: "▾"; position: absolute; top: 15px; inset-inline-end: 16px; color: rgba(255,255,255,.5); transition: transform .2s; }
 details.b3d-ord[open] > .b3d-ord__head::after { transform: rotate(180deg); }
 details.b3d-ord > :not(summary) { margin-inline: 16px; }
 details.b3d-ord[open] { padding-bottom: 14px; }

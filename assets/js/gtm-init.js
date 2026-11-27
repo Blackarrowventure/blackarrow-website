@@ -24,6 +24,10 @@
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     f.parentNode.insertBefore(j, f);
   }
+  // Conversion pages load it straight away, so a customer who closes the page within a few seconds
+  // is still counted: the order confirmation after Paymob / Tabby (?paid= / ?tabby=) and the
+  // contact-form thank-you page.
+  if (/[?&](paid|tabby)=/.test(w.location.search) || /thank-you/.test(w.location.pathname)) { start(); return; }
   events.forEach(function (e) { w.addEventListener(e, start, { passive: true }); });
   function later() { setTimeout(start, 4000); }
   if (d.readyState === 'complete') later();

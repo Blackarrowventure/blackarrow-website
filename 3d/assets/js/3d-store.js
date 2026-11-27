@@ -3086,8 +3086,13 @@
       var rewardsUsedAmount = rewardsDiscount();
       var couponDiscountAmount = couponDiscount();
       var bankSavingAmount = bankSaving();
+      // Customer details read now too, not after the token lookup below.
+      var billing = checkoutBilling(get);
+      var payment = currentPayMethod === 'cash' ? 'cash' : 'bank';
       // The server checks the coupon, rewards and member delivery itself (by account and redemption).
-      var tokenP = rewardsState && rewardsState.member && window.BlackArrow3DAuth
+      // Sent for every signed-in customer (not only rewards members): it also links the order to their
+      // account, since a pickup order paid by bank transfer or cash has no Email box.
+      var tokenP = window.BlackArrow3DAuth && window.BlackArrow3DAuth.getAccessToken
         ? Promise.resolve(window.BlackArrow3DAuth.getAccessToken()).catch(function () { return null; }) : Promise.resolve(null);
       tokenP.then(function (token) { return fetch('/api/bank-order/', {
         method: 'POST',
@@ -3104,8 +3109,8 @@
           couponDiscount: couponDiscountAmount,
           rewardsUsed: rewardsUsedAmount,
           bankSaving: bankSavingAmount,
-          payment: currentPayMethod === 'cash' ? 'cash' : 'bank',
-          billing: checkoutBilling(get)
+          payment: payment,
+          billing: billing
         })
       }); }).catch(function () {});
     } catch (e) { /* never block the order */ }

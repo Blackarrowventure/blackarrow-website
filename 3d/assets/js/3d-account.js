@@ -173,18 +173,25 @@
     'Completed': [4, 'Completed', 'مكتمل']
   };
   var STEPS = [['Placed', 'تم الطلب'], ['Confirmed', 'تم التأكيد'], ['Packed', 'التغليف'], ['On the way', 'في الطريق'], ['Delivered', 'تم التوصيل']];
+  // Self pickup (Al Khobar pickup point): nothing travels, so the last two steps read differently.
+  var PICKUP_STEPS = [['Placed', 'تم الطلب'], ['Confirmed', 'تم التأكيد'], ['Packed', 'التغليف'], ['Ready for pickup', 'جاهز للاستلام'], ['Collected', 'تم الاستلام']];
+  function isPickup(o) { return /pickup/i.test(o.deliveryLabel || '') || /^cash/i.test(o.method || ''); }
 
   function stageOf(o) {
     if (o.status === 'rejected') return { step: -1, label: L('Cancelled', 'ملغي'), tone: 'bad' };
     if (o.status === 'pending') return { step: 0, label: L('Awaiting confirmation', 'بانتظار التأكيد'), tone: 'wait' };
     var p = PROGRESS[o.progress] || PROGRESS['Order received'];
+    if (isPickup(o)) {
+      if (o.progress === 'Ready for delivery' || o.progress === 'Dispatched') p = [3, 'Ready for pickup', 'جاهز للاستلام'];
+      else if (p[0] >= 4) p = [4, 'Collected', 'تم الاستلام'];
+    }
     return { step: p[0], label: L(p[1], p[2]), tone: p[0] >= 4 ? 'done' : 'go' };
   }
   function isActive(o) { var s = stageOf(o); return s.step >= 0 && s.step < 4; }
 
   function tracker(o) {
     var s = stageOf(o);
-    return '<ol class="b3d-ord__track" aria-label="' + esc(L('Order progress', 'مراحل الطلب')) + '">' + STEPS.map(function (st, i) {
+    return '<ol class="b3d-ord__track" aria-label="' + esc(L('Order progress', 'مراحل الطلب')) + '">' + (isPickup(o) ? PICKUP_STEPS : STEPS).map(function (st, i) {
       var cls = i < s.step ? 'is-done' : i === s.step ? 'is-now' : '';
       return '<li class="' + cls + '"' + (i === s.step ? ' aria-current="step"' : '') + '><span></span>' + esc(L(st[0], st[1])) + '</li>';
     }).join('') + '</ol>';
@@ -228,7 +235,7 @@
 
   function payLine(o) {
     var paid = o.paid ? '<span class="b3d-ord__pill is-done">' + L('Paid', 'مدفوع') + '</span>'
-      : (o.status === 'rejected' ? '' : '<span class="b3d-ord__pill is-wait">' + L('Awaiting payment', 'بانتظار الدفع') + '</span>');
+      : (o.status === 'rejected' ? '' : '<span class="b3d-ord__pill is-wait">' + (/^cash/i.test(o.method || '') ? L('Pay at pickup', 'الدفع عند الاستلام') : L('Awaiting payment', 'بانتظار الدفع')) + '</span>');
     return '<p class="b3d-ord__pay">' + esc(labelAr(o.method)) + ' ' + paid
       + (o.invoiceUrl ? ' · <a href="' + esc(o.invoiceUrl) + '" target="_blank" rel="noopener">' + L('View invoice', 'عرض الفاتورة') + (o.invoiceNumber ? ' ' + esc(o.invoiceNumber) : '') + '</a>' : '') + '</p>';
   }
@@ -279,11 +286,15 @@
   function nextText(o) {
     if (o.status === 'pending') {
       return /bank/i.test(o.method) && !o.paid
-        ? L('We have your order. We confirm it once your bank transfer arrives; you will get an email.', 'استلمنا طلبك، وسنؤكده بعد وصول التحويل البنكي وتصلك رسالة بالبريد.')
-        : L('We have your order and will confirm it shortly by email.', 'استلمنا طلبك وسنؤكده قريباً عبر البريد الإلكتروني.');
+        ? L('We have your order. Please complete your bank transfer if you have not yet; we will email you when your order is confirmed.', 'استلمنا طلبك. يرجى إتمام التحويل البنكي إن لم تكن أتممته، وسنراسلك بالبريد عند تأكيد الطلب.')
+        : L('We have your order and will email you when it is confirmed.', 'استلمنا طلبك، وسنراسلك بالبريد عند تأكيده.');
     }
     var s = stageOf(o).step;
     if (s === 1) return L('Confirmed. We are preparing your order.', 'تم التأكيد، ونجهّز طلبك الآن.');
+    if (isPickup(o)) {
+      if (s === 2) return L("Packed. We'll message you when it's ready to collect from our Al Khobar pickup point.", 'تم تغليف طلبك، وسنراسلك عندما يكون جاهزاً للاستلام من نقطة الاستلام في الخبر.');
+      return L('Ready to collect from our Al Khobar pickup point.', 'طلبك جاهز للاستلام من نقطة الاستلام في الخبر.');
+    }
     if (s === 2) return L('Packed and getting ready to ship.', 'تم تغليف طلبك وهو جاهز للشحن.');
     return L('On the way to you.', 'طلبك في الطريق إليك.');
   }

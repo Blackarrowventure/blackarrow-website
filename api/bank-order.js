@@ -9,7 +9,7 @@ const { buildOrder, stockProblem, hasNoPayLater } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
 const rewards = require('./_lib/rewards');
-const { db, rateHit, clientIp } = require('./_lib/db');
+const { db, rateHit, clientIp, websiteUser } = require('./_lib/db');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -43,6 +43,19 @@ module.exports = async (req, res) => {
   const cash = body.payment === 'cash';
   if (cash && body.shipping !== 'pickup') return res.status(400).json({ error: 'cash_pickup_only' });
   if (cash && hasNoPayLater(body.items)) return res.status(400).json({ error: 'cash_not_available' });
+
+  // Signed-in customer: a pickup order paid by bank transfer or cash hides the Email box, so the
+  // order used to reach the CRM with no email and never showed in the customer's account (Order
+  // History / Tracking match on email). Fill it from the verified account email instead.
+  let accountEmail = '';
+  if (body.authToken) {
+    try {
+      const u = await websiteUser(String(body.authToken));
+      if (u && u.email && u.email_confirmed_at) accountEmail = String(u.email).trim().slice(0, 120);
+    } catch (e) {
+      console.error('bank-order: account lookup failed', e.message);
+    }
+  }
 
   // Signed-in member: Gold / Platinum free Regular delivery comes from their account.
   let member = null;
@@ -131,7 +144,7 @@ module.exports = async (req, res) => {
     paid: false,
     customer_name: name,
     customer_phone: phone,
-    customer_email: s(b.email, 120),
+    customer_email: s(b.email, 120) || accountEmail,
     customer_city: s(b.city, 60),
     customer_address: [s(b.street, 120), s(b.building, 20), s(b.apartment, 40), s(b.postalCode, 20)].filter(Boolean).join(', '),
     discount_note: discountCents + savingCents ? notes.slice(0, -1).join(' · ') : null,
