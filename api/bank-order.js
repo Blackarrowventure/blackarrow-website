@@ -9,7 +9,54 @@ const { buildOrder, stockProblem, hasNoPayLater } = require('./_lib/pricing');
 const { liveProducts } = require('./_lib/crm-catalog');
 const { crmDetails, sendBankOrder } = require('./_lib/crm-orders');
 const rewards = require('./_lib/rewards');
-const { db, rateHit, clientIp, websiteUser } = require('./_lib/db');
+const { db, rateHit, clientIp, websiteUser, nextOrderId } = require('./_lib/db');
+
+// Cash at the Euro Village stall (/3d/euro-village/): the customer types the amount the stall
+// tells them, the order goes to the CRM's Online Orders inbox as unpaid cash, and the page shows
+// the order number + amount to pay the team in cash. Staff confirm it and mark the invoice Paid.
+async function stallCash(req, res, body) {
+  // One stall phone may record many sales: a looser limit than website orders.
+  if (!(await rateHit('stall-cash:' + clientIp(req), 60, '1 hour')) || !(await rateHit('stall-cash:all', 400, '1 day'))) {
+    return res.status(429).json({ error: 'too_many_orders' });
+  }
+  const s = (v, max) => String(v || '').trim().replace(/\s+/g, ' ').slice(0, max);
+  const b = body.billing || {};
+  const name = (s(b.firstName, 60) + ' ' + (s(b.lastName, 60) === '-' ? '' : s(b.lastName, 60))).trim();
+  const phone = s(b.phone, 20);
+  if (!name || phone.replace(/\D/g, '').length < 9) return res.status(400).json({ error: 'invalid_billing' });
+  const cents = Math.round(Number(body.amount) * 100);
+  if (!Number.isFinite(cents) || cents < 100 || cents > 2000000) return res.status(400).json({ error: 'invalid_amount' });
+  const email = s(b.email, 120);
+  const orderId = await nextOrderId();
+  const sar = cents / 100;
+  const label = '3D item (Euro Village stall)';
+  try {
+    await sendBankOrder({
+      lines: [{ product_slug: '', variant_label: '', product_name: label, name: label, unit_price: sar, quantity: 1 }],
+      delivery_fee: 0,
+      delivery_label: 'Bought at the Euro Village stall',
+      pay_later_fee: 0,
+      discount: 0,
+      discount_note: null,
+      total: sar,
+      order_ref: orderId,
+      source: 'bank',
+      method_label: 'Cash at Euro Village stall',
+      payment_method: 'Cash',
+      paid: false,
+      customer_name: name,
+      customer_phone: phone,
+      customer_email: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? email : '',
+      customer_city: 'Euro Village',
+      customer_address: '',
+      notes: 'CASH AT EURO VILLAGE STALL: collect ' + sar + ' SAR in cash, then confirm and mark the invoice Paid.',
+    });
+  } catch (e) {
+    console.error('stall cash: CRM inbox failed', orderId, e.message, e.detail || '');
+    return res.status(502).json({ error: 'crm_unavailable' });
+  }
+  return res.status(200).json({ ok: true, orderId, amount: sar });
+}
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -22,6 +69,8 @@ module.exports = async (req, res) => {
   } catch (e) {
     return res.status(400).json({ error: 'invalid_json' });
   }
+
+  if (body.event === 'euro-village') return stallCash(req, res, body);
 
   const orderId = String(body.orderId || '').trim();
   if (!/^[A-Za-z0-9-]{3,40}$/.test(orderId)) return res.status(400).json({ error: 'invalid_order_id' });

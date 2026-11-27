@@ -17,8 +17,13 @@
   try { apple.hidden = !(window.ApplePaySession && window.ApplePaySession.canMakePayments()); } catch (e) { apple.hidden = true; }
 
   form.querySelectorAll('[data-amt]').forEach(function (b) {
-    b.addEventListener('click', function () { amountEl.value = b.getAttribute('data-amt'); amountEl.focus(); });
+    b.addEventListener('click', function () { amountEl.value = b.getAttribute('data-amt'); markChip(); amountEl.focus(); });
   });
+  // The quick-amount button matching the typed amount lights up.
+  function markChip() {
+    form.querySelectorAll('[data-amt]').forEach(function (c) { c.classList.toggle('is-on', Number(c.getAttribute('data-amt')) === Number(amountEl.value)); });
+  }
+  amountEl.addEventListener('input', markChip);
 
   function showError(msg) { errorEl.textContent = msg; errorEl.hidden = !msg; }
   form.addEventListener('input', function () { if (!errorEl.hidden) showError(''); });
@@ -37,7 +42,8 @@
     var buttons = form.querySelectorAll('[data-ev-pay]');
     buttons.forEach(function (b) { b.disabled = true; });
     var label = btn.innerHTML;
-    btn.textContent = T('Opening secure payment…', 'جارٍ فتح الدفع الآمن…');
+    btn.textContent = channel === 'cash' ? T('Recording your order…', 'جارٍ تسجيل الطلب…') : T('Opening secure payment…', 'جارٍ فتح الدفع الآمن…');
+    if (channel === 'cash') return cash(amount, parts, phone, email, buttons, btn, label);
     fetch('/api/paymob/create-intention', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -56,6 +62,31 @@
       buttons.forEach(function (b) { b.disabled = false; });
       btn.innerHTML = label;
       showError(T('The payment could not be opened. Please try again, or pay our team directly.', 'تعذر فتح الدفع. حاول مرة أخرى أو ادفع لفريقنا مباشرة.'));
+    });
+  }
+
+  // Cash: the order goes to the CRM as unpaid cash; the screen tells the customer what to hand over.
+  function cash(amount, parts, phone, email, buttons, btn, label) {
+    fetch('/api/bank-order/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event: 'euro-village', payment: 'cash', amount: amount,
+        billing: { firstName: parts[0], lastName: parts.slice(1).join(' ') || '-', phone: phone, email: email } }),
+    }).then(function (r) { return r.json().catch(function () { return {}; }); }).then(function (d) {
+      if (!d || !d.ok) throw new Error((d && d.error) || 'failed');
+      form.hidden = true;
+      result.hidden = false;
+      result.setAttribute('data-state', 'cash');
+      result.querySelector('[data-ev-badge]').textContent = 'SAR';
+      result.querySelector('[data-ev-title]').textContent = T('Please pay in cash to our team', 'يرجى الدفع نقدًا لفريقنا');
+      result.querySelector('[data-ev-amt]').textContent = sar(d.amount);
+      result.querySelector('[data-ev-order]').textContent = T('Order ', 'الطلب ') + d.orderId + ' · ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+      result.querySelector('[data-ev-text]').textContent = T('Show this screen to our team when you pay. Thank you!', 'أظهر هذه الشاشة لفريقنا عند الدفع. شكرًا لك!');
+      window.scrollTo(0, 0);
+    }).catch(function () {
+      buttons.forEach(function (b) { b.disabled = false; });
+      btn.innerHTML = label;
+      showError(T('Could not record the order. Please try again, or tell our team.', 'تعذر تسجيل الطلب. حاول مرة أخرى أو أخبر فريقنا.'));
     });
   }
 
