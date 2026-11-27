@@ -3116,6 +3116,95 @@
     } catch (e) { /* never block the order */ }
   }
 
+  // ---- Clear checkout problems (27 Nov 2026) ----
+  // A customer whose order does not go through must see WHY, next to the button they pressed:
+  // which fields are missing or wrong (also marked red under each field), or what went wrong with
+  // the payment option they chose and what to do instead.
+  var PAY_PROBLEMS = {
+    invalid_billing: ['Please check your first name, last name, mobile number and email address, then try again.', 'يرجى التحقق من الاسم الأول واسم العائلة ورقم الجوال والبريد الإلكتروني، ثم المحاولة مرة أخرى.'],
+    payment_not_configured: ['This payment option is not available right now. Please choose another payment method, for example card or bank transfer.', 'وسيلة الدفع هذه غير متاحة حاليًا. يرجى اختيار وسيلة دفع أخرى، مثل البطاقة أو التحويل البنكي.'],
+    method_unavailable: ['This payment option is not available right now. Please choose another payment method, for example card or bank transfer.', 'وسيلة الدفع هذه غير متاحة حاليًا. يرجى اختيار وسيلة دفع أخرى، مثل البطاقة أو التحويل البنكي.'],
+    gateway_rejected: ['The payment page could not be opened. Please try again in a moment, or choose another payment method.', 'تعذّر فتح صفحة الدفع. يرجى المحاولة بعد قليل أو اختيار وسيلة دفع أخرى.'],
+    gateway_unreachable: ['The payment service is not responding. Please try again in a moment, or choose another payment method.', 'خدمة الدفع لا تستجيب حاليًا. يرجى المحاولة بعد قليل أو اختيار وسيلة دفع أخرى.'],
+    crm_unavailable: ['We could not start your order just now. Please try again in a moment.', 'تعذّر بدء طلبك الآن. يرجى المحاولة مرة أخرى بعد قليل.'],
+    order_store_unavailable: ['We could not start your order just now. Please try again in a moment.', 'تعذّر بدء طلبك الآن. يرجى المحاولة مرة أخرى بعد قليل.'],
+    invalid_cart: ['Something in your cart has changed. Please refresh the page and try again.', 'تغيّر شيء في سلتك. يرجى تحديث الصفحة والمحاولة مرة أخرى.'],
+    invalid_shipping: ['Please choose a delivery option above.', 'يرجى اختيار طريقة التوصيل في الأعلى.'],
+    pay_later_not_available: ['Tabby and Tamara are not available for this order. Please choose card, Apple Pay or bank transfer.', 'تابي وتمارا غير متاحتين لهذا الطلب. يرجى اختيار البطاقة أو Apple Pay أو التحويل البنكي.'],
+    amount_out_of_range: ['This order total is outside what Tabby allows. Please choose another payment method.', 'مبلغ الطلب خارج الحد المسموح في تابي. يرجى اختيار وسيلة دفع أخرى.'],
+    too_many_orders: ['Too many attempts in a short time. Please wait a few minutes, or message us on WhatsApp.', 'محاولات كثيرة خلال وقت قصير. يرجى الانتظار بضع دقائق أو مراسلتنا عبر واتساب.'],
+    network: ['No connection. Please check your internet and try again.', 'لا يوجد اتصال. يرجى التحقق من الإنترنت والمحاولة مرة أخرى.']
+  };
+  function payProblemText(code) {
+    var m = PAY_PROBLEMS[code] || ['The payment could not be started. Please try again or choose another payment method. If it keeps happening, WhatsApp us on 056 022 4715.',
+      'تعذّر بدء الدفع. يرجى المحاولة مرة أخرى أو اختيار وسيلة دفع أخرى. إذا تكرر ذلك، راسلنا عبر واتساب على 056 022 4715.'];
+    return isAr() ? m[1] : m[0];
+  }
+  // One note by the Place Order button for problems found before or after pressing it.
+  function coProblemEl(form) {
+    var el = form.querySelector('[data-b3d-co-problem]');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'b3d-checkout__error b3d-co-problem';
+      el.setAttribute('data-b3d-co-problem', '');
+      el.setAttribute('role', 'alert');
+      el.hidden = true;
+      var btn = form.querySelector('.b3d-co__submit') || form.querySelector('[type="submit"]');
+      if (btn && btn.parentNode) btn.parentNode.insertBefore(el, btn.nextSibling); else form.appendChild(el);
+    }
+    return el;
+  }
+  function showCoProblem(form, text, scroll) {
+    var el = coProblemEl(form);
+    el.textContent = text;
+    el.hidden = !text;
+    if (text && scroll !== false) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  // The visible name of a field ("First Name", "Phone"...), from its label.
+  function coFieldName(el) {
+    var lab = el.closest('label');
+    if (lab) {
+      var spans = [].filter.call(lab.querySelectorAll('span'), function (sp) { return !sp.classList.contains('b3d-field-msg') && sp.offsetParent !== null && sp.textContent.trim(); });
+      if (spans.length) return spans[0].textContent.trim();
+    }
+    return el.getAttribute('aria-label') || el.getAttribute('placeholder') || el.name || '';
+  }
+  // Missing / wrong fields: red outline + a short message under each, a list by the button,
+  // and the first one brought into view.
+  function reportCheckoutFields(form) {
+    var bad = [].filter.call(form.elements, function (el) { return el.willValidate && !el.validity.valid && el.offsetParent !== null; });
+    if (!bad.length) { form.reportValidity(); return; }
+    var names = [];
+    bad.forEach(function (el) {
+      var why = el.validity.valueMissing ? (isAr() ? 'هذا الحقل مطلوب' : 'This field is required')
+        : el.validity.customError ? el.validationMessage
+        : el.validity.typeMismatch && el.type === 'email' ? (isAr() ? 'أدخل بريدًا إلكترونيًا صحيحًا، مثل name@gmail.com' : 'Enter a valid email, e.g. name@gmail.com')
+        : (el.validationMessage || (isAr() ? 'تحقق من هذا الحقل' : 'Check this field'));
+      el.classList.add('b3d-field-bad');
+      var lab = el.closest('label') || el.parentNode;
+      var msg = lab.querySelector('.b3d-field-msg');
+      if (!msg) { msg = document.createElement('span'); msg.className = 'b3d-field-msg'; lab.appendChild(msg); }
+      msg.textContent = why;
+      if (!el._b3dClear) {
+        el._b3dClear = true;
+        var clear = function () {
+          if (!el.validity.valid) return;
+          el.classList.remove('b3d-field-bad');
+          var m = (el.closest('label') || el.parentNode).querySelector('.b3d-field-msg');
+          if (m) m.remove();
+          if (!form.querySelector('.b3d-field-bad')) showCoProblem(form, '', false);
+        };
+        el.addEventListener('input', clear);
+        el.addEventListener('change', clear);
+      }
+      var n = coFieldName(el);
+      if (n && names.indexOf(n) < 0) names.push(n);
+    });
+    showCoProblem(form, (isAr() ? 'لم يُرسل الطلب بعد. يرجى إكمال: ' : 'Your order has not been placed yet. Please complete: ') + names.join(isAr() ? '، ' : ', '), false);
+    bad[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    try { bad[0].focus({ preventScroll: true }); } catch (e) { bad[0].focus(); }
+  }
+
   function startCardPayment(form, btn, errorEl, endpoint, extraBody) {
     var cm = document.querySelector('[data-b3d-coupon-msg]');
     if (appliedCoupon) {
@@ -3141,6 +3230,7 @@
     var label = btn ? btn.textContent : '';
     if (btn) { btn.textContent = '...'; btn.disabled = true; }
     if (errorEl) errorEl.hidden = true;
+    showCoProblem(form, '', false);
     var payload = {
       items: items,
       shipping: shipping ? shipping.value : 'regular',
@@ -3181,18 +3271,14 @@
         window.location.href = data.checkoutUrl;
       });
     }).catch(function (err) {
-      if (errorEl) {
-        if (err && err.message === 'tabby_rejected') {
-          errorEl.removeAttribute('data-i18n');
-          errorEl.textContent = T('js_tabby_rejected');
-        }
-        if (err && err.message === 'not_enough_stock') {
-          errorEl.removeAttribute('data-i18n');
-          errorEl.textContent = T('js_cart_stock_changed');
-          setTimeout(function () { location.reload(); }, 3500);
-        }
-        errorEl.hidden = false;
-      }
+      var code = err && err.message;
+      if (err && err.name === 'TypeError') code = 'network'; // fetch could not reach the site
+      // Said by the button they pressed, in plain words, with what to do next.
+      if (code === 'tabby_rejected') showCoProblem(form, T('js_tabby_rejected'));
+      else if (code === 'not_enough_stock') {
+        showCoProblem(form, T('js_cart_stock_changed'));
+        setTimeout(function () { location.reload(); }, 3500);
+      } else showCoProblem(form, payProblemText(code));
       if (btn) { btn.textContent = label; btn.disabled = false; }
     });
   }
@@ -3226,6 +3312,9 @@
 
   function initCheckoutSubmit(form) {
     if (!form) return;
+    // The browser's own check stops the submit before this code runs and shows only a small bubble
+    // (easy to miss, and hidden on some iPhones). reportCheckoutFields() says what is wrong instead.
+    form.noValidate = true;
     var checkAddress = initAddressChecks(form);
     var successEl = document.getElementById('b3d-checkout-success');
     var errorEl = document.getElementById('b3d-checkout-error');
@@ -3242,9 +3331,10 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       checkAddress();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (!form.checkValidity()) { reportCheckoutFields(form); return; }
       if (!currentPayMethod) {
         var payRequired = form.querySelector('[data-b3d-pay-required]');
+        showCoProblem(form, isAr() ? 'لم يُرسل الطلب بعد. يرجى اختيار طريقة الدفع في الأعلى.' : 'Your order has not been placed yet. Please choose a payment method above.', false);
         if (payRequired) {
           payRequired.hidden = false;
           var pmList = form.querySelector('.b3d-payment-methods') || payRequired;
