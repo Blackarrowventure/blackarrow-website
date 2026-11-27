@@ -132,6 +132,199 @@
     });
   }
 
+  /* ---------- Order History, Order Tracking and Addresses (27 Nov 2026) ----------
+     Orders come from /api/orders/ (api/_lib/my-orders.js): every order placed with this account's
+     confirmed email, read live from the CRM, so a status or progress change made there shows here. */
+  function isAr() { return document.documentElement.lang === 'ar'; }
+  function L(en, ar) { return isAr() ? ar : en; }
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function money(n) {
+    var v = Number(n || 0);
+    return '<bdi dir="ltr">' + v.toLocaleString('en-US', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }) + '</bdi> ' + L('SAR', 'ريال');
+  }
+  function dateOf(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    return d.toLocaleDateString(isAr() ? 'ar-SA-u-ca-gregory-nu-latn' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+  function panelFor(key) {
+    var h = document.querySelector('.b3d-account__panel [data-i18n="' + key + '"]');
+    return h ? h.closest('.b3d-account__panel') : null;
+  }
+  function setBody(panel, html) {
+    if (!panel) return;
+    var h2 = panel.querySelector('h2');
+    panel.innerHTML = '';
+    if (h2) panel.appendChild(h2);
+    var box = document.createElement('div');
+    box.innerHTML = html;
+    panel.appendChild(box);
+  }
+
+  // Where an order is, as one step on the tracker (0-based) and a short label.
+  var PROGRESS = {
+    'Order received': [1, 'Confirmed', 'تم التأكيد'],
+    'Packed': [2, 'Packed', 'تم التغليف'],
+    'Ready for delivery': [2, 'Ready for delivery', 'جاهز للتوصيل'],
+    'Dispatched': [3, 'On the way', 'في الطريق'],
+    'Delivered': [4, 'Delivered', 'تم التوصيل'],
+    'Completed': [4, 'Completed', 'مكتمل']
+  };
+  var STEPS = [['Placed', 'تم الطلب'], ['Confirmed', 'تم التأكيد'], ['Packed', 'التغليف'], ['On the way', 'في الطريق'], ['Delivered', 'تم التوصيل']];
+
+  function stageOf(o) {
+    if (o.status === 'rejected') return { step: -1, label: L('Cancelled', 'ملغي'), tone: 'bad' };
+    if (o.status === 'pending') return { step: 0, label: L('Awaiting confirmation', 'بانتظار التأكيد'), tone: 'wait' };
+    var p = PROGRESS[o.progress] || PROGRESS['Order received'];
+    return { step: p[0], label: L(p[1], p[2]), tone: p[0] >= 4 ? 'done' : 'go' };
+  }
+  function isActive(o) { var s = stageOf(o); return s.step >= 0 && s.step < 4; }
+
+  function tracker(o) {
+    var s = stageOf(o);
+    return '<ol class="b3d-ord__track" aria-label="' + esc(L('Order progress', 'مراحل الطلب')) + '">' + STEPS.map(function (st, i) {
+      var cls = i < s.step ? 'is-done' : i === s.step ? 'is-now' : '';
+      return '<li class="' + cls + '"' + (i === s.step ? ' aria-current="step"' : '') + '><span></span>' + esc(L(st[0], st[1])) + '</li>';
+    }).join('') + '</ol>';
+  }
+
+  // Labels stored in the CRM are English; the Arabic page shows them in Arabic.
+  function labelAr(text) {
+    if (!isAr() || !text) return text;
+    var t = String(text);
+    var MAP = [
+      [/^Regular shipping/i, 'الشحن العادي'], [/^Standard shipping/i, 'الشحن العادي'], [/^Fast shipping/i, 'الشحن السريع'],
+      [/^Self pickup/i, 'الاستلام من المتجر'], [/^Bank transfer/i, 'تحويل بنكي'], [/^Cash at pickup/i, 'نقداً عند الاستلام'],
+      [/^Card \/ mada \/ Apple Pay/i, 'بطاقة / مدى / Apple Pay'], [/^Card/i, 'بطاقة'], [/^Apple Pay/i, 'Apple Pay'],
+      [/^Tabby/i, 'تابي'], [/^Tamara/i, 'تمارا']
+    ];
+    for (var i = 0; i < MAP.length; i++) {
+      if (MAP[i][0].test(t)) return MAP[i][1] + (/\(Free\)/i.test(t) ? ' (مجاني)' : '');
+    }
+    return t;
+  }
+
+  function itemName(l) { return (isAr() && l.nameAr) ? l.nameAr : l.name; }
+
+  function lineRows(o) {
+    return '<ul class="b3d-ord__lines">' + o.lines.map(function (l) {
+      var img = l.image ? '<img src="' + esc(l.image) + '" alt="" loading="lazy" width="56" height="56">' : '<span class="b3d-ord__noimg"></span>';
+      var name = esc(itemName(l)) + (l.variant ? '<small>' + esc(l.variant) + '</small>' : '');
+      return '<li>' + img + '<span class="b3d-ord__lname">' + (l.url ? '<a href="' + esc((isAr() ? '/3d/ar' : '/3d') + l.url.slice(3)) + '">' + name + '</a>' : name) + '</span>'
+        + '<span class="b3d-ord__lqty">' + l.qty + ' × ' + money(l.price) + '</span></li>';
+    }).join('') + '</ul>';
+  }
+
+  function totals(o) {
+    var rows = [[L('Items', 'المنتجات'), money(o.itemsTotal)]];
+    if (o.discount) rows.push([L('Discount', 'الخصم'), '−' + money(o.discount)]);
+    rows.push([esc(labelAr(o.deliveryLabel)) || L('Delivery', 'التوصيل'), o.delivery ? money(o.delivery) : L('Free', 'مجاني')]);
+    if (o.fee) rows.push([L('Pay-later fee', 'رسوم الدفع اللاحق'), money(o.fee)]);
+    return '<dl class="b3d-ord__totals">' + rows.map(function (r) { return '<div><dt>' + r[0] + '</dt><dd>' + r[1] + '</dd></div>'; }).join('')
+      + '<div class="is-total"><dt>' + L('Total', 'الإجمالي') + '</dt><dd>' + money(o.total) + '</dd></div></dl>';
+  }
+
+  function payLine(o) {
+    var paid = o.paid ? '<span class="b3d-ord__pill is-done">' + L('Paid', 'مدفوع') + '</span>'
+      : (o.status === 'rejected' ? '' : '<span class="b3d-ord__pill is-wait">' + L('Awaiting payment', 'بانتظار الدفع') + '</span>');
+    return '<p class="b3d-ord__pay">' + esc(labelAr(o.method)) + ' ' + paid
+      + (o.invoiceUrl ? ' · <a href="' + esc(o.invoiceUrl) + '" target="_blank" rel="noopener">' + L('View invoice', 'عرض الفاتورة') + (o.invoiceNumber ? ' ' + esc(o.invoiceNumber) : '') + '</a>' : '') + '</p>';
+  }
+
+  function head(o) {
+    var s = stageOf(o);
+    var count = o.lines.reduce(function (a, l) { return a + l.qty; }, 0);
+    return '<span class="b3d-ord__ref"><bdi dir="ltr">#' + esc(o.ref) + '</bdi></span>'
+      + '<span class="b3d-ord__date">' + esc(dateOf(o.date)) + ' · ' + count + ' ' + L(count === 1 ? 'item' : 'items', count === 1 ? 'منتج' : 'منتجات') + '</span>'
+      + '<span class="b3d-ord__pill is-' + s.tone + '">' + esc(s.label) + '</span>'
+      + '<span class="b3d-ord__sum">' + money(o.total) + '</span>';
+  }
+
+  function orderBody(o) {
+    return lineRows(o) + totals(o) + payLine(o)
+      + (o.status === 'rejected' && o.reason ? '<p class="b3d-ord__reason">' + L('Reason: ', 'السبب: ') + esc(o.reason) + '</p>' : '');
+  }
+
+  function renderOrders(data, user) {
+    var hist = panelFor('account_order_history');
+    var track = panelFor('account_order_tracking');
+    var help = '<p class="b3d-ord__help">' + L('Showing orders placed with ', 'تظهر هنا الطلبات المسجّلة بالبريد ') + '<bdi>' + esc(user.email) + '</bdi>. '
+      + L('Ordered with a different email? Message us on WhatsApp at ', 'طلبت ببريد آخر؟ راسلنا عبر واتساب على ')
+      + '<a href="https://wa.me/966560224715" target="_blank" rel="noopener"><bdi dir="ltr">+966 56 022 4715</bdi></a>.</p>';
+    if (data.needsVerify) {
+      var v = '<p>' + L('Confirm your email address to see your orders here (open the link we emailed you).', 'أكّد بريدك الإلكتروني لتظهر طلباتك هنا (افتح الرابط الذي أرسلناه إليك).') + '</p>';
+      setBody(hist, v); setBody(track, v);
+      return;
+    }
+    var orders = data.orders || [];
+    if (!orders.length) {
+      setBody(hist, '<p>' + L('No orders yet.', 'لا توجد طلبات بعد.') + '</p><p><a class="btn btn-primary" href="' + (isAr() ? '/3d/ar/shop/' : '/3d/shop/') + '">' + L('Start shopping', 'ابدأ التسوق') + '</a></p>' + help);
+      setBody(track, '<p>' + L('Nothing to track yet.', 'لا يوجد ما يمكن تتبعه بعد.') + '</p>');
+      return;
+    }
+    var active = orders.filter(isActive);
+    setBody(track, active.length
+      ? active.map(function (o) {
+          return '<div class="b3d-ord b3d-ord--track"><div class="b3d-ord__head">' + head(o) + '</div>' + tracker(o)
+            + '<p class="b3d-ord__next">' + nextText(o) + '</p></div>';
+        }).join('')
+      : '<p>' + L('No orders on the way right now. Past orders are in your order history.', 'لا توجد طلبات قيد التوصيل حالياً. طلباتك السابقة في سجل الطلبات.') + '</p>');
+    setBody(hist, orders.map(function (o, i) {
+      return '<details class="b3d-ord"' + (i === 0 ? ' open' : '') + '><summary class="b3d-ord__head">' + head(o) + '</summary>' + orderBody(o) + '</details>';
+    }).join('') + help);
+  }
+
+  function nextText(o) {
+    if (o.status === 'pending') {
+      return /bank/i.test(o.method) && !o.paid
+        ? L('We have your order. We confirm it once your bank transfer arrives; you will get an email.', 'استلمنا طلبك، وسنؤكده بعد وصول التحويل البنكي وتصلك رسالة بالبريد.')
+        : L('We have your order and will confirm it shortly by email.', 'استلمنا طلبك وسنؤكده قريباً عبر البريد الإلكتروني.');
+    }
+    var s = stageOf(o).step;
+    if (s === 1) return L('Confirmed. We are preparing your order.', 'تم التأكيد، ونجهّز طلبك الآن.');
+    if (s === 2) return L('Packed and getting ready to ship.', 'تم تغليف طلبك وهو جاهز للشحن.');
+    return L('On the way to you.', 'طلبك في الطريق إليك.');
+  }
+
+  function loadOrders(user) {
+    var hist = panelFor('account_order_history');
+    var track = panelFor('account_order_tracking');
+    var loading = '<p class="b3d-ord__help">' + L('Loading your orders…', 'جارٍ تحميل طلباتك…') + '</p>';
+    setBody(hist, loading); setBody(track, loading);
+    window.BlackArrow3DAuth.getAccessToken().then(function (token) {
+      if (!token) throw new Error('no_token');
+      return fetch('/api/orders/', { headers: { Authorization: 'Bearer ' + token }, cache: 'no-store' });
+    }).then(function (r) {
+      if (!r.ok) throw new Error('http_' + r.status);
+      return r.json();
+    }).then(function (data) {
+      renderOrders(data, user);
+    }).catch(function () {
+      var msg = '<p>' + L("We couldn't load your orders just now. Please refresh the page, or ask us on WhatsApp at ", 'تعذّر تحميل طلباتك الآن. حدّث الصفحة، أو اسألنا عبر واتساب على ')
+        + '<a href="https://wa.me/966560224715" target="_blank" rel="noopener"><bdi dir="ltr">+966 56 022 4715</bdi></a>.</p>';
+      setBody(hist, msg); setBody(track, msg);
+    });
+  }
+
+  // The delivery address saved at checkout ("Save this information for next time").
+  function renderAddress(addr) {
+    var panel = panelFor('account_addresses');
+    if (!panel || !addr || typeof addr !== 'object') return;
+    var name = [addr.first_name, addr.last_name].filter(Boolean).join(' ');
+    var street = [addr.national_address, addr.building, addr.apartment].filter(Boolean).join(', ')
+      || [addr.bh_flat, addr.bh_building, addr.bh_road, addr.bh_block].filter(Boolean).join(', ');
+    var city = [addr.city, addr.postal_code].filter(Boolean).join(' ');
+    var phone = addr.phone || addr.phone_sa || '';
+    var lines = [name, street, city].filter(Boolean).map(esc);
+    if (phone) lines.push('<bdi dir="ltr">' + esc(phone) + '</bdi>');
+    if (!street && !city) return;
+    setBody(panel, '<address class="b3d-ord__addr">' + lines.join('<br>') + '</address>'
+      + '<p class="b3d-ord__help">' + L('Saved from your last checkout. To change it, edit the details at checkout and keep "Save this information for next time" ticked.',
+        'محفوظ من آخر طلب. لتغييره عدّل البيانات عند إتمام الطلب مع إبقاء خيار "حفظ هذه المعلومات للمرة القادمة" مفعّلاً.') + '</p>');
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var notConfigured = document.getElementById('b3d-auth-notconfigured');
     var signedOut = document.getElementById('b3d-auth-signedout');
@@ -180,6 +373,8 @@
           var savedPanel = document.getElementById('b3d-saved-products-panel');
           if (savedPanel && window.BlackArrow3D) window.BlackArrow3D.renderWishlistPanel(savedPanel);
 
+          loadOrders(user);
+
           // Only for the approved admin account: a shortcut to the review approval page.
           window.BlackArrow3DAuth.reviewAdminInfo().then(function (info) {
             var panels = document.querySelector('.b3d-account__panels');
@@ -216,6 +411,7 @@
             var phoneField = document.getElementById('details-phone');
             if (nameField && profile.name) nameField.value = profile.name;
             if (phoneField && profile.phone) phoneField.value = profile.phone;
+            renderAddress(profile.last_address);
           });
         } else {
           signedOut.hidden = false;

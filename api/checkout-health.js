@@ -4,12 +4,15 @@
 // Vercel Hobby plan allows 12 functions and all 12 are in use:
 //   /api/order-decision/  the CRM's confirm/reject email (api/_lib/order-decision.js)
 //   /api/invoice/         a customer's invoice by its signed link (api/_lib/invoice-link.js)
+//   /api/orders/          the signed-in customer's own orders for the account page (api/_lib/my-orders.js)
 const orderDecision = require('./_lib/order-decision');
 const invoice = require('./_lib/invoice-link');
+const myOrders = require('./_lib/my-orders');
 
 module.exports = (req, res) => {
   const action = req.query && req.query.action;
   if (action === 'invoice') return invoice.handler(req, res);
+  if (action === 'orders') return myOrders.handler(req, res);
   if (action === 'order-decision' || req.method === 'POST' || req.method === 'OPTIONS') {
     return orderDecision(req, res);
   }
