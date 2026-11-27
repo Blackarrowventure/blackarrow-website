@@ -8,7 +8,8 @@
 // Nothing in the request decides what the email says: the order, its status and the reason are
 // read from the CRM's own bav3d_online_orders row. The caller must be signed in to the CRM and
 // must be the person who made that decision, within the last hour - or, with { resend: true }
-// ("Email customer" on an already-decided order), any CRM user allowed to see that order.
+// ("Email customer" on an already-decided order) or { cancelled: true, reason } (its invoice was set
+// to Cancelled after confirming), any CRM user allowed to see that order.
 // Served from api/checkout-health.js (the Vercel Hobby plan allows 12 functions; all are used).
 const catalog = require('../../3d/assets/data/3d-products.json');
 const { groupedSummary } = require('./pricing');
@@ -35,6 +36,20 @@ async function onlineOrder(ref) {
   const rows = await r.json();
   return rows && rows[0] ? rows[0] : null;
 }
+
+// The invoice a confirmed order became: Cancelled there means the order was cancelled after confirming.
+async function invoiceOf(id) {
+  const key = process.env.CRM_SUPABASE_SERVICE_ROLE_KEY;
+  const r = await fetch(CRM_URL + '/rest/v1/bav3d_acc_invoices?id=eq.' + encodeURIComponent(id) + '&select=id,status', {
+    headers: { apikey: key, Authorization: 'Bearer ' + key },
+  });
+  if (!r.ok) throw new Error('crm_invoice_' + r.status);
+  const rows = await r.json();
+  return rows && rows[0] ? rows[0] : null;
+}
+
+// The reason typed or picked in the CRM's cancel dialog: plain text, one paragraph, max 300 chars.
+const cleanReason = (v) => String(v || '').replace(/[\u0000-\u001f\u007f<>]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300);
 
 // Resend: may this CRM user see the order? Asked with the user's own token, so the CRM's row-level
 // security decides (the same rule that shows the order in Online Orders).
@@ -87,6 +102,7 @@ module.exports = async (req, res) => {
   const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {};
   const ref = String(body.order_ref || '');
   const resend = body.resend === true;
+  const cancelled = body.cancelled === true;
   if (!token) return res.status(401).json({ error: 'sign_in_required' });
   if (!/^[A-Za-z0-9_-]{4,64}$/.test(ref)) return res.status(400).json({ error: 'bad_order_ref' });
 
@@ -96,7 +112,21 @@ module.exports = async (req, res) => {
     const o = await onlineOrder(ref);
     if (!o) return res.status(404).json({ error: 'order_not_found' });
     if (o.status !== 'confirmed' && o.status !== 'rejected') return res.status(409).json({ error: 'not_decided' });
-    if (resend) {
+
+    // Cancelled after it was confirmed: the CRM has no Reject for a confirmed order; the shop sets its
+    // invoice to Cancelled (Invoices tab). The order row stays 'confirmed', so the invoice decides.
+    // The reason comes from the CRM user's cancel dialog (not stored anywhere else).
+    let kind = o.status;
+    let reason = o.reject_reason || 'Order could not be accepted';
+    if (o.status === 'confirmed' && o.invoice_id) {
+      const inv = await invoiceOf(o.invoice_id);
+      if (inv && inv.status === 'Cancelled') {
+        kind = 'rejected';
+        reason = cleanReason(body.reason) || 'Order cancelled';
+      }
+    }
+    if (cancelled && kind !== 'rejected') return res.status(409).json({ error: 'not_cancelled' });
+    if (cancelled || resend) {
       // "Email customer" on an order decided earlier: any CRM user who can see the order.
       if (!(await userCanSee(ref, token))) return res.status(403).json({ error: 'not_allowed' });
     } else {
@@ -104,16 +134,16 @@ module.exports = async (req, res) => {
       if (!o.decided_at || Date.now() - new Date(o.decided_at).getTime() > DECISION_WINDOW_MS) return res.status(409).json({ error: 'decision_too_old' });
     }
 
-    if (o.status === 'rejected' && SILENT_REASONS.includes(o.reject_reason)) return res.status(200).json({ sent: false, reason: 'test_order' });
+    if (kind === 'rejected' && SILENT_REASONS.includes(reason)) return res.status(200).json({ sent: false, reason: 'test_order' });
     const email = String(o.customer_email || '').trim();
     if (!email || isPlaceholderEmail(email)) return res.status(200).json({ sent: false, reason: 'no_email' });
 
     const cash = /cash/i.test([o.payment_method, o.method_label, o.notes].join(' '));
     // A paid order's confirmation carries its invoice link.
-    const invoiceUrl = o.status === 'confirmed' && o.paid && o.invoice_id ? invoiceLink.invoiceUrl(o.invoice_id) : null;
-    const copy = emailCopy(o.status, {
-      ref, name: o.customer_name || '', paid: !!o.paid, cash,
-      reason: o.reject_reason || 'Order could not be accepted', delivery: o.delivery_label, invoiceUrl,
+    const invoiceUrl = kind === 'confirmed' && o.paid && o.invoice_id ? invoiceLink.invoiceUrl(o.invoice_id) : null;
+    const copy = emailCopy(kind, {
+      ref, name: o.customer_name || '', paid: !!o.paid, cash, afterConfirm: o.status === 'confirmed',
+      reason, delivery: o.delivery_label, invoiceUrl,
     });
     await sendEmailJs(Object.assign({
       to_email: email,
@@ -124,8 +154,8 @@ module.exports = async (req, res) => {
       payment_method: (o.method_label || o.payment_method || '') + (o.paid ? ' (paid)' : ''),
       order_total: sar(o.total),
     }, copy));
-    console.log('order-decision: sent', ref, o.status, resend ? '(resend)' : '');
-    return res.status(200).json({ sent: true, to: email, status: o.status, invoice: !!invoiceUrl });
+    console.log('order-decision: sent', ref, kind, cancelled ? '(cancelled invoice)' : resend ? '(resend)' : '');
+    return res.status(200).json({ sent: true, to: email, status: kind, invoice: !!invoiceUrl });
   } catch (e) {
     console.error('order-decision:', ref, e.message);
     return res.status(502).json({ error: 'email_failed', detail: String(e.message || '').slice(0, 200) });

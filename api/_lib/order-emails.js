@@ -56,6 +56,7 @@ const REASONS_AR = {
   'Duplicate order': 'طلب مكرر',
   'Wrong or incomplete details': 'بيانات الطلب غير صحيحة أو غير مكتملة',
   'Cancelled at your request': 'تم الإلغاء بناءً على طلبك',
+  'Order cancelled': 'تم إلغاء الطلب',
 };
 // Rejections that never email the customer (the CRM's internal reasons).
 const SILENT_REASONS = ['Dummy / test order'];
@@ -107,9 +108,11 @@ function emailCopy(kind, o) {
     return {
       subject: 'Order cancelled #' + ref + ' | Black Arrow 3D',
       heading: 'Your order has been cancelled · تم إلغاء طلبك',
-      message: 'Sorry' + hi + ', we could not accept your order.\nReason: ' + o.reason + '\n' + refund +
+      // afterConfirm: it had been confirmed, then its invoice was cancelled in the CRM.
+      message: 'Sorry' + hi + (o.afterConfirm ? ', your order has been cancelled.' : ', we could not accept your order.') +
+        '\nReason: ' + o.reason + '\n' + refund +
         '\nIf you have any questions, just reply to this email or message us on WhatsApp.\n\n' +
-        'نعتذر، لم نتمكن من قبول طلبك.\nالسبب: ' + reasonAr + '\n' + refundAr +
+        (o.afterConfirm ? 'نعتذر، تم إلغاء طلبك.' : 'نعتذر، لم نتمكن من قبول طلبك.') + '\nالسبب: ' + reasonAr + '\n' + refundAr +
         '\nلأي استفسار، رد على هذه الرسالة أو تواصل معنا عبر واتساب.',
     };
   }

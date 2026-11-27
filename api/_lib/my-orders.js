@@ -84,12 +84,14 @@ async function handler(req, res) {
     const byId = productInfo();
     const orders = mine.map((o) => {
       const inv = o.invoice_id ? invoices.get(o.invoice_id) : null;
-      const paid = !!o.paid || !!(inv && inv.status === 'Paid');
+      // Confirmed, then its invoice set to Cancelled in the CRM: shown as cancelled.
+      const cancelled = !!(inv && inv.status === 'Cancelled');
+      const paid = !cancelled && (!!o.paid || !!(inv && inv.status === 'Paid'));
       return {
         ref: o.order_ref,
         date: o.ordered_at,
-        status: o.status,                                   // pending | confirmed | rejected
-        progress: inv ? inv.progress_status || 'Order received' : null,
+        status: cancelled ? 'rejected' : o.status,          // pending | confirmed | rejected
+        progress: inv && !cancelled ? inv.progress_status || 'Order received' : null,
         method: o.method_label || o.payment_method || '',
         paid,
         lines: (Array.isArray(o.lines) ? o.lines : []).map((l) => lineOut(l, byId)),
