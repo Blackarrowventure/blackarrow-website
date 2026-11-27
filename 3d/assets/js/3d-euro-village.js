@@ -14,7 +14,12 @@
 
   // Apple Pay only where the device can pay with it.
   var apple = form.querySelector('[data-ev-pay="applepay"]');
-  try { apple.hidden = !(window.ApplePaySession && window.ApplePaySession.canMakePayments()); } catch (e) { apple.hidden = true; }
+  // Shown where the browser says it can pay with Apple Pay, and on every iPhone / iPad: some iPhone
+  // browsers (in-app ones, older Chrome) don't say so, and the Paymob page decides there anyway.
+  var appleDevice = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  var canApple = false;
+  try { canApple = !!(window.ApplePaySession && window.ApplePaySession.canMakePayments()); } catch (e) {}
+  apple.hidden = !(canApple || appleDevice);
 
   form.querySelectorAll('[data-amt]').forEach(function (b) {
     b.addEventListener('click', function () { amountEl.value = b.getAttribute('data-amt'); markChip(); amountEl.focus(); });

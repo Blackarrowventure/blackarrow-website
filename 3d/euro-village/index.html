@@ -33,7 +33,7 @@
   <style>
     .b3d-ev [hidden]{display:none!important;}
     .b3d-ev{--gold:#f5a623;--gold2:#ffcf6b;--ink:#0d0d0f;--mut:#6b6b73;--line:#e7e2d6;
-      background:radial-gradient(900px 420px at 85% -60px,rgba(245,166,35,.28),transparent 60%),radial-gradient(700px 380px at -10% 10%,rgba(245,166,35,.14),transparent 60%),linear-gradient(180deg,var(--ink) 0,var(--ink) 470px,#f4f1ea 470px);
+      background:radial-gradient(900px 420px at 85% -60px,rgba(245,166,35,.28),transparent 60%),radial-gradient(700px 380px at -10% 10%,rgba(245,166,35,.14),transparent 60%),linear-gradient(180deg,var(--ink) 0,var(--ink) 380px,#f4f1ea 380px);
       padding-block:28px 64px;color:#111;}
     .b3d-ev .b3d-ev__wrap{max-width:640px;display:grid;gap:22px;}
     .b3d-ev__hero{color:#fff;display:grid;gap:14px;text-align:center;justify-items:center;}
@@ -171,13 +171,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="b3d-searchbar" role="search"><form action="/3d/shop/" method="get"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" name="q" placeholder="Search the store" data-i18n-placeholder="header_search_placeholder" placeholder="Search the store" aria-label="Search the store" autocomplete="off"><button type="submit" data-i18n="header_search_btn">Search</button></form></div>
 
   <main id="main"><section class="section b3d-ev"><div class="container b3d-ev__wrap">
-  <header class="b3d-ev__hero">
+  <div class="b3d-ev__hero">
     <img class="b3d-ev__logo" src="/3d/assets/images/black-arrow-3d-logo-600w.webp" alt="Black Arrow 3D" width="600" height="137">
     <span class="b3d-ev__live"><i aria-hidden="true"></i>Live at Euro Village</span>
     <h1>Pay at our <em>stall</em><span class="b3d-ev__ar" lang="ar" dir="rtl">ادفع في ركننا</span></h1>
     <p class="b3d-ev__lead">Designed and 3D printed by us. Enter the amount our team tells you and pay with Apple Pay, card or cash.<span lang="ar" dir="rtl">أدخل المبلغ الذي يخبرك به فريقنا وادفع عبر Apple Pay أو البطاقة أو نقدًا.</span></p>
-    <div class="b3d-ev__strip" aria-hidden="true"><img src="/3d/assets/images/products/luffy-keychain-promo-160w.webp" alt="" width="84" height="84"><img src="/3d/assets/images/products/straw-hat-controller-stand-01-160w.webp" alt="" width="84" height="84"><img src="/3d/assets/images/products/santa-hat-clicker-keychain-01-160w.webp" alt="" width="84" height="84"><img src="/3d/assets/images/products/saudi-palm-swords-keychain-promo-160w.webp" alt="" width="84" height="84"><img src="/3d/assets/images/products/synapse-usb-lamp-01-160w.webp" alt="" width="84" height="84"><img src="/3d/assets/images/products/infinity-cube-fidget-toy-promo-160w.webp" alt="" width="84" height="84"></div>
-  </header>
+  </div>
 
   <form class="b3d-ev__card" data-ev-form novalidate>
     <fieldset class="b3d-ev__field">
@@ -188,9 +187,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="b3d-ev__field">
       <label class="b3d-ev__lbl" for="ev-amount"><b><i class="b3d-ev__step">2</i>Amount</b><span lang="ar" dir="rtl">المبلغ</span></label>
       <div class="b3d-ev__amount"><input id="ev-amount" name="amount" type="number" inputmode="decimal" min="1" max="20000" step="0.01" placeholder="0" required autocomplete="off"><span>SAR</span></div>
-      <div class="b3d-ev__chips" data-ev-chips>
-        <button type="button" data-amt="30">30</button><button type="button" data-amt="35">35</button><button type="button" data-amt="45">45</button><button type="button" data-amt="50">50</button><button type="button" data-amt="75">75</button><button type="button" data-amt="100">100</button>
-      </div>
     </div>
 
     <div class="b3d-ev__row">
@@ -309,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="/3d/assets/js/3d-i18n.min.js?v=20261157" defer></script>
   <script src="/3d/assets/js/3d-brands.js?v=20261065" defer></script>
   <script src="/3d/assets/js/3d-store.min.js?v=20261163" defer></script>
-  <script src="/3d/assets/js/3d-euro-village.js?v=20261129" defer></script>
+  <script src="/3d/assets/js/3d-euro-village.js?v=20261130" defer></script>
 
 </body>
 </html>

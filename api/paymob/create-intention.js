@@ -107,6 +107,10 @@ module.exports = async (req, res) => {
     if (channel === 'tamara') return res.status(400).json({ error: 'invalid_channel' });
     order = eventOrder(event, body.amount);
     if (!order) return res.status(400).json({ error: 'invalid_amount' });
+    // At the stall both buttons open Paymob with Apple Pay AND card, so the checkout page offers
+    // Apple Pay wherever the phone supports it, with card as the backup (some iPhone browsers,
+    // e.g. in-app ones, can't show our own Apple Pay button). Falls back to one method below.
+    if (applePayIntegrationId) paymentMethods = channel === 'applepay' ? [applePayIntegrationId, integrationId] : [integrationId, applePayIntegrationId];
   } else {
     // Rewards need the customer's real items total first, then the final order.
     // Stock and prices as set in the CRM's Website Inventory tab. Refuse rather than price against
@@ -189,12 +193,21 @@ module.exports = async (req, res) => {
 
   let intention;
   try {
-    const r = await fetch(PAYMOB_BASE + '/v1/intention/', {
+    const post = () => fetch(PAYMOB_BASE + '/v1/intention/', {
       method: 'POST',
       headers: { Authorization: 'Token ' + secret, 'Content-Type': 'application/json' },
       body: JSON.stringify(intentionBody),
     });
+    let r = await post();
     intention = await r.json();
+    // Stall checkout with two methods refused: try again with just the one the customer chose.
+    if ((!r.ok || !intention.client_secret) && paymentMethods.length > 1) {
+      console.error('paymob: two-method stall checkout refused, retrying with one', r.status, JSON.stringify(intention).slice(0, 300));
+      paymentMethods = [paymentMethods[0]];
+      intentionBody.payment_methods = paymentMethods;
+      r = await post();
+      intention = await r.json();
+    }
     if (!r.ok || !intention.client_secret) {
       console.error('paymob intention rejected:', channel, r.status, JSON.stringify(intention).slice(0, 1000));
       return res.status(502).json({ error: 'gateway_rejected' });
