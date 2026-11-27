@@ -4939,6 +4939,6 @@
 /* Announcement popup (3d-announce.js): loaded after the page, kept out of the critical path. */
 (function () {
   var s = document.createElement('script');
-  s.src = '/3d/assets/js/3d-announce.min.js?v=20261122'; s.defer = true;
+  s.src = '/3d/assets/js/3d-announce.min.js?v=20261127'; s.defer = true;
   (document.head || document.documentElement).appendChild(s);
 })();

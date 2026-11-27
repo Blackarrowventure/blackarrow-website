@@ -23,13 +23,15 @@ module.exports = async (req, res) => {
 
   let order;
   try {
-    const rows = await db('GET', 'card_orders?order_ref=eq.' + ref + '&select=status,emails_sent_at,details');
+    const rows = await db('GET', 'card_orders?order_ref=eq.' + ref + '&select=status,emails_sent_at,details,amount_cents');
     order = rows[0];
     if (!order) return res.status(404).json({ error: 'order_not_found' });
   } catch (e) {
     return res.status(502).json({ error: 'order_store_unavailable' });
   }
   const orderNumber = (order.details && order.details.order_number) || null;
+  // Shown on the Euro Village stall page so the staff can check the amount paid.
+  const amount = Number(order.amount_cents || 0) / 100;
 
   const secret = process.env.PAYMOB_HMAC_SECRET;
   if (order.status !== 'paid' && q.hmac && secret) {
@@ -53,7 +55,7 @@ module.exports = async (req, res) => {
 
   if (order.status === 'paid' && !order.emails_sent_at) {
     const r = await afterPaid('card_orders', ref);
-    return res.status(200).json({ status: 'paid', emailsSent: !!(r && r.emailsSent), orderNumber });
+    return res.status(200).json({ status: 'paid', emailsSent: !!(r && r.emailsSent), orderNumber, amount });
   }
-  return res.status(200).json({ status: order.status, emailsSent: !!order.emails_sent_at, orderNumber });
+  return res.status(200).json({ status: order.status, emailsSent: !!order.emails_sent_at, orderNumber, amount });
 };
