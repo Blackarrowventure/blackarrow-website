@@ -42,14 +42,17 @@ async function stallCash(req, res, body) {
       order_ref: orderId,
       source: 'bank',
       method_label: 'Cash at Euro Village stall',
-      payment_method: 'Cash',
+      // The CRM's Online Orders accept only Paymob / Tabby / Bank transfer as the payment type
+      // (bav-crm 0157); cash is filed as Bank transfer with the cash instruction in the notes,
+      // the same as website cash-at-pickup orders. The label above still says cash.
+      payment_method: 'Bank transfer',
       paid: false,
       customer_name: name,
       customer_phone: phone,
       customer_email: /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? email : '',
       customer_city: 'Euro Village',
       customer_address: '',
-      notes: 'CASH AT EURO VILLAGE STALL: collect ' + sar + ' SAR in cash, then confirm and mark the invoice Paid.',
+      notes: 'PAYMENT: CASH AT EURO VILLAGE STALL · collect ' + sar + ' SAR in cash, then confirm and mark the invoice Paid.',
     });
   } catch (e) {
     console.error('stall cash: CRM inbox failed', orderId, e.message, e.detail || '');
