@@ -7469,7 +7469,7 @@
         "esun-petg-basic-filament",
         "kingroon-pla-basic-filament"
       ],
-      "price": 65,
+      "price": 60,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
@@ -7553,112 +7553,112 @@
         {
           "label": "Black",
           "label_ar": "أسود",
-          "price": 65,
+          "price": 60,
           "swatch": "#1a1a1a",
           "image": "/3d/assets/images/products/esun-pla-basic-black.webp"
         },
         {
           "label": "Aqua",
           "label_ar": "أزرق مائي",
-          "price": 65,
+          "price": 60,
           "swatch": "#3dd6c8",
           "image": "/3d/assets/images/products/esun-pla-basic-aqua.webp"
         },
         {
           "label": "Peak Green",
           "label_ar": "أخضر فاتح",
-          "price": 65,
+          "price": 60,
           "swatch": "#6fd33c",
           "image": "/3d/assets/images/products/esun-pla-basic-peak-green.webp"
         },
         {
           "label": "RGB Red",
           "label_ar": "أحمر RGB",
-          "price": 65,
+          "price": 60,
           "swatch": "#e8402f",
           "image": "/3d/assets/images/products/esun-pla-basic-rgb-red.webp"
         },
         {
           "label": "Barbie Pink",
           "label_ar": "باربي وردي",
-          "price": 65,
+          "price": 60,
           "swatch": "#f78da7",
           "image": "/3d/assets/images/products/esun-pla-basic-barbie-pink.webp"
         },
         {
           "label": "Brown",
           "label_ar": "بني",
-          "price": 65,
+          "price": 60,
           "swatch": "#7a4a2b",
           "image": "/3d/assets/images/products/esun-pla-basic-brown.webp"
         },
         {
           "label": "White",
           "label_ar": "أبيض",
-          "price": 65,
+          "price": 60,
           "swatch": "#f4f3ef",
           "image": "/3d/assets/images/products/esun-pla-basic-white.webp"
         },
         {
           "label": "Grey",
           "label_ar": "رمادي",
-          "price": 65,
+          "price": 60,
           "swatch": "#9aabae",
           "image": "/3d/assets/images/products/esun-pla-basic-grey.webp"
         },
         {
           "label": "Gold",
           "label_ar": "ذهبي",
-          "price": 65,
+          "price": 60,
           "swatch": "#d4a017",
           "image": "/3d/assets/images/products/esun-pla-basic-gold.webp"
         },
         {
           "label": "Blue",
           "label_ar": "أزرق",
-          "price": 65,
+          "price": 60,
           "swatch": "#2a5fae",
           "image": "/3d/assets/images/products/esun-pla-basic-blue.webp"
         },
         {
           "label": "Dark Blue",
           "label_ar": "أزرق داكن",
-          "price": 65,
+          "price": 60,
           "swatch": "#27324f",
           "image": "/3d/assets/images/products/esun-pla-basic-dark-blue.webp"
         },
         {
           "label": "Green",
           "label_ar": "أخضر",
-          "price": 65,
+          "price": 60,
           "swatch": "#3d9140",
           "image": "/3d/assets/images/products/esun-pla-basic-green.webp"
         },
         {
           "label": "Yellow",
           "label_ar": "أصفر",
-          "price": 65,
+          "price": 60,
           "swatch": "#f3d535",
           "image": "/3d/assets/images/products/esun-pla-basic-yellow.webp"
         },
         {
           "label": "Orange",
           "label_ar": "برتقالي",
-          "price": 65,
+          "price": 60,
           "swatch": "#f0932e",
           "image": "/3d/assets/images/products/esun-pla-basic-orange.webp"
         },
         {
           "label": "Pink",
           "label_ar": "وردي",
-          "price": 65,
+          "price": 60,
           "swatch": "#ec8fa3",
           "image": "/3d/assets/images/products/esun-pla-basic-pink.webp"
         },
         {
           "label": "Purple",
           "label_ar": "بنفسجي",
-          "price": 65,
+          "price": 60,
           "swatch": "#7c5cbf",
           "image": "/3d/assets/images/products/esun-pla-basic-purple.webp"
         }
@@ -7673,7 +7673,7 @@
         "esun-pla-basic-filament",
         "kingroon-petg-basic-filament"
       ],
-      "price": 65,
+      "price": 60,
       "currency": "SAR",
       "vatIncluded": true,
       "available": true,
@@ -7747,42 +7747,42 @@
         {
           "label": "Blue",
           "label_ar": "أزرق",
-          "price": 65,
+          "price": 60,
           "swatch": "#3b3f9e",
           "image": "/3d/assets/images/products/esun-petg-basic-blue.webp"
         },
         {
           "label": "Red",
           "label_ar": "أحمر",
-          "price": 65,
+          "price": 60,
           "swatch": "#c0392b",
           "image": "/3d/assets/images/products/esun-petg-basic-red.webp"
         },
         {
           "label": "Silver",
           "label_ar": "فضي",
-          "price": 65,
+          "price": 60,
           "swatch": "#b8bcc2",
           "image": "/3d/assets/images/products/esun-petg-basic-silver.webp"
         },
         {
           "label": "Grey",
           "label_ar": "رمادي",
-          "price": 65,
+          "price": 60,
           "swatch": "#8a8f94",
           "image": "/3d/assets/images/products/esun-petg-basic-grey.webp"
         },
         {
           "label": "White",
           "label_ar": "أبيض",
-          "price": 65,
+          "price": 60,
           "swatch": "#f4f3ef",
           "image": "/3d/assets/images/products/esun-petg-basic-white.webp"
         },
         {
           "label": "Black",
           "label_ar": "أسود",
-          "price": 65,
+          "price": 60,
           "swatch": "#1a1a1a",
           "image": "/3d/assets/images/products/esun-petg-basic-black.webp"
         }
