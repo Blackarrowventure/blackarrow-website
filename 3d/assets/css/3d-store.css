@@ -3699,3 +3699,14 @@ html[dir="rtl"] .b3d-ord__track li::before { left: auto; right: -50%; }
 .b3d-field-msg { display: block; color: #f87171; font-size: .8rem; font-weight: 600; margin-top: 4px; }
 .b3d-co-problem { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.45); border-radius: 10px; padding: 10px 12px; font-weight: 600; line-height: 1.5; }
 .b3d-field-msg::after, .b3d-field-msg::before { content: none !important; display: none !important; }
+
+/* Brand filter buttons carry the brand's logo (white artwork on a small dark badge, like the
+   Brands menu) beside the name. */
+.b3d-cat-tabs button.has-logo { display: inline-flex; align-items: center; gap: 8px; padding-inline-start: 6px; }
+.b3d-chip-logo { height: 26px; width: auto; max-width: 92px; padding: 5px 8px; background: #141414; border-radius: 999px; box-sizing: border-box; object-fit: contain; flex: none; display: block; }
+@media (max-width: 600px) { .b3d-chip-logo { height: 24px; max-width: 80px; } }
+@media (max-width: 600px) {
+  .b3d-cat-tabs button.has-logo { padding: 5px; gap: 0; }
+  .b3d-cat-tabs button.has-logo > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .b3d-chip-logo { height: 30px; max-width: 104px; padding: 6px 10px; }
+}

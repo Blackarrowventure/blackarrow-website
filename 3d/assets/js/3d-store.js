@@ -1310,9 +1310,14 @@
       if (mats.length > 1) facets.push({ key: 'material', label: ar ? 'الخامة' : 'Material',
         options: mats.map(function (m) { return [m, m]; }),
         test: function (p, v) { return filamentMaterialOf(p) === v; } });
+    }
+    // Brand row (with each brand's logo) on filament lists and on 3D printer lists.
+    var cats = ['Filament', '3D Printers'];
+    var oneCat = list.length && cats.filter(function (c) { return list.every(function (p) { return p.category === c; }); })[0];
+    if (oneCat) {
       var brands = distinct(list.map(function (p) { return p.brand; }));
       if (brands.length > 1) facets.push({ key: 'brand', label: ar ? 'العلامة التجارية' : 'Brand',
-        options: brands.map(function (b) { return [b, b === 'Generic' && ar ? 'عام' : b]; }),
+        options: brands.map(function (b) { return [b, b === 'Generic' && ar ? 'عام' : b, BRAND_LOGOS[b]]; }),
         test: function (p, v) { return (p.brand || '').toLowerCase() === v.toLowerCase(); } });
     }
     return facets;
@@ -1335,7 +1340,9 @@
       bar.setAttribute('aria-label', f.label);
       bar.innerHTML = '<span class="b3d-series__label">' + h(f.label) + '</span>' +
         [['All', ar ? 'الكل' : 'All']].concat(f.options).map(function (o) {
-          return '<button type="button" data-chip="' + h(o[0]) + '" aria-pressed="' + (o[0].toLowerCase() === cur) + '">' + h(o[1]) + '</button>';
+          // o[2]: brand logo [file, width, height] (white artwork, shown on a small dark badge).
+          var logo = o[2] ? '<img class="b3d-chip-logo" src="/3d/assets/images/brands/' + o[2][0] + '" alt="" width="' + o[2][1] + '" height="' + o[2][2] + '" loading="lazy" decoding="async">' : '';
+          return '<button type="button" data-chip="' + h(o[0]) + '" aria-pressed="' + (o[0].toLowerCase() === cur) + '"' + (logo ? ' class="has-logo"' : '') + '>' + logo + '<span>' + h(o[1]) + '</span></button>';
         }).join('');
       bar.addEventListener('click', function (e) {
         var btn = e.target.closest('[data-chip]');
@@ -4780,7 +4787,9 @@
     'Anycubic': ['anycubic.png', 187, 48],
     'Snapmaker': ['snapmaker.svg', 125, 24],
     'Flashforge': ['flashforge.png', 600, 120],
-    'KINGROON': ['kingroon.png', 530, 120]
+    'KINGROON': ['kingroon.png', 530, 120],
+    'eSUN': ['esun.png', 215, 52],
+    'SUNLU': ['sunlu.png', 284, 65]
   };
 
   function initMobileNav() {
