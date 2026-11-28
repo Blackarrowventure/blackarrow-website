@@ -34,23 +34,6 @@ function cleanBilling(b) {
   };
 }
 
-// Event stall sales (Euro Village, /3d/euro-village/): the customer pays the amount the stall tells
-// them for items that are not on the website. One "3D item" line, no delivery, no rewards, no stock.
-// The staff check the payment on the customer's phone (amount + order number) before handing over.
-const EVENT_SALES = { 'euro-village': { label: 'Euro Village stall', item: '3D item' } };
-const EVENT_MAX_CENTS = 2000000; // 20,000 SAR
-function eventOrder(event, amount) {
-  const cents = Math.round(Number(amount) * 100);
-  if (!Number.isFinite(cents) || cents < 100 || cents > EVENT_MAX_CENTS) return null;
-  const sar = (c) => (c / 100).toLocaleString('en-US') + ' SAR';
-  const name = event.item + ' (' + event.label + ')';
-  const lines = [{ id: '', name, productName: name, brand: '', category: '3D Artwork', variantLabel: '', unitCents: cents, qty: 1 }];
-  return {
-    lines, itemsCents: cents, shippingCents: 0, shippingLabel: 'Bought at the ' + event.label, feeCents: 0, discountCents: 0, totalCents: cents,
-    summary: [name + ' ×1 — ' + sar(cents), '', 'Items: 1 3D print (1 in total)', 'Shipping: Bought at the ' + event.label + ' — Free', 'Grand Total: ' + sar(cents)],
-  };
-}
-
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -100,34 +83,21 @@ module.exports = async (req, res) => {
     paymentMethods = [integrationId];
   }
 
-  const event = Object.prototype.hasOwnProperty.call(EVENT_SALES, body.event) ? EVENT_SALES[body.event] : null;
-  let order;
-  let rw = null;
-  if (event) {
-    if (channel === 'tamara') return res.status(400).json({ error: 'invalid_channel' });
-    order = eventOrder(event, body.amount);
-    if (!order) return res.status(400).json({ error: 'invalid_amount' });
-    // At the stall both buttons open Paymob with Apple Pay AND card, so the checkout page offers
-    // Apple Pay wherever the phone supports it, with card as the backup (some iPhone browsers,
-    // e.g. in-app ones, can't show our own Apple Pay button). Falls back to one method below.
-    if (applePayIntegrationId) paymentMethods = channel === 'applepay' ? [applePayIntegrationId, integrationId] : [integrationId, applePayIntegrationId];
-  } else {
-    // Rewards need the customer's real items total first, then the final order.
-    // Stock and prices as set in the CRM's Website Inventory tab. Refuse rather than price against
-    // stale/default stock if the CRM can't be reached right now.
-    let products;
-    try {
-      products = await liveProducts();
-    } catch (e) {
-      return res.status(503).json({ error: 'crm_unavailable' });
-    }
-    const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null, products, body.billing && body.billing.city);
-    if (draft.error) return res.status(400).json({ error: draft.error });
-    const short = stockProblem(body.items, products);
-    if (short) return res.status(409).json({ error: 'not_enough_stock', item: short.name, max: short.max });
-    rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
-    order = buildOrder(body.items, body.shipping, channel === 'tamara', rw, products, body.billing && body.billing.city);
+  // Rewards need the customer's real items total first, then the final order.
+  // Stock and prices as set in the CRM's Website Inventory tab. Refuse rather than price against
+  // stale/default stock if the CRM can't be reached right now.
+  let products;
+  try {
+    products = await liveProducts();
+  } catch (e) {
+    return res.status(503).json({ error: 'crm_unavailable' });
   }
+  const draft = buildOrder(body.items, body.shipping, channel === 'tamara', null, products, body.billing && body.billing.city);
+  if (draft.error) return res.status(400).json({ error: draft.error });
+  const short = stockProblem(body.items, products);
+  if (short) return res.status(409).json({ error: 'not_enough_stock', item: short.name, max: short.max });
+  const rw = await rewards.checkoutRewards(body.authToken, body.useRewards === true, draft.itemsCents);
+  const order = buildOrder(body.items, body.shipping, channel === 'tamara', rw, products, body.billing && body.billing.city);
 
   const billing = cleanBilling(body.billing);
   if (!billing) return res.status(400).json({ error: 'invalid_billing' });
@@ -146,7 +116,7 @@ module.exports = async (req, res) => {
     paymobItems = [{ name: 'Black Arrow 3D order ' + orderNumber + ' (rewards applied)', amount: order.totalCents, quantity: 1, description: 'Black Arrow 3D order' }];
   } else {
     paymobItems = order.lines.map((l) => ({ name: l.name, amount: l.unitCents, quantity: l.qty, description: l.name }));
-    if (!event) paymobItems.push({ name: order.shippingLabel, amount: order.shippingCents, quantity: 1, description: order.shippingLabel });
+    paymobItems.push({ name: order.shippingLabel, amount: order.shippingCents, quantity: 1, description: order.shippingLabel });
     if (order.feeCents) paymobItems.push({ name: 'Pay-later service fee', amount: order.feeCents, quantity: 1, description: 'Pay-later service fee' });
   }
 
@@ -160,7 +130,7 @@ module.exports = async (req, res) => {
     // Trailing slash matters: vercel.json redirects /path to /path/ (308) and
     // Paymob does not follow redirects, so without it the webhook never runs.
     notification_url: SITE + '/api/paymob/webhook/',
-    redirection_url: SITE + (event ? '/3d/euro-village/' : '/3d/cart/') + '?paid=' + orderRef + (channel === 'card' ? '' : '&pm=' + channel),
+    redirection_url: SITE + '/3d/cart/?paid=' + orderRef + (channel === 'card' ? '' : '&pm=' + channel),
   };
 
   try {
@@ -193,21 +163,12 @@ module.exports = async (req, res) => {
 
   let intention;
   try {
-    const post = () => fetch(PAYMOB_BASE + '/v1/intention/', {
+    const r = await fetch(PAYMOB_BASE + '/v1/intention/', {
       method: 'POST',
       headers: { Authorization: 'Token ' + secret, 'Content-Type': 'application/json' },
       body: JSON.stringify(intentionBody),
     });
-    let r = await post();
     intention = await r.json();
-    // Stall checkout with two methods refused: try again with just the one the customer chose.
-    if ((!r.ok || !intention.client_secret) && paymentMethods.length > 1) {
-      console.error('paymob: two-method stall checkout refused, retrying with one', r.status, JSON.stringify(intention).slice(0, 300));
-      paymentMethods = [paymentMethods[0]];
-      intentionBody.payment_methods = paymentMethods;
-      r = await post();
-      intention = await r.json();
-    }
     if (!r.ok || !intention.client_secret) {
       console.error('paymob intention rejected:', channel, r.status, JSON.stringify(intention).slice(0, 1000));
       return res.status(502).json({ error: 'gateway_rejected' });

@@ -33,7 +33,7 @@
 
   var KEY = 'b3dAnnounceSeen:' + A.id;
   var path = location.pathname;
-  if (/\/(cart|checkout|account|invoice|review-admin|returns|euro-village)(\/|$)/.test(path)) return;
+  if (/\/(cart|checkout|account|invoice|review-admin|returns)(\/|$)/.test(path)) return;
   if (path.indexOf('/product/sunlu-pla-classic-filament') !== -1) return;
   if (new Date() > new Date(A.end + 'T23:59:59+03:00')) return;
   try { if (localStorage.getItem(KEY)) return; } catch (e) { return; } // no storage: don't nag on every page

@@ -3692,17 +3692,6 @@ html[dir="rtl"] .b3d-ord__track li::before { left: auto; right: -50%; }
   .b3d-ord__track li { font-size: .66rem; }
 }
 
-/* Euro Village stall button (header of every store page, links to /3d/euro-village/). Phones have no
-   room for it beside AR / Profile / Bag, so there it becomes a slim orange bar under the header. */
-.navbar__pill--event { background: #f59e0b; border-color: #f59e0b; color: #111; font-weight: 800; white-space: nowrap; }
-@media (max-width: 1100px) {
-  .navbar { margin-bottom: 32px; }
-  .navbar__right .navbar__pill--event {
-    position: absolute; left: 0; right: 0; top: 100%;
-    width: auto; min-width: 0; height: 32px; padding: 0;
-    border: 0; border-radius: 0; justify-content: center; font-size: .85rem;
-  }
-}
 
 /* Checkout problems (27 Nov 2026): the field that stops the order is outlined red with a short
    message under it, and a note by the Place Order button says what to fix. */
